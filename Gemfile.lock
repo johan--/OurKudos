@@ -86,6 +86,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     nokogiri (1.4.4)
+    pg (0.10.1)
     polyglot (0.3.1)
     rack (1.2.2)
     rack-mount (0.6.14)
@@ -151,6 +152,7 @@ DEPENDENCIES
   factory_girl_rails
   fuubar-cucumber
   launchy
+  pg
   rails (= 3.0.5)
   rspec-rails
   shoulda
