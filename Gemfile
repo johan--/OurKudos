@@ -6,6 +6,7 @@ gem 'devise'
 gem 'ruby_parser'
 gem 'hpricot'
 gem 'haml'
+gem 'jquery-rails'
 
 group :test do
   gem "cucumber"
