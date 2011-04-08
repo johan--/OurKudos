@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408184720) do
+ActiveRecord::Schema.define(:version => 20110408185517) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20110408184720) do
     t.string   "phone_number"
     t.string   "mobile_number"
     t.string   "status"
+    t.string   "api_key"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
