@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   has_many :authentications
   
-  after_save :generate_api_key
+  before_save :generate_api_key
   
   
   
