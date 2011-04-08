@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :token_authenticatable, :confirmable, :locakble, :timeoutable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+  
+  has_many :authentications
 end
