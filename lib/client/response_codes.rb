@@ -3,7 +3,7 @@ module OurKudos
     
     CODES_MAP = {
       :I1 => 'Account created',
-      :E1 => 'Error durring account creation'
+      :E1 => 'Cannot create an account'
     }
     
     def self.[](code)
