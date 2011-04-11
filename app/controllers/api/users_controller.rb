@@ -1,5 +1,6 @@
 class Api::UsersController < ApiBaseController
   
+  skip_prepend_around_filter :only => [:create]
   respond_to :json
   
   def create
