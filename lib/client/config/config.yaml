@@ -1,2 +1,2 @@
-base_uri: 'http://localhost:3000/api/'
+base_uri: 'http://ec2-50-17-195-223.compute-1.amazonaws.com/api'
 api_key: 'xpMuNdQYFwe4iil4BrwTxXEhRD7rjutRenKETpRCFlFj7IfQBv15zz7g24x5ndKl'
