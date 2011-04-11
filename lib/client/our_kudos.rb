@@ -1,5 +1,4 @@
 require 'nestful'
-require 'json'
 module OurKudos
   
   class << self
