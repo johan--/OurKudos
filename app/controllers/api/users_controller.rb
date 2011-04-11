@@ -1,11 +1,18 @@
+require 'client/our_kudos'
+require 'client/response_codes'
 class Api::UsersController < ApiBaseController
   
-  #skip_before_filter :prepend_around_filter, :only => [:create]
   respond_to :json
   
   def create
-    @user = User.create params[:user]
-    respond_with @user, :location => api_users_url
+    @user = User.new params[:user]
+    respond_with @user, :location => api_users_url do
+      if @user.save
+        render :json => [:message => OurKudos::ResponseCodes[:I1] ] and return
+      else
+        render :json => [:message => OurKudos::ResponseCodes[:E1], :errors => @user.errors.to_json ] and return
+      end
+    end
   end
   
 end

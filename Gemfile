@@ -7,7 +7,7 @@ gem 'ruby_parser'
 gem 'hpricot'
 gem 'haml'
 gem 'jquery-rails'
-gem 'rest-client'
+gem 'nestful'
 
 group :test do
   gem "cucumber"

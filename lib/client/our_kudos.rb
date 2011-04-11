@@ -1,4 +1,4 @@
-require 'rest-client'
+require 'nestful'
 require 'json'
 module OurKudos
   
@@ -48,6 +48,7 @@ module OurKudos
       @@api_key  = OurKudosClientOptions['api_key']  = config['api_key']
     end
     
+    # CLASS METHODS #
     class << self
       
       #sets new api key
@@ -66,13 +67,28 @@ module OurKudos
       
     end
   
+    # INSTANCE METHODS #
     
-    
-    
-    def create_account username, password, password_confirmation
-      RestClient.post 
-      
+    # first request is send to create and obtain an api key, email has to be checked to retrieve it. (no api in response)
+    def create_account  email, password, password_confirmation
+      post(:path => 'users.json', 
+           :params =>  {:user => {:email     => email, 
+                                   :password => password, 
+                                    :password_confirmation => password_confirmation} 
+                        }
+      )
     end
+    
+    private
+      
+      # general restuful post method
+      def post(options = {})
+        Nestful.post OurKudos.base_uri + options[:path], :params => options[:params], :format => :json  
+      end
+      
+      
+      
+    
     
   end
 end  
