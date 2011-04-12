@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(:version => 20110412170950) do
 
   create_table "sites", :force => true do |t|
     t.string   "site_name"
+    t.string   "url"
+    t.string   "protocol"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
