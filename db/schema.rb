@@ -35,7 +35,8 @@ ActiveRecord::Schema.define(:version => 20110412170950) do
     t.string   "url"
     t.string   "protocol"
     t.text     "description"
-    t.boolean  "blocked",     :default => false
+    t.boolean  "blocked",        :default => false
+    t.integer  "api_keys_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
