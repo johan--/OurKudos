@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110408185517) do
+ActiveRecord::Schema.define(:version => 20110412170950) do
+
+  create_table "api_keys", :force => true do |t|
+    t.string   "key"
+    t.date     "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +25,12 @@ ActiveRecord::Schema.define(:version => 20110408185517) do
     t.string   "uid"
     t.string   "token"
     t.string   "secret"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string   "site_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -60,7 +73,6 @@ ActiveRecord::Schema.define(:version => 20110408185517) do
     t.string   "phone_number"
     t.string   "mobile_number"
     t.string   "status"
-    t.string   "api_key"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
