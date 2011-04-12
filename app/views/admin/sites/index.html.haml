@@ -5,7 +5,18 @@
   %h3= t(:listing_our_kudos_client_sites)
   
   %table
-    
+    %thead
+      %th= t(:site_name)
+      %th= t(:site_url)
+      %th= t(:api_keys_count)
+      %th= t(:status)
+    %tbody
+      - for site in @sites do
+        %tr
+          %td= site.site_name
+          %td= site.url
+          %td &nbsp;
+          %td &nbsp;
 
 - else
   

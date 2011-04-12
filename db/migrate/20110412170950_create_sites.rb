@@ -3,6 +3,7 @@ class CreateSites < ActiveRecord::Migration
     create_table :sites do |t|
       t.string :site_name, :url, :protocol
       t.text :description
+      t.boolean :blocked, :default => false
       t.timestamps
     end
   end
