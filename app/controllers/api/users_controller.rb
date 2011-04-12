@@ -8,9 +8,9 @@ class Api::UsersController < ApiBaseController
     @user = User.new params[:user]
     respond_with @user, :location => api_users_url do
       if @user.save
-        render :json => [:message => OurKudos::ResponseCodes[:I1] ] and return
+        render :json => [:message => OurKudos::ResponseCodes[:I1] ].to_json and return
       else
-        render :json => [:message => OurKudos::ResponseCodes[:E1], :errors => @user.errors.to_json ] and return
+        render :json => [:message => OurKudos::ResponseCodes[:E1], :errors => @user.errors.to_json ].to_json and return
       end
     end
   end
