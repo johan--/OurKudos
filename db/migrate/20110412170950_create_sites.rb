@@ -4,6 +4,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :site_name, :url, :protocol
       t.text :description
       t.boolean :blocked, :default => false
+      t.integer :api_keys_count, :default => 0
       t.timestamps
     end
   end

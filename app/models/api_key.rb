@@ -1,5 +1,6 @@
 class ApiKey < ActiveRecord::Base
   
+  belongs_to :site
   
   def generate key_length = 64
     return self.api_key unless self.api_key.blank?

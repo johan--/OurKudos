@@ -15,8 +15,8 @@
         %tr
           %td= site.site_name
           %td= site.url
-          %td &nbsp;
-          %td &nbsp;
+          %td= site.api_keys_count
+          %td= site.blocked? ? t(:site_blocked) : t(:site_active)
 
 - else
   
