@@ -9,5 +9,11 @@ class ApiKey < ActiveRecord::Base
     1.upto(key_length) { self.api_key << big_array[rand(big_array.size-1)] }
   end
   
+  def regenrate!
+    self.api_key = ''
+    generate
+    save :validate => false
+  end
+  
   
 end

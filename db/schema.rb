@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110412170950) do
   create_table "api_keys", :force => true do |t|
     t.string   "key"
     t.date     "expires_at"
+    t.date     "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
