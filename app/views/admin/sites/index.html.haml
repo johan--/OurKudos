@@ -1,0 +1,9 @@
+= link_to t(:add_new_site), new_admin_site_path
+
+- if @sites.any?
+  
+  %h3= t(:listing_our_kudos_client_sites)
+
+- else
+  
+  %h3= t(:no_client_sites_yet)

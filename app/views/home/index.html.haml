@@ -1,1 +1,11 @@
 %h1= t('hello')
+
+%ul
+  %li
+    = link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path) do
+      %li= link_to("SIGN OUT", destroy_user_session_path)
+  %li= link_to "SIGN UP", new_user_registration_path
+  
+%h3= t(:admin_area)  
+%ul
+  %li= link_to t(:api_client_sites), admin_sites_path
