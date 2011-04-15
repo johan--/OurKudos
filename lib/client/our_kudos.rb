@@ -1,4 +1,5 @@
 require 'nestful'
+require 'resource_editor'
 module OurKudos
   
   class << self
@@ -35,6 +36,8 @@ module OurKudos
     
     cattr_accessor :api_key, :base_uri
     
+    include OurKudos::ResourceEditor
+    
     #configuration hash
     OurKudosClientOptions = { 'api_key' => nil, 
                               'base_uri' => "http://localhost:3000/api/" } if !Object.const_defined? :ClientOptions # :nodoc:
@@ -68,22 +71,41 @@ module OurKudos
   
     # INSTANCE METHODS #
     
-    # first request is send to create and obtain an api key, email has to be checked to retrieve it. (no api in response)
-    def create_account  email, password, password_confirmation
-      post(:path => 'users.json', 
-           :params =>  {:user => {:email     => email, 
-                                   :password => password, 
-                                    :password_confirmation => password_confirmation} 
-                        }
-      )
+    #sets resource to read/edit/delete
+    def resource_name= resource
+      OurKudos::ResourceEditor.resource_name = resource
     end
     
+    #displays current resource
+    def resource_name 
+      OurKudos::ResourceEditor.resource_name 
+    end
+  
     private
       
-      # general restuful post method
+      # general restuful post method - creates an item
       def post(options = {})
-        Nestful.post OurKudos.base_uri + options[:path], :params => options[:params], :format => :json  
+          Nestful.post OurKudos.base_uri + options[:path], :params => {:api_key => OurKudos.api_key}.merge(options[:params]), 
+                                                                     :format => :json 
       end
+      
+      # retrieves item
+      def get(options = {})
+        Nestful.get OurKudos.base_uri + options[:path], :params => {:api_key => OurKudos.api_key}.merge(options[:params]), 
+                                                                     :format => :json
+      end          
+      
+      # updates item
+      def put(options = {})
+        Nestful.put OurKudos.base_uri + options[:path], :params => {:api_key => OurKudos.api_key}.merge(options[:params]), 
+                                                                     :format => :json
+      end          
+      
+      # deletes item
+      def delete(options = {})
+        Nestful.delete OurKudos.base_uri + options[:path], :params => {:api_key => OurKudos.api_key}.merge(options[:params]),   
+                                                                           :format => :json
+      end                                           
       
       
       
