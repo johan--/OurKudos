@@ -3,11 +3,23 @@ class Admin::SitesController < ApplicationController
   respond_to :html, :js
   
   def index
-    @sites = Site.all
+    @sites = Site.order :site_name
   end
   
   def new
     @site = Site.new
+  end
+  
+  def ban
+    selected_ids = params[:sites]
+    
+    selected_ids.each do |key, value|
+      site = Site.find key.to_i
+      value == 'true' ? site.ban! : site.unban!
+    end
+
+    redirect_to admin_sites_path, :notice => t(:selected_sites_were_updated)    
+
   end
   
   def create

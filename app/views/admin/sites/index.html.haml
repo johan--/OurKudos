@@ -2,22 +2,34 @@
 
 - if @sites.any?
   
-  %h3= t(:listing_our_kudos_client_sites)
+  %h3= t :listing_our_kudos_client_sites
   
-  %table.600px
-    %thead
-      %th= t(:site_name)
-      %th= t(:site_url)
-      %th= t(:api_keys_count)
-      %th= t(:status)
-    %tbody
-      - for site in @sites do
-        %tr
-          %td= site.site_name
-          %td= site.url
-          %td= site.api_keys_count
-          %td= site.blocked? ? t(:site_blocked) : t(:site_active)
+  = form_tag ban_admin_sites_path, :method => :put do 
+    
+    %table.600px
+      %thead
+        %th= t :site_name
+        %th= t :site_url
+        %th= t :api_keys_count
+        %th= t :site_blocked
+        %th= t :site_details
+      %tbody
+        - for site in @sites do
+          %tr
+            %td= site.site_name
+            %td= site.url
+            %td= site.api_keys.count
+            %td
+              = radio_button_tag "sites[#{site.id}]", true, site.blocked?
+              yes
+              = radio_button_tag "sites[#{site.id}]", false, !site.blocked?
+              no
+            %td= link_to t(:site), admin_site_path(site)
+  
+    = submit_tag t :activate_deactivate_selected
+  
+  %small= t :all_site_api_keys_will_be_blocked
 
 - else
   
-  %h3= t(:no_client_sites_yet)
+  %h3= t :no_client_sites_yet
