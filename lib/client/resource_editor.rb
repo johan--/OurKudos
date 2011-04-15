@@ -1,6 +1,5 @@
 module OurKudos
   module ResourceEditor
-
       
       def self.resource_name= name
         @@resource_name = name
@@ -19,7 +18,7 @@ module OurKudos
       end
       
       def show id
-        get(:path => "#{@@resource_name}s/#{id.to_s}.json", :params => {:user => fields })
+        get(:path => "#{@@resource_name}s/#{id.to_s}.json", :params => {})
       end
     
     

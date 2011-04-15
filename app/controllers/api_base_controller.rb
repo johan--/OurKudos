@@ -14,13 +14,17 @@ class ApiBaseController < ActionController::Base
     
     yield #here is the controller action
     
-    controller.current_api = nil #log out user
+    current_api = nil #log out user
     
   end
   
   def authorization_response response_code
-     render :json => [:message => OurKudos::ResponseCodes["E#{response_code.to_s}".to_sym] ].to_json
+     render :json => [:message => OurKudos::ResponseCodes["E#{response_code.to_s}".to_sym], :code => ":E#{response_code.to_s}".to_sym ].to_json
      false
+  end
+  
+  def respond_with_code code_number
+    OurKudos::ResponseCodes[code_number.to_sym]
   end
   
   
