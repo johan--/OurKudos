@@ -1,0 +1,18 @@
+%p.field
+  = f.label :site_name
+  %br/
+  = f.text_field :site_name
+  
+%p.field
+  = f.label :url
+  %br/
+  = f.select :protocol, options_for_select(Site.options_for_protocol)
+  = f.text_field :url
+  
+%p.field
+  = f.label :description
+  %br/
+  = f.text_area :description, {:size => "48x4"}
+
+%p.field
+  = f.submit button_name

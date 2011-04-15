@@ -1,0 +1,25 @@
+%h3= link_to @site.to_s, @site.to_s, :target => "_blank"
+
+= form_for @site, :url => admin_site_path(@site), :method => :put do |f|   
+  
+  = error_messages_for @site
+  
+  = render :partial => "form", :locals => { :f => f, :button_name => t(:update_site) }
+    
+%h4= t(:site_api_keys)
+
+%ul
+  - for key in @keys do 
+  
+    %li
+      %strong= key.key  
+      = t(:key_disabled) if key.expired?
+      
+      = link_to t(:key_regenerate), admin_api_key_path(:id => key, :subaction => "regenerate"), :method => :put
+      = link_to_if(!key.expired?, t(:key_disable), admin_api_key_path(:id => key, :subaction => "disable"), :method => :put)
+      = link_to_if(key.expired?, t(:key_enable), admin_api_key_path(:id => key, :subaction => "enable"), :method => :put)
+      = link_to(t(:key_remove), admin_api_key_path(:id => key, :subaction => "remove"), :method => :put)
+      
+  %p= link_to t(:new_api_key_for_this_site), new_admin_site_api_key_path(@site)  
+
+%p= link_to t(:admin_sites_listing),  admin_sites_path
