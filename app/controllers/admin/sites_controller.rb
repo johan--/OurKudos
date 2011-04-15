@@ -37,7 +37,7 @@ class Admin::SitesController < ApplicationController
 
   def show
     @site = Site.find params[:id]
-    @keys = @site.api_keys.order(:id)
+    @keys = @site.api_keys.order :id
   end
   
   def update
