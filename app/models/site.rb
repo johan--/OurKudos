@@ -26,6 +26,10 @@ class Site < ActiveRecord::Base
     "#{protocol}://#{url}"
   end
   
+  def keys
+    api_keys.map(&:key)
+  end
+  
   
   class << self
     
