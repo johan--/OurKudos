@@ -34,6 +34,21 @@ class Admin::SitesController < ApplicationController
       end
     end
   end
+
+  def show
+    @site = Site.find params[:id]
+    @keys = @site.api_keys.order(:id)
+  end
+  
+  def update
+    @site = Site.find params[:id]
+    
+    if @site.update_attributes params[:site]
+      redirect_to admin_site_path(@site), :notice => :site_was_updated
+    else  
+      render :show
+    end
+  end
   
   
 end

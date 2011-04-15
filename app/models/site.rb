@@ -23,7 +23,7 @@ class Site < ActiveRecord::Base
   end
   
   def to_s
-    "#{protocol}#{url}"
+    "#{protocol}://#{url}"
   end
   
   

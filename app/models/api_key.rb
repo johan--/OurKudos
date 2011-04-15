@@ -12,10 +12,24 @@ class ApiKey < ActiveRecord::Base
     1.upto(key_length) { self.key << big_array[rand(big_array.size-1)] }
   end
   
-  def regenrate!
+  def regenerate!
     self.key = ''
     generate
     save :validate => false
+  end
+  
+  def set_as_expired!
+    update_attribute :expires_at, Date.today-100.years
+  end
+  
+  def expired?
+    return false if self.expires_at.blank?
+    
+    self.expires_at < Date.today
+  end
+  
+  def set_as_valid!
+    update_attribute :expires_at, nil
   end
   
   
