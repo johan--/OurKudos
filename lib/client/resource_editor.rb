@@ -20,6 +20,10 @@ module OurKudos
       def show id
         get(:path => "#{@@resource_name}s/#{id.to_s}.json", :params => {})
       end
+      
+      def delete id
+        delete(:path => "#{@@resource_name}s/#{id.to_s}.json", :params => {})
+      end
     
     
   end

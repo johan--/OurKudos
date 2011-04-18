@@ -6,7 +6,6 @@ class Api::UsersController < ApiBaseController
   
   def create
     @user = User.new params[:user]
-    ActiveRecord::Base.logger.info current_api.key.to_s
     respond_with @user, :location => api_users_url do
       if @user.save
         render :json => [:message => respond_with_code(:I1), :code => :I1 ].to_json and return

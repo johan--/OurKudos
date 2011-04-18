@@ -80,9 +80,7 @@ module OurKudos
     def resource_name 
       OurKudos::ResourceEditor.resource_name 
     end
-  
-    private
-      
+
       # general restuful post method - creates an item
       def post(options = {})
           Nestful.post OurKudos.base_uri + options[:path], :params => {:api_key => OurKudos.api_key}.merge(options[:params]), 
