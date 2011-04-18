@@ -1,0 +1,28 @@
+%h3= t(:listing_users)
+
+= render :partial => "admin/users/search_form"
+
+= paginate @users
+
+%table
+  %thead
+    %table.600px
+      %thead
+        %th= sortable "email", t(:user_email)
+        %th= sortable 'last_name', t(:user_name)
+        %th= sortable 'sign_in_count', t(:user_last_sign_in_at)
+        %th= sortable 'email', t(:user_sign_in_count)
+        %th= t :user_details
+      %tbody
+        - for user in @users do
+          %tr
+            %td= user.email
+            %td= user.to_s
+            %td= user.last_sign_in_at
+            %td= user.sign_in_count
+            %td= link_to t(:user_more_details), admin_user_path(user)
+          
+          
+= paginate @users
+          
+          
