@@ -9,6 +9,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'nestful'
 gem 'kaminari'
+gem 'texticle'
 
 group :test do
   gem "cucumber"

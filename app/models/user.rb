@@ -8,7 +8,25 @@ class User < ActiveRecord::Base
   
   has_many :authentications
 
+
+  #TODO define more indexes as needed
+  index do
+    email
+    first_name
+    last_name
+    middle_name
+  end
   
+
+  
+  def to_s
+    "#{first_name} #{middle_name} #{last_name}"
+  end
+  
+  def self.search search
+    return scoped if search.blank?
+    where(:email => search)
+  end
   
   
   
