@@ -8,6 +8,7 @@ gem 'hpricot'
 gem 'haml'
 gem 'jquery-rails'
 gem 'nestful'
+gem 'kaminari'
 
 group :test do
   gem "cucumber"
