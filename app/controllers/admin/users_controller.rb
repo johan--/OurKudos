@@ -7,7 +7,10 @@ class Admin::UsersController < ApplicationController
     @users = User.page(params[:page]).per(params[:per_page]) 
     @users = @users.search params[:search] unless params[:search].blank?
     @users = @users.order "#{sort_column} #{sort_direction}"
-
+  end
+  
+  def show  
+    @user = User.find params[:id]
   end
   
   
