@@ -1,2 +1,16 @@
-- for authorization in @authorizations do 
+%table.600px
+  %thead
+    %th= t :provider
+    %th= t :provider_uid
+    %th= t :provider_token
+    %th= t :provider_secret
+    %th= t :edit_provider
+  %tbody
+    - for authentication in @authentications do 
+      %tr
+        %td= authentication.provider
+        %td= authentication.uid
+        %td= authentication.token
+        %td= authentication.secret
+        %td= link_to t(:edit_provider), edit_user_authentication_path(current_user, authentication)
   

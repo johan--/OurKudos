@@ -1,4 +1,5 @@
 class AuthenticationsController < ApplicationController
+  before_filter :authenticate_user!, :only => [:index, :new, :edit]
   
   respond_to :html, :js
   
@@ -10,6 +11,10 @@ class AuthenticationsController < ApplicationController
     @authentication = current_user.authentications.new 
   end
   
+  def edit
+    @authentication = current_user.authentications.find params[:id]
+  end
+  
   def create
     @authentication = current_user.authentications.new params[:authentication]
     if @authentication.save 
@@ -17,6 +22,15 @@ class AuthenticationsController < ApplicationController
     else  
       render :action => :new
     end  
+  end
+  
+  def update
+    @authentication = current_user.authentications.find params[:od]
+    if @authentication.update_attributes params[:authentications] 
+      redirect_to user_path(current_user), :notice => t(:authentication_has_been_updated)
+    else  
+      render :action => :edit
+    end
   end
   
   def callback

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def show
     @user = current_user
-    @authorizations = current_user.authentications
+    @authentications = current_user.authentications
   end
   
   
