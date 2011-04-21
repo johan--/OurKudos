@@ -18,8 +18,7 @@ class ApiKey < ActiveRecord::Base
     save :validate => false
   end
   
-  def set_as_expired!require 'api_key'
-  
+  def set_as_expired!
     update_attribute :expires_at, Date.today-100.years
   end
   
