@@ -1,0 +1,23 @@
+%p.authentication-field.field
+  = f.label :provider
+  %br/
+  = f.select :provider, options_for_select(Authentication.options_for_provider)
+   
+%p.authentication-field.field  
+  = f.label :uid, t(:provider_uid)
+  %br/
+  = f.text_field :uid, :size => 35
+   
+%p.authentication-field.field 
+  = f.label :token, t(:provider_token)
+  %br/
+  = f.text_field :token, :size => 35
+   
+%p.authentication-field.field 
+  =f.label :secret, t(:provider_secret)
+   
+  %br/
+  %small= t(:provider_secret_explanation)
+   
+  %br/
+  = f.text_field :secret, :size => 35
