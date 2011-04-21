@@ -3,3 +3,24 @@
   
   %p.user-field
     = @user.to_s
+    
+  %p.user-field
+    = t :user_address
+    = @user.streetadress
+    = @user.city
+    ,
+    = @user.state_or_province
+    ,
+    = @user.postal_code
+    %br/
+  
+  %p.user-field
+    = t :user_phone
+    = @user.phone_number
+    
+  %p.user-field
+    = t :user_mobile
+    = @user.mobile_number
+    
+  %p.user-field
+    

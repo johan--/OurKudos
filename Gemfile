@@ -11,6 +11,7 @@ gem 'nestful'
 gem 'kaminari'
 gem 'texticle'
 gem 'fbgraph'
+gem 'omniauth'
 
 group :test do
   gem "cucumber"
