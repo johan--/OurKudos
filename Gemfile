@@ -11,7 +11,8 @@ gem 'nestful'
 gem 'kaminari'
 gem 'texticle'
 gem 'fbgraph'
-gem 'omniauth'
+gem 'omniauth', ">= 0.1.6"
+gem 'multi_json'
 
 group :test do
   gem "cucumber"
