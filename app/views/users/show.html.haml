@@ -1,0 +1,13 @@
+%h3= t :my_account_settings
+
+%h4= t :my_authorizations
+
+- unless @authentications.blank?
+    
+  = render :partial => "authentications/authentications"
+    
+- else
+    
+  %strnog= t :no_authorizations_yet
+  
+%p= link_to t(:add_new_authorization), new_user_authentication_path(current_user)  
