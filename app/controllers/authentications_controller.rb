@@ -25,8 +25,8 @@ class AuthenticationsController < ApplicationController
   end
   
   def update
-    @authentication = current_user.authentications.find params[:od]
-    if @authentication.update_attributes params[:authentications] 
+    @authentication = current_user.authentications.find params[:id]
+    if @authentication.update_attributes params[:authentication] 
       redirect_to user_path(current_user), :notice => t(:authentication_has_been_updated)
     else  
       render :action => :edit
