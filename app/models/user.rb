@@ -32,7 +32,6 @@ class User < ActiveRecord::Base
   
   def apply_omniauth omniauth
     self.last_name = omniauth['user_info']['name'] if last_name.blank?    
-    debugger
     unless omniauth['credentials'].blank?
       authentications.build(:provider => omniauth['provider'], 
                             :uid      => omniauth['uid'],
@@ -41,6 +40,7 @@ class User < ActiveRecord::Base
     else
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
+    self.email = "your#{Time.now.strftime('%s')}@twitter.email.com" if omniauth['provider'] == 'twitter'
     self.confirm! unless email.blank?
   end
   

@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
   
   def twitter_email
-    @user = User.new params[:user]
+    @user = User.find params[:id]
     if request.post? 
       if @user.save
         flash[:notice] = "OK"
