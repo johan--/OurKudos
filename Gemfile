@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.7'
 gem 'pg'
-gem 'devise'
+gem 'devise', '~> 1.2.1'
 gem 'ruby_parser'
 gem 'hpricot'
 gem 'haml'
@@ -11,8 +11,7 @@ gem 'nestful'
 gem 'kaminari'
 gem 'texticle'
 gem 'fbgraph'
-gem 'omniauth', ">= 0.1.6"
-gem 'multi_json'
+gem 'omniauth'
 
 group :test do
   gem "cucumber"
@@ -27,3 +26,7 @@ group :test do
   gem "shoulda"
   gem "timecop"
 end
+
+group :development do
+  gem 'ruby-debug19'
+end  
