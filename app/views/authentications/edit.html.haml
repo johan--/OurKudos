@@ -1,6 +1,6 @@
 %h3= t :edit_provider
 
-= form_for @authentication, :url => user_authentication_path(current_user, @authentication), :method => :put, do |f|
+= form_for @authentication, :url => user_authentication_path(current_user, @authentication), :method => :put do |f|
   
   = render :partial => "authentications/form_fields", :locals => {:f => f}
   
