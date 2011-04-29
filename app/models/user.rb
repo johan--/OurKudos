@@ -40,7 +40,6 @@ class User < ActiveRecord::Base
     else
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
     end
-    self.email = "your#{Time.now.strftime('%s')}@twitter.email.com" if omniauth['provider'] == 'twitter'
     self.confirm! unless email.blank?
   end
   

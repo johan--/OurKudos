@@ -23,18 +23,19 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             user = User.find_or_initialize_by_email :email => omniauth.recursive_find_by_key("email")
           else
             user = User.new
+            
           end
           
           user.apply_omniauth(omniauth)
-          
+       
           user.confirm! unless user.email.blank?
 
-          if user.save :validate => false
+          if user.save 
             flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth['provider'] 
             sign_in_and_redirect(:user, user)
           else
             session[:omniauth] = omniauth.except('extra')
-            redirect_to new_user_registration_url
+            redirect_to twitter_email_update_path
           end
           
         end

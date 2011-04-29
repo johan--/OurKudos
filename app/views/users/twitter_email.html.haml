@@ -1,4 +1,4 @@
-= form_for @user, :url => twitter_email_update_path(:user => @user.attributes) do |f|
+= form_for @user, :url => twitter_email_update_path(:user => @user), :method => :post do |f|
   
   = error_messages_for @user
   
