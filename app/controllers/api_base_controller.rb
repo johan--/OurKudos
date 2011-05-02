@@ -45,7 +45,6 @@ class ApiBaseController < ActionController::Base
   
   def no_resource
     respond_with_json_code :E9
-  end
   
   
 end

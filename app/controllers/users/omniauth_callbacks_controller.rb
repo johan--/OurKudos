@@ -34,7 +34,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             sign_in_and_redirect(:user, user)
           else
             session[:omniauth] = omniauth.except('extra')
-            redirect_to sign_up_users_path(:fields => user.errors.keys)
+            flash[:notice] = I18n.t 'devise.oauth.information.missing'
+            redirect_to new_user_registration_path(:fields => user.errors.keys)
           end
           
         end
