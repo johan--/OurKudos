@@ -18,7 +18,7 @@ class AuthenticationsController < ApplicationController
   def create
     @authentication = current_user.authentications.new params[:authentication]
     if @authentication.save 
-     redirect_to user_path(current_user), :notice => t(:authentication_has_been_added)
+      redirect_to user_path(current_user), :notice => t(:authentication_has_been_added)
     else  
       render :action => :new
     end  

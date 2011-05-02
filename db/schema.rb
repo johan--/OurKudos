@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110421200501) do
+ActiveRecord::Schema.define(:version => 20110502114955) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110421200501) do
     t.string   "secret"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "roles",      :default => "none"
   end
 
   create_table "sites", :force => true do |t|

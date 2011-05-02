@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
   
   has_many :authentications
-
+  
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
 
   #TODO define more indexes as needed
   index do

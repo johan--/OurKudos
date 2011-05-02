@@ -23,7 +23,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             user = User.find_or_initialize_by_email :email => omniauth.recursive_find_by_key("email")
           else
             user = User.new
-            
           end
           
           user.apply_omniauth(omniauth)
@@ -35,7 +34,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
             sign_in_and_redirect(:user, user)
           else
             session[:omniauth] = omniauth.except('extra')
-            redirect_to twitter_email_update_path
+            redirect_to sign_up_users_path(:fields => user.errors.keys)
           end
           
         end
