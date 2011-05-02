@@ -16,13 +16,12 @@ class AuthenticationsController < ApplicationController
   end
   
   def create
-     render :text => request.env["omniauth.auth"].to_yaml  
-   # @authentication = current_user.authentications.new params[:authentication]
-    #if @authentication.save 
-     # redirect_to user_path(current_user), :notice => t(:authentication_has_been_added)
-    #else  
-    #  render :action => :new
-    #end  
+    @authentication = current_user.authentications.new params[:authentication]
+    if @authentication.save 
+     redirect_to user_path(current_user), :notice => t(:authentication_has_been_added)
+    else  
+      render :action => :new
+    end  
   end
   
   def update
