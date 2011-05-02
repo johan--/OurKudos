@@ -33,7 +33,6 @@ class User < ActiveRecord::Base
   end
   
   def apply_omniauth omniauth
-    self.last_name = omniauth['user_info']['name'] if last_name.blank?    
     unless omniauth['credentials'].blank?
       authentications.build(:provider => omniauth['provider'], 
                             :uid      => omniauth['uid'],
