@@ -1,4 +1,5 @@
 %h2 Sign in
+= debug(session[:omniauth])
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   %p
     = f.label :email
