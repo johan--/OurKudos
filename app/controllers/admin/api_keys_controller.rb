@@ -1,4 +1,5 @@
 class Admin::ApiKeysController < ApplicationController
+  before_filter :authenticate_user!
   
   def new
     @site = Site.find params[:site_id]
@@ -14,7 +15,7 @@ class Admin::ApiKeysController < ApplicationController
   
     private 
       
-    def  do_subaction
+    def do_subaction
       case params[:subaction]
         when 'regenerate'; @api_key.regenerate!
         when 'disable'   ; @api_key.set_as_expired!    

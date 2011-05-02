@@ -1,4 +1,6 @@
 class Admin::UsersController < ApplicationController
+  before_filter :authenticate_user!
+  
   respond_to :html, :js
   helper_method :sort_column, :sort_direction
   
