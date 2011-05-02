@@ -1,6 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
   def method_missing provider
+    debug(session[:omniauth])
     if !User.omniauth_providers.index(provider).blank?
 
       omniauth = env["omniauth.auth"]
