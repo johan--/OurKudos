@@ -3,14 +3,13 @@ class Devise::RegistrationsController < ApplicationController
   
   def new
     resource = build_resource
-    resource.apply_omniauth(session[:omniauth]) unless params[:fields].blank?
+    resource.apply_omniauth(session[:omniauth]) if params[:autofill] == "true"
     render_with_scope :new 
   end
 
   def create
-    params[:fields] = params[:fields].split(",") if params[:fields]
     build_resource
-    resource.apply_omniauth(session[:omniauth]) unless params[:fields].blank?
+    resource.apply_omniauth(session[:omniauth]) if params[:autofill] == "true"
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?

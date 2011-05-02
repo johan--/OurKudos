@@ -1,16 +1,9 @@
 %h2 Sign up
 = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
   = devise_error_messages!
-    -  if params[:fields].blank?
-      = render :partial => "form_fields", :locals => {:f => f}
-    - else
-      = hidden_field_tag :fields, params[:fields]
-      - for field in params[:fields] do
-      %p
-        = f.label field
-        %br/
-        = f.text_field field, :size => "15"
-      
+  
+  = render :partial => "form_fields", :locals => {:f => f}
+    
   %p= f.submit "Sign up"
   
 = render :partial => "devise/shared/links"
