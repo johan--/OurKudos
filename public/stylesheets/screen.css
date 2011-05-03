@@ -32,6 +32,13 @@ h3 {
     padding: 10px 20px 0 20px;
 }
 
+.navigation {
+  text-align: right;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
 .footer {
     width: 960px;
     margin: 0 auto;

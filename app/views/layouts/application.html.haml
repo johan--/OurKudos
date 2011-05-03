@@ -11,4 +11,20 @@
   %p.alert= alert
   %body
     #content.content
+      .navigation
+        - unless user_signed_in?
+          = link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path) 
+          = link_to "SIGN UP", new_user_registration_path 
+
+          - User.omniauth_providers.each do |provider| 
+            = link_to image_tag("social-icons/#{provider}_32.png", :width=> 16, :height=> 16, :alt => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(:user, provider)
+
+        - else
+
+          = link_to("SIGN OUT", destroy_user_session_path) 
+          |
+          = link_to "My account", user_path(current_user) 
+          |
+          = link_to t(:admin_area), admin_root_path
+        
       = yield

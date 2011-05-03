@@ -1,13 +1,13 @@
 %p.field
   = f.label :site_name
   %br/
-  = f.text_field :site_name
+  = f.text_field :site_name, :class => "string"
   
 %p.field
   = f.label :url
   %br/
   = f.select :protocol, options_for_select(Site.options_for_protocol)
-  = f.text_field :url
+  = f.text_field :url, :class => "string"
   
 %p.field
   = f.label :description
