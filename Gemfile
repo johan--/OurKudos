@@ -25,6 +25,7 @@ group :test do
   gem "rspec-rails"
   gem "shoulda"
   gem "timecop"
+  gem 'ruby-debug19'
 end
 
 group :development do
