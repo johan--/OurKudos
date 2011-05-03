@@ -1,8 +1,11 @@
 Feature: Site keys management
 
 Scenario: Administrator sees / can use management links
-
-   Given the following site exists:
+    
+    Given I'm logged in as an administrator with:
+    | email             | password    |
+    | admin@example.net | secret pass |
+    And the following site exists:
     | site_name    | protocol | url         | description | id |
     | my site      | http     | youtube.com | it's mine!  | 1  |
     And the following api key exists:
