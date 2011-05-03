@@ -14,7 +14,7 @@
 
   %p.user-data
     = t(:user_last_sign_in_at)
-    = @user.last_sign_in_at.strftime("%d/%m/%Y") rescue t(:never)
+    = @user.last_sign_in_at.strftime("%m/%d/%Y") rescue t(:never)
   
   %p.user-data
     = t(:user_last_ip)
