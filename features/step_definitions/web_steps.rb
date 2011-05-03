@@ -217,3 +217,8 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+When /^I follow "([^"]*)" image$/ do |img_alt|
+  find(:xpath, "//img[@alt = '#{img_alt}']/parent::a").click()
+end
+

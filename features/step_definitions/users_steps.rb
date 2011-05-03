@@ -1,9 +1,46 @@
 Before('@omniauth_test_failure') do
   OmniAuth.config.test_mode = true
+
   [:facebook, :twitter].each do |service|
     OmniAuth.config.mock_auth[service] = :invalid_credentials
-    # or whatever status code you want to stub
   end
+end
+
+Before('@omniauth_test_success_facebook') do
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.mock_auth[:facebook] = {
+    "provider"  => "facebook",
+    "uid"       => '12345',
+    "user_info" => {
+      "email" => "marcin.walczak@gmail.com",
+      "first_name" => "Marcin",
+      "last_name"  => "Walczak",
+      "name"       => "Marcin Walczak"
+    },
+    'credentials'=> {
+      'token' => 'facebook token'
+    }
+  }
+end
+
+Before('@omniauth_test_success_twitter') do
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.mock_auth[:twitter] = {
+    "provider"  => "twitter",
+    "uid"       => '123456',
+    "user_info" => {
+      "email" => "marcin.walczak@gmail.com",
+      "first_name" => "Marcin",
+      "last_name"  => "Walczak",
+      "name"       => "Marcin Walczak"
+    },
+    'credentials'=> {
+      'token' => 'twitter token',
+      'secred' => 'twitter secret'
+    }
+  }
 end
 
 

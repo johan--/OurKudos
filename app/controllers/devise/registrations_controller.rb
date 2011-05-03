@@ -9,7 +9,7 @@ class Devise::RegistrationsController < ApplicationController
 
   def create
     resource = build_resource
-    resource.authentications.build(session[:authentication]) if session[:authentication]
+    resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication] 
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
@@ -22,6 +22,7 @@ class Devise::RegistrationsController < ApplicationController
       end
       session[:user] = nil
       session[:authentication] = nil
+      session['omniauth'] = nil
     else
       render_with_scope :new 
     end

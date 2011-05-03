@@ -2,7 +2,10 @@ Feature: Sites  management
 
 Scenario: Administrator creates new site
 
-  When I go to the home page
+  Given I'm logged in as an administrator with:
+  | email             | password    |
+  | admin@example.net | secret pass |
+  When I follow "Admin Area"
   And I follow "API Client Sites"
   And I follow "Add new client site"
   And I fill in "Site name" with "my great blog"
@@ -20,7 +23,10 @@ Scenario: Administrator creates new site
  
 Scenario: Administrator sees empty list
 
-  When I go to the home page
+  Given I'm logged in as an administrator with:
+  | email             | password    |
+  | admin@example.net | secret pass |
+  When I follow "Admin Area"
   And I follow "API Client Sites"
   Then I should see "No client sites yet"
   
@@ -29,9 +35,12 @@ Scenario: Administrator updates exiting site
   Given the following site exists:
   | site_name    | protocol | url         | description | id |
   | my site      | http     | youtube.com | it's mine!  | 1  |
-  Given the following api key exists:
+  And the following api key exists:
   | key                                                              | expires_at | site_id |
   | iDHZ0oRvQlZxWjQta1H6McUjE8ndGXDEWp8tUS70Ery13r13WdV7tXGJP23vRqsK | 2111-04-15 | 1       |
+  And I'm logged in as an administrator with:
+  | email             | password    |
+  | admin@example.net | secret pass |
   When I go to that site's page
   Then I should see "Site name"
   And I should see "Url"  
@@ -40,14 +49,18 @@ Scenario: Administrator updates exiting site
   When I press "Update site"
   Then I should see "Site has been updated"
   
-  Scenario: Administrator cannot update site
-    Given the following site exists:
+  
+Scenario: Administrator cannot update site
+    Given I'm logged in as an administrator with:
+    | email             | password    |
+    | admin@example.net | secret pass |
+    And the following site exists:
     | site_name    | protocol | url         | description | id |
     | my site      | http     | youtube.com | it's mine!  | 1  |
-    Given the following api key exists:
+    And the following api key exists:
     | key                                                              | expires_at | site_id |
     | iDHZ0oRvQlZxWjQta1H6McUjE8ndGXDEWp8tUS70Ery13r13WdV7tXGJP23vRqsK | 2111-04-15 | 1       |
-    When I go to that site's page
+    When I go to that site's page  
     Then I should see "Site name"
     And I should see "Url"  
     And I should see "Description"
