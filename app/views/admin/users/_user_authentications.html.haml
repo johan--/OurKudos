@@ -1,0 +1,13 @@
+%fieldset
+  %legend= t(:user_authentications)
+  
+  %small= t(:click_to_edit)
+  
+  %p.user-data
+    %ul
+      - for provider in @authentications do 
+        = link_to provider.provider, edit_admin_user_authentication_path(@user, provider)
+        -
+        = link_to t(:remove), admin_user_authentication_path(@user, provider), :method => :delete, :confirm => I18n.t(:are_you_sure)
+        
+  
