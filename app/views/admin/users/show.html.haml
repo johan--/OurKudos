@@ -19,5 +19,6 @@
   %p.user-data
     = t(:user_last_ip)
     = @user.last_sign_in_ip
-    
-= render :partial => "admin/users/user_demographics"    
+
+= render :partial => "admin/users/user_authentications" if @authentications.any?        
+= render :partial => "admin/users/user_demographics"   
