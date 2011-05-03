@@ -1,17 +1,14 @@
-%h1= t('hello')
-
 %ul
-  %li
-    = link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path) do
-      %li= link_to("SIGN OUT", destroy_user_session_path)
-      
-  %li= link_to "SIGN UP", new_user_registration_path
+- if current_user.blank?
+  %li= link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path) 
+  %li= link_to "SIGN UP", new_user_registration_path 
   
-  - if current_user  
-    %li= link_to "My account", user_path(current_user) 
+  - User.omniauth_providers.each do |provider| 
+    %li= link_to image_tag("social-icons/#{provider}_32.png", :alt => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(:user, provider)
+   
+- else
   
-%h3= t(:admin_area)  
-
-%ul
-  %li= link_to t(:api_client_sites), admin_sites_path
-  %li= link_to t(:users_management), admin_users_path
+  %li= link_to("SIGN OUT", destroy_user_session_path) 
+  %li= link_to "My account", user_path(current_user)
+    
+ 
