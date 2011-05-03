@@ -51,5 +51,14 @@ class Admin::SitesController < ApplicationController
     end
   end
   
+  def destroy
+    @site = Site.find params[:id]
+    if @site && @site.api_keys.destroy_all && @site.destroy
+      redirect_to admin_sites_path, :notice => I18n.t(:site_removed_successfully)
+    else
+      redirect_to admin_sites_path, :notice => I18n.t(:there_was_problem_removing_site)
+    end
+  end
+  
   
 end
