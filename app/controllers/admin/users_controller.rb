@@ -16,6 +16,15 @@ class Admin::UsersController < ApplicationController
     @authentications = @user.authentications
   end
   
+  def destroy
+    @user = User.find params[:id]
+    if @user && @user.authentications.destroy_all && @user.destroy
+      redirect_to admin_users_path, :notice => I18n.t(:user_removed_successfully)
+    else
+      redirect_to admin_users_path, :notice => I18n.t(:user_not_removed_successfully)
+    end
+  end
+  
   
   private 
   
