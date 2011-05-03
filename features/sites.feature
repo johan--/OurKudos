@@ -48,8 +48,7 @@ Scenario: Administrator updates exiting site
   And I should see "Back to sites listing"
   When I press "Update site"
   Then I should see "Site has been updated"
-  
-  
+
 Scenario: Administrator cannot update site
     Given I'm logged in as an administrator with:
     | email             | password    |
