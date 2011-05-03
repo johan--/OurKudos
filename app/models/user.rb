@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
          :omniauthable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name,
-                  :streetadress, :city, :state_or_province, :postal_code, :phone_number, :mobile_number
+                  :streetadress, :city, :state_or_province, :postal_code, :phone_number, :mobile_number, 
+                  :gender
                   
   
   has_many :authentications
@@ -44,6 +45,10 @@ class User < ActiveRecord::Base
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
       self.email = omniauth.recursive_find_by_key("email")
     end
+      self.email      = omniauth.recursive_find_by_key("email")
+      self.last_name  = omniauth.recursive_find_by_key("last_name")
+      self.first_name = omniauth.recursive_find_by_key("first_name")
+      self.gender     = omniauth.recursive_find_by_key("gender")
   end
   
   def password_required?
