@@ -5,10 +5,11 @@ Scenario: Administrator sees / can use management links
    Given the following site exists:
     | site_name    | protocol | url         | description | id |
     | my site      | http     | youtube.com | it's mine!  | 1  |
-    Given the following api key exists:
+    And the following api key exists:
     | key                                                              | expires_at | site_id |
     | iDHZ0oRvQlZxWjQta1H6McUjE8ndGXDEWp8tUS70Ery13r13WdV7tXGJP23vRqsK | 2111-04-15 | 1       |
     When I go to that site's page
+    Then show me the page
     Then I should see "Regenerate"
     And I should see "Disable"
     And I should see "Enable"
