@@ -1,20 +1,20 @@
 %p
   = f.label :email
   %br/
-  = f.text_field :email
+  = f.text_field :email, :class => "string"
 %p
   = f.label :password
   %br/
-  = f.password_field :password
+  = f.password_field :password, :class => "password"
 %p
   = f.label :password_confirmation
   %br/
-  = f.password_field :password_confirmation  
+  = f.password_field :password_confirmation, :class => "password"  
 %p
   = f.label :first_name
   %br/
-  = f.text_field :first_name
+  = f.text_field :first_name, :class => "string"
 %p
   = f.label :last_name
   %br/
-  = f.text_field :last_name
+  = f.text_field :last_name,  :class => "string"
