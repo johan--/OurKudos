@@ -3,6 +3,7 @@
   = devise_error_messages!
   
   = render :partial => "form_fields", :locals => {:f => f}
+  = hidden_field_tag :autofill, params[:autofill]
     
   %p= f.submit "Sign up"
   

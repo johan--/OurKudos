@@ -40,8 +40,8 @@ class User < ActiveRecord::Base
                             :secret   => omniauth['credentials']['secret'])
     else
       authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      self.email = omniauth.recursive_find_by_key("email")
     end
-    self.confirm! unless email.blank?
   end
   
   def password_required?

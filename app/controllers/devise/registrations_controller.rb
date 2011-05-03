@@ -3,13 +3,13 @@ class Devise::RegistrationsController < ApplicationController
   
   def new
     resource = build_resource
-    resource.apply_omniauth(session[:omniauth]) if params[:autofill] == "true"
+    autofill_form
     render_with_scope :new 
   end
 
   def create
-    build_resource
-    resource.apply_omniauth(session[:omniauth]) if params[:autofill] == "true"
+    resource = build_resource
+    resource.authentications.build(session[:authentication])
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
@@ -20,6 +20,8 @@ class Devise::RegistrationsController < ApplicationController
         expire_session_data_after_sign_in!
         respond_with resource, :location => '/'
       end
+      session[:user] = nil
+      session[:authentication] = nil
     else
       render_with_scope :new 
     end
@@ -27,4 +29,11 @@ class Devise::RegistrationsController < ApplicationController
 
   def update
   end
+  
+  def autofill_form
+    resource.attributes = session[:user] if params[:autofill] 
+  end
+  
+  
+  
 end
