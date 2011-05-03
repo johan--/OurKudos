@@ -9,7 +9,7 @@ class Devise::RegistrationsController < ApplicationController
 
   def create
     resource = build_resource
-    resource.authentications.build(session[:authentication])
+    resource.authentications.build(session[:authentication]) if session[:authentication]
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?
