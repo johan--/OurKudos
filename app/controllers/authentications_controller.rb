@@ -13,6 +13,7 @@ class AuthenticationsController < ApplicationController
   
   def edit
     @authentication = current_user.authentications.find params[:id]
+    @submit_url = user_authentication_path(current_user, @authentication)
   end
   
   def create

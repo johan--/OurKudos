@@ -22,3 +22,6 @@
 
 = render :partial => "admin/users/user_authentications" if @authentications.any?        
 = render :partial => "admin/users/user_demographics"   
+
+
+= link_to t(:back_to_users_listing), admin_users_path

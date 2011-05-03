@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
          :token_authenticatable, :confirmable, :lockable, :timeoutable, 
          :omniauthable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name,
+                  :streetadress, :city, :state_or_province, :postal_code, :phone_number, :mobile_number
+                  
   
   has_many :authentications
   

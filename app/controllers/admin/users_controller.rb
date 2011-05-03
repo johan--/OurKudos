@@ -11,6 +11,15 @@ class Admin::UsersController < ApplicationController
     @users = @users.order "#{sort_column} #{sort_direction}"
   end
   
+  def update
+    @user = User.find params[:id]
+    if @user && @user.update_attributes(params[:user])
+      redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
+    else
+      redirect_to admin_user_path(@user), :notice => I18n.t(:user_not_updated_successfully)
+    end
+  end
+  
   def show  
     @user = User.find params[:id]
     @authentications = @user.authentications
