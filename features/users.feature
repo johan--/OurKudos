@@ -75,7 +75,6 @@ Scenario: User sees empty providers list
     Then I should see "My authorizations"  
     Then I should see "No authorizations yet"
 
-
 Scenario: User edits it's own provider
   Given I'm logged in as a user with:
     | email             | password    | id | 
@@ -88,7 +87,52 @@ Scenario: User edits it's own provider
     When I follow "Edit"
     And I select "Twitter" from "Provider"
     And I press "Update provider"
-    Then show me the page
     Then I should see "Authentication has been updated"
+    
+Scenario: Administrator can search users
+  Given I'm logged in as a user with:
+    | email             | password    | id | 
+    | admin@example.net | secret pass | 1  |
+  And the following users exists:
+    | email              | password    | id | 
+    | user@example.net   | secret pass | 2  |
+    | user2@example.net  | secret pass | 3  |
+    | user3@example.net  | secret pass | 4  |
+  When I follow "Admin Area"
+  And I follow "Users management"
+  Then I should see "Email"
+  And I should see "User name"
+  And I should see "Last sign in at"
+  And I should see "Sign in count"
+  And I should see "User details"
+  And I should see "Remove"
+  And I should see "user@example.net"
+  And I should see "user2@example.net"
+  And I should see "user3@example.net"
+  When I fill in "search" with "user@example.net"
+  Then I should see "user@example.net"
+  And I press "Search"
+  And I should not see "user2@example.net"
+  And I should not see "user3@example.net"
   
+Scenario: Administrator can sort users
+    Given I'm logged in as a user with:
+      | email             | password    | id | 
+      | admin@example.net | secret pass | 1  |
+    And the following users exists:
+      | email              | password    | id | 
+      | user@example.net   | secret pass | 2  |
+      | user2@example.net  | secret pass | 3  |
+      | user3@example.net  | secret pass | 4  |
+    When I follow "Admin Area"
+    And I follow "Users management"
+    And I follow "Email"
+    Then "admin@example.net" should appear before "user2@example.net"  
+    And "user2@example.net" should appear before "user@example.net"
+    Then "user3@example.net" should appear before "user@example.net"  
+    And I follow "Email"
+    Then "user@example.net" should appear before "user2@example.net"  
+    And "user3@example.net" should appear before "user2@example.net"
+    And "user@example.net" should appear before "admin@example.net"
+    
   

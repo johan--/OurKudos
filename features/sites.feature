@@ -67,6 +67,22 @@ Scenario: Administrator cannot update site
     When I fill in "Site name" with ""
     And I press "Update site"
     Then I should see "Site name can't be blank"
+    
+
+Scenario: Administrator removes registered site
+    Given I'm logged in as an administrator with:
+      | email             | password    |
+      | admin@example.net | secret pass |
+    And the following site exists:
+      | site_name    | protocol | url         | description | id |
+      | my site      | http     | youtube.com | it's mine!  | 1  |
+    And the following api key exists:
+      | key                                                              | expires_at | site_id |
+      | iDHZ0oRvQlZxWjQta1H6McUjE8ndGXDEWp8tUS70Ery13r13WdV7tXGJP23vRqsK | 2111-04-15 | 1       |
+    When I go to the admin sites page
+    Then I should see "Site Remove"
+    When I follow "Remove"
+    Then I should see "Site has been removed"    
   
     
   

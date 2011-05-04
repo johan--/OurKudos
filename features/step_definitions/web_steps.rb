@@ -222,3 +222,8 @@ When /^I follow "([^"]*)" image$/ do |img_alt|
   find(:xpath, "//img[@alt = '#{img_alt}']/parent::a").click()
 end
 
+Then /^"([^"]*)" should appear before "([^"]*)"$/ do |before, after|
+  debugger
+  page.body.should match /#{before}.*#{after}/m
+end
+

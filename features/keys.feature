@@ -12,7 +12,6 @@ Scenario: Administrator sees / can use management links
     | key                                                              | expires_at | site_id |
     | iDHZ0oRvQlZxWjQta1H6McUjE8ndGXDEWp8tUS70Ery13r13WdV7tXGJP23vRqsK | 2111-04-15 | 1       |
     When I go to that site's page
-    Then show me the page
     Then I should see "Regenerate"
     And I should see "Disable"
     And I should see "Enable"
@@ -27,3 +26,6 @@ Scenario: Administrator sees / can use management links
     Then I should see "Key has been updated"
     When I follow "Add new api key for this site"
     Then I should see "Key has been added"
+    
+
+    
