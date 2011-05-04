@@ -43,10 +43,6 @@ class User < ActiveRecord::Base
       self.gender     = omniauth.recursive_find_by_key("gender")
   end
   
-  def password_required?
-    (authentications.empty? || !password.blank?) && super  
-  end
-  
   def resource_type
     self.class.name.underscore.to_sym
   end
