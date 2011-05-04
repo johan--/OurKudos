@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super  
   end
   
+  def resource_type
+    self.class.name.underscore.to_sym
+  end
+  
   
 
   
