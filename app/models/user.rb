@@ -26,14 +26,6 @@ class User < ActiveRecord::Base
   def to_s
     "#{first_name} #{middle_name} #{last_name}"
   end
-
-  def self.new_with_session params, session
-    super.tap do |user|
-      if data = session[:omniauth]
-        user.authentications.build(:provider => data['provider'], :uid => data['uid'])
-      end
-    end
-  end
   
   def apply_omniauth omniauth
     unless omniauth['credentials'].blank?
