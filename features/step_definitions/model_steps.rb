@@ -11,3 +11,11 @@ Given /^I'm logged in as an administrator with:$/ do |table|
     And %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
   end
 end
+
+Given /^I'm logged in as a user with:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory :user, attributes
+    And %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
+  end
+end
+

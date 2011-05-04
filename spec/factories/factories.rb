@@ -12,6 +12,13 @@ Factory.define :api_key do |k|
   k.expires_at '2111-11-11'
 end
 
+Factory.define :authentication do |a|
+  a.provider 'facebook'
+  a.uid 'uid'
+  a.token 'token'
+end
+
+
 Factory.define :user do |u|
   u.email 'admin@example.net'
   u.created_at '1999-11-11'
