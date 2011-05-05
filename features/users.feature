@@ -77,7 +77,6 @@ Scenario: User adds it's own provider
   And I should see "my token"
   And I should see "my secret"
 
-
 Scenario: User sees empty providers list
     Given I'm logged in as a user with:
       | email             | password    |
@@ -145,7 +144,6 @@ Scenario: Administrator can sort users
     Then "user@example.net" should appear before "user2@example.net"  
     And "user3@example.net" should appear before "user2@example.net"
     And "user@example.net" should appear before "admin@example.net"
-    
 
 Scenario: Administrator can remove users
   Given I'm logged in as a user with:
@@ -161,7 +159,6 @@ Scenario: Administrator can remove users
   And I follow "Remove"
   Then I should see "User has been removed"
   And I should not see "user2@example.net"
-
 
 Scenario: Administrator can display user details page
     Given I'm logged in as a user with:
@@ -183,7 +180,6 @@ Scenario: Administrator can display user details page
     And I should see "Address"
     And I should see "Phone"
     And I should see "Mobile"
-    
 
 Scenario: Administrator can change user informations
     Given I'm logged in as a user with:
