@@ -1,5 +1,3 @@
-require 'client/our_kudos'
-require 'client/response_codes'
 class Api::UsersController < ApiBaseController
 
   respond_to :json
