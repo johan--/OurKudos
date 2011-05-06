@@ -48,9 +48,9 @@ class User < ActiveRecord::Base
     self.class.name.underscore.to_sym
   end
 
-  def role?(role)
-    return !!self.roles.find_by_name(role.to_s.camelize)
-  end
+ def has_role?(role_sym)
+    roles.any? { |r| r.name.underscore.to_sym == role_sym }
+ end
   
   
 
