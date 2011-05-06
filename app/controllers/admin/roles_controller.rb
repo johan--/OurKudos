@@ -1,4 +1,4 @@
-class Admin::RolesController < ApplicationController
+class Admin::RolesController < Admin::AdminController
 
   respond_to :html
 

@@ -53,6 +53,8 @@ class User < ActiveRecord::Base
  end
 
  def assign_roles
+   user.roles = [] if roles_ids.blank?
+   
    user_roles = roles_ids.each {|id| Role.find id }
    user.roles = user_roles
  end
@@ -60,7 +62,6 @@ class User < ActiveRecord::Base
  def render_roles
    roles.map(&:name).join(", ")
  end
-  
   
 
   

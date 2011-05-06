@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   before_filter :authenticate_user!
   
   respond_to :html, :js
@@ -13,7 +13,9 @@ class Admin::UsersController < ApplicationController
   
   def update
     @user = User.find params[:id]
-    @user.assign_roles if params[:user] && params[:user][:roles_ids]
+    
+    update_roles if params[:roles]
+    
     if @user && @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
     else
@@ -44,6 +46,11 @@ class Admin::UsersController < ApplicationController
     
     def sort_direction
       params[:direction] || "ASC"
+    end
+
+    def update_roles
+      @user.assign_roles if params[:user] && params[:user][:roles_ids] 
+      @user.roles.delete_all  if params[:user].blank?
     end
   
   

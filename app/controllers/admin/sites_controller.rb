@@ -1,4 +1,4 @@
-class Admin::SitesController < ApplicationController
+class Admin::SitesController < Admin::AdminController
   before_filter :authenticate_user!
   
   respond_to :html, :js

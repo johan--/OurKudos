@@ -1,4 +1,4 @@
-class Admin::ApiKeysController < ApplicationController
+class Admin::ApiKeysController < Admin::AdminController
   before_filter :authenticate_user!
   
   def new

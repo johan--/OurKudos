@@ -2,6 +2,8 @@
 
   %h3= t(:please_select_roles_to_update)
 
+  = hidden_field_tag "roles", "true"
+
   - for role in @roles do
     %p
       = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
