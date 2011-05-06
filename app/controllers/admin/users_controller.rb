@@ -13,6 +13,7 @@ class Admin::UsersController < ApplicationController
   
   def update
     @user = User.find params[:id]
+    @user.assign_roles if params[:user] && params[:user][:roles_ids]
     if @user && @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
     else

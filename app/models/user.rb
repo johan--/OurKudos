@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name,
                   :streetadress, :city, :state_or_province, :postal_code, :phone_number, :mobile_number, 
-                  :gender
+                  :gender, :role_ids
                   
   
   has_many :authentications
@@ -50,6 +50,15 @@ class User < ActiveRecord::Base
 
  def has_role?(role_sym)
     roles.any? { |r| r.name.underscore.to_sym == role_sym }
+ end
+
+ def assign_roles
+   user_roles = roles_ids.each {|id| Role.find id }
+   user.roles = user_roles
+ end
+
+ def render_roles
+   roles.map(&:name).join(", ")
  end
   
   

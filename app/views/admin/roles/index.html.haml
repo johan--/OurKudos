@@ -1,1 +1,15 @@
-= render :partial => "/admin/admin_links"
+%h2= t :listing_roles
+
+= form_for @role, :url => admin_roles_path, :method => :post do |f|
+
+  = error_messages_for @role
+
+  = f.label :name
+  = f.text_field :name
+  = f.submit t(:create_role)
+
+%ul
+- for role in @roles do
+  %li
+    = role.name
+    = link_to t(:destroy_role), admin_role_path(role), :method => :delete, :confirm => I18n.t(:are_you_sure)

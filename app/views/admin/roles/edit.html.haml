@@ -1,0 +1,12 @@
+= form_tag admin_user_path(@user), :method => 'put', :id => "admin_users_roles" do 
+
+  %h3= t(:please_select_roles_to_update)
+
+  - for role in @roles do
+    %p
+      = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
+      = role.name
+
+  = submit_tag t(:update_user_roles)
+
+= link_to(t(:back_to_users_administration), admin_user_path(@user))
