@@ -10,7 +10,12 @@ class Admin::UsersController < Admin::AdminController
     @users = @users.search params[:search] unless params[:search].blank?
     @users = @users.order "#{sort_column} #{sort_direction}"
   end
-  
+
+  def roles
+    @roles = Role.all
+    @user  = User.find params[:id]
+  end
+
   def update
     @user = User.find params[:id]
     

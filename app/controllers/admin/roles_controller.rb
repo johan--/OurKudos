@@ -21,11 +21,6 @@ class Admin::RolesController < Admin::AdminController
     end
   end
 
-  def edit
-    @roles = Role.all
-    @user  = User.find params[:id]
-  end
-
   def destroy
     @role = Role.find params[:id]
     if @role.destroy
