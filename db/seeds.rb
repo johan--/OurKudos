@@ -11,3 +11,14 @@ Role.create([
     {:name => "editor"},
     {:name => "user"}
   ])
+
+ admin = User.create(:email =>"admin@example.net",
+               :password => "admin123",
+               :password_confirmation => "admin123",
+               :first_name => "Admin",
+               :last_name => "Big Boss")
+ admin.confirm!
+
+ admin.roles << Role.first
+
+admin.save :validate => false
