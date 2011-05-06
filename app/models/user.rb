@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
                   
   
   has_many :authentications
+  has_and_belongs_to_many :roles
   
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -45,6 +46,10 @@ class User < ActiveRecord::Base
   
   def resource_type
     self.class.name.underscore.to_sym
+  end
+
+  def role?(role)
+    return !!self.roles.find_by_name(role.to_s.camelize)
   end
   
   

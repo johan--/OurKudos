@@ -13,6 +13,7 @@ gem 'texticle'
 gem 'fbgraph'
 gem 'omniauth'
 gem 'ourkudos','~> 0.0.3'
+gem 'cancan'
 
 group :test do
   gem "cucumber"
