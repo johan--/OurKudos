@@ -10,6 +10,8 @@
   
   %li= link_to("SIGN OUT", destroy_user_session_path) 
   %li= link_to "My account", user_path(current_user)
+  %li= link_to t(:merge_with_my_other_account), new_merge_path
   %li= link_to t(:admin_area), admin_root_path
+
     
  

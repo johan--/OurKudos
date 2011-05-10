@@ -1,12 +1,12 @@
 module ApplicationHelper
   
   def error_messages_for object
-      s = "<div class='error error_explanation red'>"
-      object.errors.full_messages.uniq.each  do |error|
-        s += "#{error}<br/>"
-      end
-      s << "</div>"
-       object.errors.any? ? s.html_safe : nil.to_s
+    s = "<div class='error error_explanation red'>"
+    object.errors.full_messages.uniq.each  do |error|
+      s += "#{error}<br/>"
+    end
+    s << "</div>"
+    object.errors.any? ? s.html_safe : nil.to_s
   end
   
   def sortable(column, title = nil)
@@ -16,6 +16,12 @@ module ApplicationHelper
     
     direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
+  end
+
+  def jquery_autocomplete(field_id, controller)
+   "$(document).ready( function(){" +
+     "$('#"+ field_id + "').autocomplete( { source: '/#{controller}' }); " +
+    "} );"
   end
   
 end

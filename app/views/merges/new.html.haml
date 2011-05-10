@@ -1,9 +1,13 @@
 %h3= t :merge_your_accounts
 
-#merge-form
-  = form_tag :url => merges_path do
-
+#merge-account-form
+ = form_tag :url => merges_path do
+  
+  .field
    = label_tag :enter_account_email_address
-   = text_field_tag :email, '', :class => "string", :size => 30
+   = text_field_tag :email, '', :class => "string", :id => 'merge-account-autocomplete', :size => 30
 
-   = f.submit t(:merge_my_current_account_with_this_account)
+  %p= submit_tag t(:merge_my_current_account_with_this_account)
+
+:javascript
+   "#{jquery_autocomplete('merge-account-autocomplete','autocomplete/new')}"
