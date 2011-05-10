@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110506120846) do
+ActiveRecord::Schema.define(:version => 20110510040047) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20110506120846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "roles",      :default => "none"
+  end
+
+  create_table "identities", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "identity"
+    t.string   "identity_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "roles", :force => true do |t|

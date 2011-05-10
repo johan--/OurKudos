@@ -1,0 +1,9 @@
+%h3= t :merge_your_accounts
+
+#merge-form
+  = form_tag :url => merges_path do
+
+   = label_tag :enter_account_email_address
+   = text_field_tag :email, '', :class => "string", :size => 30
+
+   = f.submit t(:merge_my_current_account_with_this_account)

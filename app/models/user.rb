@@ -9,12 +9,18 @@ class User < ActiveRecord::Base
                   :streetadress, :city, :state_or_province, :postal_code, :phone_number, :mobile_number, 
                   :gender, :role_ids
                   
-  
+
+  #=== relationships ===#
+
   has_many :authentications
+  has_many :identities
   has_and_belongs_to_many :roles
-  
+
+  #=== validations  ===#
   validates :first_name, :presence => true
   validates :last_name, :presence => true
+
+  before_save :write_first_identity
 
   #TODO define more indexes as needed
   index do
@@ -61,6 +67,13 @@ class User < ActiveRecord::Base
 
  def render_roles
    roles.map(&:name).join(", ")
+ end
+
+ def write_first_identity
+   return unless new_record?
+   return unless self.identities.blank?
+
+   self.identities.build(:identity_type => "email", :identity => self.email)
  end
   
 
