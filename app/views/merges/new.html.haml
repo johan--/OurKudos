@@ -9,5 +9,6 @@
 
   %p= submit_tag t(:merge_my_current_account_with_this_account)
 
+
 :javascript
-   "#{jquery_autocomplete('merge-account-autocomplete','autocomplete/new')}"
+  #{jquery_autocomplete('merge-account-autocomplete',"autocomplete/new?object=identities")}

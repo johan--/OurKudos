@@ -19,9 +19,9 @@ module ApplicationHelper
   end
 
   def jquery_autocomplete(field_id, controller)
-   "$(document).ready( function(){" +
+   "$(function(){" +
      "$('#"+ field_id + "').autocomplete( { source: '/#{controller}' }); " +
-    "} );"
+    "} );".html_safe
   end
   
 end
