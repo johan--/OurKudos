@@ -1,0 +1,10 @@
+%p.identity-field.field
+  = f.label :identity_type
+  %br/
+  = f.select :identity_type, options_for_select(Identity.options_for_identity_type, @identity.identity_type)
+   
+%p.identity-field.field
+  = f.label :identity
+  %br/
+  = f.text_field :identity, :size => 35, :class => "string"
+     

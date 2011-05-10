@@ -6,7 +6,10 @@ class AutocompletesController < ApplicationController
   def new
     case params[:object]
       when 'identities'
-        @items = Identity.where("identity LIKE ?","%#{params[:term]}%").order(:identity).limit(100).map(&:identity).uniq    
+        @items = User.select('id, email').
+                     where("email LIKE ?","%#{params[:term]}%").
+                     order(:email).limit(100).
+                     map(&:email).uniq
     end    
     render :json => ['no matches'].to_json if @items.blank?
     render :json => @items.to_json if @items.size > 0

@@ -8,6 +8,11 @@
     
 - else
     
-  %strnog= t :no_authorizations_yet
+  %strong= t :no_authorizations_yet
+
+= render :partial => "identities/index"
   
-%p= link_to t(:add_new_authorization), new_user_authentication_path(current_user)  
+%p
+  = link_to t(:add_new_authorization), new_user_authentication_path(current_user)
+  |
+  = link_to t(:add_new_identity), new_user_identity_path(current_user)

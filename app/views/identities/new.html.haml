@@ -1,0 +1,9 @@
+%h3= t :add_new_identity
+
+= form_for @identity, :url => user_identities_path(current_user) do |f|
+  
+  = error_messages_for @identity
+  
+  = render :partial => 'identities/form_fields', :locals => {:f => f }
+  
+  = f.submit t(:add_new_identity)
