@@ -4,5 +4,13 @@ class MergesController < ApplicationController
   def new
   end
 
+  def create
+    @identity = Identity.find_by_identity params[:identity]
+    if @identity.blank?
+      redirect_to new_merge_path, :alert => I18n.t(:no_identity_found)
+    elsif @identity && @identity.mergeable?
+      redirect_to new_merge_path, :alert => I18n.t(:cannot_merge_that_account)
+    end
+  end
   
 end

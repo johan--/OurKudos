@@ -95,6 +95,10 @@ class User < ActiveRecord::Base
     primary_identity            #returns and assigns new value    
    end
  end
+
+ def identities_ids
+   @identities_ids ||= identities.map(&:id)
+ end
   
 
   

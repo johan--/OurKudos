@@ -6,12 +6,7 @@ class Identity < ActiveRecord::Base
                        :if     => ->(id) { id.identity_type == 'email'}
 
   validates :identity, :identity_primary => true
-
-  ### ACTIVE RECORD SCOPES ###
-  scope :for_user,   ->(user)  { where(:user_id => user.id) }
-  scope :with_email, ->(email) { where(:identity => email).where(:identity_type => "email") }
-
-
+  
   before_destroy :can_destroy?
 
   def is_primary?
@@ -24,6 +19,16 @@ class Identity < ActiveRecord::Base
 
   def make_me_primary_again!
     self.update_attribute :identity, self.user.email
+  end
+
+  def change_my_owner_to user
+    Identity.transaction do
+      self.update_attribute :user_id, user.id
+    end
+  end
+
+  def mergeable?
+    user && !user.admin?
   end
 
   class << self
