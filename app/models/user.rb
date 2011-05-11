@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :token_authenticatable, :confirmable, :lockable, :timeoutable, 
@@ -14,12 +15,14 @@ class User < ActiveRecord::Base
 
   has_many :authentications
   has_many :identities
+  has_many :merges, :foreign_key => :merged_by
   has_and_belongs_to_many :roles
 
   #=== validations  ===#
   validates :first_name, :presence => true
   validates :last_name, :presence => true
 
+  
   after_initialize :primary_identity   #remember current primary identity
   before_save :write_first_identity    #writes email in identities table, after record is created
   after_save  :update_primary_identity #updates it on each email change
@@ -108,7 +111,7 @@ class User < ActiveRecord::Base
  class << self
 
    def mergeables
-     OurKudos::Acts::Merged.mergeables # (i.e [Identity, Authentication])
+     OurKudos::Acts::Mergeable.mergeables # (i.e [Identity, Authentication])
    end
 
 

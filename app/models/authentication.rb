@@ -1,12 +1,10 @@
 class Authentication < ActiveRecord::Base
   
-  belongs_to :user
-  
   validates :provider, :presence => true
   validates :uid,      :presence => true
   validates :token,    :presence => true
 
-  acts_as_merged
+  acts_as_mergeable
 
   class << self 
     

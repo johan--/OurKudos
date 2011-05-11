@@ -1,5 +1,4 @@
 class Identity < ActiveRecord::Base
-  belongs_to :user
 
   validates :identity, :presence => true
   validates :identity, :format => { :with => RegularExpressions.email },
@@ -8,7 +7,7 @@ class Identity < ActiveRecord::Base
   validates :identity, :identity_primary => true
 
 
-  acts_as_merged
+  acts_as_mergeable
 
   before_destroy :can_destroy?
 

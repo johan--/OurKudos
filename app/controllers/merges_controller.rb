@@ -13,7 +13,8 @@ class MergesController < ApplicationController
     elsif @identity && !@identity.mergeable?
       redirect_to new_merge_path, :alert => I18n.t(:cannot_merge_that_account)
     else
-      #TODO RUN MERGE LOGIC HANDLED BY MODEL
+      UserNotifier.confirm_your_identity_for_merge_process(@identity.user).deliver!
+      redirect_to new_merge_path, :alert => I18n.t(:merge_instructions_sent)
     end
   end
   
