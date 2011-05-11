@@ -2,7 +2,9 @@
 
 #merge-account-form
  = form_for @merge do
-  
+    
+  = error_messages_for @merge
+
   .field
    %p.explanation= t(:merge_explanation)
 

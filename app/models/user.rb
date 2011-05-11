@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
                   :gender, :role_ids
 
   attr_accessor :primary_identity
+
   #=== relationships ===#
 
   has_many :authentications
