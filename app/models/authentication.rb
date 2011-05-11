@@ -5,7 +5,7 @@ class Authentication < ActiveRecord::Base
   validates :provider, :presence => true
   validates :uid,      :presence => true
   validates :token,    :presence => true
-  
+
   class << self 
     
     def options_for_provider
@@ -15,6 +15,6 @@ class Authentication < ActiveRecord::Base
        ['OKFoody', 'okfoody']  
       ]
     end
-    
+
   end  
 end

@@ -6,9 +6,11 @@ class MergesController < ApplicationController
 
   def create
     @identity = Identity.find_by_identity params[:identity]
-    if @identity.blank?
+    if params[:identity].blank?
+      redirect_to new_merge_path, :alert => I18n.t(:please_enter_valid_identity)
+    elsif @identity.blank?
       redirect_to new_merge_path, :alert => I18n.t(:no_identity_found)
-    elsif @identity && @identity.mergeable?
+    elsif @identity && !@identity.mergeable?
       redirect_to new_merge_path, :alert => I18n.t(:cannot_merge_that_account)
     else
       #TODO RUN MERGE LOGIC HANDLED BY MODEL

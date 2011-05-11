@@ -6,8 +6,8 @@ class AutocompletesController < ApplicationController
   def new
     case params[:object]
       when 'identities'
-        @items = Identity.where("identity LIKE ?","%#{params[:term]}%").
-                        where("id NOT IN (?)", current_user.identities_ids).
+        @items = Identity.where("user_id <> ?", current_user.id).
+                        where("identity LIKE ?","%#{params[:term]}%").
                         order(:identity).limit(10).
                         map(&:identity).uniq
     end    
