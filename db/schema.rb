@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20110511160758) do
     t.integer  "merged_id"
     t.string   "merged_with_email"
     t.string   "key"
+    t.string   "account_merged"
     t.boolean  "email_confirmed",   :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
