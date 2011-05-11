@@ -95,7 +95,22 @@ class User < ActiveRecord::Base
     primary_identity            #returns and assigns new value    
    end
  end
-  
+
+ def change_all_mergeables_to new_user
+   User.mergeables.each do |model|
+     objects = self.send(model.to_s.underscore.pluralize)
+     model.change_objects_owner_to objects, new_user
+   end
+ end
+
+ class << self
+
+   def mergeables
+     OurKudos::Acts::Merged.mergeables # (i.e [Identity, Authentication])
+   end
+
+
+ end
 
   
 end

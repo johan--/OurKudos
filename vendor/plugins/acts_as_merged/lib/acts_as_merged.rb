@@ -2,18 +2,18 @@ module OurKudos
   module Acts
     module Merged
 
-     def self.models #gets list of models which are using our plugin
-       @merged_models = []
+     def self.mergeables(type = :models) #gets models list which are using our plugin (either as models or relationships)
+       @mergeable = []
         ActiveRecord::Base.connection.tables.each do |model|
           begin
-            model_klass = model.singularize.capitalize.constantize
-            @merged_models << model_klass if model_klass.respond_to?(:acts_as_merged)
+            mergeable_model = model.classify.constantize           
+            @mergeable << mergeable_model if mergeable_model.is_mergeable?
           rescue Errno, Exception => e
             nil
           end
         end
-        return @merged_models
-     end 
+      @mergeable
+     end
 
      def self.included(base)
        base.extend AddActsAsMerged
@@ -49,6 +49,11 @@ module OurKudos
           def change_objects_owner_to objects, new_user
             objects.each {|object| object.change_owner_to new_user  }
           end
+
+         def is_mergeable?
+            instance_methods.include?(:change_owner_to)
+         end
+
          
        end
 
