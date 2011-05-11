@@ -24,8 +24,7 @@ class User < ActiveRecord::Base
 
   
   after_initialize :primary_identity   #remember current primary identity
-  before_save :write_first_identity    #writes email in identities table, after record is created
-  after_save  :update_primary_identity #updates it on each email change
+  after_save :update_primary_identity, :write_first_identity
 
   #TODO define more indexes as needed
   index do
@@ -74,15 +73,23 @@ class User < ActiveRecord::Base
    roles.map(&:name).join(", ")
  end
 
- def write_first_identity
-   return unless new_record?
-   return unless self.identities.blank?
+ def can_save_first_identity?
+   return true if new_record?
+   return true if self.identities.blank?
+   false
+ end
 
-   self.identities.build(:identity_type => "email", :identity => self.email)
+ def write_first_identity   
+   if self.identities.blank?
+    identity = self.identities.create :identity      => self.email,
+                                      :is_primary    => true,
+                                      :identity_type => "email"
+    identity.save :validate => false
+   end   
  end
 
  def primary_identity
-   @primary_identity ||= identities.find_by_identity_and_identity_type(self.email, 'email')
+   @primary_identity ||= identities.find_by_is_primary true
  end
 
  def primary_identity_changed
@@ -93,10 +100,10 @@ class User < ActiveRecord::Base
    old_email = primary_identity.identity if primary_identity
 
    if old_email != email && primary_identity_changed
-    primary_identity.make_me_primary_again!
-    self.primary_identity = nil # resets remembered value
-    primary_identity            #returns and assigns new value    
+    primary_identity.synchronize_email!
+    self.primary_identity = nil
    end
+   primary_identity
  end
 
  def give_mergeables_to new_user

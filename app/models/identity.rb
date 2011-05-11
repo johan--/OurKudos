@@ -11,15 +11,11 @@ class Identity < ActiveRecord::Base
 
   before_destroy :can_destroy?
 
-  def is_primary?
-    self.identity == self.user.email rescue false
-  end
-
   def can_destroy?
     !is_primary? 
   end
 
-  def make_me_primary_again!
+  def synchronize_email!
     self.update_attribute :identity, self.user.email
   end
 

@@ -1,7 +1,7 @@
 class CreateMerges < ActiveRecord::Migration
   def self.up
     create_table :merges do |t|
-      t.integer :merged_by
+      t.integer :merged_by, :identity_id, :merged_id
       t.string :merged_with_email, :key
       t.boolean :email_confirmed, :default => false
       t.timestamps

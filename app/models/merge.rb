@@ -1,18 +1,26 @@
-require 'token_generator'
+require 'key_generator'
 class Merge < ActiveRecord::Base
 
-  belongs_to :merger, :foreign_key => :merged_by
+  belongs_to :merger, :foreign_key => :merged_by, :class_name => "User"
+  belongs_to :identity
+
+  validates :identity_id, :presence => true
+
   before_save :generate
 
+  include OurKudos::KeyGenerator
 
   def set_as_confirmed!
-    update_attribute
+    update_attribute :email_confirmed, true
   end
 
   class << self
 
-    def accounts old_user, new_user
-      create :merged_by => new_user.id, :merged_with_email => old_user.email
+    def accounts new_user, identity
+      new_user.merges.build  :merged_by         => new_user.id,
+                             :merged            => identity.user_id,
+                             :merged_with_email => identity.user.email,
+                             :identity_id       => identity.id
     end
 
   end

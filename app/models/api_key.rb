@@ -1,7 +1,9 @@
-require 'token_generator'
+require 'key_generator'
 class ApiKey < ActiveRecord::Base
   
   belongs_to :site
+
+  include OurKudos::KeyGenerator
   
   before_save :generate
  
