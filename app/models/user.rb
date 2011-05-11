@@ -96,9 +96,9 @@ class User < ActiveRecord::Base
    end
  end
 
- def change_all_mergeables_to new_user
+ def give_mergeables_to new_user
    User.mergeables.each do |model|
-     objects = self.send(model.to_s.underscore.pluralize)
+     objects = self.send model.to_s.underscore.pluralize
      model.change_objects_owner_to objects, new_user
    end
  end

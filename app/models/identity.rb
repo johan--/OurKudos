@@ -24,14 +24,6 @@ class Identity < ActiveRecord::Base
     self.update_attribute :identity, self.user.email
   end
 
-  def change_my_owner_to! user
-    Identity.transaction do
-      old_owner = self.user
-      self.update_attribute :user_id, user.id
-      old_owner.destroy
-    end
-  end
-
   def mergeable?
     user && !user.has_role?(:admin)
   end
