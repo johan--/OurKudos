@@ -34,14 +34,8 @@ Scenario: A user signs in with their email/password (facebook)
 Scenario: A user signs in with their email/password (twitter)
   Given I am on the homepage
   When I follow "Sign in with Twitter" image
-  Then I should see "In order to save your account, please provide missing information"
-  When I fill in "Email" with "marcin@email.com"
-  And I fill in "Password confirmation" with "verysecretpassword"
-  And I fill in "Password" with "verysecretpassword"
-  And I fill in "First name" with "Marcin"
-  And I fill in "First name" with "Walczak"
-  And I press "Sign up"
-  Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
+  Then show me the page
+  Then I should see "No twitter account found!. You cannot create account using twitter, please sign up - using either facebook or native sing up method or sign in to your existing account, then click this icon again to create your twitter credentials"
   
 Scenario: User removes it's own provider
    Given I'm logged in as a user with:
