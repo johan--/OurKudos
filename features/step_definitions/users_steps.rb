@@ -38,7 +38,7 @@ Before('@omniauth_test_success_twitter') do
     },
     'credentials'=> {
       'token' => 'twitter token',
-      'secred' => 'twitter secret'
+      'secret' => 'twitter secret'
     }
   }
 end

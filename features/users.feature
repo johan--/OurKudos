@@ -31,11 +31,22 @@ Scenario: A user signs in with their email/password (facebook)
   Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
   
 @omniauth_test_success_twitter
-Scenario: A user signs in with their email/password (twitter)
+Scenario: A user tries to sign up with its email/password (twitter)
   Given I am on the homepage
-  When I follow "Sign in with Twitter" image
-  Then show me the page
+  When I follow "Sign in with Twitter" image  
   Then I should see "No twitter account found!. You cannot create account using twitter, please sign up - using either facebook or native sing up method or sign in to your existing account, then click this icon again to create your twitter credentials"
+
+@omniauth_test_success_twitter
+Scenario: A user signs in with their email/password (twitter) (user existis)
+  Given I'm logged in as a user with:
+    | email             | password    | id |
+    | admin@example.net | secret pass | 1  |  
+  When I follow "Sign in with Twitter" image  
+  Then I should see "Account connected"
+  When I follow "SIGN OUT"
+  And I follow "Sign in with Twitter" image
+  Then I should see "Successfully authorized from twitter account."
+
   
 Scenario: User removes it's own provider
    Given I'm logged in as a user with:
