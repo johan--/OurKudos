@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
+gem 'rake'
 gem 'pg'
 gem 'devise', '~> 1.2.1'
 gem 'ruby_parser'

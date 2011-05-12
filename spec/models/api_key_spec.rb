@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ApiKey do
-  
+
   context 'given an instance' do 
     let(:api_key) { ApiKey.new(:site_id => 1) } 
     
