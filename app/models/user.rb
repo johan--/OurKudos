@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   #=== relationships ===#
 
   has_many :authentications, :dependent => :destroy
-  has_many :identities, :dependent => :destroy
+  has_many :identities
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   after_initialize :primary_identity   #remember current primary identity
   after_save  :write_identity
   before_destroy :set_identities_as_destroyable
-  after_destroy :destroy_identites, Proc.new {|user| user.identites.destroy_all }
+  after_destroy Proc.new {|user| user.identities.destroy_all }
   #TODO define more indexes as needed
   index do
     email
@@ -89,6 +89,7 @@ class User < ActiveRecord::Base
     identity.save :validate => false
    else
      old_email = primary_identity.identity
+     
      primary_identity.synchronize_email! if primary_identity_changed && old_email != email
    end
  end
@@ -102,10 +103,13 @@ class User < ActiveRecord::Base
  end
  
  def give_mergeables_to new_user
-   User.transaction do
-     primary_identity.set_as_tetriary! if primary_identity
+   User.transaction do     
      User.mergeables.each do |model|
+
        objects = self.send model.to_s.underscore.pluralize
+
+       set_identities_as_destroyable if objects.first.is_a?(Identity)
+
        model.change_objects_owner_to objects, new_user
      end
    end
