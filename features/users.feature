@@ -100,7 +100,7 @@ Scenario: User edits it's own provider
     Then I should see "Authentication has been updated"
     
 Scenario: Administrator can search users
-  Given I'm logged in as a user with:
+  Given I'm logged in as an administrator with:
     | email             | password    | id | 
     | admin@example.net | secret pass | 1  |
   And the following users exists:
@@ -126,7 +126,7 @@ Scenario: Administrator can search users
   And I should not see "user3@example.net"
   
 Scenario: Administrator can sort users
-    Given I'm logged in as a user with:
+    Given I'm logged in as an administrator with:
       | email             | password    | id | 
       | admin@example.net | secret pass | 1  |
     And the following users exists:
@@ -146,7 +146,7 @@ Scenario: Administrator can sort users
     And "user@example.net" should appear before "admin@example.net"
 
 Scenario: Administrator can remove users
-  Given I'm logged in as a user with:
+  Given I'm logged in as an administrator with:
       | email             | password    | id | 
       | admin@example.net | secret pass | 1  |
   And the following users exists:
@@ -161,7 +161,7 @@ Scenario: Administrator can remove users
   And I should not see "user2@example.net"
 
 Scenario: Administrator can display user details page
-    Given I'm logged in as a user with:
+    Given I'm logged in as an administrator with:
         | email             | password    | id | 
         | admin@example.net | secret pass | 1  |
     And the following users exists:
@@ -182,7 +182,7 @@ Scenario: Administrator can display user details page
     And I should see "Mobile"
 
 Scenario: Administrator can change user informations
-    Given I'm logged in as a user with:
+    Given I'm logged in as an administrator with:
         | email             | password    | id | 
         | admin@example.net | secret pass | 1  |
     And the following users exists:
