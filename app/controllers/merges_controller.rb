@@ -37,7 +37,7 @@ class MergesController < ApplicationController
   def show    
   end
 
-  def update
+  def update    
     @old_user = @merge.merged
     
     if @old_user.give_mergeables_to current_user
@@ -52,7 +52,10 @@ class MergesController < ApplicationController
     def check_if_confirmed
       @merge = Merge.find params[:id]
 
-      return false if @merge.blank? || (@merge && !@merge.email_confirmed) || (@merge.merger != current_user)
+      if @merge.blank? || (@merge && !@merge.email_confirmed) || (@merge.merger != current_user)
+        flash[:alert] = I18n.t(:not_authorized_to_view_this_page)
+        return false
+      end
       return true if @merge && @merge.email_confirmed?
     end
 

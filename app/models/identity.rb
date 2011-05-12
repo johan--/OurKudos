@@ -6,7 +6,7 @@ class Identity < ActiveRecord::Base
 
   validates :identity, :identity_primary => true
 
-
+  belongs_to :user
   acts_as_mergeable
 
   before_destroy :can_destroy?
@@ -21,6 +21,10 @@ class Identity < ActiveRecord::Base
 
   def mergeable?
     user && !user.has_role?(:admin)
+  end
+
+  def set_as_tetriary!
+    update_attribute :is_primary, false
   end
 
   class << self

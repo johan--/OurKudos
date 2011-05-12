@@ -4,7 +4,7 @@
  = form_for @merge, :url => merge_path(@merge), :method => :put do
     
   = error_messages_for @merge
-
+  %p= t(:about_to_merge_accounts, :first => @merge.merged_with_email, :second => current_user.email)
   .field
    %p.explanation= t(:click_button_below_to_merge_your_accounts)
 

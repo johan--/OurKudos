@@ -14,9 +14,9 @@ class User < ActiveRecord::Base
 
   #=== relationships ===#
 
-  has_many :authentications
-  has_many :identities
-  has_many :merges, :foreign_key => :merged_by
+  has_many :authentications, :dependent => :destroy
+  has_many :identities, :dependent => :destroy
+  has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
   #=== validations  ===#
@@ -25,8 +25,9 @@ class User < ActiveRecord::Base
 
   
   after_initialize :primary_identity   #remember current primary identity
-  after_save :update_primary_identity, :write_first_identity
-
+  after_save  :write_identity
+  before_destroy :set_identities_as_destroyable
+  after_destroy :destroy_identites, Proc.new {|user| user.identites.destroy_all }
   #TODO define more indexes as needed
   index do
     email
@@ -80,13 +81,16 @@ class User < ActiveRecord::Base
    false
  end
 
- def write_first_identity   
+ def write_identity   
    if self.identities.blank?
     identity = self.identities.create :identity      => self.email,
                                       :is_primary    => true,
                                       :identity_type => "email"
     identity.save :validate => false
-   end   
+   else
+     old_email = primary_identity.identity
+     primary_identity.synchronize_email! if primary_identity_changed && old_email != email
+   end
  end
 
  def primary_identity
@@ -96,25 +100,21 @@ class User < ActiveRecord::Base
  def primary_identity_changed
    @primary_identity_changed ||= self.email_changed?   
  end
-
- def update_primary_identity
-   old_email = primary_identity.identity if primary_identity
-
-   if old_email != email && primary_identity_changed
-    primary_identity.synchronize_email!
-    self.primary_identity = nil
-   end
-   primary_identity
- end
-
+ 
  def give_mergeables_to new_user
    User.transaction do
+     primary_identity.set_as_tetriary! if primary_identity
      User.mergeables.each do |model|
        objects = self.send model.to_s.underscore.pluralize
        model.change_objects_owner_to objects, new_user
      end
    end
  end
+
+ def set_identities_as_destroyable
+   identities.each  { |identity| identity.set_as_tetriary! }
+ end
+
 
  class << self
 
