@@ -2,16 +2,30 @@ require 'spec_helper'
 
 describe Merge do
 
-  before :each do 
-    let(:user)     { User.new(:email => 'some@email.com', :id => 1)}
-    let(:identity) { Identity.new(:user => user, :id => rand(100), :user_id => 1 )}
-    let(:new_user) { User.new(:id => rand(100)) }
+
+  let(:user)     { User.new(:email => 'some@email.com', :id => 1)}
+
+  let(:identity) { Identity.create(:user          => user,
+                                 :identity      => "some identity",
+                                 :identity_type => "twitter",
+                                 :id            => rand(100), :user_id => 1 )}
+
+  let(:new_user) { User.new(:id => rand(100)) }  
+
+  it 'should be able to merge accounts if passed valid user and valid identity' do
+    Merge.should respond_to 'accounts'
+    
+    result = Merge.accounts new_user, identity
+    result.identity.stub!(:mergeable?).and_return(true)
+    result.should be_an_instance_of Merge    
+    result.save.should be_true
+    result.should be_persisted
   end
 
-  it 'should be able to merge accounts if given user and valid identity' do
-    Merge.should respond_to 'accounts'
-    result = Merge.accounts new_user, identity
-    result.should be_an_instance_of Merge
+  it 'should return an invalid merge object if passed an empty identity' do
+    result = Merge.accounts new_user, nil
+    result.valid?.should be_false
+    result.save.should be_false    
   end
 
 
