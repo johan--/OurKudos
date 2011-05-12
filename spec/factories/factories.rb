@@ -18,11 +18,19 @@ Factory.define :authentication do |a|
   a.token 'token'
 end
 
-
 Factory.define :user do |u|
   u.email 'admin@example.net'
   u.created_at '1999-11-11'
   u.confirmed_at '1999-11-11'
   u.first_name 'My name'
   u.last_name 'Last name'
+end
+
+Factory.define :admin_user, :parent => :user do |u|
+  u.roles {|roles| [roles.association(:role)] }
+end
+
+
+Factory.define :role do |r|
+  r.name "admin"
 end

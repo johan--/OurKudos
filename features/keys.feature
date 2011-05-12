@@ -3,7 +3,7 @@ Feature: Site keys management
 Scenario: Administrator sees / can use management links
     
     Given I'm logged in as an administrator with:
-    | email             | password    |
+    | email             | password    | 
     | admin@example.net | secret pass |
     And the following site exists:
     | site_name    | protocol | url         | description | id |

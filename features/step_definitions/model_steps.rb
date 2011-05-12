@@ -7,7 +7,7 @@ end
 
 Given /^I'm logged in as an administrator with:$/ do |table|
   table.hashes.each do |attributes|
-    Factory :user, attributes
+    Factory :admin_user, attributes
     And %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
   end
 end
