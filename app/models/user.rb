@@ -55,33 +55,21 @@ class User < ActiveRecord::Base
       self.first_name = omniauth.recursive_find_by_key("first_name")
       self.gender     = omniauth.recursive_find_by_key("gender")
   end
-  
-  def resource_type
-    self.class.name.underscore.to_sym
+
+  def has_role?(role_sym)
+    roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 
- def has_role?(role_sym)
-    roles.any? { |r| r.name.underscore.to_sym == role_sym }
- end
+  def assign_roles
+   self.roles = [] if role_ids.blank?
+   self.roles = role_ids.map {|id| Role.find id }
+  end
 
- def assign_roles
-   user.roles = [] if roles_ids.blank?
-   
-   user_roles = roles_ids.each {|id| Role.find id }
-   user.roles = user_roles
- end
-
- def render_roles
+  def render_roles
    roles.map(&:name).join(", ")
- end
+  end
 
- def can_save_first_identity?
-   return true if new_record?
-   return true if self.identities.blank?
-   false
- end
-
- def write_identity   
+  def write_identity
    if self.identities.blank?
     identity = self.identities.create :identity      => self.email,
                                       :is_primary    => true,
@@ -92,7 +80,7 @@ class User < ActiveRecord::Base
      
      primary_identity.synchronize_email! if primary_identity_changed && old_email != email
    end
- end
+  end
 
  def primary_identity
    @primary_identity ||= identities.find_by_is_primary true

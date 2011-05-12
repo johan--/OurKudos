@@ -1,7 +1,5 @@
 require 'spec_helper'
 
-
-
 describe Role, "validations" do
   Role.create(:name => "some role")
   

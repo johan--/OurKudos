@@ -49,6 +49,13 @@ describe Identity do
       identity.is_primary.should be_false
     end
 
+    it "shouldn't allow to edit identity if it's a primary one" do
+      identity.is_primary = true
+      identity.identity = 'other identity'
+      identity.save.should be_false
+      identity.errors.should_not be_blank
+    end
+
   end
 
 end
