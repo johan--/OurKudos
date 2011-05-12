@@ -1,5 +1,10 @@
 require 'spec_helper'
 
-describe Role do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+
+describe Role, "validations" do
+  Role.create(:name => "some role")
+  
+  it { should validate_presence_of(:name) }
+  it { should validate_uniqueness_of(:name) }
 end
