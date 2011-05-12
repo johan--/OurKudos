@@ -6,7 +6,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
   def method_missing(provider)
     return super unless valid_provider?(provider)
-    omniauthorize_additional_account || omniauth_sign_in || omniauth_sign_up
+    if provider == :twitter                    
+      add_new_authentication || omniauth_sign_in || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+    else
+      add_new_authentication || omniauth_sign_in || omniauth_sign_up
+    end
   end
 
   def omniauth_sign_in
@@ -38,10 +42,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
-  def omniauthorize_additional_account
+  def add_new_authentication
     return false if current_user.nil?
-    if preexisting_authorization_token && preexisting_authorization_token != current_user
-      flash[:alert] = "You have created two accounts and they can't be merged automatically. Email support@ourkudos.com for help."
+
+    if preexisting_authorization_token && preexisting_authorization_token.user != current_user
+      flash[:alert] = "You have created two accounts and they can't be merged automatically. If you want to merge them please sign in, and use or merge account functionally"
       sign_in_and_redirect(:user, current_user)
     else
 
