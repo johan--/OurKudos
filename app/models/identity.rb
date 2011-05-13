@@ -5,6 +5,7 @@ class Identity < ActiveRecord::Base
                        :if     => ->(id) { id.identity_type == 'email'}
 
   validates :identity, :identity_primary => true
+  validates :identity, :uniqueness => true
 
   belongs_to :user
   acts_as_mergeable
