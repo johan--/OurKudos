@@ -33,10 +33,10 @@ describe Merge do
     let(:merge) { Merge.new}
 
     it 'should be able to change email_confirmed attribute' do
-      merge.should respond_to 'set_as_confirmed!'
-      merge.email_confirmed.should be_false
-      merge.set_as_confirmed!
-      merge.email_confirmed.should be_true
+      merge.should respond_to 'confim!'
+      merge.confirmed.should be_false
+      merge.confirm!
+      merge.confirmed.should be_true
     end
   end
 

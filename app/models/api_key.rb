@@ -1,9 +1,8 @@
-require 'key_generator'
 class ApiKey < ActiveRecord::Base
   
   belongs_to :site
 
-  include OurKudos::KeyGenerator
+  include OurKudos::Acts::Confirmable::KeyGenerator
   
   before_save :generate
  

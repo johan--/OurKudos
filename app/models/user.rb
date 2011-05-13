@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates :last_name,  :presence => true
 
   
-  before_save :primary_identity   #remember current primary identity
+  before_save :primary_identity, :add_role
   after_save  :write_identity
   before_destroy :set_identities_as_destroyable
   after_destroy Proc.new {|user| user.identities.destroy_all }
@@ -105,6 +105,10 @@ class User < ActiveRecord::Base
 
  def set_identities_as_destroyable
    identities.each  { |identity| identity.set_as_tetriary! }
+ end
+
+ def add_role
+   self.roles << Role.find_by_name("user")
  end
 
 

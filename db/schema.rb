@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110511160758) do
+ActiveRecord::Schema.define(:version => 20110513180819) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20110511160758) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_primary",    :default => false
+    t.string   "key"
+    t.boolean  "confirmed",     :default => false
   end
 
   create_table "merges", :force => true do |t|
@@ -47,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20110511160758) do
     t.string   "merged_with_email"
     t.string   "key"
     t.string   "account_merged"
-    t.boolean  "email_confirmed",   :default => false
+    t.boolean  "confirmed",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

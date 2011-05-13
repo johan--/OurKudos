@@ -1,4 +1,3 @@
-require 'key_generator'
 class Merge < ActiveRecord::Base
 
   belongs_to :merger, :foreign_key => :merged_by, :class_name => "User"
@@ -8,13 +7,9 @@ class Merge < ActiveRecord::Base
   validates :identity_id, :presence => true
   validates :identity_id, :identity_primary => true
 
-  before_save :generate
+  acts_as_confirmable
 
-  include OurKudos::KeyGenerator
-
-  def set_as_confirmed!
-    update_attribute :email_confirmed, true
-  end
+  include OurKudos::Acts::Confirmable::KeyGenerator
 
   class << self
 

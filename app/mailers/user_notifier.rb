@@ -4,7 +4,7 @@ class UserNotifier < ActionMailer::Base
   def confirm_your_identity_for_merge_process merge
     @merge = merge
     @user  = merge.merger
-    mail :to => merge.merged_with_email,:subject => I18n.t(:subject_confirm_your_identity_for_merge_process)
+    mail :to => merge.identity.user.email,:subject => I18n.t(:subject_confirm_your_identity_for_merge_process)
   end
 
 

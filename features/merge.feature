@@ -3,12 +3,12 @@ Feature: Accounts Merging
 Scenario: User can merge its accounts
 
     Given I'm logged in as a user with:
-      | email             | password    |
-      | user@example.net  | secret pass |
+      | email                    | password    |
+      | currentuser@example.net  | secret pass |
     And the following users exists:
-     | email              | password    | id |    
-     | user2@example.net  | secret pass | 3  |
-     | user3@example.net  | secret pass | 4  |
+     | email              | password    | 
+     | user2@example.net  | secret pass | 
+     | user3@example.net  | secret pass | 
     When I go to the home page    
     And I follow "Merge my accounts"
     Then I should see "Your current account - the one you're currently signed in will be updated to receive and manage kudos on behalf of merged account. Merged account will be deleted, and all your identities will be transfered to current account. Please keep in mind that administrative accounts cannot be removed, thus you can only merge them as your primary account"
