@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   
   before_save :primary_identity, :add_role
-  after_save  :write_identity
+  after_save :update_identity
   before_destroy :set_identities_as_destroyable
   after_destroy Proc.new {|user| user.identities.destroy_all }
 
@@ -76,11 +76,15 @@ class User < ActiveRecord::Base
                                       :is_primary    => true,
                                       :identity_type => "email"
     identity.save :validate => false
-   else
-     old_email = primary_identity.identity
-     
-     primary_identity.synchronize_email! if primary_identity_changed && old_email != email
    end
+  end
+
+  def update_identity
+    if primary_identity
+     old_email = primary_identity.identity
+
+     primary_identity.synchronize_email! if primary_identity_changed && old_email != email
+    end
   end
 
  def primary_identity
@@ -109,6 +113,15 @@ class User < ActiveRecord::Base
 
  def add_role
    self.roles << Role.find_by_name("user")
+ end
+
+ def confirm!
+   unless_confirmed do
+      self.confirmation_token = nil
+      self.confirmed_at = Time.now
+      save(:validate => false)
+      write_identity
+   end
  end
 
 

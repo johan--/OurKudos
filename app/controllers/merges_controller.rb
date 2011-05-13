@@ -26,8 +26,8 @@ class MergesController < ApplicationController
 
   def confirm
     @merge = Merge.find_by_key params[:key]
-    @merge.set_as_confirmed!
-    if @merge.email_confirmed?
+    @merge.confirm!
+    if @merge.confirmed?
       redirect_to merge_path(@merge), :notice => I18n.t(:merge_identity_confirmed)
     else
       redirect_to merge_path(@merge), :alert => I18n.t(:unable_to_confirm_identity)
@@ -52,11 +52,11 @@ class MergesController < ApplicationController
     def check_if_confirmed
       @merge = Merge.find params[:id]
 
-      if @merge.blank? || (@merge && !@merge.email_confirmed) || (@merge.merger != current_user)
+      if @merge.blank? || (@merge && !@merge.confirmed) || (@merge.merger != current_user)
         flash[:alert] = I18n.t(:not_authorized_to_view_this_page)
         return false
       end
-      return true if @merge && @merge.email_confirmed?
+      return true if @merge && @merge.confirmed?
     end
 
 end

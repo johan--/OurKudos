@@ -8,7 +8,9 @@ class Identity < ActiveRecord::Base
   validates :identity, :uniqueness => true
 
   belongs_to :user
+  
   acts_as_mergeable
+  acts_as_confirmable
 
   before_destroy :can_destroy?
 
