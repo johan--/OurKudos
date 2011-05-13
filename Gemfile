@@ -29,6 +29,7 @@ group :test do
   gem "shoulda"
   gem "timecop"
   gem 'ruby-debug19'
+  gem 'sqlite3'
 end
 
 group :development do

@@ -21,13 +21,17 @@ module OurKudos
 
      
      module AddActsAsMergeable
-       def acts_as_mergeable(options = {})
-          belongs_to :user
+          def acts_as_mergeable(options = {})
+            belongs_to :user
 
-          class_eval <<-END
-            include OurKudos::Acts::Mergeable::InstanceMethods
-          END
-       end
+            class_eval <<-END
+              include OurKudos::Acts::Mergeable::InstanceMethods
+            END
+          end
+
+          def is_mergeable?
+            instance_methods.include?(:change_owner_to)
+          end
 
 
      end
@@ -50,9 +54,7 @@ module OurKudos
             objects.each {|object| object.change_owner_to new_user  }
           end
 
-         def is_mergeable?
-            instance_methods.include?(:change_owner_to)
-         end
+     
 
          
        end
