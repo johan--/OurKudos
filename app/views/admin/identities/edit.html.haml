@@ -1,0 +1,12 @@
+%h3= t :edit_identity
+
+= form_for @identity, :url => admin_user_identity_path(@user), :method => :put do |f|
+    
+  = error_messages_for @identity
+
+  = render :partial => "/identities/form_fields", :locals => {:f => f}
+  
+  = f.submit t(:update_identity)
+
+
+= link_to t(:back_to_user_page), admin_user_path(@user)
