@@ -8,7 +8,7 @@
   .field
    %p.explanation= t(:merge_explanation)
 
-   = label_tag :enter_account_identity
+   = label_tag "merge-account-autocomplete", t(:enter_account_identity)
    = text_field_tag :identity, '', :class => "string", :id => 'merge-account-autocomplete', :size => 30
 
    %span.explanation.small= t(:merge_type_to_search)

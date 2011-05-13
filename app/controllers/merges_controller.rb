@@ -15,7 +15,7 @@ class MergesController < ApplicationController
       @merge = Merge.accounts current_user, @identity
 
       if @merge.save
-         UserNotifier.deliver_confirm_your_identity_for_merge_process(@merge).deliver!
+         UserNotifier.confirm_your_identity_for_merge_process(@merge).deliver!
          redirect_to new_merge_path, :notice => I18n.t(:merge_instructions_sent)
       else
         render :new
