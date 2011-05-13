@@ -6,8 +6,8 @@
 
   - for role in @roles do
     %p
-      = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role)
-      = role.name
+      = check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role), :id => role.name
+      = label_tag role.name, role.name
 
   = submit_tag t(:update_user_roles)
 

@@ -1,6 +1,6 @@
 Factory.sequence(:site_name) { |n| "site #{n}" }
-Factory.sequence(:role_id)   { |n| n }
 Factory.sequence(:role_name) { |n| "Role #{n}" }
+Factory.sequence(:admin_role_name) { |n| "Admin Role #{n}" }
 Factory.sequence(:email)     { |n| "email#{n}@email.com" }
 
 Factory.define :site do |u|
@@ -34,19 +34,16 @@ Factory.define :user do |u|
   u.first_name 'My name'
   u.last_name 'Last name'
   u.password 'somepass'
-  u.password_confirmation 'somepass'
 end
 
 Factory.define :admin_user, :parent => :user do |u|
   u.roles {|roles| [roles.association(:admin_role)] }
 end
 
-Factory.define :admin_role do |r|
-  r.name "admin"
-  r.id   { Factory.next(:role_id) }
+Factory.define :admin_role, :class => "Role" do |r|
+  r.name { Factory.next(:admin_role_name) }
 end
 
 Factory.define :role do |r|
-  r.name { Factory.next(:role_name) }
-  r.id   { Factory.next(:role_id) }
+  r.name { Factory.next(:role_name) }  
 end

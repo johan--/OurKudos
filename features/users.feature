@@ -201,3 +201,33 @@ Scenario: Administrator can change user informations
     And I fill in "user_mobile_number" with "123456789"
     And I press "Update settings"
     Then I should see "User data updated successfully"
+
+Scenario: Administrator can add/remove user roles
+    Given I'm logged in as an administrator with:
+        | email             | password    | id |
+        | admin@example.net | secret pass | 1  |
+    And the following users exists:
+        | email              | password    | id |
+        | user@example.net   | secret pass | 2  |
+        | user2@example.net  | secret pass | 3  |
+        | user3@example.net  | secret pass | 4  |
+    And the following roles exists:
+        | name          |
+        | some role 1   |
+        | some role 2   |
+    When I go to the last user detail page    
+    And I follow "Change/manage user roles"
+    Then I should see "Please Select Roles To Update"
+    When I check "some role 1"
+    And I check "some role 2"
+    And I press "Update user roles"
+    Then I should see "User data updated successfully"
+    When I go to the last user detail page
+    Then I should see "some role 1, some role 2"
+    When I follow "Change/manage user roles"
+    And I uncheck "some role 1"
+    And I uncheck "some role 2"
+    And I press "Update user roles"
+    Then I should see "User data updated successfully"
+    When I go to the last user detail page
+    Then I should see "No roles assigned"

@@ -24,7 +24,7 @@ class User < ActiveRecord::Base
   validates :last_name,  :presence => true
 
   
-  after_initialize :primary_identity   #remember current primary identity
+  before_save :primary_identity   #remember current primary identity
   after_save  :write_identity
   before_destroy :set_identities_as_destroyable
   after_destroy Proc.new {|user| user.identities.destroy_all }
@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   end
 
   def has_role?(role_sym)
-    roles.any? { |r| r.name.underscore.to_sym == role_sym }
+    roles.any? { |r| r.name.underscore.include?(role_sym.to_s) }
   end
 
   def assign_roles

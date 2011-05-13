@@ -11,6 +11,7 @@ require 'spec_helper'
 
 describe User do
 
+
   context 'given an instance' do 
       let(:user) { User.new(:first_name =>"marcin", :last_name => "Walczak") }
   
@@ -59,7 +60,7 @@ describe User do
       user.role_ids = []
       user.assign_roles
       user.roles.should be_blank
-      user.role_ids = [Factory(:role)]
+      user.role_ids = [Factory(:role).id]
       user.assign_roles
       user.roles.first.name.should be_an_instance_of String
     end
