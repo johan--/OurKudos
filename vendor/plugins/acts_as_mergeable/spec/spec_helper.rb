@@ -6,6 +6,7 @@ require 'sqlite3'
 MODELS =  [MergeableModel, User, NotMergeableModel]
 
 database_yml = File.expand_path('../database.yml', __FILE__)
+
 if File.exists?(database_yml)
   active_record_configuration = YAML.load_file(database_yml)[ENV['DB']]
 
@@ -29,9 +30,6 @@ end
 RSpec.configure do |config|
   config.mock_with :rspec
 end
-
-
-
 
 def clean_database!
   MODELS.each do |model|

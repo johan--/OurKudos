@@ -1,6 +1,11 @@
 ActiveRecord::Schema.define :version => 0 do
 
-create_table :mergeable_models, :force => true do |t|
+  create_table :mergeable_models, :force => true do |t|
+    t.column :name, :string
+    t.column :user_id, :string
+  end
+
+  create_table :other_mergeable_models, :force => true do |t|
     t.column :name, :string
     t.column :user_id, :string
   end
