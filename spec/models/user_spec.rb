@@ -1,5 +1,14 @@
 require 'spec_helper'
 
+ describe User, "class" do
+   it 'should know about all models allowed to merge account from acts_as_mergeable plugin' do
+     
+      User.mergeables.should == OurKudos::Acts::Mergeable.mergeables
+    
+   end  
+ end
+
+
 describe User do
 
   context 'given an instance' do 
@@ -83,7 +92,33 @@ describe User do
     end
 
     it "'should give away all its mergeable data to other user" do
+      new_user     = Factory(:user)
+      user         = Factory(:user)
+      identity = Factory(:identity)
+      authentication = Factory(:authentication)
+
+      user.identities << identity
+      user.authentications << authentication     
+
+      identity.user_id.should == user.id
+      authentication.user_id.should == user.id
+
+      user.give_mergeables_to new_user
       
+      identity.user_id.should == new_user.id
+      authentication.user_id.should == new_user.id
+
+    end
+
+    it 'should be able to mark its identities as destroyable' do
+      some_user = Factory(:user)
+
+      some_user.identities.first.destroy.should be_false
+
+      some_user.set_identities_as_destroyable
+
+      some_user.identities.each { |id| id.destroy.should be_true }
+
     end
 
   describe User, "validations" do

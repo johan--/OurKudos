@@ -1,6 +1,7 @@
 Factory.sequence(:site_name) { |n| "site #{n}" }
-Factory.sequence(:role_id) { |n| n }
+Factory.sequence(:role_id)   { |n| n }
 Factory.sequence(:role_name) { |n| "Role #{n}" }
+Factory.sequence(:email)     { |n| "email#{n}@email.com" }
 
 Factory.define :site do |u|
   s.name { Factory.next(:site_name) }
@@ -20,8 +21,14 @@ Factory.define :authentication do |a|
   a.token 'token'
 end
 
+Factory.define :identity do |i|
+  i.identity 'my@email.com'
+  i.identity_type 'email'
+  i.is_primary false
+end
+
 Factory.define :user do |u|
-  u.email 'admin@example.net'
+  u.email { Factory.next(:email) }
   u.created_at '1999-11-11'
   u.confirmed_at '1999-11-11'
   u.first_name 'My name'
@@ -38,7 +45,6 @@ Factory.define :admin_role do |r|
   r.name "admin"
   r.id   { Factory.next(:role_id) }
 end
-
 
 Factory.define :role do |r|
   r.name { Factory.next(:role_name) }

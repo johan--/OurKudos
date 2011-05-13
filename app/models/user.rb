@@ -21,13 +21,14 @@ class User < ActiveRecord::Base
 
   #=== validations  ===#
   validates :first_name, :presence => true
-  validates :last_name, :presence => true
+  validates :last_name,  :presence => true
 
   
   after_initialize :primary_identity   #remember current primary identity
   after_save  :write_identity
   before_destroy :set_identities_as_destroyable
   after_destroy Proc.new {|user| user.identities.destroy_all }
+
   #TODO define more indexes as needed
   index do
     email
@@ -91,13 +92,12 @@ class User < ActiveRecord::Base
  end
  
  def give_mergeables_to new_user
-   User.transaction do     
+   User.transaction do
+     set_identities_as_destroyable
+
      User.mergeables.each do |model|
-
        objects = self.send model.to_s.underscore.pluralize
-
-       set_identities_as_destroyable if objects.first.is_a?(Identity)
-
+       
        model.change_objects_owner_to objects, new_user
      end
    end
