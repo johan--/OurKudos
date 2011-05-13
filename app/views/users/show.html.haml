@@ -10,7 +10,7 @@
     
   %strong= t :no_authorizations_yet
 
-= render :partial => "identities/index"
+= render :partial => "identities/index", :locals => {:identities => @identities }
   
 %p
   = link_to t(:add_new_authorization), new_user_authentication_path(current_user)

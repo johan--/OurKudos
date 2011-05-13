@@ -1,21 +1,21 @@
-%h4= t(:current_user_identities)
+%h4= t(:current_user_identities) unless admin_request?
 
 %table.600px
   %thead
     %th= t :identity_type
     %th= t :identity
   %tbody
-    - for identity in @identities do
+    - for identity in identities do
       %tr
         %td= identity.identity_type
         %td= identity.identity
         %td
           - if !identity.is_primary?
-            = link_to t(:edit_identity_link), edit_user_identity_path(current_user, identity)
+            = link_to t(:edit_identity_link),  admin_or_user_edit_identity_path(@user, identity)
           - else
             = t(:cannot_edit_primary_identity)
         %td
           - if !identity.is_primary?
-            = link_to(t(:remove_identity), user_identity_path(current_user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete) if !identity.is_primary?
+            = link_to(t(:remove_identity),  admin_or_user_identity_path(@user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete) if !identity.is_primary?
           - else
             = t(:cannot_remove_primary_identity)
