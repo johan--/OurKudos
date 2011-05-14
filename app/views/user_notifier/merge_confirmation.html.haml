@@ -3,14 +3,14 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p= raw t(:dear_user, :user => @user.email)
+    %p= raw t(:dear_user, :user => @email)
 
     %p= t(:merge_confirm_explanation)
 
     %p
       = raw t(:confirm_merge)
       %br/
-      = link_to t(:confirm_merge_link), confirm_merges_url(:key => @merge.key)
+      = link_to t(:confirm_merge_link), confirmation_url(:id => @confirmation.key, :merge => "true")
 
 
     

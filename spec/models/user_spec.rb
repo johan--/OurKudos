@@ -1,19 +1,9 @@
 require 'spec_helper'
 
- describe User, "class" do
-   it 'should know about all models allowed to merge account from acts_as_mergeable plugin' do
-     
-      User.mergeables.should == OurKudos::Acts::Mergeable.mergeables
-    
-   end  
- end
-
-
 describe User do
 
-
   context 'given an instance' do 
-      let(:user) { User.new(:first_name =>"marcin", :last_name => "Walczak") }
+      let(:user) { Factory(:user) }
   
       let(:omniauth) do
           {"provider"  => "facebook",
@@ -32,8 +22,8 @@ describe User do
     
     it 'should be able to return first and last name' do
       user.should respond_to 'to_s' 
-      user.to_s.include?("marcin").should be_true 
-      user.to_s.include?("Walczak").should be_true
+      user.to_s.include?(user.first_name).should be_true
+      user.to_s.include?(user.last_name).should be_true
     end
     
     it 'should be able to set user attributes from session data' do
@@ -71,7 +61,7 @@ describe User do
       user.render_roles.include?(",").should be_true if user.roles.size > 1
     end
 
-    it 'should save new identity right after saving in database ' do
+    it 'should save new identity right after confirming it ' do
      user = Factory(:user)
      user.primary_identity.should_not be_blank
      user.primary_identity.identity.should == user.email
@@ -87,28 +77,8 @@ describe User do
 
     it 'should know if its email has changed' do
       user = Factory(:user)
-      user.primary_identity_changed.should be_false
       user.email = 'another-email@emails.com'
       user.primary_identity_changed.should be_true
-    end
-
-    it "'should give away all its mergeable data to other user" do
-      new_user     = Factory(:user)
-      user         = Factory(:user)
-      identity = Factory(:identity)
-      authentication = Factory(:authentication)
-
-      user.identities << identity
-      user.authentications << authentication     
-
-      identity.user_id.should == user.id
-      authentication.user_id.should == user.id
-
-      user.give_mergeables_to new_user
-      
-      identity.user_id.should == new_user.id
-      authentication.user_id.should == new_user.id
-
     end
 
     it 'should be able to mark its identities as destroyable' do

@@ -1,5 +1,6 @@
 = form_for @user, :url => admin_user_path, :method => :put do |f|
 
+  = error_messages_for @user
   %fieldset
     %legend= t :user_demographics
   

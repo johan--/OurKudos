@@ -5,6 +5,7 @@ class Authentication < ActiveRecord::Base
   validates :token,    :presence => true
 
   acts_as_mergeable
+  
 
   class << self 
     

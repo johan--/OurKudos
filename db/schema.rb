@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513180819) do
+ActiveRecord::Schema.define(:version => 20110515114226) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -29,7 +29,21 @@ ActiveRecord::Schema.define(:version => 20110513180819) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "roles",      :default => "none"
+    t.string   "nickname"
   end
+
+  create_table "confirmations", :force => true do |t|
+    t.string   "key"
+    t.boolean  "confirmed"
+    t.integer  "confirmable_id"
+    t.string   "confirmable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "confirmations", ["confirmable_id"], :name => "index_confirmations_on_confirmable_id"
+  add_index "confirmations", ["confirmable_type"], :name => "index_confirmations_on_confirmable_type"
+  add_index "confirmations", ["key"], :name => "index_confirmations_on_key"
 
   create_table "identities", :force => true do |t|
     t.integer  "user_id"
@@ -38,8 +52,7 @@ ActiveRecord::Schema.define(:version => 20110513180819) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "is_primary",    :default => false
-    t.string   "key"
-    t.boolean  "confirmed",     :default => false
+    t.datetime "deleted_at"
   end
 
   create_table "merges", :force => true do |t|
@@ -47,9 +60,7 @@ ActiveRecord::Schema.define(:version => 20110513180819) do
     t.integer  "identity_id"
     t.integer  "merged_id"
     t.string   "merged_with_email"
-    t.string   "key"
     t.string   "account_merged"
-    t.boolean  "confirmed",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,9 +101,6 @@ ActiveRecord::Schema.define(:version => 20110513180819) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.integer  "failed_attempts",                     :default => 0
     t.string   "unlock_token"
     t.datetime "locked_at"
@@ -116,9 +124,10 @@ ActiveRecord::Schema.define(:version => 20110513180819) do
     t.string   "phone_number"
     t.string   "mobile_number"
     t.string   "status"
+    t.boolean  "confirmed"
+    t.datetime "deleted_at"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true

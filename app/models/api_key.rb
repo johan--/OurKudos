@@ -1,11 +1,25 @@
 class ApiKey < ActiveRecord::Base
-  
+
+  # ================
+  # = associations =
+  # ================
   belongs_to :site
 
-  include OurKudos::Acts::Confirmable::KeyGenerator
-  
+  # ================
+  # = extensions ===
+  # ================
+  include OurKudos::Confirmable
+
+  # ===========================
+  # = active record callbacks =
+  # ===========================
+
   before_save :generate
- 
+
+  # ====================
+  # = instance methods =
+  # ====================
+
   def set_as_expired!
     update_attribute :expires_at, Date.today-100.years
   end

@@ -10,13 +10,15 @@ describe Identity do
 
 
   context 'given an instance' do
+
     let(:identity) do
-          Identity.new(:identity => 'some@email.com',
-                     :user => User.new,
+          Identity.new(:identity      => 'some@email.com',
+                     :user          => Factory(:user),
                      :identity_type => "email")
     end
 
-    let(:role) {Role.new(:name => "admin")}
+    let(:role) { Role.new(:name => "admin")}
+    let(:user_role) { Role.create(:name => "user")}
 
 
 
@@ -27,7 +29,7 @@ describe Identity do
       identity.can_destroy?.should be_false
     end
 
-    it "should be able to update to keep up to date its identity if identity is an email" do
+    it "should be able to keep up to date its identity if identity is an email" do
       identity.user.email = 'some@other.email.com'
       identity.should respond_to "synchronize_email!"
       identity.synchronize_email!.should be_true

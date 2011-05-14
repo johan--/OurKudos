@@ -14,8 +14,7 @@ class MergesController < ApplicationController
     else
       @merge = Merge.accounts current_user, @identity
 
-      if @merge.save
-         UserNotifier.confirm_your_identity_for_merge_process(@merge).deliver!
+      if @merge.save        
          redirect_to new_merge_path, :notice => I18n.t(:merge_instructions_sent)
       else
         render :new
@@ -24,15 +23,6 @@ class MergesController < ApplicationController
     end
   end
 
-  def confirm
-    @merge = Merge.find_by_key params[:key]
-    @merge.confirm!
-    if @merge.confirmed?
-      redirect_to merge_path(@merge), :notice => I18n.t(:merge_identity_confirmed)
-    else
-      redirect_to merge_path(@merge), :alert => I18n.t(:unable_to_confirm_identity)
-    end
-  end
 
   def show    
   end
@@ -40,7 +30,7 @@ class MergesController < ApplicationController
   def update    
     @old_user = @merge.merged
     
-    if @old_user.give_mergeables_to current_user
+    if @merge.merge_accounts
       redirect_to user_path(current_user), :notice => I18n.t(:you_have_successfuly_merged_your_accounts)
     else
       redirect_to user_path(current_user), :alert => I18n.t(:merge_unable_to_merge_accounts)
@@ -50,13 +40,13 @@ class MergesController < ApplicationController
   private
 
     def check_if_confirmed
-      @merge = Merge.find params[:id]
-
-      if @merge.blank? || (@merge && !@merge.confirmed) || (@merge.merger != current_user)
-        flash[:alert] = I18n.t(:not_authorized_to_view_this_page)
-        return false
+      @merge = Merge.find params[:id] rescue nil
+      
+      if @merge.blank? || (@merge && !@merge.confirmation.confirmed) || (@merge.merger != current_user)
+        flash[:alert] = "#{I18n.t(:unable_to_confirm_identity)} #{I18n.t(:not_authorized_to_view_this_page)}"
+        redirect_to new_merge_path
       end
-      return true if @merge && @merge.confirmed?
+      return true if @merge && @merge.confirmation.confirmed?
     end
 
 end

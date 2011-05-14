@@ -10,7 +10,7 @@ Scenario: User can create an account natively
   And I fill in "Password" with "verysecretpassword"
   And I fill in "Password confirmation" with "verysecretpassword"
   And I press "Sign up"
-  And I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
+  And I should see "You have signed up successfully. However, we could not sign you in because your account is inactive."
   
 Scenario: A user unsuccessfully signs in with their email/password
   Given I am on the homepage
@@ -27,8 +27,8 @@ Scenario: A user signs in with their email/password (facebook)
   Then I should see "In order to save your account, please provide missing information"
   And I fill in "Password confirmation" with "verysecretpassword"
   And I fill in "Password" with "verysecretpassword"
-  And I press "Sign up"
-  Then I should see "You have signed up successfully. However, we could not sign you in because your account is unconfirmed."
+  And I press "Sign up"  
+  Then I should see "You have signed up successfully. However, we could not sign you in because your account is inactive."
   
 @omniauth_test_success_twitter
 Scenario: A user tries to sign up with its email/password (twitter)
@@ -40,7 +40,7 @@ Scenario: A user tries to sign up with its email/password (twitter)
 Scenario: A user signs in with their email/password (twitter) (user existis)
   Given I'm logged in as a user with:
     | email             | password    | id |
-    | admin@example.net | secret pass | 1  |  
+    | admin@example.net | secret pass | 1  | 
   When I follow "Sign in with Twitter" image  
   Then I should see "Account connected"
   When I follow "SIGN OUT"
@@ -51,7 +51,7 @@ Scenario: A user signs in with their email/password (twitter) (user existis)
 Scenario: User removes it's own provider
    Given I'm logged in as a user with:
     | email             | password    | id | 
-    | admin@example.net | secret pass | 1  |
+    | admin@example.net | secret pass | 1  |  
    And the following authentication exists:
    | user_id | provider | token       | secret    |
    |  1      | facebook | screttoken  | secretkey |
@@ -230,4 +230,4 @@ Scenario: Administrator can add/remove user roles
     And I press "Update user roles"
     Then I should see "User data updated successfully"
     When I go to the last user detail page
-    Then I should see "No roles assigned"
+    Then I should not see "some role 1, some role 2"

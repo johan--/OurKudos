@@ -15,6 +15,7 @@ gem 'fbgraph'
 gem 'omniauth'
 gem 'ourkudos','~> 0.0.3'
 gem 'cancan'
+gem 'delete_paranoid'
 
 group :test do
   gem "cucumber"

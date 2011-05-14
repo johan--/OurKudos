@@ -3,7 +3,7 @@
   %br/
   = f.select :provider, options_for_select(Authentication.options_for_provider, @authentication.provider)
    
-%p.authentication-field.field  
+%p.authentication-field.field
   = f.label :uid, t(:provider_uid)
   %br/
   = f.text_field :uid, :size => 35, :class => "string"
@@ -21,3 +21,9 @@
    
   %br/
   = f.text_field :secret, :size => 35, :class => "string"
+
+%p.authentication-field.field
+  =f.label :nickname
+  %br/
+  = f.text_field :nickname, :size => 35, :class => "string"
+

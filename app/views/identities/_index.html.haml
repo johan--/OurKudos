@@ -1,14 +1,18 @@
 %h4= t(:current_user_identities) unless admin_request?
 
+%p= t :only_confirmed_identites_are_valid
+
 %table.600px
   %thead
     %th= t :identity_type
     %th= t :identity
+    %th= t :identity_confirmed
   %tbody
     - for identity in identities do
       %tr
         %td= identity.identity_type
         %td= identity.identity
+        %td= identity.confirmation.confirmed.to_s
         %td
           - if !identity.is_primary?
             = link_to t(:edit_identity_link),  admin_or_user_edit_identity_path(@user, identity)

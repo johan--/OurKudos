@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= raw t(:dear_user, :user => @email)
+
+    %p You can confirm your identity through the link below:
+
+    %p= link_to t(:confirm_my_account), confirmation_url(:id => @confirmation.key, :account => @account)
+
+    

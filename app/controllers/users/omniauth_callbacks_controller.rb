@@ -50,9 +50,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect(:user, current_user)
     else
 
-      current_user.apply_omniauth(omniauth_data)
-      current_user.save
-
+      current_user.apply_omniauth(omniauth_data)      
+      current_user.save :validate => false
+      
       flash[:notice] = "Account connected"
       sign_in_and_redirect(:user, current_user)
     end

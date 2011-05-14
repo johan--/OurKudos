@@ -5,10 +5,7 @@ describe Merge do
 
   let(:user)     { User.new(:email => 'some@email.com', :id => 1)}
 
-  let(:identity) { Identity.create(:user          => user,
-                                 :identity      => "some identity",
-                                 :identity_type => "twitter",
-                                 :id            => rand(100), :user_id => 1 )}
+  let(:identity) { Factory(:identity) }
 
   let(:new_user) { User.new(:id => rand(100)) }  
 
@@ -17,7 +14,7 @@ describe Merge do
     
     result = Merge.accounts new_user, identity
     result.identity.stub!(:mergeable?).and_return(true)
-    result.should be_an_instance_of Merge    
+    result.should be_an_instance_of Merge
     result.save.should be_true
     result.should be_persisted
   end
@@ -32,12 +29,6 @@ describe Merge do
   context 'merge instance' do
     let(:merge) { Merge.new}
 
-    it 'should be able to change email_confirmed attribute' do
-      merge.should respond_to 'confim!'
-      merge.confirmed.should be_false
-      merge.confirm!
-      merge.confirmed.should be_true
-    end
   end
 
 
