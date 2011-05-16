@@ -1,5 +1,7 @@
 %h3= t :my_account_settings
 
 = render :partial => "identities/index", :locals => {:identities => @identities }
-%p
-  = link_to t(:add_new_identity), new_user_identity_path(current_user)
+
+%p= link_to t(:add_new_identity), new_user_identity_path(current_user)
+
+%p= render '/shared/social_links'

@@ -23,6 +23,7 @@ module OurKudos
      module AddActsAsMergeable
           def acts_as_mergeable(options = {})
             belongs_to :user
+            scope :for,   ->(user) { where(:user_id => user.id) }
 
             class_eval <<-END
               include OurKudos::Acts::Mergeable::InstanceMethods

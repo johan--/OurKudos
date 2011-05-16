@@ -1,17 +1,16 @@
-%ul
+
 - unless user_signed_in?
-  %li= link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path) 
-  %li= link_to "SIGN UP", new_user_registration_path 
+  %ul
+    %li= link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path)
+    %li= link_to "SIGN UP", new_user_registration_path
   
   
 - else
-  
-  %li= link_to("SIGN OUT", destroy_user_session_path) 
-  %li= link_to "My account", user_path(current_user)
-  %li= link_to t(:merge_with_my_other_account), new_merge_path
-  %li= link_to t(:admin_area), admin_root_path
+  %ul
+    %li= link_to("SIGN OUT", destroy_user_session_path)
+    %li= link_to "My account", user_path(current_user)
+    %li= link_to t(:merge_with_my_other_account), new_merge_path
+    %li= link_to t(:admin_area), admin_root_path
 
-- User.omniauth_providers.each do |provider|
-  %li= link_to image_tag("social-icons/#{provider}_32.png", :alt => "Sign in with #{provider.to_s.titleize}"), omniauth_authorize_path(:user, provider)
-
+= render '/shared/social_links'
  

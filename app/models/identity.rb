@@ -23,7 +23,7 @@ class Identity < ActiveRecord::Base
   # ================
   scope :emails,  :identity_type => "email"
   scope :twitters,:identity_type => "twitter"
-  scope :for,   ->(user) { where(:user_id => user.id) }
+
   # ================
   # == extensions ==
   # ================

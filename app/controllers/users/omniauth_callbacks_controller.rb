@@ -23,9 +23,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def omniauth_sign_up
     unless omniauth_data.recursive_find_by_key("email").blank?
-      user = User.find_or_initialize_by_email(:email => omniauth_data.recursive_find_by_key("email"))
-    else
-      user = User.new
+      user = User.find_by_email omniauth_data.recursive_find_by_key("email")
+
+      if user
+        flash[:notice] = "Account connected"
+        sign_in :user, user
+        add_new_authentication and return
+      else
+        user = User.new
+      end
+      
     end
 
     user.apply_omniauth(omniauth_data)
@@ -54,7 +61,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save :validate => false
       
       flash[:notice] = "Account connected"
-      sign_in_and_redirect(:user, current_user)
+      sign_in_and_redirect(:user, current_user) 
     end
   end
 
