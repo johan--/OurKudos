@@ -11,7 +11,8 @@ class AutocompletesController < ApplicationController
                         where(:confirmations => {:confirmed => true}).
                         where("identity LIKE ?","%#{params[:term]}%").
                         order(:identity).limit(10).
-                        map(&:identity).uniq
+                        map(&:identity).
+                        uniq
     end    
     render :json => ['no matches'].to_json if @items.blank?
     render :json => @items.to_json if @items.size > 0
