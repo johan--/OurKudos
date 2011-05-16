@@ -19,7 +19,7 @@ Role.create([
                :confirmed  => true, 
                :last_name => "Big Boss")
 
- admin.roles << Role.first
+ admin.roles << Role.find_by_name("admin")
  admin.save :validate => false
 
  admin.identities.first.confirm!

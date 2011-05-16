@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   # = associations =
   # ================
 
-  has_many :authentications, :dependent => :destroy
+  has_many :authentications
   has_many :identities
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   before_destroy :set_identities_as_destroyable
-  after_destroy  :remove_identities  # can't use :depended destroy because it's too early event, need this method
+  after_destroy  :remove_mergeables  # can't use :depended destroy because it's too early for this event, need this method though
 
   # ================
   # == pg indexes ==
@@ -148,8 +148,10 @@ class User < ActiveRecord::Base
    twitter_handles.any? { |handle| handle == nickname }
  end
 
- def remove_identities    
-    Identity.for(self).destroy_all
+ def remove_mergeables
+    Merge.mergeables.each do |mergeable|
+      mergeable.for(self).destroy_all
+    end
  end
   
 end
