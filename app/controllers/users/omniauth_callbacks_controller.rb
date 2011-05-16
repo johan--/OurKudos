@@ -25,10 +25,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     unless omniauth_data.recursive_find_by_key("email").blank?
       user = User.find_by_email omniauth_data.recursive_find_by_key("email")
 
-      if user
-        flash[:notice] = "Account connected"
-        sign_in :user, user
-        add_new_authentication and return
+      if user        
+        unless user.is_confirmed?
+          set_flash_message :notice, :inactive_signed_up
+          sign_out_and_redirect(user)  and return
+        else
+          flash[:notice] = "Account connected"
+          sign_in :user, user
+          add_new_authentication and return
+        end
       else
         user = User.new
       end
