@@ -32,8 +32,10 @@ class Merge < ActiveRecord::Base
 
       Merge.mergeables.each do |model|
           objects = self.merged.send model.to_s.underscore.pluralize
-          model.change_objects_owner_to objects, self.merger
+          model.change_objects_owner_to objects, self.merger          
       end
+
+      self.merged.destroy
      end
    end
 
@@ -44,7 +46,6 @@ class Merge < ActiveRecord::Base
 
     def accounts new_user, identity
       return Merge.new if identity.blank?
-
         new_user.merges.build  :merged_by         => new_user.id,
                                :merged_id         => identity.user_id,
                                :merged_with_email => identity.user.email,

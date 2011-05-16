@@ -9,8 +9,7 @@ class User < ActiveRecord::Base
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids
 
   attr_accessor :primary_identity
-
-  acts_as_paranoid
+  
   # ================
   # = associations =
   # ================
@@ -36,7 +35,7 @@ class User < ActiveRecord::Base
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   before_destroy :set_identities_as_destroyable
-  after_destroy Proc.new {|user| user.identities.destroy_all }
+  after_destroy  :remove_identities  # can't use :depended destroy because it's too early event, need this method
 
   # ================
   # == pg indexes ==
@@ -117,7 +116,7 @@ class User < ActiveRecord::Base
  end
 
  def set_identities_as_destroyable
-   identities.each  { |identity| identity.set_as_tetriary! }
+   Identity.for(self).each  { |identity| identity.set_as_tetriary! }
  end
 
  def add_role
@@ -149,5 +148,8 @@ class User < ActiveRecord::Base
    twitter_handles.any? { |handle| handle == nickname }
  end
 
+ def remove_identities    
+    Identity.for(self).destroy_all
+ end
   
 end
