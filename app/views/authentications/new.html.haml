@@ -1,9 +1,0 @@
-%h3= t :add_new_authentication
-
-= form_for @authentication, :url => user_authentications_path(current_user) do |f|
-  
-  = error_messages_for @authentication
-  
-  = render :partial => 'authentications/form_fields', :locals => {:f => f }
-  
-  = f.submit t(:add_new_authorization)

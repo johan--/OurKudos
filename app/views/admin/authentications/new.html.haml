@@ -1,0 +1,11 @@
+%h3= t :add_new_authentication
+
+= form_for @authentication, :url => admin_user_authentications_path(@user) do |f|
+  
+  = error_messages_for @authentication
+  
+  = render :partial => 'admin/authentications/form_fields', :locals => {:f => f }
+  
+  = f.submit t(:add_new_authorization)
+
+= link_to t(:back_to_users_administration), admin_user_path(@user)

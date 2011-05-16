@@ -1,7 +1,0 @@
-%h3= t :edit_identity
-
-= form_for @authentication, :url => @submit_url, :method => :put do |f|
-  
-  = render :partial => "authentications/form_fields", :locals => {:f => f}
-  
-  = f.submit t(:provider_update)
