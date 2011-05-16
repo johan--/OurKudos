@@ -145,7 +145,7 @@ class User < ActiveRecord::Base
  end
 
  def has_twitter_handle?(nickname)
-   twitter_handles.any? { |handle| handle == nickname }
+   twitter_handles.any? { |handle| handle == nickname.gsub(/^@{1,}/, '') }
  end
 
  def remove_mergeables
