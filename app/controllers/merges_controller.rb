@@ -28,8 +28,6 @@ class MergesController < ApplicationController
   end
 
   def update    
-    @old_user = @merge.merged
-    
     if @merge.merge_accounts
       redirect_to user_path(current_user), :notice => I18n.t(:you_have_successfuly_merged_your_accounts)
     else
