@@ -22,25 +22,20 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def omniauth_sign_up
-    unless omniauth_data.recursive_find_by_key("email").blank?
-      user = User.find_by_email omniauth_data.recursive_find_by_key("email")
+    email = omniauth_data.recursive_find_by_key("email")
 
-      if user        
-        unless user.is_confirmed?
-          set_flash_message :notice, :inactive_signed_up
-          sign_out_and_redirect(user)  and return
-        else
-          flash[:notice] = "Account connected"
-          sign_in :user, user
-          add_new_authentication and return
-        end
-      else
-        user = User.new
-      end
+    unless email.blank?
+      user = User.find_by_email email            
+      check_confirmation_and_redirect(user) and return if user
       
-    end
+      identity = Identity.find_by_identity_and_identity_type(email, 'email')
+      check_confirmation_and_redirect identity.user and return if identity        
 
-    user.apply_omniauth(omniauth_data)
+      user = User.new
+    else
+      user = User.new
+    end
+    user.apply_omniauth omniauth_data
     
     session[:user] = user.attributes
     session[:authentication] = user.authentications.first.attributes
@@ -77,6 +72,17 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def valid_provider?(provider)
     !User.omniauth_providers.index(provider).nil?
+  end
+
+  def check_confirmation_and_redirect user
+    unless user.is_confirmed?
+      flash[:notice] = I18n.t('devise.regristrations.inactive_signed_up')
+      sign_out_and_redirect user
+    else
+      flash[:notice] = "Account connected"
+      sign_in :user, user
+      add_new_authentication 
+     end
   end
   
 end
