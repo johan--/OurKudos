@@ -3,25 +3,25 @@ module OurKudos
 
       
       def generate key_length = 64
-        return polymorphic_or_self.key unless polymorphic_or_self.key.blank?
+        return current_object.key unless current_object.key.blank?
 
         big_array = ('A'..'Z').to_a + ("a".."z").to_a + ("0".."9").to_a
-        polymorphic_or_self.key = ''
-        1.upto(key_length) { polymorphic_or_self.key << big_array[rand(big_array.size-1)] }
+        current_object.key = ''
+        1.upto(key_length) { current_object.key << big_array[rand(big_array.size-1)] }
       end
 
       def regenerate!
-        polymorphic_or_self.key = ''
+        current_object.key = ''
         generate
         save :validate => false
       end
 
       def confirm!    
-        update_attribute :confirmed, true if self.respond_to?(:confirmed)
+        current_object.update_attribute :confirmed, true
       end
 
-      def polymorphic_or_self
-        return self.confirmation if needs_confirmation?
+      def current_object
+        return self.confirmation if self.respond_to?(:confirmation)
         self
       end
 

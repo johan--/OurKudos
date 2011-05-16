@@ -70,7 +70,6 @@ class Identity < ActiveRecord::Base
                           :confirmable_id   => self.id,
                           :confirmed        => true) if needs_confirmation?
   end
-
   # =================
   # = class methods =
   # =================

@@ -16,9 +16,10 @@ Role.create([
                :password => "admin123",
                :password_confirmation => "admin123",
                :first_name => "Admin",
+               :confirmed  => true, 
                :last_name => "Big Boss")
- admin.confirm!
 
  admin.roles << Role.first
+ admin.save :validate => false
 
-admin.save :validate => false
+ admin.identities.first.confirm!
