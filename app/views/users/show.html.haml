@@ -1,10 +1,15 @@
 %h3= t :my_account_settings
 
-= render :partial => "identities/index", :locals => {:identities => @identities }
-
-%p= link_to t(:add_new_identity), new_user_identity_path(current_user)
+- if @user.authentications.any?
+  %p
+    = t :you_can_authenticate_using_following_methods
+    = @user.render_providers
 
 %p= render '/shared/social_links'
 
-%p= link_to t(:merge_with_my_other_account), new_merge_path
-%p= link_to "gateway", '/gateway/to/merge', :method => :post
+= render :partial => "identities/index", :locals => {:identities => @identities }
+
+%p
+  = link_to t(:add_new_identity), new_user_identity_path(current_user)
+  |
+  = link_to t(:merge_with_my_other_account), new_merge_path

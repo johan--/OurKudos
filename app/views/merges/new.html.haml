@@ -9,7 +9,7 @@
   %p.explanation= t(:merge_explanation)
 
   %p= label_tag "merge-account-autocomplete", t(:enter_account_identity)
-  %p= text_field_tag :identity, '', :class => "string", :id => 'merge-account-autocomplete', :size => 30 
+  %p= text_field_tag :identity, params[:identity], :class => "string", :id => 'merge-account-autocomplete', :size => 30
 
   %p= label_tag "merge-account-password", t(:enter_account_password)
   %p= f.password_field :password,  :class => "string"

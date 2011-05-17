@@ -9,19 +9,14 @@ class MergesController < ApplicationController
   def create
     @identity = Identity.find_by_identity params[:identity]
 
-    if params[:identity].blank? || @identity.blank?
-      redirect_to new_merge_path, :alert => I18n.t(:please_enter_valid_identity)   
-    else
-      @merge = Merge.accounts current_user, @identity
-      @merge.password  = params[:merge][:password] if params[:merge] # need to pass it manually
+    @merge = Merge.accounts current_user, @identity
+    @merge.password  = params[:merge][:password] if params[:merge] # need to pass it manually
       
       if @merge.save        
          redirect_to new_merge_path, :notice => I18n.t(:merge_instructions_sent)
       else
         render :new
       end
-
-    end
   end
 
 

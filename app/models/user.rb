@@ -154,4 +154,8 @@ class User < ActiveRecord::Base
     end
  end
 
+ def render_providers
+   authentications.map(&:provider).push("our kudos").reverse.join(", ")
+ end
+
 end

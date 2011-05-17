@@ -4,7 +4,7 @@ module OurKudos
       
       def generate key_length = 64
         return current_object.key unless current_object.key.blank?      
-        current_object.key = (Devise.friendly_token*4)[0..key_length]
+        current_object.key = (Devise.friendly_token*4)[0..key_length-1]
       end
 
       def regenerate!
