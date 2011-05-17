@@ -1,7 +1,7 @@
 %p.authentication-field.field
   = f.label :provider
   %br/
-  = f.select :provider, options_for_select(Authentication.options_for_provider, @authentication.provider)
+  = f.select :provider, options_for_select(@user.my_options_for_providers, @authentication.provider)
    
 %p.authentication-field.field
   = f.label :uid, t(:provider_uid)

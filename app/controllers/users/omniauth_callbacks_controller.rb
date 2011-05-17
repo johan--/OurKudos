@@ -25,24 +25,27 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     email = omniauth_data.recursive_find_by_key("email")
 
     unless email.blank?
-      user = User.find_by_email email            
-      check_confirmation_and_redirect(user) and return if user
-      
-      identity = Identity.find_by_identity_and_identity_type(email, 'email')
-      check_confirmation_and_redirect identity.user and return if identity        
-
-      user = User.new
+      user = User.find_or_initialize_by_email(:email => email)
     else
       user = User.new
     end
-    user.apply_omniauth omniauth_data
+    debugger
+    user.apply_omniauth omniauth_data 
     
     session[:user] = user.attributes
     session[:authentication] = user.authentications.first.attributes
 
-    if user.save 
+    if user.new_record? && user.save
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider'] 
       redirect_to new_user_registration_path(:autofill => "true")
+
+    elsif !user.new_record? && user.save && user.is_confirmed?
+      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
+      sign_in :user, user
+      redirect_to user_path(user)
+    elsif !user.new_record? && user.save && !user.is_confirmed?
+      flash[:notice] = I18n.t('devise.regristrations.inactive_signed_up')
+      sign_out_and_redirect user
     else
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
       redirect_to new_user_registration_path(:autofill => "true")
@@ -55,8 +58,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if preexisting_authorization_token && preexisting_authorization_token.user != current_user
       flash[:alert] = "You have created two accounts and they can't be merged automatically. If you want to merge them please sign in, and use or merge account functionally"
       sign_in_and_redirect(:user, current_user)
-    else
+    elsif preexisting_authorization_token && preexisting_authorization_token.user == current_user
+      flash[:notice] = "Account connected"
+      sign_in_and_redirect(:user, current_user)
 
+    else
       current_user.apply_omniauth(omniauth_data)      
       current_user.save :validate => false
       
@@ -78,10 +84,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     unless user.is_confirmed?
       flash[:notice] = I18n.t('devise.regristrations.inactive_signed_up')
       sign_out_and_redirect user
-    else
-      flash[:notice] = "Account connected"
-      sign_in :user, user
-      add_new_authentication 
+    else      
+      sign_in :user, user      
      end
   end
   

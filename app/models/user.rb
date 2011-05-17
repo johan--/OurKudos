@@ -64,14 +64,13 @@ class User < ActiveRecord::Base
     else
       authentications.build(:provider => omniauth['provider'], 
                             :uid      => omniauth['uid'],
-                            :nickname => omniauth.recursive_find_by_key("nickname"))
-      self.email = omniauth.recursive_find_by_key("email")
+                            :nickname => omniauth.recursive_find_by_key("nickname"))    
     end
       look_for_other_fields omniauth
   end
 
   def look_for_other_fields omniauth
-    self.email      = omniauth.recursive_find_by_key("email")      if omniauth.recursive_find_by_key("email")
+    self.email      = omniauth.recursive_find_by_key("email")      if self.email.blank? && omniauth.recursive_find_by_key("email")
     self.last_name  = omniauth.recursive_find_by_key("last_name")  if omniauth.recursive_find_by_key("last_name")
     self.first_name = omniauth.recursive_find_by_key("first_name") if omniauth.recursive_find_by_key("first_name")
     self.gender     = omniauth.recursive_find_by_key("gender")     if omniauth.recursive_find_by_key("gender")
@@ -156,6 +155,14 @@ class User < ActiveRecord::Base
 
  def render_providers
    authentications.map(&:provider).push("our kudos").reverse.join(", ")
+ end
+ 
+ def current_providers
+   authentications.map(&:provider)
+ end
+
+ def my_options_for_providers
+   Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
  end
 
 end
