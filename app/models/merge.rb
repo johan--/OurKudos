@@ -1,5 +1,6 @@
 class Merge < ActiveRecord::Base
 
+  attr_accessor :password
   # ================
   # = associations =
   # ================
@@ -11,9 +12,10 @@ class Merge < ActiveRecord::Base
   # ================
   # = validations  =
   # ================
-  validates :identity_id, :presence => true
+  validates :identity_id, :presence         => true
   validates :identity_id, :identity_primary => true
-
+  validates :password,    :presence         => true
+  validates :password,    :merge_password   => true, :unless => ->(user) { user.password.blank? }
   # ================
   # == extensions ==
   # ================
@@ -26,7 +28,7 @@ class Merge < ActiveRecord::Base
   # == instance methods ==
   # ======================
 
-   def merge_accounts
+   def run!
      Merge.transaction do
       self.merged.set_identities_as_destroyable
 
@@ -38,6 +40,7 @@ class Merge < ActiveRecord::Base
       self.merged.destroy
      end
    end
+
 
   # =================
   # = class methods =
@@ -54,7 +57,7 @@ class Merge < ActiveRecord::Base
     end
 
     def mergeables
-     OurKudos::Acts::Mergeable.mergeables # (i.e [Identity, Authentication])
+      OurKudos::Acts::Mergeable.mergeables # (i.e [Identity, Authentication])
     end
 
 

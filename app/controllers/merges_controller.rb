@@ -13,7 +13,8 @@ class MergesController < ApplicationController
       redirect_to new_merge_path, :alert => I18n.t(:please_enter_valid_identity)   
     else
       @merge = Merge.accounts current_user, @identity
-
+      @merge.password  = params[:merge][:password] if params[:merge] # need to pass it manually
+      
       if @merge.save        
          redirect_to new_merge_path, :notice => I18n.t(:merge_instructions_sent)
       else
@@ -28,7 +29,7 @@ class MergesController < ApplicationController
   end
 
   def update    
-    if @merge.merge_accounts
+    if @merge.run!
       redirect_to user_path(current_user), :notice => I18n.t(:you_have_successfuly_merged_your_accounts)
     else
       redirect_to user_path(current_user), :alert => I18n.t(:merge_unable_to_merge_accounts)

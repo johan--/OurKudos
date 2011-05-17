@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110515114226) do
+ActiveRecord::Schema.define(:version => 20110517094017) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(:version => 20110515114226) do
     t.string   "status"
     t.boolean  "confirmed"
     t.datetime "deleted_at"
+    t.string   "password_salt"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

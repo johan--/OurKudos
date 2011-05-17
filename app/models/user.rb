@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,:omniauthable,
          :recoverable, :rememberable, :trackable,  :token_authenticatable,
-         :lockable, :timeoutable
+         :lockable, :timeoutable, :encryptable, :encryptor => :sha512
          
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
@@ -153,5 +153,5 @@ class User < ActiveRecord::Base
       mergeable.for(self).destroy_all
     end
  end
-  
+
 end

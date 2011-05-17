@@ -3,11 +3,8 @@ module OurKudos
 
       
       def generate key_length = 64
-        return current_object.key unless current_object.key.blank?
-
-        big_array = ('A'..'Z').to_a + ("a".."z").to_a + ("0".."9").to_a
-        current_object.key = ''
-        1.upto(key_length) { current_object.key << big_array[rand(big_array.size-1)] }
+        return current_object.key unless current_object.key.blank?      
+        current_object.key = (Devise.friendly_token*4)[0..key_length]
       end
 
       def regenerate!
