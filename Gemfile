@@ -16,6 +16,7 @@ gem 'omniauth'
 gem 'ourkudos','~> 0.0.3'
 gem 'cancan'
 gem 'delete_paranoid'
+gem 'honeypot-captcha'
 
 group :test do
   gem "cucumber"
