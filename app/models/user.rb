@@ -2,14 +2,14 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,:omniauthable,
          :recoverable, :rememberable, :trackable,  :token_authenticatable,
-         :lockable, :timeoutable, :encryptable, :encryptor => :sha512
+         :timeoutable, :encryptable, :encryptor => :sha512
          
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids
 
   attr_accessor :primary_identity
-  
+  include OurKudos::Lockable
   # ================
   # = associations =
   # ================
