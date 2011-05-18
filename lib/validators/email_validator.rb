@@ -5,7 +5,6 @@ class EmailValidator < ActiveModel::EachValidator
   end
 
   def identity_email_exists?(record, email)
-    debugger
     !(User.where(:email => email).where("id <> ?", record.id).blank?) || 
       search_identity_table(record, email)
   end
