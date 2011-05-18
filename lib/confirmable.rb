@@ -33,5 +33,7 @@ module OurKudos
         self.respond_to?(:confirmation) && self.confirmation.blank?
       end
 
-    end  
+    end
+
+    
 end

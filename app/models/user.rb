@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications
   has_many :identities
+  has_many :confirmations, :through => :identities
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
@@ -154,7 +155,7 @@ class User < ActiveRecord::Base
  end
 
  def render_providers
-   authentications.map(&:provider).push("our kudos").reverse.join(", ")
+   authentications.map(&:provider).push("our kudos").reverse.join(", ").uniq
  end
  
  def current_providers
@@ -164,5 +165,10 @@ class User < ActiveRecord::Base
  def my_options_for_providers
    Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
  end
+
+ def active_for_authentication?
+   super && is_confirmed?
+ end
+
 
 end

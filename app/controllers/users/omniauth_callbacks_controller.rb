@@ -40,17 +40,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:user] = user.attributes
     session[:authentication] = user.authentications.first.attributes
     
-    if user.new_record? && user.save
+    if user.save
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider'] 
-      redirect_to new_user_registration_path(:autofill => "true")
-
-    elsif !user.new_record? && user.save && user.is_confirmed?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
-      sign_in :user, user
-      redirect_to user_path(user)
-    elsif !user.new_record? && user.save && !user.is_confirmed?
-      flash[:notice] = I18n.t('devise.regristrations.inactive_signed_up')
-      sign_out_and_redirect user
+      redirect_to new_user_registration_path(:autofill => "true")  
     else
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
       redirect_to new_user_registration_path(:autofill => "true")

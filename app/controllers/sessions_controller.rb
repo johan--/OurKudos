@@ -8,10 +8,7 @@ class SessionsController < Devise::SessionsController
 
   def create
     resource = warden.authenticate
-    if resource.blank?
-      redirect_to :back
-      set_flash_message(:alert, :invalid) if is_navigational_format?
-    elsif resource && resource.is_confirmed?     
+    if resource
       set_flash_message(:notice, :signed_in) if is_navigational_format?          
       respond_with resource, :location => redirect_location(resource_name, resource)
     else
