@@ -28,8 +28,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user = User.find_or_initialize_by_email(:email => email)
     else
       user = User.new
-    end
-
+    end    
     user.apply_omniauth omniauth_data 
     
     session[:user] = user.attributes
@@ -73,20 +72,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def set_omniauth_data
     self.omniauth_data = env["omniauth.auth"]
-    self.preexisting_authorization_token = Authentication.find_by_provider_and_uid(omniauth_data['provider'], omniauth_data['uid'])
+    self.preexisting_authorization_token = Authentication.find_by_provider_and_uid(omniauth_data['provider'], omniauth_data['uid']) if omniauth_data
   end
 
   def valid_provider?(provider)
     !User.omniauth_providers.index(provider).nil?
   end
 
-  def check_confirmation_and_redirect user
-    unless user.is_confirmed?
-      flash[:notice] = I18n.t('devise.regristrations.inactive_signed_up')
-      sign_out_and_redirect user
-    else      
-      sign_in :user, user      
-     end
-  end
-  
 end

@@ -46,11 +46,15 @@ module OurKudos
       Time.now.utc > self.unlock_in.utc
     end
 
+    def same_ip?(request)
+      last_sign_in_ip == request.ip
+    end
+
     def increase_attempt_count!
       update_attribute :failed_attempts, self.failed_attempts += 1
     end
 
-    def password_is_valid
+    def session_is_valid
       if lock_time_expired?
         unlock!
         self.lock_message = ''
@@ -61,10 +65,10 @@ module OurKudos
       end
     end
 
-    def password_is_invalid
+    def session_is_invalid
       increase_attempt_count!
       if allowed_attempts_exceeded?
-        set_lock_time
+        set_lock_time 
         self.lock_message  = I18n.t('devise.sessions.user.locked', :time => minutes_seconds)
       else
         self.lock_message = I18n.t('devise.sessions.user.invalid')
@@ -74,10 +78,15 @@ module OurKudos
 
     def after_sign_in_flow password
       unless valid_password? password
-        password_is_invalid
+        session_is_invalid
       else
-        password_is_valid
+        session_is_valid
       end
+    end
+
+    def oauth_after_sign_in_flow
+      return session_is_invalid if is_locked?
+      return session_is_valid   unless is_locked?
     end
 
    
@@ -85,19 +94,29 @@ module OurKudos
 end
 
 Warden::Manager.after_authentication :except => :fetch do |record, warden, options|
+
   request = warden.request
   scope   = options[:scope]
+
   if record.respond_to?(:after_sign_in_flow)
-    if request[:user] && request[:user][:password] && warden.authenticated?
-      if record.after_sign_in_flow request[:user][:password]
-        warden.logout scope
-        throw :warden, :scope => scope, :message => record.lock_message
-      else #password is correct
-        if record.is_locked?
-          throw :warden, :scope => scope, :message => record.lock_message
+    if warden.authenticated?
+      if request[:user] && request[:user][:password]        
+        if record.after_sign_in_flow(request[:user][:password]) && record.same_ip?(request)
           warden.logout scope
+          throw :warden, :scope => scope, :message => record.lock_message
+        else #password is correct
+          if record.is_locked?
+            throw :warden, :scope => scope, :message => record.lock_message
+            warden.logout scope
+          end
+        end
+      elsif request.session.include? "oauth"
+        if record.oauth_after_sign_in_flow
+          warden.logout scope
+          throw :warden, :scope => scope, :message => record.lock_message
         end
       end
     end
   end
+
 end
