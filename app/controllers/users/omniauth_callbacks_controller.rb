@@ -26,6 +26,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     unless email.blank?
       user = User.find_or_initialize_by_email(:email => email)
+     
+      if user.new_record?
+        identity = Identity.find_by_identity_and_identity_type(email, 'email')
+        user     = identity.user if identity
+      end
+
     else
       user = User.new
     end    
@@ -33,7 +39,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     session[:user] = user.attributes
     session[:authentication] = user.authentications.first.attributes
-
+    
     if user.new_record? && user.save
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider'] 
       redirect_to new_user_registration_path(:autofill => "true")
