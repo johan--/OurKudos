@@ -155,7 +155,7 @@ class User < ActiveRecord::Base
  end
 
  def render_providers
-   authentications.map(&:provider).push("our kudos").reverse.join(", ").uniq
+   authentications.map(&:provider).push("our kudos").reverse.join(", ")
  end
  
  def current_providers
