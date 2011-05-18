@@ -2,21 +2,23 @@ module OurKudos
   module Lockable
 
     mattr_accessor :max_attempts
+    attr_accessor  :lock_message
     
     @@max_attempts = 5
 
     def set_lock_time
-      update_attribute :unlock_in,  Time.now - 100.years unless needs_lock?
       update_attribute :unlock_in,  Time.now + lock_seconds.seconds
+    end
+
+    def unlock!
+      self.unlock_in = Time.now - 100.years
+      self.failed_attempts = 0
+      self.save :validate => false
     end
 
     def minutes_seconds
       return "#{blocked_for} seconds" if blocked_for < 60
       return "#{blocked_for/60} minutes" if blocked_for > 60
-    end
-
-    def lock_message
-      "Your account has been locked for another #{minutes_seconds}"if needs_lock?
     end
 
     def lock_seconds
@@ -32,37 +34,61 @@ module OurKudos
       @blocked_for ||= lock_seconds
     end
 
-    def needs_lock?
+    def allowed_attempts_exceeded?
       self.failed_attempts > @@max_attempts
     end
 
     def is_locked?
-      Time.now.utc < self.unlock_in.utc
+      allowed_attempts_exceeded?  && !lock_time_expired?
+    end
+
+    def lock_time_expired?
+      Time.now.utc > self.unlock_in.utc
     end
 
     def increase_attempt_count!
       update_attribute :failed_attempts, self.failed_attempts += 1
     end
 
-    def after_sign_in_flow(password)
+    def after_sign_in_flow password
       unless valid_password? password
-        increase_attempt_count!        
-        set_lock_time if needs_lock?
+        increase_attempt_count!
+        if allowed_attempts_exceeded?
+          set_lock_time 
+          self.lock_message  = I18n.t('devise.sessions.user.locked', :time => minutes_seconds)
+        else
+           self.lock_message = I18n.t('devise.sessions.user.invalid')
+        end
         return true
+      else
+        if lock_time_expired?
+          unlock!
+          self.lock_message = ''
+          return false
+        else
+          self.lock_message =  I18n.t('devise.sessions.user.locked_until', :time => self.unlock_in.strftime("%I:%M:%S"))
+          return true
+        end
       end
-      return false
     end
+
    
   end
 end
 
 Warden::Manager.after_authentication :except => :fetch do |record, warden, options|
   request = warden.request
+  scope   = options[:scope]
   if record.respond_to?(:after_sign_in_flow)
     if request[:user] && request[:user][:password] && warden.authenticated?
-      unless record.after_sign_in_flow request[:user][:password]
-      else
-        warden.logout(options[:scope])
+      if record.after_sign_in_flow request[:user][:password]
+        warden.logout scope
+        throw :warden, :scope => scope, :message => record.lock_message
+      else #password is correct
+        if record.is_locked?
+          throw :warden, :scope => scope, :message => record.lock_message
+          warden.logout scope
+        end
       end
     end
   end
