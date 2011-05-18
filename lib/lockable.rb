@@ -100,7 +100,7 @@ Warden::Manager.after_authentication :except => :fetch do |record, warden, optio
 
   if record.respond_to?(:after_sign_in_flow)
     if warden.authenticated?
-      if request[:user] && request[:user][:password]        
+      if request[:user] && request[:user][:password] &&  request.params[:commit] != "Sign up"
         if record.after_sign_in_flow(request[:user][:password]) && record.same_ip?(request)
           warden.logout scope
           throw :warden, :scope => scope, :message => record.lock_message
