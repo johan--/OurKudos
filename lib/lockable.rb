@@ -50,25 +50,33 @@ module OurKudos
       update_attribute :failed_attempts, self.failed_attempts += 1
     end
 
+    def password_is_valid
+      if lock_time_expired?
+        unlock!
+        self.lock_message = ''
+        return false
+      else
+        self.lock_message =  I18n.t('devise.sessions.user.locked_until', :time => self.unlock_in.strftime("%I:%M:%S"))
+        return true
+      end
+    end
+
+    def password_is_invalid
+      increase_attempt_count!
+      if allowed_attempts_exceeded?
+        set_lock_time
+        self.lock_message  = I18n.t('devise.sessions.user.locked', :time => minutes_seconds)
+      else
+        self.lock_message = I18n.t('devise.sessions.user.invalid')
+      end
+      return true
+    end
+
     def after_sign_in_flow password
       unless valid_password? password
-        increase_attempt_count!
-        if allowed_attempts_exceeded?
-          set_lock_time 
-          self.lock_message  = I18n.t('devise.sessions.user.locked', :time => minutes_seconds)
-        else
-           self.lock_message = I18n.t('devise.sessions.user.invalid')
-        end
-        return true
+        password_is_invalid
       else
-        if lock_time_expired?
-          unlock!
-          self.lock_message = ''
-          return false
-        else
-          self.lock_message =  I18n.t('devise.sessions.user.locked_until', :time => self.unlock_in.strftime("%I:%M:%S"))
-          return true
-        end
+        password_is_valid
       end
     end
 

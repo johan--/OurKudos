@@ -29,7 +29,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       user = User.new
     end
-    debugger
+
     user.apply_omniauth omniauth_data 
     
     session[:user] = user.attributes
