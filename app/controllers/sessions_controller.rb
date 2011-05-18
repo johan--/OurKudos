@@ -16,7 +16,7 @@ class SessionsController < Devise::SessionsController
       respond_with resource, :location => redirect_location(resource_name, resource)
     else
       set_flash_message :notice, :inactive_signed_in, :reason => resource.inactive_message.to_s if is_navigational_format?
-      sign_out(resource_name)
+      sign_out resource_name
       redirect_to root_path, :notice => I18n.t('devise.sessions.user.inactive_signed_in')
     end
   end
