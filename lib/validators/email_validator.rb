@@ -5,10 +5,16 @@ class EmailValidator < ActiveModel::EachValidator
   end
 
   def identity_email_exists?(record, email)
-    !(User.where(:email => email).where("id <> ?", record.id).blank?) ||
+    debugger
+    !(User.where(:email => email).where("id <> ?", record.id).blank?) || 
+      search_identity_table(record, email)
+  end
 
-      !(Identity.where(:identity => email, :identity_type => "email").
-               where("user_id <> ?", record.id).blank?)
+  def search_identity_table(record, email)
+      return !(Identity.where(:identity => email, :identity_type => "email").
+               where("user_id <> ?", record.id).blank?) unless record.new_record?
+
+      return !(Identity.where(:identity => email, :identity_type => "email").blank?) if record.new_record?
   end
 
 end
