@@ -5,7 +5,7 @@ class IsForbiddenPasswordValidator < ActiveModel::EachValidator
   end
 
   def exists? password
-    ForbiddenPassword.exists? password.downcase
+    ForbiddenPassword.exists?(password.downcase) rescue false
   end
 
 

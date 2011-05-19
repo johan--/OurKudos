@@ -88,12 +88,12 @@ describe User do
 
       some_user.set_identities_as_destroyable
 
-      some_user.identities.each { |id| id.destroy.should be_true }
+      Identity.for(some_user).each { |id| id.destroy.should be_true }
 
     end
 
   describe User, "validations" do
-    User.new(:first_name => "some name", :last_name => "last name", :email => "email")
+    User.new(:first_name => "some name 323", :last_name => rand(100), :email => "email@com.pl")
 
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:first_name) }

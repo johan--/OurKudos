@@ -94,10 +94,3 @@ Factory.define :locked_ip, :class => "Ip" do |ip|
   ip.failed_attempts 50
   ip.unlock_in (Time.now + 100.years)
 end
-
-Factory.define :merge do |m|
-  m.merged  Factory(:user)
-  m.merger  Factory(:other_user)
-  m.merged_with_email Factory(:user).email
-  m.association :identity
-end
