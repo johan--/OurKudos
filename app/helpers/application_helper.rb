@@ -25,7 +25,7 @@ module ApplicationHelper
   end
 
   def admin_request?
-   request.url.include?('/admin')
+    request.url.include?('/admin')
   end
 
   def admin_or_user_edit_identity_path(user, identity)

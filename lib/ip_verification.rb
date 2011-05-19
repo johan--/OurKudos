@@ -1,4 +1,3 @@
-
 module OurKudos
   module Controllers
     module IpVerification
