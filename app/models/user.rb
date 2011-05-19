@@ -25,8 +25,9 @@ class User < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name,  :presence => true
   validates :email,      :presence => true, :uniqueness => true, :email => true
-  validates :password,   :presence => true, :length => { :minimum => 6, :maximum => 40 },
-                                           :confirmation => true, :if => :new_record?
+  validates :password,   :presence => true, 
+                         :format   => { :with => RegularExpressions.password },
+                         :confirmation => true, :if => :new_record?
   # ================
   # == extensions ==
   # ================
