@@ -30,11 +30,13 @@ module ApplicationHelper
 
   def admin_or_user_edit_identity_path(user, identity)
     return edit_user_identity_path(user, identity) unless admin_request?
+
     edit_admin_user_identity_path(user, identity)
   end
 
   def admin_or_user_identity_path(user, identity)
     return user_identity_path(user, identity) unless admin_request?
+    
     admin_user_identity_path(user, identity)
   end
 

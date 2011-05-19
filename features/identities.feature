@@ -3,8 +3,8 @@ Feature: Identities management
 Scenario: Administrator creates/edits/removes identity
 
     Given I'm logged in as an administrator with:
-    | email             | password    |
-    | admin@example.net | secret pass |    
+    | email             | password     |
+    | admin@example.net | secret pass1 |
     When I go to the last user detail page
     And I follow "Add new identity"
     And I select "email" from "Identity type"
@@ -24,8 +24,8 @@ Scenario: Administrator creates/edits/removes identity
 Scenario: User creates/edits/removes identity
 
     Given I'm logged in as a user with:
-    | email             | password    |
-    | user@example.net  | secret pass |
+    | email             | password     |
+    | user@example.net  | secret pass1 |
     When I follow "My account"
     And I follow "Add new identity"
     And I select "email" from "Identity type"

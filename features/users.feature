@@ -7,16 +7,16 @@ Scenario: User can create an account natively
   And I fill in "Email" with "marcin.walczak@gmail.com"
   And I fill in "First name" with "Marcin"
   And I fill in "Last name" with "Walczak"
-  And I fill in "Password" with "verysecretpassword"
-  And I fill in "Password confirmation" with "verysecretpassword"
+  And I fill in "Password" with "verysecretpassword1"
+  And I fill in "Password confirmation" with "verysecretpassword1"
   And I press "Sign up"
-  And I should see "You have signed up successfully. However, we could not sign you in because your account is inactive."
+  And I should see "You have signed up successfully. Please check your email and confirm your account"
   
 Scenario: A user unsuccessfully signs in with their email/password
   Given I am on the homepage
   When I follow "SIGN IN"
   And I fill in "Email" with "marcin.walczak@gmail.com"
-  And I fill in "Password" with "verysecretpassword"
+  And I fill in "Password" with "verysecretpassword1"
   And I press "Sign in"
   Then I should see "Invalid email or password"
 
@@ -25,10 +25,10 @@ Scenario: A user signs in with their email/password (facebook)
   Given I am on the homepage
   When I follow "Sign in with Facebook" image
   Then I should see "In order to save your account, please provide missing information"
-  And I fill in "Password confirmation" with "verysecretpassword"
-  And I fill in "Password" with "verysecretpassword"
-  And I press "Sign up"  
-  Then I should see "You have signed up successfully. However, we could not sign you in because your account is inactive."
+  And I fill in "Password confirmation" with "verysecretpassword1"
+  And I fill in "Password" with "verysecretpassword1"
+  And I press "Sign up"
+  Then I should see "You have signed up successfully. Please check your email and confirm your account"
   
 @omniauth_test_success_twitter
 Scenario: A user tries to sign up with its email/password (twitter)
@@ -39,8 +39,8 @@ Scenario: A user tries to sign up with its email/password (twitter)
 @omniauth_test_success_twitter
 Scenario: A user signs in with their email/password (twitter) (user existis)
   Given I'm logged in as a user with:
-    | email             | password    | id |
-    | admin@example.net | secret pass | 1  | 
+    | email             | password     | id |
+    | admin@example.net | secret pass1 | 1  |
   When I follow "Sign in with Twitter" image  
   Then I should see "Account connected"
   When I follow "SIGN OUT"
@@ -49,13 +49,13 @@ Scenario: A user signs in with their email/password (twitter) (user existis)
 
 Scenario: Administrator can search users
   Given I'm logged in as an administrator with:
-    | email             | password    | id | 
-    | admin@example.net | secret pass | 1  |
+    | email             | password     | id |
+    | admin@example.net | secret pass1 | 1  |
   And the following users exists:
-    | email              | password    | id | 
-    | user@example.net   | secret pass | 2  |
-    | user2@example.net  | secret pass | 3  |
-    | user3@example.net  | secret pass | 4  |
+    | email              | password     | id |
+    | user@example.net   | secret pass1 | 2  |
+    | user2@example.net  | secret pass1 | 3  |
+    | user3@example.net  | secret pass1 | 4  |
   When I follow "Admin Area"
   And I follow "Users management"
   Then I should see "Email"
@@ -75,13 +75,13 @@ Scenario: Administrator can search users
   
 Scenario: Administrator can sort users
     Given I'm logged in as an administrator with:
-      | email             | password    | id | 
-      | admin@example.net | secret pass | 1  |
+      | email             | password     | id |
+      | admin@example.net | secret pass1 | 1  |
     And the following users exists:
-      | email              | password    | id | 
-      | user@example.net   | secret pass | 2  |
-      | user2@example.net  | secret pass | 3  |
-      | user3@example.net  | secret pass | 4  |
+      | email              | password     | id |
+      | user@example.net   | secret pass1 | 2  |
+      | user2@example.net  | secret pass1 | 3  |
+      | user3@example.net  | secret pass1 | 4  |
     When I follow "Admin Area"
     And I follow "Users management"
     And I follow "Email"
@@ -95,13 +95,13 @@ Scenario: Administrator can sort users
 
 Scenario: Administrator can remove users
   Given I'm logged in as an administrator with:
-      | email             | password    | id | 
-      | admin@example.net | secret pass | 1  |
+      | email             | password     | id |
+      | admin@example.net | secret pass1 | 1  |
   And the following users exists:
-      | email              | password    | id | 
-      | user@example.net   | secret pass | 2  |
-      | user2@example.net  | secret pass | 3  |
-      | user3@example.net  | secret pass | 4  |
+      | email              | password     | id |
+      | user@example.net   | secret pass1 | 2  |
+      | user2@example.net  | secret pass1 | 3  |
+      | user3@example.net  | secret pass1 | 4  |
   When I follow "Admin Area"
   And I follow "Users management"
   And I follow "Remove"
@@ -110,13 +110,13 @@ Scenario: Administrator can remove users
 
 Scenario: Administrator can display user details page
     Given I'm logged in as an administrator with:
-        | email             | password    | id | 
-        | admin@example.net | secret pass | 1  |
+        | email             | password     | id |
+        | admin@example.net | secret pass1 | 1  |
     And the following users exists:
-        | email              | password    | id | 
-        | user@example.net   | secret pass | 2  |
-        | user2@example.net  | secret pass | 3  |
-        | user3@example.net  | secret pass | 4  |
+        | email              | password     | id |
+        | user@example.net   | secret pass1 | 2  |
+        | user2@example.net  | secret pass1 | 3  |
+        | user3@example.net  | secret pass1 | 4  |
     When I follow "Admin Area"
     And I follow "Users management"
     And I follow "More details"
@@ -131,13 +131,13 @@ Scenario: Administrator can display user details page
 
 Scenario: Administrator can change user informations
     Given I'm logged in as an administrator with:
-        | email             | password    | id | 
-        | admin@example.net | secret pass | 1  |
+        | email             | password     | id |
+        | admin@example.net | secret pass1 | 1  |
     And the following users exists:
-        | email              | password    | id | 
-        | user@example.net   | secret pass | 2  |
-        | user2@example.net  | secret pass | 3  |
-        | user3@example.net  | secret pass | 4  |    
+        | email              | password     | id |
+        | user@example.net   | secret pass1 | 2  |
+        | user2@example.net  | secret pass1 | 3  |
+        | user3@example.net  | secret pass1 | 4  |
     When I follow "Admin Area"
     And I follow "Users management"
     And I follow "More details"
@@ -147,13 +147,13 @@ Scenario: Administrator can change user informations
 
 Scenario: Administrator can add/remove user roles
     Given I'm logged in as an administrator with:
-        | email             | password    | id |
-        | admin@example.net | secret pass | 1  |
+        | email             | password     | id |
+        | admin@example.net | secret pass1 | 1  |
     And the following users exists:
-        | email              | password    | id |
-        | user@example.net   | secret pass | 2  |
-        | user2@example.net  | secret pass | 3  |
-        | user3@example.net  | secret pass | 4  |
+        | email              | password     | id |
+        | user@example.net   | secret pass1 | 2  |
+        | user2@example.net  | secret pass1 | 3  |
+        | user3@example.net  | secret pass1 | 4  |
     And the following roles exists:
         | name          |
         | some role 1   |
