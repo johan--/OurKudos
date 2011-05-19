@@ -59,7 +59,7 @@ Factory.define :other_user, :class => "User" do |u|
   u.created_at '2001-11-11'
   u.first_name 'name'
   u.last_name 'last name'
-  u.password 'somepass'
+  u.password 'somepassvalid1234'
   u.roles {|roles| [roles.association(:role)] }
 end
 
@@ -87,10 +87,17 @@ Factory.define :ip do |ip|
   ip.unlock_in (Time.now - 100.years)
 end
 
-Factory.define :locked_ip do |ip|
+Factory.define :locked_ip, :class => "Ip" do |ip|
   ip.address '127.0.0.1'
   ip.last_seen Time.now
   ip.blocked false
   ip.failed_attempts 50
   ip.unlock_in (Time.now + 100.years)
+end
+
+Factory.define :merge do |m|
+  m.merged  Factory(:user)
+  m.merger  Factory(:other_user)
+  m.merged_with_email Factory(:user).email
+  m.association :identity
 end

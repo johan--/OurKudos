@@ -1,6 +1,7 @@
 class Ip < ActiveRecord::Base
 
   attr_accessor :lock_message
+  cattr_accessor :max_attempts
 
   @@max_attempts = 5
 
@@ -21,6 +22,7 @@ class Ip < ActiveRecord::Base
 
   def lock_seconds
     return 3600 if failed_attempts > 99
+    return 0    if failed_attempts < @@max_attempts
 
     ary = []
     1.step(@@max_attempts*10,0.5) {|i| ary << i}

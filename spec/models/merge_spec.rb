@@ -7,14 +7,18 @@ describe Merge do
 
   let(:identity) { Factory(:identity) }
 
-  let(:new_user) { User.new(:id => rand(100)) }  
+  let(:new_user) { Factory(:user) }
 
   it 'should be able to merge accounts if passed valid user and valid identity' do
     Merge.should respond_to 'accounts'
     
     result = Merge.accounts new_user, identity
+    result.password = identity.user.password
+    
     result.identity.stub!(:mergeable?).and_return(true)
+    
     result.should be_an_instance_of Merge
+
     result.save.should be_true
     result.should be_persisted
   end
@@ -24,10 +28,6 @@ describe Merge do
     result.valid?.should be_false
     result.save.should be_false    
   end
-
-
-  context 'merge instance' do
-    let(:merge) { Merge.new}
 
   end
 

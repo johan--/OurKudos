@@ -124,7 +124,7 @@ class User < ActiveRecord::Base
    Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
   end
 
- def save_identity
+  def save_identity
      if self.identities.blank?
       identity = self.identities.create :identity      => self.email,
                                         :is_primary    => true,
