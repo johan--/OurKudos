@@ -13,8 +13,8 @@ Scenario: Administrator can create roles
 Scenario: User tries to delete roles
 
     Given I'm logged in as a user with:
-    | email              | password   |
-    | user@exampl2e.net  | somepass1  |
+    | email              | password     |
+    | user@exampl2e.net  | somepass1    |
     And the following roles exists:
         | name             |
         | administrator    |

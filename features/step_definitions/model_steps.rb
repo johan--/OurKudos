@@ -19,3 +19,13 @@ Given /^I'm logged in as a user with:$/ do |table|
   end
 end
 
+Given /^I tried to login with "([^"]*)" email "([^"]*)" times unsuccessfully$/ do |email, times|  
+  times.to_i.times do
+    And %Q{I go to the new user session page}
+    And %Q{I fill in "Email" with "#{email}"}
+    And %Q{I fill in "Password" with "'badpass'"}
+    And %Q{I press "Sign in"}
+  end
+end
+
+

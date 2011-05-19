@@ -14,6 +14,8 @@ module NavigationHelpers
       admin_site_path Site.last
     when /the last user detail page/
       admin_user_path(User.last)
+    when /the sign in users page/
+      new_new_user_session_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
