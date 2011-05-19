@@ -29,7 +29,6 @@ describe Merge do
     result.save.should be_false    
   end
 
-  end
-
+ 
 
 end
