@@ -8,8 +8,7 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids
 
-  attr_accessor :primary_identity
-  include OurKudos::Lockable
+  attr_accessor :primary_identity  
   # ================
   # = associations =
   # ================
@@ -28,7 +27,10 @@ class User < ActiveRecord::Base
   validates :email,      :presence => true, :uniqueness => true, :email => true
   validates :password,   :presence => true, :length => { :minimum => 6, :maximum => 40 },
                                            :confirmation => true, :if => :new_record?
-
+  # ================
+  # == extensions ==
+  # ================
+  #TODO
   # ================
   # = ar callbacks =
   # ================
@@ -90,85 +92,84 @@ class User < ActiveRecord::Base
    roles.map(&:name).join(", ")
   end
 
- def save_identity
-   if self.identities.blank?
-    identity = self.identities.create :identity      => self.email,
-                                      :is_primary    => true,
-                                      :identity_type => "email"
-    identity.save :validate => false       
-   end
- end
-
- def update_identity
-   old_email = primary_identity.identity
-
-   primary_identity.synchronize_email! if primary_identity_changed && old_email != email
-   self.primary_identity = nil
-   primary_identity
- end
-
- def primary_identity
-   @primary_identity ||= identities.find_by_is_primary true
- end
-
- def primary_identity_changed
-   @primary_identity_changed ||= self.email_changed?   
- end
-
- def set_identities_as_destroyable
-   Identity.for(self).each  { |identity| identity.set_as_tetriary! }
- end
-
- def add_role
+  def add_role
    self.roles << Role.find_or_create_by_name("user") unless has_role?(:user)
- end
+  end
 
- def is_confirmed?
-   return true  if confirmed?
-   return false if primary_identity.blank?
-   return false if primary_identity.confirmation.blank?
+  def twitter_handles
+    @twitter_handles ||= authentications.select {|a| a.provider == 'twitter'}.map(&:nickname).compact
+  end
 
-   save_confirmed_cache 
- end
-
- def save_confirmed_cache
-   update_attribute :confirmed, true if !self.confirmed && primary_identity.confirmation.confirmed?
- end
-
- def current_recipient_for identity
-   return identity.identity if identities.size > 1
-   return self.email 
- end
-
- def twitter_handles
-  @twitter_handles ||= authentications.select {|a| a.provider == 'twitter'}.map(&:nickname).compact
- end
-
- def has_twitter_handle?(nickname)
+  def has_twitter_handle?(nickname)
    twitter_handles.any? { |handle| handle == nickname.gsub(/^@{1,}/, '') }
- end
+  end
 
- def remove_mergeables
+  def remove_mergeables
     Merge.mergeables.each do |mergeable|
       mergeable.for(self).destroy_all
     end
- end
+  end
 
- def render_providers
-   authentications.map(&:provider).push("our kudos").reverse.join(", ")
- end
+  def render_providers
+    authentications.map(&:provider).push("our kudos").reverse.join(", ")
+  end
  
- def current_providers
-   authentications.map(&:provider)
- end
+  def current_providers
+    authentications.map(&:provider)
+  end
 
- def my_options_for_providers
+  def my_options_for_providers
    Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
- end
+  end
 
- def active_for_authentication?
-   super && is_confirmed?
- end
+ def save_identity
+     if self.identities.blank?
+      identity = self.identities.create :identity      => self.email,
+                                        :is_primary    => true,
+                                        :identity_type => "email"
+      identity.save :validate => false
+     end
+  end
 
+  def update_identity
+    old_email = primary_identity.identity
+
+    primary_identity.synchronize_email! if primary_identity_changed && old_email != email
+    self.primary_identity = nil
+    primary_identity
+  end
+
+  def primary_identity
+    @primary_identity ||= identities.find_by_is_primary true
+  end
+
+  def primary_identity_changed
+    @primary_identity_changed ||= self.email_changed?
+  end
+
+  def set_identities_as_destroyable
+    Identity.for(self).each  { |identity| identity.set_as_tetriary! }
+  end
+
+  def is_confirmed?
+    return true  if confirmed?
+    return false if primary_identity.blank?
+    return false if primary_identity.confirmation.blank?
+
+    save_confirmed_cache
+  end
+
+  def save_confirmed_cache
+    update_attribute :confirmed, true if !self.confirmed && primary_identity.confirmation.confirmed?
+  end
+
+  def current_recipient_for identity
+    return identity.identity if identities.size > 1
+    return self.email
+  end
+
+  def active_for_authentication?
+    super && is_confirmed?
+  end
 
 end

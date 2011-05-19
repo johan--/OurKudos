@@ -1,15 +1,19 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_filter :set_omniauth_data
+  before_filter :ip_check, :set_omniauth_data
   
   attr_accessor :omniauth_data
   attr_accessor :preexisting_authorization_token
   
-  def method_missing(provider)
-    return super unless valid_provider?(provider)
-    if provider == :twitter                    
-      add_new_authentication || omniauth_sign_in || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+  def method_missing provider
+    if @ip.is_locked?
+      redirect_to :back, :notice => @ip.lock_message 
     else
-      add_new_authentication || omniauth_sign_in || omniauth_sign_up
+      return super unless valid_provider? provider
+      if provider == :twitter
+        add_new_authentication || omniauth_sign_in || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+      else
+        add_new_authentication || omniauth_sign_in || omniauth_sign_up
+      end
     end
   end
 
@@ -68,6 +72,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
   end
 
+  private
+
   def set_omniauth_data
     self.omniauth_data = env["omniauth.auth"]
     self.preexisting_authorization_token = Authentication.find_by_provider_and_uid(omniauth_data['provider'], omniauth_data['uid']) if omniauth_data
@@ -76,5 +82,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def valid_provider?(provider)
     !User.omniauth_providers.index(provider).nil?
   end
+
+
 
 end

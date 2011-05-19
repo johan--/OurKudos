@@ -1,6 +1,5 @@
 module OurKudos
     module Confirmable     
-
       
       def generate key_length = 64
         return current_object.key unless current_object.key.blank?      
@@ -35,5 +34,4 @@ module OurKudos
 
     end
 
-    
 end
