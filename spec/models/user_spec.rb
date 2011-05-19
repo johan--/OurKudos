@@ -4,7 +4,7 @@ describe User do
 
   context 'given an instance' do 
       let(:user) { Factory(:user) }
-  
+
       let(:omniauth) do
           {"provider"  => "facebook",
           "uid"       => '12345',

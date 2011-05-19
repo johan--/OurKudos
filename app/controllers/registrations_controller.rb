@@ -25,10 +25,12 @@ class RegistrationsController < Devise::RegistrationsController
   def update
     super
   end
-  
-  def autofill_form
-    resource.attributes = session[:user] if params[:autofill] 
-  end
+
+  private
+
+    def autofill_form
+      resource.attributes = session[:user] if params[:autofill]
+    end
   
   
   

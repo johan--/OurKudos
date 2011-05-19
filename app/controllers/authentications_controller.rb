@@ -43,8 +43,4 @@ class AuthenticationsController < ApplicationController
     end  
   end
   
-  def failed
-    render :text => request.env.to_yaml
-  end
-  
 end
