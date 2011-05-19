@@ -54,7 +54,8 @@ class Ip < ActiveRecord::Base
       self.lock_message = ''
       return :ok
     else
-      self.lock_message =  I18n.t('devise.sessions.user.locked_until', :time => self.unlock_in.strftime("%I:%M:%S"))
+      self.lock_message =  I18n.t('devise.sessions.user.locked_until',
+                                  :time => self.unlock_in.strftime("%I:%M:%S"))
       return :not_expired
     end
   end

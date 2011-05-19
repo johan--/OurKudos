@@ -6,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   
   def method_missing provider
     if @ip.is_locked?
-      redirect_to :back, :notice => @ip.lock_message 
+      redirect_to root_path, :notice => @ip.lock_message
     else
       return super unless valid_provider? provider
       if provider == :twitter
