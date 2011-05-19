@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110519085746) do
+ActiveRecord::Schema.define(:version => 20110519100554) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(:version => 20110519085746) do
   add_index "confirmations", ["confirmable_id"], :name => "index_confirmations_on_confirmable_id"
   add_index "confirmations", ["confirmable_type"], :name => "index_confirmations_on_confirmable_type"
   add_index "confirmations", ["key"], :name => "index_confirmations_on_key"
+
+  create_table "forbidden_passwords", :force => true do |t|
+    t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "identities", :force => true do |t|
     t.integer  "user_id"

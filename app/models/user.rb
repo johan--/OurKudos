@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   validates :email,      :presence => true, :uniqueness => true, :email => true
   validates :password,   :presence => true, 
                          :format   => { :with => RegularExpressions.password },
+                         :is_forbidden_password => true,
                          :confirmation => true, :if => :new_record?
   # ================
   # == extensions ==

@@ -1,0 +1,17 @@
+%h2= t :listing_forbidden_passwords
+
+= form_for @forbidden_password, :url => admin_forbidden_passwords_path, :method => :post do |f|
+
+  = error_messages_for @forbidden_password
+
+  = f.label :password
+  = f.text_field :password
+  = f.submit t(:forbidden_password_add_to_list)
+
+%ul
+- for pass in @passwords do
+  %li
+    = pass.to_s
+    = link_to t(:destroy_password), admin_forbidden_password_path(pass), :method => :delete, :confirm => I18n.t(:are_you_sure)
+
+%p= link_to I18n.t(:back_to_admin_page), admin_root_path
