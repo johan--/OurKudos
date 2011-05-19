@@ -31,7 +31,6 @@ class Merge < ActiveRecord::Base
    def run!
      Merge.transaction do
       self.merged.set_identities_as_destroyable
-
       Merge.mergeables.each do |model|
           objects = self.merged.send model.to_s.underscore.pluralize
           model.change_objects_owner_to objects, self.merger          

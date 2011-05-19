@@ -58,6 +58,14 @@ describe Identity do
       identity.errors.should_not be_blank
     end
 
+    it 'should  know its type based on all types' do
+      types = Identity.options_for_identity_type.map(&:last)
+      types.each do |type|
+        identity.should respond_to "is_#{type}?"
+      end
+    end
+
+
   end
 
 end

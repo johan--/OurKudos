@@ -5,10 +5,12 @@ class Authentication < ActiveRecord::Base
   validates :token,    :presence => true, :uniqueness => true
 
   acts_as_mergeable
-  
-  class << self 
+
+  # =================
+  # = class methods =
+  # =================
     
-    def options_for_provider
+    def self.options_for_provider
       [['Twitter', 'twitter'],
        ['Facebook', 'facebook'],
        ['OKFoodFight', 'okfoodfight'],
@@ -16,5 +18,10 @@ class Authentication < ActiveRecord::Base
       ]
     end
 
-  end  
+    self.options_for_provider.map(&:last).each do |prov|
+      define_method "#{prov}?" do
+        self.provider == prov
+      end
+    end
+  
 end

@@ -28,15 +28,15 @@ describe User do
     
     it 'should be able to set user attributes from session data' do
       u = User.new
-      u.apply_omniauth(omniauth)
-      u.first_name.should == 'Marcin'
-      u.last_name.should == 'Walczak'
-      u.email.should == 'marcin.walczak@gmail.com'
+      u.apply_omniauth omniauth
+      u.first_name.should == omniauth['user_info']['first_name']
+      u.last_name.should  == omniauth['user_info']['last_name']
+      u.email.should      == omniauth['user_info']['email']
       authentication = u.authentications.first
       authentication.should_not be_blank
-      authentication.token.should == 'facebook token'
-      authentication.uid.should == '12345'
-      authentication.provider.should == 'facebook'
+      authentication.token.should    == omniauth['credentials']['token']
+      authentication.uid.should      == omniauth['uid']
+      authentication.provider.should == omniauth['provider']
     end
 
     it 'should know about its roles' do

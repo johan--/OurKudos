@@ -19,10 +19,10 @@ class Identity < ActiveRecord::Base
   belongs_to :user
 
   # ================
-  # ==== scope======
+  # ==== scopes ====
   # ================
-  scope :emails,  :identity_type => "email"
-  scope :twitters,:identity_type => "twitter"
+  scope :emails,   where(:identity_type => "email")
+  scope :twitters, where(:identity_type => "twitter")
 
   # ================
   # == extensions ==
@@ -35,7 +35,7 @@ class Identity < ActiveRecord::Base
   # = ar callbacks =
   # ================
   before_destroy :can_destroy?  
-  after_save :save_confirmation,          :if => :is_email?
+  after_save :save_confirmation,         :if => :is_email?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
 
   # ====================
@@ -58,13 +58,6 @@ class Identity < ActiveRecord::Base
     self.save :run_callbacks => false, :validate => false
   end
 
-  #builds dynamically 3 methods - is_twitter?, is_email?, is_name?
-  [:twitter, :email, :name].each do |type|
-    define_method "is_#{type}?" do
-      self.identity_type == type.to_s
-    end
-  end
-
   def save_twitter_confirmation!
      create_confirmation(:confirmable_type  => self.class.name,
                           :confirmable_id   => self.id,
@@ -73,15 +66,20 @@ class Identity < ActiveRecord::Base
   # =================
   # = class methods =
   # =================
-  class << self
 
-    def options_for_identity_type
-      [['email', 'email'],
-       ['name', 'name'],
-       ['twitter nick name', 'twitter']
-      ]
-    end
-
+  def self.options_for_identity_type
+    [['email', 'email'],
+     ['name', 'name'],
+     ['twitter nick name', 'twitter']
+    ]
   end
+
+  #builds dynamically 3 methods - is_twitter?, is_email?, is_name?
+  self.options_for_identity_type.map(&:last).each do |type|
+    define_method "is_#{type}?" do
+      self.identity_type == type.to_s
+    end
+  end
+  
 
 end

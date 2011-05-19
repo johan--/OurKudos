@@ -24,8 +24,12 @@ module OurKudos
       def save_confirmation        
         create_confirmation(:confirmable_type => self.class.name, 
                             :confirmable_id   => self.id,
-                            :confirmed        => false) if needs_confirmation?
+                            :confirmed        => already_confirmed?) if needs_confirmation?
        
+      end
+
+      def already_confirmed?
+        self.respond_to?(:confirmable) && confirmable.is_a?(Identity) && confirmable.is_twitter?
       end
 
       def needs_confirmation?

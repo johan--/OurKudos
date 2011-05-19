@@ -23,6 +23,13 @@ describe Authentication do
      auth.valid?.should be_true
     end
 
+    it 'should  know its type based on all types' do
+      providers = Authentication.options_for_provider.map(&:last)
+      providers.each do |provider|
+        auth.should respond_to "#{provider}?"
+      end
+    end
+
 
    end
 end

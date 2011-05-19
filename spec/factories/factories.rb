@@ -1,7 +1,8 @@
-Factory.sequence(:site_name)       { |n| "site #{n}" }
-Factory.sequence(:role_name)       { |n| "User Role #{n}" }
-Factory.sequence(:admin_role_name) { |n| "Admin Role #{n}" }
-Factory.sequence(:email)           { |n| "email#{n}@email.com" }
+Factory.sequence(:site_name)                { |n| "site #{n}" }
+Factory.sequence(:forbidden_password)       { |n| "User Role #{n}" }
+Factory.sequence(:role_name)                { |n| "Password #{n}" }
+Factory.sequence(:admin_role_name)          { |n| "Admin Role #{n}" }
+Factory.sequence(:email)                    { |n| "email#{n}@email.com" }
 
 Factory.define :site do |s|
   s.site_name { Factory.next(:site_name) }
@@ -19,6 +20,13 @@ Factory.define :authentication do |a|
   a.provider 'facebook'
   a.uid 'uid'
   a.token 'token'
+end
+
+Factory.define :twitter_authentication, :class => "Authentication" do |a|
+  a.provider 'twitter'
+  a.uid 'uid'
+  a.token 'token'
+  a.secret 'secret'
 end
 
 Factory.define :identity do |i|
@@ -41,7 +49,7 @@ Factory.define :user do |u|
   u.created_at '1999-11-11'
   u.first_name 'My name'
   u.last_name 'Last name'
-  u.password 'somepass'
+  u.password 'somepassvalid123'
   u.confirmed true
   u.roles {|roles| [roles.association(:role)] }
 end
@@ -65,4 +73,24 @@ end
 
 Factory.define :role do |r|
   r.name { Factory.next(:role_name) }  
+end
+
+Factory.define :forbidden_password do |fp|
+  fp.password { Factory.next(:forbidden_password) }
+end
+
+Factory.define :ip do |ip|
+  ip.address '127.0.0.1'
+  ip.last_seen Time.now
+  ip.blocked false
+  ip.failed_attempts 0
+  ip.unlock_in (Time.now - 100.years)
+end
+
+Factory.define :locked_ip do |ip|
+  ip.address '127.0.0.1'
+  ip.last_seen Time.now
+  ip.blocked false
+  ip.failed_attempts 50
+  ip.unlock_in (Time.now + 100.years)
 end
