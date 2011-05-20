@@ -17,7 +17,7 @@ class Ip < ActiveRecord::Base
 
   def minutes_seconds
     return "#{blocked_for} seconds" if blocked_for < 60
-    return "#{blocked_for/60} minutes" if blocked_for > 60
+    return "#{(blocked_for/60).round(1)} minutes" if blocked_for > 60
   end
 
   def lock_seconds
