@@ -1,5 +1,0 @@
-class ActiveRecord::Base
-
-
-
-end

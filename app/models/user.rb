@@ -32,7 +32,9 @@ class User < ActiveRecord::Base
   # ================
   # == extensions ==
   # ================
-  #TODO
+
+  include OurKudos::DateTimeFormatter
+
   # ================
   # = ar callbacks =
   # ================
