@@ -176,4 +176,16 @@ class User < ActiveRecord::Base
     super && is_confirmed?
   end
 
+  class << self
+
+    # for API AUTHENTICATRION
+    def authenticate! email, password
+      user = find_by_email(email).blank?
+      return false if user.blank?
+      user.valid_password? password
+    end
+
+
+  end
+
 end
