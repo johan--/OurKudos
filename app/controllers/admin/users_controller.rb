@@ -24,7 +24,6 @@ class Admin::UsersController < Admin::AdminController
     if @user && @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
     else
-      debugger
       redirect_to admin_users_path, :notice => @user.errors.full_messages.join(", ")
     end
   end
