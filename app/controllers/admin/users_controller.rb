@@ -50,7 +50,7 @@ class Admin::UsersController < Admin::AdminController
     end
     
     def sort_direction
-      %{asc desc}.include?(params[:direction]) ? (return params[:direction]) : (return "asc")
+      %{asc desc}.include?(params[:direction].to_s) ? (return params[:direction]) : (return "asc")
     end
 
     def update_roles
