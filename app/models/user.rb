@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications
   has_many :identities
+  has_many :permissions
   has_many :confirmations, :through => :identities
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles

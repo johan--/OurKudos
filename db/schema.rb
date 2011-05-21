@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110519100554) do
+ActiveRecord::Schema.define(:version => 20110521085324) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -81,6 +81,21 @@ ActiveRecord::Schema.define(:version => 20110519100554) do
     t.datetime "updated_at"
   end
 
+  create_table "permissions", :force => true do |t|
+    t.string   "code"
+    t.string   "access_token"
+    t.string   "refresh_token"
+    t.datetime "access_token_expires_at"
+    t.integer  "user_id"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "permissions", ["access_token"], :name => "index_permissions_on_access_token"
+  add_index "permissions", ["code"], :name => "index_permissions_on_code"
+  add_index "permissions", ["refresh_token"], :name => "index_permissions_on_refresh_token"
+
   create_table "roles", :force => true do |t|
     t.string   "name",       :limit => 50
     t.datetime "created_at"
@@ -100,11 +115,16 @@ ActiveRecord::Schema.define(:version => 20110519100554) do
     t.string   "url"
     t.string   "protocol"
     t.text     "description"
-    t.boolean  "blocked",        :default => false
-    t.integer  "api_keys_count", :default => 0
+    t.boolean  "blocked",            :default => false
+    t.integer  "api_keys_count",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "application_id"
+    t.string   "application_secret"
   end
+
+  add_index "sites", ["application_id"], :name => "index_sites_on_application_id"
+  add_index "sites", ["application_secret"], :name => "index_sites_on_application_secret"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

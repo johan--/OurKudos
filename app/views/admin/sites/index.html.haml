@@ -10,21 +10,25 @@
       %thead
         %th= t :site_name
         %th= t :site_url
-        %th= t :api_keys_count
         %th= t :site_blocked
+        %th= t :site_secret
+        %th= t :site_id
         %th= t :site_details
         %th= t :site_remove
       %tbody
         - for site in @sites do
           %tr
             %td= site.site_name
-            %td= site.url
-            %td= site.api_keys.count
+            %td= site.url            
             %td
               = radio_button_tag "sites[#{site.id}]", true, site.blocked?
               yes
               = radio_button_tag "sites[#{site.id}]", false, !site.blocked?
               no
+            %td
+              %code= site.application_secret
+            %td
+              %code= site.application_id
             %td= link_to t(:site), admin_site_path(site)
             %td= link_to t(:site_remove), admin_site_path(site), :method => :delete, :confirm => I18n.t(:are_you_sure)
   

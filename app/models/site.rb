@@ -2,16 +2,16 @@ class Site < ActiveRecord::Base
   
   has_many :api_keys
   
-  validates :protocol, :presence => true
-  validates :url, :presence => true
+  validates :protocol,  :presence => true
+  validates :url,       :presence => true
   validates :site_name, :presence => true
   
   scope :blocked, where(:blocked => true)
   
-  after_save :create_and_generate_first_api_key
+  before_save :create_application_id_and_secret
   
-  def create_and_generate_first_api_key
-    self.api_keys.create if api_keys.count == 0
+  def create_application_id_and_secret
+    self.application_id, self.application_secret = SecureRandom.hex(16), SecureRandom.hex(16)
   end  
   
   def ban!
@@ -29,6 +29,8 @@ class Site < ActiveRecord::Base
   def keys
     api_keys.map(&:key)
   end
+
+
   
   
   class << self
@@ -39,6 +41,11 @@ class Site < ActiveRecord::Base
         ['https', 'https']
       ]
     end
+
+    def authenticate app_id, app_secret
+      where(:application_id => app_id, :application_secret => app_secret).first
+    end
+
     
   end
   
