@@ -5,4 +5,4 @@ tmp/
 config/database.yml
 nbproject/
 lib/ourkudos/*
-vendor/cache/*
+vendor/cache/

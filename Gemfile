@@ -18,7 +18,7 @@ gem 'delete_paranoid'
 gem 'honeypot-captcha'
 gem 'oauth2'
 gem 'warden_oauth'
-
+gem 'faraday'
 
 group :test do
   gem "cucumber"
