@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,:omniauthable,
-         :recoverable, :rememberable, :trackable,  :token_authenticatable,
-         :timeoutable, :encryptable, :encryptor => :sha512
+         :recoverable, :rememberable, :trackable,  :token_authenticatable, 
+         :timeoutable, :encryptable, :encryptor => :sha512, 
+         :token_authentication_key => :oauth_token
          
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
@@ -177,16 +178,8 @@ class User < ActiveRecord::Base
     super && is_confirmed?
   end
 
-  class << self
-
-    # for API AUTHENTICATRION
-    def authenticate! email, password
-      user = find_by_email(email).blank?
-      return false if user.blank?
-      user.valid_password? password
-    end
-
-
+  def set_new_token_to! token
+    update_attribute :authentication_token, token
   end
 
 end

@@ -19,6 +19,8 @@ class OauthController < ApplicationController
 
 
       permission.start_expiry_period!
+      permission.user.set_new_token_to! permission.access_token
+      
       render :json => {:access_token  => permission.access_token,
                        :refresh_token => permission.refresh_token,
                        :expires_in    => permission.access_token_expires_at }
@@ -26,7 +28,10 @@ class OauthController < ApplicationController
 
    def user
      respond_to do |format|
-       format.json { render :json => current_user.as_json  }
+       
+       format.json {
+         render :json => current_user.as_json
+       }
      end
    end
 
