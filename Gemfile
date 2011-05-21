@@ -18,7 +18,7 @@ gem 'ourkudos',  '~> 0.0.29'
 gem 'delete_paranoid'
 gem 'honeypot-captcha'
 gem 'oauth2'
-#gem 'warden_oauth'
+gem 'warden_oauth'
 gem 'faraday'
 
 group :test do
