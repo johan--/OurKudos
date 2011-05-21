@@ -166,6 +166,8 @@ GEM
       oa-oauth (= 0.2.4)
       oa-openid (= 0.2.4)
     orm_adapter (0.0.5)
+    ourkudos (0.0.29)
+      nestful
     pg (0.11.0)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
@@ -272,6 +274,7 @@ DEPENDENCIES
   nestful
   oauth2
   omniauth
+  ourkudos (~> 0.0.29)
   pg
   rails (= 3.0.7)
   rake
