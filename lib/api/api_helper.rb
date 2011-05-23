@@ -20,7 +20,7 @@ module OurKudos
         end
 
         def model_instance
-          instance_variable_get "@#{controller_name.singularize}"
+          @model_insstance ||= instance_variable_get "@#{controller_name.singularize}"
         end
 
 
