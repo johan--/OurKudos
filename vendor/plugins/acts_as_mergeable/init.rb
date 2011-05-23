@@ -1,2 +1,2 @@
 require 'acts_as_mergeable'
-ActiveRecord::Base.send(:include, OurKudos::Acts::Mergeable)
+ActiveRecord::Base.send :include, OurKudos::Acts::Mergeable

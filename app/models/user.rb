@@ -35,8 +35,8 @@ class User < ActiveRecord::Base
   # == extensions ==
   # ================
 
-  include OurKudos::DateTimeFormatter
-
+  include OurKudos::Api::DateTimeFormatter
+  acts_as_ourkudos_client
   # ================
   # = ar callbacks =
   # ================

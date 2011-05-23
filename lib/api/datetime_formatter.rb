@@ -1,5 +1,6 @@
 module OurKudos
-  module DateTimeFormatter
+  module Api
+    module DateTimeFormatter
     
     def datetime_fields
       @datetime_fields ||= attributes.select { |k,v| k.include?("_at") && v.to_s.include?(":") }.keys
@@ -11,7 +12,7 @@ module OurKudos
 
     def as_json(args={})
       build_methods
-      super(:methods=>formatted_datetime_fields, :except=> datetime_fields)
+      super(:methods => formatted_datetime_fields, :except=> datetime_fields)
     end
 
 
@@ -27,6 +28,7 @@ module OurKudos
 
 
   end
-  end
+ end
+end
 
 

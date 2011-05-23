@@ -1,5 +1,5 @@
 class Api::UsersController < ApiBaseController
-  before_filter :authenticate!
+  #before_filter :authenticate!
   
   
   def index

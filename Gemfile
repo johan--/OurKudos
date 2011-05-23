@@ -14,12 +14,13 @@ gem 'texticle'
 gem 'fbgraph'
 gem 'omniauth'
 gem 'cancan'
-gem 'ourkudos',  '~> 0.0.29'
+gem 'ourkudos',  '~> 0.0.37'
 gem 'delete_paranoid'
 gem 'honeypot-captcha'
 gem 'oauth2'
 gem 'warden_oauth'
 gem 'faraday'
+
 
 group :test do
   gem "cucumber"

@@ -1,16 +1,13 @@
+require 'api/base'
 class ApiBaseController < ActionController::Base
   
-  respond_to :json
-  
-  attr_accessor :current_api
-  around_filter :authenticate_and_logout
-  
+  respond_to :json    
   #rescue_from ActiveRecord::RecordNotFound,     :with => :no_record
   #rescue_from AbstractController::ActionNotFound, :with => :no_resource
   #rescue_from ActionController::RoutingError,     :with => :no_resource
   
   
-  include OurKudos::Controllers::ApiHelper
+  include OurKudos::Api::Controllers::Base
 
   
 end
