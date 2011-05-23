@@ -4,46 +4,29 @@ module OurKudos
     module Controllers
       module ApiHelper
 
-      def authorization_response response_code
-         render :json => [:message => OurKudos::ResponseCodes["E#{response_code.to_s}".to_sym],
-                          :code   => ":E#{response_code.to_s}".to_sym ].to_json
-         false
-      end
+        def current_model
+          @current_model ||= Kernel.const_get controller_name.singularize.classify
+        end
 
-      def respond_with_code code_number
-        OurKudos::ResponseCodes[code_number.to_sym]
-      end
+        def api_columns *skipped
+          current_model.column_names.select do |c|
+            !c.include?("_id") && !c.include?("_by") &&
+              !c.include?("_at") && !skipped.include?(c)
+         end
+        end
 
-      def current_model
-        @current_model ||= Kernel.const_get controller_name.singularize.classify
-      end
+        def model_as_symbol
+          controller_name.singularize.to_sym
+        end
 
-      # same as above but already as json
-      def respond_with_json_code code_number
-        render :json => [:message => OurKudos::ResponseCodes[code_number.to_sym], :code => code_number.to_sym ]
-      end
+        def model_instance
+          instance_variable_get "@#{controller_name.singularize}"
+        end
 
-      def no_record
-        respond_with_json_code :E8
-      end
 
-      def no_resource
-        respond_with_json_code :E9
-      end
-
-     def api_columns *skipped
-        current_model.column_names.select do |c|
-          !c.include?("_id") && !c.include?("_by") &&
-            !c.include?("_at") && !skipped.include?(c)
-       end
-     end
-
-     def model_as_symbol
-       controller_name.singularize.to_sym
-     end
-
-     # RESTFUL GENERAL METHODS
-
+        def respond_with_code code_number
+          OurKudos::ResponseCodes[code_number.to_sym]
+        end
 
         end
       end

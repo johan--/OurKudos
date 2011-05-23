@@ -2,7 +2,7 @@ require 'api_helper'
 module OurKudos
   module Api
     module Controllers
-      module Base
+      module ServerBase
 
      include OurKudos::Api::Controllers::ApiHelper
 

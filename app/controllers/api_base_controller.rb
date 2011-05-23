@@ -7,7 +7,7 @@ class ApiBaseController < ActionController::Base
   #rescue_from ActionController::RoutingError,     :with => :no_resource
   
   
-  include OurKudos::Api::Controllers::Base
+  include OurKudos::Api::Controllers::ServerBase
 
   
 end
