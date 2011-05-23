@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p= raw t(:dear_user, :user => @email)
+    %p= t(:dear_user, :user => @email).html_safe
 
     %p= t(:merge_confirm_explanation)
 

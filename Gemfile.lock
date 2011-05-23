@@ -49,6 +49,9 @@ GEM
     celerity (0.8.9)
     childprocess (0.1.9)
       ffi (~> 1.0.6)
+    coffee-filter (0.1.0)
+      coffee-script (>= 2.2.0)
+      haml (>= 3.0.18)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -278,6 +281,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   capybara
+  coffee-filter
   coffee-script
   cucumber
   cucumber-rails (= 0.4.0.beta.1)
@@ -306,6 +310,7 @@ DEPENDENCIES
   ruby_parser
   sass
   shoulda
+  sprockets
   sqlite3
   texticle
   timecop
