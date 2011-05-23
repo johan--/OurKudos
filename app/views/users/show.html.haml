@@ -3,7 +3,10 @@
 - if @user.authentications.any?
   %p
     = t :you_can_authenticate_using_following_methods
-    = @user.render_providers
+    ourkudos, 
+    - for provider in @user.authentications do
+      = provider.provider
+      = link_to image_tag('remove.png'), user_authentication_path(@user, provider), :method => :delete, :confirm => I18n.t(:are_you_sure)
 
 %p= render '/shared/social_links'
 

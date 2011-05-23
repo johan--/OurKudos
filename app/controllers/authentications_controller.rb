@@ -3,39 +3,9 @@ class AuthenticationsController < ApplicationController
   
   respond_to :html, :js
   
-  def index
-    @authentications = current_user.authentications
-  end
-  
-  def new
-    @authentication = current_user.authentications.new 
-  end
-  
-  def edit
-    @authentication = current_user.authentications.find params[:id]
-    @submit_url = user_authentication_path(current_user, @authentication)
-  end
-  
-  def create
-    @authentication = current_user.authentications.new params[:authentication]
-    if @authentication.save 
-      redirect_to user_path(current_user), :notice => t(:authentication_has_been_added)
-    else  
-      render :action => :new
-    end  
-  end
-  
-  def update
-    @authentication = current_user.authentications.find params[:id]
-    if @authentication.update_attributes params[:authentication] 
-      redirect_to user_path(current_user), :notice => t(:authentication_has_been_updated)
-    else  
-      render :action => :edit
-    end
-  end
-  
   def destroy
-    @authentication = current_user.authentications.find params[:id]
+    @authentication = (current_user.authentications.find params[:id]) 
+                    
     if @authentication.destroy
       redirect_to user_path(current_user), :notice => t(:authentication_has_been_removed)
     else
