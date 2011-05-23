@@ -20,6 +20,6 @@
             = t(:cannot_edit_primary_identity)
         %td
           - if !identity.is_primary?
-            = link_to(t(:remove_identity),  admin_or_user_identity_path(@user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete) if !identity.is_primary?
+            = link_to t(:remove_identity),  admin_or_user_identity_path(@user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete if !identity.is_primary?
           - else
             = t(:cannot_remove_primary_identity)
