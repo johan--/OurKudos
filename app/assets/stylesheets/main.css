@@ -1,0 +1,21 @@
+/*
+ *= require reset
+ CSS Main Site styles
+*/
+
+
+body {
+	font-size: 65%;
+	background: url(body_bg.jpg) repeat-x left top;
+	line-height: 1;
+}
+
+#mainarea {
+	width: 1014px;
+	margin: 0 auto;
+}
+
+#content {
+	width: 1000px;
+
+}
