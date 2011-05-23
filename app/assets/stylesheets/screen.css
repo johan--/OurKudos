@@ -1,0 +1,47 @@
+html, body {
+  height: 100%;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.content {
+    width: 700px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -45px; 
+    background: white;
+    padding: 10px 20px 0 20px;
+}
+
+.navigation {
+  text-align: right;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.footer {
+    width: 960px;
+    margin: 0 auto;
+    height: 45px;
+    text-align: center;
+}
