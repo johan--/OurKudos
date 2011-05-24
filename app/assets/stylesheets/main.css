@@ -32,15 +32,40 @@ p {
 	height: 0;
 }
 
+.action_link {
+	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: red;
+}
+
 	/* error and alert messages */
 
 .notice, .alert {
 	display: none;
 }
 
+/* forms */
+
+form#user_new {
+	padding: 0 0 20px 30px;
+}
+
+label {
+	font: bold 1.1em Arial, Helvetica, sans-serif;
+	padding-left: 3px;
+}
+
+input[type=text], input[type=password] {
+	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #e1f0be;
+	border: 2px solid #fff;
+	padding: 4px 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+}
 
 
-/* unregistered homepage only */
+/* unregistered user pages only */
 
 #header-logo {
 	position: relative;
@@ -91,10 +116,10 @@ img#new-to-ok-arrow {
 	left: 56px;
 }
 
-#col_left h2, #recent_kudos_cont_top h2 {
+h2 {
 	color: #1f6994;
 	font: bold 1.7em "Nobile", Arial, sans-serif;
-	margin-bottom: 2px;
+	margin-bottom: 10px;
 }
 
 #col_right {

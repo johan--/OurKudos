@@ -1,11 +1,28 @@
-%h2 Sign up
-= form_for(resource, :as => resource_name, :html => { :honeypot => true },
-                                           :url => registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  
-  = render :partial => "form_fields", :locals => {:f => f}
-  = hidden_field_tag :autofill, params[:autofill]
+- content_for(:header) do
+  = link_to image_tag('ourkudos_header_logo.png', :id => 'header-logo'), '/'
+  = image_tag('header_motto_splash.png', :id => 'header-motto-splash')
+  = link_to image_tag('sign_in_button.png', :id => 'sign-in-button'), new_user_session_path
+
+- content_for(:main) do
+  #main_top
+  #main
     
-  %p= f.submit "Sign up"
+    = form_for(resource, :as => resource_name, :html => { :honeypot => true },
+                                               :url => registration_path(resource_name)) do |f|
+      %h2 Create a new OurKudos Account
+      = devise_error_messages!
   
-= render :partial => "devise/shared/links"
+      = render :partial => "form_fields", :locals => {:f => f}
+      = hidden_field_tag :autofill, params[:autofill]
+    
+      %p= f.submit "Sign up"
+      
+      - if devise_mapping.recoverable? && controller_name != 'passwords'
+        = link_to "Forgot your password?", new_password_path(resource_name), :class=>'action_link'
+   
+
+
+
+
+    #footer
+      = render 'shared/footer'

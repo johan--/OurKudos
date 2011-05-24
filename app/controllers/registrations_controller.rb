@@ -1,5 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   include Devise::Controllers::InternalHelpers
+  layout 'main'
   
   def new
     build_resource
