@@ -1,15 +1,21 @@
+- content_for(:header) do
+  = link_to image_tag('ourkudos_header_logo.png', :id => 'header-logo'), '/'
+  = image_tag('header_motto_splash.png', :id => 'header-motto-splash')
+  = link_to image_tag('sign_in_button.png', :id => 'sign-in-button'), new_user_session_path
 
-- unless user_signed_in?
-  %ul
-    %li= link_to_unless(user_signed_in?, "SIGN IN", new_user_session_path)
-    %li= link_to "SIGN UP", new_user_registration_path
-  
-  
-- else
-  %ul
-    %li= link_to("SIGN OUT", destroy_user_session_path)
-    %li= link_to "My account", user_path(current_user)    
-    %li= link_to t(:admin_area), admin_root_path
-
-= render '/shared/social_links'
- 
+- content_for(:main) do
+  #main_top
+  #main
+    #col_left
+      = link_to image_tag('new_to_ok_arrow.png', :id => 'new-to-ok-arrow'), '/'
+      %h2
+        It's fast, free and fun.
+        %br/
+        Send Kudos Today!
+      %p= link_to image_tag('join_now_button.png'), new_user_registration_path
+      %p= image_tag('kudos_hugging.png')
+      %p= link_to image_tag('sign-in-facebook.gif'), omniauth_authorize_path(:user, 'facebook')
+      %p= link_to image_tag('sign-in-with-twitter-d.png'), omniauth_authorize_path(:user, 'twitter')
+    #col_right
+    .clearing
+  #main_bot

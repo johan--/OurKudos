@@ -10,12 +10,95 @@ body {
 	line-height: 1;
 }
 
+p {
+	margin-bottom: 10px;
+}
+
 #mainarea {
-	width: 1014px;
+	width: 1024px;
 	margin: 0 auto;
 }
 
-#content {
-	width: 1000px;
+#header {
+	width: 1024px;
+	height: 200px;
+	position: relative;
+}
 
+#header-logo {
+	position: relative;
+	top: 50px;
+}
+
+#header-motto-splash {
+	position: absolute;
+	right: -45px;
+}
+
+#sign-in-button {
+	position: absolute;
+	top: 0;
+	right: -10px;
+}
+
+#main_top {
+	width: 1014px;
+	height: 27px;
+	margin: 0 auto;
+	background: url(main_top_bg.png) no-repeat left top;
+}
+
+#main {
+	width: 1014px;
+	margin: 0 auto;
+	background: url(main_bg.png) repeat-y left top;
+}
+
+#main_bot {
+	width: 1014px;
+	height: 27px;
+	margin: 0 auto;
+	background: url(main_bot_bg.png) no-repeat left bottom;
+}
+
+#col_left, #col_right {
+	float: left;
+}
+
+#col_left {
+	width: 320px;
+	position: relative;
+	background: url(col_left_bg.png) no-repeat -4px 22px;
+	padding-top: 160px;
+	padding-left: 20px;
+	text-align: center;
+}
+
+img#new-to-ok-arrow {
+	position: absolute;
+	top: -45px;
+	left: 56px;
+}
+
+#col_left h2, #recent_kudos_cont_top h2 {
+	color: #1f6994;
+	font: bold 1.8em "Nobile", "Arial Rounded MT", Arial, sans-serif;
+	margin-bottom: 2px;
+}
+
+#col_right {
+	width: 640px;
+	padding-top: 8px;
+
+}
+
+.clearing {
+	clear: both;
+	height: 0;
+}
+
+/* error and alert messages */
+
+.notice, .alert {
+	display: none;
 }
