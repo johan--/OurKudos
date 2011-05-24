@@ -25,6 +25,23 @@ p {
 	position: relative;
 }
 
+/* general purpose */
+
+.clearing {
+	clear: both;
+	height: 0;
+}
+
+	/* error and alert messages */
+
+.notice, .alert {
+	display: none;
+}
+
+
+
+/* unregistered homepage only */
+
 #header-logo {
 	position: relative;
 	top: 50px;
@@ -82,7 +99,7 @@ img#new-to-ok-arrow {
 
 #col_left h2, #recent_kudos_cont_top h2 {
 	color: #1f6994;
-	font: bold 1.8em "Nobile", "Arial Rounded MT", Arial, sans-serif;
+	font: bold 1.7em "Nobile", Arial, sans-serif;
 	margin-bottom: 2px;
 }
 
@@ -92,13 +109,73 @@ img#new-to-ok-arrow {
 
 }
 
-.clearing {
-	clear: both;
-	height: 0;
+#recent_kudos_cont {
+	width: 604px;
+	background: url(recent_kudos_cont_bg.png) repeat-y left top;
+	padding: 20px;
 }
 
-/* error and alert messages */
+#recent_kudos_cont_top {
+	width: 627px;
+	height: 33px;
+	background: url(recent_kudos_cont_top_bg.png) no-repeat left top;
+	padding-top: 10px;
+	padding-left: 17px;
+}
 
-.notice, .alert {
-	display: none;
+#recent_kudos_cont_bot {
+	width: 644px;
+	height: 14px;
+	background: url(recent_kudos_cont_bot_bg.png) no-repeat left top;
+	margin-bottom: 20px;
+}
+
+div.kudo_message_cont {
+	clear: both;
+	height: 80px;
+	
+}
+
+div.kudo_message {
+	width: 506px;
+	height: 65px;
+	padding-left: 20px;
+	padding-top: 8px;
+	background: url(kudo_message_bg.png) no-repeat left top;
+	float: left;
+	margin-left: 7px;
+}
+
+
+div.kudo_message p {
+	margin-left: 10px;
+	margin-bottom: 5px;
+	font: normal 1.2em Verdana, "Copse", Arial, sans-serif;
+	color: #000;
+
+}
+
+img.avatar {
+	border: 3px solid #fff;
+	-webkit-box-shadow: 0 0 5px 2px #ccc;
+	-moz-box-shadow: 0 0 5px 2px #ccc;
+	box-shadow: 0 0 5px 2px #ccc;
+	float: left;
+	
+}
+
+span.sender, span.receiver {
+	font: bold 1.1em Verdana, "Copse", Arial, sans-serif;
+}
+
+span.sender {
+	color: #c60;
+}
+
+span.receiver {
+	color: #690;
+}
+
+span.greater_than {
+	color: #ccc;
 }

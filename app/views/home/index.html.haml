@@ -17,5 +17,19 @@
       %p= link_to image_tag('sign-in-facebook.gif'), omniauth_authorize_path(:user, 'facebook')
       %p= link_to image_tag('sign-in-with-twitter-d.png'), omniauth_authorize_path(:user, 'twitter')
     #col_right
+      #recent_kudos_cont_top
+        %h2 Recent Kudos
+      #recent_kudos_cont
+        .kudo_message_cont
+          = image_tag('avatar_ben.jpg', :class=>'avatar')
+          .kudo_message
+            %p
+              %span.sender John Doe
+              %span.greater_than >
+              %span.receiver Jane Brown
+            %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+            .clearing
+          
+      #recent_kudos_cont_bot
     .clearing
   #main_bot
