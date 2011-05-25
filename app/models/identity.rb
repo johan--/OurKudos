@@ -30,7 +30,7 @@ class Identity < ActiveRecord::Base
   acts_as_mergeable
 
   include OurKudos::Confirmable
-
+  include OurKudos::Api::DateTimeFormatter
   # ================
   # = ar callbacks =
   # ================

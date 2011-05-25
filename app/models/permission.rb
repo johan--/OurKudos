@@ -15,7 +15,7 @@ class Permission < ActiveRecord::Base
   end
 
   def start_expiry_period! n = 2
-   self.update_attribute(:access_token_expires_at, n.days.from_now)
+   self.update_attribute :access_token_expires_at, n.days.from_now
   end
 
 

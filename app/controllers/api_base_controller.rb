@@ -1,11 +1,9 @@
 require 'api/base'
 class ApiBaseController < ActionController::Base
+  before_filter :authenticate_user!
   
   respond_to :json    
-  #rescue_from ActiveRecord::RecordNotFound,     :with => :no_record
-  #rescue_from AbstractController::ActionNotFound, :with => :no_resource
-  #rescue_from ActionController::RoutingError,     :with => :no_resource
-  
+ 
   
   include OurKudos::Api::Controllers::ServerBase
 

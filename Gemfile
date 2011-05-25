@@ -24,7 +24,7 @@ gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
 gem 'coffee-filter'
-
+gem 'oauth2-core'
 
 group :test do
   gem "cucumber"

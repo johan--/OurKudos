@@ -6,6 +6,12 @@ module OurKudos
 
      include OurKudos::Api::Controllers::ApiHelper
 
+     def index
+       resources = current_model.all
+       render :json => resources.as_json
+     end
+
+
      def show
        resource = current_model.find params[:id]
        render :json => resource.as_json

@@ -167,6 +167,8 @@ GEM
     oauth2 (0.4.1)
       faraday (~> 0.6.1)
       multi_json (>= 0.0.5)
+    oauth2-core (0.1.4)
+      activesupport (>= 0.0.0)
     omniauth (0.2.6)
       oa-basic (= 0.2.6)
       oa-core (= 0.2.6)
@@ -300,6 +302,7 @@ DEPENDENCIES
   launchy
   nestful
   oauth2
+  oauth2-core
   omniauth
   ourkudos (~> 0.0.37)
   pg
