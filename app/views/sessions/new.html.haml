@@ -22,7 +22,9 @@
           = f.label :remember_me
       %p= f.submit "Sign in"      
       - if devise_mapping.recoverable? && controller_name != 'passwords'
-        = link_to "Forgot your password?", new_password_path(resource_name), :class=>'action_link'
+        %p= link_to "Forgot your password?", new_password_path(resource_name), :class=>'action_link'
+        %p= link_to image_tag('sign-in-facebook.gif'), omniauth_authorize_path(:user, 'facebook')
+        %p= link_to image_tag('sign-in-with-twitter-d.png'), omniauth_authorize_path(:user, 'twitter')
    
     #footer
       = render 'shared/footer'
