@@ -1,2 +1,2 @@
-- content_for(:main) do
-  %h2 Home
+- content_for(:header) do
+  %p= link_to('sign out', destroy_user_session_path)
