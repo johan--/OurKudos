@@ -1,21 +1,20 @@
-- content_for(:header) do
+#header
   = link_to image_tag('ourkudos_header_logo.png', :id => 'header-logo'), '/'
   = image_tag('header_motto_splash.png', :id => 'header-motto-splash')
   = link_to image_tag('sign_in_button.png', :id => 'sign-in-button'), new_user_session_path
 
-- content_for(:main) do
-  #main_top
-  #main
-    
-    = form_for(resource, :as => resource_name, :html => { :honeypot => true },
-                                               :url => registration_path(resource_name)) do |f|
-      %h2 Create a new OurKudos Account
-      = devise_error_messages!
+#main_top
+#main
   
-      = render :partial => "form_fields", :locals => {:f => f}
-      = hidden_field_tag :autofill, params[:autofill]
-    
-      %p= f.submit "Sign up"
-   
-    #footer
-      = render 'shared/footer'
+  = form_for(resource, :as => resource_name, :html => { :honeypot => true },
+                                             :url => registration_path(resource_name)) do |f|
+    %h2 Create a new OurKudos Account
+    = devise_error_messages!
+
+    = render :partial => "form_fields", :locals => {:f => f}
+    = hidden_field_tag :autofill, params[:autofill]
+  
+    %p= f.submit "Sign up"
+ 
+  #footer
+    = render 'shared/footer'
