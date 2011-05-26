@@ -6,6 +6,7 @@ module OurKudos
 
      include OurKudos::Api::Controllers::ApiHelper
 
+
      def index
        resources = current_model.all
        render :json => resources.as_json
@@ -19,7 +20,7 @@ module OurKudos
 
      def update
         resource = current_model.find params[:id]
-        if resource.update_attributes params[model_as_symbol]
+        if resource.update_attributes cleanup_params(params[model_as_symbol])
           render :json => [:message => respond_with_code(:I2), :code => :I2 ].to_json and return
         else
           render :json => [:message => respond_with_code(:E5), :code => :E5, :errors => resource.errors ].to_json and return
@@ -27,7 +28,7 @@ module OurKudos
      end
 
      def create
-        resource = current_model.new params[model_as_symbol]
+        resource = current_model.new cleanup_params(params[model_as_symbol])
         if resource.save
           render :json => [:message => respond_with_code(:I1), :code => :I1, :user => resource.as_json ].to_json and return
         else
@@ -43,6 +44,16 @@ module OurKudos
           render :json => [:message => respond_with_code(:E10), :errors => resource.errors, :code => :E10 ].to_json and return
         end
      end
+
+     private
+
+      def cleanup_params params
+        attributes = current_model.new.attributes.keys.map(&:to_s)
+        params.each do |attribute, value|
+          params.delete(attribute) unless attributes.include?(attribute)
+        end
+        params
+      end
 
 
       end
