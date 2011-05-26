@@ -12,7 +12,7 @@
       %tr
         %td= identity.identity_type
         %td= identity.identity
-        %td= identity.confirmation.confirmed.to_s
+        %td= identity.confirmation.confirmed.to_s rescue 'none'
         %td
           - if !identity.is_primary?
             = link_to t(:edit_identity_link),  admin_or_user_edit_identity_path(@user, identity)
