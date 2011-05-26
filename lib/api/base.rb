@@ -52,7 +52,7 @@ module OurKudos
         params.each do |attribute, value|
           params.delete(attribute) unless attributes.include?(attribute)
         end
-        params
+        params.merge(:user_id => current_user.id)
       end
 
 

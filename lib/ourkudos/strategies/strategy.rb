@@ -12,6 +12,7 @@ module OmniAuth
 
       def request_phase
         options[:response_type] ||= 'code'
+        debugger
         redirect options[:site] + client.web_server.authorize_url({:redirect_uri => callback_url}.merge(options))
       end
 
