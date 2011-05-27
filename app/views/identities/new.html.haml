@@ -14,7 +14,7 @@
       
       = f.submit t(:add_new_identity)
     
-    = link_to t(:back_to_my_account_settings), user_path(current_user)
+      = link_to t(:cancel), user_path(current_user), :class=>'action_link'
   
   #footer
     = render 'shared/footer'

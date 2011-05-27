@@ -19,9 +19,9 @@
     = render :partial => "identities/index", :locals => {:identities => @identities }
     
     %p
-      = link_to t(:add_new_identity), new_user_identity_path(current_user)
+      = link_to t(:add_new_identity), new_user_identity_path(current_user), :class=>'action_link'
       |
-      = link_to t(:merge_with_my_other_account), new_merge_path
+      = link_to t(:merge_with_my_other_account), new_merge_path, :class=>'action_link'
       
   #footer
     = render 'shared/footer'
