@@ -81,10 +81,31 @@ h2 {
 
 /* error and alert messages */
 
-.notice, .alert {
-	display: none;
+.notice, .alert, #error_explanation {
+	padding: 10px 15px;
+	margin: 0 0 10px 0;
+	background-color: #fff;
+	font: bold 1.3em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	
 }
 
+.notice {
+	color: green;
+	border: 4px solid green;
+}
+
+.alert, #error_explanation {
+	color: red;
+	border: 4px solid red;
+}
+
+#error_explanation h2 {
+	color: red;
+	font: bold 1.5em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
 
 /* footer */
 	

@@ -74,10 +74,9 @@ img#user_avatar {
 }
 
 .wrapper-main {
-	/* wrappers used to create padding in areas where padding is only selectively desired 
-	 this allows edge */
-	padding: 0px 30px;
+	padding: 0 30px;
 }
+
 
 /* Send Kudos Area */
 
@@ -112,7 +111,7 @@ img#baltar_mailman_icon {
 }
 
 #kudo_send_cont h1 {
-	font: bold 3em "Copse", Arial, Helvetica, sans-serif;
+	font: normal 3em "Copse", Arial, Helvetica, sans-serif;
 	color: #1f6994;
 	padding-bottom: 30px;
 	line-height: 0;
@@ -194,9 +193,6 @@ span#social_share_choices label {
 
 /* forms */
 
-form#user_new {
-	padding: 0 0 20px 30px;
-}
 
 label {
 	font: bold 1.1em Arial, Helvetica, sans-serif;
@@ -210,7 +206,7 @@ input[type=text], input[type=password] {
 	padding: 4px 7px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
-	-border-radius: 5px;
+	border-radius: 5px;
 }
 
 /* end forms */

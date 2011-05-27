@@ -43,6 +43,10 @@
 	background: url(main_bg.png) repeat-y left top;
 }
 
+.wrapper-main {
+	padding: 0 30px;
+}
+
 
 #col_left, #col_right {
 	float: left;
@@ -91,10 +95,6 @@ img#new-to-ok-arrow {
 }
 
 /* forms */
-
-form#user_new {
-	padding: 0 0 20px 30px;
-}
 
 label {
 	font: bold 1.1em Arial, Helvetica, sans-serif;
