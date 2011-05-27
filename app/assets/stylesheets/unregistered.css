@@ -3,11 +3,6 @@
  CSS Main Site styles: Unregistered/Unauthenticated User Areas
 */
 
-
-p {
-	margin-bottom: 10px;
-}
-
 #mainarea {
 	width: 1024px;
 	margin: 0 auto;
@@ -18,30 +13,6 @@ p {
 	height: 200px;
 	position: relative;
 }
-
-
-/* forms */
-
-form#user_new {
-	padding: 0 0 20px 30px;
-}
-
-label {
-	font: bold 1.1em Arial, Helvetica, sans-serif;
-	padding-left: 3px;
-}
-
-input[type=text], input[type=password] {
-	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	background-color: #e1f0be;
-	border: 2px solid #fff;
-	padding: 4px 7px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-border-radius: 5px;
-}
-
-/* end forms */
 
 #header-logo {
 	position: relative;
@@ -118,6 +89,30 @@ img#new-to-ok-arrow {
 	background: url(recent_kudos_cont_bot_bg.png) no-repeat left top;
 	margin-bottom: 20px;
 }
+
+/* forms */
+
+form#user_new {
+	padding: 0 0 20px 30px;
+}
+
+label {
+	font: bold 1.1em Arial, Helvetica, sans-serif;
+	padding-left: 3px;
+}
+
+input[type=text], input[type=password] {
+	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #e1f0be;
+	border: 2px solid #fff;
+	padding: 4px 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+}
+
+/* end forms */
+
 
 /* kudos messaging related */
 

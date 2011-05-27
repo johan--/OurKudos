@@ -63,9 +63,14 @@ body {
 	color: red;
 }
 
+p {
+	margin-bottom: 10px;
+}
+
+
 h2 {
 	color: #1f6994;
-	font: bold 1.7em "Nobile", Arial, sans-serif;
+	font: bold 1.7em "Copse", Arial, sans-serif;
 	margin-bottom: 10px;
 }
 

@@ -1,3 +1,14 @@
-%p
-  = link_to('sign out', destroy_user_session_path)
-  = link_to "My account", user_path(current_user) 
+#header
+  = link_to image_tag('ourkudos_header_logo.png', :id => 'header-logo'), '/'
+  #header_user_info
+    %h1 Welcome
+    %h1= current_user.first_name
+    = link_to "My Account", user_path(current_user)
+    &bull;
+    = link_to('Sign Out', destroy_user_session_path)
+    = image_tag('avatar_unknown.png', :id => 'user_avatar')
+#main_top
+#main
+   
+  #footer
+    = render 'shared/footer'

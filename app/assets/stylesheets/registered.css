@@ -4,46 +4,52 @@
 */
 
 
-p {
-	margin-bottom: 10px;
-}
-
 #mainarea {
-
+	width: 1024px;
+	margin: 0 auto;
 }
 
 #header {
-
-
-
-/* forms */
-
-form#user_new {
-	padding: 0 0 20px 30px;
+	width: 1024px;
+	height: 125px;
+	position: relative;
 }
-
-label {
-	font: bold 1.1em Arial, Helvetica, sans-serif;
-	padding-left: 3px;
-}
-
-input[type=text], input[type=password] {
-	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	background-color: #e1f0be;
-	border: 2px solid #fff;
-	padding: 4px 7px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-border-radius: 5px;
-}
-
-/* end forms */
 
 #header-logo {
 	position: relative;
-	top: 50px;
+	top: 15px;
 }
 
+#header_user_info {
+	position: absolute;
+	right: 20px;
+	bottom: -8px;
+	padding: 20px 30px;
+	width: 263px;
+	height: 58px;
+	background: url(header_user_info_bg.png) no-repeat left top;
+	color: #effaff;
+}
+
+#header_user_info a {
+	color: #effaff;
+	text-decoration: none;
+	font: 1.1em Verdana, Helvetica, Arial, sans-serif;
+}
+
+#header_user_info h1 {
+	font: normal 1.8em "Copse", Arial, Helvetica, sans-serif;
+}
+
+img#user_avatar {
+	position: absolute;
+	right: 30px;
+	top: 20px;
+	border: 3px solid #fff;
+	-webkit-box-shadow: 0 0 5px 2px #ccc;
+	-moz-box-shadow: 0 0 5px 2px #ccc;
+	box-shadow: 0 0 5px 2px #ccc;
+}
 
 #main_top {
 	width: 1014px;
@@ -70,3 +76,27 @@ input[type=text], input[type=password] {
 
 
 }
+
+
+/* forms */
+
+form#user_new {
+	padding: 0 0 20px 30px;
+}
+
+label {
+	font: bold 1.1em Arial, Helvetica, sans-serif;
+	padding-left: 3px;
+}
+
+input[type=text], input[type=password] {
+	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #e1f0be;
+	border: 2px solid #fff;
+	padding: 4px 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+}
+
+/* end forms */
