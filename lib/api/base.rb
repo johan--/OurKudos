@@ -38,7 +38,7 @@ module OurKudos
 
      def destroy
         resource = current_model.find params[:id]
-        if resource.save
+        if resource.destroy
           render :json => {:message => respond_with_code(:I3), :code => :I3, model_as_symbol => resource.as_json }.to_json and return
         else
           render :json => {:message => respond_with_code(:E10), :status => :unprocessable_entity, :errors => resource.errors, :code => :E10 }.to_json and return
