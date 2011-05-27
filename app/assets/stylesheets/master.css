@@ -1,0 +1,124 @@
+/* CSS Master Stylesheet: Included on every site page, all sections */
+
+/* Begin CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* End CSS Reset */
+
+body {
+	font-size: 65%;
+	background: url(body_bg.jpg) repeat-x left top;
+	line-height: 1;
+}
+
+.clearing {
+	clear: both;
+	height: 0;
+}
+
+.action_link {
+	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: red;
+}
+
+h2 {
+	color: #1f6994;
+	font: bold 1.7em "Nobile", Arial, sans-serif;
+	margin-bottom: 10px;
+}
+
+/* error and alert messages */
+
+.notice, .alert {
+	display: none;
+}
+
+
+/* footer */
+	
+#footer {
+	width: 1014px;
+	margin: 0 auto;
+	height: 94px;
+	background: url(footer_bg.png) no-repeat left top;
+	clear: both;
+	position: relative;
+}
+
+ul#nav_footer {
+	list-style: none;
+	margin-left: 140px;
+	padding-top: 28px;
+}
+
+ul#nav_footer img {
+	vertical-align: middle;
+}
+
+ul#nav_footer li {
+	display: inline;
+	padding: 0 10px;
+	font: normal 1.3em Nobile, Arial, sans-serif;
+	color: #508bac;
+
+}
+
+ul#nav_footer li#footer_separator {
+	padding: 0 10px;
+}
+
+ul#nav_footer li a {
+	color: #508bac;
+	text-decoration: none;
+}
+
+p#footer_copyright {
+	font: 1.0em Verdana, Arial, Helvetica, sans-serif;
+	color: #508bac;
+	position: absolute;
+	top: 41px;
+	right: 63px;
+}
+

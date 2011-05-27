@@ -1,0 +1,72 @@
+/*
+ *= require master
+ CSS Main Site styles: Registered/Authenticated User Areas
+*/
+
+
+p {
+	margin-bottom: 10px;
+}
+
+#mainarea {
+
+}
+
+#header {
+
+
+
+/* forms */
+
+form#user_new {
+	padding: 0 0 20px 30px;
+}
+
+label {
+	font: bold 1.1em Arial, Helvetica, sans-serif;
+	padding-left: 3px;
+}
+
+input[type=text], input[type=password] {
+	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #e1f0be;
+	border: 2px solid #fff;
+	padding: 4px 7px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-border-radius: 5px;
+}
+
+/* end forms */
+
+#header-logo {
+	position: relative;
+	top: 50px;
+}
+
+
+#main_top {
+	width: 1014px;
+	height: 27px;
+	margin: 0 auto;
+	background: url(main_top_bg.png) no-repeat left top;
+}
+
+#main {
+	width: 1014px;
+	margin: 0 auto;
+	background: url(main_bg.png) repeat-y left top;
+}
+
+
+#col_left, #col_right {
+	float: left;
+}
+
+#col_left {
+	}
+
+#col_right {
+
+
+}

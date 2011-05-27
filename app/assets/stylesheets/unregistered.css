@@ -1,14 +1,8 @@
 /*
- *= require reset
- CSS Main Site styles
+ *= require master
+ CSS Main Site styles: Unregistered/Unauthenticated User Areas
 */
 
-
-body {
-	font-size: 65%;
-	background: url(body_bg.jpg) repeat-x left top;
-	line-height: 1;
-}
 
 p {
 	margin-bottom: 10px;
@@ -25,23 +19,6 @@ p {
 	position: relative;
 }
 
-/* general purpose */
-
-.clearing {
-	clear: both;
-	height: 0;
-}
-
-.action_link {
-	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: red;
-}
-
-	/* error and alert messages */
-
-.notice, .alert {
-	display: none;
-}
 
 /* forms */
 
@@ -64,8 +41,7 @@ input[type=text], input[type=password] {
 	-border-radius: 5px;
 }
 
-
-/* unregistered user pages only */
+/* end forms */
 
 #header-logo {
 	position: relative;
@@ -116,12 +92,6 @@ img#new-to-ok-arrow {
 	left: 56px;
 }
 
-h2 {
-	color: #1f6994;
-	font: bold 1.7em "Nobile", Arial, sans-serif;
-	margin-bottom: 10px;
-}
-
 #col_right {
 	width: 640px;
 	padding-top: 8px;
@@ -148,6 +118,8 @@ h2 {
 	background: url(recent_kudos_cont_bot_bg.png) no-repeat left top;
 	margin-bottom: 20px;
 }
+
+/* kudos messaging related */
 
 div.kudo_message_cont {
 	clear: both;
@@ -211,54 +183,4 @@ span.greater_than {
 	color: #ccc;
 }
 
-	/* footer */
-	
-#footer {
-	width: 1014px;
-	margin: 0 auto;
-	height: 94px;
-	background: url(footer_bg.png) no-repeat left top;
-	clear: both;
-	position: relative;
-}
-
-ul#nav_footer {
-	list-style: none;
-	margin-left: 140px;
-	padding-top: 28px;
-}
-
-ul#nav_footer img {
-	vertical-align: middle;
-}
-
-ul#nav_footer li {
-	display: inline;
-	padding: 0 10px;
-	font: normal 1.3em Nobile, Arial, sans-serif;
-	color: #508bac;
-
-}
-
-ul#nav_footer li#footer_separator {
-	padding: 0 10px;
-}
-
-ul#nav_footer li a {
-	color: #508bac;
-	text-decoration: none;
-}
-
-p#footer_copyright {
-	font: 1.0em Verdana, Arial, Helvetica, sans-serif;
-	color: #508bac;
-	position: absolute;
-	top: 41px;
-	right: 63px;
-}
-
-.clearing {
-	clear: both;
-	line-height: 0;
-}
-
+/* end kudos messaging */
