@@ -210,3 +210,28 @@ input[type=text], input[type=password] {
 }
 
 /* end forms */
+
+/* User account settings */
+
+img.sn_tile_status {
+	
+	vertical-align: middle;
+}
+
+span.sn_status, span.sn_status_dim {
+	font: normal 1.7em "Copse", Arial, sans-serif;
+}
+
+span.sn_status {
+	color: #1f6994;
+}
+
+span.sn_status_dim {
+	color: #555;
+}
+
+h3 {
+	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: #555;
+	border-top: 1px solid #555;
+}

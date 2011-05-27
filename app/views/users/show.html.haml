@@ -5,16 +5,21 @@
 #main
   .wrapper-main
     %h2= t :my_account_settings
+    %h3= t :authentications
     
-    - if @user.authentications.any?
-      %p
-        = t :you_can_authenticate_using_following_methods
-        ourkudos, 
-        - for provider in @user.authentications do
-          = provider.provider
-          = link_to image_tag('remove.png'), user_authentication_path(@user, provider), :method => :delete, :confirm => I18n.t(:are_you_sure)
+    %p
+      = t :you_can_authenticate_using_following_methods
+  
+      
+    %p
+      = show_authentication_status('facebook')
+      = show_authentication_status('twitter')
     
-    %p= render '/shared/social_links'
+    %p
+      = t :you_can_always_authenticate_with_ourkudos
+      
+        
+    
     
     = render :partial => "identities/index", :locals => {:identities => @identities }
     
