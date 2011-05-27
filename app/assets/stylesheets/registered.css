@@ -73,6 +73,11 @@ img#user_avatar {
 	background: url(main_bg.png) repeat-y left top;
 }
 
+.wrapper-main {
+	/* wrappers used to create padding in areas where padding is only selectively desired 
+	 this allows edge */
+	padding: 0px 30px;
+}
 
 /* Send Kudos Area */
 
