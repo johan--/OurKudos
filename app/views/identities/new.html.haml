@@ -1,11 +1,20 @@
-%h3= t :add_new_identity
+#header
+  = render 'shared/registered_header'
 
-= form_for @identity, :url => user_identities_path(current_user) do |f|
+#main_top
+#main
+  .wrapper-main
+    
+    
+    = form_for @identity, :url => user_identities_path(current_user) do |f|
+      %h2= t :add_new_identity
+      = error_messages_for @identity
+      
+      = render :partial => 'identities/form_fields', :locals => {:f => f }
+      
+      = f.submit t(:add_new_identity)
+    
+    = link_to t(:back_to_my_account_settings), user_path(current_user)
   
-  = error_messages_for @identity
-  
-  = render :partial => 'identities/form_fields', :locals => {:f => f }
-  
-  = f.submit t(:add_new_identity)
-
-= link_to t(:back_to_my_account_settings), user_path(current_user)
+  #footer
+    = render 'shared/footer'

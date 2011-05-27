@@ -1,6 +1,7 @@
 class MergesController < ApplicationController
   before_filter :authenticate_user!
   before_filter :check_if_confirmed, :only => [:show, :update]
+  layout 'registered'
   
   def new
     @merge = Merge.new

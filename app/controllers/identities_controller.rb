@@ -1,5 +1,6 @@
 class IdentitiesController < ApplicationController
   before_filter :authenticate_user!
+  layout 'registered'
 
   respond_to :html, :js
 
