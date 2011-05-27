@@ -1,18 +1,27 @@
-%h3= t :my_account_settings
+#header
+  = render 'shared/registered_header'
+  
+#main_top
+#main
 
-- if @user.authentications.any?
+  %h2= t :my_account_settings
+  
+  - if @user.authentications.any?
+    %p
+      = t :you_can_authenticate_using_following_methods
+      ourkudos, 
+      - for provider in @user.authentications do
+        = provider.provider
+        = link_to image_tag('remove.png'), user_authentication_path(@user, provider), :method => :delete, :confirm => I18n.t(:are_you_sure)
+  
+  %p= render '/shared/social_links'
+  
+  = render :partial => "identities/index", :locals => {:identities => @identities }
+  
   %p
-    = t :you_can_authenticate_using_following_methods
-    ourkudos, 
-    - for provider in @user.authentications do
-      = provider.provider
-      = link_to image_tag('remove.png'), user_authentication_path(@user, provider), :method => :delete, :confirm => I18n.t(:are_you_sure)
-
-%p= render '/shared/social_links'
-
-= render :partial => "identities/index", :locals => {:identities => @identities }
-
-%p
-  = link_to t(:add_new_identity), new_user_identity_path(current_user)
-  |
-  = link_to t(:merge_with_my_other_account), new_merge_path
+    = link_to t(:add_new_identity), new_user_identity_path(current_user)
+    |
+    = link_to t(:merge_with_my_other_account), new_merge_path
+    
+    #footer
+      = render 'shared/footer'

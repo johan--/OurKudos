@@ -1,0 +1,9 @@
+= link_to image_tag('ourkudos_header_logo.png', :id => 'header-logo'), '/'
+#header_user_info
+  %h1 Welcome
+  %h1= current_user.first_name
+  %p#header_user_info_nav
+    = link_to "My Account", user_path(current_user)
+    &bull;
+    = link_to('Sign Out', destroy_user_session_path)
+  = image_tag('avatar_unknown.png', :id => 'user_avatar')
