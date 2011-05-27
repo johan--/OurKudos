@@ -3,12 +3,64 @@
   #header_user_info
     %h1 Welcome
     %h1= current_user.first_name
-    = link_to "My Account", user_path(current_user)
-    &bull;
-    = link_to('Sign Out', destroy_user_session_path)
+    %p#header_user_info_nav
+      = link_to "My Account", user_path(current_user)
+      &bull;
+      = link_to('Sign Out', destroy_user_session_path)
     = image_tag('avatar_unknown.png', :id => 'user_avatar')
 #main_top
 #main
-   
+  
+  #kudo_send_cont
+    = image_tag('baltar_mailman_icon.png',:id => 'baltar_mailman_icon')
+    #kudo_send_cont_top
+    #kudo_send_cont_mid
+      #kudo_send_header
+        %h1 Send Kudos
+      = form_tag @kudo do
+        #kudo_send_col_left
+          = label_tag 'kudo_text', 'Your message'
+          #kudo_message_cont			
+            #kudo_message_cont_top
+            #kudo_message_cont_mid
+              = text_area_tag 'kudo_text','',:cols=>'48',:rows=>'6',:placeholder=>'write something positive'
+            #kudo_message_cont_bot
+        #kudo_send_col_right
+          %p
+            = label_tag 'kudo_recipient', 'Send to'
+            %br/
+            = text_field_tag 'kudo_recipient'
+            
+          %p
+            = label_tag 'kudo_gift', 'Send Gift?'
+            %br/
+            = check_box 'kudo_gift', ''
+            
+          %p
+            = label_tag 'share_scope','Who would you like to share with?'
+            %br/
+            = radio_button_tag 'share_scope', 'world'
+            = label_tag 'share_scope', 'The world'
+            
+            = radio_button_tag 'share_scope', 'friends'
+            = label_tag 'share_scope', 'Friends only'
+            
+            = radio_button_tag 'share_scope', 'recipient'
+            = label_tag 'share_scope', 'Recipient only'
+            
+        #kudo_send_submit_region
+          %span#social_share_choices
+            = label_tag 'social_sharing', 'Share on'
+            
+            = check_box 'social_sharing','facebook'
+            = label_tag 'social_sharing', image_tag('facebook_icon.png') + 'facebook'
+            
+            = check_box 'social_sharing','twitter'
+            = label_tag 'social_sharing', image_tag('twitter_icon.png') + 'twitter'
+          %button#kudo_send_submit_button{:type => "submit"}
+            = image_tag('kudo_send_button.png')
+    #kudo_send_cont_bot
+          
+  
   #footer
     = render 'shared/footer'

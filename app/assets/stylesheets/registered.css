@@ -31,20 +31,29 @@
 	color: #effaff;
 }
 
-#header_user_info a {
+#header_user_info_nav {
+	position: absolute;
+	bottom: 0;
+}
+
+#header_user_info_nav a {
 	color: #effaff;
 	text-decoration: none;
 	font: 1.1em Verdana, Helvetica, Arial, sans-serif;
 }
 
+#header_user_info_nav a:hover {
+	border-bottom: 1px dotted #effaff;
+}
+
 #header_user_info h1 {
-	font: normal 1.8em "Copse", Arial, Helvetica, sans-serif;
+	font: normal 1.6em "Copse", Arial, Helvetica, sans-serif;
 }
 
 img#user_avatar {
 	position: absolute;
 	right: 30px;
-	top: 20px;
+	top: 25px;
 	border: 3px solid #fff;
 	-webkit-box-shadow: 0 0 5px 2px #ccc;
 	-moz-box-shadow: 0 0 5px 2px #ccc;
@@ -65,17 +74,117 @@ img#user_avatar {
 }
 
 
-#col_left, #col_right {
+/* Send Kudos Area */
+
+#kudo_send_cont {
+	width: 944px;
+	margin: 0 auto;
+	position: relative;
+}
+
+img#baltar_mailman_icon {
+	position: absolute;
+	top: -35px;
+	left: 20px;
+}
+
+#kudo_send_cont_top {
+	width: 944px;
+	height: 29px;
+	background: url(kudo_send_cont_top_bg.png) left top no-repeat;
+}
+
+#kudo_send_cont_mid {
+	width: 904px;
+	padding: 0 20px;
+	background: url(kudo_send_cont_mid_bg.png) left top repeat-y;
+}
+
+#kudo_send_cont_bot {
+	width: 944px;
+	height: 33px;
+	background: url(kudo_send_cont_bot_bg.png) left bottom no-repeat;
+}
+
+#kudo_send_cont h1 {
+	font: bold 3em "Copse", Arial, Helvetica, sans-serif;
+	color: #1f6994;
+	padding-bottom: 30px;
+	line-height: 0;
+}
+
+#kudo_send_header {
+	margin-left: 90px;
+	background: url(8pxroundeddot.png) left bottom repeat-x;
+}
+
+
+#kudo_send_form textarea {
+	border: none;
+	outline: none;
+}
+
+
+#kudo_message_cont_top {
+	width: 393px;
+	height: 10px;
+	background: url(kudo_message_cont_top_bg.png) no-repeat left top;
+}
+
+#kudo_message_cont_mid {
+	width: 373px;
+	padding: 0 10px;
+	background: url(kudo_message_cont_mid_bg.png) repeat-y left top;
+}
+
+#kudo_message_cont_bot {
+	width: 393px;
+	height: 12px;
+	background: url(kudo_message_cont_bot_bg.png) no-repeat left bottom;
+}
+
+#kudo_send_col_left, #kudo_send_col_right {
 	float: left;
+	padding-top: 15px;
 }
 
-#col_left {
-	}
-
-#col_right {
-
-
+#kudo_send_col_left {
+	width: 420px;
+	padding-left: 20px;
 }
+
+#kudo_send_submit_region {
+	width: 835px;
+	height: 40px;
+	padding: 5px 5px 0 20px;
+	background: url(kudo_send_submit_region_bg.png) no-repeat left bottom;
+	clear: both;
+	margin: 0 auto;
+	padding-top: 30px;
+}
+
+#kudo_send_submit_region img {
+	vertical-align: middle;
+}
+
+#kudo_send_submit_region button {
+	display: inline;
+	float: right;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+span#social_share_choices {
+	position: relative;
+	top: 10px;
+}
+
+span#social_share_choices label {
+	padding-right: 20px;
+	margin-left: -8px;
+}
+
 
 
 /* forms */

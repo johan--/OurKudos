@@ -58,6 +58,10 @@ body {
 	height: 0;
 }
 
+.no_bot_marg {
+	margin-bottom: 0 !important;
+}
+
 .action_link {
 	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	color: red;
