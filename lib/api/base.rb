@@ -30,7 +30,7 @@ module OurKudos
      def create
         resource = current_model.new cleanup_params(params[model_as_symbol])
         if resource.save
-          render :json => [:message => respond_with_code(:I1), :code => :I1, params[model_as_symbol] => resource.as_json ].to_json and return
+          render :json => [:message => respond_with_code(:I1), :code => :I1, model_as_symbol => resource.as_json ].to_json and return
         else
           render :json => [:message => respond_with_code(:E4), :errors => resource.errors, :code => :E4 ].to_json and return
         end
@@ -39,7 +39,7 @@ module OurKudos
      def destroy
         resource = current_model.find params[:id]
         if resource.save
-          render :json => [:message => respond_with_code(:I3), :code => :I3, params[model_as_symbol] => resource.as_json ].to_json and return
+          render :json => [:message => respond_with_code(:I3), :code => :I3, model_as_symbol => resource.as_json ].to_json and return
         else
           render :json => [:message => respond_with_code(:E10), :errors => resource.errors, :code => :E10 ].to_json and return
         end
