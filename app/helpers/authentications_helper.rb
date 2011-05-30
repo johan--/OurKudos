@@ -1,19 +1,27 @@
 module AuthenticationsHelper
 
-def show_authentication_status(provider)
-	auth = Authentication.find_by_provider(provider)
-	if auth
-		content_block = content_tag(:p, link_to(image_tag(provider+'_tile_icon.png', :class => "sn_tile_status")+ content_tag(:span ,provider.titleize, :class=>'sn_status'),"/authentications/#{auth.id.to_s}/delete" ))
+  def show_authentication_status provider
+    auth = current_user.send "#{provider}_auth"
 
+    if auth.blank?
+         klass   = 'sn_status_dim'
+         method  = :post
+         path    = omniauth_authorize_path(:user, provider)
+         image   = image_tag(provider+'_tile_icon_dim.png', :class => "sn_tile_status")
+     else
+         klass   = 'sn_status'
+         method  = :delete
+         path    = user_authentication_path(current_user, auth)
+         image   = image_tag(provider+'_tile_icon.png', :class => "sn_tile_status")
 
-	else
-		content_block = content_tag(:p, link_to(image_tag(provider+'_tile_icon_dim.png', :class => "sn_tile_status")+ content_tag(:span, provider.titleize, :class=>'sn_status_dim'),"/auth/#{provider}"))
+     end
 
+      content_tag :p, do
+        link_to (image + content_tag(:span ,provider.titleize, :class => klass)),
+                path, :method => method
+      end
 
-	end
-	
-	return content_block
-end
+  end
 
 
 end

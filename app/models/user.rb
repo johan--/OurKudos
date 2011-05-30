@@ -182,4 +182,12 @@ class User < ActiveRecord::Base
     update_attribute :authentication_token, token
   end
 
+  def twitter_auth
+    @twitter_auth ||= self.authentications.find_by_provider 'twitter'
+  end
+
+  def facebook_auth
+    @facebook_auth ||= self.authentications.find_by_provider 'facebook'
+  end
+
 end

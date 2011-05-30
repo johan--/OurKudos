@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(:version => 20110521085324) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-05-19 05:29:23'
+    t.datetime "unlock_in",       :default => '1911-05-29 16:30:13'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(:version => 20110521085324) do
     t.integer  "identity_id"
     t.integer  "merged_id"
     t.string   "merged_with_email"
-    t.string   "account_merged"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
