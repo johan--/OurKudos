@@ -10,7 +10,7 @@ class KudosController < ApplicationController
   end
 
   def show
-    current_user.inbox.find_by_name()
+    @kudos = current_user.inbox.kudos.page(params[:page]).per(5)
   end
 
 end

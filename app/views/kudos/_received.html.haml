@@ -1,0 +1,21 @@
+= paginate @kudos
+#recent_kudos_cont_top
+  %h3 Recent Kudos
+  #recent_kudos_cont
+    - for kudo in @kudos do
+      .kudo_message_cont
+        = image_tag('avatar_ben.jpg', :class=>'avatar')
+        .kudo_message_bubble_cont
+          .kudo_message_top
+          .kudo_message_mid
+          %p
+            %span.sender= kudo.author.to_s
+            %span.greater_than >
+            %span.receiver= kudo.recipient.to_s
+          %p= kudo.body
+        .kudo_message_bot
+      .clearing
+
+  #recent_kudos_cont_bot
+.clearing
+= paginate @kudos

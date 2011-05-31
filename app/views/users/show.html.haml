@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #header
   = render 'shared/registered_header'
   
@@ -19,6 +20,25 @@
       = t :you_can_always_authenticate_with_ourkudos
       
         
+=======
+%h2= t :my_account_settings
+
+= render 'kudos/received' unless @kudos.blank?
+
+%h3= t :authentications
+    
+%p
+  = t :you_can_authenticate_using_following_methods
+
+%p
+  = show_authentication_status 'facebook'
+  = show_authentication_status 'twitter'
+
+%p
+  = t :you_can_always_authenticate_with_ourkudos
+
+%p= render :partial => "identities/index", :locals => {:identities => @identities }
+>>>>>>> Twitter Kudo and Email Kudo models
     
     
     = render :partial => "identities/index", :locals => {:identities => @identities }

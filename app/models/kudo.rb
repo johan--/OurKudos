@@ -21,6 +21,7 @@ class Kudo < ActiveRecord::Base
   def prepare_copies
     return if to.blank?
     return send_email_kudo if to =~ RegularExpressions.email
+
     recipients = []
     to.split(",").each do |id|
       recipient  = Identity.find(id.to_i).user rescue nil
