@@ -1,26 +1,4 @@
-<<<<<<< HEAD
-#header
-  = render 'shared/registered_header'
-  
-#main_top
-#main
-  .wrapper-main
-    %h2= t :my_account_settings
-    %h3= t :authentications
-    
-    %p
-      = t :you_can_authenticate_using_following_methods
-  
-      
-    %p
-      = show_authentication_status('facebook')
-      = show_authentication_status('twitter')
-    
-    %p
-      = t :you_can_always_authenticate_with_ourkudos
-      
-        
-=======
+
 %h2= t :my_account_settings
 
 = render 'kudos/received' unless @kudos.blank?
@@ -38,15 +16,8 @@
   = t :you_can_always_authenticate_with_ourkudos
 
 %p= render :partial => "identities/index", :locals => {:identities => @identities }
->>>>>>> Twitter Kudo and Email Kudo models
-    
-    
-    = render :partial => "identities/index", :locals => {:identities => @identities }
-    
-    %p
-      = link_to t(:add_new_identity), new_user_identity_path(current_user), :class=>'action_link'
-      |
-      = link_to t(:merge_with_my_other_account), new_merge_path, :class=>'action_link'
-      
-  #footer
-    = render 'shared/footer'
+
+%p
+  = link_to t(:add_new_identity), new_user_identity_path(current_user), :class=>'action_link'
+  |
+  = link_to t(:merge_with_my_other_account), new_merge_path, :class=>'action_link'

@@ -5,5 +5,5 @@ tmp/
 config/database.yml
 nbproject/
 vendor/cache/
-./idea/*
+.idea/*
 .idea/dictionaries/marcin.xml
