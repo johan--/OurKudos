@@ -23,11 +23,15 @@
         .kudo_message_bubble_cont
           .kudo_message_top
           .kudo_message_mid
-            %p
-              %span.sender John Doe
-              %span.greater_than &gt;
-              %span.receiver Jane Brown
-            %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+            .kudo_message_text_cont
+              %p
+                %span.sender John Doe
+                %span.greater_than &gt;
+                %span.receiver Jane Brown
+              %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+              
+            .kudo_flag_cont
+            .clearing
           .kudo_message_bot
         .clearing
     

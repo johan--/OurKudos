@@ -267,7 +267,21 @@ div.kudo_message_cont img.avatar {
 }
 
 div.kudo_message_mid p {
-	margin-right: 130px;
+	width: 668px;
+	margin-right: 5px;
+}
+
+.kudo_message_text_cont {
+	float: left;
+}
+
+.kudo_flag_cont {
+	float: left;
+	cursor: pointer;
+	width: 33px;
+	height: 28px;
+	background: url(kudo_flag_icon_sprite.png) left -28px no-repeat;
+	margin-top: 8px;
 }
 
 /* end kudos messaging */
