@@ -1,29 +1,19 @@
-#header
-  = render 'shared/registered_header'
-  
-#main_top
-#main
-  .wrapper-main
-
-    %h2= t :merge_your_accounts
+%h2= t :merge_your_accounts
     
-    #merge-account-form
-      = form_for @merge do |f|
-        
-        = error_messages_for @merge
-      
-        
-        %p.explanation= t(:merge_explanation)
-      
-        %p= label_tag "merge-account-autocomplete", t(:enter_account_identity)
-        %p= text_field_tag :identity, params[:identity], :class => "string", :id => 'merge-account-autocomplete', :size => 30
-      
-        %p= label_tag "merge-account-password", t(:enter_account_password)
-        %p= f.password_field :password,  :class => "string"
-      
-        %p
-          = f.submit t(:merge_my_current_account_with_this_account)
-          = link_to t(:cancel), user_path(current_user), :class=>'action_link'
+#merge-account-form
+  = form_for @merge do |f|
 
-  #footer
-    = render 'shared/footer'
+    = error_messages_for @merge
+      
+        
+    %p.explanation= t(:merge_explanation)
+      
+    %p= label_tag "merge-account-autocomplete", t(:enter_account_identity)
+    %p= text_field_tag :identity, params[:identity], :class => "string", :id => 'merge-account-autocomplete', :size => 30
+      
+    %p= label_tag "merge-account-password", t(:enter_account_password)
+    %p= f.password_field :password,  :class => "string"
+      
+    %p
+      = f.submit t(:merge_my_current_account_with_this_account)
+      = link_to t(:cancel), user_path(current_user), :class=>'action_link'
