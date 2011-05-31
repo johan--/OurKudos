@@ -3,4 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 jQuery ->
-  jQuery('.kudo_recipient_list').tokenInput('/autocomplete/new?object=recipients')
+  jQuery('.kudo_recipient_list').tokenInput('/autocomplete/new?object=recipients',
+          allowCustomEntry: true
+    )
