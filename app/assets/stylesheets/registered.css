@@ -1,6 +1,8 @@
 /*
  *= require master
  CSS Main Site styles: Registered/Authenticated User Areas
+ *= require token_input
+ *= require token_input_mac
 */
 
 

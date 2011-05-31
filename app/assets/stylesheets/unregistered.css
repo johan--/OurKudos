@@ -1,6 +1,8 @@
 /*
  *= require master
  CSS Main Site styles: Unregistered/Unauthenticated User Areas
+ *= require token_input
+ *= require token_input_mac
 */
 
 #mainarea {

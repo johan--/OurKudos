@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110521085324) do
+ActiveRecord::Schema.define(:version => 20110531053159) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(:version => 20110521085324) do
   add_index "confirmations", ["confirmable_type"], :name => "index_confirmations_on_confirmable_type"
   add_index "confirmations", ["key"], :name => "index_confirmations_on_key"
 
+  create_table "folders", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+  end
+
+  add_index "folders", ["ancestry"], :name => "index_folders_on_ancestry"
+
   create_table "forbidden_passwords", :force => true do |t|
     t.string   "password"
     t.datetime "created_at"
@@ -67,6 +77,25 @@ ActiveRecord::Schema.define(:version => 20110521085324) do
     t.datetime "unlock_in",       :default => '1911-05-29 16:30:13'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kudo_copies", :force => true do |t|
+    t.integer  "recipient_id"
+    t.integer  "folder_id"
+    t.integer  "kudo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "kudos", :force => true do |t|
+    t.integer  "author_id"
+    t.integer  "kudoable_id"
+    t.integer  "member_kudo_id"
+    t.string   "subject"
+    t.string   "kudoable_type"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

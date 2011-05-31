@@ -25,6 +25,7 @@ gem 'coffee-script'
 gem 'uglifier'
 gem 'coffee-filter'
 gem 'oauth2-core'
+gem 'ancestry'
 
 group :test do
   gem "cucumber"

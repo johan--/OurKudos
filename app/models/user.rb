@@ -21,6 +21,9 @@ class User < ActiveRecord::Base
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
+  has_many :sent_messages, :class_name => "Kudo", :foreign_key => "author_id"
+  has_many :received_messages, :class_name => "KudoCopy", :foreign_key => "recipient_id"
+  has_many :folders
   # ================
   # = validations  =
   # ================
