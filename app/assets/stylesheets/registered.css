@@ -84,7 +84,7 @@ img#user_avatar {
 
 #kudo_send_cont {
 	width: 944px;
-	margin: 0 auto;
+	margin: 0 auto 8px auto;
 	position: relative;
 }
 
@@ -191,7 +191,47 @@ span#social_share_choices label {
 	margin-left: -8px;
 }
 
+/* Kudo Dashboard Styles */
 
+#kudo_dashboard_cont{
+	width: 944px;
+	margin: 0 auto 20px auto;
+}
+
+#kudo_dashboard_top {
+	width: 944px;
+	height: 78px;
+	background: url(kudo_dashboard_top_sprite.png) no-repeat left top;
+}
+
+#kudo_dashboard_mid {
+	width: 944px;
+}
+
+#kudo_dashboard_bot {
+	width: 944px;
+	height: 35px;
+	background: url(kudo_dashboard_bot_bg.png) no-repeat left top;
+}
+
+ul#nav_kudo_dashboard {
+	list-style: none;
+	margin-left: 2px;
+	padding-top: 1.4em;
+}
+
+ul#nav_kudo_dashboard li {
+	float: left;
+	width: 184px;
+	height: 15px;
+	text-align: center;
+}
+
+ul#nav_kudo_dashboard li h2 a {
+	text-decoration: none;
+	font-size: 1.3em;
+	color: #1f6994;
+}
 
 /* forms */
 

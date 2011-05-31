@@ -11,5 +11,19 @@
       #kudo_send_cont_mid
         = render :partial => "kudos/form"
       #kudo_send_cont_bot
+    
+    #kudo_dashboard_cont
+      #kudo_dashboard_top
+        %ul#nav_kudo_dashboard
+          %li
+            %h2= link_to('Sent','/')
+          %li
+            %h2= link_to('Received','/')
+          %li
+            %h2= link_to('Others','/')
+            
+      #kudo_dashboard_mid
+      #kudo_dashboard_bot
+      
   #footer
     = render 'shared/footer'
