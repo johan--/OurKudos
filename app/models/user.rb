@@ -193,4 +193,13 @@ class User < ActiveRecord::Base
     @facebook_auth ||= self.authentications.find_by_provider 'facebook'
   end
 
+  def inbox
+    folders.find_by_name I18n.t(:inbox_name)
+  end
+
+  def build_inbox
+    folders.build :name => I18n.t(:inbox_name)
+  end
+
+
 end

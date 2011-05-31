@@ -10,23 +10,30 @@ class Kudo < ActiveRecord::Base
   attr_accessor  :to
   attr_accessible :subject, :body, :to
 
-  before_create :build_inbox
+  before_create :set_kudoable, :prepare_copies
 
-   def inbox
-     folders.find_by_name I18n.t(:inbox_name)
-   end
+  validates :body, :presence => true
 
-   def build_inbox
-     folders.build :name => I18n.t(:inbox_name)
-   end
-
+  def set_kudoable
+    self.kudoable = self
+  end
 
   def prepare_copies
     return if to.blank?
-
-    to.each do |recipient|
-      recipient = Identity.find_all_by_identity(identity).user
-      kudo_copies.build(:recipient_id => recipient.id, :folder_id => recipient.inbox.id)
+    return send_email_kudo if to =~ RegularExpressions.email
+    recipients = []
+    to.split(",").each do |id|
+      recipient  = Identity.find(id.to_i).user rescue nil
+       if recipient && !recipients.include?(recipient)
+         recipients << recipient
+         kudo_copies.build(:recipient_id => recipient.id, :folder_id => recipient.inbox.id)
+       end
     end
+    kudo_copies
   end
+
+  def send_email_kudo
+
+  end
+
 end
