@@ -1,15 +1,6 @@
-#header
-  = render 'shared/registered_header'
-  
-#main_top
-#main
-  .wrapper-main
-    = render 'shared/messaging'
-    #kudo_send_cont
-      = image_tag('baltar_mailman_icon.png',:id => 'baltar_mailman_icon')
-      #kudo_send_cont_top
-      #kudo_send_cont_mid
-        = render :partial => "kudos/form"
-      #kudo_send_cont_bot
-  #footer
-    = render 'shared/footer'
+= render 'shared/messaging'
+#kudo_send_cont
+  = image_tag('baltar_mailman_icon.png',:id => 'baltar_mailman_icon')
+#kudo_send_cont_top
+#kudo_send_cont_mid
+  = render :partial => "kudos/form"

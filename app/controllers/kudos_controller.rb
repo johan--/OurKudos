@@ -9,4 +9,8 @@ class KudosController < ApplicationController
     end
   end
 
+  def show
+    current_user.inbox.find_by_name()
+  end
+
 end

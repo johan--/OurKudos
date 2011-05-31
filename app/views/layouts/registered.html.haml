@@ -7,6 +7,12 @@
     = csrf_meta_tag
   %body
     #mainarea
-      = notice
-      = alert
-      = yield
+      #header
+        = render 'shared/registered_header'
+      #main_top
+      #main
+        .wrapper-main
+          = yield
+
+        #footer
+          = render 'shared/footer'

@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
   after_save  :update_identity, :if => :primary_identity
   before_destroy :set_identities_as_destroyable
   after_destroy  :remove_mergeables  # can't use :depended destroy because it's too early for this event, need this method though
-
+  before_create :build_inbox
   # ================
   # == pg indexes ==
   # ================
