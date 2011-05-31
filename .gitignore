@@ -6,3 +6,4 @@ config/database.yml
 nbproject/
 vendor/cache/
 ./idea/*
+.idea/dictionaries/marcin.xml
