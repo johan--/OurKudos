@@ -56,10 +56,6 @@ img#user_avatar {
 	position: absolute;
 	right: 30px;
 	top: 25px;
-	border: 3px solid #fff;
-	-webkit-box-shadow: 0 0 5px 2px #ccc;
-	-moz-box-shadow: 0 0 5px 2px #ccc;
-	box-shadow: 0 0 5px 2px #ccc;
 }
 
 #main_top {
@@ -205,7 +201,9 @@ span#social_share_choices label {
 }
 
 #kudo_dashboard_mid {
-	width: 944px;
+	width: 864px;
+	background: url(kudo_dashboard_mid_bg.png) repeat-y left top;
+	padding: 0 40px 20px 40px;
 }
 
 #kudo_dashboard_bot {
@@ -230,8 +228,52 @@ ul#nav_kudo_dashboard li {
 ul#nav_kudo_dashboard li h2 a {
 	text-decoration: none;
 	font-size: 1.3em;
+	color: #fff;
+}
+
+ul#nav_kudo_dashboard li h2 a.active {
 	color: #1f6994;
 }
+
+
+#kudo_dashboard_search_cont {
+	background: url(8pxroundeddot.png) left bottom repeat-x;
+}
+
+/* kudos messaging related */
+
+div.kudo_message_bubble_cont {
+	width: 770px;
+}
+
+div.kudo_message_mid {
+	width: 770px;
+	background: url(kudo_dash_message_mid.png) no-repeat left top;
+}
+
+div.kudo_message_top {
+	width: 770px;
+	background: url(kudo_dash_message_top.png) no-repeat left bottom;
+}
+
+div.kudo_message_bot {
+	width: 770px;
+	background: url(kudo_dash_message_bot.png) no-repeat left top;
+}
+
+div.kudo_message_cont img.avatar {
+	float: left;
+	margin-top: 8px;
+}
+
+div.kudo_message_mid p {
+	margin-right: 130px;
+}
+
+/* end kudos messaging */
+
+
+
 
 /* forms */
 

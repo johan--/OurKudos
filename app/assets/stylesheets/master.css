@@ -68,6 +68,13 @@ body {
 	color: red;
 }
 
+img.avatar {
+	border: 3px solid #fff;
+	-webkit-box-shadow: 0 0 5px 2px #ccc;
+	-moz-box-shadow: 0 0 5px 2px #ccc;
+	box-shadow: 0 0 5px 2px #ccc;
+}
+
 p {
 	margin-bottom: 10px;
 }
@@ -153,3 +160,52 @@ p#footer_copyright {
 	right: 63px;
 }
 
+/* Kudos messaging presentation */
+/* Some rules here that apply to both unregistered homepage, registered homepage and You've got Kudos! page */
+/* Further rules customizing same DOM elements in registered.css, unregistered.css. Primarily this is due to
+	differences in width of the containing bubble graphic. */
+
+div.kudo_message_cont {
+	clear: both;
+	margin-bottom: 8px;
+}
+
+div.kudo_message_bubble_cont {
+	float: left;
+	margin-left: 15px;
+}
+
+div.kudo_message_top {
+	height: 11px;
+}
+
+div.kudo_message_bot {
+	height: 13px;
+}
+
+div.kudo_message_mid {
+	padding-left: 18px;
+}
+
+div.kudo_message_mid p {
+	font: normal 1.2em Verdana, "Copse", Arial, sans-serif;
+	color: #000;
+	margin-bottom: 0;
+	padding: 0 15px 8px 15px;
+}
+
+span.sender, span.receiver {
+	font: bold 1.1em Verdana, "Copse", Arial, sans-serif;
+}
+
+span.sender {
+	color: #c60;
+}
+
+span.receiver {
+	color: #690;
+}
+
+span.greater_than {
+	color: #ccc;
+}

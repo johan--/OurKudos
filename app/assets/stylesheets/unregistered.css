@@ -118,66 +118,27 @@ input[type=text], input[type=password] {
 
 /* kudos messaging related */
 
-div.kudo_message_cont {
-	clear: both;
-	margin-bottom: 8px;
-}
-
 div.kudo_message_bubble_cont {
-	float: left;
 	width: 525px;
-	margin-left: 15px;
 }
 
 div.kudo_message_mid {
-	padding-left: 18px;
 	background: url(kudo_message_mid.png) no-repeat left top;
 }
 
 div.kudo_message_top {
 	width: 526px;
-	height: 11px;
 	background: url(kudo_message_top.png) no-repeat left bottom;
 }
 
 div.kudo_message_bot {
 	width: 526px;
-	height: 13px;
 	background: url(kudo_message_bot.png) no-repeat left top;
 }
 
-
-div.kudo_message_mid p {
-	font: normal 1.2em Verdana, "Copse", Arial, sans-serif;
-	color: #000;
-	margin-bottom: 0;
-	padding: 0 15px 8px 15px;
-}
-
 img.avatar {
-	border: 3px solid #fff;
-	-webkit-box-shadow: 0 0 5px 2px #ccc;
-	-moz-box-shadow: 0 0 5px 2px #ccc;
-	box-shadow: 0 0 5px 2px #ccc;
 	float: left;
 	margin-top: 8px;
-	
-}
-
-span.sender, span.receiver {
-	font: bold 1.1em Verdana, "Copse", Arial, sans-serif;
-}
-
-span.sender {
-	color: #c60;
-}
-
-span.receiver {
-	color: #690;
-}
-
-span.greater_than {
-	color: #ccc;
 }
 
 /* end kudos messaging */
