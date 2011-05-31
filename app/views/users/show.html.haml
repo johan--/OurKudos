@@ -1,5 +1,8 @@
 %h2= t :my_account_settings
 
+%h3= t :my_received_kudos
+= render 'kudos/received'
+
 %h3= t :authentications
     
 %p
@@ -7,8 +10,8 @@
   
       
 %p
-  = show_authentication_status('facebook')
-  = show_authentication_status('twitter')
+  = show_authentication_status 'facebook'
+  = show_authentication_status 'twitter'
 
 %p
   = t :you_can_always_authenticate_with_ourkudos
