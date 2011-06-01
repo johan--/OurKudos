@@ -197,7 +197,18 @@ span#social_share_choices label {
 #kudo_dashboard_top {
 	width: 944px;
 	height: 78px;
+}
+
+.kdt_sent {
 	background: url(kudo_dashboard_top_sprite.png) no-repeat left top;
+}
+
+.kdt_received {
+	background: url(kudo_dashboard_top_sprite.png) no-repeat left -78px;
+}
+
+.kdt_others {
+	background: url(kudo_dashboard_top_sprite.png) no-repeat left -156px;
 }
 
 #kudo_dashboard_mid {
