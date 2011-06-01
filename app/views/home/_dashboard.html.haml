@@ -17,6 +17,7 @@
           = select_tag(:sortby)
         %p#kudos_search_cont
           = text_field_tag(:searchterms,'',:placeholder=>'search')
+        .clearing
     - for kudo in @kudos
       = render :partial => "kudos/sent_kudo",     :locals => {:kudo => kudo} if params[:kudos] == "sent"      || params[:kudos].blank?
       = render :partial => "kudos/received_kudo", :locals => {:kudo => kudo} if params[:kudos] == "received"  && !params[:kudos].blank?
