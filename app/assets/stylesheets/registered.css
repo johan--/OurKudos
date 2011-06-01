@@ -280,8 +280,15 @@ div.kudo_message_mid p {
 	cursor: pointer;
 	width: 33px;
 	height: 28px;
-	background: url(kudo_flag_icon_sprite.png) left -28px no-repeat;
 	margin-top: 8px;
+}
+
+.kf_dimmed {
+	background: url(kudo_flag_icon_sprite.png) left -28px no-repeat;
+}
+
+.kf_activated {
+	background: url(kudo_flag_icon_sprite.png) left top no-repeat;
 }
 
 /* end kudos messaging */
