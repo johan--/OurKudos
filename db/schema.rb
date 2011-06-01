@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110601112512) do
+ActiveRecord::Schema.define(:version => 20110601170711) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(:version => 20110601112512) do
 
   create_table "forbidden_passwords", :force => true do |t|
     t.string   "password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "friendships", :force => true do |t|
+    t.integer  "friend_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

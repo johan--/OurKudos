@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   before_filter :authenticate_user!
+  layout "registered"
 
   def create
     @friendship = current_user.friendships.build :friend_id => params[:friend_id]
@@ -8,6 +9,9 @@ class FriendshipsController < ApplicationController
     else
       redirect_to home_path, :notice => I18n.t(:not_added_friend)
     end
+  end
+
+  def show
   end
 
 end
