@@ -10,5 +10,5 @@
     %p= @kudo.kudo.body
 
     %p= t :community_join_explanation
-    %p= link_t   t(:join_our_kudos_now), new_user_registration_url(:user => {:email => @email})
+    %p= link_to   t(:join_our_kudos_now), new_user_registration_url(:user => {:email => @email})
 

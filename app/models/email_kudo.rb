@@ -1,4 +1,3 @@
 class EmailKudo < ActiveRecord::Base
-  has_one :kudo,           :as => :kudoable,    :dependent => :destroy
-  has_one  :confirmation, :as => :confirmable, :dependent => :destroy
+  has_one :kudo, :class_name => "KudoCopy", :as => :kudoable,:dependent => :destroy
 end

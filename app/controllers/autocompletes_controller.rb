@@ -11,7 +11,7 @@ class AutocompletesController < ApplicationController
       when 'recipients'
 
         @items = confirmed_identities(params[:q], 10).map do |identity|
-          { :id => identity.id, :name => identity.identity}
+          { :id => identity.id, :name => (identity.is_twitter? ? "@#{identity.identity}" : identity.identity)}
         end
     end    
     render :json => ['no matches'].to_json if @items.blank?

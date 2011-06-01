@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110601095147) do
+ActiveRecord::Schema.define(:version => 20110601112512) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -93,15 +93,18 @@ ActiveRecord::Schema.define(:version => 20110601095147) do
     t.integer  "kudo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "temporary_recipieint"
+    t.string   "temporary_recipient"
+    t.integer  "kudoable_id"
+    t.string   "kudoable_type"
   end
+
+  add_index "kudo_copies", ["kudoable_id"], :name => "index_kudo_copies_on_kudoable_id"
+  add_index "kudo_copies", ["kudoable_type"], :name => "index_kudo_copies_on_kudoable_type"
 
   create_table "kudos", :force => true do |t|
     t.integer  "author_id"
-    t.integer  "kudoable_id"
     t.integer  "member_kudo_id"
     t.string   "subject"
-    t.string   "kudoable_type"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
