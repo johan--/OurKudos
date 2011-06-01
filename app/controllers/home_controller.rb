@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :authenticate_user!, :except => [:index]
+	before_filter :authenticate_user!, :except => [:index, :invite]
   before_filter :get_kudos , :only => [:home]
   layout :choose_layout
 
@@ -12,6 +12,8 @@ class HomeController < ApplicationController
     @kudo   = Kudo.new
   end
 
+  def invite
+  end
 
   private
 
