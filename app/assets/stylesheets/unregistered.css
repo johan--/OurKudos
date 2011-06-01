@@ -123,17 +123,17 @@ div.kudo_message_bubble_cont {
 }
 
 div.kudo_message_mid {
-	background: url(kudo_message_mid.png) no-repeat left top;
+	background: url(kudo_message_mid_sprite.png) no-repeat left -184px;
 }
 
 div.kudo_message_top {
 	width: 526px;
-	background: url(kudo_message_top.png) no-repeat left bottom;
+	background: url(kudo_message_top_sprite.png) no-repeat left -11px;
 }
 
 div.kudo_message_bot {
 	width: 526px;
-	background: url(kudo_message_bot.png) no-repeat left top;
+	background: url(kudo_message_bot_sprite.png) no-repeat left -13px;
 }
 
 img.avatar {

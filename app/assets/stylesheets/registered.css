@@ -257,17 +257,17 @@ div.kudo_message_bubble_cont {
 
 div.kudo_message_mid {
 	width: 770px;
-	background: url(kudo_dash_message_mid.png) no-repeat left top;
+	background: url(kudo_message_mid_sprite.png) no-repeat left top;
 }
 
 div.kudo_message_top {
 	width: 770px;
-	background: url(kudo_dash_message_top.png) no-repeat left bottom;
+	background: url(kudo_message_top_sprite.png) no-repeat left top;
 }
 
 div.kudo_message_bot {
 	width: 770px;
-	background: url(kudo_dash_message_bot.png) no-repeat left top;
+	background: url(kudo_message_bot_sprite.png) no-repeat left top;
 }
 
 div.kudo_message_cont img.avatar {
