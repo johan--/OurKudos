@@ -1,0 +1,20 @@
+%h3= t(:showing_your_contacts)
+
+- if current_user.friendships.any?
+
+  %p= t(:my_contacts)
+  %ul
+    - for friendship in current_user.friendships do
+      %li= friendship.friend.email
+
+
+- if current_user.inverse_friends.any?
+
+  %p= t(:friended_by_users)
+  %ul
+    - for user in current_user.inverse_friends do
+      %li= user.email
+
+
+= link_to(:back, current_user, :method => :get)
+

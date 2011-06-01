@@ -206,5 +206,15 @@ class User < ActiveRecord::Base
     folders.build :name => I18n.t(:inbox_name)
   end
 
+  def add_friend friend
+    return false if is_my_friend? friend
+    friendships.create :friend_id => friend.id
+    true
+  end
+
+  def is_my_friend? friend
+    friendships.map(&:friend_id).include?(friend.id)
+  end
+
 
 end

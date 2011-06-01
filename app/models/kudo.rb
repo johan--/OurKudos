@@ -26,7 +26,7 @@ class Kudo < ActiveRecord::Base
 
     recipients_list.each do |id|
       recipient  = Identity.find(id.to_i).user rescue nil
-                   debugger
+
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
          send_system_kudo recipient
@@ -44,6 +44,8 @@ class Kudo < ActiveRecord::Base
     kudo_copies.build :recipient_id => recipient.id,
                       :kudoable     => self,
                       :folder_id    => recipient.inbox.id
+    author.add_friend recipient
+    recipient.add_friend author
   end
 
   def send_email_kudo recipient
