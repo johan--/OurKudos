@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" afterPath="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,15 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="friendships_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/friendships_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -44,19 +36,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="en.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/locales/views/friendships/en.yml">
+      <file leaf-file-name="_dashboard.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="44" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
+            <state line="12" column="49" selection-start="569" selection-end="569" vertical-scroll-proportion="0.4088586">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudos_helper.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
+      <file leaf-file-name="en.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/locales/views/friendships/en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="120" selection-end="120" vertical-scroll-proportion="0.26666668">
+            <state line="2" column="44" selection-start="79" selection-end="79" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -81,7 +73,6 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" />
         <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
@@ -91,6 +82,7 @@
         <option value="$PROJECT_DIR$/config/locales/views/friendships/en.yml" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/friendships_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" />
         <option value="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
       </list>
     </option>
@@ -154,6 +146,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -169,7 +165,47 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="identities" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -582,11 +618,6 @@
         <state line="37" column="48" selection-start="987" selection-end="987" vertical-scroll-proportion="0.33783785" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="976" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/home.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="0.27027026" />
@@ -623,6 +654,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/friendships_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="364" selection-end="364" vertical-scroll-proportion="0.43333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="60" selection-start="1356" selection-end="1356" vertical-scroll-proportion="0.0">
@@ -630,9 +668,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/friendships_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="364" selection-end="364" vertical-scroll-proportion="0.0">
+        <state line="13" column="12" selection-start="320" selection-end="320" vertical-scroll-proportion="0.43333334">
           <folding />
         </state>
       </provider>
@@ -644,9 +682,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="120" selection-end="120" vertical-scroll-proportion="0.26666668">
+        <state line="12" column="49" selection-start="569" selection-end="569" vertical-scroll-proportion="0.4088586">
           <folding />
         </state>
       </provider>
