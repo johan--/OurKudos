@@ -1,0 +1,25 @@
+#kudo_dashboard_cont
+  #kudo_dashboard_top
+    %ul#nav_kudo_dashboard
+      %li
+        %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for('sent')
+      %li
+        %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for('received')
+      %li
+        %h2= link_to('Others','/')
+          
+  #kudo_dashboard_mid
+    #kudo_dashboard_search_cont
+      = form_tag do
+        %p#kudos_sortby_cont
+          = label_tag(:sortby,'Sort by')
+          %br/
+          = select_tag(:sortby)
+        %p#kudos_search_cont
+          = text_field_tag(:searchterms,'',:placeholder=>'search')
+    - for kudo in @kudos
+      = render :partial => "kudos/sent_kudo",     :locals => {:kudo => kudo} if params[:kudos] == "sent"      || params[:kudos].blank?
+      = render :partial => "kudos/received_kudo", :locals => {:kudo => kudo} if params[:kudos] == "received"  && !params[:kudos].blank?
+
+    
+  #kudo_dashboard_bot

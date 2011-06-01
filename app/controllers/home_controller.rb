@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index]
+  before_filter :get_kudos , :only => [:home]
   layout :choose_layout
 
 
@@ -8,7 +9,7 @@ class HomeController < ApplicationController
   end    
   
   def home
-    @kudo = Kudo.new
+    @kudo   = Kudo.new
   end
 
 
@@ -18,5 +19,10 @@ class HomeController < ApplicationController
       user_signed_in? ? "registered" : "unregistered"
     end
 
-  
+    def get_kudos
+      %w{received sent}.include?(params[:kudos]) ?
+          term = params[:kudos] :
+          term = "sent"
+      @kudos = current_user.send "#{term}_kudos"
+    end
 end

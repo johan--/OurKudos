@@ -15,6 +15,10 @@ class Kudo < ActiveRecord::Base
     to.split(",").map{ |id| id.gsub("'",'') }
   end
 
+  def recipients_readable_list
+    kudo_copies.map(&:copy_recipient).join(", ")
+  end
+
   def prepare_copies
     return if to.blank?
 

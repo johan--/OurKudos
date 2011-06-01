@@ -26,7 +26,6 @@ class UserNotifier < ActionMailer::Base
 
   def kudo email_kudo
     @email  = email_kudo.email
-    debugger
     @author = email_kudo.kudo.author.to_s
     @kudo   = email_kudo
     mail :to => @email, :subject => I18n.t(:someone_says_thank_you_to_you)
