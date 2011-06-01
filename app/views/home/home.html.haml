@@ -18,6 +18,13 @@
           
     #kudo_dashboard_mid
       #kudo_dashboard_search_cont
+        = form_tag do
+          %p#kudos_sortby_cont 
+            = label_tag(:sortby,'Sort by')
+            %br/
+            = select_tag(:sortby)
+          %p#kudos_search_cont
+            = text_field_tag(:searchterms,'',:placeholder=>'search')
       .kudo_message_cont
         = image_tag('avatar_ben.jpg', :class=>'avatar')
         .kudo_message_bubble_cont

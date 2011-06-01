@@ -307,6 +307,16 @@ input[type=text], input[type=password] {
 	border-radius: 5px;
 }
 
+p#kudos_sortby_cont {
+	float: left;
+
+}
+
+p#kudos_search_cont {
+	float: right;
+	margin-right: 15px;
+}
+
 /* end forms */
 
 /* User account settings */
