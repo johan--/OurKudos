@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
   has_many :sent_kudos,     :class_name => "Kudo",     :foreign_key => "author_id"
   has_many :received_kudos, :class_name => "KudoCopy", :foreign_key => "recipient_id"
   has_many :folders
+
+  has_many :friendships
+  has_many :friends,             :through    => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friend_id"
+  has_many :inverse_friends,     :through    => :inverse_friendships, :source      => :user
   # ================
   # = validations  =
   # ================
