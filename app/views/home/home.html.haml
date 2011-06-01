@@ -6,40 +6,60 @@
     = render :partial => "kudos/form"
   #kudo_send_cont_bot
   
-  #kudo_dashboard_cont
-    #kudo_dashboard_top
-      %ul#nav_kudo_dashboard
-        %li
-          %h2= link_to('Sent','/',:class=>'active')
-        %li
-          %h2= link_to('Received','/')
-        %li
-          %h2= link_to('Others','/')
-          
-    #kudo_dashboard_mid
-      #kudo_dashboard_search_cont
-        = form_tag do
-          %p#kudos_sortby_cont 
-            = label_tag(:sortby,'Sort by')
-            %br/
-            = select_tag(:sortby)
-          %p#kudos_search_cont
-            = text_field_tag(:searchterms,'',:placeholder=>'search')
-      .kudo_message_cont
-        = image_tag('avatar_ben.jpg', :class=>'avatar')
-        .kudo_message_bubble_cont
-          .kudo_message_top
-          .kudo_message_mid
-            .kudo_message_text_cont
-              %p
-                %span.sender John Doe
-                %span.greater_than &gt;
-                %span.receiver Jane Brown
-              %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
-              
-            .kudo_flag_cont.kf_dimmed
-            .clearing
-          .kudo_message_bot
+#kudo_dashboard_cont
+  #kudo_dashboard_top
+    %ul#nav_kudo_dashboard
+      %li
+        %h2= link_to('Sent','/',:class=>'active')
+      %li
+        %h2= link_to('Received','/')
+      %li
+        %h2= link_to('Others','/')
+        
+  #kudo_dashboard_mid
+    #kudo_dashboard_search_cont
+      = form_tag do
+        %p#kudos_sortby_cont 
+          = label_tag(:sortby,'Sort by')
+          %br/
+          = select_tag(:sortby)
+        %p#kudos_search_cont
+          = text_field_tag(:searchterms,'',:placeholder=>'search')
         .clearing
-    
-    #kudo_dashboard_bot
+    .kudo_message_cont
+      = image_tag('avatar_ben.jpg', :class=>'avatar')
+      .kudo_message_bubble_cont
+        .kudo_message_top
+        .kudo_message_mid
+          .kudo_message_text_cont
+            %p
+              %span.sender John Doe
+              %span.greater_than &gt;
+              %span.receiver Jane Brown
+            %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+            
+          .kudo_flag_cont.kf_dimmed
+          .clearing
+        .kudo_message_bot
+      .clearing
+      
+      
+    .kudo_message_cont
+      = image_tag('avatar_ben.jpg', :class=>'avatar')
+      .kudo_message_bubble_cont
+        .kudo_message_top
+        .kudo_message_mid
+          .kudo_message_text_cont
+            %p
+              %span.sender John Doe
+              %span.greater_than &gt;
+              %span.receiver Jane Brown
+            %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+            
+          .kudo_flag_cont.kf_activated
+          .clearing
+        .kudo_message_bot
+      .clearing
+      
+  
+  #kudo_dashboard_bot

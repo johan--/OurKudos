@@ -238,9 +238,18 @@ ul#nav_kudo_dashboard li h2 a.active {
 
 #kudo_dashboard_search_cont {
 	background: url(8pxroundeddot.png) left bottom repeat-x;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 /* kudos messaging related */
+
+div.kudo_message_cont {
+	border-bottom: 4px dotted #fff;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
 
 div.kudo_message_bubble_cont {
 	width: 770px;
