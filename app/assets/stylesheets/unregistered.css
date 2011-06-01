@@ -153,6 +153,11 @@ img.avatar {
 	margin-bottom: 30px;
 }
 
+#youve_got_kudos_cont .kudo_message_cont {
+	margin: 0 auto 10px auto;
+	width: 610px;
+}
+
 #youve_got_kudos_top {
 	width: 944px;
 	height: 29px;
@@ -175,6 +180,21 @@ img.avatar {
 	font: normal 4em "Copse", Arial, Helvetica, sans-serif;
 	color: #1f6994;
 	text-align: center;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+#youve_got_kudos_cont h3 {
+	font: normal 1.9em "Copse", Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+
+#youve_got_kudos_cont h3 img {
+	vertical-align: middle;
+}
+
+span.blue_accent {
+	color: #5591b4;
 }
 
 #invite_col_left, #invite_col_right {

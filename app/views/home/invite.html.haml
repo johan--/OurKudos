@@ -7,6 +7,20 @@
     #youve_got_kudos_top
     #youve_got_kudos_mid
       %h1 You've Got Kudos!
+      .kudo_message_cont
+        = image_tag('avatar_ben.jpg', :class=>'avatar')
+        .kudo_message_bubble_cont
+          .kudo_message_top
+          .kudo_message_mid
+            %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+          .kudo_message_bot
+        .clearing
+      %h3
+        "It's fast, free and fun! In just
+        %span.blue_accent one minute
+        you can be a member!"
+        = link_to(image_tag('video_tour_btn.png'),'/')
+
     #youve_got_kudos_bot
   
   #invite_col_left
