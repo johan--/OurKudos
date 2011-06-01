@@ -93,19 +93,19 @@ img#baltar_mailman_icon {
 #kudo_send_cont_top {
 	width: 944px;
 	height: 29px;
-	background: url(kudo_send_cont_top_bg.png) left top no-repeat;
+	background: url(container944_top.png) left top no-repeat;
 }
 
 #kudo_send_cont_mid {
 	width: 904px;
 	padding: 0 20px;
-	background: url(kudo_send_cont_mid_bg.png) left top repeat-y;
+	background: url(container944_mid.png) left top repeat-y;
 }
 
 #kudo_send_cont_bot {
 	width: 944px;
 	height: 33px;
-	background: url(kudo_send_cont_bot_bg.png) left bottom no-repeat;
+	background: url(container944_bot.png) left bottom no-repeat;
 }
 
 #kudo_send_cont h1 {
