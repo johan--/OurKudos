@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/user_notifier.rb" afterPath="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/home.html.haml" afterPath="$PROJECT_DIR$/app/views/home/home.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_dashboard.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
+      <file leaf-file-name="home.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/home/home.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="44" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="259" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -60,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="28" selection-start="232" selection-end="232" vertical-scroll-proportion="0.27027026">
+            <state line="14" column="26" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -89,7 +82,6 @@
         <option value="$PROJECT_DIR$/app/models/email_kudo_observer_observer.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy_observer.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
-        <option value="$PROJECT_DIR$/app/views/home/home.html.haml" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
@@ -99,6 +91,7 @@
         <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/home/home.html.haml" />
       </list>
     </option>
   </component>
@@ -197,7 +190,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="kudos" />
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -212,10 +205,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -234,20 +223,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="mailers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -678,13 +653,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/home.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="40" selection-start="196" selection-end="196" vertical-scroll-proportion="0.16891892">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="48" selection-start="498" selection-end="498" vertical-scroll-proportion="0.3716216">
@@ -713,13 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="44" selection-start="242" selection-end="242" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="0" selection-start="465" selection-end="465" vertical-scroll-proportion="0.6980803">
@@ -743,7 +704,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="28" selection-start="232" selection-end="232" vertical-scroll-proportion="0.27027026">
+        <state line="14" column="26" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="976" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/home.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="259" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
