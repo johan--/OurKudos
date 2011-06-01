@@ -6,4 +6,9 @@ class KudoCopy < ActiveRecord::Base
 
   delegate   :author, :created_at, :subject, :body, :recipients, :to => :kudo
 
+
+  def copy_recipient
+    return self.recipient     if self.recipient
+    self.temporary_recipieint if self.recipient.blank?
+  end
 end

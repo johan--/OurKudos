@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531053159) do
+ActiveRecord::Schema.define(:version => 20110601095147) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(:version => 20110531053159) do
   add_index "confirmations", ["confirmable_id"], :name => "index_confirmations_on_confirmable_id"
   add_index "confirmations", ["confirmable_type"], :name => "index_confirmations_on_confirmable_type"
   add_index "confirmations", ["key"], :name => "index_confirmations_on_key"
+
+  create_table "email_kudos", :force => true do |t|
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "folders", :force => true do |t|
     t.integer  "user_id"
@@ -87,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20110531053159) do
     t.integer  "kudo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "temporary_recipieint"
   end
 
   create_table "kudos", :force => true do |t|
@@ -153,6 +160,12 @@ ActiveRecord::Schema.define(:version => 20110531053159) do
 
   add_index "sites", ["application_id"], :name => "index_sites_on_application_id"
   add_index "sites", ["application_secret"], :name => "index_sites_on_application_secret"
+
+  create_table "twitter_kudos", :force => true do |t|
+    t.string   "twitter_handle"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

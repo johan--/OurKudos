@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
-  has_many :sent_messages, :class_name => "Kudo", :foreign_key => "author_id"
-  has_many :received_messages, :class_name => "KudoCopy", :foreign_key => "recipient_id"
+  has_many :sent_kudos,     :class_name => "Kudo",     :foreign_key => "author_id"
+  has_many :received_kudos, :class_name => "KudoCopy", :foreign_key => "recipient_id"
   has_many :folders
   # ================
   # = validations  =
@@ -174,7 +174,7 @@ class User < ActiveRecord::Base
 
   def current_recipient_for identity
     return identity.identity if identities.size > 1
-    return self.email
+    self.email
   end
 
   def active_for_authentication?

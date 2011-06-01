@@ -2,6 +2,7 @@ class HomeController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index]
   layout :choose_layout
 
+
   def index
 	  	redirect_to home_path if user_signed_in?
   end    

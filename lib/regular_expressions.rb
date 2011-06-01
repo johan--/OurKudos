@@ -7,6 +7,10 @@ module RegularExpressions
   def self.password
     /^(?=.*\d)(?=.*([a-z]|[A-Z]))([\x20-\x7E]){6,}$/
   end
+
+  def self.twitter
+    /^@{1}/
+  end
  #TODO place other reg exps here
 
 end
