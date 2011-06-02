@@ -208,6 +208,7 @@ span.blue_accent {
 }
 
 #invite_col_right {
+	position: relative;
 	padding: 0 35px 0 0;
 }
 
@@ -235,3 +236,19 @@ span.blue_accent {
 	background: url(kudo_message_bot_sprite.png) no-repeat left -26px;
 }
 
+#kudos_icon_hugging {
+	position: absolute;
+	right: 0;
+top: 30px; 
+}
+
+ul.invite_list {
+	list-style: disc;
+	margin: 0 0 10px 20px;
+	font: 1.3em Verdana, Arial, Helvetica, sans-serif;
+	color: #333;
+}
+
+ul.invite_list li {
+	margin-bottom: 8px;
+}
