@@ -13,6 +13,7 @@ class HomeController < ApplicationController
   end
 
   def invite
+  	render :layout => 'unregistered'
   end
 
   private
