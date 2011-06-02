@@ -7,7 +7,7 @@
     %p
      %span.sender= kudo.author.to_s
      %span.greater_than &gt;
-     %span.receiver= kudo.recipients_readable_list
+     %span.receiver= kudo.recipient.to_s
     %p= kudo.body
    .kudo_flag_cont.kf_dimmed
    .clearing
