@@ -3,10 +3,17 @@
 - if current_user.friendships.any?
 
   %p= t(:my_contacts)
-  %ul
-    - for friendship in current_user.friendships do
-      %li= friendship.friend.email
-
+  %table.600px
+    %thead
+      %th= t :user_friend
+      %th= t :contacts_count
+      %th= t :last_contacted_at
+    %tbody
+      - for friendship in current_user.friendships do
+        %tr
+          %td= friendship.friend.email
+          %td= friendship.contacts_count
+          %td= time_ago_in_words(friendship.last_contacted_at) + " #{t(:ago)}"
 
 - if current_user.inverse_friends.any?
 

@@ -213,8 +213,11 @@ class User < ActiveRecord::Base
   end
 
   def is_my_friend? friend
-    friendships.map(&:friend_id).include?(friend.id)
+     !(friendship_for friend.id).blank?
   end
 
+  def friendship_for person
+    friendships.find_by_friend_id person
+  end
 
 end

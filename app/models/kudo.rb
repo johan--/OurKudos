@@ -41,11 +41,11 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_system_kudo recipient
-    kudo_copies.build :recipient_id => recipient.id,
-                      :kudoable     => self,
-                      :folder_id    => recipient.inbox.id
-    author.add_friend recipient
-    recipient.add_friend author
+      kudo_copies.build :recipient_id => recipient.id,
+                        :kudoable     => self,
+                        :folder_id    => recipient.inbox.id
+      Friendship.process_friendships_between author, recipient
+      Friendship.process_friendships_between recipient, author
   end
 
   def send_email_kudo recipient
@@ -57,5 +57,7 @@ class Kudo < ActiveRecord::Base
     kudo_copies.build :temporary_recipient => recipient,
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
   end
+
+
 
 end
