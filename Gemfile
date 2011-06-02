@@ -26,7 +26,7 @@ gem 'uglifier'
 gem 'coffee-filter'
 gem 'oauth2-core'
 gem 'ancestry'
-gem 'fbgraph'
+gem 'fb_graph'
 
 group :test do
   gem "cucumber"
