@@ -113,6 +113,8 @@ img#baltar_mailman_icon {
 	color: #1f6994;
 	padding-bottom: 30px;
 	line-height: 0;
+*padding-top: 20px;
+*margin-top: -8px;
 }
 
 #kudo_send_header {
@@ -143,6 +145,7 @@ img#baltar_mailman_icon {
 	width: 393px;
 	height: 12px;
 	background: url(kudo_message_cont_bot_bg.png) no-repeat left bottom;
+
 }
 
 #kudo_send_col_left, #kudo_send_col_right {
@@ -175,11 +178,17 @@ img#baltar_mailman_icon {
 	background: none;
 	border: none;
 	cursor: pointer;
+	
+	/* IE7 Fix for overlap and double padding bugs*/
+	z-index: 100;
+	position: relative;
+	overflow: visible;
 }
 
 span#social_share_choices {
-	position: relative;
-	top: 10px;
+	float: left;
+	padding-top: 8px;
+	padding-left: 10px;
 }
 
 span#social_share_choices label {
@@ -342,6 +351,11 @@ p#kudos_sortby_cont {
 p#kudos_search_cont {
 	float: right;
 	margin-right: 15px;
+}
+
+#kudo_message_textarea {
+	width: 370px;
+	height: 130px;
 }
 
 /* end forms */

@@ -9,7 +9,7 @@
   #kudo_message_cont
    #kudo_message_cont_top
    #kudo_message_cont_mid
-    = f.text_area :body,  { :cols=> '48',:rows=> '6',  :placeholder=> 'write something positive'}
+    = f.text_area :body,  {:placeholder=> 'write something positive', :id=>'kudo_message_textarea'}
    #kudo_message_cont_bot
 
  #kudo_send_col_right
@@ -37,12 +37,12 @@
 
  #kudo_send_submit_region
   %span#social_share_choices
-  = label_tag 'social_sharing', 'Share on'
-
-  = check_box 'social_sharing','facebook'
-  = label_tag 'social_sharing', image_tag('facebook_icon.png') + 'facebook'
-
-  = check_box 'social_sharing','twitter'
-  = label_tag 'social_sharing', image_tag('twitter_icon.png') + 'twitter'
+   = label_tag 'social_sharing', 'Share on'
+	 
+   = check_box 'social_sharing','facebook'
+   = label_tag 'social_sharing', image_tag('facebook_icon.png') + 'facebook'
+	 
+   = check_box 'social_sharing','twitter'
+   = label_tag 'social_sharing', image_tag('twitter_icon.png') + 'twitter'
   %button#kudo_send_submit_button{:type => "submit"}
    = image_tag('kudo_send_button.png')
