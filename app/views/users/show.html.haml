@@ -1,4 +1,3 @@
-
 %h2= t :my_account_settings
 
 = render 'kudos/received' unless @kudos.blank?
@@ -23,3 +22,10 @@
   = link_to t(:merge_with_my_other_account), new_merge_path, :class=>'action_link'
   |
   = link_to t(:show_my_friends), friendships_show_path, :class => "action_link"
+
+%h3 Password
+= form_tag do
+  = label_tag(:password, 'enter new password')
+  %br
+  = text_field_tag(:password)
+  = submit_tag('change password')
