@@ -2,11 +2,11 @@ module OurKudos
   module Facebook
 
    def facebook_user
-     @facebook_user ||= FbGraph::User.me facebook_auth.token
+     @facebook_user ||= FbGraph::User.me(facebook_auth.token).fetch
    end
 
    def fetch_and_save_friends
-     facebook_user.fetch.friends do |friend|
+     facebook_user.friends do |friend|
        friend.fetch
        facebook_friends.create :first_name => friend.first_name,
                                :last_name  => friend.last_name,

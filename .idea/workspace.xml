@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/delayed_jobs/facebook_friends_fetch_job.rb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/config/initializers/mime_types.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/application.rb" afterPath="$PROJECT_DIR$/config/application.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/extensions_libs.rb" afterPath="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/facebook.rb" afterPath="$PROJECT_DIR$/lib/facebook.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ip_verification.rb" afterPath="$PROJECT_DIR$/lib/ip_verification.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +29,7 @@
       <file leaf-file-name="facebook.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/facebook.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="6" selection-start="226" selection-end="226" vertical-scroll-proportion="0.33333334">
+            <state line="16" column="26" selection-start="519" selection-end="519" vertical-scroll-proportion="0.53333336">
               <folding />
             </state>
           </provider>
@@ -55,7 +47,7 @@
       <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="0" selection-start="6490" selection-end="6490" vertical-scroll-proportion="0.0">
+            <state line="32" column="75" selection-start="1365" selection-end="1365" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -711,14 +703,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="0" selection-start="6490" selection-end="6490" vertical-scroll-proportion="0.0">
+        <state line="32" column="75" selection-start="1365" selection-end="1365" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/facebook.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="6" selection-start="226" selection-end="226" vertical-scroll-proportion="0.33333334">
+        <state line="16" column="26" selection-start="519" selection-end="519" vertical-scroll-proportion="0.53333336">
           <folding />
         </state>
       </provider>
