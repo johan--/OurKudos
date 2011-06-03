@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy_observer.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy_observer.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -29,7 +30,7 @@
       <file leaf-file-name="kudo_copy_observer.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/kudo_copy_observer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="47" selection-start="174" selection-end="203" vertical-scroll-proportion="0.13333334">
+            <state line="7" column="7" selection-start="278" selection-end="278" vertical-scroll-proportion="0.23333333">
               <folding />
             </state>
           </provider>
@@ -623,7 +624,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo_copy_observer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="47" selection-start="174" selection-end="203" vertical-scroll-proportion="0.13333334">
+        <state line="7" column="7" selection-start="278" selection-end="278" vertical-scroll-proportion="0.23333333">
           <folding />
         </state>
       </provider>
