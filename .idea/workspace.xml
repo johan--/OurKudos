@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/deploy/after_restart.rb" afterPath="$PROJECT_DIR$/deploy/after_restart.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,16 +35,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="facebook_friends_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="facebook_friends_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+            <state line="9" column="60" selection-start="291" selection-end="291" vertical-scroll-proportion="0.30664396">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="after_restart.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="after_restart.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/deploy/after_restart.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="30" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
@@ -98,9 +98,9 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/registered.html.haml" />
         <option value="$PROJECT_DIR$/deploy/after_restart.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
       </list>
     </option>
   </component>
@@ -676,16 +676,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
+    <entry file="file://$PROJECT_DIR$/deploy/after_restart.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="372" selection-end="372" vertical-scroll-proportion="0.0">
+        <state line="0" column="30" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/deploy/after_restart.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="30" selection-start="30" selection-end="30" vertical-scroll-proportion="0.0">
+        <state line="9" column="60" selection-start="291" selection-end="291" vertical-scroll-proportion="0.30664396">
           <folding />
         </state>
       </provider>

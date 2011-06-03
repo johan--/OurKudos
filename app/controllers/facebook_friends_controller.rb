@@ -7,6 +7,7 @@ class FacebookFriendsController < ApplicationController
 
   def create
     Delayed::Job.enqueue FacebookFriendsFetchJob.new current_user
+    AcitveRecord::Base.logger.info "Time is now:#{Time.now}"
     redirect_to user_facebook_friends_path(current_user), :notice => I18n.t(:we_started_fetching_your_friends_list_from_facebook)
   end
 
