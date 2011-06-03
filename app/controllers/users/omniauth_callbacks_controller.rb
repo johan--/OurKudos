@@ -45,7 +45,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:authentication] = user.authentications.first.attributes
     
     if user.save
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider'] 
+      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
+      fetch_facebook_friends
       redirect_to new_user_registration_path(:autofill => "true")  
     else
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
@@ -66,10 +67,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       current_user.apply_omniauth(omniauth_data)      
       current_user.save :validate => false
-      
+
       flash[:notice] = "Account connected"
-      sign_in_and_redirect(:user, current_user) 
+      sign_in_and_redirect(:user, current_user)
     end
+    fetch_facebook_friends
   end
 
   private
@@ -81,6 +83,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def valid_provider?(provider)
     !User.omniauth_providers.index(provider).nil?
+  end
+
+  def fetch_facebook_friends
+    FacebookFriend.fetch_for(current_user) if omniauth_data['provider'] == "facebook" && current_user.facebook_friends.blank?
   end
 
 
