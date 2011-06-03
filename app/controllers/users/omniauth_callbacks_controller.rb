@@ -60,6 +60,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if preexisting_authorization_token && preexisting_authorization_token.user != current_user
       flash[:alert] = "You have created two accounts and they can't be merged automatically. If you want to merge them please sign in, and use or merge account functionally"
       sign_in_and_redirect(:user, current_user)
+      fetch_facebook_friends
     elsif preexisting_authorization_token && preexisting_authorization_token.user == current_user
       flash[:notice] = "Account connected"
       sign_in_and_redirect(:user, current_user)
@@ -70,8 +71,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       flash[:notice] = "Account connected"
       sign_in_and_redirect(:user, current_user)
+      fetch_facebook_friends
     end
-    fetch_facebook_friends
+
   end
 
   private

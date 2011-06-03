@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/authentications_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/authentications_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml" afterPath="$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="en.yml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="en.yml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="66" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
+            <state line="5" column="56" selection-start="397" selection-end="397" vertical-scroll-proportion="0.17035775">
               <folding />
             </state>
           </provider>
@@ -39,34 +40,7 @@
       <file leaf-file-name="facebook_friends_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="41" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registrations_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="omniauth_callbacks_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="6" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="authentications_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/authentications_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="3" selection-start="588" selection-end="588" vertical-scroll-proportion="0.5507745">
+            <state line="13" column="0" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,15 +67,15 @@
         <option value="$PROJECT_DIR$/db/migrate/20110603110841_change_facebook_friends_identifier_to_string.rb" />
         <option value="$PROJECT_DIR$/app/views/facebook_friends/index.html.haml" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/registered.html.haml" />
         <option value="$PROJECT_DIR$/deploy/after_restart.rb" />
         <option value="$PROJECT_DIR$/config/initializers/delayed_job.rb" />
         <option value="$PROJECT_DIR$/app/models/facebook_friend.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/authentications_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
+        <option value="$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml" />
+        <option value="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
       </list>
     </option>
   </component>
@@ -161,6 +135,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -602,30 +594,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="19" selection-start="176" selection-end="176" vertical-scroll-proportion="0.3">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/deploy/after_restart.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="0" selection-start="60" selection-end="60" vertical-scroll-proportion="0.033333335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="66" selection-start="359" selection-end="359" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="41" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -639,14 +610,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="6" selection-start="1583" selection-end="1583" vertical-scroll-proportion="0.0">
+        <state line="68" column="51" selection-start="2493" selection-end="2493" vertical-scroll-proportion="-0.16197184">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/authentications_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="3" selection-start="588" selection-end="588" vertical-scroll-proportion="0.5507745">
+        <state line="16" column="33" selection-start="588" selection-end="588" vertical-scroll-proportion="0.53333336">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="181" selection-end="181" vertical-scroll-proportion="0.36666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="331" selection-end="331" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/views/facebook_friends/en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="56" selection-start="397" selection-end="397" vertical-scroll-proportion="0.17035775">
           <folding />
         </state>
       </provider>
