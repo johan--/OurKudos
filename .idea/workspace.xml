@@ -29,7 +29,7 @@
       <file leaf-file-name="facebook.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/facebook.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="26" selection-start="519" selection-end="519" vertical-scroll-proportion="0.53333336">
+            <state line="10" column="63" selection-start="302" selection-end="302" vertical-scroll-proportion="0.33333334">
               <folding />
             </state>
           </provider>
@@ -710,7 +710,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/facebook.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="26" selection-start="519" selection-end="519" vertical-scroll-proportion="0.53333336">
+        <state line="10" column="63" selection-start="302" selection-end="302" vertical-scroll-proportion="0.33333334">
           <folding />
         </state>
       </provider>
