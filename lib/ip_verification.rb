@@ -20,7 +20,7 @@ module OurKudos
       def ip_check
         @ip = get_ip
         @ip.is_locked? ?   @ip.session_is_invalid : @ip.session_is_valid
-        return !@ip.is_locked?
+        !@ip.is_locked?
       end
 
       def ip_check_for resource, password, ok_method = :devise_sign_in

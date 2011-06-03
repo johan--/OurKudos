@@ -29,6 +29,8 @@ class User < ActiveRecord::Base
   has_many :friends,             :through    => :friendships
   has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friend_id"
   has_many :inverse_friends,     :through    => :inverse_friendships, :source      => :user
+
+  has_many :facebook_friends
   # ================
   # = validations  =
   # ================
@@ -44,6 +46,7 @@ class User < ActiveRecord::Base
   # ================
 
   include OurKudos::Api::DateTimeFormatter
+  include OurKudos::Facebook
   acts_as_ourkudos_client
   # ================
   # = ar callbacks =
@@ -192,10 +195,6 @@ class User < ActiveRecord::Base
 
   def twitter_auth
     @twitter_auth ||= self.authentications.find_by_provider 'twitter'
-  end
-
-  def facebook_auth
-    @facebook_auth ||= self.authentications.find_by_provider 'facebook'
   end
 
   def inbox

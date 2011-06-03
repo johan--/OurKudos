@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603071931) do
+ActiveRecord::Schema.define(:version => 20110603094405) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -62,6 +62,16 @@ ActiveRecord::Schema.define(:version => 20110603071931) do
 
   create_table "email_kudos", :force => true do |t|
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facebook_friends", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "name"
+    t.integer  "identifier"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

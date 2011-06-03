@@ -1,22 +1,31 @@
 module OurKudos
   module Facebook
 
-   def fb_post!(message, name=DEFAULT_FB_POST_NAME,
-          description="TODO", url=DEFAULT_SHARE_URL, img=DEFAULT_FB_SHARE_IMAGE)
-          options = {'access_token' => facebook_auth.token,
-               'message' => message,
-               'link' => url,
-               'picture' => img,
-               'name' => name,
-               'caption' => url,
-               'description' => description
-    }
-    RestClient.post(URI.escape("https://graph.facebook.com/me/feed/"), options)
+   def facebook_user
+     @facebook_user ||= FbGraph::User.me facebook_auth.token
+   end
+
+   def fetch_and_save_friends
+     facebook_user.fetch.friends do |friend|
+       friend.fetch
+       facebook_friends.create :first_name => friend.first_name,
+                               :last_name  => friend.last_name,
+                               :name       => friend.name,
+                               :identifier => friend.identifier
+
+     end if connected_with?(:facebook)
+   end
+
+  def facebook_auth
+    @facebook_auth ||= self.authentications.find_by_provider 'facebook'
   end
 
-    def auth
+  def connected_with? provider
+     !send("#{provider.to_s}_auth").blank?
+  end
 
-    end
+
+
 
   end
 end
