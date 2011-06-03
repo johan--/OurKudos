@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/initializers/delayed_job.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/facebook_friend.rb" afterPath="$PROJECT_DIR$/app/models/facebook_friend.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,7 +39,16 @@
       <file leaf-file-name="facebook_friends_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="54" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0">
+            <state line="8" column="41" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facebook_friend.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="4" selection-start="167" selection-end="167" vertical-scroll-proportion="0.27538726">
               <folding />
             </state>
           </provider>
@@ -54,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="delayed_job.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="delayed_job.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/delayed_job.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="60" selection-start="150" selection-end="150" vertical-scroll-proportion="0.103270225">
+            <state line="3" column="60" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -104,7 +113,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/delayed_jobs/delayed_job.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
         <option value="$PROJECT_DIR$/lib/ip_verification.rb" />
@@ -118,8 +126,9 @@
         <option value="$PROJECT_DIR$/app/views/users/show.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/registered.html.haml" />
         <option value="$PROJECT_DIR$/deploy/after_restart.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/delayed_job.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/facebook_friend.rb" />
       </list>
     </option>
   </component>
@@ -210,6 +219,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -599,11 +626,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="106" selection-start="574" selection-end="574" vertical-scroll-proportion="0.45774648" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110603110841_change_facebook_friends_identifier_to_string.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="239" selection-end="239" vertical-scroll-proportion="0.30981067" />
@@ -682,13 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="54" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/delayed_jobs/facebook_friends_fetch_job.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="21" selection-start="85" selection-end="85" vertical-scroll-proportion="0.0">
@@ -698,7 +713,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/delayed_job.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="60" selection-start="150" selection-end="150" vertical-scroll-proportion="0.103270225">
+        <state line="3" column="60" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="41" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="4" selection-start="167" selection-end="167" vertical-scroll-proportion="0.27538726">
           <folding />
         </state>
       </provider>
