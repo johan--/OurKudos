@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603094405) do
+ActiveRecord::Schema.define(:version => 20110603110841) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20110603094405) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "name"
-    t.integer  "identifier"
+    t.string   "identifier"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

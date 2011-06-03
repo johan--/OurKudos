@@ -22,6 +22,8 @@
   = link_to t(:merge_with_my_other_account), new_merge_path, :class=>'action_link'
   |
   = link_to t(:show_my_friends), friendships_show_path, :class => "action_link"
+  |
+  = link_to t(:show_my_facebook_friends), user_facebook_friends_path(current_user), :class => "action_link"  if current_user.connected_with_facebook?
 
 %h3 Password
 = form_tag do
