@@ -79,6 +79,11 @@ p {
 	margin-bottom: 10px;
 }
 
+h1 {
+	font: normal 4em "Copse", Arial, Helvetica, sans-serif;
+	color: #1f6994;
+	margin-bottom: 10px;
+}
 
 h2 {
 	color: #1f6994;

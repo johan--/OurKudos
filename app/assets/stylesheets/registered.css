@@ -48,8 +48,9 @@
 	border-bottom: 1px dotted #effaff;
 }
 
-#header_user_info h1 {
+#header_user_info h4 {
 	font: normal 1.6em "Copse", Arial, Helvetica, sans-serif;
+	color: #effaff;
 }
 
 img#user_avatar {

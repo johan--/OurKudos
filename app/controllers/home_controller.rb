@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :authenticate_user!, :except => [:index, :invite]
+	before_filter :authenticate_user!, :except => [:index, :invite, :about]
   before_filter :get_kudos , :only => [:home]
   layout :choose_layout
 
@@ -13,6 +13,10 @@ class HomeController < ApplicationController
   end
 
   def invite
+  	render :layout => 'unregistered'
+  end
+  
+  def about
   	render :layout => 'unregistered'
   end
 
