@@ -1,1 +1,1 @@
-sudo "monit -g ci_delayed_job_ourkudosmainsite restart all"
+sudo "monit -g ci_delayed_job.ourkudosmainsite restart all"
