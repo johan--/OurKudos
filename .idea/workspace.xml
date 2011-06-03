@@ -38,7 +38,7 @@
       <file leaf-file-name="facebook_friends_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="60" selection-start="291" selection-end="291" vertical-scroll-proportion="0.30664396">
+            <state line="9" column="8" selection-start="239" selection-end="239" vertical-scroll-proportion="0.30664396">
               <folding />
             </state>
           </provider>
@@ -685,7 +685,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/facebook_friends_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="60" selection-start="291" selection-end="291" vertical-scroll-proportion="0.30664396">
+        <state line="9" column="8" selection-start="239" selection-end="239" vertical-scroll-proportion="0.30664396">
           <folding />
         </state>
       </provider>
