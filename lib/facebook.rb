@@ -16,6 +16,15 @@ module OurKudos
      end if connected_with_facebook?
    end
 
+   def post_kudo kudo
+     facebook_user.feed!(
+       :message => kudo.body,
+       :link => 'http://github.com/nov/fb_graph',
+       :name => 'FbGraph',
+       :description => 'A Ruby wrapper for Facebook Graph API'
+      )
+   end
+
    def facebook_auth
      @facebook_auth ||=self.authentications.find_by_provider 'facebook'
    end
