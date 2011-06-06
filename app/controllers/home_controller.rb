@@ -26,10 +26,5 @@ class HomeController < ApplicationController
       user_signed_in? ? "registered" : "unregistered"
     end
 
-    def get_kudos
-      %w{received sent}.include?(params[:kudos]) ?
-          term = params[:kudos] :
-          term = "sent"
-      @kudos = current_user.send "#{term}_kudos"
-    end
+
 end

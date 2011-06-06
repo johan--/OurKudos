@@ -5,11 +5,13 @@ class Kudo < ActiveRecord::Base
   has_many  :recipients, :through => :kudo_copies
 
   attr_accessor  :to
-  attr_accessible :subject, :body, :to
+  attr_accessible :subject, :body, :to, :facebook_sharing, :twitter_sharing
 
   before_create :prepare_copies
 
   validates :body, :presence => true
+
+  validates_with RemoteKudoValidator
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'') }
@@ -56,6 +58,10 @@ class Kudo < ActiveRecord::Base
   def send_twitter_kudo recipient
     kudo_copies.build :temporary_recipient => recipient,
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
+  end
+
+  def has_remote_resource?
+    !facebook_sharing.blank? || !twitter_sharing.blank?
   end
 
 

@@ -2,7 +2,7 @@ module OurKudos
   module Facebook
 
    def facebook_user
-     @facebook_user ||= FbGraph::User.me(facebook_auth.token).fetch
+     @facebook_user ||= FbGraph::User.me(facebook_auth.token).fetch rescue nil
    end
 
    def fetch_and_save_friends
@@ -16,17 +16,13 @@ module OurKudos
      end if connected_with_facebook?
    end
 
-   def post_kudo kudo
-     facebook_user.feed!(
-       :message => kudo.body,
-       :link => 'http://github.com/nov/fb_graph',
-       :name => 'FbGraph',
-       :description => 'A Ruby wrapper for Facebook Graph API'
-      )
+   def post_facebook_kudo kudo
+     result = facebook_user.feed!(:message => kudo.body) rescue false
+     result.is_a?(FbGraph::Post)
    end
 
    def facebook_auth
-     @facebook_auth ||=self.authentications.find_by_provider 'facebook'
+     @facebook_auth ||= self.authentications.find_by_provider 'facebook'
    end
 
    def connected_with_facebook?

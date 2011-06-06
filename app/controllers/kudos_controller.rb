@@ -1,4 +1,8 @@
 class KudosController < ApplicationController
+  layout "registered"
+  before_filter :get_kudos, :only => [:new, :create]
+
+  respond_to :html
 
   def new
     @kudo = Kudo.new
@@ -9,7 +13,7 @@ class KudosController < ApplicationController
     if @kudo.save
       redirect_to root_path, :notice => I18n.t(:your_kudo_has_been_sent)
     else
-      redirect_to home_path, :alert => I18n.t(:unable_to_send_your_kudo)
+      render :new
     end
   end
 

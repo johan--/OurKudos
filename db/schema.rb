@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603110841) do
+ActiveRecord::Schema.define(:version => 20110606093601) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -145,6 +145,8 @@ ActiveRecord::Schema.define(:version => 20110603110841) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "facebook_sharing", :default => false
+    t.boolean  "twitter_sharing",  :default => false
   end
 
   create_table "merges", :force => true do |t|

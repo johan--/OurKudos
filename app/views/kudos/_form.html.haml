@@ -3,6 +3,7 @@
 
 = form_for @kudo, :url => user_kudos_path(current_user, @kudo), :html => {:id => 'kudo_send_form'} do |f|
 
+ = error_messages_for @kudo
  #kudo_send_col_left
   = f.label :body, t(:kudo_your_message)
 
@@ -37,12 +38,12 @@
 
  #kudo_send_submit_region
   %span#social_share_choices
-   = label_tag 'social_sharing', 'Share on'
+   = f.label :social_sharing, t(:kudo_share_on)
 	 
-   = check_box 'social_sharing','facebook'
+   = f.check_box :facebook_sharing
    = label_tag 'social_sharing', image_tag('facebook_icon.png') + 'facebook'
 	 
-   = check_box 'social_sharing','twitter'
+   = f.check_box :twitter_sharing
    = label_tag 'social_sharing', image_tag('twitter_icon.png') + 'twitter'
   %button#kudo_send_submit_button{:type => "submit"}
    = image_tag('kudo_send_button.png')
