@@ -8,6 +8,7 @@
   %p= image_tag('kudos_hugging.png')
   %p= link_to image_tag('sign-in-facebook.gif'), omniauth_authorize_path(:user, 'facebook')
 #col_right
+  = render :partial => "shared/messaging"
   #recent_kudos_cont_top
     %h2 Recent Kudos
   #recent_kudos_cont
