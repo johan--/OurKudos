@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def error_messages_for object
-    s = "<div class='error error_explanation red'>"
+    s = "<div class='error' id='error_explanation'>"
     object.errors.full_messages.uniq.each  do |error|
       s += "#{error}<br/>"
     end
