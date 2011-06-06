@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/unregistered.html.haml" afterPath="$PROJECT_DIR$/app/views/layouts/unregistered.html.haml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +29,7 @@
       <file leaf-file-name="omniauth_callbacks_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="8" selection-start="2597" selection-end="2597" vertical-scroll-proportion="0.8695652">
+            <state line="23" column="11" selection-start="848" selection-end="848" vertical-scroll-proportion="0.8">
               <folding />
             </state>
           </provider>
@@ -572,7 +568,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-4" width="1366" height="741" extended-state="1" />
+    <frame x="-8" y="-4" width="1366" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -737,7 +733,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="2597" selection-end="2597" vertical-scroll-proportion="0.8695652">
+        <state line="23" column="11" selection-start="848" selection-end="848" vertical-scroll-proportion="0.8">
           <folding />
         </state>
       </provider>
