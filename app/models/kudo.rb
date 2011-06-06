@@ -8,10 +8,11 @@ class Kudo < ActiveRecord::Base
   attr_accessible :subject, :body, :to, :facebook_sharing, :twitter_sharing
 
   before_create :prepare_copies
+  after_create  :post_self_in_background, :if => :has_remote_resource?
 
   validates :body, :presence => true
 
-  validates_with RemoteKudoValidator
+  #validates_with RemoteKudoValidator
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'') }
@@ -64,6 +65,17 @@ class Kudo < ActiveRecord::Base
     !facebook_sharing.blank? || !twitter_sharing.blank?
   end
 
+  def post_self_in_background provider = :facebook
+    Kudo.send "post_#{provider}_in_background", self
+  end
+
+  class << self
+
+    def post_facebook_in_background kudo
+       Delayed::Job.enqueue FacebookKudoPostJob.new kudo
+    end
+
+  end
 
 
 end

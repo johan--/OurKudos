@@ -40,7 +40,7 @@
   %span#social_share_choices
    = f.label :social_sharing, t(:kudo_share_on)
 	 
-   = f.check_box :facebook_sharing, {:disabled => !current_user.connected_with_facebook? }
+   = f.check_box :facebook_sharing, {"data-connected" => current_user.connected_with_facebook?, :class => "kudo-facebook-share" }
    = label_tag 'social_sharing', image_tag('facebook_icon.png') + 'facebook'
 	 
    = f.check_box :twitter_sharing

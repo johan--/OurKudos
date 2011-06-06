@@ -12,17 +12,16 @@ module OurKudos
                                :last_name  => facebook_friend.last_name,
                                :name       => facebook_friend.name,
                                :identifier => facebook_friend.identifier
-
      end if connected_with_facebook?
    end
 
    def post_facebook_kudo kudo
      begin
       result = facebook_user.feed!(:message    => kudo.body,
-                                   :link       => "http://ourkudos.com/kudos/#{record.id}",
+                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                   :description => "It's all good!")
-      result.is_a?(FbGraph::Post)
+      self.successfuly_posted_to_facebook = result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
        Rails.logger.info "Failed to post facebook kudo #{e.to_s}"
        false

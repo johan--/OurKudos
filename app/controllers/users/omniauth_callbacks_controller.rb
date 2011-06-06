@@ -4,11 +4,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   attr_accessor :omniauth_data
   attr_accessor :preexisting_authorization_token
 
-  def failure
-    debugger
-    puts 'c'
-  end
-
   def method_missing provider
     if @ip.is_locked?
       redirect_to root_path, :notice => @ip.lock_message
@@ -71,7 +66,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in_and_redirect(:user, current_user)
 
     else
-      current_user.apply_omniauth(omniauth_data)      
+      current_user.apply_omniauth(omniauth_data)
       current_user.save :validate => false
 
       flash[:notice] = "Account connected"

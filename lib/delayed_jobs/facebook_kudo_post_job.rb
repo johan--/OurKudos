@@ -1,5 +1,5 @@
-class FacebookFriendsFetchJob < Struct.new(:user, :kudo)
+class FacebookKudoPostJob < Struct.new(:kudo)
   def perform
-    user.post_facebook_kudo kudo
+    kudo.author.post_facebook_kudo kudo
   end
 end
