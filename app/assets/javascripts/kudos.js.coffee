@@ -48,3 +48,4 @@ jQuery ->
           allowCustomEntry: true
     )
     processProviderOnKudosForm 'facebook'
+    processProviderOnKudosForm 'twitter'

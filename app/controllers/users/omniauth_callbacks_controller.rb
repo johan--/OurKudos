@@ -21,7 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     return false unless preexisting_authorization_token
 
     flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
-    sign_in_and_redirect(:user, preexisting_authorization_token.user) and return
+    sign_in_and_redirect(:user, preexisting_authorization_token.user)
     true
   end
 
@@ -70,7 +70,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save :validate => false
 
       flash[:notice] = "Account connected"
-      sign_in_and_redirect(:user, current_user)
+      ##sign_in\(:user, current_user)
       fetch_facebook_friends
     end
 

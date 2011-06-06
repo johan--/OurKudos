@@ -220,4 +220,10 @@ class User < ActiveRecord::Base
     friendships.find_by_friend_id person
   end
 
+  def connected_with_twitter?
+     !twitter_auth.blank?
+   end
+
+
+
 end
