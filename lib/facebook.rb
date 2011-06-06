@@ -17,8 +17,16 @@ module OurKudos
    end
 
    def post_facebook_kudo kudo
-     result = facebook_user.feed!(:message => kudo.body) rescue false
-     result.is_a?(FbGraph::Post)
+     begin
+      result = facebook_user.feed!(:message    => kudo.body,
+                                   :link       => "http://ourkudos.com/kudos/#{record.id}",
+                                   :name       => 'OurKudos',
+                                  :description => "It's all good!")
+      result.is_a?(FbGraph::Post)
+     rescue Errno, Exception => e
+       Rails.logger.info "Failed to post facebook kudo #{e.to_s}"
+       false
+     end
    end
 
    def facebook_auth

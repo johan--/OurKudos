@@ -12,7 +12,6 @@ class RegistrationsController < Devise::RegistrationsController
     resource = build_resource
     resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication] 
     if resource.save
-      fetch_facebook_friends resource
       set_flash_message :notice, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
       expire_session_data_after_sign_in!
       respond_with resource, :location => '/'      

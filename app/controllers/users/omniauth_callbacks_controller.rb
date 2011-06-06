@@ -10,7 +10,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def method_missing provider
-    debugger
     if @ip.is_locked?
       redirect_to root_path, :notice => @ip.lock_message
     else
@@ -52,6 +51,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     if user.save
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
+      fetch_facebook_friends user if user
       redirect_to new_user_registration_path(:autofill => "true")  
     else
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
@@ -93,7 +93,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def fetch_facebook_friends(user = current_user)
-    FacebookFriend.fetch_for(current_user) if omniauth_data['provider'] == "facebook" && current_user.facebook_friends.blank?
+    FacebookFriend.fetch_for(user) if omniauth_data['provider'] == "facebook" && user.facebook_friends.blank?
   end
 
 
