@@ -21,7 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     return false unless preexisting_authorization_token
 
     flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
-    sign_in_and_redirect(:user, preexisting_authorization_token.user)
+    sign_in_and_redirect(:user, preexisting_authorization_token.user) and return
     true
   end
 

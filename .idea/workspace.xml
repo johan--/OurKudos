@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ok.iml" afterPath="$PROJECT_DIR$/.idea/ok.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/extensions_libs.rb" afterPath="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/facebook.rb" afterPath="$PROJECT_DIR$/lib/facebook.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/twitter.rb" afterPath="$PROJECT_DIR$/lib/twitter.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +30,7 @@
       <file leaf-file-name="twitter.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/twitter.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+            <state line="1" column="21" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,7 +48,7 @@
       <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="3" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.30086955">
+            <state line="49" column="3" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.93043476">
               <folding />
             </state>
           </provider>
@@ -65,6 +58,15 @@
         <entry file="file://$PROJECT_DIR$/lib/facebook.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="23" column="6" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="omniauth_callbacks_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="80" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -85,7 +87,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/lib/omniauth_callbacks_share.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/cookies.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/cookies.js.coffee" />
@@ -98,6 +99,7 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/lib/facebook.rb" />
         <option value="$PROJECT_DIR$/lib/twitter.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
       </list>
@@ -218,6 +220,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -632,11 +674,6 @@
         <state line="7" column="50" selection-start="130" selection-end="153" vertical-scroll-proportion="0.23333333" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="23" selection-start="1717" selection-end="1717" vertical-scroll-proportion="-0.6132879" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/delayed_jobs/facebook_kudo_post_job.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="19" selection-start="109" selection-end="109" vertical-scroll-proportion="0.13605443">
@@ -679,6 +716,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/twitter.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="21" selection-start="32" selection-end="32" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/facebook.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="6" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0">
@@ -686,9 +730,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/twitter.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+        <state line="23" column="80" selection-start="917" selection-end="917" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -702,7 +746,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="3" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.30086955">
+        <state line="49" column="3" selection-start="1984" selection-end="1984" vertical-scroll-proportion="0.93043476">
           <folding />
         </state>
       </provider>
