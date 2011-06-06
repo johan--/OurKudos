@@ -21,7 +21,7 @@ module OurKudos
                                    :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                   :description => "It's all good!")
-      self.successfuly_posted_to_facebook = result.is_a?(FbGraph::Post)
+      result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
        Rails.logger.info "Failed to post facebook kudo #{e.to_s}"
        false

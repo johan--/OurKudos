@@ -234,6 +234,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="twitter" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="uglifier" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -377,6 +383,11 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json_pure (v1.5.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json_pure-1.5.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] twitter (v1.5.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/twitter-1.5.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] hashie (v1.0.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/hashie-1.0.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] simple_oauth (v0.1.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/simple_oauth-0.1.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rash (v0.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rash-0.3.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] faraday_middleware (v0.6.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/faraday_middleware-0.6.3)" level="application" />
   </component>
 </module>
 

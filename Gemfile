@@ -25,6 +25,7 @@ gem 'coffee-filter'
 gem 'oauth2-core'
 gem 'ancestry'
 gem 'fb_graph'
+gem 'twitter'
 gem 'delayed_job'
 
 group :test do

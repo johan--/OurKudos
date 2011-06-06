@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
 
   include OurKudos::Api::DateTimeFormatter
   include OurKudos::Facebook
+  #include OurKudos::Twitter
   acts_as_ourkudos_client
   # ================
   # = ar callbacks =
