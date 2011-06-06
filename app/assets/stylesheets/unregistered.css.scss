@@ -152,21 +152,22 @@ img.avatar {
 	padding-bottom: 40px;
 	background: url(8pxroundeddot.png) left bottom repeat-x;
 	margin-bottom: 30px;
-	& .kudo_message_cont {
+	
+	.kudo_message_cont {
 	  margin: 0 auto 10px auto;
 	  width: 610px;
   }
   
-  & h1 {
+  h1 {
 		text-align: center;
 		margin-top: -10px;
 	}
 	
-	& h3 {
+	h3 {
 		font: normal 1.9em "Copse", Arial, Helvetica, sans-serif;
 		text-align: center;
 		
-		& img {
+		img {
 			vertical-align: middle;
 		}
 
@@ -202,7 +203,7 @@ span.blue_accent {
 	float: left;
 	width: 452px;
 	
-	& h2 {
+	h2 {
 		font: normal 2.4em "Copse", Arial, Helvetica, sans-serif;
 		color: $headers_blue;
 		text-align: left;
@@ -213,20 +214,20 @@ span.blue_accent {
 	padding: 0 0 0 35px;
 	margin-right: 40px;
 	
-	& div.kudo_message_bubble_cont {
+	div.kudo_message_bubble_cont {
 		width: 370px;
 	}
 	
-	& div.kudo_message_mid {
+	div.kudo_message_mid {
 		background: url(kudo_message_mid_sprite.png) no-repeat left -368px;
 	}
 
-	& div.kudo_message_top {
+	div.kudo_message_top {
 		width: 526px;
 		background: url(kudo_message_top_sprite.png) no-repeat left -22px;
 	}
 	
-	& div.kudo_message_bot {
+	div.kudo_message_bot {
 		width: 526px;
 		background: url(kudo_message_bot_sprite.png) no-repeat left -26px;
 	}
@@ -250,7 +251,8 @@ ul.invite_list {
 	margin: 0 0 10px 20px;
 	font: 1.3em Verdana, Arial, Helvetica, sans-serif;
 	color: $very_dark_gray;
-	& li {
+	
+	li {
 		margin-bottom: 8px;
 	}
 

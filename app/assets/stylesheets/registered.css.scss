@@ -86,7 +86,7 @@ img#user_avatar {
 	margin: 0 auto 8px auto;
 	position: relative;
 	
-	& h1 {
+	h1 {
 		font: normal 3em "Copse", Arial, Helvetica, sans-serif;
 		color: $headers_blue;
 		padding-bottom: 30px;
@@ -169,11 +169,11 @@ img#baltar_mailman_icon {
 	margin: 0 auto;
 	padding-top: 30px;
 	
-	& img {
+	img {
 		vertical-align: middle;
 	}
 	
-	& button {
+	button {
 		display: inline;
 		float: right;
 		background: none;
@@ -194,7 +194,7 @@ span#social_share_choices {
 	padding-top: 8px;
 	padding-left: 10px;
 	
-	& label {
+	label {
 		padding-right: 20px;
 		margin-left: -8px;
 	}
@@ -243,13 +243,13 @@ ul#nav_kudo_dashboard {
 	margin-left: 2px;
 	padding-top: 1.4em;
 	
-	& li {
+	li {
 		float: left;
 		width: 184px;
 		height: 15px;
 		text-align: center;
 		
-		& h2 a {
+		h2 a {
 			text-decoration: none;
 			font-size: 1.3em;
 			color: #fff;
@@ -278,7 +278,7 @@ div.kudo_message_cont {
 	padding-bottom: 10px;
 	margin-bottom: 10px;
 	
-	& img.avatar {
+	img.avatar {
 		float: left;
 		margin-top: 8px;
 	}
@@ -294,7 +294,7 @@ div.kudo_message_mid {
 	width: 770px;
 	background: url(kudo_message_mid_sprite.png) no-repeat left top;
 	
-	& p {
+	p {
 		width: 668px;
 		margin-right: 5px;
 	}
