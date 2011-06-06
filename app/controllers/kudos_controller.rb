@@ -4,7 +4,6 @@ class KudosController < ApplicationController
   attr_accessor :preexisting_authoriation_token
 
   respond_to :html
-  include OurKudos::OmniauthCallbacksShare
 
   def new
     @kudo = Kudo.new
