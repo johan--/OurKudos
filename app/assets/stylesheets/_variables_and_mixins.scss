@@ -1,0 +1,17 @@
+/* variable definitions */
+$site_width_main: 1024px;
+
+/* color definitions */
+$headers_blue: #1f6994;
+$warning_red: red;
+$very_light_gray: #ccc;
+$medium_gray: #787878;
+$light_gray: #555;
+$very_dark_gray: #333;
+
+/* mixin definitions */
+@mixin rounded-edges($radius: 5px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}

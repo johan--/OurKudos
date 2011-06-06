@@ -1,18 +1,6 @@
 /* CSS Master Stylesheet: Included on every site page, all sections */
 
-/* color definitions */
-$headers_blue: #1f6994;
-$warning_red: red;
-$very_dark_gray: #333;
-$very_light_gray: #ccc;
-
-/* mixin definitions */
-@mixin rounded-edges($radius: 5px) {
-	-webkit-border-radius: $radius;
-	-moz-border-radius: $radius;
-	border-radius: $radius;
-}
-
+@import "variables_and_mixins";
 
 /* Begin CSS Reset */
 html, body, div, span, applet, object, iframe,
