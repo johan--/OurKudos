@@ -8,11 +8,11 @@ class Kudo < ActiveRecord::Base
   attr_accessible :subject, :body, :to, :facebook_sharing, :twitter_sharing
 
   before_create :prepare_copies
-  after_create  :post_self_in_background, :if => :has_remote_resource?
+  #after_create  :post_self_in_background, :if => :has_remote_resource?
 
   validates :body, :presence => true
 
-  #validates_with RemoteKudoValidator
+  validates_with RemoteKudoValidator
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'') }
