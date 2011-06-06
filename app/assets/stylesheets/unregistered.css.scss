@@ -5,13 +5,29 @@
  *= require token_input_mac
 */
 
+/* variable definitions */
+$site_width_main: 1024px;
+
+/* color definitions */
+$headers_blue: #1f6994;
+$very_light_gray: #ccc;
+$very_dark_gray: #333;
+
+/* mixin definitions */
+@mixin rounded-edges($radius: 5px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+
 #mainarea {
-	width: 1024px;
+	width: $site_width_main;
 	margin: 0 auto;
 }
 
 #header {
-	width: 1024px;
+	width: $site_width_main;
 	height: 200px;
 	position: relative;
 }
@@ -108,9 +124,7 @@ input[type=text], input[type=password] {
 	background-color: #e1f0be;
 	border: 2px solid #fff;
 	padding: 4px 7px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-border-radius: 5px;
+	@include rounded-edges(5px);
 }
 
 /* end forms */
@@ -151,12 +165,29 @@ img.avatar {
 	padding-bottom: 40px;
 	background: url(8pxroundeddot.png) left bottom repeat-x;
 	margin-bottom: 30px;
+	& .kudo_message_cont {
+	  margin: 0 auto 10px auto;
+	  width: 610px;
+  }
+  
+  & h1 {
+		text-align: center;
+		margin-top: -10px;
+	}
+	
+	& h3 {
+		font: normal 1.9em "Copse", Arial, Helvetica, sans-serif;
+		text-align: center;
+		
+		& img {
+			vertical-align: middle;
+		}
+
+	}
+
+
 }
 
-#youve_got_kudos_cont .kudo_message_cont {
-	margin: 0 auto 10px auto;
-	width: 610px;
-}
 
 #youve_got_kudos_top {
 	width: 944px;
@@ -176,20 +207,6 @@ img.avatar {
 	background: url(container944_bot.png) left bottom no-repeat;
 }
 
-#youve_got_kudos_cont h1 {
-	text-align: center;
-	margin-top: -10px;
-}
-
-#youve_got_kudos_cont h3 {
-	font: normal 1.9em "Copse", Arial, Helvetica, sans-serif;
-	text-align: center;
-}
-
-#youve_got_kudos_cont h3 img {
-	vertical-align: middle;
-}
-
 span.blue_accent {
 	color: #5591b4;
 }
@@ -197,40 +214,42 @@ span.blue_accent {
 #invite_col_left, #invite_col_right {
 	float: left;
 	width: 452px;
+	
+	& h2 {
+		font: normal 2.4em "Copse", Arial, Helvetica, sans-serif;
+		color: $headers_blue;
+		text-align: left;
+	}
 }
 
 #invite_col_left { 
 	padding: 0 0 0 35px;
 	margin-right: 40px;
+	
+	& div.kudo_message_bubble_cont {
+		width: 370px;
+	}
+	
+	& div.kudo_message_mid {
+		background: url(kudo_message_mid_sprite.png) no-repeat left -368px;
+	}
+
+	& div.kudo_message_top {
+		width: 526px;
+		background: url(kudo_message_top_sprite.png) no-repeat left -22px;
+	}
+	
+	& div.kudo_message_bot {
+		width: 526px;
+		background: url(kudo_message_bot_sprite.png) no-repeat left -26px;
+	}
+
+
 }
 
 #invite_col_right {
 	position: relative;
 	padding: 0 35px 0 0;
-}
-
-#invite_col_left h2, #invite_col_right h2 {
-	font: normal 2.4em "Copse", Arial, Helvetica, sans-serif;
-	color: #1f6994;
-	text-align: left;
-}
-
-#invite_col_left div.kudo_message_bubble_cont {
-	width: 370px;
-}
-
-#invite_col_left div.kudo_message_mid {
-	background: url(kudo_message_mid_sprite.png) no-repeat left -368px;
-}
-
-#invite_col_left div.kudo_message_top {
-	width: 526px;
-	background: url(kudo_message_top_sprite.png) no-repeat left -22px;
-}
-
-#invite_col_left div.kudo_message_bot {
-	width: 526px;
-	background: url(kudo_message_bot_sprite.png) no-repeat left -26px;
 }
 
 #kudos_icon_hugging {
@@ -243,9 +262,9 @@ ul.invite_list {
 	list-style: disc;
 	margin: 0 0 10px 20px;
 	font: 1.3em Verdana, Arial, Helvetica, sans-serif;
-	color: #333;
-}
+	color: $very_dark_gray;
+	& li {
+		margin-bottom: 8px;
+	}
 
-ul.invite_list li {
-	margin-bottom: 8px;
 }

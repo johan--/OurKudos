@@ -5,14 +5,31 @@
  *= require token_input_mac
 */
 
+$site_width_main: 1024px;
+
+/* color declarations */
+$headers_blue: #1f6994;
+$very_light_gray: #ccc;
+$medium_gray: #787878;
+$light_gray: #555;
+$very_dark_gray: #333;
+
+/* mixin definitions */
+@mixin rounded-edges($radius: 5px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+
 
 #mainarea {
-	width: 1024px;
+	width: $site_width_main;
 	margin: 0 auto;
 }
 
 #header {
-	width: 1024px;
+	width: $site_width_main;
 	height: 125px;
 	position: relative;
 }
@@ -83,6 +100,15 @@ img#user_avatar {
 	width: 944px;
 	margin: 0 auto 8px auto;
 	position: relative;
+	
+	& h1 {
+		font: normal 3em "Copse", Arial, Helvetica, sans-serif;
+		color: $headers_blue;
+		padding-bottom: 30px;
+		line-height: 0;
+		*padding-top: 20px;
+		*margin-top: -8px;
+	}
 }
 
 img#baltar_mailman_icon {
@@ -109,20 +135,10 @@ img#baltar_mailman_icon {
 	background: url(container944_bot.png) left bottom no-repeat;
 }
 
-#kudo_send_cont h1 {
-	font: normal 3em "Copse", Arial, Helvetica, sans-serif;
-	color: #1f6994;
-	padding-bottom: 30px;
-	line-height: 0;
-*padding-top: 20px;
-*margin-top: -8px;
-}
-
 #kudo_send_header {
 	margin-left: 90px;
 	background: url(8pxroundeddot.png) left bottom repeat-x;
 }
-
 
 #kudo_send_form textarea {
 	border: none;
@@ -167,35 +183,39 @@ img#baltar_mailman_icon {
 	clear: both;
 	margin: 0 auto;
 	padding-top: 30px;
-}
-
-#kudo_send_submit_region img {
-	vertical-align: middle;
-}
-
-#kudo_send_submit_region button {
-	display: inline;
-	float: right;
-	background: none;
-	border: none;
-	cursor: pointer;
 	
-	/* IE7 Fix for overlap and double padding bugs*/
-	z-index: 100;
-	position: relative;
-	overflow: visible;
+	& img {
+		vertical-align: middle;
+	}
+	
+	& button {
+		display: inline;
+		float: right;
+		background: none;
+		border: none;
+		cursor: pointer;
+	
+		/* IE7 Fix for overlap and double padding bugs*/
+		z-index: 100;
+		position: relative;
+		overflow: visible;
+	}
+
 }
+
 
 span#social_share_choices {
 	float: left;
 	padding-top: 8px;
 	padding-left: 10px;
+	
+	& label {
+		padding-right: 20px;
+		margin-left: -8px;
+	}
+
 }
 
-span#social_share_choices label {
-	padding-right: 20px;
-	margin-left: -8px;
-}
 
 /* Kudo Dashboard Styles */
 
@@ -237,23 +257,26 @@ ul#nav_kudo_dashboard {
 	list-style: none;
 	margin-left: 2px;
 	padding-top: 1.4em;
-}
+	
+	& li {
+		float: left;
+		width: 184px;
+		height: 15px;
+		text-align: center;
+		
+		& h2 a {
+			text-decoration: none;
+			font-size: 1.3em;
+			color: #fff;
+			
+			&.active {
+				color: $headers_blue;
+			}
 
-ul#nav_kudo_dashboard li {
-	float: left;
-	width: 184px;
-	height: 15px;
-	text-align: center;
-}
-
-ul#nav_kudo_dashboard li h2 a {
-	text-decoration: none;
-	font-size: 1.3em;
-	color: #fff;
-}
-
-ul#nav_kudo_dashboard li h2 a.active {
-	color: #1f6994;
+		}
+	}
+	
+	
 }
 
 
@@ -269,6 +292,12 @@ div.kudo_message_cont {
 	border-bottom: 4px dotted #fff;
 	padding-bottom: 10px;
 	margin-bottom: 10px;
+	
+	& img.avatar {
+		float: left;
+		margin-top: 8px;
+	}
+
 }
 
 
@@ -279,6 +308,12 @@ div.kudo_message_bubble_cont {
 div.kudo_message_mid {
 	width: 770px;
 	background: url(kudo_message_mid_sprite.png) no-repeat left top;
+	
+	& p {
+		width: 668px;
+		margin-right: 5px;
+	}
+
 }
 
 div.kudo_message_top {
@@ -291,15 +326,6 @@ div.kudo_message_bot {
 	background: url(kudo_message_bot_sprite.png) no-repeat left top;
 }
 
-div.kudo_message_cont img.avatar {
-	float: left;
-	margin-top: 8px;
-}
-
-div.kudo_message_mid p {
-	width: 668px;
-	margin-right: 5px;
-}
 
 .kudo_message_text_cont {
 	float: left;
@@ -339,9 +365,7 @@ input[type=text], input[type=password] {
 	background-color: #e1f0be;
 	border: 2px solid #fff;
 	padding: 4px 7px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
+	@include rounded-edges(5px);
 }
 
 p#kudos_sortby_cont {
@@ -373,15 +397,15 @@ span.sn_status, span.sn_status_dim {
 }
 
 span.sn_status {
-	color: #1f6994;
+	color: $headers_blue;
 }
 
 span.sn_status_dim {
-	color: #555;
+	color: $light_gray;
 }
 
 h3 {
 	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: #555;
-	border-top: 1px solid #555;
+	color: $light_gray;
+	border-top: 1px solid $light_gray;
 }
