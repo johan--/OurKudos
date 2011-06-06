@@ -52,7 +52,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     if user.save
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
-      fetch_facebook_friends user if user
       redirect_to new_user_registration_path(:autofill => "true")  
     else
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
