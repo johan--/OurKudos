@@ -9,3 +9,5 @@
 //= require jquery.tokeninput
 //= require merges
 //= require kudos
+//= require digitalspaghetti.password
+//= require password_strength
