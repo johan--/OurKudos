@@ -23,13 +23,25 @@ module OurKudos
           config.consumer_secret    = Devise.omniauth_configs[:twitter].args[1]
           config.oauth_token        = twitter_auth.token
           config.oauth_token_secret = twitter_auth.secret
+          config.user_agen          = "OurKudos"
       end
     end
 
     def twitter_user
-      configure_twitter
-      @twitter_user ||= Twitter::Client.new
+        configure_twitter if Twitter.consumer_secret.blank?
+        @twitter_user ||= Twitter::Client.new
     end
+
+     def post_twitter_kudo kudo
+        begin
+          result = twitter_user.update kudo.body
+          result.is_a?(Hashie::Rash)
+          true
+        rescue Errno, Exception => e
+          Rails.logger.info "Failed to post twitter kudo #{e.to_s}"
+          false
+        end
+      end
 
 
 
