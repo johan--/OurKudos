@@ -28,6 +28,7 @@ gem 'ancestry'
 gem 'fb_graph'
 gem 'twitter_oauth'
 gem 'delayed_job'
+gem 'therubyracer'        #
 
 group :test do
   gem "cucumber"
