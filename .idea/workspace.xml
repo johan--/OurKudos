@@ -56,7 +56,7 @@
       <file leaf-file-name="omniauth_callbacks_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="4" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.85178876">
+            <state line="63" column="41" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.23850085">
               <folding />
             </state>
           </provider>
@@ -690,7 +690,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="4" selection-start="1150" selection-end="1150" vertical-scroll-proportion="0.85178876">
+        <state line="63" column="41" selection-start="2077" selection-end="2077" vertical-scroll-proportion="0.23850085">
           <folding />
         </state>
       </provider>

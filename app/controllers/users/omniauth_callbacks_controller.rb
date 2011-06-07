@@ -79,7 +79,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save :validate => false
 
       flash[:notice] = "Account connected"
-      ##sign_in\(:user, current_user)
+      sign_in(:user, current_user)
       fetch_facebook_friends
     end
 
