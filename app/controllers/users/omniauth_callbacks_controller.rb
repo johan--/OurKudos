@@ -79,8 +79,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save :validate => false
 
       flash[:notice] = "Account connected"
-      sign_in_and_redirect(:user, current_user) if omniauth_data['provider'] == :facebook
-      sign_in(:user, current_user)              if omniauth_data['provider'] == :twitter
+      sign_in_and_redirect(:user, current_user) if omniauth_data['provider'] == 'facebook'
+      sign_in(:user, current_user)              if omniauth_data['provider'] == 'twitter'
       fetch_facebook_friends
     end
 
@@ -88,6 +88,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
 
+  def set_omniauth_data
   def set_omniauth_data
     self.omniauth_data = env["omniauth.auth"]
     self.preexisting_authorization_token = Authentication.find_by_provider_and_uid(omniauth_data['provider'], omniauth_data['uid']) if omniauth_data
