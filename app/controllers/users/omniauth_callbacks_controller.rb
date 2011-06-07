@@ -79,7 +79,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save :validate => false
 
       flash[:notice] = "Account connected"
-      sign_in_and_redirect(:user, current_user)
+      sign_in_and_redirect(:user, current_user) if omniauth_data['provider'] == :facebook
+      sign_in(:user, current_user)              if omniauth_data['provider'] == :twitter
       fetch_facebook_friends
     end
 
