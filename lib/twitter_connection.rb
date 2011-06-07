@@ -17,20 +17,16 @@ module OurKudos
      twitter_handles.any? { |handle| handle == nickname.gsub(/^@{1,}/, '') }
     end
 
-    def configure_twitter
-      Twitter.configure do |config|
-          config.consumer_key       = Devise.omniauth_configs[:twitter].args[0]
-          config.consumer_secret    = Devise.omniauth_configs[:twitter].args[1]
-          config.oauth_token        = twitter_auth.token
-          config.oauth_token_secret = twitter_auth.secret
-          config.user_agen          = "OurKudos"
-      end
+    def twitter_user
+      return if twitter_auth.blank?
+
+       @twitter_user ||= TwitterOAuth::Client.new(
+            :consumer_key    => Devise.omniauth_configs[:twitter].args[0],
+            :consumer_secret => Devise.omniauth_configs[:twitter].args[1],
+            :token           => twitter_auth.token,
+            :secret          => twitter_auth.secret)
     end
 
-    def twitter_user
-        configure_twitter if Twitter.consumer_secret.blank?
-        @twitter_user ||= Twitter::Client.new
-    end
 
      def post_twitter_kudo kudo
         begin
