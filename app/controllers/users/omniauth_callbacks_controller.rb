@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       return super unless valid_provider? provider
       if provider == :twitter
-        add_new_authentication || omniauth_sign_in
+        add_new_authentication || (omniauth_sign_in and return) || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
       else
         add_new_authentication || omniauth_sign_in || omniauth_sign_up
       end
