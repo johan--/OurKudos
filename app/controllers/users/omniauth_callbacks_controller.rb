@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       return super unless valid_provider? provider
       if provider == :twitter
-        add_new_authentication || omniauth_sign_in || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+        add_new_authentication || omniauth_sign_in || (flash[:notice] = I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
       else
         add_new_authentication || omniauth_sign_in || omniauth_sign_up
       end
@@ -20,7 +20,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def omniauth_sign_in
     return false unless preexisting_authorization_token
 
-    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => :facebook
+    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
     sign_in_and_redirect(:user, preexisting_authorization_token.user)
     true
   end
@@ -70,8 +70,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.save :validate => false
 
       flash[:notice] = "Account connected"
-      sign_in_and_redirect(:user, current_user) if omniauth_data['provider'] == 'facebook'
-      sign_in(:user, current_user)              if omniauth_data['provider'] == 'twitter'
+      sign_in_and_redirect(:user, current_user)
+
       fetch_facebook_friends
     end
 
@@ -90,6 +90,10 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def fetch_facebook_friends(user = current_user)
     FacebookFriend.fetch_for(user) if omniauth_data['provider'] == "facebook" && user.facebook_friends.blank?
+  end
+
+  def current_provider
+    omniauth_data['provider'] if omniauth_data
   end
 
 
