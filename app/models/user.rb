@@ -46,8 +46,9 @@ class User < ActiveRecord::Base
   # ================
 
   include OurKudos::Api::DateTimeFormatter
-  include OurKudos::Facebook
-  #include OurKudos::Twitter
+  include OurKudos::FacebookConnection
+  include OurKudos::TwitterConnection
+
   acts_as_ourkudos_client
   # ================
   # = ar callbacks =
@@ -112,14 +113,6 @@ class User < ActiveRecord::Base
 
   def add_role
    self.roles << Role.find_or_create_by_name("user") unless has_role?(:user)
-  end
-
-  def twitter_handles
-    @twitter_handles ||= authentications.select {|a| a.provider == 'twitter'}.map(&:nickname).compact
-  end
-
-  def has_twitter_handle?(nickname)
-   twitter_handles.any? { |handle| handle == nickname.gsub(/^@{1,}/, '') }
   end
 
   def remove_mergeables
@@ -194,10 +187,6 @@ class User < ActiveRecord::Base
     update_attribute :authentication_token, token
   end
 
-  def twitter_auth
-    @twitter_auth ||= self.authentications.find_by_provider 'twitter'
-  end
-
   def inbox
     folders.find_by_name I18n.t(:inbox_name)
   end
@@ -220,9 +209,6 @@ class User < ActiveRecord::Base
     friendships.find_by_friend_id person
   end
 
-  def connected_with_twitter?
-     !twitter_auth.blank?
-   end
 
 
 

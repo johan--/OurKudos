@@ -1,5 +1,5 @@
 module OurKudos
-  module Facebook
+  module FacebookConnection
 
    def facebook_user
      @facebook_user ||= FbGraph::User.me(facebook_auth.token).fetch rescue nil
