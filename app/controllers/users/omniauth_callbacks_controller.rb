@@ -10,21 +10,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       return super unless valid_provider? provider
       if provider == :twitter
-        add_new_authentication || (omniauth_twitter_sign_in) || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+        add_new_authentication || omniauth_sign_in || (redirect_to root_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
       else
         add_new_authentication || omniauth_sign_in || omniauth_sign_up
       end
     end
   end
-
-  def omniauth_twitter_sign_in
-    return false unless preexisting_authorization_token
-
-    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => :twitter
-    sign_in(:user, preexisting_authorization_token.user)
-    true
-  end
-
 
   def omniauth_sign_in
     return false unless preexisting_authorization_token
