@@ -10,7 +10,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       return super unless valid_provider? provider
       if provider == :twitter
-        add_new_authentication || omniauth_sign_in || (flash[:notice] = I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+        add_new_authentication || omniauth_sign_in || (redirect_to home_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
       else
         add_new_authentication || omniauth_sign_in || omniauth_sign_up
       end
@@ -59,8 +59,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     if preexisting_authorization_token && preexisting_authorization_token.user != current_user
       flash[:alert] = "You have created two accounts and they can't be merged automatically. If you want to merge them please sign in, and use or merge account functionally"
-      sign_in_and_redirect(:user, current_user)
       fetch_facebook_friends
+      sign_in_and_redirect(:user, current_user)
     elsif preexisting_authorization_token && preexisting_authorization_token.user == current_user
       flash[:notice] = "Account connected"
       sign_in_and_redirect(:user, current_user)
@@ -69,10 +69,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       current_user.apply_omniauth(omniauth_data)
       current_user.save :validate => false
 
+      fetch_facebook_friends
       flash[:notice] = "Account connected"
       sign_in_and_redirect(:user, current_user)
-
-      fetch_facebook_friends
     end
 
   end

@@ -37,7 +37,7 @@ processProviderOnKudosForm  = (provider) ->
     OurKudos.Cookies.deleteCookie cookieName
   jQuery(checkboxName).click ->
     if jQuery(checkboxName).attr('data-connected') is 'false'
-        if confirm "It seems that you don't have " + provider + " account conneted yet. Would you like to connect your " + provider + " account with OurKudos now?"
+        if confirm "It seems that you don't have a " + provider + " account conneted yet. Would you like to connect your " + provider + " account with OurKudos now?"
            location.href = location.href.replace("home",'') +  'users/auth/' + provider
            OurKudos.Cookies.setCookie cookieName,'yes'
         else
