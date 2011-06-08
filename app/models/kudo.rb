@@ -4,15 +4,17 @@ class Kudo < ActiveRecord::Base
   has_many  :kudo_copies
   has_many  :recipients, :through => :kudo_copies
 
-  attr_accessor  :to, :share_scope
-  attr_accessible :subject, :body, :to, :facebook_sharing, :twitter_sharing
+  attr_accessor  :to
+  attr_accessible :subject, :body, :to, :share_scope,
+                  :facebook_sharing, :twitter_sharing
 
-  before_create :prepare_copies
+  before_create :fix_share_scope, :prepare_copies
   after_create  :post_twitter,   :if => :twitter_sharing?
   after_create  :post_facebook,  :if => :facebook_sharing?
 
   validates :body,        :presence => true
 
+  scope :public_kudos, where(:share_scope => nil)
   #validates_with RemoteKudoValidator
 
   def recipients_list
@@ -71,6 +73,10 @@ class Kudo < ActiveRecord::Base
 
   def post_facebook
     author.post_facebook_kudo self
+  end
+
+  def fix_share_scope
+    self.share_scope = nil if self.share_scope == 'on'
   end
 
   class << self

@@ -27,7 +27,7 @@
   %p
    = label_tag 'share_scope','Who would you like to share with?'
    %br/
-   = f.radio_button :share_scope, ''
+   = f.radio_button :share_scope, nil
    = f.label :share_scope, 'The world'
 
    = f.radio_button :share_scope, 'friends'

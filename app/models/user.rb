@@ -202,14 +202,12 @@ class User < ActiveRecord::Base
   end
 
   def is_my_friend? friend
-     !(friendship_for friend.id).blank?
+     !(friendship_for friend).blank?
   end
 
   def friendship_for person
-    friendships.find_by_friend_id person
+    friendships.select {|f| f.friend == person }.first
   end
-
-
 
 
 end

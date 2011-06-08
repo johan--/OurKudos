@@ -12,7 +12,6 @@ class Friendship < ActiveRecord::Base
 
       def process_friendships_between person, friend
         person.add_friend(friend) #if false means already on contact list
-        friendship = person.friendship_for friend.id
         friendship.update_friendship_statistics
       end
 

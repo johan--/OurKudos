@@ -23,8 +23,8 @@ class KudoCopy < ActiveRecord::Base
   def visible_for? user = nil
     return true if share_scope.blank?
     return true if user == author
-    return true if user == recipient && share_scope == 'recipients'
-    return true if author.is_my_friend(user) && share_scope == 'friends'
+    return true if share_scope == 'recipients' && user == recipient
+    return true if share_scope == 'friends' && author.is_my_friend?(user)
     false
   end
 
