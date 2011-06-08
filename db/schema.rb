@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110606093601) do
+ActiveRecord::Schema.define(:version => 20110608102245) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20110606093601) do
     t.string   "temporary_recipient"
     t.integer  "kudoable_id"
     t.string   "kudoable_type"
+    t.string   "share_scope"
   end
 
   add_index "kudo_copies", ["kudoable_id"], :name => "index_kudo_copies_on_kudoable_id"
@@ -147,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20110606093601) do
     t.datetime "updated_at"
     t.boolean  "facebook_sharing", :default => false
     t.boolean  "twitter_sharing",  :default => false
+    t.string   "share_scope"
   end
 
   create_table "merges", :force => true do |t|

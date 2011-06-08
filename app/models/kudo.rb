@@ -4,14 +4,14 @@ class Kudo < ActiveRecord::Base
   has_many  :kudo_copies
   has_many  :recipients, :through => :kudo_copies
 
-  attr_accessor  :to
+  attr_accessor  :to, :share_scope
   attr_accessible :subject, :body, :to, :facebook_sharing, :twitter_sharing
 
   before_create :prepare_copies
   after_create  :post_twitter,   :if => :twitter_sharing?
   after_create  :post_facebook,  :if => :facebook_sharing?
 
-  validates :body, :presence => true
+  validates :body,        :presence => true
 
   #validates_with RemoteKudoValidator
 
@@ -47,18 +47,21 @@ class Kudo < ActiveRecord::Base
   def send_system_kudo recipient
       kudo_copies.build :recipient_id => recipient.id,
                         :kudoable     => self,
-                        :folder_id    => recipient.inbox.id
+                        :folder_id    => recipient.inbox.id,
+                        :share_scope  => share_scope
       Friendship.process_friendships_between author, recipient
       Friendship.process_friendships_between recipient, author
   end
 
   def send_email_kudo recipient
     kudo_copies.build :temporary_recipient  => recipient,
+                      :share_scope  => share_scope,
                       :kudoable => EmailKudo.create(:email => recipient)
   end
 
   def send_twitter_kudo recipient
     kudo_copies.build :temporary_recipient => recipient,
+                      :share_scope  => share_scope,
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
   end
 
