@@ -1,0 +1,137 @@
+/*
+ *= require master
+ CSS Admin section styles
+*/
+
+@import "variables_and_mixins";
+
+body {
+	font-size: 65%;
+	line-height: 1;
+}
+
+#mainarea {
+	width: $site_width_admin;
+	margin: 0 auto;
+}
+
+#header {
+	width: $site_width_admin;
+	height: 125px;
+	position: relative;
+}
+
+#header_user_info {
+	position: absolute;
+	right: 160px;
+	bottom: -8px;
+	padding: 20px 30px;
+	width: 263px;
+	height: 58px;
+	background: url(header_user_info_bg.png) no-repeat left top;
+	color: #effaff;
+}
+
+#header_user_info_nav {
+	position: absolute;
+	bottom: 0;
+}
+
+#header_user_info_nav a {
+	color: #effaff;
+	text-decoration: none;
+	font: 1.1em Verdana, Helvetica, Arial, sans-serif;
+}
+
+#header_user_info_nav a:hover {
+	border-bottom: 1px dotted #effaff;
+}
+
+#header_user_info h4 {
+	font: normal 1.6em "Copse", Arial, Helvetica, sans-serif;
+	color: #effaff;
+}
+
+img#user_avatar {
+	position: absolute;
+	right: 30px;
+	top: 25px;
+}
+
+#main_top {
+	width: 1014px;
+	height: 27px;
+	margin: 0 auto;
+	background: url(main_top_bg.png) no-repeat left top;
+}
+
+#main {
+	width: 1014px;
+	margin: 0 auto;
+	background: url(main_bg.png) repeat-y left top;
+	padding-bottom: 50px;
+}
+
+.wrapper-main {
+	padding: 0 30px;
+}
+
+ul#nav_admin {
+	list-style: none;
+	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
+	margin-bottom: 15px;
+
+	li {
+		display: inline;
+		padding-right: 10px;
+	
+	  a {
+	  	text-decoration: none;
+	  	color: $very_dark_gray;
+	  	
+	  	&:hover {
+	  		border-bottom: 1px dotted $medium_gray;
+	  		color: $medium_gray;
+	  	}
+	  }
+	}
+}
+
+body#admin_users li#userslink a, body#admin_sites li#apiclientsiteslink a, 
+body#admin_roles li#roleslink a, body#admin_forbidden_passwords li#forbiddenpasswordslink a {
+	color: $headers_blue;
+	
+	&:hover {
+		border-bottom: 0;
+	}
+}
+
+h3 {
+	font: normal 1.3em "Copse", Verdana, Helvetica, sans-serif;
+	color: $dark_gray;
+}
+
+
+table.admin_type1 {
+	width: 100%;
+	background-color: #fff;
+	
+	th {
+		padding: 8px 0;
+		font: 1.1em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
+		background-color: $very_light_gray;
+		
+		a {
+			color: $very_dark_gray;
+		}
+		
+	}
+	
+	td {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+		padding: 8px 0 8px 10px;
+		border-bottom: 1px dotted $very_light_gray;
+	}	
+	
+}
+

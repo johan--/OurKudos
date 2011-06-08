@@ -1,11 +1,20 @@
 !!!
 %html
   %head
-    %title OurKudosMainSite
+    %title OurKudos Site Administration
     = javascript_include_tag 'application'
     = stylesheet_link_tag 'admin'
     = csrf_meta_tag
-  %body
-    #content
-              
-      = yield
+  %body{:id => "admin_#{controller_name}" }
+    
+    #mainarea
+      #header
+        = render 'shared/admin_header'
+      #main_top
+      #main
+        .wrapper-main
+          %h2 OurKudos System Administration
+          = render :partial => "/admin/admin_links"
+          = render :partial => "shared/messaging"
+          = yield
+        
