@@ -390,6 +390,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json_pure (v1.5.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json_pure-1.5.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] therubyracer (v0.8.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/therubyracer-0.8.2)" level="application" />
   </component>
 </module>
 
