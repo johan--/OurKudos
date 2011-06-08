@@ -3,4 +3,4 @@
 
   = render :partial => "/identities/index", :locals => {:identities => @user.identities}
 
-  %p= link_to t(:add_new_identity), new_admin_user_identity_path(@user)
+  %p= link_to t(:add_new_identity), new_admin_user_identity_path(@user), :class => "action_link"

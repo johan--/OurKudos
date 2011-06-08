@@ -1,4 +1,4 @@
-=link_to t(:add_new_site), new_admin_site_path
+=link_to t(:add_new_site), new_admin_site_path, :class => "action_link"
 
 - if @sites.any?
   
@@ -6,7 +6,7 @@
   
   = form_tag ban_admin_sites_path, :method => :put do 
     
-    %table.600px
+    %table.admin_type1
       %thead
         %th= t :site_name
         %th= t :site_url

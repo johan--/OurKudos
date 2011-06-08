@@ -2,7 +2,7 @@
 
   %fieldset
     %legend= t :user_roles
-    %p= link_to t(:change_manage_roles), roles_admin_user_path(@user)
+    %p= link_to t(:change_manage_roles), roles_admin_user_path(@user), :class => "action_link"
 
     - if @user.roles.any?
       %p= @user.render_roles

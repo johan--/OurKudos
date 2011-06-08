@@ -12,5 +12,5 @@
           -
           = link_to t(:remove), admin_user_authentication_path(@user, provider), :method => :delete, :confirm => I18n.t(:are_you_sure)
 
-  = link_to t(:add_new_provider), new_admin_user_authentication_path(@user) if @user.my_options_for_providers.any?
+  = link_to t(:add_new_provider), new_admin_user_authentication_path(@user), :class => "action_link" if @user.my_options_for_providers.any?
   

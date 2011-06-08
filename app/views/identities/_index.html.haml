@@ -2,11 +2,13 @@
 
 %p= t :only_confirmed_identites_are_valid
 
-%table.600px
+%table.admin_type1
   %thead
     %th= t :identity_type
     %th= t :identity
     %th= t :identity_confirmed
+    %th edit
+    %th remove
   %tbody
     - for identity in identities do
       %tr
