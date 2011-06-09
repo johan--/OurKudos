@@ -30,14 +30,15 @@ class Kudo < ActiveRecord::Base
     system_recipients = []
 
     recipients_list.each do |id|
-      recipient  = Identity.find(id.to_i).user rescue nil
+      identity   = Identity.find(id.to_i)
+      recipient  = identity.user rescue nil
 
        if !recipient.blank? && !system_recipients.include?(recipient)
 
          system_recipients << recipient
          send_system_kudo(recipient)
-         send_twitter_kudo(author.twitter_auth.nickname) if twitter_sharing? && !author.twitter_auth.blank?
-
+         send_twitter_kudo(author.twitter_auth.nickname)    if twitter_sharing? && share_scope.blank? && !author.twitter_auth.blank?
+         send_twitter_kudo(identity.identity)               if identity.is_twitter? && !share_scope.blank?
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
        elsif recipient.blank? && id =~ RegularExpressions.twitter
@@ -55,6 +56,8 @@ class Kudo < ActiveRecord::Base
                         :share_scope  => share_scope
       Friendship.process_friendships_between author, recipient
       Friendship.process_friendships_between recipient, author
+
+
   end
 
   def send_email_kudo recipient

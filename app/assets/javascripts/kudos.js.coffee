@@ -48,9 +48,18 @@ jQuery ->
     processProviderOnKudosForm 'twitter'
 
     jQuery(".kudo_recipient_list").tokenInput "/autocomplete/new?object=recipients",
+    onDelete: ->
+        #alert "BLA"
+        twitters = []
+        jQuery("li.token-input-token").each ->
+          currentItem = jQuery(this).text()
+          if currentItem.match(/^@{1}/)
+            twitters.push currentItem
+        if twitters.length is 0
+          jQuery("#kudo_twitter_sharing").removeAttr "checked"
     allowCustomEntry: true
     onAdd: ->
       jQuery("li.token-input-token").each ->
         currentItem = jQuery(this).text()
         if currentItem.match(/^@{1}/)
-          jQuery("#kudo_twitter_sharing").attr("checked", "checked").attr("disabled","disabled")
+          jQuery("#kudo_twitter_sharing").attr("checked", "checked")
