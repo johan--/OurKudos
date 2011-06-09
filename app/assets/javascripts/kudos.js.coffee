@@ -44,8 +44,13 @@ processProviderOnKudosForm  = (provider) ->
            jQuery(checkboxName).removeAttr "checked"
 
 jQuery ->
-  jQuery('.kudo_recipient_list').tokenInput('/autocomplete/new?object=recipients',
-          allowCustomEntry: true
-    )
     processProviderOnKudosForm 'facebook'
     processProviderOnKudosForm 'twitter'
+
+    jQuery(".kudo_recipient_list").tokenInput "/autocomplete/new?object=recipients",
+    allowCustomEntry: true
+    onAdd: ->
+      jQuery("li.token-input-token").each ->
+        currentItem = jQuery(this).text()
+        if currentItem.match(/^@{1}/)
+          jQuery("#kudo_twitter_sharing").attr("checked", "checked").attr("disabled","disabled")

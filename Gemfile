@@ -26,7 +26,7 @@ gem 'coffee-filter'
 gem 'oauth2-core'
 gem 'ancestry'
 gem 'fb_graph'
-gem 'twitter_oauth'
+gem 'twitter'
 gem 'delayed_job'
 gem 'therubyracer'        #
 

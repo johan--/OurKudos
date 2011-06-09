@@ -76,7 +76,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def fix_share_scope
-    self.share_scope = nil if self.share_scope == 'on'
+    self.share_scope = nil if self.share_scope == 'on'       # we can't pass nil in form builder radio
   end
 
   class << self

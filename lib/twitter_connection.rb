@@ -20,11 +20,11 @@ module OurKudos
     def twitter_user
       return if twitter_auth.blank?
 
-       @twitter_user ||= TwitterOAuth::Client.new(
-            :consumer_key    => Devise.omniauth_configs[:twitter].args[0],
-            :consumer_secret => Devise.omniauth_configs[:twitter].args[1],
-            :token           => twitter_auth.token,
-            :secret          => twitter_auth.secret)
+       @twitter_user ||= Twitter::Client.new(
+            :consumer_key       => Devise.omniauth_configs[:twitter].args[0],
+            :consumer_secret    => Devise.omniauth_configs[:twitter].args[1],
+            :oauth_token        => twitter_auth.token,
+            :oauth_token_secret => twitter_auth.secret)
     end
 
 
@@ -37,7 +37,18 @@ module OurKudos
           Rails.logger.info "Failed to post twitter kudo #{e.to_s}"
           false
         end
-      end
+     end
+
+
+    def direct_message_to user, kudo
+      begin
+        twitter_user.direct_message_create user, kudo.body
+        true
+       rescue Errno, Exception => e
+          Rails.logger.info "Failed to post twitter direct message #{e.to_s}"
+          false
+        end
+    end
 
 
 
