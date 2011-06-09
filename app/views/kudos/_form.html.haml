@@ -27,13 +27,13 @@
   %p
    = label_tag 'share_scope','Who would you like to share with?'
    %br/
-   = f.radio_button :share_scope, nil
+   = f.radio_button :share_scope, nil, :class => "share-scope"
    = f.label :share_scope, 'The world'
 
-   = f.radio_button :share_scope, 'friends'
+   = f.radio_button :share_scope, 'friends', :class => "share-scope"
    = f.label :share_scope, 'Friends only'
 
-   = f.radio_button :share_scope, 'recipient'
+   = f.radio_button :share_scope, 'recipient', :class => "share-scope"
    = f.label :share_scope, 'Recipient only'
 
  #kudo_send_submit_region

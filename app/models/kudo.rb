@@ -9,7 +9,6 @@ class Kudo < ActiveRecord::Base
                   :facebook_sharing, :twitter_sharing
 
   before_create :fix_share_scope, :prepare_copies
-  after_create  :post_facebook,  :if => :facebook_sharing?
 
   validates :body,        :presence => true
 
@@ -30,15 +29,14 @@ class Kudo < ActiveRecord::Base
     system_recipients = []
 
     recipients_list.each do |id|
-      identity   = Identity.find(id.to_i)
+      identity   = Identity.find(id.to_i) rescue nil
       recipient  = identity.user rescue nil
 
        if !recipient.blank? && !system_recipients.include?(recipient)
-
          system_recipients << recipient
          send_system_kudo(recipient)
-         send_twitter_kudo(author.twitter_auth.nickname)    if twitter_sharing? && share_scope.blank? && !author.twitter_auth.blank?
-         send_twitter_kudo(identity.identity)               if identity.is_twitter? && !share_scope.blank?
+         send_social_kudo if social_sharing?
+
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
        elsif recipient.blank? && id =~ RegularExpressions.twitter
@@ -72,24 +70,25 @@ class Kudo < ActiveRecord::Base
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
   end
 
-  def post_facebook
-    author.post_facebook_kudo self
+  def send_facebook_kudo recipient
+    kudo_copies.build :temporary_recipient => recipient,
+                      :share_scope  => share_scope,
+                      :kudoable => FacebookKudo.create(:identifier => recipient)
+  end
+
+  def send_social_kudo
+      send_twitter_kudo(author.twitter_auth.nickname)  if share_scope.blank? && !author.twitter_auth.blank?
+      send_facebook_kudo(author.facebook_auth.uid)     if share_scope.blank? && !author.facebook_auth.blank?
   end
 
   def fix_share_scope
     self.share_scope = nil if self.share_scope == 'on'       # we can't pass nil in form builder radio
   end
 
-  class << self
-=begin
-    def post_facebook_in_background kudo
-       Delayed::Job.enqueue FacebookKudoPostJob.new kudo
-    end
-=end
-
-
-
+  def social_sharing?
+    facebook_sharing? || twitter_sharing?
   end
+
 
 
 end

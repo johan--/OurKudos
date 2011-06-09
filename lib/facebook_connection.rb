@@ -24,7 +24,7 @@ module OurKudos
       result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
        Rails.logger.info "Failed to post facebook kudo #{e.to_s}"
-       false
+       e.to_s
      end
    end
 

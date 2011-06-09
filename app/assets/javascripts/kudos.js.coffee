@@ -1,6 +1,3 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 OurKudos = Cookies: {}
 OurKudos.Cookies =
   setCookie: (name, value, days) ->
@@ -43,23 +40,24 @@ processProviderOnKudosForm  = (provider) ->
         else
            jQuery(checkboxName).removeAttr "checked"
 
+processShareScope = ->
+    selectedShare = jQuery("input.share-scope:checked").val()
+    if selectedShare is "friends" or selectedShare is "recipient"
+        jQuery('#kudo_twitter_sharing').attr "disabled", "disabled"
+    if selectedShare is "recipient"
+        jQuery('#kudo_facebook_sharing').attr "disabled", "disabled"
+    if selectedShare is "on"
+        jQuery("#kudo_facebook_sharing").removeAttr "disabled"
+        jQuery("#kudo_twitter_sharing").removeAttr "disabled"
+
 jQuery ->
     processProviderOnKudosForm 'facebook'
     processProviderOnKudosForm 'twitter'
 
+    processShareScope()
+
+    jQuery("input.share-scope").click ->
+      processShareScope()
+
     jQuery(".kudo_recipient_list").tokenInput "/autocomplete/new?object=recipients",
-    onDelete: ->
-        #alert "BLA"
-        twitters = []
-        jQuery("li.token-input-token").each ->
-          currentItem = jQuery(this).text()
-          if currentItem.match(/^@{1}/)
-            twitters.push currentItem
-        if twitters.length is 0
-          jQuery("#kudo_twitter_sharing").removeAttr "checked"
-    allowCustomEntry: true
-    onAdd: ->
-      jQuery("li.token-input-token").each ->
-        currentItem = jQuery(this).text()
-        if currentItem.match(/^@{1}/)
-          jQuery("#kudo_twitter_sharing").attr("checked", "checked")
+      allowCustomEntry: true
