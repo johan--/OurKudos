@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608102245) do
+ActiveRecord::Schema.define(:version => 20110609112341) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -209,6 +209,7 @@ ActiveRecord::Schema.define(:version => 20110608102245) do
     t.string   "twitter_handle"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "response"
   end
 
   create_table "users", :force => true do |t|

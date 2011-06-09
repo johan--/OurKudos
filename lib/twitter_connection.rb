@@ -30,12 +30,12 @@ module OurKudos
 
      def post_twitter_kudo kudo
         begin
-          result = twitter_user.update kudo.body
+          result = twitter_user.update kudo.body if kudo.share_scope.blank? ||
           result.is_a?(Hashie::Rash)
           true
         rescue Errno, Exception => e
           Rails.logger.info "Failed to post twitter kudo #{e.to_s}"
-          false
+          e.to_s
         end
      end
 
@@ -46,7 +46,7 @@ module OurKudos
         true
        rescue Errno, Exception => e
           Rails.logger.info "Failed to post twitter direct message #{e.to_s}"
-          false
+          e.to_s
         end
     end
 

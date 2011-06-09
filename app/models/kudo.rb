@@ -9,7 +9,6 @@ class Kudo < ActiveRecord::Base
                   :facebook_sharing, :twitter_sharing
 
   before_create :fix_share_scope, :prepare_copies
-  after_create  :post_twitter,   :if => :twitter_sharing?
   after_create  :post_facebook,  :if => :facebook_sharing?
 
   validates :body,        :presence => true
@@ -34,12 +33,15 @@ class Kudo < ActiveRecord::Base
       recipient  = Identity.find(id.to_i).user rescue nil
 
        if !recipient.blank? && !system_recipients.include?(recipient)
+
          system_recipients << recipient
-         send_system_kudo recipient
+         send_system_kudo(recipient)
+         send_twitter_kudo(author.twitter_auth.nickname) if twitter_sharing? && !author.twitter_auth.blank?
+
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
        elsif recipient.blank? && id =~ RegularExpressions.twitter
-         send_twitter_kudo id
+         send_twitter_kudo id.gsub("@",'')
        end
 
     end
@@ -65,10 +67,6 @@ class Kudo < ActiveRecord::Base
     kudo_copies.build :temporary_recipient => recipient,
                       :share_scope  => share_scope,
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
-  end
-
-  def post_twitter
-    author.post_twitter_kudo self
   end
 
   def post_facebook
