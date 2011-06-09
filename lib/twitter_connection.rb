@@ -28,9 +28,10 @@ module OurKudos
     end
 
 
-     def post_twitter_kudo kudo
+     def post_twitter_kudo kudo, user = nil
         begin
-          result = twitter_user.update kudo.body if kudo.share_scope.blank? ||
+          result = twitter_user.update(kudo.body) if user.blank?
+          result = twitter_user.direct_message_create(kudo.body, user) if user
           result.is_a?(Hashie::Rash)
           true
         rescue Errno, Exception => e
@@ -38,17 +39,6 @@ module OurKudos
           e.to_s
         end
      end
-
-
-    def direct_message_to user, kudo
-      begin
-        twitter_user.direct_message_create user, kudo.body
-        true
-       rescue Errno, Exception => e
-          Rails.logger.info "Failed to post twitter direct message #{e.to_s}"
-          e.to_s
-        end
-    end
 
 
 
