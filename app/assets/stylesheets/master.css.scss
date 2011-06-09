@@ -214,3 +214,29 @@ span.receiver {
 span.greater_than {
 	color: $very_light_gray;
 }
+
+/* Compensation for mobile devices, this is not a full mobile-only implementation, just adjustments */
+
+/* for devices at 1024px: laptops, iPad in horizontal mode */
+@media (max-device-width: 1024px) and (orientation: landscape) {
+	body {
+		width: 1100px; /* prevents cropping of edges */
+	}
+}
+
+
+/* for devices at 768px: iPad in vertical mode */
+@media (max-device-width: 768px) and (orientation: portrait) {
+	body {
+		width: 1100px; /* prevents cropping of edges */
+	}
+}
+
+/* for smart phones */
+@media (max-width: 600px) {
+	body {
+		width: 1100px; /* prevents cropping of edges */
+	}
+}
+
+
