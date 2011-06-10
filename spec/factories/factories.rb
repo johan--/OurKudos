@@ -94,3 +94,32 @@ Factory.define :locked_ip, :class => "Ip" do |ip|
   ip.failed_attempts 50
   ip.unlock_in (Time.now + 100.years)
 end
+
+Factory.define :facebook_kudo do |fk|
+  fk.identifier "134567897654345678"
+  fk.response nil
+  fk.posted false
+end
+
+Factory.define :kudo do |kudo|
+  t.author {|u|  Factory(:user) }
+  t.body "Simply - thank you"
+  t.facebook_sharing false
+  t.twitter_sharing  false
+end
+
+Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
+  kc.author {|u|  Factory(:user) }
+  kc.body "Simply - thank you"
+  kc.recipient {|r| Factory(:other_user) }
+  kc.kudoable  {|k| Factory(:kudo)  }
+  kc.facebook_sharing false
+  kc.twitter_sharing  false
+end
+
+Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|
+  kc.kudoable {|k| Factory(:facebook_kudo) }
+end
+
+
+
