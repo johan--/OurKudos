@@ -39,7 +39,7 @@ group :test do
   gem "factory_girl_rails"
   gem "fuubar-cucumber"
   gem "launchy"
-  gem "rspec-rails"
+  gem "rspec-rails", "2.6.1.beta1"
   gem "shoulda"
   gem "timecop"
   gem 'ruby-debug19'

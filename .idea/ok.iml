@@ -180,7 +180,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="rspec-rails" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="rspec-rails" version="2.6.1.beta1" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -326,7 +326,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-debug19 (v0.11.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ruby-debug19-0.11.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] uglifier (v0.5.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/uglifier-0.5.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] texticle (v1.0.4.20101004123327, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/texticle-1.0.4.20101004123327)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-rails (v2.6.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-rails-2.6.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rails (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rails-3.1.0.rc1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3 (v1.3.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sqlite3-1.3.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] kaminari (v0.12.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/kaminari-0.12.4)" level="application" />
@@ -395,6 +394,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json_pure (v1.5.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json_pure-1.5.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-rails (v2.6.1.beta1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-rails-2.6.1.beta1)" level="application" />
   </component>
 </module>
 
