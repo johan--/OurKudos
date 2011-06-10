@@ -99,18 +99,20 @@ Factory.define :facebook_kudo do |fk|
   fk.identifier "134567897654345678"
   fk.response nil
   fk.posted false
+  fk.kudo { Factory(:kudo_copy_facebook)}
 end
 
 Factory.define :kudo do |kudo|
-  t.author {|u|  Factory(:user) }
-  t.body "Simply - thank you"
-  t.facebook_sharing false
-  t.twitter_sharing  false
+  kudo.author {|u|  Factory(:user) }
+  kudo.body "Simply - thank you"
+  kudo.facebook_sharing false
+  kudo.twitter_sharing  false
 end
 
 Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
-  kc.author {|u|  Factory(:user) }
+  kc.author    {|u|  Factory(:user) }
   kc.body "Simply - thank you"
+  kc.kudo      {|kudo| Factory(:kudo) }
   kc.recipient {|r| Factory(:other_user) }
   kc.kudoable  {|k| Factory(:kudo)  }
   kc.facebook_sharing false
@@ -118,7 +120,7 @@ Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
 end
 
 Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|
-  kc.kudoable {|k| Factory(:facebook_kudo) }
+  kc.kudo { Factory(:kudo) }
 end
 
 

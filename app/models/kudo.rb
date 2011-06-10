@@ -36,14 +36,14 @@ class Kudo < ActiveRecord::Base
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
          send_system_kudo(recipient)
-         send_social_kudo if Kudo.social_sharing_enabled && social_sharing?
+         send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
        elsif recipient.blank? && id =~ RegularExpressions.twitter
-         send_twitter_kudo id.gsub("@",'')   if Kudo.social_sharing_enabled
+         send_twitter_kudo id.gsub("@",'')   if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
-         send_social_kudo(id.gsub("fb_",'')) if Kudo.social_sharing_enabled
+         send_social_kudo(id.gsub("fb_",'')) if Kudo.social_sharing_enabled?
        end
 
 
