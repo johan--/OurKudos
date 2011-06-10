@@ -92,7 +92,7 @@ h2 {
 	margin-bottom: 10px;
 }
 
-/* error and alert messages */
+/* error and alert messages - html-only presentation */
 
 .notice, .alert, #error_explanation {
 	padding: 10px 15px;
@@ -112,6 +112,38 @@ h2 {
 	color: red;
 	border: 4px solid $warning_red;
 }
+
+/* error messages - interstitial presentation */
+
+#overlay {
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000; /* ensure it covers everything below */
+	display: none;
+}
+
+#interstitial_message_cont {
+
+	
+  .interstitial_message {
+		color: #fff;
+  }
+  
+  p#interstitial_message_close_control {
+  	color: #fff;
+  	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  	cursor: pointer;
+  }
+  
+}
+
+
+
+
 
 #error_explanation h2 {
 	color: $warning_red;
