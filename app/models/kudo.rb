@@ -20,7 +20,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_readable_list
-    kudo_copies.map(&:copy_recipient).join(", ")
+    kudo_copies.map(&:copy_recipient).uniq.join(", ")
   end
 
   def prepare_copies

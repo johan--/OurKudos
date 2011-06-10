@@ -1,5 +1,6 @@
 class FacebookKudo < ActiveRecord::Base
   has_one :kudo, :class_name => "KudoCopy", :as => :kudoable, :dependent => :destroy
+  belongs_to :facebook_friend, :foreign_key => "identifier"
 
   after_save :post_me!, :unless => :posted?
 
