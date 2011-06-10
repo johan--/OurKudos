@@ -27,8 +27,8 @@ gem 'oauth2-core'
 gem 'ancestry'
 gem 'fb_graph'
 gem 'twitter'
-gem 'delayed_job'
-gem 'therubyracer'        #
+gem "delayed_job", :require => nil
+gem 'therubyracer'
 
 group :test do
   gem "cucumber"
