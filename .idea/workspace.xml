@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/facebook_friend.rb" afterPath="$PROJECT_DIR$/app/models/facebook_friend.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/facebook_kudo.rb" afterPath="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/regular_expressions.rb" afterPath="$PROJECT_DIR$/lib/regular_expressions.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,37 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="kudo.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="90" selection-start="2290" selection-end="2290" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autocompletes_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="27" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="facebook_kudo.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="89" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="facebook_connection.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="82" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.23652174">
+            <state line="78" column="87" selection-start="2433" selection-end="2433" vertical-scroll-proportion="1.6608696">
               <folding />
             </state>
           </provider>
@@ -92,9 +62,9 @@
         <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
         <option value="$PROJECT_DIR$/lib/regular_expressions.rb" />
         <option value="$PROJECT_DIR$/app/models/facebook_friend.rb" />
-        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
         <option value="$PROJECT_DIR$/lib/facebook_connection.rb" />
+        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
       </list>
     </option>
   </component>
@@ -684,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="27" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0">
@@ -698,23 +661,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="90" selection-start="2290" selection-end="2290" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="89" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
+        <state line="20" column="89" selection-start="655" selection-end="655" vertical-scroll-proportion="0.6802721">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="82" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.23652174">
+        <state line="42" column="87" selection-start="1716" selection-end="1716" vertical-scroll-proportion="0.3043478">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="27" selection-start="1593" selection-end="1593" vertical-scroll-proportion="1.76">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="87" selection-start="2433" selection-end="2433" vertical-scroll-proportion="1.6608696">
           <folding />
         </state>
       </provider>

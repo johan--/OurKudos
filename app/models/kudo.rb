@@ -23,6 +23,10 @@ class Kudo < ActiveRecord::Base
     kudo_copies.map(&:copy_recipient).uniq.join(", ")
   end
 
+  def social_sharing_enabled
+    @social_sharing_enabled ||= Settings[:social_sharing_enabled].value == 'yes'
+  end
+
   def prepare_copies
     return if to.blank?
 
@@ -35,14 +39,14 @@ class Kudo < ActiveRecord::Base
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
          send_system_kudo(recipient)
-         send_social_kudo if Settings[:social_sharing_enabled].value == 'yes' && social_sharing?
+         send_social_kudo if social_sharing_enabled && social_sharing?
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
        elsif recipient.blank? && id =~ RegularExpressions.twitter
-         send_twitter_kudo id.gsub("@",'')
+         send_twitter_kudo id.gsub("@",'') if social_sharing_enabled
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
-         send_social_kudo(id.gsub("fb_",''))
+         send_social_kudo(id.gsub("fb_",'')) if social_sharing_enabled
        end
 
 
