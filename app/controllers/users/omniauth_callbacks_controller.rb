@@ -27,7 +27,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def omniauth_sign_up
     email = omniauth_data.recursive_find_by_key("email")
-
     unless email.blank?
       user = User.find_or_initialize_by_email(:email => email)
      
@@ -44,11 +43,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:user] = user.attributes
     session[:authentication] = user.authentications.first.attributes
     
-    if user.save
+    if user.save  && user.new_record?
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
       fetch_facebook_friends user if user
-      redirect_to new_user_registration_path(:autofill => "true")  
+      redirect_to new_user_registration_path(:autofill => "true")
+    elsif user.save && !user.new_record?
+      sign_in(:user, user)
+      redirect_to home_path, :notice => "devise.omniauth_callbacks.success"
+      fetch_facebook_friends user if user
     else
+      debugger
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
       redirect_to new_user_registration_path(:autofill => "true")
     end
