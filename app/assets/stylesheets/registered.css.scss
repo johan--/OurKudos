@@ -394,3 +394,21 @@ h3 {
 	color: $light_gray;
 	border-top: 1px solid $light_gray;
 }
+
+.userprofile_col_left, .userprofile_col_right {
+	float: left;
+}
+
+.userprofile_col_left {
+	width: 650px;
+	margin-right: 20px;
+	
+	.alignleft, .alignright {
+		float: left;
+		width: 30em;
+	}
+}
+
+.userprofile_col_right {
+	width: 280px;
+}
