@@ -1,7 +1,8 @@
 class Admin::SettingsController < ApplicationController
+  layout "admin"
 
-  def create
-    @disable_social_sharing = Settings[:disable_social_sharing]
+  def index
+    @social_sharing_enabled = Settings[:social_sharing_enabled]
   end
 
   def update

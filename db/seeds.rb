@@ -23,3 +23,5 @@ Role.create([
  admin.save :validate => false
 
  admin.identities.first.confirm!
+
+ Settings.seed

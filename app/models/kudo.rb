@@ -35,7 +35,7 @@ class Kudo < ActiveRecord::Base
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
          send_system_kudo(recipient)
-         send_social_kudo if social_sharing?
+         send_social_kudo if Settings[:social_sharing_enabled] == 'yes' && social_sharing?
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
