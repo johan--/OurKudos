@@ -41,7 +41,10 @@ class Kudo < ActiveRecord::Base
          send_email_kudo id
        elsif recipient.blank? && id =~ RegularExpressions.twitter
          send_twitter_kudo id.gsub("@",'')
+       elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
+         send_social_kudo(id.gsub("fb_",''))
        end
+
 
     end
     kudo_copies
@@ -76,9 +79,10 @@ class Kudo < ActiveRecord::Base
                       :kudoable => FacebookKudo.create(:identifier => recipient)
   end
 
-  def send_social_kudo
+  def send_social_kudo(recipient = nil)
       send_twitter_kudo(author.twitter_auth.nickname)  if share_scope.blank? && !author.twitter_auth.blank?
       send_facebook_kudo(author.facebook_auth.uid)     if share_scope.blank? && !author.facebook_auth.blank?
+      send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
   end
 
   def fix_share_scope

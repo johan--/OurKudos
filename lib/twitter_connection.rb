@@ -34,7 +34,7 @@ module OurKudos
           result.is_a?(Hashie::Rash)
           true
         rescue Errno, Exception => e
-          Rails.logger.info "Failed to post twitter kudo #{e.to_s}"
+          Rails.logger.info "SOCIAL_POSTING: Failed to post twitter kudo #{e.to_s}"
           e.to_s
         end
      end
@@ -45,7 +45,7 @@ module OurKudos
         twitter_user.direct_message_create user, kudo.body
         true
        rescue Errno, Exception => e
-          Rails.logger.info "Failed to post twitter direct message #{e.to_s}"
+          Rails.logger.info "SOCIAL_POSTING: Failed to post twitter direct message #{e.to_s}"
           e.to_s
         end
     end

@@ -23,7 +23,21 @@ module OurKudos
                                   :description => "It's all good!")
       result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
-       Rails.logger.info "Failed to post facebook kudo #{e.to_s}"
+       Rails.logger.info "SOCIAL_POSTING: Failed to post facebook kudo #{e.to_s}"
+       e.to_s
+     end
+   end
+
+   def post_to_friends_wall friend, kudo
+     begin
+       fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
+       result =    fb_friend.feed!(:message    => kudo.body,
+                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
+                                   :name       => 'OurKudos',
+                                   :description => "It's all good!")
+        result.is_a?(FbGraph::Post)
+     rescue Errno, Exception => e
+       Rails.logger.info "SOCIAL_POSTING: Failed to post facebook kudo on friends wall #{e.to_s}"
        e.to_s
      end
    end

@@ -11,6 +11,10 @@ module RegularExpressions
   def self.twitter
     /^@{1}/
   end
+
+  def self.facebook_friend
+    /*fb{1,}/
+  end
  #TODO place other reg exps here
 
 end
