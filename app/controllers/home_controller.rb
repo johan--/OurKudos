@@ -13,7 +13,7 @@ class HomeController < ApplicationController
   end    
   
   def home
-    @kudo   = Kudo.new
+    @kudo    = Kudo.new
   end
 
   def invite
