@@ -7,8 +7,12 @@
 
     %p= t :kudo_email_explanation, :author => @author
 
-    %p= @kudo.kudo.body
+    %p= @kudo.kudo.body[0..100] + "..."
+
+
+    %p= link_to t(:see_entire_message_on_ourkudos), "#{@host}/invite?kudo_id=#{@kudo.id.to_s}&email=#{@email}"
+
 
     %p= t :community_join_explanation
-    %p= link_to   t(:join_our_kudos_now), new_user_registration_url(:user => {:email => @email})
+    %p= link_to t(:join_our_kudos_now), new_user_registration_url(:user => {:email => @email})
 

@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 	before_filter :authenticate_user!, :only => [:home]
   before_filter :get_kudos , :only => [:home]
+  before_filter :check_invitation, :only => [:invite]
   layout :choose_layout
 
 
@@ -38,5 +39,11 @@ class HomeController < ApplicationController
       user_signed_in? ? "registered" : "unregistered"
     end
 
+    def check_invitation
+      @kudo = EmailKudo.find params[:kudo_id] rescue nil
+      return true if !@kudo.blank? && @kudo.email == params[:email]
 
+      redirect_to(:action => :index)
+      false
+    end
 end

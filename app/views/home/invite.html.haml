@@ -5,11 +5,11 @@
     .kudo_message_cont
       #kudo_sender_cont
         %p= image_tag('avatar_ben.jpg', :class=>'avatar')
-        %p John Doe
+        %p= @kudo.kudo.author.to_s
       .kudo_message_bubble_cont
         .kudo_message_top
         .kudo_message_mid
-          %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
+          %p= @kudo.kudo.body
         .kudo_message_bot
       .clearing
     %h3
@@ -19,7 +19,7 @@
       = link_to(image_tag('video_tour_btn.png'),'/')
 
   #youve_got_kudos_bot
-  
+
 #invite_col_left
   %h2 Simple communication for a complex world
   = image_tag('video_tour_preview.png')
