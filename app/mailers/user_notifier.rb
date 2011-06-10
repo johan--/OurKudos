@@ -1,6 +1,11 @@
 class UserNotifier < ActionMailer::Base
   default :from => "do-not-reply@ourkudos.com"
 
+
+  def host
+    "http://#{OurKudosMainSite::Application.config.action_mailer.default_url_options[:host]}"
+  end
+
   def confirmation confirmation, type = :merge
     @confirmation = confirmation
     template      =  "#{confirmation.confirmable_klass_type}_confirmation"
@@ -29,6 +34,13 @@ class UserNotifier < ActionMailer::Base
     @author = email_kudo.kudo.author.to_s
     @kudo   = email_kudo
     mail :to => @email, :subject => I18n.t(:someone_says_thank_you_to_you)
+  end
+
+  def system_kudo kudo_copy
+    @kudo      = kudo_copy
+    @recipient = kudo_copy.recipient
+    @host      = host
+    mail :to => @recipient.email, :subject => I18n.t(:new_kudo_in_your_inbox)
   end
 
 
