@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 	  if user_signed_in?
       	redirect_to home_path
     else
-      @kudos =  Kudo.public_kudos.limit(5).reverse
+      @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
     end
   end    
   
