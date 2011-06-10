@@ -7,5 +7,6 @@ class FacebookFriend < ActiveRecord::Base
     def fetch_for user
       Delayed::Job.enqueue FacebookFriendsFetchJob.new user
     end
+
   end
 end
