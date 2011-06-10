@@ -34,7 +34,7 @@ class AutocompletesController < ApplicationController
       ffriends = current_user.facebook_friends
       return ffriends if ffriends.blank?
 
-      ffriends.where("name LIKE ?","#{params[:q]}%").map do |friend|
+      ffriends.where("lower(first_name) LIKE lower(?) OR lower(last_name) LIKE lower(?)","#{params[:q]}%", "#{params[:q]}%").map do |friend|
           {:id => "fb_#{friend.identifier}", :name => "FB - #{friend.name}"}
         end if !ffriends.blank?
     end
