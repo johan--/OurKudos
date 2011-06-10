@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/facebook_friend.rb" afterPath="$PROJECT_DIR$/app/models/facebook_friend.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/facebook_kudo.rb" afterPath="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/facebook_connection.rb" afterPath="$PROJECT_DIR$/lib/facebook_connection.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/regular_expressions.rb" afterPath="$PROJECT_DIR$/lib/regular_expressions.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/twitter_connection.rb" afterPath="$PROJECT_DIR$/lib/twitter_connection.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,46 +29,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user_notifier.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="7" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0">
+            <state line="74" column="90" selection-start="2290" selection-end="2290" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="autocompletes_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="autocompletes_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="46" selection-start="363" selection-end="363" vertical-scroll-proportion="-0.70143884">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="regular_expressions.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/regular_expressions.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="2" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="facebook_connection.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="31" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0">
+            <state line="46" column="27" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,16 +50,16 @@
       <file leaf-file-name="facebook_kudo.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
+            <state line="20" column="89" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="twitter_connection.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/twitter_connection.rb">
+      <file leaf-file-name="facebook_connection.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="45" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0">
+            <state line="32" column="82" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.23652174">
               <folding />
             </state>
           </provider>
@@ -108,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/script/delayed_job" />
         <option value="$PROJECT_DIR$/config/locales/views/kudos/en.yml" />
         <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
@@ -119,11 +89,12 @@
         <option value="$PROJECT_DIR$/app/models/kudo_copy_observer.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
         <option value="$PROJECT_DIR$/lib/twitter_connection.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
+        <option value="$PROJECT_DIR$/lib/regular_expressions.rb" />
+        <option value="$PROJECT_DIR$/app/models/facebook_friend.rb" />
+        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
         <option value="$PROJECT_DIR$/lib/facebook_connection.rb" />
-        <option value="$PROJECT_DIR$/lib/regular_expressions.rb" />
-        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
       </list>
     </option>
   </component>
@@ -574,7 +545,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-4" width="1366" height="741" extended-state="1" />
+    <frame x="-8" y="-4" width="1366" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -636,13 +607,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="11" selection-start="321" selection-end="321" vertical-scroll-proportion="0.3478261">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/views/kudos/en.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="72" selection-start="321" selection-end="367" vertical-scroll-proportion="0.27210885">
@@ -678,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="84" selection-start="453" selection-end="453" vertical-scroll-proportion="0.4869565">
@@ -706,44 +663,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/twitter_connection.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="45" selection-start="1367" selection-end="1367" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="31" selection-start="1886" selection-end="1886" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="19" selection-start="19" selection-end="19" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/regular_expressions.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="2" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0">
+        <state line="20" column="0" selection-start="303" selection-end="303" vertical-scroll-proportion="0.7047452">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+    <entry file="file://$PROJECT_DIR$/lib/twitter_connection.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="7" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0">
+        <state line="47" column="45" selection-start="1367" selection-end="1367" vertical-scroll-proportion="1.6906475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.38664323">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="46" selection-start="363" selection-end="363" vertical-scroll-proportion="-0.70143884">
+        <state line="46" column="27" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="0" selection-start="1321" selection-end="1321" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="90" selection-start="2290" selection-end="2290" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="89" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="82" selection-start="1236" selection-end="1236" vertical-scroll-proportion="0.23652174">
           <folding />
         </state>
       </provider>

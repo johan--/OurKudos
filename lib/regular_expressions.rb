@@ -13,7 +13,7 @@ module RegularExpressions
   end
 
   def self.facebook_friend
-    /*fb{1,}/
+    /^fb_{1,}/
   end
  #TODO place other reg exps here
 

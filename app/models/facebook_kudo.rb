@@ -5,12 +5,15 @@ class FacebookKudo < ActiveRecord::Base
   after_save :post_me!, :unless => :posted?
 
   def post_me!
-     case kudo.share_scope
+     case self.kudo.share_scope
        when nil
         self.response = kudo.author.post_facebook_kudo kudo
-       when 'friends', 'recipient'
-        self.response = kudo.author.post_to_friends_wall temporary_recipient, kudo
+       when 'friends'
+         self.response = kudo.author.post_to_friends_wall(identifier, kudo)
+       when 'recipient'
+         self.response = kudo.author.post_to_friends_wall(identifier, kudo)
      end
+
     self.posted   = true
     save :validate => false
   end
