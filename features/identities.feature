@@ -26,7 +26,7 @@ Scenario: User creates/edits/removes identity
     Given I'm logged in as a user with:
     | email             | password     |
     | user@example.net  | secret pass1 |
-    When I follow "My account"
+    When I follow "My Account"
     And I follow "Add new identity"
     And I select "email" from "Identity type"
     And I fill in "Identity" with "my@secondaryother.email.com"

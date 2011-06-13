@@ -20,5 +20,5 @@ Scenario: User tries to delete roles
         | administrator    |
         | editor           |
     When I go to the admin roles page    
-    Then I should see "You are not authorized to access this page."
+    Then I should be on signed in users home page
 

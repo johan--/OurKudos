@@ -14,7 +14,7 @@
    #kudo_message_cont_bot
 
  #kudo_send_col_right
-  - if Settings[:social_sharing_enabled].value == "no"
+  - if social_sharing_disabled?
    %p.notice= t(:kudos_sharing_disabled)
   %p
    = f.label :to, t(:send_to)

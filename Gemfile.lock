@@ -314,6 +314,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   launchy
+  multi_json
   nestful
   oauth2
   oauth2-core

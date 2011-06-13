@@ -40,6 +40,10 @@ module ApplicationHelper
     admin_user_identity_path(user, identity)
   end
 
+  def social_sharing_disabled?
+    Settings[:social_sharing_enabled].value == "no" rescue false
+  end
+
 
 
 

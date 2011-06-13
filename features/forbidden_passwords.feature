@@ -22,5 +22,5 @@ Scenario: User tries to delete passwords
         | administrator        |
         | editor               |
     When I go to the admin forbidden passwords page
-    Then I should see "You are not authorized to access this page."
+    Then I should be on signed in users home page
 

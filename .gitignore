@@ -8,3 +8,4 @@ vendor/cache/
 .idea/*
 .idea/dictionaries/marcin.xml
 .idea/*xml
+public/assets/*

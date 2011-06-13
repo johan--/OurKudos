@@ -16,6 +16,11 @@ module NavigationHelpers
       admin_user_path(User.last)
     when /the sign in users page/
       new_new_user_session_path
+    when /admin area page/
+      '/admin'
+    when /signed in users home page/
+      '/home'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
           term = "sent"
     @kudos = current_user.send "#{term}_kudos"
   end
+
+  def choose_layout
+      user_signed_in? ? "registered" : "unregistered"
+  end
+
+
 end

@@ -9,7 +9,7 @@ Scenario: User can merge its accounts
      | email              | password     |
      | user5@example.net  | secretpass1  |
      | user3@example.net  | secretpass1  |
-    When I follow "My account"
+    When I follow "My Account"
     And I follow "Merge my accounts"
     Then I should see "Your current account - the one you're currently signed in will be updated to receive and manage kudos on behalf of merged account. Merged account will be deleted, and all your identities will be transfered to current account. Please keep in mind that administrative accounts cannot be removed, thus you can only merge them as your primary account"
     When I fill in "Enter Account Identity" with "user5@example.net"

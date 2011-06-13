@@ -2,7 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/administrator.feature" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/features/kudos.feature" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/facebook_friends_helper.rb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ok.iml" afterPath="$PROJECT_DIR$/.idea/ok.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/authentications_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/authentications_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" afterPath="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/index.html.haml" afterPath="$PROJECT_DIR$/app/views/home/index.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_form.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/new.html.haml" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_unregistered_header.html.haml" afterPath="$PROJECT_DIR$/app/views/shared/_unregistered_header.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/development.rb" afterPath="$PROJECT_DIR$/config/environments/development.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/staging.rb" afterPath="$PROJECT_DIR$/config/environments/staging.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/forbidden_passwords.feature" afterPath="$PROJECT_DIR$/features/forbidden_passwords.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/identities.feature" afterPath="$PROJECT_DIR$/features/identities.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/ip.feature" afterPath="$PROJECT_DIR$/features/ip.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/merge.feature" afterPath="$PROJECT_DIR$/features/merge.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/roles.feature" afterPath="$PROJECT_DIR$/features/roles.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/sites.feature" afterPath="$PROJECT_DIR$/features/sites.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/step_definitions/model_steps.rb" afterPath="$PROJECT_DIR$/features/step_definitions/model_steps.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/step_definitions/users_steps.rb" afterPath="$PROJECT_DIR$/features/step_definitions/users_steps.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/step_definitions/web_steps.rb" afterPath="$PROJECT_DIR$/features/step_definitions/web_steps.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/support/paths.rb" afterPath="$PROJECT_DIR$/features/support/paths.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/users.feature" afterPath="$PROJECT_DIR$/features/users.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/ip_spec.rb" afterPath="$PROJECT_DIR$/spec/models/ip_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/site_spec.rb" afterPath="$PROJECT_DIR$/spec/models/site_spec.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,19 +57,64 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_dashboard.html.haml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
+      <file leaf-file-name="administrator.feature" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/features/administrator.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="18" selection-start="1177" selection-end="1177" vertical-scroll-proportion="0.7955707">
+            <state line="3" column="0" selection-start="33" selection-end="247" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
+      <file leaf-file-name="users.feature" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/features/users.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="1766" selection-end="1766" vertical-scroll-proportion="0.0">
+            <state line="25" column="49" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/admin/settings_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="75" selection-start="286" selection-end="310" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kudos.feature" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/features/kudos.feature">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="6" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="staging.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="54" column="42" selection-start="2190" selection-end="2190" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="development.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="0" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.79345953">
               <folding />
             </state>
           </provider>
@@ -58,22 +134,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/db/migrate/20110613104137_change_facebook_friends3.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20110613103448_change_facebook_friends_again.rb" />
-        <option value="$PROJECT_DIR$/app/models/facebook_friend.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20110603110841_change_facebook_friends_identifier_to_string.rb" />
-        <option value="$PROJECT_DIR$/lib/facebook_connection.rb" />
-        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
-        <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
-        <option value="$PROJECT_DIR$/spec/models/kudo_spec.rb" />
-        <option value="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20110613102624_change_facebook_friends_table.rb" />
-        <option value="$PROJECT_DIR$/spec/models/twitter_kudo_spec.rb" />
-        <option value="$PROJECT_DIR$/spec/factories/factories.rb" />
-        <option value="$PROJECT_DIR$/spec/models/kudo_copy_spec.rb" />
-        <option value="$PROJECT_DIR$/lib/regular_expressions.rb" />
-        <option value="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
+        <option value="$PROJECT_DIR$/features/forbidden_passwords.feature" />
+        <option value="$PROJECT_DIR$/features/identities.feature" />
+        <option value="$PROJECT_DIR$/features/merge.feature" />
+        <option value="$PROJECT_DIR$/features/ip.feature" />
+        <option value="$PROJECT_DIR$/features/roles.feature" />
+        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/features/step_definitions/users_steps.rb" />
+        <option value="$PROJECT_DIR$/features/step_definitions/web_steps.rb" />
+        <option value="$PROJECT_DIR$/features/step_definitions/model_steps.rb" />
+        <option value="$PROJECT_DIR$/features/users.feature" />
+        <option value="$PROJECT_DIR$/features/administrator.feature" />
+        <option value="$PROJECT_DIR$/features/kudos.feature" />
+        <option value="$PROJECT_DIR$/config/environments/staging.rb" />
+        <option value="$PROJECT_DIR$/config/environments/development.rb" />
       </list>
     </option>
   </component>
@@ -103,6 +179,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -132,7 +209,71 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="features" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="step_definitions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="environments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -150,58 +291,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kudos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="RailsProjectView" />
-      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.pluginManager" />
-    <property name="options.searchVisible" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -326,6 +430,13 @@
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -354,13 +465,6 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda">
@@ -534,7 +638,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-4" width="1382" height="753" extended-state="7" />
+    <frame x="-8" y="-4" width="1382" height="753" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -542,7 +646,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26879272" sideWeight="0.67038214" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33561122" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32484075" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -596,114 +700,114 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/models/site_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="629" selection-end="629" vertical-scroll-proportion="0.13333334">
+        <state line="8" column="30" selection-start="263" selection-end="263" vertical-scroll-proportion="0.28169015">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20110613102624_change_facebook_friends_table.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/registered.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="410" selection-end="410" vertical-scroll-proportion="0.4">
+        <state line="18" column="57" selection-start="475" selection-end="475" vertical-scroll-proportion="0.6">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/users_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="8" selection-start="2951" selection-end="2951" vertical-scroll-proportion="0.18228279">
+        <state line="58" column="0" selection-start="1373" selection-end="1373" vertical-scroll-proportion="1.9333333">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/facebook_kudo_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="36" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0">
+        <state line="33" column="48" selection-start="1041" selection-end="1041" vertical-scroll-proportion="0.51107323">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/twitter_kudo_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/authentications_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="51" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0">
+        <state line="26" column="45" selection-start="810" selection-end="810" vertical-scroll-proportion="0.8858603">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/factories/factories.rb">
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/model_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="19" selection-start="2825" selection-end="2825" vertical-scroll-proportion="0.33333334">
+        <state line="7" column="28" selection-start="275" selection-end="275" vertical-scroll-proportion="-0.022146508">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ip_verification.rb">
+    <entry file="file://$PROJECT_DIR$/features/keys.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/kudo_copy_spec.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin/settings_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="1" selection-start="1" selection-end="433" vertical-scroll-proportion="0.0">
+        <state line="9" column="75" selection-start="286" selection-end="310" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/kudo_spec.rb">
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="18" selection-start="707" selection-end="707" vertical-scroll-proportion="0.76666665">
+        <state line="1" column="70" selection-start="150" selection-end="151" vertical-scroll-proportion="-1.9928826">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
+    <entry file="file://$PROJECT_DIR$/features/users.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="46" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5">
+        <state line="25" column="49" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/twitter_connection.rb">
+    <entry file="file://$PROJECT_DIR$/features/administrator.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="75" selection-start="1444" selection-end="1444" vertical-scroll-proportion="0.6666667">
+        <state line="3" column="0" selection-start="33" selection-end="247" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/facebook_connection.rb">
+    <entry file="file://$PROJECT_DIR$/features/kudos.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="28" selection-start="1890" selection-end="1890" vertical-scroll-proportion="1.7">
+        <state line="7" column="6" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/regular_expressions.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="46" selection-start="296" selection-end="296" vertical-scroll-proportion="0.56666666">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
+    <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1766" selection-end="1766" vertical-scroll-proportion="0.0">
+        <state line="54" column="42" selection-start="2190" selection-end="2190" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
+    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="18" selection-start="1177" selection-end="1177" vertical-scroll-proportion="0.7955707">
+        <state line="34" column="0" selection-start="1416" selection-end="1416" vertical-scroll-proportion="0.79345953">
           <folding />
         </state>
       </provider>

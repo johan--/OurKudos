@@ -7,12 +7,12 @@ module AuthenticationsHelper
          klass   = 'sn_status_dim'
          method  = :post
          path    = omniauth_authorize_path(:user, provider)
-         image   = image_tag(provider+'_tile_icon_dim.png', :class => "sn_tile_status")
+         image   = image_tag(provider+'_tile_icon_dim.png', :class => "sn_tile_status", :alt => "Delete #{provider}")
      else
          klass   = 'sn_status'
          method  = :delete
          path    = user_authentication_path(current_user, auth)
-         image   = image_tag(provider+'_tile_icon.png', :class => "sn_tile_status")
+         image   = image_tag(provider+'_tile_icon.png', :class => "sn_tile_status", :alt => "Connect with #{provider}")
 
      end
 

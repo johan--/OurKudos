@@ -4,6 +4,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   attr_accessor :omniauth_data
   attr_accessor :preexisting_authorization_token
 
+  layout :choose_layout
+
   def method_missing provider
     if @ip.is_locked?
       redirect_to root_path, :notice => @ip.lock_message
@@ -44,15 +46,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:authentication] = user.authentications.first.attributes
     
     if user.save  && user.new_record?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
+      flash[:notice] = I18n.t("devise.omniauth_callbacks.success")
       fetch_facebook_friends user if user
       redirect_to new_user_registration_path(:autofill => "true")
     elsif user.save && !user.new_record?
       sign_in(:user, user)
-      redirect_to home_path, :notice => "devise.omniauth_callbacks.success"
+      redirect_to home_path, :notice => I18n.t("devise.omniauth_callbacks.success")
       fetch_facebook_friends user if user
     else
-      debugger
       flash[:notice] = I18n.t 'devise.oauth.information.missing'
       redirect_to new_user_registration_path(:autofill => "true")
     end

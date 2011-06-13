@@ -1,0 +1,1399 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+*/
+/* variable definitions */
+/* color definitions */
+/* mixin definitions */
+/* CSS Master Stylesheet: Included on every site page, all sections */
+/* variable definitions */
+/* color definitions */
+/* mixin definitions */
+/* Begin CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* End CSS Reset */
+body {
+  font-size: 65%;
+  font-family: arial;
+  background: url(body_bg.jpg) repeat-x left top;
+  line-height: 1; }
+
+.clearing {
+  clear: both; }
+
+.no_bot_marg {
+  margin-bottom: 0 !important; }
+
+.action_link {
+  font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: red; }
+
+img.avatar {
+  border: 3px solid #fff;
+  -webkit-box-shadow: 0 0 5px 2px #ccc;
+  -moz-box-shadow: 0 0 5px 2px #ccc;
+  box-shadow: 0 0 5px 2px #ccc; }
+
+p {
+  margin-bottom: 10px; }
+
+h1 {
+  font: normal 4em "Copse", Arial, Helvetica, sans-serif;
+  color: #1f6994;
+  margin-bottom: 10px; }
+
+h2 {
+  color: #1f6994;
+  font: normal 1.7em "Copse", Arial, sans-serif;
+  margin-bottom: 10px; }
+
+/* error and alert messages - html-only presentation */
+.notice, .alert, #error_explanation {
+  padding: 10px 15px;
+  margin: 0 0 10px 0;
+  background-color: #fff;
+  font: bold 1.3em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px; }
+
+.notice {
+  color: green;
+  border: 4px solid green; }
+
+.alert, #error_explanation {
+  color: red;
+  border: 4px solid red; }
+
+/* error messages - interstitial presentation */
+#overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  /* ensure it covers everything below */
+  display: none; }
+
+#interstitial_message_cont .interstitial_message {
+  color: #fff; }
+#interstitial_message_cont p#interstitial_message_close_control {
+  color: #fff;
+  font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  cursor: pointer; }
+
+#error_explanation h2 {
+  color: red;
+  font: bold 1.5em "Lucida Sans Unicode", "Lucida Grande", sans-serif; }
+
+/* footer */
+#footer {
+  width: 1014px;
+  margin: 0 auto;
+  height: 94px;
+  background: url(footer_bg.png) no-repeat left top;
+  clear: both;
+  position: relative; }
+
+ul#nav_footer {
+  list-style: none;
+  margin-left: 140px;
+  padding-top: 28px; }
+
+ul#nav_footer img {
+  vertical-align: middle; }
+
+ul#nav_footer li {
+  display: inline;
+  padding: 0 10px;
+  font: normal 1.3em Nobile, Arial, sans-serif;
+  color: #508bac; }
+
+ul#nav_footer li#footer_separator {
+  padding: 0 10px; }
+
+ul#nav_footer li a {
+  color: #508bac;
+  text-decoration: none; }
+
+p#footer_copyright {
+  font: 1.0em Verdana, Arial, Helvetica, sans-serif;
+  color: #508bac;
+  position: absolute;
+  top: 41px;
+  right: 63px; }
+
+/* Kudos messaging presentation */
+/* Some rules here that apply to both unregistered homepage, registered homepage and You've got Kudos! page */
+/* Further rules customizing same DOM elements in registered.css, unregistered.css. Primarily this is due to
+	differences in width of the containing bubble graphic. */
+div.kudo_message_cont {
+  clear: both;
+  margin-bottom: 8px; }
+
+div.kudo_message_bubble_cont {
+  float: left;
+  margin-left: 15px; }
+
+div.kudo_message_top {
+  height: 11px; }
+
+div.kudo_message_bot {
+  height: 13px; }
+
+div.kudo_message_mid {
+  padding-left: 18px; }
+
+div.kudo_message_mid p {
+  font: normal 1.2em Verdana, "Copse", Arial, sans-serif;
+  color: #000;
+  margin-bottom: 0;
+  padding: 0 15px 8px 15px; }
+
+span.sender, span.receiver {
+  font: bold 1.1em Verdana, "Copse", Arial, sans-serif; }
+
+span.sender {
+  color: #c60; }
+
+span.receiver {
+  color: #690; }
+
+span.greater_than {
+  color: #cccccc; }
+
+/* Compensation for mobile devices, this is not a full mobile-only implementation, just adjustments */
+/* for devices at 1024px: laptops, iPad in horizontal mode */
+@media (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    width: 1100px;
+    /* prevents cropping of edges */ } }
+/* for devices at 768px: iPad in vertical mode */
+@media (max-device-width: 768px) and (orientation: portrait) {
+  body {
+    width: 1100px;
+    /* prevents cropping of edges */ } }
+/* for smart phones */
+@media (max-width: 600px) {
+  body {
+    width: 1100px;
+    /* prevents cropping of edges */ } }
+/*
+ CSS Admin section styles
+*/
+/* variable definitions */
+/* color definitions */
+/* mixin definitions */
+body {
+  font-size: 65%;
+  line-height: 1; }
+
+#mainarea {
+  width: 1250px;
+  margin: 0 auto; }
+
+#header {
+  width: 1250px;
+  height: 125px;
+  position: relative; }
+
+#header_user_info {
+  position: absolute;
+  right: 160px;
+  bottom: -8px;
+  padding: 20px 30px;
+  width: 263px;
+  height: 58px;
+  background: url(header_user_info_bg.png) no-repeat left top;
+  color: #effaff; }
+
+#header_user_info_nav {
+  position: absolute;
+  bottom: 0; }
+
+#header_user_info_nav a {
+  color: #effaff;
+  text-decoration: none;
+  font: 1.1em Verdana, Helvetica, Arial, sans-serif; }
+
+#header_user_info_nav a:hover {
+  border-bottom: 1px dotted #effaff; }
+
+#header_user_info h4 {
+  font: normal 1.6em "Copse", Arial, Helvetica, sans-serif;
+  color: #effaff; }
+
+img#user_avatar {
+  position: absolute;
+  right: 30px;
+  top: 25px; }
+
+#main_top {
+  width: 1014px;
+  height: 27px;
+  margin: 0 auto;
+  background: url(main_top_bg.png) no-repeat left top; }
+
+#main {
+  width: 1014px;
+  margin: 0 auto;
+  background: url(main_bg.png) repeat-y left top;
+  padding-bottom: 50px; }
+
+.wrapper-main {
+  padding: 0 30px; }
+
+ul#nav_admin {
+  list-style: none;
+  font: 1.2em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
+  margin-bottom: 15px; }
+  ul#nav_admin li {
+    display: inline;
+    padding-right: 10px; }
+    ul#nav_admin li a {
+      text-decoration: none;
+      color: #333333; }
+      ul#nav_admin li a:hover {
+        border-bottom: 1px dotted #787878;
+        color: #787878; }
+
+body#admin_users li#userslink a, body#admin_sites li#apiclientsiteslink a,
+body#admin_roles li#roleslink a, body#admin_forbidden_passwords li#forbiddenpasswordslink a,
+body#admin_settings li#systemoptionslink a {
+  color: #1f6994; }
+  body#admin_users li#userslink a:hover, body#admin_sites li#apiclientsiteslink a:hover,
+  body#admin_roles li#roleslink a:hover, body#admin_forbidden_passwords li#forbiddenpasswordslink a:hover,
+  body#admin_settings li#systemoptionslink a:hover {
+    border-bottom: 0; }
+
+h3 {
+  font: normal 1.3em "Copse", Verdana, Helvetica, sans-serif;
+  color: #555555; }
+
+table.admin_type1 {
+  width: 100%;
+  background-color: #fff; }
+  table.admin_type1 th {
+    padding: 8px 0;
+    font: 1.1em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
+    background-color: #cccccc; }
+    table.admin_type1 th a {
+      color: #333333; }
+  table.admin_type1 td {
+    font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+    padding: 8px 0 8px 10px;
+    border-bottom: 1px dotted #cccccc; }
+
+ul.admin_list {
+  list-style: none; }
+  ul.admin_list li {
+    font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+    width: 20em;
+    border-bottom: 1px dotted #cccccc;
+    padding: 5px 0; }
+    ul.admin_list li a {
+      float: right; }
+/* 
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+  You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+/* 
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+  You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+/* Place non template styles here */
+
+
+.600px {
+  width: 600px;
+}
+
+/* 
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+  You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+/* forms */
+
+form {
+    margin: 10px 0;
+    display: block;
+}
+
+form > div {
+    overflow: hidden;
+    padding-bottom: 8px;
+}
+
+.simple_form {
+    width: 400px;
+}
+input.string, input.password, textarea {
+    border-width: 1px;
+    border-style: solid;
+    border-top-color: #999999;
+    border-left-color: #999999;
+    border-bottom-color: #e5e5e5;
+    border-right-color: #e5e5e5;
+    padding: 4px 2px 3px 2px;
+    background-color: #f9f9f9;
+    width: 200px;
+}
+
+.input.boolean input.boolean {
+ width: 20px;
+ float: left;
+ margin-left: 150px;
+
+}
+
+.input.boolean label.boolean {
+    float: left;
+    width: 160px;
+    margin: 6px 0 0 0;
+    text-align: left;
+}
+
+input[tupe=submit] {
+    display: block;
+}
+
+label {
+    display: inline; /* IE hack */
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 22px;
+    color: #333333;
+    padding-right: 20px;
+    padding-top: 5px;
+    text-align: right;
+}
+label abbr {
+    display: none;
+}
+
+.input {
+    margin-bottom: 5px;
+}
+.input input, .input span.hint {
+    display: block;
+    float: left;
+    width: 200px;
+}
+
+.input .hint, .input .error {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 5px 0 0 0;
+    margin: 0px 0;
+}
+
+#error_explanation {
+    color: #df644c;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.field_with_errors {
+    padding-bottom: 0;
+    margin-bottom: 15px;
+}
+
+.field_with_errors.select {
+    padding-bottom: 18px;
+}
+
+.field_with_errors label {
+    color: #df644c;
+}
+
+.field_with_errors > span {
+    display: inline; /* IE hack */
+    float: left;
+    color: #ee3333;
+    white-space: nowrap;
+}
+
+.field_with_errors > span {
+    margin-left: 175px;
+}
+
+.field_with_errors.select > span {
+    margin-left: 10px;
+}
+
+.field_with_errors input,
+.field_with_errors textarea {
+    border-color: #df644c;
+}
+
+
+#user_remember_me {
+    width: 30px;
+    margin-top: 15px;
+    float: left;
+}
+
+label[for=user_remember_me] {
+    width: 300px;
+    margin-top: 10px;
+    float: left;
+}
+
+.forgot-password {
+    margin-top: 100px;
+}
+
+.or-spacer {
+    margin: 50px 0;
+    font-style: italic;
+    font-size: 24px;
+    width: 200px;
+    text-align: center;
+}
+/* 
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+  You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+/* 
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+  You can use Sass (SCSS) here: http://sass-lang.com/
+*/
+/* Example tokeninput style #1: Token vertical list*/
+
+ul.token-input-list {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    width: 400px;
+    border: 1px solid #999;
+    cursor: text;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 999;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    list-style-type: none;
+    clear: left;
+}
+
+ul.token-input-list li {
+    list-style-type: none;
+}
+
+ul.token-input-list li input {
+    border: 0;
+    width: 350px;
+    padding: 3px 8px;
+    background-color: white;
+    -webkit-appearance: caret;
+}
+
+li.token-input-token {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    margin: 3px;
+    padding: 3px 5px;
+    background-color: #d0efa0;
+    color: #000;
+    font-weight: bold;
+    cursor: default;
+    display: block;
+}
+
+li.token-input-token p {
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token span {
+    float: right;
+    color: #777;
+    cursor: pointer;
+}
+
+li.token-input-selected-token {
+    background-color: #08844e;
+    color: #fff;
+}
+
+li.token-input-selected-token span {
+    color: #bbb;
+}
+
+div.token-input-dropdown {
+    position: absolute;
+    width: 400px;
+    background-color: #fff;
+    overflow: hidden;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    cursor: default;
+    font-size: 12px;
+    font-family: Verdana;
+    z-index: 1;
+}
+
+div.token-input-dropdown p {
+    margin: 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #777;
+}
+
+div.token-input-dropdown ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown ul li {
+    background-color: #fff;
+    padding: 3px;
+    list-style-type: none;
+}
+
+div.token-input-dropdown ul li.token-input-dropdown-item {
+    background-color: #fafafa;
+}
+
+div.token-input-dropdown ul li.token-input-dropdown-item2 {
+    background-color: #fff;
+}
+
+div.token-input-dropdown ul li em {
+    font-weight: bold;
+    font-style: normal;
+}
+
+div.token-input-dropdown ul li.token-input-selected-dropdown-item {
+    background-color: #d0efa0;
+}
+
+/* Example tokeninput style #2: Mac Style */
+
+fieldset.token-input-mac {
+  position: relative;
+  padding: 0;
+  margin: 5px 0;
+  background: #fff;
+  width: 400px;
+  border: 1px solid #A4BDEC;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+fieldset.token-input-mac.token-input-dropdown-mac {
+  border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  box-shadow: 0 5px 20px 0 rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.25);
+  -webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.25);
+}
+
+ul.token-input-list-mac {
+    overflow: hidden; 
+    height: auto !important; 
+    height: 1%;
+    cursor: text;
+    font-size: 12px;
+    font-family: Verdana;
+    min-height: 1px;
+    z-index: 999;
+    margin: 0;
+    padding: 3px;
+    background: transparent;
+}
+
+ul.token-input-list-mac.error {
+  border: 1px solid #C52020;
+}
+
+ul.token-input-list-mac li {
+    list-style-type: none;
+}
+
+li.token-input-token-mac p {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-token-mac span {
+    color: #a6b3cf;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* TOKENS */
+
+li.token-input-token-mac {
+    font-family: "Lucida Grande", Arial, serif;
+    font-size: 9pt;
+    line-height: 12pt;
+    overflow: hidden; 
+    height: 16px; 
+    margin: 3px;
+    padding: 0 10px;   
+    background: none; 
+    background-color: #dee7f8;
+    color: #000;
+    cursor: default;
+    border: 1px solid #a4bdec;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    float: left;
+}
+
+li.token-input-highlighted-token-mac {
+    background-color: #bbcef1;
+    border: 1px solid #598bec;
+    color: #000;
+}
+
+li.token-input-selected-token-mac {
+    background-color: #598bec;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+li.token-input-highlighted-token-mac span.token-input-delete-token-mac {
+    color: #000;
+}
+
+li.token-input-selected-token-mac span.token-input-delete-token-mac {
+    color: #fff;
+}
+
+li.token-input-input-token-mac {
+    border: none;
+    background: transparent;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+li.token-input-input-token-mac input {
+  border: 0;
+  width: 100px;
+  padding: 3px;
+  background-color: transparent;
+  margin: 0;
+}
+
+div.token-input-dropdown-mac {
+    position: absolute;
+    border: 1px solid #A4BDEC;
+    border-top: none;
+    left: -1px;
+    right: -1px;
+    background-color: #fff;
+    overflow: hidden;
+    cursor: default;
+    font-size: 10pt;
+    font-family: "Lucida Grande", Arial, serif;
+    padding: 5px;
+    border-radius: 0 0 10px 10px;
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0 5px 20px 0 rgba(0,0,0,0.25);
+    clip:rect(0px, 1000px, 1000px, -10px);
+}
+
+div.token-input-dropdown-mac p {
+    font-size: 8pt;
+    margin: 0;
+    padding: 0 5px;
+    font-style: italic;
+    color: #aaa;
+}
+
+div.token-input-dropdown-mac h3.token-input-dropdown-category-mac {
+  font-family: "Lucida Grande", Arial, serif;
+  font-size: 10pt;
+  font-weight: bold;
+  border: none;
+  padding: 0 5px;
+  margin: 0;
+}
+
+div.token-input-dropdown-mac ul {
+    margin: 0;
+    padding: 0;
+}
+
+div.token-input-dropdown-mac ul li {
+    list-style-type: none;
+    cursor: pointer;
+    background: none;
+    background-color: #fff;
+    margin: 0;
+    padding: 0 0 0 25px;
+}
+
+div.token-input-dropdown-mac ul li.token-input-dropdown-item-mac {
+    background-color: #fff;
+}
+
+div.token-input-dropdown-mac ul li.token-input-dropdown-item-mac.odd {
+    background-color: #ECF4F9;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+div.token-input-dropdown-mac ul li.token-input-dropdown-item-mac span.token-input-dropdown-item-description-mac {
+    float: right;
+    font-size: 8pt;
+    font-style: italic;
+    padding: 0 10px 0 0;
+    color: #999;
+}
+
+div.token-input-dropdown-mac ul li strong {
+    font-weight: bold;
+    text-decoration: underline;
+    font-style: none;
+}
+
+div.token-input-dropdown-mac ul li.token-input-selected-dropdown-item-mac,
+div.token-input-dropdown-mac ul li.token-input-selected-dropdown-item-mac.odd {
+    background-color: #598bec;
+    color: #fff;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+}
+
+div.token-input-dropdown-mac ul li.token-input-selected-dropdown-item-mac span.token-input-dropdown-item-description-mac,
+div.token-input-dropdown-mac ul li.token-input-selected-dropdown-item-mac.odd span.token-input-dropdown-item-description-mac {
+    color: #fff;
+}
+/*
+ CSS Main Site styles: Registered/Authenticated User Areas
+*/
+/* variable definitions */
+/* color definitions */
+/* mixin definitions */
+#mainarea {
+  width: 1024px;
+  margin: 0 auto; }
+
+#header {
+  width: 1024px;
+  height: 125px;
+  position: relative; }
+
+#header-logo {
+  position: relative;
+  top: 15px; }
+
+#header_user_info {
+  position: absolute;
+  right: 20px;
+  bottom: -8px;
+  padding: 20px 30px;
+  width: 263px;
+  height: 58px;
+  background: url(header_user_info_bg.png) no-repeat left top;
+  color: #effaff; }
+
+#header_user_info_nav {
+  position: absolute;
+  bottom: 0; }
+
+#header_user_info_nav a {
+  color: #effaff;
+  text-decoration: none;
+  font: 1.1em Verdana, Helvetica, Arial, sans-serif; }
+
+#header_user_info_nav a:hover {
+  border-bottom: 1px dotted #effaff; }
+
+#header_user_info h4 {
+  font: normal 1.6em "Copse", Arial, Helvetica, sans-serif;
+  color: #effaff; }
+
+img#user_avatar {
+  position: absolute;
+  right: 30px;
+  top: 25px; }
+
+#main_top {
+  width: 1014px;
+  height: 27px;
+  margin: 0 auto;
+  background: url(main_top_bg.png) no-repeat left top; }
+
+#main {
+  width: 1014px;
+  margin: 0 auto;
+  background: url(main_bg.png) repeat-y left top; }
+
+.wrapper-main {
+  padding: 0 30px; }
+
+/* Send Kudos Area */
+#kudo_send_cont {
+  width: 944px;
+  margin: 0 auto 8px auto;
+  position: relative; }
+  #kudo_send_cont h1 {
+    font: normal 3em "Copse", Arial, Helvetica, sans-serif;
+    color: #1f6994;
+    padding-bottom: 30px;
+    line-height: 0;
+    *padding-top: 20px;
+    *margin-top: -8px; }
+
+img#baltar_mailman_icon {
+  position: absolute;
+  top: -35px;
+  left: 20px; }
+
+#kudo_send_cont_top {
+  width: 944px;
+  height: 29px;
+  background: url(container944_top.png) left top no-repeat; }
+
+#kudo_send_cont_mid {
+  width: 904px;
+  padding: 0 20px;
+  background: url(container944_mid.png) left top repeat-y; }
+
+#kudo_send_cont_bot {
+  width: 944px;
+  height: 33px;
+  background: url(container944_bot.png) left bottom no-repeat; }
+
+#kudo_send_header {
+  margin-left: 90px;
+  background: url(8pxroundeddot.png) left bottom repeat-x; }
+
+#kudo_send_form textarea {
+  border: none;
+  outline: none; }
+
+#kudo_message_cont_top {
+  width: 393px;
+  height: 10px;
+  background: url(kudo_message_cont_top_bg.png) no-repeat left top; }
+
+#kudo_message_cont_mid {
+  width: 373px;
+  padding: 0 10px;
+  background: url(kudo_message_cont_mid_bg.png) repeat-y left top; }
+
+#kudo_message_cont_bot {
+  width: 393px;
+  height: 12px;
+  background: url(kudo_message_cont_bot_bg.png) no-repeat left bottom; }
+
+#kudo_send_col_left, #kudo_send_col_right {
+  float: left;
+  padding-top: 15px; }
+
+#kudo_send_col_left {
+  width: 420px;
+  padding-left: 20px; }
+
+#kudo_send_submit_region {
+  width: 835px;
+  height: 40px;
+  padding: 5px 5px 0 20px;
+  background: url(kudo_send_submit_region_bg.png) no-repeat left bottom;
+  clear: both;
+  margin: 0 auto;
+  padding-top: 30px; }
+  #kudo_send_submit_region img {
+    vertical-align: middle; }
+  #kudo_send_submit_region button {
+    display: inline;
+    float: right;
+    background: none;
+    border: none;
+    cursor: pointer;
+    /* IE7 Fix for overlap and double padding bugs*/
+    z-index: 100;
+    position: relative;
+    overflow: visible; }
+
+span#social_share_choices {
+  float: left;
+  padding-top: 8px;
+  padding-left: 10px; }
+  span#social_share_choices label {
+    padding-right: 20px;
+    margin-left: -8px; }
+
+/* Kudo Dashboard Styles */
+#kudo_dashboard_cont {
+  width: 944px;
+  margin: 0 auto 20px auto; }
+
+#kudo_dashboard_top {
+  width: 944px;
+  height: 78px; }
+
+.kdt_sent {
+  background: url(kudo_dashboard_top_sprite.png) no-repeat left top; }
+
+.kdt_received {
+  background: url(kudo_dashboard_top_sprite.png) no-repeat left -78px; }
+
+.kdt_others {
+  background: url(kudo_dashboard_top_sprite.png) no-repeat left -156px; }
+
+#kudo_dashboard_mid {
+  width: 864px;
+  background: url(kudo_dashboard_mid_bg.png) repeat-y left top;
+  padding: 0 40px 20px 40px; }
+
+#kudo_dashboard_bot {
+  width: 944px;
+  height: 35px;
+  background: url(kudo_dashboard_bot_bg.png) no-repeat left top; }
+
+ul#nav_kudo_dashboard {
+  list-style: none;
+  margin-left: 2px;
+  padding-top: 1.4em; }
+  ul#nav_kudo_dashboard li {
+    float: left;
+    width: 184px;
+    height: 15px;
+    text-align: center; }
+    ul#nav_kudo_dashboard li h2 a {
+      text-decoration: none;
+      font-size: 1.3em;
+      color: #fff; }
+      ul#nav_kudo_dashboard li h2 a.active {
+        color: #1f6994; }
+
+#kudo_dashboard_search_cont {
+  background: url(8pxroundeddot.png) left bottom repeat-x;
+  padding-bottom: 10px;
+  margin-bottom: 10px; }
+
+/* kudos messaging related */
+div.kudo_message_cont {
+  border-bottom: 4px dotted #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px; }
+  div.kudo_message_cont img.avatar {
+    float: left;
+    margin-top: 8px; }
+
+div.kudo_message_bubble_cont {
+  width: 770px; }
+
+div.kudo_message_mid {
+  width: 770px;
+  background: url(kudo_message_mid_sprite.png) no-repeat left top; }
+  div.kudo_message_mid p {
+    width: 668px;
+    margin-right: 5px; }
+
+div.kudo_message_top {
+  width: 770px;
+  background: url(kudo_message_top_sprite.png) no-repeat left top; }
+
+div.kudo_message_bot {
+  width: 770px;
+  background: url(kudo_message_bot_sprite.png) no-repeat left top; }
+
+.kudo_message_text_cont {
+  float: left; }
+
+.kudo_flag_cont {
+  float: left;
+  cursor: pointer;
+  width: 33px;
+  height: 28px;
+  margin-top: 8px; }
+
+.kf_dimmed {
+  background: url(kudo_flag_icon_sprite.png) left -28px no-repeat; }
+
+.kf_activated {
+  background: url(kudo_flag_icon_sprite.png) left top no-repeat; }
+
+/* end kudos messaging */
+/* forms */
+label {
+  font: bold 1.1em Arial, Helvetica, sans-serif;
+  padding-left: 3px; }
+
+input[type=text], input[type=password] {
+  font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: #e1f0be;
+  border: 2px solid #fff;
+  padding: 4px 7px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+
+p#kudos_sortby_cont {
+  float: left; }
+
+p#kudos_search_cont {
+  float: right;
+  margin-right: 15px; }
+
+#kudo_message_textarea {
+  width: 370px;
+  height: 130px; }
+
+/* end forms */
+/* User account settings */
+img.sn_tile_status {
+  vertical-align: middle; }
+
+span.sn_status, span.sn_status_dim {
+  font: normal 1.7em "Copse", Arial, sans-serif; }
+
+span.sn_status {
+  color: #1f6994; }
+
+span.sn_status_dim {
+  color: #9a9a9a; }
+
+h3 {
+  font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  color: #9a9a9a;
+  border-top: 1px solid #9a9a9a; }
+
+.userprofile_col_left, .userprofile_col_right {
+  float: left; }
+
+.userprofile_col_left {
+  width: 650px;
+  margin-right: 20px; }
+  .userprofile_col_left .alignleft, .userprofile_col_left .alignright {
+    float: left;
+    width: 30em; }
+
+.userprofile_col_right {
+  width: 280px; }
+html, body {
+  height: 100%;
+  font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.content {
+    width: 700px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -45px; 
+    background: white;
+    padding: 10px 20px 0 20px;
+}
+
+.navigation {
+  text-align: right;
+  padding-right: 15px;
+  padding-bottom: 10px;
+  font-size: 13px;
+}
+
+.footer {
+    width: 960px;
+    margin: 0 auto;
+    height: 45px;
+    text-align: center;
+}
+/*
+ CSS Main Site styles: Unregistered/Unauthenticated User Areas
+*/
+/* variable definitions */
+/* color definitions */
+/* mixin definitions */
+#mainarea {
+  width: 1024px;
+  margin: 0 auto; }
+
+#header {
+  width: 1024px;
+  height: 200px;
+  position: relative; }
+
+#header-logo {
+  position: relative;
+  top: 50px; }
+
+#header-motto-splash {
+  position: absolute;
+  right: -45px; }
+
+#sign-in-button {
+  position: absolute;
+  top: 0;
+  right: -10px; }
+
+#main_top {
+  width: 1014px;
+  height: 27px;
+  margin: 0 auto;
+  background: url(main_top_bg.png) no-repeat left top; }
+
+#main {
+  width: 1014px;
+  margin: 0 auto;
+  background: url(main_bg.png) repeat-y left top; }
+
+.wrapper-main {
+  padding: 0 30px; }
+
+#col_left, #col_right {
+  float: left; }
+
+#col_left {
+  width: 320px;
+  position: relative;
+  background: url(col_left_bg.png) no-repeat -4px 22px;
+  padding-top: 160px;
+  padding-left: 20px;
+  text-align: center; }
+
+img#new-to-ok-arrow {
+  position: absolute;
+  top: -45px;
+  left: 56px; }
+
+#col_right {
+  width: 640px;
+  padding-top: 8px; }
+
+#recent_kudos_cont {
+  width: 604px;
+  background: url(recent_kudos_cont_bg.png) repeat-y left top;
+  padding: 20px; }
+
+#recent_kudos_cont_top {
+  width: 627px;
+  height: 33px;
+  background: url(recent_kudos_cont_top_bg.png) no-repeat left top;
+  padding-top: 10px;
+  padding-left: 17px; }
+
+#recent_kudos_cont_bot {
+  width: 644px;
+  height: 14px;
+  background: url(recent_kudos_cont_bot_bg.png) no-repeat left top;
+  margin-bottom: 20px; }
+
+/* forms */
+label {
+  font: bold 1.1em Arial, Helvetica, sans-serif;
+  padding-left: 3px; }
+
+input[type=text], input[type=password] {
+  font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  background-color: #e1f0be;
+  border: 2px solid #fff;
+  padding: 4px 7px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+
+/* password strength indicator on sign-up form */
+#signup_user_password {
+  float: left;
+  margin-right: 10px; }
+
+#password-strength {
+  width: 200px;
+  float: left;
+  margin-top: 5px; }
+
+.password-strength-bar {
+  padding: 5px 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+
+/* end forms */
+/* kudos messaging related */
+div.kudo_message_bubble_cont {
+  width: 525px; }
+
+div.kudo_message_mid {
+  background: url(kudo_message_mid_sprite.png) no-repeat left -184px; }
+
+div.kudo_message_top {
+  width: 526px;
+  background: url(kudo_message_top_sprite.png) no-repeat left -11px; }
+
+div.kudo_message_bot {
+  width: 526px;
+  background: url(kudo_message_bot_sprite.png) no-repeat left -13px; }
+
+img.avatar {
+  float: left;
+  margin-top: 8px; }
+
+/* end kudos messaging */
+/* Invite styles */
+#youve_got_kudos_cont {
+  width: 944px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  background: url(8pxroundeddot.png) left bottom repeat-x;
+  margin-bottom: 30px; }
+  #youve_got_kudos_cont .kudo_message_cont {
+    margin: 0 auto 10px auto;
+    width: 610px; }
+  #youve_got_kudos_cont h1 {
+    text-align: center;
+    margin-top: -10px; }
+  #youve_got_kudos_cont h3 {
+    font: normal 1.9em "Copse", Arial, Helvetica, sans-serif;
+    text-align: center; }
+    #youve_got_kudos_cont h3 img {
+      vertical-align: middle; }
+
+#youve_got_kudos_top {
+  width: 944px;
+  height: 29px;
+  background: url(container944_top.png) left top no-repeat; }
+
+#youve_got_kudos_mid {
+  width: 904px;
+  padding: 0 20px;
+  background: url(container944_mid.png) left top repeat-y; }
+
+#youve_got_kudos_bot {
+  width: 944px;
+  height: 33px;
+  background: url(container944_bot.png) left bottom no-repeat; }
+
+#kudo_sender_cont {
+  text-align: center;
+  float: left; }
+  #kudo_sender_cont p {
+    font: bold 1.2em Verdana, Arial, Helvetica, sans-serif;
+    color: #000; }
+
+span.blue_accent {
+  color: #5591b4; }
+
+#invite_col_left, #invite_col_right {
+  float: left;
+  width: 452px; }
+  #invite_col_left h2, #invite_col_right h2 {
+    font: normal 2.4em "Copse", Arial, Helvetica, sans-serif;
+    color: #1f6994;
+    text-align: left; }
+
+#invite_col_left {
+  padding: 0 0 0 35px;
+  margin-right: 40px; }
+  #invite_col_left div.kudo_message_bubble_cont {
+    width: 370px; }
+  #invite_col_left div.kudo_message_mid {
+    background: url(kudo_message_mid_sprite.png) no-repeat left -368px; }
+  #invite_col_left div.kudo_message_top {
+    width: 526px;
+    background: url(kudo_message_top_sprite.png) no-repeat left -22px; }
+  #invite_col_left div.kudo_message_bot {
+    width: 526px;
+    background: url(kudo_message_bot_sprite.png) no-repeat left -26px; }
+
+#invite_col_right {
+  position: relative;
+  padding: 0 35px 0 0; }
+
+#kudos_icon_hugging {
+  position: absolute;
+  right: 0;
+  top: 30px; }
+
+ul.invite_list {
+  list-style: disc;
+  margin: 0 0 10px 20px;
+  font: 1.3em Verdana, Arial, Helvetica, sans-serif;
+  color: #333333; }
+  ul.invite_list li {
+    margin-bottom: 8px; }

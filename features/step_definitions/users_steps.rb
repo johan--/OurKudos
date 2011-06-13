@@ -52,3 +52,8 @@ Then /^I should have "([^"]*)"\-length api key generated$/ do |length|
   !User.first.api_key.blank? && User.first.api_key.size == length.to_i
 end
 
+
+Given /^I don't have any authentications yet$/ do
+ Authentication.destroy_all
+end
+

@@ -35,10 +35,6 @@ class HomeController < ApplicationController
 
   private
 
-    def choose_layout
-      user_signed_in? ? "registered" : "unregistered"
-    end
-
     def check_invitation
       @kudo = EmailKudo.find params[:kudo_id] rescue nil
       return true if !@kudo.blank? && @kudo.email == params[:email]

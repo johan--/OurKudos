@@ -5,7 +5,7 @@ Scenario: Administrator creates new site
   Given I'm logged in as an administrator with:
   | email             | password     |
   | admin@example.net | secret pass1 |
-  When I follow "Admin Area"
+  When I go to admin area page
   And I follow "API Client Sites"
   And I follow "Add new client site"
   And I fill in "Site name" with "my great blog"
@@ -16,7 +16,6 @@ Scenario: Administrator creates new site
   Then I should see "Your site has been saved"
   And I should see "Site name"
   And I should see "Site url"
-  And I should see "Api keys count"
   And I should see "blocked"
   And I should see "Site details"
  
@@ -26,7 +25,7 @@ Scenario: Administrator sees empty list
   Given I'm logged in as an administrator with:
   | email             | password     |
   | admin@example.net | secret pass1 |
-  When I follow "Admin Area"
+  When I go to admin area page
   And I follow "API Client Sites"
   Then I should see "No client sites yet"
   

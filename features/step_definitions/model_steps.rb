@@ -29,3 +29,6 @@ Given /^I tried to login with "([^"]*)" email "([^"]*)" times unsuccessfully$/ d
 end
 
 
+Given /^settings are seeded$/ do
+  Settings.seed
+end
