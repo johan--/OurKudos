@@ -11,14 +11,14 @@ class KudoCopy < ActiveRecord::Base
   scope :recipients, where(:share_scope => "recipients")
 
   def copy_recipient
-    return if my_kudo?
-    return self.recipient.to_s if self.recipient
-    self.temporary_recipient   if self.recipient.blank?
-    self.facebook_friend.name  if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
+    return if own_kudo?
+    return self.recipient.to_s        unless self.recipient.blank?
+    return self.temporary_recipient   if self.recipient.blank? && self.kudoable.is_a?(EmailKudo)
+    self.facebook_friend.name         if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
   end
 
-  def my_kudo?
-    self.recipient == self.author
+  def own_kudo?
+    self.recipient == self.author && !self.author.blank?
   end
 
   def visible_for? user = nil

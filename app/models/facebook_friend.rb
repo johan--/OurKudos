@@ -1,6 +1,7 @@
 class FacebookFriend < ActiveRecord::Base
   belongs_to :user
-  has_many :facebook_kudos, :foreign_key => "identifier"
+  has_many :facebook_kudos, :foreign_key => "facebook_id"
+
 
   class << self
 

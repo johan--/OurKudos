@@ -4,6 +4,6 @@ class ChangeFacebookFriendsIdentifierToString < ActiveRecord::Migration
   end
 
   def down
-    change_column :facebook_friends, :identifier, :integer, :limit => 6
+  #  change_column :facebook_friends, :identifier, :integer, :limit => 6
   end
 end

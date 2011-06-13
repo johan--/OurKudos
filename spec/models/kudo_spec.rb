@@ -20,7 +20,7 @@ describe Kudo do
 
 
     context "an instance" do
-      let(:new_kudo) { Kudo.new }
+      let(:new_kudo) { Factory(:kudo) }
 
       it 'should know about all recipients' do
         new_kudo.to = "1,2,3, ulversson@gmail.com"
@@ -31,17 +31,51 @@ describe Kudo do
 
       it 'should display list with all recipients separated by comma' do
         new_kudo.recipients_readable_list.should be_blank
+        new_kudo.share_scope = 'friends'
 
         identity        = Factory(:identity)
-        facebook_friend = Factory(:facebook_friend)
+        email           = "some@email.com"
 
-        new_kudo.to = "#{identity.id}, some@email.com, fb_some_facebook_id"
+        new_kudo.to = "#{identity.id}, #{email}"
 
         new_kudo.prepare_copies
+        new_kudo.save
 
         new_kudo.recipients_readable_list.include?(identity.user.to_s).should be_true
         new_kudo.recipients_readable_list.include?("some@email.com").should be_true
-        new_kudo.recipients_readable_list.include?(facebook_friend.name).should be_true
+      end
+
+      it 'should make both user friends if system kudo was sent' do
+        new_kudo.should respond_to "send_system_kudo"
+
+        user = Factory(:user)
+
+        new_kudo.send_system_kudo user
+
+        user.friendships.should_not be_blank
+        new_kudo.author.friendships.should_not be_blank
+
+        user.friends.include?(new_kudo.author).should be_true
+        new_kudo.author.friends.include?(user).should be_true
+      end
+
+      it 'should be able to send a twitter kudo' do
+        new_kudo.kudo_copies.destroy_all
+
+        new_kudo.should respond_to 'send_twitter_kudo'
+
+        copy = new_kudo.send_twitter_kudo "@twitter_handle"
+
+        copy.kudoable.should be_an_instance_of(TwitterKudo)
+      end
+
+      it 'should be able to send a facebook kudo' do
+        new_kudo.kudo_copies.destroy_all
+        new_kudo.should respond_to 'send_facebook_kudo'
+
+        copy = new_kudo.send_facebook_kudo "12345676543"
+
+        copy.kudoable.should be_an_instance_of(FacebookKudo)
       end
 
     end

@@ -16,7 +16,7 @@ class Kudo < ActiveRecord::Base
   #validates_with RemoteKudoValidator
 
   def recipients_list
-    to.split(",").map{ |id| id.gsub("'",'') }
+    to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
   end
 
   def recipients_readable_list
@@ -56,6 +56,7 @@ class Kudo < ActiveRecord::Base
                         :kudoable     => self,
                         :folder_id    => recipient.inbox.id,
                         :share_scope  => share_scope
+
       Friendship.process_friendships_between author, recipient
       Friendship.process_friendships_between recipient, author
 

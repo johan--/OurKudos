@@ -1,6 +1,5 @@
 class FacebookKudo < ActiveRecord::Base
   has_one :kudo, :class_name => "KudoCopy", :as => :kudoable, :dependent => :destroy
-  belongs_to :facebook_friend, :foreign_key => "identifier"
 
   after_save :post_me!, :unless => :posted?
 
@@ -18,5 +17,9 @@ class FacebookKudo < ActiveRecord::Base
     save :validate => false
   end
   handle_asynchronously :post_me!
+
+  def facebook_friend
+    @facebook_friend || FacebookFriend.where(:facebook_id => self.identifier).first
+  end
 
 end

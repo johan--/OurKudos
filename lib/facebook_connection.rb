@@ -8,10 +8,10 @@ module OurKudos
    def fetch_and_save_friends
      facebook_user.friends.each do |friend|
        facebook_friend = friend.fetch
-       facebook_friends.create :first_name => facebook_friend.first_name,
-                               :last_name  => facebook_friend.last_name,
-                               :name       => facebook_friend.name,
-                               :identifier => facebook_friend.identifier
+       facebook_friends.create :first_name  => facebook_friend.first_name,
+                               :last_name   => facebook_friend.last_name,
+                               :name        => facebook_friend.name,
+                               :facebook_id => facebook_friend.identifier
      end if connected_with_facebook?
    end
 

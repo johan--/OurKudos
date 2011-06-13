@@ -112,8 +112,8 @@ end
 Factory.define :kudo do |kudo|
   kudo.author {|u|  Factory(:user) }
   kudo.body "Simply - thank you"
-  kudo.facebook_sharing false
-  kudo.twitter_sharing  false
+  kudo.facebook_sharing true
+  kudo.twitter_sharing  true
 end
 
 Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
@@ -134,5 +134,5 @@ Factory.define :facebook_friend do |ff|
    ff.name "Mietek Dziaslo"
    ff.first_name "Mietek"
    ff.last_name  "Dziaslo"
-   ff.identifier "some_faebook_id"
+   ff.id 123456743
 end
