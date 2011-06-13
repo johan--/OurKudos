@@ -9,9 +9,9 @@ class FacebookKudo < ActiveRecord::Base
        when nil
         self.response = kudo.author.post_facebook_kudo kudo
        when 'friends'
-         self.response = kudo.author.post_to_friends_wall(identifier, kudo)
+         self.response = kudo.author.post_to_friends_wall identifier, kudo
        when 'recipient'
-         self.response = kudo.author.post_to_friends_wall(identifier, kudo)
+         self.response = kudo.author.post_to_friends_wall identifier, kudo
      end
 
     self.posted   = true

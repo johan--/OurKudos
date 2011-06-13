@@ -15,13 +15,12 @@ describe FacebookKudo do
       DelayedJob.destroy_all
       facebook_kudo.should respond_to "post_me!"
 
-      Delayed::Job.count.should == 0
+      before = Delayed::Job.count
       facebook_kudo.posted.should be_false
 
       facebook_kudo.post_me!
 
-      Delayed::Job.count.should == 1
-      facebook_kudo.posted.should be_true
+      Delayed::Job.count.should == before + 1
     end
 
    end

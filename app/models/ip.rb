@@ -17,7 +17,7 @@ class Ip < ActiveRecord::Base
 
   def minutes_seconds
     return "#{blocked_for} seconds" if blocked_for < 60
-    return "#{(blocked_for/60).round(1)} minutes" if blocked_for > 60
+    "#{(blocked_for/60).round(1)} minutes" if blocked_for > 60
   end
 
   def lock_seconds
@@ -54,11 +54,11 @@ class Ip < ActiveRecord::Base
     if lock_time_expired?
       unlock!
       self.lock_message = ''
-      return :ok
+      :ok
     else
       self.lock_message =  I18n.t('devise.sessions.user.locked_until',
                                   :time => self.unlock_in.strftime("%I:%M:%S"))
-      return :not_expired
+      :not_expired
     end
   end
 
@@ -70,7 +70,7 @@ class Ip < ActiveRecord::Base
     else
       self.lock_message   = I18n.t('devise.sessions.user.invalid')
     end
-    return :invalid
+    :invalid
   end
 
   def check_for user, password

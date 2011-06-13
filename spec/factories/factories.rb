@@ -63,6 +63,13 @@ Factory.define :other_user, :class => "User" do |u|
   u.roles {|roles| [roles.association(:role)] }
 end
 
+Factory.define :friendship do |fr|
+  fr.user { Factory(:user)}
+  fr.friend { Factory(:other_user) }
+  fr.last_contacted_at Time.now
+  fr.contacts_count 0
+end
+
 Factory.define :admin_user, :parent => :user do |u|
   u.roles {|roles| [roles.association(:admin_role)] }
 end
@@ -123,5 +130,9 @@ Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|
   kc.kudo { Factory(:kudo) }
 end
 
-
-
+Factory.define :facebook_friend do |ff|
+   ff.name "Mietek Dziaslo"
+   ff.first_name "Mietek"
+   ff.last_name  "Dziaslo"
+   ff.identifier "some_faebook_id"
+end
