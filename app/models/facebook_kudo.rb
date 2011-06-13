@@ -19,7 +19,7 @@ class FacebookKudo < ActiveRecord::Base
   handle_asynchronously :post_me!
 
   def facebook_friend
-    @facebook_friend || FacebookFriend.where(:facebook_id => self.identifier).first
+    @facebook_friend ||= FacebookFriend.where(:facebook_id => self.identifier).first
   end
 
 end
