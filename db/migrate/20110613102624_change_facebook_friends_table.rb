@@ -5,6 +5,7 @@ class ChangeFacebookFriendsTable < ActiveRecord::Migration
     FacebookFriend.all.each do |friend|
        friend.update_attribute :facebook_id, friend.identifier
     end
+    sleep 1
     remove_column :facebook_friends, :identfier
   end
 

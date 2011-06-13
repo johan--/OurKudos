@@ -109,6 +109,12 @@ Factory.define :facebook_kudo do |fk|
   fk.kudo { Factory(:kudo_copy_facebook)}
 end
 
+Factory.define :twitter_kudo do |fk|
+  fk.twitter_handle "@twitter_handle"
+  fk.response nil
+  fk.posted false
+  fk.kudo { Factory(:kudo_copy_twitter)}
+end
 Factory.define :kudo do |kudo|
   kudo.author {|u|  Factory(:user) }
   kudo.body "Simply - thank you"
@@ -127,6 +133,10 @@ Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
 end
 
 Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|
+  kc.kudo { Factory(:kudo) }
+end
+
+Factory.define :kudo_copy_twitter, :class => "KudoCopy" do |kc|
   kc.kudo { Factory(:kudo) }
 end
 
