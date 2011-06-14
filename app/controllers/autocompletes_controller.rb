@@ -11,6 +11,7 @@ class AutocompletesController < ApplicationController
       when 'recipients'
         facebook_friends = look_for_friends
         identities       = look_for_identities
+
         @items  = facebook_friends    if identities.blank?
         @items  = identities          if facebook_friends.blank?
         @items = facebook_friends + identities unless facebook_friends.blank? && identities.blank?
@@ -27,8 +28,8 @@ class AutocompletesController < ApplicationController
        joins(:user).
        where("user_id <> ?", current_user.id).
        where(:confirmations => {:confirmed => true}).
-       where("identity LIKE ? OR first_name LIKE ? OR last_name LIKE ?",
-             "%#{search_term}%","%#{search_term}%","%#{search_term}%").
+       where("lower(identity) LIKE lower(?) OR lower(users.first_name) LIKE lower(?) OR lower(users.last_name) LIKE lower(?)
+        ","%#{search_term}%", "#{search_term}%", "#{search_term}%").
        order(:identity).limit(limit)
     end
 
@@ -43,7 +44,7 @@ class AutocompletesController < ApplicationController
 
     def look_for_identities
        identities = confirmed_identities(params[:q], 10).map do |identity|
-          { :id => identity.id, :name => (identity.is_twitter? ? "@#{identity.identity}" : identity.identity)}
+          { :id => identity.id, :name => (identity.is_twitter? ? "@#{identity.identity}" : "[#{identity.user.to_s}] #{identity.identity}")}
        end
       return [] if identities.blank?
       identities
