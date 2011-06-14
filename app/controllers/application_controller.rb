@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     %w{received sent}.include?(params[:kudos]) ?
           term = params[:kudos] :
           term = "sent"
-    @kudos = current_user.send "#{term}_kudos"
+    @kudos = current_user.send("#{term}_kudos").order("id DESC")
   end
 
   def choose_layout
