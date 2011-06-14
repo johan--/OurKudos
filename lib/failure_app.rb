@@ -5,7 +5,7 @@ module Devise
     def i18n_message(default = nil)
       message = warden.message || warden_options[:message] || default || :unauthenticated
       #hack override for twitter
-      message = :inactive if message == :invalid_token && params[:action] == "twitter" && !env['omniauth.auth'].blank?
+      message = :inactive if message == :invalid_token && params[:action] == "twitter"
 
       if message.is_a?(Symbol) && message != :inactive
         message_without_link message
