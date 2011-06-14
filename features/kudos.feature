@@ -1,6 +1,5 @@
 Feature: Kudos sending
 
-   @background-jobs
     Scenario: User can send a kudo
     Given I'm logged in as a user with:
       | email             | password     | id |
