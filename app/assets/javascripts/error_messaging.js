@@ -22,5 +22,12 @@ $(document).ready(function(){
   	$('div#overlay').hide();
   });
 	
+	  // the video tour button clicked
+  $('a#video_tour_link').click(function(){
+  	$('div#overlay').css('display','block');
+  	$('div.interstitial_message').html('<iframe width="425" height="349" src="http://www.youtube.com/embed/ahHZFck-2ys?rel=0" frameborder="0" allowfullscreen></iframe>');
+  	return false;
+  });
+	
 
 }); // document.ready

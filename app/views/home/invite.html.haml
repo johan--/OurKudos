@@ -23,7 +23,7 @@
 
 #invite_col_left
   %h2 Simple communication for a complex world
-  = image_tag('video_tour_preview.png')
+  = link_to(image_tag('video_tour_preview.png', :id => "video_tour_image_btn"),'http://www.youtube.com/watch?v=ahHZFck-2ys', :id => "video_tour_link")
   .kudo_message_cont
     = image_tag('avatar_unknown.png', :class=>'avatar')
     .kudo_message_bubble_cont
