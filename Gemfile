@@ -30,6 +30,7 @@ gem 'json'
 gem 'sass'
 gem 'coffee-script'
 gem 'uglifier'
+gem 'therubyracer'
 
 group :test do
   gem "cucumber"
