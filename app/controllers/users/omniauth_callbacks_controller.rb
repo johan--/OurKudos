@@ -93,7 +93,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def fetch_facebook_friends(user = current_user)
-    FacebookFriend.fetch_for(user) if omniauth_data['provider'] == "facebook" && user.facebook_friends.blank?
+    FacebookFriend.fetch_for(user) if current_provider == "facebook" && user.facebook_friends.blank?
   end
 
   def current_provider

@@ -7,7 +7,7 @@ class ConfirmationObserver < ActiveRecord::Observer
   private
 
     def deliver_confirmation_message! confirmation
-      UserNotifier.confirmation(confirmation, confirmation.confirmable_klass_type.to_sym).deliver! unless confirmation.confirmed?
+      UserNotifier.delay.confirmation(confirmation, confirmation.confirmable_klass_type.to_sym) unless confirmation.confirmed?
     end
 
 end

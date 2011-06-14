@@ -10,7 +10,7 @@ class SessionsController < Devise::SessionsController
 
   def create
     resource = User.find_by_email(params[:user][:email]) if params[:user]    
-    ip_check_for(resource, params[:user][:password])    if resource
+    ip_check_for(resource, params[:user][:password])     if resource
     devise_sign_in  unless resource
   end
 

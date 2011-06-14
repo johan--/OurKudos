@@ -36,6 +36,11 @@ module OurKudos
         self.respond_to?(:confirmation) && self.confirmation.blank?
       end
 
+      def resend!
+        self.confirmed = false
+        self.save :validate => false
+      end
+
     end
 
 end

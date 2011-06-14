@@ -33,6 +33,6 @@ class RegistrationsController < Devise::RegistrationsController
       resource.attributes = session[:user] if params[:autofill]
     end
   
-  
-  
+
+
 end

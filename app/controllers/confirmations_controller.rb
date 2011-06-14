@@ -1,5 +1,6 @@
 class ConfirmationsController < ApplicationController
 
+
   def show
     confirmation = Confirmation.find_by_key params[:id]
     confirmation.confirm!
@@ -13,6 +14,12 @@ class ConfirmationsController < ApplicationController
       redirect_to root_path, :alert => I18n.t(:unable_to_confirm_resource, :resource => confirmation.confirmable_klass_type)
     end
   end
+
+
+    def resend
+      set_user
+      process_it
+    end
 
   private
 
@@ -33,6 +40,33 @@ class ConfirmationsController < ApplicationController
     def account_confirmation?
       params[:account] == "true"
     end
+
+    def set_user
+      case params[:type]
+        when "email"
+          @user = User.find_by_email params[:param]
+        when 'uid'
+          @user = Authentication.find_by_uid(params[:param]).user rescue nil
+        else
+          redirect_to root_path, :alert => I18n.t('devise.failure.use_valid_link')
+        end
+    end
+
+    def process_it
+      if @user
+        confirmation = @user.primary_identity.confirmation
+
+        if confirmation.blank?
+          redirect_to root_path, :alert => I18n.t('devise.failure.could_not_find_such_user')
+        else
+        confirmation.resend!
+          redirect_to root_path, :notice => I18n.t('devise.failure.email_sent')
+        end
+      else
+        redirect_to root_path, :alert => I18n.t('devise.failure.could_not_find_such_user')
+      end
+    end
+
 
 
 end
