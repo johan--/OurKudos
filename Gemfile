@@ -20,16 +20,16 @@ gem 'honeypot-captcha'
 gem 'oauth2'
 gem 'warden_oauth'
 gem 'faraday'
-gem 'sass'
-gem 'coffee-script'
-gem 'uglifier'
 gem 'coffee-filter'
 gem 'oauth2-core'
 gem 'ancestry'
 gem 'fb_graph'
 gem 'twitter'
 gem "delayed_job"
-gem 'therubyracer'
+gem 'json'
+gem 'sass'
+gem 'coffee-script'
+gem 'uglifier'
 
 group :test do
   gem "cucumber"
