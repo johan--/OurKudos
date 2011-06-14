@@ -24,9 +24,11 @@ class AutocompletesController < ApplicationController
 
     def confirmed_identities search_term, limit
       Identity.joins(:confirmation).
+       joins(:user).
        where("user_id <> ?", current_user.id).
        where(:confirmations => {:confirmed => true}).
-       where("identity LIKE ?","%#{search_term}%").
+       where("identity LIKE ? OR first_name LIKE ? OR last_name LIKE ?",
+             "%#{search_term}%","%#{search_term}%","%#{search_term}%").
        order(:identity).limit(limit)
     end
 
