@@ -16,14 +16,14 @@
       "It's fast, free and fun! In just
       %span.blue_accent one minute
       you can be a member!"
-      = link_to(image_tag('video_tour_btn.png'),'/')
+      = link_to(image_tag('video_tour_btn.png'),'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
       = link_to('join now placeholder',new_user_registration_path)
 
   #youve_got_kudos_bot
 
 #invite_col_left
   %h2 Simple communication for a complex world
-  = link_to(image_tag('video_tour_preview.png', :id => "video_tour_image_btn"),'http://www.youtube.com/watch?v=ahHZFck-2ys', :id => "video_tour_link")
+  = link_to(image_tag('video_tour_preview.png', :id => "video_tour_image_btn"),'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
   .kudo_message_cont
     = image_tag('avatar_unknown.png', :class=>'avatar')
     .kudo_message_bubble_cont
