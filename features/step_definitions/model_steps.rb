@@ -32,3 +32,7 @@ end
 Given /^settings are seeded$/ do
   Settings.seed
 end
+
+Given /^jobs are being dispatched$/ do
+    Delayed::Worker.new.work_off
+end

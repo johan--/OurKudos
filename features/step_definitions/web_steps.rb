@@ -231,3 +231,9 @@ Then /^I should see "([^"]*)" image$/ do |image|
   find(:xpath, "//img[@alt = '#{image}']/parent::a")
 end
 
+
+When /^I press "([^"]*)" image button$/ do |image|
+  find(:xpath, "//img[@alt = '#{image}']/parent::button").click()
+end
+
+

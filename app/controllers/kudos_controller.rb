@@ -12,7 +12,7 @@ class KudosController < ApplicationController
   def create
     @kudo = current_user.sent_kudos.new params[:kudo]
     if @kudo.save
-      redirect_to root_path, :notice => I18n.t(:your_kudo_has_been_sent)
+      redirect_to '/home', :notice => I18n.t(:your_kudo_has_been_sent)
     else
       render :new
     end
