@@ -4,7 +4,6 @@ class HomeController < ApplicationController
   before_filter :check_invitation, :only => [:invite]
   layout :choose_layout
 
-
   def index
 	  if user_signed_in?
       	redirect_to home_path
@@ -44,6 +43,11 @@ class HomeController < ApplicationController
     end
 
     def check_recipient
-      sign_out(:user) if params[:recipient] && !current_user.blank? && params[:recipient] != current_user.email
+       if !params[:recipient].blank? && !current_user.blank? && params[:recipient] != current_user.email
+          flash.keep
+          sign_out(:user)
+          false
+       end
+       true
     end
 end
