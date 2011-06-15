@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
   validates :password,   :presence => true, 
                          :format   => { :with => RegularExpressions.password },
                          :is_forbidden_password => true,
-                         :confirmation => true, :if => :new_record?
+                         :confirmation => true
   # ================
   # == extensions ==
   # ================
@@ -207,6 +207,32 @@ class User < ActiveRecord::Base
 
   def friendship_for person
     friendships.select {|f| f.friend == person }.first
+  end
+
+  class << self
+
+    def get_identity_user_by email
+        recoverable = Identity.find_by_identity_and_identity_type(email,'email').user rescue
+            find_or_initialize_with_errors(reset_password_keys, email, :not_found)
+
+        recoverable.send_reset_password_instructions email
+        recoverable
+    end
+
+      def reset_password_by_token(attributes={})
+          recoverable = find_or_initialize_with_error_by(:reset_password_token, attributes[:reset_password_token])
+
+          if recoverable.persisted?
+            if recoverable.reset_password_period_valid?
+              recoverable.reset_password!(attributes[:password], attributes[:password_confirmation])
+            else
+              recoverable.errors.add(:reset_password_token, :expired)
+            end
+
+          end
+          recoverable
+      end
+
   end
 
 
