@@ -29,7 +29,7 @@ class PasswordsController < Devise::PasswordsController
     if resource.errors.empty?
       set_flash_message(:notice, :updated) if is_navigational_format?
       sign_in(resource_name, resource)
-      respond_with resource, :location => '/home'
+      respond_with resource, :location => home_path
     else
       respond_with resource { render_with_scope :edit }
     end
