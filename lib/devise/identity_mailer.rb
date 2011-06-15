@@ -1,4 +1,4 @@
-class Devise::Mailer < ActionMailer::Base
+class Devise::IdentityMailer < ActionMailer::Base
 
   include Devise::Controllers::ScopedViews
   attr_accessor :scope_name, :resource

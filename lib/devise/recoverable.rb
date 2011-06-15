@@ -6,8 +6,8 @@ module Devise
 
         def send_reset_password_instructions identity = false
           generate_reset_password_token! if should_generate_token?
-          Mailer.reset_password_instructions(self).deliver if identity.blank?
-          Mailer.reset_password_instructions(self, identity).deliver if identity
+          Devise::IdentityMailer.reset_password_instructions(self).deliver if identity.blank?
+          Devise::IdentityMailer.reset_password_instructions(self, identity).deliver if identity
         end
 
         def should_generate_token?

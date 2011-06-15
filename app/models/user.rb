@@ -216,7 +216,7 @@ class User < ActiveRecord::Base
 
         recoverable = find_or_initialize_with_errors(reset_password_keys, {:email => email}, :not_found) if recoverable.blank?
 
-        recoverable.send_reset_password_instructions(email) if recoverable && !email.blank?
+        recoverable.send_reset_password_instructions(email) unless !recoverable.blank? && email.blank?
         recoverable
     end
 
