@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/passwords/edit.html.haml" afterPath="$PROJECT_DIR$/app/views/passwords/edit.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/failure_app.rb" afterPath="$PROJECT_DIR$/lib/failure_app.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="failure_app.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="failure_app.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/failure_app.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="7" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.6126761">
+            <state line="46" column="7" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -82,10 +80,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="218" column="68" selection-start="6924" selection-end="6924" vertical-scroll-proportion="0.0">
+            <state line="218" column="8" selection-start="6864" selection-end="6864" vertical-scroll-proportion="0.57746476">
               <folding />
             </state>
           </provider>
@@ -126,10 +124,10 @@
         <option value="$PROJECT_DIR$/app/controllers/passwords_controller.rb" />
         <option value="$PROJECT_DIR$/lib/devise/mailer.rb" />
         <option value="$PROJECT_DIR$/lib/devise/recoverable.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/passwords/edit.html.haml" />
         <option value="$PROJECT_DIR$/lib/failure_app.rb" />
         <option value="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
       </list>
     </option>
   </component>
@@ -795,13 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="68" selection-start="6924" selection-end="6924" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="39" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0">
@@ -811,7 +802,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/failure_app.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="7" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.6126761">
+        <state line="46" column="7" selection-start="1833" selection-end="1833" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="218" column="8" selection-start="6864" selection-end="6864" vertical-scroll-proportion="0.57746476">
           <folding />
         </state>
       </provider>
