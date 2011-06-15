@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/passwords_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/passwords_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="passwords_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="passwords_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/passwords_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="51" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.6592845">
+            <state line="11" column="46" selection-start="300" selection-end="321" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -71,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="223" column="0" selection-start="7059" selection-end="7059" vertical-scroll-proportion="0.0">
+            <state line="219" column="19" selection-start="6967" selection-end="6967" vertical-scroll-proportion="0.35264054">
               <folding />
             </state>
           </provider>
@@ -107,9 +108,9 @@
         <option value="$PROJECT_DIR$/lib/devise/mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.haml" />
         <option value="$PROJECT_DIR$/lib/devise/recoverable.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
         <option value="$PROJECT_DIR$/app/controllers/passwords_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
       </list>
     </option>
   </component>
@@ -711,20 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/devise/recoverable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="223" column="0" selection-start="7059" selection-end="7059" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -739,9 +726,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/devise/recoverable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/passwords_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="51" selection-start="1007" selection-end="1007" vertical-scroll-proportion="0.6592845">
+        <state line="11" column="46" selection-start="300" selection-end="321" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="219" column="19" selection-start="6967" selection-end="6967" vertical-scroll-proportion="0.35264054">
           <folding />
         </state>
       </provider>

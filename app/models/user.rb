@@ -212,10 +212,11 @@ class User < ActiveRecord::Base
   class << self
 
     def get_identity_user_by email
-        recoverable = Identity.find_by_identity_and_identity_type(email,'email').user rescue
-            find_or_initialize_with_errors(reset_password_keys, email, :not_found)
+        recoverable = Identity.find_by_identity_and_identity_type(email,'email').user rescue nil
 
-        recoverable.send_reset_password_instructions email
+        recoverable = find_or_initialize_with_errors(reset_password_keys, {:email => email}, :not_found) if recoverable.blank?
+
+        recoverable.send_reset_password_instructions(email) if recoverable && !email.blank?
         recoverable
     end
 
