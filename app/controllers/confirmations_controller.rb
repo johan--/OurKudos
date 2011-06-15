@@ -47,6 +47,8 @@ class ConfirmationsController < ApplicationController
           @user = User.find_by_email params[:param]
         when 'uid'
           @user = Authentication.find_by_uid(params[:param]).user rescue nil
+        when "user_id"
+          @user = User.find params[:param]
         else
           redirect_to root_path, :alert => I18n.t('devise.failure.use_valid_link')
         end

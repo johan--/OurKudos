@@ -16,8 +16,10 @@ module Devise
       end
     end
 
-    def get_email_or_uid
+    def get_param
       return params[:user][:email] if params[:user] && params[:user][:email]
+      return params[:user_id] if params[:user] && params[:user_id]
+
       email = env['omniauth.auth'].recursive_find_by_key("email")
 
       return email unless email.blank?
@@ -34,14 +36,15 @@ module Devise
     def message_with_link message, type = "email"
       I18n.t(:"#{scope}.#{message}", :resource_name => scope,
                                             :host   => request.host,
-                                            :param  => get_email_or_uid,
+                                            :param  => get_param,
                                             :type   => get_param_type,
                                             :scope  => "devise.failure",
                                             :default=> [message, message.to_s])
     end
 
     def get_param_type
-       return "email" if (!params[:user].blank? && env['omniauth.auth'].blank?) || params[:action] == "facebook"
+       return "email"      if (!params[:user].blank?    && env['omniauth.auth'].blank? && !params[:user][:email].blank?) || params[:action] == "facebook"
+       return "user_id"    if (!params[:user_id].blank? && env['omniauth.auth'].blank? && !params[:user].blank?)
        "uid"
     end
 
