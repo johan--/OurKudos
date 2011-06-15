@@ -12,3 +12,4 @@
 //= require digitalspaghetti.password
 //= require password_strength
 //= require error_messaging
+//= require libs

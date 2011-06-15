@@ -26,6 +26,13 @@ OurKudos.Cookies =
   deleteCookie: (name) ->
     @setCookie name, "", -1
 
+
+scrollScreenToKudo = ->
+  kudo_id = jQuery.getQueryString("kudo_id")
+  if ((typeof jQuery.getQueryString("recipient") == "string") and (typeof kudo_id == "string"))
+    kudo = document.getElementById "kudo_" + kudo_id
+    kudo.scrollIntoView true
+
 processProviderOnKudosForm  = (provider) ->
   cookieName    = 'check-' + provider + "-share"
   checkboxName  = ".kudo-" + provider + "-share"
@@ -55,6 +62,7 @@ jQuery ->
     processProviderOnKudosForm 'twitter'
 
     processShareScope()
+    scrollScreenToKudo()
 
     jQuery("input.share-scope").click ->
       processShareScope()

@@ -10,6 +10,6 @@
       %blockquote= @kudo.body
 
       %br/
-      = link_to t(:view_my_message_on_ourkudos), "#{@host}/home/received"
+      = link_to t(:view_my_message_on_ourkudos), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}"
 
 

@@ -2,7 +2,124 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/libs.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/8pxroundeddot-e22ee4fb5e2079db3422c9d13fa44a64.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-4abdb78aba9879a488e02fda1f10d9a3.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/application-c92fe3bb37509de3a11b468ccf335534.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/avatar_ben-2284142353b4314472231f1a119f6a1b.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/avatar_unknown-90e7462790cbd4171650e82bdb9ad035.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/baltar_mailman_icon-7922a6b0e790e55055598af05481b3ce.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/body_bg-6764ab146066e3a31ac469cd057c4626.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/col_left_bg-a372925b0e348e362f6724a6e3e5d373.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/container944_bot-042373b7ac5d50fa5c1dfc147657b674.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/container944_mid-1a054d400d64ce2a7ea3235dcd04c08e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/container944_top-5b6d1203d967536f01e89b1aa54cf8df.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/digitalspaghetti-6f543e1fea6ca2b2af3692ea2875c567.password.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/facebook_icon-6fc747d16fc88fe2b44d121185d4cbf5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/facebook_tile_icon-d94eec92962538be46845f5efb3423a2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/facebook_tile_icon_dim-15976089435696bc884590d5d95bcc87.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/footer_bg-99ecaf390bffa666b74585142f6c77a7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/footer_separator-a339812eb065abfc94a8df98e0773ecb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/header_motto_splash-2477e9d66af2d264f1cd8e2fc50a5bfc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/header_user_info_bg-0835ecd83727d84e6ce618e7d833ec36.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/join_now_button-bced912bfb4cf5ae978e1a857eb228cd.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/jquery-6e526823e3027619d86f93e3fc016501.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/jquery-b8548dcd0a66a26c8a0c0c8e0640dd1f.tokeninput.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/jquery-ui-07c730e1e4689f245ccf83336e11f910.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_dashboard_bot_bg-53532b2ad06980263a4d62dc0f23f2a9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_dashboard_mid_bg-abac37818353bc2f18c96c2dd071e9c0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_dashboard_top_sprite-10fc0311aec6f137db5b2240637c1224.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_flag_icon_sprite-c5ae32803a7db83dd15bfa209710c713.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_message_bot_sprite-fa0bb9f2d7a036569d0964a0adfff529.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_message_cont_bot_bg-d5c9fa689caa683b893d41fbfa6decab.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_message_cont_mid_bg-f19c25f34c1343106cddc9529395d587.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_message_cont_top_bg-beb59e4da965ddc696246f15eae90e7d.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_message_mid_sprite-75483e121e23c5db8ef8ca8530825aa3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_message_top_sprite-6e3b5f1d77e968bf29b3a30b0ee19cd1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_send_button-585f0763dd1058c548406eb7c0ba11dc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudo_send_submit_region_bg-b218b934a7138458a17faa695845ffe7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudos_hugging-b2c1a2c5bc7276dfc0ac76983212bb2e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/kudos_icon_hugging-72d3c613dbb9620a20aa261e98c411a5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/main_bg-f7f0d415d98e41bd628cb4ca558d0584.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/main_bot_bg-d04ab9109813f63cc8600d73a9fc82cc.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/main_top_bg-1e3a81177633c9f07e095222b5b9734f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/new_to_ok_arrow-8309a80ee9a75d34e1d2d7811c6040a3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/ourkudos_header_logo-65a9f5586675fab94a2e9929ab2d697f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/rails-9c0a079bdd7701d7e729bd956823d153.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/recent_kudos_cont_bg-d72d0cff9ca50ca2a18a650325dc140e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/recent_kudos_cont_bot_bg-dd48f0201bf6b6fa8314c21af121383f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/recent_kudos_cont_top_bg-c530e74c27b6980a8bed283e8a76378c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/remove-c3adda9e5833d2e3f8eff9fdcbd77d3c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/sign-in-facebook-6596b32acbeac129c21a07b78934bd96.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/sign-in-with-twitter-d-0b2e6a1335d17c56f7263d55e09e3f56.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/sign-up-with-facebook-btn-e78d9d385641629f0e92651c73629819.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/sign_in_button-03bb6335fc000c23d638c0d4365cea77.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/aol_128-f1332970ff123c786e8f9a1054d152f0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/aol_256-251f601da16d990a880f44d5a68b5ff1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/aol_32-ea345c7ffa0542a58c5412b661240fa1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/aol_64-430879ad68ad8ff145462a2a3a5cb193.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/basecamp_128-c37600f59ae7cda2f202095d47baaa6c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/basecamp_256-ef22aabb65443c04b386db4175649ae7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/basecamp_32-471999d8b1a942428a2302f359452a64.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/basecamp_64-b13548edb3917ac1976158b4af012c42.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/campfire_128-5e96683cc7e32ce2d77621f01fdc1339.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/campfire_256-240a54ac3795c6a01eda6a6bbd1e2957.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/campfire_32-0f67ee463839390d394426e9876ca720.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/campfire_64-a66713da4708d0df5a08d82cc6acf376.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/facebook_128-7ff1506a2f6411f4f16b98481f00c03a.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/facebook_256-f46501875cff90baf10341a887071b81.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/facebook_32-d94eec92962538be46845f5efb3423a2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/facebook_64-0ce488c8e0d41f81704df626e8443195.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/github_128-5f3665a376fcc8326632d5b724955d21.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/github_256-392b787a5724836a6321dd1aa6ca18be.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/github_32-71180bac31575adaa17acb8bddfb5ea9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/github_64-73c2b9ff29488bc7c74acb5188ed3eb9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_128 copy-91d5f80da6729c7a0721b7fc632448da.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_128-91d5f80da6729c7a0721b7fc632448da.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_256 copy-a840add95d186ccbfe095f9e133087fb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_256-a840add95d186ccbfe095f9e133087fb.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_32-6db57ca4a5bf8bd61cd433517d119785.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_64 copy-0ff9271c28468cbc39bcf3b8f49af86e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_apps_32-6db57ca4a5bf8bd61cd433517d119785.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/google_apps_64-0ff9271c28468cbc39bcf3b8f49af86e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/linkedin_128-41026c268b23ca4dbc118bd8ed2a6229.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/linkedin_256-80cffa35855cb5cdf82764c48ea4449b.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/linkedin_32-13a99eeddea3f6ac0a8f7bb39fd3bb50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/linkedin_64-4f0402f509c637fdddfeff67841140e7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/myspace_128-45a3d45004dd4b8b3cc806e36c26c553.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/myspace_256-54dc93b8ff23770a0707b186bed12a14.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/myspace_32-dd02a904b7f58513d9945d566fc99372.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/myspace_64-0f08a1b4c3a5eedbccb0a32262f239b1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/openid_128-7cb646af577ba534bd7312ba58a2d9f0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/openid_256-b0164db860ae2a416d79752969dcd4d0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/openid_32-91175996952915b506c160c0d517bfd7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/openid_64-eee5c7f0dcb95cfc9b9997265afa7904.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/presently_128-f1ce378c6c6bd9aee4ae1ee05e97f40e.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/presently_256-0c3052220bfef47620ce12a721f120ba.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/presently_32-32602f791687d53fb138efd34a9fc993.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/presently_64-81d86234ac8900cc318ffb7e0eac72b7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/twitter_128-b94995fd25aee8303b84b0b7a5783802.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/twitter_256-3bb4f4446506125327149421e4b99593.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/twitter_32-0eb54074c4daabec394eda57f3becd0f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/twitter_64-ffeb7b2bbfbebcbf94f552fb3e3e14b7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/yahoo_128-ad80a5088c91180bb33f477859867ace.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/yahoo_256-3cedc8bb4acdfae9b688e076a0912b1c.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/yahoo_32-aed5f9ea4dfab48eb4998ad9e9601b09.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/social-icons/yahoo_64-2ba870fcf986229ff7a293f93b5ff23d.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/twitter_icon-c6af0f1a0b03c44a0039c8933a07c677.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/twitter_tile_icon-0eb54074c4daabec394eda57f3becd0f.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/twitter_tile_icon_dim-5a1969168c29444eecadfb90a28bdc02.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/video_tour_btn-75754f95a0cd001260a489b0f50f8ec3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/video_tour_preview-c5f2f29df3381947724d3a07fa745ca3.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application-unregistered.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application-unregistered.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/merges.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/merges.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/failure_app.rb" afterPath="$PROJECT_DIR$/lib/failure_app.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -27,10 +144,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="failure_app.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/failure_app.rb">
+      <file leaf-file-name="application-unregistered.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application-unregistered.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="73" selection-start="567" selection-end="567" vertical-scroll-proportion="0.62608695">
+            <state line="10" column="0" selection-start="537" selection-end="553" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="16" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="46" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0681431">
               <folding />
             </state>
           </provider>
@@ -50,22 +185,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
-        <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-        <option value="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
-        <option value="$PROJECT_DIR$/app/views/shared/_messaging.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
-        <option value="$PROJECT_DIR$/lib/confirmable.rb" />
-        <option value="$PROJECT_DIR$/app/models/confirmation_observer.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/config/locales/devise.en.yml" />
         <option value="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/lib/failure_app.rb" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/functions.js.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/libraries.js.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application-unregistered.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/libs.js.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/libs.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/merges.js.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
       </list>
     </option>
   </component>
@@ -96,7 +231,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="RailsProjectView" />
+      <pane id="Favorites" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -112,6 +247,68 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user_notifier" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -149,15 +346,15 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="recentsLimit" value="5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -282,13 +479,6 @@
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -317,6 +507,13 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda">
@@ -490,7 +687,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-4" width="1366" height="741" extended-state="0" />
+    <frame x="-8" y="-4" width="1382" height="753" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -498,7 +695,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34127593" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34168565" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32484075" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -552,92 +749,104 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_messaging.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="22" selection-start="75" selection-end="75" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="6" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/confirmable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="36" selection-start="1167" selection-end="1167" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/confirmation_observer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/confirmation.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="55" selection-start="5468" selection-end="5468" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="17" selection-start="1433" selection-end="1433" vertical-scroll-proportion="0.16666667" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="3" selection-start="1300" selection-end="1300" vertical-scroll-proportion="1.0327022" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="96" selection-start="684" selection-end="684" vertical-scroll-proportion="0.54049295" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application-unregistered.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="76" selection-start="1412" selection-end="1412" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/devise.en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="227" selection-start="750" selection-end="750" vertical-scroll-proportion="0.17985612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="54" selection-start="3314" selection-end="3314" vertical-scroll-proportion="0.47826087">
-          <folding />
-        </state>
+        <state line="52" column="27" selection-start="1795" selection-end="1795" vertical-scroll-proportion="0.8177172" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="22" selection-start="76" selection-end="76" vertical-scroll-proportion="0.034782607">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="31" selection-start="397" selection-end="397" vertical-scroll-proportion="0.4920914" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="55" selection-start="967" selection-end="967" vertical-scroll-proportion="0.26010546" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/failure_app.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="73" selection-start="567" selection-end="567" vertical-scroll-proportion="0.62608695">
+        <state line="6" column="12" selection-start="215" selection-end="215" vertical-scroll-proportion="0.03407155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="45" selection-start="169" selection-end="169" vertical-scroll-proportion="0.23850085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/registered.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application-unregistered.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="0" selection-start="537" selection-end="553" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="23" selection-start="924" selection-end="924" vertical-scroll-proportion="0.7394366">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/merges.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="13" selection-start="23" selection-end="23" vertical-scroll-proportion="0.03407155">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="402" selection-end="402" vertical-scroll-proportion="0.51107323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/libs.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="20" selection-start="764" selection-end="764" vertical-scroll-proportion="0.76666665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="642" selection-end="642" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="46" selection-start="144" selection-end="144" vertical-scroll-proportion="0.0681431">
           <folding />
         </state>
       </provider>

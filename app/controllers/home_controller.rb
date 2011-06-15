@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	before_filter :authenticate_user!, :only => [:home]
-  before_filter :get_kudos , :only => [:home]
+  before_filter :get_kudos, :check_recipient, :only => [:home]
   before_filter :check_invitation, :only => [:invite]
   layout :choose_layout
 
@@ -41,5 +41,9 @@ class HomeController < ApplicationController
 
       redirect_to(:action => :index)
       false
+    end
+
+    def check_recipient
+      sign_out(:user) if params[:recipient] && !current_user.blank? && params[:recipient] != current_user.email
     end
 end

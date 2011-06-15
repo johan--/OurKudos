@@ -34,7 +34,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
      
       if user.new_record?
         identity = Identity.find_by_identity_and_identity_type(email, 'email')
-        user     = identity.user if identity
+        user     = identity.user if identity && identity.confirmation.confirmed
       end
 
     else
@@ -51,7 +51,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_path(:autofill => "true")
     elsif user.save && !user.new_record?
       sign_in(:user, user)
-      redirect_to home_path, :notice => I18n.t("devise.omniauth_callbacks.success")
+      redirect_to '/home', :notice => I18n.t("devise.omniauth_callbacks.success")
       fetch_facebook_friends user if user
     else
       flash[:notice] = I18n.t 'devise.oauth.information.missing'

@@ -1,10 +1,10 @@
 .kudo_message_cont
- = image_tag('avatar_unknown.png', :class=>'avatar')
+ = image_tag('avatar_unknown.png', :class => 'avatar')
  .kudo_message_bubble_cont
   .kudo_message_top
   .kudo_message_mid
    .kudo_message_text_cont
-    %p
+    %p{:id => "kudo_#{kudo.id}"}
      %span.sender= kudo.author.to_s
      %span.greater_than &gt;
      %span.receiver= kudo.recipient.to_s

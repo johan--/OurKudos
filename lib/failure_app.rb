@@ -1,10 +1,10 @@
 module Devise
-  class FailureApp < ActionController::Metal
+  class FailureApp < ActionController::Metal # \m/ ROCKS :-)
 
 
     def i18n_message(default = nil)
       message = warden.message || warden_options[:message] || default || :unauthenticated
-      #hack override for twitter
+      #ugly hack override for twitter
       message = :inactive if message == :invalid_token && params[:action] == "twitter"
 
       if message.is_a?(Symbol) && message != :inactive
