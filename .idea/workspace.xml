@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/passwords_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/passwords_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/devise/recoverable.rb" afterPath="$PROJECT_DIR$/lib/devise/recoverable.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recoverable.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="recoverable.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/devise/recoverable.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
+            <state line="8" column="10" selection-start="230" selection-end="230" vertical-scroll-proportion="0.21635434">
               <folding />
             </state>
           </provider>
@@ -72,10 +71,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="219" column="19" selection-start="6967" selection-end="6967" vertical-scroll-proportion="0.35264054">
+            <state line="219" column="19" selection-start="6967" selection-end="6967" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -107,10 +106,10 @@
         <option value="$PROJECT_DIR$/config/locales/devise.en.yml" />
         <option value="$PROJECT_DIR$/lib/devise/mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/mailer/reset_password_instructions.html.haml" />
-        <option value="$PROJECT_DIR$/lib/devise/recoverable.rb" />
         <option value="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
         <option value="$PROJECT_DIR$/app/controllers/passwords_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/lib/devise/recoverable.rb" />
       </list>
     </option>
   </component>
@@ -726,13 +725,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/devise/recoverable.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="748" selection-end="748" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/passwords_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="46" selection-start="300" selection-end="321" vertical-scroll-proportion="0.0">
@@ -742,7 +734,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="219" column="19" selection-start="6967" selection-end="6967" vertical-scroll-proportion="0.35264054">
+        <state line="219" column="19" selection-start="6967" selection-end="6967" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/devise/recoverable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="10" selection-start="230" selection-end="230" vertical-scroll-proportion="0.21635434">
           <folding />
         </state>
       </provider>
