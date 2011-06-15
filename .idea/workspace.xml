@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/views/home/en.yml" afterPath="$PROJECT_DIR$/config/locales/views/home/en.yml" />
     </list>
@@ -38,46 +37,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="home_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="11" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
+            <state line="46" column="67" selection-start="963" selection-end="963" vertical-scroll-proportion="0.23333333">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudos.js.coffee" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee">
+      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="37" selection-start="941" selection-end="941" vertical-scroll-proportion="0.4684838">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="devise.en.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/locales/devise.en.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sessions_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="180" selection-end="227" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="en.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/locales/views/home/en.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="79" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+            <state line="29" column="36" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/lib/failure_app.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
@@ -109,10 +80,11 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/libs.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/merges.js.coffee" />
-        <option value="$PROJECT_DIR$/config/locales/views/home/en.yml" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
+        <option value="$PROJECT_DIR$/config/locales/views/home/en.yml" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       </list>
     </option>
   </component>
@@ -205,6 +177,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -653,11 +643,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/failure_app.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="12" selection-start="215" selection-end="215" vertical-scroll-proportion="0.03407155" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -712,7 +697,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/views/home/en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="79" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0">
+        <state line="4" column="72" selection-start="153" selection-end="153" vertical-scroll-proportion="0.13769363">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="37" selection-start="941" selection-end="941" vertical-scroll-proportion="0.4684838">
           <folding />
         </state>
       </provider>
@@ -726,21 +718,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="180" selection-end="227" vertical-scroll-proportion="0.0">
+        <state line="3" column="0" selection-start="180" selection-end="227" vertical-scroll-proportion="0.1">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="36" selection-start="757" selection-end="757" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="11" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="37" selection-start="941" selection-end="941" vertical-scroll-proportion="0.4684838">
+        <state line="46" column="67" selection-start="963" selection-end="963" vertical-scroll-proportion="0.23333333">
           <folding />
         </state>
       </provider>

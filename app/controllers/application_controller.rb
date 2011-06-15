@@ -7,7 +7,10 @@ class ApplicationController < ActionController::Base
 
   include OurKudos::Controllers::IpVerification
 
-
+  def after_sign_in_path_for resource
+    (session[:"user.return_to"].nil?) ?
+        "/" : session[:"user.return_to"].to_s
+  end
 
   def get_kudos
     %w{received sent}.include?(params[:kudos]) ?
@@ -18,6 +21,10 @@ class ApplicationController < ActionController::Base
 
   def choose_layout
       user_signed_in? ? "registered" : "unregistered"
+  end
+
+  def request_from_kudo_email?
+      params.keys.include?("kudo_id") && params.keys.include?("recipient")
   end
 
 
