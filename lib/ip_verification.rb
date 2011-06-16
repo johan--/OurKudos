@@ -9,8 +9,10 @@ module OurKudos
       def verify_ip
         @sign_in_ip = get_ip
         if @sign_in_ip.blocked? || @sign_in_ip.is_locked?
-          @sign_in_ip.session_is_invalid if @sign_in_ip.is_locked?
-          redirect_to root_url, :notice => @sign_in_ip.lock_message
+          if @sign_in_ip.is_locked?
+            @sign_in_ip.session_is_invalid
+          end
+          redirect_to root_path, :alert => @sign_in_ip.lock_message
           false
         else
           true
@@ -24,11 +26,22 @@ module OurKudos
       end
 
       def ip_check_for resource, password, ok_method = :devise_sign_in
-        result = @sign_in_ip.check_for resource, password
-         case result
-            when :ok                    ; instance_eval ok_method.to_s
-            when :invalid, :not_expired ; redirect_to :back, :notice => @sign_in_ip.lock_message
+         case @sign_in_ip.check_for resource, password
+           when :ok
+             instance_eval ok_method.to_s
+             clean_email_for_pass_recovery
+           when :invalid, :not_expired
+             save_email_for_pass_recovery
+             redirect_to :back, :alert => @sign_in_ip.lock_message
          end
+      end
+
+      def save_email_for_pass_recovery
+        session['user.email_for_password_recovery'] = params[:user][:email] if params[:user] && params[:user][:email] =~ RegularExpressions.email
+      end
+
+      def clean_email_for_pass_recovery
+        session['user.email_for_password_recovery'] = nil
       end
 
 

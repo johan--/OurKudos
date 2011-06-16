@@ -9,7 +9,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def create
-    resource = User.find_by_email(params[:user][:email]) if params[:user]    
+    resource = Identity.find_for_authentication(params[:user][:email]).user rescue nil
     ip_check_for(resource, params[:user][:password])     if resource
     devise_sign_in  unless resource
   end

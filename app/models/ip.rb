@@ -66,9 +66,9 @@ class Ip < ActiveRecord::Base
    increase_attempt_count!
    if allowed_attempts_exceeded?
       set_lock_time
-      self.lock_message   = I18n.t('devise.sessions.user.locked', :time => minutes_seconds)
+      self.lock_message = I18n.t('devise.sessions.user.locked', :time => minutes_seconds)
     else
-      self.lock_message   = I18n.t('devise.sessions.user.invalid')
+      self.lock_message = I18n.t('devise.sessions.user.invalid')
     end
     :invalid
   end

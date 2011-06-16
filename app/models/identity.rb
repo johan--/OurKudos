@@ -74,6 +74,21 @@ class Identity < ActiveRecord::Base
     ]
   end
 
+  def self.get_type string
+     return "email" if string =~ RegularExpressions.email
+     "twitter"      if string =~ RegularExpressions.twitter
+  end
+
+  def self.find_for_authentication string
+    identity = where(:identity      => string.gsub(/^@{1}/,''),
+                     :identity_type => get_type(string)).
+               joins(:user).joins(:confirmation).first
+
+    return nil if identity.blank? || (identity && !identity.confirmation.confirmed?)
+    identity
+  end
+
+
   #builds dynamically 3 methods - is_twitter?, is_email?, is_name?
   self.options_for_identity_type.map(&:last).each do |type|
     define_method "is_#{type}?" do
