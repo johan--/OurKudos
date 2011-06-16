@@ -44,7 +44,9 @@ class AutocompletesController < ApplicationController
 
     def look_for_identities
        identities = confirmed_identities(params[:q], 10).map do |identity|
-          { :id => identity.id, :name => (identity.is_twitter? ? "@#{identity.identity}" : "[#{identity.user.to_s}] #{identity.identity}")}
+          { :id => identity.id, :name => (identity.is_twitter? ?
+              "[#{identity.user.to_s}] @#{identity.identity}" :
+              "[#{identity.user.to_s}] #{identity.identity}")}
        end
       return [] if identities.blank?
       identities
