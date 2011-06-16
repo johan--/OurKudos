@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/ip.rb" afterPath="$PROJECT_DIR$/app/models/ip.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb" afterPath="$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ip_verification.rb" afterPath="$PROJECT_DIR$/lib/ip_verification.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,10 +27,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ip.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/ip.rb">
+      <file leaf-file-name="autocompletes_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="26" selection-start="1850" selection-end="1850" vertical-scroll-proportion="2.6">
+            <state line="59" column="0" selection-start="2002" selection-end="2002" vertical-scroll-proportion="1.3969336">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="223" column="16" selection-start="7079" selection-end="7079" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,7 +61,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/passwords/edit.html.haml" />
         <option value="$PROJECT_DIR$/config/initializers/extensions_libs.rb" />
         <option value="$PROJECT_DIR$/lib/ourkudos/strategies/strategy.rb" />
@@ -69,6 +74,7 @@
         <option value="$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb" />
         <option value="$PROJECT_DIR$/lib/ip_verification.rb" />
         <option value="$PROJECT_DIR$/app/controllers/sessions_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/autocompletes_controller.rb" />
       </list>
     </option>
   </component>
@@ -98,6 +104,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
+      <pane id="Favorites" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -114,20 +122,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -165,16 +159,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Favorites" />
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="recentsLimit" value="5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -299,13 +291,6 @@
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -334,6 +319,13 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda">
@@ -515,7 +507,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14806378" sideWeight="0.67197454" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33561122" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32484075" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32954547" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -569,16 +561,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="7" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.62521297" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/ourkudos/strategies/strategy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="42" selection-start="390" selection-end="390" vertical-scroll-proportion="0.44293016" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="50" selection-start="1000" selection-end="1000" vertical-scroll-proportion="0.0" />
@@ -616,49 +598,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="12" selection-start="387" selection-end="387" vertical-scroll-proportion="0.49295774">
-          <folding />
-        </state>
+        <state line="14" column="12" selection-start="387" selection-end="387" vertical-scroll-proportion="0.49295774" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/identity.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="65" selection-start="2385" selection-end="2385" vertical-scroll-proportion="0.3">
-          <folding />
-        </state>
+        <state line="85" column="65" selection-start="2385" selection-end="2385" vertical-scroll-proportion="0.3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="757" selection-end="757" vertical-scroll-proportion="0.6666667">
-          <folding />
-        </state>
+        <state line="29" column="0" selection-start="757" selection-end="757" vertical-scroll-proportion="0.6666667" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/ip_verification.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="38" selection-start="898" selection-end="898" vertical-scroll-proportion="1.0902896">
-          <folding />
-        </state>
+        <state line="32" column="38" selection-start="898" selection-end="898" vertical-scroll-proportion="1.0902896" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/devise/identity_mailer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="24" selection-start="881" selection-end="881" vertical-scroll-proportion="0.96666664">
-          <folding />
-        </state>
+        <state line="29" column="24" selection-start="881" selection-end="881" vertical-scroll-proportion="0.96666664" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/sessions_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="86" selection-start="379" selection-end="379" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="11" column="86" selection-start="379" selection-end="379" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/ip.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="26" selection-start="1850" selection-end="1850" vertical-scroll-proportion="2.6">
+        <state line="14" column="18" selection-start="311" selection-end="311" vertical-scroll-proportion="0.46666667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="223" column="16" selection-start="7079" selection-end="7079" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/autocompletes_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="2002" selection-end="2002" vertical-scroll-proportion="1.3969336">
           <folding />
         </state>
       </provider>
