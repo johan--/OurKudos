@@ -215,15 +215,15 @@ span#social_share_choices {
 }
 
 .kdt_sent {
-	background: url(kudo_dashboard_top_sprite.png) no-repeat left top;
-}
-
-.kdt_received {
 	background: url(kudo_dashboard_top_sprite.png) no-repeat left -78px;
 }
 
-.kdt_others {
+.kdt_received {
 	background: url(kudo_dashboard_top_sprite.png) no-repeat left -156px;
+}
+
+.kdt_newsfeed {
+	background: url(kudo_dashboard_top_sprite.png)  no-repeat left top;
 }
 
 #kudo_dashboard_mid {

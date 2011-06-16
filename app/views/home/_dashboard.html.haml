@@ -2,11 +2,11 @@
   #kudo_dashboard_top{:class => kudos_current_class_for_tab }
     %ul#nav_kudo_dashboard
       %li
+        %h2= link_to 'News Feed',   home_path(:kudos => "newsfeed"), :class => kudos_current_class_for_link('newsfeed')
+      %li
         %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for_link('sent')
       %li
         %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for_link('received')
-      %li
-        %h2= link_to 'Others',   home_path(:kudos => "received"), :class => kudos_current_class_for_link('others')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
       = form_tag do
