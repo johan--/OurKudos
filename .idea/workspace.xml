@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb8d284-b503-40fb-a23b-2b11ea870d4b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/config/initializers/extensions_libs.rb" afterPath="$PROJECT_DIR$/config/initializers/01_extensions_libs.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/passwords_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/passwords_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/sessions/new.html.haml" afterPath="$PROJECT_DIR$/app/views/sessions/new.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/devise.rb" afterPath="$PROJECT_DIR$/config/initializers/devise.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/ourkudos/strategies/strategy.rb" afterPath="$PROJECT_DIR$/lib/ourkudos/strategies/strategy.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb" afterPath="$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,7 +56,7 @@
       <file leaf-file-name="database_authenticatable_with_identities.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="8" selection-start="539" selection-end="539" vertical-scroll-proportion="0.51107323">
+            <state line="11" column="0" selection-start="320" selection-end="320" vertical-scroll-proportion="0.37478706">
               <folding />
             </state>
           </provider>
@@ -795,7 +789,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/devise/database_authenticatable_with_identities.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="8" selection-start="539" selection-end="539" vertical-scroll-proportion="0.51107323">
+        <state line="11" column="0" selection-start="320" selection-end="320" vertical-scroll-proportion="0.37478706">
           <folding />
         </state>
       </provider>
