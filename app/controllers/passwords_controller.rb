@@ -16,6 +16,7 @@ class PasswordsController < Devise::PasswordsController
     else
       respond_with resource { render_with_scope :new }
     end
+    session['user.email_for_password_recovery'] = nil
   end
 
 

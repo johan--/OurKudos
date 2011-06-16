@@ -12,12 +12,10 @@ module OmniAuth
 
       def request_phase
         options[:response_type] ||= 'code'
-        debugger
         redirect options[:site] + client.web_server.authorize_url({:redirect_uri => callback_url}.merge(options))
       end
 
       def user_data
-        debugger
        @data ||= MultiJson.decode(@access_token.get(client.site + '/oauth/user', {'oauth_token' => @access_token.token}))
       end
 
