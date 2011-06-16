@@ -124,10 +124,19 @@ h2 {
 	left: 0;
 	z-index: 1000; /* ensure it covers everything below */
 	display: none;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+	
 }
 
 #interstitial_message_cont {
-
+	width: 30em;
+	padding: 10px;
+	border: 1px solid #fff;
+	margin: 10em auto;
+	border-radius: 10px;
 	
   .interstitial_message {
 		color: #fff;
@@ -137,6 +146,7 @@ h2 {
   	color: #fff;
   	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   	cursor: pointer;
+  	text-align: right;
   }
   
 }

@@ -22,7 +22,8 @@ $(document).ready(function(){
   	$('div#overlay').hide();
   });
 	
-	  // the video tour button clicked
+	
+	// the video tour button clicked (move this to a separate file at some point)
   $('a.video_tour_link').click(function(){
   	$('div#overlay').css('display','block');
   	$('div.interstitial_message').html('<iframe width="425" height="349" src="http://www.youtube.com/embed/ahHZFck-2ys?rel=0" frameborder="0" allowfullscreen></iframe>');
