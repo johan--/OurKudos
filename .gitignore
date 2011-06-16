@@ -9,3 +9,4 @@ vendor/cache/
 .idea/dictionaries/marcin.xml
 .idea/*xml
 public/assets/*
+.sass-cache/*
