@@ -180,7 +180,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="rails" version="3.1.0.rc1" bound="EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="rails" version="3.1.0.rc4" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -278,7 +278,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.14, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/bundler-1.0.14)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] email_spec (v1.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/email_spec-1.1.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] factory_girl_rails (v1.0.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/factory_girl_rails-1.0.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.1.1)" level="application" />
@@ -357,8 +356,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.1.0.rc1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sexp_processor (v3.0.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sexp_processor-3.0.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] linecache19 (v0.5.12, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/linecache19-0.5.12)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/actionmailer-3.1.0.rc1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] configuration (v1.2.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/configuration-1.2.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] oauth (v0.4.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/oauth-0.4.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] columnize (v0.3.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/columnize-0.3.2)" level="application" />
@@ -378,6 +375,8 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rash (v0.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rash-0.3.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] twitter (v1.5.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/twitter-1.5.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] faraday_middleware (v0.6.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/faraday_middleware-0.6.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-rails (v2.6.1.beta1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-rails-2.6.1.beta1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.14, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/bundler-1.0.14)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby_core_source (v0.1.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ruby_core_source-0.1.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] mail (v2.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/mail-2.3.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-cache (v1.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rack-cache-1.0.2)" level="application" />
@@ -395,6 +394,8 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-openid (v2.1.8, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ruby-openid-2.1.8)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] attr_required (v0.0.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/attr_required-0.0.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] net-ldap (v0.2.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/net-ldap-0.2.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/actionmailer-3.1.0.rc1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-openid-apps-discovery (v1.2.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ruby-openid-apps-discovery-1.2.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.1.0.rc1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activemodel-3.1.0.rc1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ffi (v1.0.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ffi-1.0.9)" level="application" />
@@ -406,7 +407,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json_pure (v1.5.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json_pure-1.5.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-rails (v2.6.1.beta1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-rails-2.6.1.beta1)" level="application" />
   </component>
 </module>
 
