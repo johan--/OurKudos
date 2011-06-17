@@ -13,7 +13,7 @@ class Kudo < ActiveRecord::Base
   validates :body,        :presence => true
 
   scope :public_kudos, where(:share_scope => nil)
-  #validates_with RemoteKudoValidator
+  validates_with KudoValidator
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -23,6 +23,23 @@ class Kudo < ActiveRecord::Base
     kudo_copies.map(&:copy_recipient).uniq.join(", ")
   end
 
+  def author_as_recipient
+    @author_as_recipient ||= recipients_list.select do |recipient|
+     author.identities_ids.include?(recipient.to_i) ||
+          author.identities.map(&:identity).include?(recipient)
+    end
+  end
+
+  def author_as_recipient_readable_list
+    author_as_recipient.map do |rec|
+      Identity.find(rec.to_i).identity if rec.to_i != 0 #ids
+      rec if rec.to_i == 0 #strings
+    end.join(", ")
+  end
+
+  def author_as_recipient?
+    !author_as_recipient.blank?
+  end
 
   def prepare_copies
     return if to.blank?
@@ -64,7 +81,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_email_kudo recipient
-    kudo_copies.build :temporary_recipient  => recipient,
+      kudo_copies.build :temporary_recipient  => recipient,
                       :share_scope  => share_scope,
                       :kudoable => EmailKudo.create(:email => recipient)
   end

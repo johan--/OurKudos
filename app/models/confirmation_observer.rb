@@ -2,7 +2,7 @@ class ConfirmationObserver < ActiveRecord::Observer
 
   def after_save confirmation
     deliver_confirmation_message! confirmation
-    save_invitations_in_inbox confirmation
+    save_invitations_in_inbox(confirmation) if confirmation.confirmed?
   end
 
   private
@@ -12,10 +12,8 @@ class ConfirmationObserver < ActiveRecord::Observer
     end
 
     def save_invitations_in_inbox confirmation
-      if confirmation.confirmed?
         confirmable = confirmation.confirmable
         confirmable.user.save_my_invitations_in_inbox if confirmable.is_a?(Identity) && confirmable.is_primary?
-      end
     end
 
 end

@@ -124,6 +124,10 @@ class User < ActiveRecord::Base
   def render_providers
     authentications.map(&:provider).push("our kudos").reverse.join(", ")
   end
+
+  def has_email_identity? email
+    identities.emails.map(&:identity).include? email
+  end
  
   def current_providers
     authentications.map(&:provider)
@@ -216,6 +220,15 @@ class User < ActiveRecord::Base
   def save_my_invitations_in_inbox
     KudoCopy.move_invitation_kudos_to(self) if any_email_kudos? && received_kudos.blank?
   end
+
+  def identities_ids
+    @identities_ids ||= identities.map(&:id)
+  end
+
+  def emails
+    @identities_emails ||= identities.emails.map(&:identity)
+  end
+
 
   class << self
 
