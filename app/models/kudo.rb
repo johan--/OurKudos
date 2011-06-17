@@ -32,8 +32,11 @@ class Kudo < ActiveRecord::Base
 
   def author_as_recipient_readable_list
     author_as_recipient.map do |rec|
-      Identity.find(rec.to_i).identity if rec.to_i != 0 #ids
-      rec if rec.to_i == 0 #strings
+      if rec.to_i != 0 #ids
+        author.identities.find(rec.to_i).identity
+      else
+        rec if rec.to_i == 0 #strings
+      end
     end.join(", ")
   end
 
