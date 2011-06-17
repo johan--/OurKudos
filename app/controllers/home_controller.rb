@@ -36,10 +36,9 @@ class HomeController < ApplicationController
   private
 
     def check_invitation
+      sign_out :user if user_signed_in?
       @kudo = EmailKudo.find params[:kudo_id] rescue nil
       return true if !@kudo.blank? && @kudo.email == params[:email]
-
-      redirect_to(:action => :index)
       false
     end
 

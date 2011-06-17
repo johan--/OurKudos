@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_filter :sign_out_user, :only => [:new]
   include Devise::Controllers::InternalHelpers
   layout 'unregistered'
   
@@ -31,6 +32,10 @@ class RegistrationsController < Devise::RegistrationsController
 
     def autofill_form
       resource.attributes = session[:user] if params[:autofill]
+    end
+
+    def sign_out_user
+      sign_out :user
     end
   
 

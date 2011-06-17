@@ -11,7 +11,7 @@ class AutocompletesController < ApplicationController
       when 'recipients'
         facebook_friends = look_for_friends
         identities       = look_for_identities
-        debugger
+
         @items  = facebook_friends    if identities.blank?
         @items  = identities          if facebook_friends.blank?
         @items  = facebook_friends + identities unless facebook_friends.blank? && identities.blank?
