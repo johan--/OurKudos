@@ -4,13 +4,13 @@ class Kudo < ActiveRecord::Base
   has_many  :kudo_copies
   has_many  :recipients, :through => :kudo_copies
 
-  attr_accessor  :to
+  attr_accessor  :to, :js_validation_only
   attr_accessible :subject, :body, :to, :share_scope,
                   :facebook_sharing, :twitter_sharing
 
   before_create :fix_share_scope, :prepare_copies
 
-  validates :body,        :presence => true
+  validates :body,        :presence => true, :unless => :js_validation_only
 
   scope :public_kudos, where(:share_scope => nil)
   validates_with KudoValidator
@@ -30,6 +30,18 @@ class Kudo < ActiveRecord::Base
     end
   end
 
+  def invalid_recipients
+    recipients_list.select do |recipient|
+      recipient if recipient.to_i == 0 &&
+          !recipient.match(RegularExpressions.twitter) &&
+          !recipient.match(RegularExpressions.email)
+      end
+  end
+
+  def has_invalid_recipients?
+    !invalid_recipients.blank?
+  end
+
   def author_as_recipient_readable_list
     author_as_recipient.map do |rec|
       if rec.to_i != 0 #ids
@@ -45,11 +57,12 @@ class Kudo < ActiveRecord::Base
   end
 
   def prepare_copies
-    return if to.blank?
+    return if to.blank? || js_validation_only # stop processing if validation with javascript
 
     system_recipients = []
 
     recipients_list.each do |id|
+
       identity   = Identity.find(id.to_i) rescue nil
       recipient  = identity.user rescue nil
 

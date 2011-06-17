@@ -26,6 +26,14 @@ OurKudos.Cookies =
   deleteCookie: (name) ->
     @setCookie name, "", -1
 
+validateServerSideAndDisplayResults = ->
+  author_id          = jQuery("input#author_id").val()
+  form_data          = jQuery("form#kudo_send_form").serialize()
+  js_validation_flag = encodeURIComponent('kudo[javascript_validation_only]') + "=1"
+  jQuery.ajax "/users/" + author_id + "/kudos.js",
+      type: "POST"
+      data: form_data + "&" + js_validation_flag
+
 
 scrollScreenToKudo = ->
   kudo_id = jQuery.getQueryString("kudo_id")
@@ -71,4 +79,9 @@ jQuery ->
       processShareScope()
 
     jQuery(".kudo_recipient_list").tokenInput "/autocomplete/new?object=recipients",
-      allowCustomEntry: true
+        allowCustomEntry: true
+        onAdd: ->
+           validateServerSideAndDisplayResults()
+
+        onDelete: ->
+           validateServerSideAndDisplayResults()

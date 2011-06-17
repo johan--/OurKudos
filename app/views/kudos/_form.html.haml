@@ -3,7 +3,8 @@
 
 = form_for @kudo, :url => user_kudos_path(current_user, @kudo), :html => {:id => 'kudo_send_form'} do |f|
 
- = error_messages_for @kudo
+ #error_container
+  = error_messages_for @kudo
  #kudo_send_col_left
   = f.label :body, t(:kudo_your_message)
 
@@ -38,6 +39,7 @@
    = f.radio_button :share_scope, 'recipient', :class => "share-scope"
    = f.label :share_scope, 'Recipient only'
 
+   = hidden_field_tag "author_id", current_user.id
  #kudo_send_submit_region
   %span#social_share_choices
    = f.label :social_sharing, t(:kudo_share_on)

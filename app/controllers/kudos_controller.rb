@@ -10,10 +10,10 @@ class KudosController < ApplicationController
 
   def create
     @kudo = current_user.sent_kudos.new params[:kudo]
-    if @kudo.save
-      redirect_to '/home', :notice => I18n.t(:your_kudo_has_been_sent)
-    else
-      render :new
+
+    respond_with @kudo do |format|
+      format.html { kudo_redirections_and_validations }
+      format.js   { validate_kudo_with_javascript     }
     end
   end
 
@@ -21,5 +21,19 @@ class KudosController < ApplicationController
     @kudos = current_user.inbox.kudos.page(params[:page]).per(5)
   end
 
+  private
+
+    def kudo_redirections_and_validations
+        if @kudo.save
+          redirect_to '/home', :notice => I18n.t(:your_kudo_has_been_sent)
+        else
+          render :new
+        end
+    end
+
+    def validate_kudo_with_javascript
+      @kudo.js_validation_only = params[:kudo][:javascript_validation_only] if params[:kudo]
+      @kudo.valid?
+    end
 
 end
