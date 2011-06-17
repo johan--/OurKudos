@@ -316,6 +316,22 @@ div.kudo_message_bot {
 	float: left;
 }
 
+a.delete_kudo_btn {
+	width: 15px;
+	height: 14px;
+	display: inline-block;
+	background: url(deletex_btn.png) no-repeat left top;
+	text-decoration: none;
+	
+	&:hover {
+		background-position: left -14px;
+	}
+	
+	span {
+		color: transparent;
+	}
+}
+
 .kudo_flag_cont {
 	float: left;
 	cursor: pointer;

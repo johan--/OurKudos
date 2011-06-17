@@ -9,7 +9,7 @@
      %span.greater_than &gt;
      %span.receiver
       = kudo.recipient.to_s
-      %small= link_to(t(:remove_this_kudo), user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure))
+      %span= link_to(content_tag(:span,'x'), user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
     %p= kudo.body
    .kudo_flag_cont.kf_dimmed
    .clearing
