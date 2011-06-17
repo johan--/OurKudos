@@ -132,14 +132,21 @@ h2 {
 }
 
 #interstitial_message_cont {
-	width: 30em;
-	padding: 10px;
+	width: 42em;
+	padding: 10px 10px 20px 10px;
 	border: 1px solid #fff;
 	margin: 10em auto;
 	border-radius: 10px;
+
 	
   .interstitial_message {
 		color: #fff;
+		
+		iframe {
+			width: 425px;
+			display: block;
+			margin: 0 auto;
+		}
   }
   
   p#interstitial_message_close_control {
