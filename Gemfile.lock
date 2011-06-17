@@ -131,8 +131,6 @@ GEM
     multi_json (1.0.3)
     multi_xml (0.2.2)
     multipart-post (1.1.1)
-    nestful (0.0.6)
-      activesupport (>= 3.0.0.beta)
     net-ldap (0.2.2)
     nokogiri (1.4.4)
     oa-basic (0.2.6)
@@ -316,7 +314,6 @@ DEPENDENCIES
   kaminari
   launchy
   multi_json
-  nestful
   oauth2
   oauth2-core
   omniauth

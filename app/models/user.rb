@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
     "#{first_name} #{middle_name} #{last_name}"
   end
   
-  def apply_omniauth omniauth
+  def apply_omniauth omniauth, skip_user = false
     unless omniauth['credentials'].blank?
       authentications.build(:provider => omniauth['provider'], 
                             :uid      => omniauth['uid'],
@@ -88,7 +88,7 @@ class User < ActiveRecord::Base
                             :uid      => omniauth['uid'],
                             :nickname => omniauth.recursive_find_by_key("nickname"))    
     end
-      look_for_other_fields omniauth
+      look_for_other_fields(omniauth) if skip_user.blank?
   end
 
   def look_for_other_fields omniauth

@@ -28,35 +28,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def omniauth_sign_up
-    email = omniauth_data.recursive_find_by_key("email")
-    unless email.blank?
-      user = User.find_or_initialize_by_email(:email => email)
-     
-      if user.new_record?
-        identity = Identity.find_by_identity_and_identity_type(email, 'email')
-        user     = identity.user if identity && identity.confirmation.confirmed
-      end
-
-    else
-      user = User.new
-    end    
-    user.apply_omniauth omniauth_data 
-    
-    session[:user] = user.attributes
-    session[:authentication] = user.authentications.first.attributes
-    
-    if user.save  && user.new_record?
-      flash[:notice] = I18n.t("devise.omniauth_callbacks.success")
-      fetch_facebook_friends user if user
-      redirect_to new_user_registration_path(:autofill => "true")
-    elsif user.save && !user.new_record?
-      sign_in(:user, user)
-      redirect_to '/home', :notice => I18n.t("devise.omniauth_callbacks.success")
-      fetch_facebook_friends user if user
-    else
-      flash[:notice] = I18n.t 'devise.oauth.information.missing'
-      redirect_to new_user_registration_path(:autofill => "true")
-    end
+     process_redirections_or_sign_up_for user_from_omniauth_or_identities
   end
 
   def add_new_authentication
@@ -98,6 +70,37 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def current_provider
     omniauth_data['provider'] if omniauth_data
+  end
+
+  def user_from_omniauth_or_identities
+     email = omniauth_data.recursive_find_by_key("email")
+    unless email.blank?
+      identity = Identity.find_for_authentication(email)
+      user     = identity.user rescue nil
+      user     = User.new if user.blank?
+      user.apply_omniauth omniauth_data, !user.blank?
+      user
+    else
+       User.new
+    end
+  end
+
+  def process_redirections_or_sign_up_for user
+    if user.new_record?
+      session[:user]           = user.attributes
+      session[:authentication] = user.authentications.first.attributes
+      if user.save
+        fetch_facebook_friends user if user
+        redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t("devise.omniauth_callbacks.success",  :kind => current_provider)
+      else
+        redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t('devise.oauth.information.missing')
+      end
+    else
+      user.save || user.authentications.last.save
+      sign_in(:user, user)
+      redirect_to '/home', :notice => I18n.t("devise.omniauth_callbacks.success", :kind => current_provider)
+      fetch_facebook_friends user if user
+    end
   end
 
 
