@@ -1,0 +1,3 @@
+<% if params[:email] %>
+    jQuery('div.forgot_password_links').html('<%= escape_javascript(render :partial => "forgot_password_links") %>');
+<% end %>

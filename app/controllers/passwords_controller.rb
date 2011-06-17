@@ -4,7 +4,15 @@ class PasswordsController < Devise::PasswordsController
 
   # GET /resource/password/new
   def new
-    super
+    build_resource({})
+    respond_with resource do |format|
+      format.html
+      format.js do
+         @identity = Identity.find_for_authentication params[:email]
+         @identity.blank? ?
+             clean_email_for_pass_recovery : save_email_for_pass_recovery
+      end
+    end
   end
 
   # POST /resource/password

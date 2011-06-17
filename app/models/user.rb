@@ -209,6 +209,14 @@ class User < ActiveRecord::Base
     friendships.select {|f| f.friend == person }.first
   end
 
+  def any_email_kudos?
+    !(EmailKudo.where(:email => self.email)).blank?
+  end
+
+  def save_my_invitations_in_inbox
+    KudoCopy.move_invitation_kudos_to(self) if any_email_kudos? && received_kudos.blank?
+  end
+
   class << self
 
     def get_identity_user_by email

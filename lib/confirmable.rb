@@ -25,7 +25,7 @@ module OurKudos
         create_confirmation(:confirmable_type => self.class.name, 
                             :confirmable_id   => self.id,
                             :confirmed        => already_confirmed?) if needs_confirmation?
-       
+
       end
 
       def already_confirmed?

@@ -9,6 +9,7 @@ class KudoCopy < ActiveRecord::Base
 
   scope :friends,    where(:share_scope => "friends")
   scope :recipients, where(:share_scope => "recipients")
+  scope :for_email,  ->(email) { where(:temporary_recipient => email) }
 
   def copy_recipient
     return if own_kudo?
@@ -27,6 +28,21 @@ class KudoCopy < ActiveRecord::Base
     return true if share_scope == 'recipients' && user == recipient
     return true if share_scope == 'friends' && author.is_my_friend?(user)
     false
+  end
+
+  class << self
+
+   def move_invitation_kudos_to user
+     KudoCopy.for_email(user.email).each do |kudo|
+       kudo.kudoable.destroy
+       kudo.recipient           = user
+       kudo.folder              = user.inbox
+       kudo.temporary_recipient = nil
+       kudo.kudoable            = kudo.kudo
+       kudo.save :validate => false
+     end
+   end
+
   end
 
 end

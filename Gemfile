@@ -29,6 +29,7 @@ gem "delayed_job"
 gem 'json'
 gem 'sass'
 gem 'coffee-script'
+gem 'coffee-filter'
 gem 'uglifier'
 gem 'therubyracer'
 

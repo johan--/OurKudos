@@ -36,15 +36,6 @@ module OurKudos
          end
       end
 
-      def save_email_for_pass_recovery
-        session['user.email_for_password_recovery'] = params[:user][:email] if params[:user] && params[:user][:email] =~ RegularExpressions.email
-      end
-
-      def clean_email_for_pass_recovery
-        session['user.email_for_password_recovery'] = nil
-      end
-
-
 
     end
   end

@@ -35,7 +35,7 @@ class Identity < ActiveRecord::Base
   # = ar callbacks =
   # ================
   before_destroy :can_destroy?  
-  after_save :save_confirmation,         :if => :is_email?
+  after_save :save_confirmation,          :if => :is_email?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
 
   # ====================

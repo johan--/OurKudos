@@ -27,6 +27,15 @@ class ApplicationController < ActionController::Base
       params.keys.include?("kudo_id") && params.keys.include?("recipient")
   end
 
+  def save_email_for_pass_recovery
+      email = params.recursive_find_by_key("email")
+      session['user.email_for_password_recovery'] = email if email && email =~ RegularExpressions.email
+  end
+
+  def clean_email_for_pass_recovery
+      session['user.email_for_password_recovery'] = nil
+  end
+
 
 
 
