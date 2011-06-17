@@ -7,7 +7,9 @@
     %p{:id => "kudo_#{kudo.id}"}
      %span.sender= kudo.author.to_s
      %span.greater_than &gt;
-     %span.receiver= kudo.recipient.to_s
+     %span.receiver
+      = kudo.recipient.to_s
+      %small= link_to(t(:remove_this_kudo), user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure))
     %p= kudo.body
    .kudo_flag_cont.kf_dimmed
    .clearing

@@ -21,6 +21,15 @@ class KudosController < ApplicationController
     @kudos = current_user.inbox.kudos.page(params[:page]).per(5)
   end
 
+  def destroy
+    @kudo = current_user.received_kudos.find params[:id]
+    if @kudo && @kudo.destroy
+      redirect_to home_path(:kudos => :received), :notice => I18n.t(:kudo_has_been_successfuly_removed_from_your_inbox)
+    else
+      redirect_to home_path(:kudos => :received), :notice => I18n.t(:we_couldn_do_that_sorry)
+    end
+  end
+
   private
 
     def kudo_redirections_and_validations

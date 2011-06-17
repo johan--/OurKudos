@@ -11,7 +11,9 @@
             %p
               %span.sender= kudo.author.to_s
               %span.greater_than >
-              %span.receiver= kudo.recipient.to_s
+              %span.receiver
+                = kudo.recipient.to_s
+                %small= link_to(t(:remove_this_kudo), kudo_path(kudo), :method => :delete, :confirm => I18n.t(:are_you_sure))
             %p= kudo.body
           .kudo_message_bot
         .clearing
