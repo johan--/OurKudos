@@ -86,7 +86,7 @@ class Identity < ActiveRecord::Base
   end
 
   def self.find_for_authentication string
-    identity = where(:identity      => string.gsub(/^@{1}/,''),
+    identity = where(:identity      => string.gsub(/^@{1}/,'').downcase,
                      :identity_type => get_type(string)).
                joins(:user).joins(:confirmation).first
 

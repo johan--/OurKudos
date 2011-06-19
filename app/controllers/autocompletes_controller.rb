@@ -22,12 +22,9 @@ class AutocompletesController < ApplicationController
     end
 
     def look_for_friends
-      ffriends = current_user.facebook_friends
-      return ffriends if ffriends.blank?
-
-      FacebookFriend.friends_by_name(keyword).map do |friend|
+      FacebookFriend.friends_by_name_for_user(keyword, current_user).map do |friend|
           {:id => "fb_#{friend.facebook_id}", :name => "FB - #{friend.name}"}
-        end if !ffriends.blank?
+        end
     end
 
     def look_for_identities
