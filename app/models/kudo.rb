@@ -33,9 +33,14 @@ class Kudo < ActiveRecord::Base
   def invalid_recipients
     recipients_list.select do |recipient|
       recipient if recipient.to_i == 0 &&
-          !recipient.match(RegularExpressions.twitter) &&
-          !recipient.match(RegularExpressions.email)
+          !allowed_recipient?(recipient)
       end
+  end
+
+  def allowed_recipient? recipient
+    recipient.match(RegularExpressions.twitter) ||
+      recipient.match(RegularExpressions.email) ||
+        recipient.match(RegularExpressions.facebook_friend)
   end
 
   def has_invalid_recipients?

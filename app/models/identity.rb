@@ -23,6 +23,12 @@ class Identity < ActiveRecord::Base
   # ================
   scope :emails,   where(:identity_type => "email")
   scope :twitters, where(:identity_type => "twitter")
+  scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
+                                                       where("user_id <> ?", user.id).
+                                                       where(:confirmations => {:confirmed => true}).
+                                                       where("lower(identity) LIKE lower(?) OR lower(users.first_name) \
+                                                              LIKE lower(?) OR lower(users.last_name) LIKE lower(?)",
+                                                              "%#{search_term}%", "#{search_term}%", "#{search_term}%") }
 
   # ================
   # == extensions ==
