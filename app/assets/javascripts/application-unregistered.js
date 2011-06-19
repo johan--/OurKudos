@@ -10,3 +10,4 @@
 //= require error_messaging
 //= require libs
 //= require sessions
+//= require googleanalytics

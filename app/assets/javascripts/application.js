@@ -13,3 +13,4 @@
 //= require password_strength
 //= require error_messaging
 //= require libs
+//= require googleanalytics
