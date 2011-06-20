@@ -75,10 +75,12 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def user_from_omniauth_or_identities
      email = omniauth_data.recursive_find_by_key("email")
     unless email.blank?
-      identity = Identity.find_for_authentication(email)
-      user     = identity.user rescue nil
+      identity_confirmed      = Identity.find_for_authentication(email)
+      @identity_unconfirmed = Identity.find_by_identity_and_identity_type(email, 'email') if identity_confirmed.blank?
+
+      user = identity_confirmed.user rescue nil
       user     = User.new if user.blank?
-      user.apply_omniauth omniauth_data, !user.blank?
+      user.apply_omniauth omniauth_data, user.blank?
       user
     else
        User.new
@@ -90,11 +92,15 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     session[:authentication] = user.authentications.first.attributes
 
     if user.new_record?
-      if user.save
-        fetch_facebook_friends user if user
-        redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t("devise.omniauth_callbacks.success",  :kind => current_provider)
+      if @identity_unconfirmed.blank?
+        if user.save
+          fetch_facebook_friends user if user
+          redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t("devise.omniauth_callbacks.success",  :kind => current_provider)
+        else
+          redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t('devise.oauth.information.missing')
+        end
       else
-        redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t('devise.oauth.information.missing')
+        redirect_to(root_path, :alert => I18n.t('devise.confirmations.unconfirmed_omniauth', :identity => @identity_non_confirmed.identity))
       end
     else
       user.save || user.authentications.last.save
