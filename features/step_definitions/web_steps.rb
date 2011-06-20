@@ -242,5 +242,3 @@ end
 When /^I press "([^"]*)" image button$/ do |image|
   find(:xpath, "//img[@alt = '#{image}']/parent::button").click()
 end
-
-

@@ -7,7 +7,7 @@ class Identity < ActiveRecord::Base
   validates :identity, :format => { :with => RegularExpressions.email },
                        :if     => :is_email?
 
-  validates :identity, :identity_primary => true
+  validates :identity, :identity_primary => true, :on => :update
   validates :identity, :uniqueness       => true
   validates :identity, :email            => true, :if => :is_email?
   validates :identity, :twitter          => true, :if => :is_twitter?

@@ -123,6 +123,7 @@ end
 Factory.define :kudo do |kudo|
   kudo.author {|u|  Factory(:user) }
   kudo.body "Simply - thank you"
+  kudo.to  { Factory(:primary_identity).id.to_s }
   kudo.facebook_sharing true
   kudo.twitter_sharing  true
 end

@@ -35,4 +35,4 @@ Scenario: A user tries to sign up with its email/password (twitter)
   Given I am on the homepage
   And I follow "Sign in button" image
   When I follow "Sign in with Twitter" image
-  Then I should see "You need to sign in or sign up before continuing."
+  Then I should see "No twitter account found!. You cannot create account using twitter, please sign up - using either facebook or native sign up method or sign in to your existing account, then click this icon again to create your twitter credentials"

@@ -424,6 +424,12 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber-rails (v0.5.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-rails-0.5.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber-rails (v0.5.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-rails-0.5.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v0.10.7, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-0.10.7)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.5.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.5.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] gherkin (v2.4.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gherkin-2.4.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v0.10.7, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-0.10.7)" level="application" />
   </component>
 </module>
 

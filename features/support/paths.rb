@@ -20,6 +20,8 @@ module NavigationHelpers
       '/admin'
     when /signed in users home page/
       '/home'
+    when /received kudos page/
+      '/home?kudos=received'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

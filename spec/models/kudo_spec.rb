@@ -30,7 +30,7 @@ describe Kudo do
       end
 
       it 'should display list with all recipients separated by comma' do
-        new_kudo.recipients_readable_list.should be_blank
+        new_kudo.to = ''
         new_kudo.share_scope = 'friends'
 
         identity        = Factory(:identity)
