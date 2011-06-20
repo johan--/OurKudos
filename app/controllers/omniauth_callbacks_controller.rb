@@ -100,7 +100,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t('devise.oauth.information.missing')
         end
       else
-        redirect_to(root_path, :alert => I18n.t('devise.confirmations.unconfirmed_omniauth', :identity => @identity_non_confirmed.identity))
+        redirect_to(root_path, :alert => I18n.t('devise.confirmations.unconfirmed_omniauth', :identity => @identity_unconfirmed.identity))
       end
     else
       user.save || user.authentications.last.save
