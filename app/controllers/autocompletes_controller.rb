@@ -8,7 +8,9 @@ class AutocompletesController < ApplicationController
       when 'identities'
         @items = confirmed_identities(keyword, 10).map(&:identity).uniq
       when 'recipients'
-        look_for_identities_or_facebook_friends
+        look_for_identities_and_facebook_friends
+      else
+        @items  = []
     end
     render :json => ['no matches'].to_json if @items.blank?
     render :json => @items.to_json unless @items.blank?
@@ -37,7 +39,7 @@ class AutocompletesController < ApplicationController
       identities
     end
 
-    def look_for_identities_or_facebook_friends
+    def look_for_identities_and_facebook_friends
       facebook_friends = look_for_friends
       identities       = look_for_identities
 
@@ -47,7 +49,7 @@ class AutocompletesController < ApplicationController
     end
 
     def keyword
-      params[:q].gsub(RegularExpressions.twitter,'')
+      params[:q].gsub RegularExpressions.twitter, ''
     end
 
 

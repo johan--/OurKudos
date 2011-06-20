@@ -13,6 +13,7 @@ class Kudo < ActiveRecord::Base
   validates :body,        :presence => true, :unless => :js_validation_only
 
   scope :public_kudos, where(:share_scope => nil)
+
   validates_with KudoValidator
 
   def recipients_list

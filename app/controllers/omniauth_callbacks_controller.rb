@@ -1,4 +1,4 @@
-class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   before_filter :ip_check, :set_omniauth_data
   
   attr_accessor :omniauth_data
@@ -22,7 +22,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def omniauth_sign_in
     return false unless preexisting_authorization_token
 
-    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => omniauth_data['provider']
+    flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => current_provider
     sign_in_and_redirect(:user, preexisting_authorization_token.user)
     true
   end

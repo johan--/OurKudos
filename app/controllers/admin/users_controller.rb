@@ -20,11 +20,10 @@ class Admin::UsersController < Admin::AdminController
     @user = User.find params[:id]
     
     update_roles if params[:roles]
-    
     if @user && @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
     else
-      redirect_to admin_users_path, :notice => @user.errors.full_messages.join(", ")
+      redirect_to admin_users_path, :alert => @user.errors.full_messages.join(", ")
     end
   end
   
@@ -56,6 +55,13 @@ class Admin::UsersController < Admin::AdminController
     def update_roles
       @user.assign_roles if params[:user] && params[:user][:roles_ids] 
       @user.roles.delete_all  if params[:user].blank?
+    end
+
+    def remove_passwords_from_params
+      if params[:user]
+        params.delete(params[:user][:password])              if params[:user][:password].blank?
+        params.delete(params[:user][:password_confirmation]) if params[:user][:password_confirmation].blank?
+      end
     end
   
   

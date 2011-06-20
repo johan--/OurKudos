@@ -33,15 +33,20 @@ Factory.define :identity do |i|
   i.identity 'my@email.com'
   i.identity_type 'email'
   i.is_primary false
-  i.user {|u|  Factory(:user) }
+  i.user { Factory(:user) }
 end
 
 Factory.define :primary_identity, :class => "Identity" do |i|
   i.identity 'my@email.com'
   i.identity_type 'email'
-  i.is_primary false
-  i.user {|u|  Factory(:user) }
-  i.association :confirmation
+  i.is_primary true
+  i.association :user
+end
+
+Factory.define :identity_confirmation, :class => "Confirmation" do |c|
+   c.association :confirmable, :factory => :primary_identity
+   c.confirmed  true
+   c.key '1224567898654234567898765432345678'
 end
 
 Factory.define :user do |u|

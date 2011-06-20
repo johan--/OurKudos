@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :facebook_icon, :twitter_icon
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -35,6 +37,15 @@ class ApplicationController < ActionController::Base
   def clean_email_for_pass_recovery
       session['user.email_for_password_recovery'] = nil
   end
+
+  def facebook_icon
+    '<img src =\'/assets/facebook_icon.png\' />'.html_safe
+  end
+
+  def twitter_icon
+    '<img src =\'/assets/twitter_icon.png\'  />'.html_safe
+  end
+
 
 
 

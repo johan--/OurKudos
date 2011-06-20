@@ -37,10 +37,10 @@ class User < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name,  :presence => true
   validates :email,      :presence => true, :email => true
-  validates :password,   :presence => true, 
-                         :format   => { :with => RegularExpressions.password },
+  validates :password,   :presence => true, :on => :create
+  validates :password,   :format   => { :with => RegularExpressions.password },
                          :is_forbidden_password => true,
-                         :confirmation => true
+                         :confirmation => true, :on => :create
   # ================
   # == extensions ==
   # ================

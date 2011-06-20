@@ -11,7 +11,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     resource = build_resource
-    resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication] 
+    resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication]
+    resource.add_role
     if resource.save
       set_flash_message :alert, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
       expire_session_data_after_sign_in!

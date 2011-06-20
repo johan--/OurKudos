@@ -29,7 +29,8 @@ module OurKudos
       end
 
       def already_confirmed?
-        self.respond_to?(:confirmable) && confirmable.is_a?(Identity) && confirmable.is_twitter?
+        (self.is_a?(Identity) && Rails.env == 'test') ||
+            (self.respond_to?(:confirmable) && confirmable.is_a?(Identity) && confirmable.is_twitter?)
       end
 
       def needs_confirmation?

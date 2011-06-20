@@ -36,3 +36,11 @@ end
 Given /^jobs are being dispatched$/ do
     Delayed::Worker.new.work_off
 end
+
+Before('@background-jobs') do
+  system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"
+end
+
+After('@background-jobs') do
+  system "ps -ef | grep 'rake jobs:work' | grep -v grep | awk '{print $2}' | xargs kill -9"
+end
