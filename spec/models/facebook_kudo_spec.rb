@@ -8,9 +8,6 @@ describe FacebookKudo do
 
     let(:facebook_kudo)   { Factory(:facebook_kudo) }
 
-
-
-
     it 'should post itself asynchronously right after saving' do
       DelayedJob.destroy_all
       facebook_kudo.should respond_to "post_me!"

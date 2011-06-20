@@ -12,7 +12,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       return super unless valid_provider? provider
       if provider == :twitter
-        add_new_authentication || omniauth_sign_in || (redirect_to home_path, :notice => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
+        add_new_authentication || omniauth_sign_in || (redirect_to root_path, :alert => I18n.t('devise.omniauth_callbacks.twitter.sign_in'))
       else
         add_new_authentication || omniauth_sign_in || omniauth_sign_up
       end
@@ -76,10 +76,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
      email = omniauth_data.recursive_find_by_key("email")
     unless email.blank?
       identity_confirmed      = Identity.find_for_authentication(email)
-      @identity_unconfirmed = Identity.find_by_identity_and_identity_type(email, 'email') if identity_confirmed.blank?
+      @identity_unconfirmed   = Identity.find_by_identity_and_identity_type(email, 'email') if identity_confirmed.blank?
 
       user = identity_confirmed.user rescue nil
-      user     = User.new if user.blank?
+      user = User.new if user.blank?
       user.apply_omniauth omniauth_data, user.blank?
       user
     else

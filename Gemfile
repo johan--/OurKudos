@@ -31,6 +31,7 @@ gem 'coffee-script'
 gem 'coffee-filter'
 gem 'uglifier'
 gem 'therubyracer'
+gem 'hoptoad_notifier'
 
 group :test do
   gem "cucumber"
