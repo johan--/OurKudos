@@ -86,9 +86,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def process_redirections_or_sign_up_for user
+    session[:user]           = user.attributes
+    session[:authentication] = user.authentications.first.attributes
+
     if user.new_record?
-      session[:user]           = user.attributes
-      session[:authentication] = user.authentications.first.attributes
       if user.save
         fetch_facebook_friends user if user
         redirect_to new_user_registration_path(:autofill => "true"), :notice => I18n.t("devise.omniauth_callbacks.success",  :kind => current_provider)
