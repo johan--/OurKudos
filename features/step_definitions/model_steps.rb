@@ -37,6 +37,8 @@ Given /^jobs are being dispatched$/ do
     Delayed::Worker.new.work_off
 end
 
+
+
 Before('@background-jobs') do
   system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"
 end

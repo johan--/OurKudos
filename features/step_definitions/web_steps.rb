@@ -227,6 +227,13 @@ Then /^"([^"]*)" should appear before "([^"]*)"$/ do |before, after|
 end
 
 
+
+When /^I wait about "([^"]*)" seconds$/ do |time|
+  sleep time.to_i
+end
+
+
+
 Then /^I should see "([^"]*)" image$/ do |image|
   find(:xpath, "//img[@alt = '#{image}']/parent::a")
 end

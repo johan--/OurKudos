@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613102624) do
+ActiveRecord::Schema.define(:version => 20110620130446) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -70,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20110613102624) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "name"
-    t.string   "identifier"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -127,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20110613102624) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-06-13 11:49:27'
+    t.datetime "unlock_in",       :default => '1911-06-20 13:53:51'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
@@ -151,14 +150,13 @@ ActiveRecord::Schema.define(:version => 20110613102624) do
 
   create_table "kudos", :force => true do |t|
     t.integer  "author_id"
-    t.integer  "member_kudo_id"
-    t.string   "subject"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "facebook_sharing", :default => false
     t.boolean  "twitter_sharing",  :default => false
     t.string   "share_scope"
+    t.string   "send_to"
   end
 
   create_table "merges", :force => true do |t|

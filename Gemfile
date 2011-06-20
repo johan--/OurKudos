@@ -35,7 +35,7 @@ gem 'hoptoad_notifier'
 
 group :test do
   gem "cucumber"
-  gem "cucumber-rails", "0.4.0.beta.1"
+  gem "cucumber-rails", '~> 0.5.1'
   gem "capybara"
   gem "database_cleaner"
   gem "email_spec"
@@ -51,4 +51,6 @@ end
 
 group :development do
   gem 'ruby-debug19'
+  gem 'capistrano'
+  gem 'capistrano-ext'
 end  
