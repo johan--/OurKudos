@@ -5,25 +5,14 @@
   .kudo_message_mid
    .kudo_message_text_cont
     %p{:id => "kudo_#{kudo.id}"}
-    %span.category= kudo.recipient.to_s
+     %span.category= kudo.category
      %span.sender= kudo.author.to_s
      %span.greater_than &gt;
      %span.receiver
-      %small= kudo.category
+      = kudo.recipient.to_s
     %p= kudo.body
    .kudo_flag_cont.kf_dimmed
    %span= link_to(content_tag(:span,'x'), user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
    .clearing
   .kudo_message_bot
  .clearing
-
-
-
-
-
-
-
-
-
-
-
