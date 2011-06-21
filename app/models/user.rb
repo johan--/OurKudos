@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   before_destroy :set_identities_as_destroyable
-  after_destroy  :remove_mergeables  # can't use :depended destroy because it's too early for this event, need this method though
+  after_destroy  :remove_mergeables, :destroy_friendships
   before_create :build_inbox
   # ================
   # == pg indexes ==
@@ -241,6 +241,11 @@ class User < ActiveRecord::Base
    !friends_ids_list.blank? ?
     (@newsfeed_kuds ||= User.newsfeed_kudos(self)) : []
   end
+
+  def destroy_friendships
+    Friendship.where(:friend_id => self.id).destroy_all
+  end
+
 
 
   class << self
