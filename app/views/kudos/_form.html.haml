@@ -14,6 +14,10 @@
     = f.text_area :body,  { :placeholder=> 'write something positive', :id => 'kudo_message_textarea' }
    #kudo_message_cont_bot
 
+  %p
+   = f.label :kudo_category_id, "Type of Kudo"
+   = f.select(:kudo_category_id, options_for_select(KudoCategory.collection_for_kudo_form), {:prompt => "Uncategorized"}, :class => "full-width-select" )
+
  #kudo_send_col_right
   - if social_sharing_disabled?
    %p.notice= t(:kudos_sharing_disabled)

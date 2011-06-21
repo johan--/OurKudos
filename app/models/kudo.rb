@@ -7,7 +7,7 @@ class Kudo < ActiveRecord::Base
 
   attr_accessor  :to, :js_validation_only
   attr_accessible :subject, :body, :to, :share_scope,
-                  :facebook_sharing, :twitter_sharing
+                  :facebook_sharing, :twitter_sharing, :kudo_category_id
 
   before_create :fix_share_scope, :prepare_copies
 
@@ -142,6 +142,12 @@ class Kudo < ActiveRecord::Base
 
   def social_sharing?
     facebook_sharing? || twitter_sharing?
+  end
+
+  def category
+    return '' if kudo_category.blank?
+
+    kudo_category.name.to_s
   end
 
 

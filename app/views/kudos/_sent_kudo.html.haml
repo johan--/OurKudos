@@ -5,9 +5,11 @@
   .kudo_message_mid
    .kudo_message_text_cont
     %p
+     %span.category= kudo.category
      %span.sender= kudo.author.to_s
      %span.greater_than &gt;
-     %span.receiver= kudo.recipients_readable_list
+     %span.receiver
+      = kudo.recipients_readable_list
     %p= kudo.body
    .kudo_flag_cont.kf_dimmed
    .clearing

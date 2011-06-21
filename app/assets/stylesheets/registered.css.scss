@@ -273,6 +273,11 @@ ul#nav_kudo_dashboard {
 
 /* kudos messaging related */
 
+select.full-width-select {
+  width: 300px;
+}
+
+
 div.kudo_message_cont {
 	border-bottom: 4px dotted #fff;
 	padding-bottom: 10px;
@@ -435,3 +440,4 @@ h3 {
 .userprofile_col_right {
 	width: 280px;
 }
+
