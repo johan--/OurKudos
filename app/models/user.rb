@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids
 
-  attr_accessor :primary_identity  
+  attr_accessor :primary_identity, :skip_password_validation
   # ================
   # = associations =
   # ================
@@ -41,10 +41,10 @@ class User < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name,  :presence => true
   validates :email,      :presence => true, :email => true
-  validates :password,   :presence => true, :on => :create
+  validates :password,   :presence => true, :unless => :skip_password_validation
   validates :password,   :format   => { :with => RegularExpressions.password },
                          :is_forbidden_password => true,
-                         :confirmation => true, :on => :create
+                         :confirmation => true, :unless => :skip_password_validation
   # ================
   # == extensions ==
   # ================

@@ -1,0 +1,14 @@
+%h2 Change your password
+= form_for(current_user, :url => user_password_changes_path(current_user), :html => { :method => :post }) do |f|
+  = error_messages_for current_user
+  %p
+    = f.label :password
+    %br/
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation
+  %p= f.submit "Change my password"
+
+= link_to t(:back_to_user_page), user_path(@user)

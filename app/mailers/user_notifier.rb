@@ -44,5 +44,11 @@ class UserNotifier < ActionMailer::Base
     mail :to => @recipient.email, :subject => I18n.t(:new_kudo_in_your_inbox)
   end
 
+  def password_changed user, password
+    @user      = user
+    @password = password
+    mail :to => @user.email, :subject => I18n.t(:email_subject_your_password_has_been_successfuly_changed)
+  end
+
 
 end

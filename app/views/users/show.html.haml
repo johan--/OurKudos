@@ -77,10 +77,12 @@
     = link_to t(:edit_messaging_prefs), '/', :class => "action_link"
     |
     = link_to t(:manage_blocked_senders_list), '/', :class => "action_link"
+    |
+    = link_to t(:change_my_password), new_user_password_change_path(current_user), :class => "action_link"
   
   
   %h3= t :authentications
-      
+
   %p
     = t :you_can_authenticate_using_following_methods
   

@@ -18,7 +18,7 @@ class Admin::UsersController < Admin::AdminController
 
   def update
     @user = User.find params[:id]
-    
+    @user.skip_password_validation = true
     update_roles if params[:roles]
     if @user && @user.update_attributes(params[:user])
       redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
@@ -57,13 +57,5 @@ class Admin::UsersController < Admin::AdminController
       @user.roles.delete_all  if params[:user].blank?
     end
 
-    def remove_passwords_from_params
-      if params[:user]
-        params.delete(params[:user][:password])              if params[:user][:password].blank?
-        params.delete(params[:user][:password_confirmation]) if params[:user][:password_confirmation].blank?
-      end
-    end
-  
-  
   
 end

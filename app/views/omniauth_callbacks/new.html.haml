@@ -1,0 +1,15 @@
+.wrapper-main
+  = form_for(@user, :url => user_passwords_changes_path(@user), :html => { :method => :post }) do |f|
+    %h2 Change your password
+    = error_messages_for @user
+    %p
+      = f.label :password
+      %br/
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation
+    %p
+      = f.submit "Change my password"
+      = link_to('cancel',home_path, :class => 'action_link')
