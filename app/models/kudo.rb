@@ -12,7 +12,13 @@ class Kudo < ActiveRecord::Base
 
   validates :body,        :presence => true, :unless => :js_validation_only
 
-  scope :public_kudos, where(:share_scope => nil)
+  scope :public_kudos,            where(:share_scope => nil)
+  scope :public_or_friends_kudos, where("kudos.share_scope IS NULL OR kudos.share_scope = ?", 'friends')
+  scope :author_or_recipient, ->(user) { joins(:kudo_copies).
+                                         select("DISTINCT kudos.*").
+                                         where("kudos.created_at >= ?", user.created_at).
+                                         where("kudos.author_id IN (?) OR kudo_copies.recipient_id IN (?)",
+                                                user.friends_ids_list, user.friends_ids_list) }
 
   validates_with KudoValidator
 
@@ -92,6 +98,7 @@ class Kudo < ActiveRecord::Base
 
   def send_system_kudo recipient
       kudo_copies.build :recipient_id => recipient.id,
+                        :author_id    => author.id,
                         :kudoable     => self,
                         :folder_id    => recipient.inbox.id,
                         :share_scope  => share_scope
@@ -104,6 +111,7 @@ class Kudo < ActiveRecord::Base
 
   def send_email_kudo recipient
       kudo_copies.build :temporary_recipient  => recipient,
+                        :author_id    => author.id,
                       :share_scope  => share_scope,
                       :kudoable => EmailKudo.create(:email => recipient)
   end
@@ -111,12 +119,14 @@ class Kudo < ActiveRecord::Base
   def send_twitter_kudo recipient
     kudo_copies.build :temporary_recipient => recipient,
                       :share_scope  => share_scope,
+                      :author_id    => author.id,
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
   end
 
   def send_facebook_kudo recipient
     kudo_copies.build :temporary_recipient => recipient,
                       :share_scope  => share_scope,
+                      :author_id    => author.id,
                       :kudoable => FacebookKudo.create(:identifier => recipient)
   end
 
@@ -133,6 +143,7 @@ class Kudo < ActiveRecord::Base
   def social_sharing?
     facebook_sharing? || twitter_sharing?
   end
+
 
   class << self
 

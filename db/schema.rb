@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110620130446) do
+ActiveRecord::Schema.define(:version => 20110620190943) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(:version => 20110620130446) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-06-20 16:27:19'
+    t.datetime "unlock_in",       :default => '1911-06-20 13:23:59'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
@@ -143,8 +143,10 @@ ActiveRecord::Schema.define(:version => 20110620130446) do
     t.integer  "kudoable_id"
     t.string   "kudoable_type"
     t.string   "share_scope"
+    t.integer  "author_id"
   end
 
+  add_index "kudo_copies", ["author_id"], :name => "index_kudo_copies_on_author_id"
   add_index "kudo_copies", ["kudoable_id"], :name => "index_kudo_copies_on_kudoable_id"
   add_index "kudo_copies", ["kudoable_type"], :name => "index_kudo_copies_on_kudoable_type"
 

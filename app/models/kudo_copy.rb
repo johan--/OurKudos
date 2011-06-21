@@ -5,11 +5,13 @@ class KudoCopy < ActiveRecord::Base
   belongs_to :folder
 
   belongs_to :kudoable, :polymorphic => true
-  delegate   :author, :created_at, :subject, :body, :recipients, :to => :kudo
+  belongs_to :author,   :class_name => "User"
+  delegate   :created_at, :subject, :body, :recipients, :to => :kudo
 
-  scope :friends,    where(:share_scope => "friends")
-  scope :recipients, where(:share_scope => "recipients")
-  scope :for_email,  ->(email) { where(:temporary_recipient => email) }
+  scope :friends,                        where(:share_scope => "friends")
+  scope :recipients,                     where(:share_scope => "recipients")
+  scope :for_email,  ->(email) {         where(:temporary_recipient => email) }
+
 
   def copy_recipient
     return if own_kudo?

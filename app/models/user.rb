@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
 
   has_many :facebook_friends
   # ================
+  # ====scopes =====
+  # ================
+
+  # ================
   # = validations  =
   # ================
   validates :first_name, :presence => true
@@ -229,6 +233,15 @@ class User < ActiveRecord::Base
     @identities_emails ||= identities.emails.map(&:identity)
   end
 
+  def friends_ids_list
+    friends.map {|friend| friend.id }.sort.join(", ")
+  end
+
+  def newsfeed_kudos
+   !friends_ids_list.blank? ?
+    (@newsfeed_kuds ||= User.newsfeed_kudos(self)) : []
+  end
+
 
   class << self
 
@@ -255,6 +268,10 @@ class User < ActiveRecord::Base
 
           end
           recoverable
+      end
+
+      def newsfeed_kudos user
+          Kudo.public_or_friends_kudos.author_or_recipient user
       end
 
   end
