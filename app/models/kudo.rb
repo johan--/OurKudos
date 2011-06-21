@@ -16,9 +16,8 @@ class Kudo < ActiveRecord::Base
   scope :public_or_friends_kudos, where("kudos.share_scope IS NULL OR kudos.share_scope = ?", 'friends')
   scope :author_or_recipient, ->(user) { joins(:kudo_copies).
                                          select("DISTINCT kudos.*").
-                                         where("kudos.created_at >= ?", user.created_at).
-                                         where("kudos.author_id IN (?) OR kudo_copies.recipient_id IN (?)",
-                                                user.friends_ids_list, user.friends_ids_list) }
+                                         where("kudos.created_at >= ?", user.created_at.to_s(:db)).
+                                         where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
 
   validates_with KudoValidator
 
