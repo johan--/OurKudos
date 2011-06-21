@@ -261,23 +261,9 @@ class User < ActiveRecord::Base
         recoverable
     end
 
-      def reset_password_by_token(attributes={})
-          recoverable = find_or_initialize_with_error_by(:reset_password_token, attributes[:reset_password_token])
-
-          if recoverable.persisted?
-            if recoverable.reset_password_period_valid?
-              recoverable.reset_password!(attributes[:password], attributes[:password_confirmation])
-            else
-              recoverable.errors.add(:reset_password_token, :expired)
-            end
-
-          end
-          recoverable
-      end
-
-      def newsfeed_kudos user
-          Kudo.public_or_friends_kudos.author_or_recipient user
-      end
+    def newsfeed_kudos user
+      Kudo.public_or_friends_kudos.author_or_recipient user
+    end
 
   end
 

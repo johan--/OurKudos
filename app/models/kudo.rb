@@ -1,5 +1,6 @@
 class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
+  belongs_to :kudo_category
 
   has_many  :kudo_copies
   has_many  :recipients, :through => :kudo_copies

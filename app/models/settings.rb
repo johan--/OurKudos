@@ -1,7 +1,7 @@
 class Settings < ActiveRecord::Base
 
   class << self
-    def seed
+    def seed!
       create [
         { :name => "social-sharing-enabled", :value => "yes" }
       ]

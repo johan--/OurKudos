@@ -1,0 +1,16 @@
+%h3= t :listing_kudo_categories
+
+= form_for @kudo_category, :url => admin_kudo_categories_path, :method => :post do |f|
+
+  = error_messages_for @kudo_category
+
+  = f.label :name
+  = f.text_field :name
+  = f.submit t(:create_role)
+
+%hr
+%ul.admin_list
+  - for category in @kudo_categories do
+    %li
+      = category.name
+      = link_to t(:remove_this_kudo_category), admin_kudo_category_path(category), :method => :delete, :confirm => I18n.t(:are_you_sure)

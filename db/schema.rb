@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110620190943) do
+ActiveRecord::Schema.define(:version => 20110621064125) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -133,6 +133,12 @@ ActiveRecord::Schema.define(:version => 20110620190943) do
     t.datetime "updated_at"
   end
 
+  create_table "kudo_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "kudo_copies", :force => true do |t|
     t.integer  "recipient_id"
     t.integer  "folder_id"
@@ -159,7 +165,10 @@ ActiveRecord::Schema.define(:version => 20110620190943) do
     t.boolean  "twitter_sharing",  :default => false
     t.string   "share_scope"
     t.string   "send_to"
+    t.integer  "kudo_category_id"
   end
+
+  add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"
 
   create_table "merges", :force => true do |t|
     t.integer  "merged_by"

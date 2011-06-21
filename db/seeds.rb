@@ -24,4 +24,5 @@ Role.create([
 
  admin.identities.first.confirm!
 
- Settings.seed
+ Settings.seed!
+ KudoCategory.seed!

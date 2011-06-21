@@ -6,7 +6,7 @@ class Admin::RolesController < Admin::AdminController
   before_filter :find_user, :only => [:edit]
 
   def index
-    @roles = Role.all # we have only few roles so it's safe to call 'all'
+    @roles = Role.scoped # we have only few roles so it's safe to call 'all'
     @role  = Role.new
   end
   
