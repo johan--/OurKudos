@@ -5,12 +5,8 @@ class HomeController < ApplicationController
   layout :choose_layout
 
   def index
-	  if user_signed_in?
-      	redirect_to home_path
-    else
       flash.keep(:alert) unless flash[:alert].blank?
       @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
-    end
   end    
   
   def home
