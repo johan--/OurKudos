@@ -5,8 +5,7 @@ class HomeController < ApplicationController
   layout :choose_layout
 
   def index
-      flash.keep(:alert) unless flash[:alert].blank?
-      @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
+    @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
   end    
   
   def home

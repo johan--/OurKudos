@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for resource
     (session[:"user.return_to"].nil?) ?
-        "/" : session[:"user.return_to"].to_s
+        home_path : session[:"user.return_to"].to_s
   end
 
   def get_kudos

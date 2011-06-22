@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids
 
-  attr_accessor :primary_identity, :skip_password_validation
+  attr_accessor :primary_identity, :skip_password_validation, :remember_old_pass
   # ================
   # = associations =
   # ================
@@ -244,6 +244,29 @@ class User < ActiveRecord::Base
 
   def destroy_friendships
     Friendship.where(:friend_id => self.id).destroy_all
+  end
+
+  def save_old_password_data
+    self.old_password_salt      = self.password_salt
+    self.old_encrypted_password = self.encrypted_password
+  end
+
+  def password_salt= password_salt
+    self.old_password_salt = self.password_salt           if remember_old_pass
+    @password_salt = password_salt
+    write_attribute :password_salt, @password_salt
+  end
+
+  def encrypted_password= encrypted_password
+    self.old_encrypted_password = self.encrypted_password  if remember_old_pass
+    @encrypted_password = encrypted_password
+    write_attribute :encrypted_password, @encrypted_password
+  end
+
+  def undo_last_password_change!
+    self.password_salt      = self.old_password_salt
+    self.encrypted_password = self.old_encrypted_password
+    save :validate => false
   end
 
 
