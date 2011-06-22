@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def index
     if user_signed_in?
-       rediret_to home_path
+       redircet_to home_path
     else
       @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
     end

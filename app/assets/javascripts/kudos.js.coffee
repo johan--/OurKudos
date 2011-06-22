@@ -47,6 +47,8 @@ scrollScreenToKudo = ->
 processProviderOnKudosForm  = (provider) ->
   cookieName    = 'check-' + provider + "-share"
   checkboxName  = ".kudo-" + provider + "-share"
+  contentCookie = 'kudo-content'
+  content       = jQuery("#kudo_body").val()
   if OurKudos.Cookies.getCookie(cookieName) is 'yes' and jQuery(checkboxName).attr('data-connected') is 'true'
     jQuery(checkboxName).attr 'checked', 'checked'
     OurKudos.Cookies.deleteCookie cookieName
@@ -55,6 +57,7 @@ processProviderOnKudosForm  = (provider) ->
         if confirm "It seems that you don't have a " + provider + " account conneted yet. Would you like to connect your " + provider + " account with OurKudos now?"
            location.href = location.href.replace("home",'').replace(/users\/\d{1,}\/kudos/,'') +  'users/auth/' + provider
            OurKudos.Cookies.setCookie cookieName,'yes'
+           OurKudos.Cookies.setCookie contentCookie, content
         else
            jQuery(checkboxName).removeAttr "checked"
 
