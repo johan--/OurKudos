@@ -48,16 +48,20 @@ processProviderOnKudosForm  = (provider) ->
   cookieName    = 'check-' + provider + "-share"
   checkboxName  = ".kudo-" + provider + "-share"
   contentCookie = 'kudo-content'
-  content       = jQuery("#kudo_body").val()
+
   if OurKudos.Cookies.getCookie(cookieName) is 'yes' and jQuery(checkboxName).attr('data-connected') is 'true'
     jQuery(checkboxName).attr 'checked', 'checked'
+    jQuery("#kudo_message_textarea").val(OurKudos.Cookies.getCookie(contentCookie))
     OurKudos.Cookies.deleteCookie cookieName
+    OurKudos.Cookies.deleteCookie contentCookie
+
   jQuery(checkboxName).click ->
     if jQuery(checkboxName).attr('data-connected') is 'false'
         if confirm "It seems that you don't have a " + provider + " account conneted yet. Would you like to connect your " + provider + " account with OurKudos now?"
            location.href = location.href.replace("home",'').replace(/users\/\d{1,}\/kudos/,'') +  'users/auth/' + provider
            OurKudos.Cookies.setCookie cookieName,'yes'
-           OurKudos.Cookies.setCookie contentCookie, content
+           OurKudos.Cookies.setCookie contentCookie,  jQuery("#kudo_message_textarea").val()
+           console.log content
         else
            jQuery(checkboxName).removeAttr "checked"
 
