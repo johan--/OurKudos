@@ -10,10 +10,10 @@
 
 = form_tag admin_report_path(params[:id]),  :class => "report_1_form", :method => :get do
   = label_tag  "Signed up since"
-  = text_field_tag "from",  params[:from], {:size => 8}
+  = text_field_tag "from",  params[:from], {:size => 11}
   &nbsp;
   = label_tag  "Signed up until"
-  = text_field_tag "until", params[:until], {:size => 8}
+  = text_field_tag "until", params[:until], {:size => 11}
   = submit_tag "Show", :class => "submit_button"
 
 - if @objects
