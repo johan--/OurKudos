@@ -2,7 +2,7 @@
   = form_for(resource, :as => resource_name, :html => { :honeypot => true },
                                              :url => registration_path(resource_name)) do |f|
     %h2 Create a new OurKudos Account
-    = devise_error_messages!
+    = error_messages_for @user
   
     = render :partial => "form_fields", :locals => {:f => f}
     = hidden_field_tag :autofill, params[:autofill]

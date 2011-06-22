@@ -69,6 +69,14 @@ class Identity < ActiveRecord::Base
                           :confirmable_id   => self.id,
                           :confirmed        => true) if needs_confirmation?
   end
+
+  def confirmed?
+    confirmation.confirmed?
+  end
+
+  def primary_identity_confirmed?
+    is_primary? && confirmed?
+  end
   # =================
   # = class methods =
   # =================

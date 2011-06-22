@@ -1,7 +1,6 @@
 class KudoCategory < ActiveRecord::Base
   has_many :kudos
-  validates :name,             :presence => true
-  validates :kudo_category_id, :presence => true
+  validates :name, :presence => true
 
   default_scope order("name ASC")
 
