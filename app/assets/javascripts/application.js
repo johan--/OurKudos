@@ -14,3 +14,4 @@
 //= require error_messaging
 //= require libs
 //= require googleanalytics
+//= require admin/reports

@@ -1,0 +1,2 @@
+%h4 Please select report type
+= select_tag "report_type", grouped_options_for_select(Report.types_for_select,  params[:id], "Please select")

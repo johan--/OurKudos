@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   # ================
   # ====scopes =====
   # ================
-
+  scope :date_range, ->(from, to) { User.where(:created_at => from..to) }
   # ================
   # = validations  =
   # ================

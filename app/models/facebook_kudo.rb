@@ -1,6 +1,8 @@
 class FacebookKudo < ActiveRecord::Base
   has_one :kudo, :class_name => "KudoCopy", :as => :kudoable, :dependent => :destroy
 
+  scope :date_range, ->(from,to){ where(:created_at  => from..to) }
+
   after_save :post_me!, :unless => :posted?
 
   def post_me!

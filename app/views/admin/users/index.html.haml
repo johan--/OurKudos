@@ -4,27 +4,7 @@
 
 = paginate @users
 
-%table.admin_type1
-  %thead
-    %th= sortable "email", t(:user_email)
-    %th= sortable 'last_name', t(:user_name)
-    %th= sortable 'sign_in_count', t(:user_last_sign_in_at)
-    %th= sortable 'email', t(:user_sign_in_count)
-    %th= t :user_details
-    %th= t :user_remove
-  %tbody
-    - for user in @users do
-      %tr
-        %td= user.email
-        %td= user.to_s
-        %td= user.last_sign_in_at
-        %td= user.sign_in_count
-        %td= link_to t(:user_more_details), admin_user_path(user)
-        - if current_user != user
-          %td= link_to t(:user_remove), admin_user_path(user), :method => :delete, :confirm => I18n.t(:are_you_sure)
-        - else
-          %td= t :current_account
-          
+= render :partial => "users", :locals => {:users => @users}
           
 = paginate @users
           

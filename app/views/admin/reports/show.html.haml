@@ -1,0 +1,40 @@
+%h4 Reports
+= render 'report_select'
+
+#report_buttons
+  = link_to "Since today", '#',     :id => 'since_today',       :class => 'action_link'
+  |
+  = link_to "Since Last Month", '#', :id => "since_last_month", :class => 'action_link'
+  |
+  = link_to "Clear", '#', :id => 'clear', :class => 'action_link'
+
+= form_tag admin_report_path(params[:id]),  :class => "report_1_form", :method => :get do
+  = label_tag  "Signed up since"
+  = text_field_tag "from",  params[:from], {:size => 8}
+  &nbsp;
+  = label_tag  "Signed up until"
+  = text_field_tag "until", params[:to], {:size => 8}
+  = submit_tag "Show", :class => "submit_button"
+
+- if @objects
+  %h3= @report.name + ":" + @objects.size.to_i.to_s
+
+:javascript
+  $('#from').datepicker({ dateFormat: 'yy-mm-dd', buttonImageOnly: 'true', showOn: 'button', buttonImage: '/images/calendar.png'});
+  $('#until').datepicker({ dateFormat: 'yy-mm-dd', buttonImageOnly: 'true', showOn: 'button', buttonImage: '/images/calendar.png'});
+   $(function(){
+      $('#since_today').click(function(){
+                                $('#from').val('#{Date.today.strftime("%Y-%m-%d")}');
+                                $('#until').val('#{Date.today.strftime("%Y-%m-%d")}');
+                                $('form.report_1_form').submit();
+                            });
+      $('#since_last_month').click(function(){
+                                    $('#until').val('#{Date.today.strftime("%Y-%m-%d")}');
+                                    $('#from').val('#{(Date.today-30.days).strftime("%Y-%m-%d")}');
+                                    $('form.report_1_form').submit();
+                                    });
+      $('#clear').click(function(){ $('#from').val('');$('#until').val(''); });
+    })
+
+
+

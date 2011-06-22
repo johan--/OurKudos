@@ -3,6 +3,8 @@ class TwitterKudo < ActiveRecord::Base
 
   after_save :post_me!, :unless => :posted?
 
+  scope :date_range, ->(from,to){ where(:created_at  => from..to) }
+
   def post_me!
      case kudo.share_scope
        when nil
