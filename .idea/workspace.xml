@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/kudos.js.coffee" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -48,7 +47,7 @@
       <file leaf-file-name="home_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="297" selection-end="297" vertical-scroll-proportion="0.034782607">
+            <state line="8" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="0.27826086">
               <folding />
             </state>
           </provider>
@@ -614,7 +613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="297" selection-end="297" vertical-scroll-proportion="0.034782607">
+        <state line="8" column="14" selection-start="298" selection-end="298" vertical-scroll-proportion="0.27826086">
           <folding />
         </state>
       </provider>
