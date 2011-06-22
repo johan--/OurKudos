@@ -33,7 +33,8 @@ class HomeController < ApplicationController
     def check_invitation
       sign_out :user if user_signed_in?
       @kudo = EmailKudo.find params[:kudo_id] rescue nil
-      return true if !@kudo.blank? && @kudo.email == params[:email]
+      return true if !@kudo.blank? && @kudo.viewable_by_recipient?(params[:email], params[:kudo_id])
+      redirect_to root_path, :notice => I18n.t(:you_are_not_allowed_to_view_this_kudo)
       false
     end
 

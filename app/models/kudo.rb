@@ -15,6 +15,7 @@ class Kudo < ActiveRecord::Base
 
   scope :public_kudos,            where(:share_scope => nil)
   scope :date_range, ->(from,to){ where(:created_at  => from..to) }
+  scope :not_removed,             where(:removed => false)
   scope :public_or_friends_kudos, where("kudos.share_scope IS NULL OR kudos.share_scope = ?", 'friends')
   scope :author_or_recipient, ->(user) { joins(:kudo_copies).
                                          select("DISTINCT kudos.*").
