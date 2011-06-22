@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110621064125) do
+ActiveRecord::Schema.define(:version => 20110622052717) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -194,6 +194,11 @@ ActiveRecord::Schema.define(:version => 20110621064125) do
   add_index "permissions", ["code"], :name => "index_permissions_on_code"
   add_index "permissions", ["refresh_token"], :name => "index_permissions_on_refresh_token"
 
+  create_table "reports", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", :force => true do |t|
     t.string   "name",       :limit => 50
     t.datetime "created_at"
@@ -240,12 +245,12 @@ ActiveRecord::Schema.define(:version => 20110621064125) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
+    t.integer  "sign_in_count",                         :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -273,6 +278,8 @@ ActiveRecord::Schema.define(:version => 20110621064125) do
     t.boolean  "confirmed"
     t.datetime "deleted_at"
     t.string   "password_salt"
+    t.string   "old_password_salt"
+    t.string   "old_encrypted_password"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
