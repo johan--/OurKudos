@@ -29,7 +29,7 @@
       <file leaf-file-name="kudo_flags.js.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudo_flags.js.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="524" selection-end="524" vertical-scroll-proportion="0.5338078">
+            <state line="9" column="12" selection-start="297" selection-end="297" vertical-scroll-proportion="0.3202847">
               <folding />
             </state>
           </provider>
@@ -628,7 +628,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudo_flags.js.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="524" selection-end="524" vertical-scroll-proportion="0.5338078">
+        <state line="9" column="12" selection-start="297" selection-end="297" vertical-scroll-proportion="0.3202847">
           <folding />
         </state>
       </provider>
