@@ -10,3 +10,5 @@ vendor/cache/
 .idea/*xml
 public/assets/*
 .sass-cache/*
+*.swp
+*.DS_Store
