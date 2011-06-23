@@ -10,6 +10,7 @@
         .kudo_message_top
         .kudo_message_mid
           %p
+            %span.category= @kudo.kudo.category
             %span.sender= @kudo.kudo.author.to_s
             %span.greater_than >
             %span.receiver= @kudo.kudo.recipient.to_s

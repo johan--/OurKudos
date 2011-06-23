@@ -11,7 +11,7 @@ class Kudo < ActiveRecord::Base
 
   before_create :fix_share_scope, :prepare_copies
 
-  validates :body,        :presence => true, :unless => :js_validation_only
+  validates :body,        :presence => true, :unless => :js_validation_only # when this is set to true we are not running prepare copies, only recipient validation is run
 
   scope :public_kudos,            where(:share_scope => nil)
   scope :date_range, ->(from,to){ where(:created_at  => from..to) }
@@ -112,7 +112,6 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_email_kudo recipient
-    debugger
       kudo_copies.build :temporary_recipient  => recipient,
                         :author_id    => author.id,
                         :share_scope  => share_scope,

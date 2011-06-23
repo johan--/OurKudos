@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
           term = "newsfeed"
       @kudos = current_user.send("#{term}_kudos")
 
-      @kudos = @kudos.order("kudos.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
+      @kudos = @kudos.order("kudos.id DESC")       if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
       @kudos = @kudos.order("kudo_copies.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
     end
   end
