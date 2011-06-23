@@ -19,6 +19,19 @@ class Admin::KudoCategoriesController < Admin::AdminController
     end
   end
 
+  def edit
+    @kudo_category = KudoCategory.find(params[:id]) 
+  end
+
+  def update
+    @kudo_categories = KudoCategory.scoped
+    if @kudo_category.update_attributes(params[:kudo_category])
+      flash[:notice] = "Successfully updated Kudo Category"
+      respond_with @kudo_category, :location => admin_kudo_categories_path
+    else
+      render :action => 'edit'
+    end
+  end
 
   def destroy
     @kudo_category = KudoCategory.find params[:id]

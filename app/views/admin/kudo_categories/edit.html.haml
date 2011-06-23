@@ -1,0 +1,9 @@
+%h3 Edit Kudo Category
+
+= form_for @kudo_category, :url => admin_kudo_category_path(@kudo_category), :method => :put do |f|
+
+  = error_messages_for @kudo_category
+
+  = f.label :name, "New Name"
+  = f.text_field :name
+  = f.submit 
