@@ -15,3 +15,4 @@
 //= require libs
 //= require googleanalytics
 //= require admin/reports
+//= require kudo_flags

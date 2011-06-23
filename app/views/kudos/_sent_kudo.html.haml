@@ -11,10 +11,12 @@
      %span.receiver
       = kudo.recipients_readable_list
     %p= kudo.body
-   .kudo_flag_cont.kf_dimmed
+    //data-helper this flag indicates whether kudo is a kudo copy(1) or kudo(2))
+   .kudo_flag_cont.kf_dimmed.clickable{"data-helper" => "2", "data-id" => "1" }
    -if kudo.can_be_deleted_by? current_user
     %span= link_to(content_tag(:span,'x'), destroy_sent_user_kudo_path(current_user, kudo),
                                 :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
+   .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
    .clearing
   .kudo_message_bot
  .clearing

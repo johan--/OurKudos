@@ -1,9 +1,13 @@
 class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
+  belongs_to :flaggable, :polymorphic => true, :class_name => "KudoFlag"
+
 
   has_many  :kudo_copies
   has_many  :recipients, :through => :kudo_copies
+
+  has_one :kudo_flag, :as => :flaggable, :class_name => "KudoFlag", :dependent => :destroy
 
   attr_accessor    :to, :js_validation_only
   attr_accessible  :subject, :body, :to, :share_scope,

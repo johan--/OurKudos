@@ -4,6 +4,7 @@
   .kudo_message_top
   .kudo_message_mid
    .kudo_message_text_cont
+
     %p{:id => "kudo_#{kudo.id}"}
      %span.category= kudo.category
      %span.sender= kudo.author.to_s
@@ -11,8 +12,10 @@
      %span.receiver
       = kudo.recipient.to_s
     %p= kudo.body
-   .kudo_flag_cont.kf_dimmed
+    //data-helper this flag indicates whether kudo is a kudo copy or kudo
+   .kudo_flag_cont.kf_dimmed.clickable{"data-helper" => "1", "data-id" => kudo.id }
    %span= link_to(content_tag(:span,'x'), user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
+   .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
    .clearing
   .kudo_message_bot
  .clearing

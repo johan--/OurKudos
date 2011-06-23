@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623143632) do
+ActiveRecord::Schema.define(:version => 20110623154939) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -160,11 +160,12 @@ ActiveRecord::Schema.define(:version => 20110623143632) do
   create_table "kudo_flags", :force => true do |t|
     t.string   "flag_reason"
     t.integer  "flagger_id"
-    t.integer  "kudo_copy_id"
     t.boolean  "flag_valid"
     t.integer  "recipients_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "flaggable_id"
+    t.string   "flaggable_type"
   end
 
   add_index "kudo_flags", ["flag_reason"], :name => "index_kudo_flags_on_flag_reason"
