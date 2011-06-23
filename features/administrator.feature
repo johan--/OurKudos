@@ -148,3 +148,18 @@ Scenario: Administrator can add/remove user roles
     And I fill in "Password" with "secret pass1"
     And I press "Sign in"
     Then I should see "Administrator has disabled posting to social sites."
+
+  Scenario: Administrator can change Category description
+    Given I'm logged in as an administrator with:
+      | email             | password     | id |
+      | admin@example.net | secret pass1 | 1  |
+    And the following Kudo Categories exists:
+      | name |
+      | Food |
+    When I go to admin area page
+    And I follow "Kudo Categories"
+    And I follow "Rename"
+    And I fill in "New Name" with "Congrats"
+    And I press "Update Kudo category"
+    Then I should see "Congrats"
+

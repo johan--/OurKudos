@@ -152,3 +152,7 @@ Factory.define :facebook_friend do |ff|
    ff.last_name  "Dziaslo"
    ff.id 123456743
 end
+
+Factory.define :kudo_category do |kc|
+   kc.name "Food"
+end
