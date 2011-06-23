@@ -30,6 +30,15 @@ class KudosController < ApplicationController
     end
   end
 
+  def destroy_sent
+    @kudo = current_user.sent_kudos.find params[:id]
+    if @kudo && @kudo.soft_destroy
+      redirect_to home_path(:kudos => :sent), :notice => I18n.t(:kudo_has_been_successfuly_removed_from_your_outbox)
+    else
+      redirect_to home_path(:kudos => :sent), :notice => I18n.t(:we_couldn_do_that_sorry)
+    end
+  end
+
   private
 
     def kudo_redirections_and_validations
@@ -44,5 +53,6 @@ class KudosController < ApplicationController
       @kudo.js_validation_only = params[:kudo][:javascript_validation_only] if params[:kudo]
       @kudo.valid?
     end
+
 
 end

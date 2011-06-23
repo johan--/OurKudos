@@ -5,24 +5,26 @@ class Kudo < ActiveRecord::Base
   has_many  :kudo_copies
   has_many  :recipients, :through => :kudo_copies
 
-  attr_accessor  :to, :js_validation_only
-  attr_accessible :subject, :body, :to, :share_scope,
-                  :facebook_sharing, :twitter_sharing, :kudo_category_id
+  attr_accessor    :to, :js_validation_only
+  attr_accessible  :subject, :body, :to, :share_scope,
+                   :facebook_sharing, :twitter_sharing, :kudo_category_id
 
   before_create :fix_share_scope, :prepare_copies
 
+  validates_with KudoValidator
   validates :body,        :presence => true, :unless => :js_validation_only # when this is set to true we are not running prepare copies, only recipient validation is run
 
-  scope :public_kudos,            where(:share_scope => nil)
+  scope :public_kudos,            where(:share_scope => nil).where(:removed => false)
   scope :date_range, ->(from,to){ where(:created_at  => from..to) }
   scope :not_removed,             where(:removed => false)
   scope :public_or_friends_kudos, where("kudos.share_scope IS NULL OR kudos.share_scope = ?", 'friends')
-  scope :author_or_recipient, ->(user) { joins(:kudo_copies).
+  scope :author_or_recipient, ->(user) { not_removed.
+                                         joins(:kudo_copies).
                                          select("DISTINCT kudos.*").
                                          where("kudos.created_at >= ?", user.created_at.to_s(:db)).
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
 
-  validates_with KudoValidator
+
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -107,8 +109,6 @@ class Kudo < ActiveRecord::Base
 
       Friendship.process_friendships_between author, recipient
       Friendship.process_friendships_between recipient, author
-
-
   end
 
   def send_email_kudo recipient
@@ -150,6 +150,14 @@ class Kudo < ActiveRecord::Base
     return '' if kudo_category.blank?
 
     kudo_category.name.to_s
+  end
+
+  def soft_destroy
+    update_attribute :removed, true
+  end
+
+  def can_be_deleted_by? user
+    author == user
   end
 
 
