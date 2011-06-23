@@ -43,7 +43,7 @@ group :test do
   gem "fuubar-cucumber"
   gem "launchy"
   gem "rspec-rails"
-  gem 'rspec-core'
+  gem 'rspec-core', '2.6.4'
   gem "shoulda"
   gem "timecop"
   gem 'ruby-debug19'

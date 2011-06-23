@@ -10,4 +10,4 @@
     %p= @kudo.kudo.body[0..100] + "..."
 
 
-    %p= link_to t(:see_entire_message_on_ourkudos), "#{@host}/invite?kudo_id=#{@kudo.id.to_s}&email=#{@email}"
+    %p= link_to t(:see_entire_message_on_ourkudos), "#{@host}/invite?kudo_id=#{@kudo.key.to_s}&email=#{@email}"

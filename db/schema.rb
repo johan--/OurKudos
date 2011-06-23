@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110622052717) do
+ActiveRecord::Schema.define(:version => 20110623071205) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110622052717) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "key"
   end
 
   create_table "facebook_friends", :force => true do |t|
@@ -166,6 +167,7 @@ ActiveRecord::Schema.define(:version => 20110622052717) do
     t.string   "share_scope"
     t.string   "send_to"
     t.integer  "kudo_category_id"
+    t.boolean  "removed",          :default => false
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"
