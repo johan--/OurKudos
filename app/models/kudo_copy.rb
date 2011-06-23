@@ -6,6 +6,8 @@ class KudoCopy < ActiveRecord::Base
 
   belongs_to :kudoable, :polymorphic => true
   belongs_to :author,   :class_name => "User"
+
+  has_one :kudo_flag
   delegate   :category, :created_at, :subject, :body, :recipients, :to => :kudo
 
   scope :friends,                        where(:share_scope => "friends")

@@ -1,0 +1,2 @@
+module KudoFlagsHelper
+end

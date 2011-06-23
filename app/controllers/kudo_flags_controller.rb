@@ -1,0 +1,5 @@
+class KudoFlagsController < ApplicationController
+
+
+
+end

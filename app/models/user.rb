@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
   has_many :inverse_friends,     :through    => :inverse_friendships, :source      => :user
 
   has_many :facebook_friends
+  has_many :kudo_flags, :foreign_key => :flagger_id
   # ================
   # ====scopes =====
   # ================

@@ -1,5 +1,6 @@
 class KudosController < ApplicationController
   layout "registered"
+  before_filter :authenticate_user!
   before_filter :get_kudos, :only => [:new, :create]
 
   respond_to :html

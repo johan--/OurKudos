@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623071205) do
+ActiveRecord::Schema.define(:version => 20110623143632) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -156,6 +156,19 @@ ActiveRecord::Schema.define(:version => 20110623071205) do
   add_index "kudo_copies", ["author_id"], :name => "index_kudo_copies_on_author_id"
   add_index "kudo_copies", ["kudoable_id"], :name => "index_kudo_copies_on_kudoable_id"
   add_index "kudo_copies", ["kudoable_type"], :name => "index_kudo_copies_on_kudoable_type"
+
+  create_table "kudo_flags", :force => true do |t|
+    t.string   "flag_reason"
+    t.integer  "flagger_id"
+    t.integer  "kudo_copy_id"
+    t.boolean  "flag_valid"
+    t.integer  "recipients_count", :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "kudo_flags", ["flag_reason"], :name => "index_kudo_flags_on_flag_reason"
+  add_index "kudo_flags", ["flagger_id"], :name => "index_kudo_flags_on_flagger_id"
 
   create_table "kudos", :force => true do |t|
     t.integer  "author_id"
