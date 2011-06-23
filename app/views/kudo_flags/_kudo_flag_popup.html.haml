@@ -1,8 +1,5 @@
 = form_for @kudo_flag, :url => kudo_kudo_flags_path(@kudo) do |f|
-  = f.label :flag_reason, t(:kf_help_understand_message)
-  %br/
   = f.select :flag_reason, options_for_select(KudoFlag.reasons_for_select), {:prompt => t(:kf_please_select_reason) }
-
   %p
     = f.submit t(:kf_flag_this_kudo)
     = t(:or)
