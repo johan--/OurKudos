@@ -14,7 +14,7 @@
     %p= kudo.body
     //data-helper this flag indicates whether kudo is a kudo copy or kudo
    .kudo_flag_cont.kf_dimmed.clickable{"data-helper" => "1", "data-id" => kudo.id }
-   %span= link_to(content_tag(:span,'x'), user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
+   %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
    .clearing
   .kudo_message_bot
