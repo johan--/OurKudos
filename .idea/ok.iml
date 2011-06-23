@@ -433,6 +433,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rest-client (v1.6.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rest-client-1.6.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] treetop (v1.4.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/treetop-1.4.9)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-core (v2.6.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-core-2.6.4)" level="application" />
   </component>
 </module>
 

@@ -5,16 +5,18 @@ module Devise
     def i18n_message(default = nil)
       message = warden.message || warden_options[:message] || default || :unauthenticated
       #ugly hack override for twitter
-
       message = :inactive if message == :invalid_token && params[:action] == "twitter"
 
-      if message.is_a?(Symbol) && message != :inactive && message != :unauthenticated
-        message_without_link message
-      elsif message.is_a?(Symbol) && message == :inactive
-        message_with_link message
-      elsif message.is_a?(Symbol) && message == :unauthenticated
-        flash[:notice] = I18n.t('devise.failure.unauthenticated')
-        flash[:alert]  = nil
+      if message.is_a?(Symbol)
+        if message != :inactive && message != :unauthenticated
+          message_without_link message
+        elsif  message == :inactive
+          message_with_link message
+        elsif  message == :unauthenticated
+          flash[:notice] = I18n.t('devise.failure.unauthenticated')
+          flash[:notice] = I18n.t(:please_sign_in_with_email, :email => params[:recipient].to_s) if user_attempted_to_visit_inbox?
+          flash[:alert]  = nil
+         end
       else
         message.to_s
       end
@@ -51,6 +53,30 @@ module Devise
        return "user_id"    if (!params[:user_id].blank? && env['omniauth.auth'].blank? && !params[:user].blank?)
        "uid"
     end
+
+    def user_attempted_to_visit_inbox?
+      !params[:kudo_id].blank? &&
+          !params["recipient"].blank? &&
+              params["recipient"] =~ RegularExpressions.email
+    end
+
+    def redirect_url
+      if user_attempted_to_visit_inbox?
+        send(:"new_#{scope}_session_path", :user => {:email => params[:recipient]} )
+      else
+        if skip_format?
+          send(:"new_#{scope}_session_path")
+        else
+          send(:"new_#{scope}_session_path", :format => request_format)
+        end
+       end
+    end
+
+    def skip_format?
+      %w(html */*).include? request_format.to_s
+    end
+
+
 
   end
 end

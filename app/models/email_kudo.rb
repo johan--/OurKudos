@@ -8,7 +8,7 @@ class EmailKudo < ActiveRecord::Base
   scope :date_range, ->(from, to) { where(:created_at => from..to) }
 
   def viewable_by_recipient? email, kudo_id
-    email == self.email  && kudo_id == self.key
+    email == self.email && kudo_id == self.key
   end
 
   def generate_16
