@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/kudo_flags/_kudo_flag_popup.html.haml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/kudo_flags/new.js.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/locales/views/kudo_flags/en.yml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/api/identities.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/friendships.css.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/assets/stylesheets/kudo_flags.css.scss" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ok.iml" afterPath="$PROJECT_DIR$/.idea/ok.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/kudo_flags.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/kudo_flags.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/kudo_flags_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/kudo_flags_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_flag.rb" afterPath="$PROJECT_DIR$/app/models/kudo_flag.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/en.yml" afterPath="$PROJECT_DIR$/config/locales/en.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,7 +29,7 @@
       <file leaf-file-name="kudo_flags.js.coffee" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudo_flags.js.coffee">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="68" selection-start="592" selection-end="592" vertical-scroll-proportion="0.5338078">
+            <state line="15" column="4" selection-start="524" selection-end="524" vertical-scroll-proportion="0.5338078">
               <folding />
             </state>
           </provider>
@@ -648,7 +628,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/kudo_flags.js.coffee">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="68" selection-start="592" selection-end="592" vertical-scroll-proportion="0.5338078">
+        <state line="15" column="4" selection-start="524" selection-end="524" vertical-scroll-proportion="0.5338078">
           <folding />
         </state>
       </provider>

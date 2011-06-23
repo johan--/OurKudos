@@ -13,4 +13,3 @@ jQuery ->
         else
             jQuery(this).addClass("clickable")
 
-    jQuery("div.popup_placeholder#flag_popup_placeholder_" + data_id).dialog('close')
