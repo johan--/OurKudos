@@ -112,10 +112,11 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_email_kudo recipient
+    debugger
       kudo_copies.build :temporary_recipient  => recipient,
                         :author_id    => author.id,
-                      :share_scope  => share_scope,
-                      :kudoable => EmailKudo.create(:email => recipient)
+                        :share_scope  => share_scope,
+                        :kudoable => EmailKudo.create(:email => recipient)
   end
 
   def send_twitter_kudo recipient

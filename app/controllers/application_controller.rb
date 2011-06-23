@@ -15,13 +15,15 @@ class ApplicationController < ActionController::Base
   end
 
   def get_kudos
-    %w{received sent newsfeed}.include?(params[:kudos]) ?
+    if user_signed_in?
+      %w{received sent newsfeed}.include?(params[:kudos]) ?
           term = params[:kudos] :
           term = "newsfeed"
-    @kudos = current_user.send("#{term}_kudos")
+      @kudos = current_user.send("#{term}_kudos")
 
-    @kudos = @kudos.order("kudos.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
-    @kudos = @kudos.order("kudo_copies.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
+      @kudos = @kudos.order("kudos.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
+      @kudos = @kudos.order("kudo_copies.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
+    end
   end
 
   def choose_layout
