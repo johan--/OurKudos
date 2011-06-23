@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$('div.interstitial_message').html(error_contents);
 	
 		$('div#overlay').css('display','block');
+		$('div#overlay_overlay').css('display','block');
 	}
 	
 	if ($('.alert').length) {
@@ -13,6 +14,7 @@ $(document).ready(function(){
 		$('div.interstitial_message').html(error_contents);
 	
 		$('div#overlay').css('display','block');
+		$('div#overlay_overlay').css('display','block');
 
 	}
 
@@ -20,6 +22,7 @@ $(document).ready(function(){
   $('p#interstitial_message_close_control').click(function(){
     // hide the overlay DOM object
   	$('div#overlay').hide();
+  	$('div#overlay_overlay').hide();
   });
 	
 	
