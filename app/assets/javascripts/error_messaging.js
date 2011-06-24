@@ -2,20 +2,11 @@ $(document).ready(function(){
 	// if there are Rails flash alerts or Devise form errors, capture the HTML and insert into interstitial message area
 	
 	if ($('#error_explanation').length) {
-		var error_contents = $('#error_explanation').html();
-		$('div.interstitial_message').html(error_contents);
-	
-		$('div#overlay').css('display','block');
-		$('div#overlay_overlay').css('display','block');
+		$('#error_explanation').dialog({modal: true, resizable: false });
 	}
 	
 	if ($('.alert').length) {
-		var error_contents = $('.alert').html();
-		$('div.interstitial_message').html(error_contents);
-	
-		$('div#overlay').css('display','block');
-		$('div#overlay_overlay').css('display','block');
-
+		$('.alert').dialog({modal: true, resizable: false });
 	}
 
   // the okay button has been clicked
@@ -26,12 +17,23 @@ $(document).ready(function(){
   });
 	
 	
+	
+	
 	// the video tour button clicked (move this to a separate file at some point)
   $('a.video_tour_link').click(function(){
-  	$('div#overlay').css('display','block');
-  	$('div.interstitial_message').html('<iframe width="425" height="349" src="http://www.youtube.com/embed/ahHZFck-2ys?rel=0" frameborder="0" allowfullscreen></iframe>');
+  	$('body').append('<div id="kudos_video"></div>');
+  	$('#kudos_video').html('<iframe width="425" height="349" src="http://www.youtube.com/embed/ahHZFck-2ys?rel=0" frameborder="0" allowfullscreen></iframe>').dialog({modal: true, width: 447, resizable: false });
+  	
+  	$('a.ui-dialog-titlebar-close').click(function(){
+			
+			$('div#kudos_video').remove();
+		});
+  	
+  	
   	return false;
   });
+  
+ 
 	
 
 }); // document.ready
