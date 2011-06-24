@@ -39,7 +39,7 @@ class KudoFlag < ActiveRecord::Base
 
   def one_recipient_flagged!
     kudo.set_me_and_my_copies_scope_to :recipient, flagger
-    self.message = :deleted
+    self.message = :private
     save
   end
 
