@@ -1,6 +1,7 @@
 /* CSS Overrides for jquery-ui-1.8.13.custom */
 /* The original stylesheet includes rules for jqueryui dialog, calendarpicker and resizable */
 /* Rules for jqueryui autocomplete are in a separate stylesheet */
+/* Note: this stylesheet must load last, after the jquery-ui-1.8.13.custom.css stylesheet in order to function */
 
 /* Make the modal overlay darker with no background pattern */
 .ui-widget-overlay {
@@ -37,4 +38,9 @@ form#new_kudo_flag {
 		}
 	}
 
+}
+
+div.ui-dialog div#error_explanation, div.ui-dialog div.alert {
+	border: none;
+	color: #000;
 }
