@@ -3,9 +3,11 @@ class Ability
 
   def initialize(user)
     @user = user || User.new
-    if user.has_role? :admin
-      can :manage, :all
-    end
+      if user.has_role?(:admin)
+        can :manage, :all
+      elsif user.has_role?(:editor)
+        can :manage, KudoFlag
+      end
   end
 
 

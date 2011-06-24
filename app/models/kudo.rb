@@ -7,7 +7,7 @@ class Kudo < ActiveRecord::Base
   has_many  :kudo_copies, :dependent => :destroy
   has_many  :recipients, :through => :kudo_copies
 
-  has_many :kudo_flags
+  has_many :kudo_flags, :dependent => :destroy
 
   attr_accessor    :to, :js_validation_only
   attr_accessible  :subject, :body, :to, :share_scope,
@@ -175,7 +175,7 @@ class Kudo < ActiveRecord::Base
       add_to_my_flaggers flagger
       self.save :validate => false
       kudo_copies.each do |copy|
-        copy.update_attribute :share_scope, scope if copy.share_scope != 'scope'
+        copy.update_attribute :share_scope, scope if copy.share_scope != 'recipient'
       end
     end
   end

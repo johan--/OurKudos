@@ -1,0 +1,15 @@
+%h3= t :listing_all_kudos_flagged_by_users
+%hr
+%table.admin_type1
+  %thead
+    %th= t(:kf_admin_flag_reason)
+    %th= t(:kf_flagger_name)
+    %th= t(:kf_flagged_body)
+    %th= t(:kf_flagged_at)
+  %tbody
+    - for flag in @kudo_flags do
+      %tr
+        %td= flag.flag_reason
+        %td= flag.flagger.to_s
+        %td= flag.kudo.body rescue nil
+        %td= flag.created_at.strftime("%d-%m-%Y %I:%M:%S")
