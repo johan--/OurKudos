@@ -1,0 +1,40 @@
+/* CSS Overrides for jquery-ui-1.8.13.custom */
+/* The original stylesheet includes rules for jqueryui dialog, calendarpicker and resizable */
+/* Rules for jqueryui autocomplete are in a separate stylesheet */
+
+/* Make the modal overlay darker with no background pattern */
+.ui-widget-overlay {
+	background-color: #000;
+	opacity: .40;
+	filter:Alpha(Opacity=40);
+	background-image: none;
+}
+
+/* set the dialog box header text font */
+.ui-dialog .ui-dialog-title {
+	font: normal 1.4em "Copse", Arial, Helvetica, sans-serif;
+}
+
+/* add some padding to the dialog box content area */
+.ui-dialog .ui-dialog-content {
+	padding: 1.5em 2em;
+}
+
+/* These rules don't override jquery-ui rules, but are just our own customizations of content */
+
+form#new_kudo_flag {
+	input[type=submit] {
+		border: 0;
+		background-color: red;
+		padding: 5px 8px;
+		border-radius: 5px;
+		color: #fff;
+		font: normal 1.2em "Copse", Arial, Helvetica, sans-serif;
+		cursor: pointer;
+		
+		&:hover {
+			background-color: #bbb;
+		}
+	}
+
+}
