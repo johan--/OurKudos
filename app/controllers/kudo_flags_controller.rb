@@ -1,5 +1,5 @@
 class KudoFlagsController < ApplicationController
-  before_filter :authenticate_user!, :get_kudo_copy
+  before_filter :authenticate_user!, :get_kudo
 
   respond_to :html, :js
 
@@ -15,18 +15,20 @@ class KudoFlagsController < ApplicationController
 
   def create
     @kudo_flag = current_user.kudo_flags.build params[:kudo_flag]
-    @kudo_flag.flaggable = @kudo
-    respond_with @kudo_flag
+    @kudo_flag.kudo = @kudo
+
+    respond_with @kudo_flag do |format|
+      format.js do
+        render 'errors' unless @kudo_flag.process_flagging
+      end
+    end
   end
 
 
   private
 
-    def get_kudo_copy
-      return false if params[:helper] != "1" && params[:helper] != "2"
-
-      @kudo = KudoCopy.find params[:kudo_id] if params[:helper] = "1"
-      @kudo = Kudo.find params[:kudo_id]     if params[:helper] = "2"
+    def get_kudo
+      @kudo = Kudo.find params[:kudo_id]
     end
 
 end

@@ -7,7 +7,6 @@ class KudoCopy < ActiveRecord::Base
   belongs_to :kudoable, :polymorphic => true
   belongs_to :author,   :class_name => "User"
 
-  has_one :kudo_flag, :as => :flaggable, :class_name => "KudoFlag", :dependent => :destroy
   delegate   :category, :created_at, :subject, :body, :recipients, :to => :kudo
 
   scope :friends,                        where(:share_scope => "friends")
@@ -27,10 +26,11 @@ class KudoCopy < ActiveRecord::Base
   end
 
   def visible_for? user = nil
-    return true if share_scope.blank?
-    return true if user == author
-    return true if share_scope == 'recipients' && user == recipient
-    return true if share_scope == 'friends' && author.is_my_friend?(user)
+    return true  if share_scope.blank?
+    return true  if user == author
+    return true  if share_scope == 'recipients' && user == recipient
+    return true  if share_scope == 'friends' && author.is_my_friend?(user)
+    return false if user && kudo.flaggers.include?(user.id)
     false
   end
 

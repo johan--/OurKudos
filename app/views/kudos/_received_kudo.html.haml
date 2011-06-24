@@ -1,4 +1,4 @@
-.kudo_message_cont
+.kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
  = image_tag('avatar_unknown.png', :class => 'avatar')
  .kudo_message_bubble_cont
   .kudo_message_top
@@ -12,9 +12,11 @@
      %span.receiver
       = kudo.recipient.to_s
     %p= kudo.body
-    //data-helper this flag indicates whether kudo is a kudo copy or kudo
-   .kudo_flag_cont.kf_dimmed.clickable{"data-helper" => "1", "data-id" => kudo.id }
+
+   .kudo_flag_cont.clickable{"data-id" => kudo.id, :class => kudo_flag_type(kudo) }
+
    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
+
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
    .clearing
   .kudo_message_bot

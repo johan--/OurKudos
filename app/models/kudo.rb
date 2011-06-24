@@ -1,19 +1,19 @@
 class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
-  belongs_to :flaggable, :polymorphic => true, :class_name => "KudoFlag"
 
 
-  has_many  :kudo_copies
+
+  has_many  :kudo_copies, :dependent => :destroy
   has_many  :recipients, :through => :kudo_copies
 
-  has_one :kudo_flag, :as => :flaggable, :class_name => "KudoFlag", :dependent => :destroy
+  has_many :kudo_flags
 
   attr_accessor    :to, :js_validation_only
   attr_accessible  :subject, :body, :to, :share_scope,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 
-  before_create :fix_share_scope, :prepare_copies
+  before_create :fix_share_scope, :prepare_copies, :if => :new_record?
 
   validates_with KudoValidator
   validates :body,        :presence => true, :unless => :js_validation_only # when this is set to true we are not running prepare copies, only recipient validation is run
@@ -29,6 +29,7 @@ class Kudo < ActiveRecord::Base
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
 
 
+  serialize :flaggers
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -162,6 +163,36 @@ class Kudo < ActiveRecord::Base
 
   def can_be_deleted_by? user
     author == user
+  end
+
+  def people_received_ids
+    kudo_copies.map(&:recipient_id).compact.flatten.uniq.sort
+  end
+
+  def set_me_and_my_copies_scope_to scope, flagger
+    Kudo.transaction do
+      self.share_scope = scope
+      add_to_my_flaggers flagger
+      self.save :validate => false
+      kudo_copies.each do |copy|
+        copy.update_attribute :share_scope, scope
+      end
+    end
+  end
+
+  def add_to_my_flaggers flagger, save = false
+    flaggers << flagger.id
+    self.flaggers = self.flaggers.uniq
+    save(:validate => false) if save
+  end
+
+  def all_recipients_are_flaggers?
+    flaggers.sort == people_received_ids
+  end
+
+  def visible_for? user = nil
+    return false if user && flaggers.include?(user.id)
+    true
   end
 
 

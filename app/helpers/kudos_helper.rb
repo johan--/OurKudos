@@ -11,4 +11,8 @@ module KudosHelper
     "kdt_#{params[:kudos]}"
   end
 
+  def kudo_flag_type kudo
+   kudo.flaggers.blank? ? "kf_dimmed" : "kf_activated"
+  end
+
 end

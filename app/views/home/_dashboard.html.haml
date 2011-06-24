@@ -19,7 +19,7 @@
         .clearing
     - for kudo in @kudos
       - if params[:kudos] == "sent" || params[:kudos].blank? || params[:kudos] == "newsfeed"
-        = render :partial => "kudos/sent_kudo",     :locals => {:kudo => kudo}
+        = render :partial => "kudos/sent_kudo",     :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
 
       - elsif params[:kudos] == "received"
         = render :partial => "kudos/received_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
