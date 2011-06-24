@@ -17,7 +17,7 @@
 
    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
 
-   .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
+   .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.kudo.id}"}
    .clearing
   .kudo_message_bot
  .clearing
