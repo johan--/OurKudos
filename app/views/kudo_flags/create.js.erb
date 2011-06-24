@@ -1,8 +1,10 @@
-var popup_box   = $("div.popup_placeholder#flag_popup_placeholder_<%= @kudo.id %>");
-$('div#kudo_message_id_<%= @kudo.id %>').remove();
+<% if @kudo.valid? %>
+    $('div#kudo_message_id_<%= @kudo.id %>').remove();
+    var popup_box   = $("div.popup_placeholder#flag_popup_placeholder_<%= @kudo.id %>");
+    popup_box.html("<%= escape_javascript(render :partial => "message", :locals => {:message => @kudo_flag.ui_message }) %>");
 
-popup_box.html("<%= escape_javascript(render :partial => "message", :locals => {:message => I18n.t(:kudo_has_been_flagged) }) %>");
+    setTimeout(function(){
+        popup_box.dialog('close');
+    },4000);
 
-setTimeout(function(){
-    popup_box.dialog('close');
-},6000);
+<% end %>

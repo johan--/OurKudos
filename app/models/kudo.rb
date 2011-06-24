@@ -175,7 +175,7 @@ class Kudo < ActiveRecord::Base
       add_to_my_flaggers flagger
       self.save :validate => false
       kudo_copies.each do |copy|
-        copy.update_attribute :share_scope, scope
+        copy.update_attribute :share_scope, scope if copy.share_scope != 'scope'
       end
     end
   end

@@ -19,7 +19,7 @@ class KudoFlagsController < ApplicationController
 
     respond_with @kudo_flag do |format|
       format.js do
-        render 'errors' unless @kudo_flag.process_flagging
+        render 'errors' unless @kudo_flag.save
       end
     end
   end
@@ -28,7 +28,7 @@ class KudoFlagsController < ApplicationController
   private
 
     def get_kudo
-      @kudo = Kudo.find params[:kudo_id]
+      @kudo ||= Kudo.find params[:kudo_id]
     end
 
 end

@@ -1,12 +1,3 @@
 var popup_box   = $("div.popup_placeholder#flag_popup_placeholder_<%= @kudo.id %>");
 jQuery('p.message_container').html("<%= escape_javascript error_messages_for @kudo_flag %>");
 jQuery('p.message_container').effect('highlight', {}, 3000);
-
-<% if @kudo_flag.message == :deleted %>
-   popup_box.html("<%= escape_javascript(render :partial => "message", :locals => {:message => I18n.t(:kudo_marked_as_offensive_by_all_recipients) } )%>");
-   $('div#kudo_message_id_<%= @kudo.id %>').remove();
-
-   setTimeout(function(){
-        popup_box.dialog('close');
-   },6000);
-<% end %>

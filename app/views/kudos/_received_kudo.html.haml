@@ -1,4 +1,4 @@
-.kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
+.kudo_message_cont{:id => "kudo_message_id_#{kudo.kudo.id}"}
  = image_tag('avatar_unknown.png', :class => 'avatar')
  .kudo_message_bubble_cont
   .kudo_message_top
@@ -13,7 +13,7 @@
       = kudo.recipient.to_s
     %p= kudo.body
 
-   .kudo_flag_cont.clickable{"data-id" => kudo.id, :class => kudo_flag_type(kudo) }
+   .kudo_flag_cont.clickable{"data-id" => kudo.kudo.id, :class => kudo_flag_type(kudo) }
 
    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
 
