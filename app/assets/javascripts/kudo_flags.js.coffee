@@ -4,3 +4,6 @@ jQuery ->
 
         jQuery(this).removeClass("clickable") #to prevent multiple requests
         jQuery.get("/kudos/" + data_id + "/kudo_flags/new.js")
+
+    jQuery('cancel-kudo-flag').click ->
+        jQuery("div.popup_placeholder").dialog('close');
