@@ -12,12 +12,13 @@ class UserNotifier < ActionMailer::Base
     case type
       when :merge
         @email   = confirmation.confirmable.identity.user.email
-
+        @first_name = confirmation.confirmable.identity.user.first_name
         subject =  I18n.t(:subject_confirm_your_identity_for_merge_process)
       when :identity
         identity = confirmation.confirmable
 
         @email   = identity.user.current_recipient_for identity
+        @first_name   = identity.user.current_first_name_for identity
         @account = identity.user.identities.size == 1
 
         subject  =  I18n.t('devise.mailer.confirmation_instructions.subject')

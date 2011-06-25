@@ -188,6 +188,11 @@ class User < ActiveRecord::Base
     self.email
   end
 
+  def current_first_name_for identity
+    return identity.identity if identities.size > 1
+    self.first_name
+  end
+
   def active_for_authentication?
     super && is_confirmed?
   end
