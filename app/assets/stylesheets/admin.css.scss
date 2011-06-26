@@ -101,7 +101,7 @@ ul#nav_admin {
 body#admin_users li#userslink a, body#admin_sites li#apiclientsiteslink a, 
 body#admin_roles li#roleslink a, body#admin_forbidden_passwords li#forbiddenpasswordslink a,
 body#admin_settings li#systemoptionslink a, body#admin_kudo_categories li#kudocategorieslink a, 
-body#admin_reports li#adminreportslink a {
+body#admin_reports li#adminreportslink a, body#admin_kudo_flags li#kudosflagslink a {
 	color: $headers_blue;
 	
 	&:hover {

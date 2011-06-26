@@ -8,6 +8,5 @@
     %li#systemoptionslink= link_to t(:admin_system_options), admin_settings_path
     %li#kudocategorieslink= link_to t(:admin_kudo_categories), admin_kudo_categories_path
     %li#adminreportslink= link_to t(:admin_reports), admin_reports_path
-- if current_user.has_role?(:editor) || current_user.has_role?(:admin)
-  %ul#nav_admin
-    %li#adminreportslink= link_to t(:flagged_kudos), admin_kudo_flags_path
+    - if current_user.has_role?(:editor) || current_user.has_role?(:admin)
+      %li#kudosflagslink= link_to t(:flagged_kudos), admin_kudo_flags_path
