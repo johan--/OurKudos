@@ -53,7 +53,7 @@ class KudoFlag < ActiveRecord::Base
   end
 
   def one_recipient_flagged!
-    flagged_kudo.set_me_and_my_copies_scope_to :recipients, flagger
+    flagged_kudo.set_me_and_my_copies_scope_to :recipient, flagger
     self.ui_message = I18n.t(:kudo_has_been_flagged)
   end
 
