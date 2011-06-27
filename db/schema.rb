@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20110624070226) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-06-20 13:23:59'
+    t.datetime "unlock_in",       :default => '1911-06-27 07:38:07'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
@@ -182,7 +182,6 @@ ActiveRecord::Schema.define(:version => 20110624070226) do
     t.string   "send_to"
     t.integer  "kudo_category_id"
     t.boolean  "removed",          :default => false
-    t.string   "flaggers",         :default => "--- []\n\n"
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"

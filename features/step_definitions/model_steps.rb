@@ -30,7 +30,7 @@ end
 
 
 Given /^settings are seeded$/ do
-  Settings.seed
+  Settings.seed!
 end
 
 Given /^jobs are being dispatched$/ do

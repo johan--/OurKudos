@@ -4,7 +4,7 @@ describe Kudo do
   context "class" do
 
     before :all do
-      Settings.seed
+      Settings.seed!
     end
 
     it 'should know about ability to share kudos on social sites' do
