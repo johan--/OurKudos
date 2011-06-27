@@ -11,9 +11,9 @@ module KudosHelper
     "kdt_#{params[:kudos]}"
   end
 
-  def kudo_flag_type kudo
-   kudo = kudo.kudo if kudo.is_a?(KudoCopy)
-   kudo.flaggers.blank? ? "kf_dimmed" : "kf_activated"
+  def kudo_object kudo
+    return kudo.kudo if kudo.is_a?(KudoCopy)
+    kudo
   end
 
 end

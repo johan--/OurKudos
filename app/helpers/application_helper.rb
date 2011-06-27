@@ -44,6 +44,10 @@ module ApplicationHelper
     Settings[:social_sharing_enabled].value == "no" rescue false
   end
 
+  def kudo_flag_path_user_info user
+    link_to user.to_s + "(#{user.kudo_flags.size})", admin_user_path(user)
+  end
+
 
 
 

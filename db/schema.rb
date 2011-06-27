@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624070226) do
+ActiveRecord::Schema.define(:version => 20110627142119) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -18,6 +18,20 @@ ActiveRecord::Schema.define(:version => 20110624070226) do
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "archived_kudos", :force => true do |t|
+    t.integer  "author_id"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "facebook_sharing", :default => false
+    t.boolean  "twitter_sharing",  :default => false
+    t.string   "share_scope"
+    t.string   "to"
+    t.integer  "kudo_category_id"
+    t.boolean  "removed",          :default => false
+    t.string   "flaggers",         :default => "--- []\n\n"
   end
 
   create_table "authentications", :force => true do |t|
@@ -127,7 +141,7 @@ ActiveRecord::Schema.define(:version => 20110624070226) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-06-27 07:38:07'
+    t.datetime "unlock_in",       :default => '1911-06-20 13:23:59'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
@@ -176,12 +190,14 @@ ActiveRecord::Schema.define(:version => 20110624070226) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "facebook_sharing", :default => false
-    t.boolean  "twitter_sharing",  :default => false
+    t.boolean  "facebook_sharing",            :default => false
+    t.boolean  "twitter_sharing",             :default => false
     t.string   "share_scope"
-    t.string   "send_to"
+    t.string   "to"
     t.integer  "kudo_category_id"
-    t.boolean  "removed",          :default => false
+    t.boolean  "removed",                     :default => false
+    t.string   "flaggers",                    :default => "--- []\n\n"
+    t.boolean  "has_been_improperly_flagged"
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"

@@ -9,11 +9,12 @@ class Kudo < ActiveRecord::Base
 
   has_many :kudo_flags, :dependent => :destroy
 
-  attr_accessor    :to, :js_validation_only
+  attr_accessor    :js_validation_only, :archived_kudo
   attr_accessible  :subject, :body, :to, :share_scope,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 
   before_create :fix_share_scope, :prepare_copies, :if => :new_record?
+
 
   validates_with KudoValidator
   validates :body,        :presence => true, :unless => :js_validation_only # when this is set to true we are not running prepare copies, only recipient validation is run
@@ -29,7 +30,9 @@ class Kudo < ActiveRecord::Base
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
 
 
+
   serialize :flaggers
+
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -187,12 +190,46 @@ class Kudo < ActiveRecord::Base
   end
 
   def all_recipients_are_flaggers?
-    flaggers.sort == people_received_ids
+    flagged_recipients = flaggers.select {|flagger|
+                            people_received_ids.include? flagger}
+
+    flagged_recipients.sort == people_received_ids.sort
   end
 
   def visible_for? user = nil
     return false if user && flaggers.include?(user.id)
     true
+  end
+
+  def flaggers_ids_names
+    @flaggers_ids_names ||= flaggers.map do |user_id|
+      user = User.find user_id
+      [user.id, user.to_s]
+    end
+  end
+
+  def archive_copy
+    self.archived_kudo ||= ArchivedKudo.new
+
+    self.archived_kudo.attributes = attributes.delete_if {
+        |attr| attr ==  "has_been_improperly_flagged"
+    }
+    self.archived_kudo
+  end
+
+  def archivize
+    archive_copy
+    archive_copy.flaggers = flaggers_from_kudo_flags
+    self.archived_kudo.save :validate => false
+    archived_kudo
+  end
+
+  def improperly_flagged!
+    update_attribute :has_been_improperly_flagged, true
+  end
+
+  def flaggers_from_kudo_flags
+    kudo_flags.map(&:flagger).map(&:id).sort
   end
 
 

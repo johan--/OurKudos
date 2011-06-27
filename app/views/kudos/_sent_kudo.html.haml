@@ -12,7 +12,8 @@
       = kudo.recipients_readable_list
     %p= kudo.body
 
-   .kudo_flag_cont.clickable{"data-id" => kudo.id, :class => kudo_flag_type(kudo) }
+   - unless kudo_object(kudo).has_been_improperly_flagged?
+    .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id }
 
    -if kudo.can_be_deleted_by?(current_user)
 
