@@ -13,8 +13,8 @@
       = kudo.recipient.to_s
     %p= kudo.body
 
-    - unless kudo_object(kudo).has_been_improperly_flagged?
-     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.kudo.id }
+   - unless kudo_object(kudo).has_been_improperly_flagged?
+    .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.kudo.id }
    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.kudo.id}"}
