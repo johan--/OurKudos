@@ -75,7 +75,7 @@ class KudoFlag < ActiveRecord::Base
         flagged_kudo.destroy
       elsif self.flag_valid == false
         flagged_kudo.improperly_flagged!
-        flagger.increase_penalty_score!
+        flagger.increase_penalty_score! flagged_kudo.author
       end
   end
 
