@@ -1,80 +1,55 @@
 Feature: System administration
 
 
-Scenario: Administrator can search users
-  Given I'm logged in as an administrator with:
-    | email             | password     | id |
-    | admin@example.net | secret pass1 | 1  |
-  And the following users exists:
-    | email              | password     | id |
-    | user@example.net   | secret pass1 | 2  |
-    | user2@example.net  | secret pass1 | 3  |
-    | user3@example.net  | secret pass1 | 4  |
-  When I go to admin area page
-  And I follow "Users management"
-  Then I should see "Email"
-  And I should see "User name"
-  And I should see "Last sign in at"
-  And I should see "Sign in count"
-  And I should see "User details"
-  And I should see "Remove"
-  And I should see "user@example.net"
-  And I should see "user2@example.net"
-  And I should see "user3@example.net"
-  When I fill in "search" with "user@example.net"
-  Then I should see "user@example.net"
-  And I press "Search"
-  And I should not see "user2@example.net"
-  And I should not see "user3@example.net"
 
 Scenario: Administrator can sort users
     Given I'm logged in as an administrator with:
-      | email             | password     | id |
-      | admin@example.net | secret pass1 | 1  |
+      | email              | password     | id |
+      | admin@example2.net | secret pass1 | 1  |
     And the following users exists:
       | email              | password     | id |
       | user@example.net   | secret pass1 | 2  |
       | user2@example.net  | secret pass1 | 3  |
       | user3@example.net  | secret pass1 | 4  |
     When I go to admin area page
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "Email"
-    Then "admin@example.net" should appear before "user2@example.net"
+    Then "admin@example2.net" should appear before "user2@example.net"
     And "user2@example.net" should appear before "user@example.net"
     And "user3@example.net" should appear before "user@example.net"
     And I follow "Email"
     Then "user@example.net" should appear before "user2@example.net"
     And "user3@example.net" should appear before "user2@example.net"
-    And "user@example.net" should appear before "admin@example.net"
+    And "user@example.net" should appear before "admin@example2.net"
 
 Scenario: Administrator can remove users
   Given I'm logged in as an administrator with:
-      | email             | password     | id |
-      | admin@example.net | secret pass1 | 1  |
+      | email              | password     | id |
+      | admin@example3.net | secret pass1 | 1  |
   And the following users exists:
       | email              | password     | id |
       | user@example.net   | secret pass1 | 2  |
       | user2@example.net  | secret pass1 | 3  |
       | user3@example.net  | secret pass1 | 4  |
   And I go to admin area page
-  And I follow "Users management"
+  And I follow "Users"
   And I follow "Remove"
   Then I should see "User has been removed"
   And I should not see "user2@example.net"
 
 Scenario: Administrator can display user details page
     Given I'm logged in as an administrator with:
-        | email             | password     | id |
-        | admin@example.net | secret pass1 | 1  |
+        | email              | password     | id |
+        | admin@example4.net | secret pass1 | 1  |
     And the following users exists:
         | email              | password     | id |
         | user@example.net   | secret pass1 | 2  |
         | user2@example.net  | secret pass1 | 3  |
         | user3@example.net  | secret pass1 | 4  |
     And I go to admin area page
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "More details"
-    Then I should see "Showing user admin@example.net"
+    Then I should see "Showing user admin@example4.net"
     And I should see "Demographics"
     And I should see "Member since"
     And I should see "User last sign in IP"
@@ -85,15 +60,15 @@ Scenario: Administrator can display user details page
 
 Scenario: Administrator can change user informations
     Given I'm logged in as an administrator with:
-        | email             | password     | id |
-        | admin@example.net | secret pass1 | 1  |
+        | email              | password     | id |
+        | admin@example5.net | secret pass1 | 1  |
     And the following users exists:
         | email              | password     | id |
         | user@example.net   | secret pass1 | 2  |
         | user2@example.net  | secret pass1 | 3  |
         | user3@example.net  | secret pass1 | 4  |
     And I go to admin area page
-    And I follow "Users management"
+    And I follow "Users"
     And I follow "More details"
     And I fill in "user_mobile_number" with "123456789"
     And I press "Update settings"
@@ -101,8 +76,8 @@ Scenario: Administrator can change user informations
 
 Scenario: Administrator can add/remove user roles
     Given I'm logged in as an administrator with:
-        | email             | password     | id |
-        | admin@example.net | secret pass1 | 1  |
+        | email              | password     | id |
+        | admin@example6.net | secret pass1 | 1  |
     And the following users exists:
         | email              | password     | id |
         | user@example.net   | secret pass1 | 2  |
@@ -131,8 +106,8 @@ Scenario: Administrator can add/remove user roles
 
  Scenario: Administrator can change kudos social sharing
     Given I'm logged in as an administrator with:
-        | email             | password     | id |
-        | admin@example.net | secret pass1 | 1  |
+        | email              | password     | id |
+        | admin@example7.net | secret pass1 | 1  |
     And the following users exists:
         | email              | password     | id |
         | user@example.net   | secret pass1 | 2  |
@@ -149,10 +124,21 @@ Scenario: Administrator can add/remove user roles
     And I press "Sign in"
     Then I should see "Administrator has disabled posting to social sites."
 
+  Scenario: Administrator can add Category description
+    Given I'm logged in as an administrator with:
+      | email              | password     | id |
+      | admin@example6.net | secret pass1 | 1  |
+    When I go to admin area page
+    And I follow "Kudo Categories"
+    And I fill in "Name" with "Congrats"
+    And I press "Create"
+    Then I should see "Congrats"
+
+
   Scenario: Administrator can change Category description
     Given I'm logged in as an administrator with:
-      | email             | password     | id |
-      | admin@example.net | secret pass1 | 1  |
+      | email              | password     | id |
+      | admin@example6.net | secret pass1 | 1  |
     And the following Kudo Categories exists:
       | name |
       | Food |
@@ -163,3 +149,28 @@ Scenario: Administrator can add/remove user roles
     And I press "Update Kudo category"
     Then I should see "Congrats"
 
+  Scenario: Administrator can search users
+    Given I'm logged in as an administrator with:
+      | email             | password     | id |
+      | admin@example.net | secret pass1 | 1  |
+      And the following users exists:
+        | email              | password     | id |
+        | user@example.net   | secret pass1 | 2  |
+        | user2@example.net  | secret pass1 | 3  |
+        | user3@example.net  | secret pass1 | 4  |
+    When I go to admin area page
+    And I follow "Users"
+    Then I should see "Email"
+    And I should see "User name"
+    And I should see "Last sign in at"
+    And I should see "Sign in count"
+    And I should see "User details"
+    And I should see "Remove"
+    And I should see "user@example.net"
+    And I should see "user2@example.net"
+    And I should see "user3@example.net"
+    When I fill in "search" with "user@example.net"
+    Then I should see "user@example.net"
+    And I press "Search"
+    And I should not see "user2@example.net"
+    And I should not see "user3@example.net"

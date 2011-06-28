@@ -30,14 +30,14 @@ Factory.define :twitter_authentication, :class => "Authentication" do |a|
 end
 
 Factory.define :identity do |i|
-  i.identity 'my@email.com'
+  i.identity { Factory.next(:email) }
   i.identity_type 'email'
   i.is_primary false
   i.user { Factory(:user) }
 end
 
 Factory.define :primary_identity, :class => "Identity" do |i|
-  i.identity 'my@email.com'
+  i.identity { Factory.next(:email) }
   i.identity_type 'email'
   i.is_primary true
   i.association :user

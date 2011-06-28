@@ -11,7 +11,7 @@ describe Merge do
 
   it 'should be able to merge accounts if passed valid user and valid identity' do
     Merge.should respond_to 'accounts'
-    
+    debugger
     result = Merge.accounts new_user, identity
     result.password = identity.user.password
     

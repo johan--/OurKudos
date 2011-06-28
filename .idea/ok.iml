@@ -436,6 +436,9 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] acts_as_archive (v0.4.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/acts_as_archive-0.4.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] also_migrate (v0.3.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/also_migrate-0.3.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] mover (v0.3.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/mover-0.3.6)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v1.0.12, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/jquery-rails-1.0.12)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] sass (v3.1.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.1.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] uglifier (v1.0.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/uglifier-1.0.0)" level="application" />
   </component>
 </module>
 
