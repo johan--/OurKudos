@@ -11,14 +11,51 @@
 	background-image: none;
 }
 
-/* set the dialog box header text font */
-.ui-dialog .ui-dialog-title {
-	font: normal 1.4em "Copse", Arial, Helvetica, sans-serif;
+.ui-dialog {
+	position: relative;
 }
 
+.ui-dialog #dialog-kudos-character {
+	position: absolute;
+	right: 30px;
+	top: 8px;
+	width: 99px;
+	height: 147px;
+	z-index: 1002;
+}
+
+.stopcop {
+	background: url(kudos_character_stop.png) no-repeat right top;
+}
+	
+.flagman {
+	background: url(kudos_character_flagman.png) no-repeat right top;
+}
+
+/* This exists simply to make text flow around it as if the text were flowing around the Kudos character */
+div.flow-around-object {
+	float: right;
+	width: 100px;
+	height: 60px;
+}
+
+
+
 /* add some padding to the dialog box content area */
-.ui-dialog .ui-dialog-content {
+.ui-dialog-content {
 	padding: 1.5em 2em;
+}
+
+.ui-widget-header {
+	background: url(ui-widget-header-bg.png) no-repeat left bottom;
+	background-color: #c90816;
+}
+
+span.ui-dialog-title {
+	font: 2.0em "Copse", Arial, Helvetica, sans-serif;
+	text-shadow: 2px 2px 0px #880606;
+	width: 8.5em;
+	padding: .5em 0 1em .2em;
 }
 
 /* These rules don't override jquery-ui rules, but are just our own customizations of content */
