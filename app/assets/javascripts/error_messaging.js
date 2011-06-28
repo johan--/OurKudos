@@ -2,13 +2,13 @@ $(document).ready(function(){
 	// if there are Rails flash alerts or Devise form errors, capture the HTML and insert into interstitial message area
 	
 	if ($('#error_explanation').length) {
-		$('#error_explanation').dialog({modal: true, resizable: false, title: 'Action Required:' });
+		$('#error_explanation').dialog({modal: true, resizable: false, title: 'Action Required:', buttons: { "Ok": function() { $(this).dialog("close"); }} });
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 	}
 	
 	if ($('.alert').length) {
-		$('.alert').dialog({modal: true, resizable: false, title: 'Alert:' });
+		$('.alert').dialog({modal: true, resizable: false, title: 'Alert:', buttons: { "Ok": function() { $(this).dialog("close"); }} });
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 	}
@@ -32,7 +32,10 @@ $(document).ready(function(){
   	return false;
   });
   
- 
+ 	$('a#cancel-kudo-flag').click(function(){
+ 		$('div').dialog('close');
+ 	});
+        
 	
 
 }); // document.ready

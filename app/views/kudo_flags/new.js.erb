@@ -2,6 +2,6 @@ var popup_html  = '<%= escape_javascript render :partial => "kudo_flag_popup" %>
 var popup_box   = $("div.popup_placeholder#flag_popup_placeholder_<%= @kudo.id %>");
 
 
-popup_box.html(popup_html).dialog({title: '<%= t(:kf_help_understand_message) %>', modal: true, resizable: false });
+popup_box.html(popup_html).dialog({title: '<%= t(:kf_help_understand_message) %>', modal: true, resizable: false, buttons: { "Cancel": function() { $(this).dialog("close"); }} });
 
 $('div.ui-dialog').prepend('<div id="dialog-kudos-character" class="flagman"></div>');
