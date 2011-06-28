@@ -9,13 +9,17 @@ class KudoFlag < ActiveRecord::Base
 
   after_save  :process_archivization, :on => :update
 
-  scope :for_management, Proc.new {|order, direction|
-                                          joins(:flagged_kudo).joins(:flagger).
-                                          order("#{order} #{direction}").
-                                          where(:flag_valid => nil) }
+  scope :for_management, ->(order, direction) {
+                                                joins(:flagged_kudo).joins(:flagger).
+                                                order("#{order} #{direction}").
+                                                where(:flag_valid => nil) }
 
-  scope :valid, where(:valid => true)
-
+  scope :valid,                      where(:valid => true)
+  scope :flagger_is, ->(user)     {  where("kudo_flags.flagger_id = ?", user.id) }
+  scope :date_range, ->(from, to) {  where(:created_at => from..to) }
+  scope :with_kudo, joins(:flagged_kudo)
+  scope :improperly_flagged_for, ->(user) {  with_kudo.flagger_is(user).
+                                             where("kudos.has_been_improperly_flagged  = ?", true)  }
 
   def process_flagging
     recipients = flagged_kudo.people_received_ids.sort
@@ -71,6 +75,7 @@ class KudoFlag < ActiveRecord::Base
         flagged_kudo.destroy
       elsif self.flag_valid == false
         flagged_kudo.improperly_flagged!
+        flagger.increase_penalty_score!
       end
   end
 

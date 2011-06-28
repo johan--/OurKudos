@@ -30,7 +30,6 @@ class Kudo < ActiveRecord::Base
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
 
 
-
   serialize :flaggers
 
 

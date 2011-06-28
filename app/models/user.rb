@@ -252,11 +252,6 @@ class User < ActiveRecord::Base
     Friendship.where(:friend_id => self.id).destroy_all
   end
 
-  def save_old_password_data
-    self.old_password_salt      = self.password_salt
-    self.old_encrypted_password = self.encrypted_password
-  end
-
   def password_salt= password_salt
     self.old_password_salt = self.password_salt           if remember_old_pass
     @password_salt = password_salt
@@ -273,6 +268,51 @@ class User < ActiveRecord::Base
     self.password_salt      = self.old_password_salt
     self.encrypted_password = self.old_encrypted_password
     save :validate => false
+  end
+
+  def my_improperly_flagged_kudos
+    @improperly_flagged_kudos ||= KudoFlag.improperly_flagged_for self
+  end
+
+  def improperly_flagged_kudos_authors_ids
+    my_improperly_flagged_kudos.map {|kf| kf.flagged_kudo.author_id }.flatten
+  end
+
+  # returns a hash of authors i.e {3 => 3, means = author_id => with 3 improperly flagged kudos)
+  # we will check that number changes each time users flag improperly given kudo for given author
+  #penalty score will depend on it.
+  def improperly_flagged_kudos_authors_counted_hash
+    hash = Hash.new(0)  # with default value 0
+
+    improperly_flagged_kudos_authors_ids.each do |author_id|
+      hash[author_id] += 1
+    end
+
+    hash
+  end
+
+  def get_factor_for author
+    authors = improperly_flagged_kudos_authors_counted_hash
+
+    return 5 if !authors.keys.include?(author.id)
+
+    case authors[author.id]
+      when 0..5   ; return 6
+      when 6..10  ; return 7
+      when 10..20 ; return 8
+      when authors[author.id] > 20; return 10
+    end
+
+  end
+
+  #each time user flags kudo as invalid
+  def increase_penalty_score! author
+    update_attribute :penalty_score, (my_improperly_flagged_kudos.size * get_factor_for(author)).to_i
+    penalty_score
+  end
+
+  def decrease_penalty_score! factor = 5
+    update_attribute :penalty_score, (my_improperly_flagged_kudos.size * factor).to_i
   end
 
 
