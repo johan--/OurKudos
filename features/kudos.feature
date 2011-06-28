@@ -14,6 +14,7 @@ Feature: Kudos sending
     And I fill in "kudo_to" with "user2@example.net"
     And I press "Kudo_send_button" image button
     Then I should see "Your Kudo has been sent"
+    When I go to the sent kudos path
     And I should see "Some message"
 
 

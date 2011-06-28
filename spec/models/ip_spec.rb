@@ -28,7 +28,7 @@ describe Ip do
     it 'should display time in minutes if it is locked for more than minute' do
       time = locked_ip.lock_seconds
         debugger
-        (locked_ip.minutes_seconds.include?((time/60).to_s).should be_true) &&
+        (locked_ip.minutes_seconds.include?((time/60.round(1)).to_s).should be_true) &&
           (locked_ip.minutes_seconds.include?("minutes").should be_true)
     end
  

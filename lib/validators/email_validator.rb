@@ -3,9 +3,10 @@ class EmailValidator < ActiveModel::EachValidator
     record.errors[attribute] << (options[:message]  || "is invalid") unless value =~ RegularExpressions.email
 
     if display_resend_error? value, record
-      record.errors[:base] << (options[:message]      || I18n.t(:please_confirm_identity, :email => record.email, :host => host  ))
+      record.errors[:base] << (options[:message]      || I18n.t(:please_confirm_identity, :email => (record.email rescue record.identity), :host => host  ))
     else
-      record.errors[attribute] << (options[:message]  || "has already been taken") if identity_email_exists?(record, value)
+      record.errors[attribute] << (options[:message]  || "has already been taken") if record.is_a?(User)     && identity_email_exists?(record, value)
+      record.errors[attribute] << (options[:message]  || "has already been taken") if record.is_a?(Identity) && search_identity_table(value, record)
     end
 
   end
@@ -31,11 +32,11 @@ class EmailValidator < ActiveModel::EachValidator
   end
 
   def search_users_table email, record
-    @user ||= User.where(:email => email).where("id <> ?", record.id)
+     User.where(:email => email).where("id <> ?", record.id)
   end
 
   def search_identities_table email
-    @identity ||= Identity.where(:identity => email, :identity_type => "email")
+     Identity.where(:identity => email, :identity_type => "email")
   end
 
 

@@ -10,6 +10,8 @@ describe FacebookKudo do
 
     it 'should post itself asynchronously right after saving' do
       DelayedJob.destroy_all
+      Settings.seed!
+
       facebook_kudo.should respond_to "post_me!"
 
       before = Delayed::Job.count

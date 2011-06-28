@@ -22,6 +22,8 @@ module NavigationHelpers
       '/home'
     when /received kudos page/
       '/home?kudos=received'
+    when /the sent kudos path/
+      '/home?kudos=sent'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

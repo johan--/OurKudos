@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Merge do
 
 
-  let(:user)     { User.new(:email => 'some@email.com', :id => 1)}
+  let(:user)     { Factory(:user) }
 
   let(:identity) { Factory(:identity) }
 
