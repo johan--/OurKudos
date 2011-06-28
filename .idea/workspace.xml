@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/ip_spec.rb" afterPath="$PROJECT_DIR$/spec/models/ip_spec.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/features/users.feature" afterPath="$PROJECT_DIR$/features/users.feature" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/merge_spec.rb" afterPath="$PROJECT_DIR$/spec/models/merge_spec.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,19 +27,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ip_spec.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/spec/models/ip_spec.rb">
+      <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.26666668">
+            <state line="57" column="45" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <file leaf-file-name="users.feature" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/features/users.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="45" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
+            <state line="25" column="45" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.3867121">
               <folding />
             </state>
           </provider>
@@ -68,7 +68,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
@@ -76,7 +75,6 @@
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
         <option value="$PROJECT_DIR$/features/administrator.feature" />
         <option value="$PROJECT_DIR$/app/models/archived_kudo.rb" />
-        <option value="$PROJECT_DIR$/spec/models/merge_spec.rb" />
         <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
         <option value="$PROJECT_DIR$/spec/factories/factories.rb" />
         <option value="$PROJECT_DIR$/lib/validators/email_validator.rb" />
@@ -84,6 +82,8 @@
         <option value="$PROJECT_DIR$/features/support/paths.rb" />
         <option value="$PROJECT_DIR$/spec/models/facebook_kudo_spec.rb" />
         <option value="$PROJECT_DIR$/spec/models/ip_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/models/merge_spec.rb" />
+        <option value="$PROJECT_DIR$/features/users.feature" />
       </list>
     </option>
   </component>
@@ -157,11 +157,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="spec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="features" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -434,11 +430,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/settings.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/factories/factories.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="47" column="31" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.7917384" />
@@ -489,11 +480,6 @@
         <state line="19" column="36" selection-start="718" selection-end="718" vertical-scroll-proportion="0.42248723" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/merge_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="29" selection-start="99" selection-end="109" vertical-scroll-proportion="-0.1" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/facebook_kudo_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="6" selection-start="260" selection-end="260" vertical-scroll-proportion="0.43333334" />
@@ -504,6 +490,20 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/merge_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.23333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/ip_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="80" selection-start="1194" selection-end="1194" vertical-scroll-proportion="0.56666666">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="45" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
@@ -511,9 +511,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/ip_spec.rb">
+    <entry file="file://$PROJECT_DIR$/features/users.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="812" selection-end="812" vertical-scroll-proportion="0.26666668">
+        <state line="25" column="45" selection-start="1086" selection-end="1086" vertical-scroll-proportion="0.3867121">
           <folding />
         </state>
       </provider>
