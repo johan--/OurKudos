@@ -3,7 +3,8 @@ class Settings < ActiveRecord::Base
   class << self
     def seed!
       create [
-        { :name => "social-sharing-enabled", :value => "yes" }
+        { :name => "social-sharing-enabled", :value => "yes" },
+        { :name => "sign-up-disabled", :value => "no" }
       ]
     end
 
