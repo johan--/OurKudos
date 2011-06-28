@@ -12,7 +12,6 @@
 }
 
 .ui-dialog {
-	position: relative;
 }
 
 .ui-dialog #dialog-kudos-character {
@@ -61,7 +60,7 @@ span.ui-dialog-title {
 div.ui-dialog-buttonpane div.ui-dialog-buttonset button.action_button {
 	border: 0;
 	background: none;
-	background-color: red;
+	background-color: #c90816;
 	padding: 5px 8px;
 	border-radius: 5px;
 	color: #fff;
@@ -111,4 +110,9 @@ form#new_kudo_flag {
 div.ui-dialog div#error_explanation, div.ui-dialog div.alert {
 	border: none;
 	color: #000;
+}
+
+.ui-dialog-titlebar .ui-dialog-titlebar-close {
+	right: -4px;
+	top: 5px;
 }
