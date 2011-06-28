@@ -2,13 +2,13 @@ $(document).ready(function(){
 	// if there are Rails flash alerts or Devise form errors, capture the HTML and insert into interstitial message area
 	
 	if ($('#error_explanation').length) {
-		$('#error_explanation').dialog({modal: true, resizable: false, title: 'Action Required:', buttons: { "Ok": function() { $(this).dialog("close"); }} });
+		$('#error_explanation').dialog({modal: true, resizable: false, title: 'Action Required:', buttons: [{ text: "Okay", click: function(){$(this).dialog("close");}, class: 'action_button' } ] });
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 	}
 	
 	if ($('.alert').length) {
-		$('.alert').dialog({modal: true, resizable: false, title: 'Alert:', buttons: { "Ok": function() { $(this).dialog("close"); }} });
+		$('.alert').dialog({modal: true, resizable: false, title: 'Alert:', buttons: [{ text: "Okay", click: function(){$(this).dialog("close");}, class: 'action_button' } ]});
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 	}

@@ -58,10 +58,41 @@ span.ui-dialog-title {
 	padding: .5em 0 1em .2em;
 }
 
-/* These rules don't override jquery-ui rules, but are just our own customizations of content */
+div.ui-dialog-buttonpane div.ui-dialog-buttonset button.action_button {
+	border: 0;
+	background: none;
+	background-color: red;
+	padding: 5px 8px;
+	border-radius: 5px;
+	color: #fff;
+	font: normal 1.2em "Copse", Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	outline: none;
+	
+	&:hover {
+		background-color: #bbb;
+	}
+}
+
+div.ui-dialog-buttonpane div.ui-dialog-buttonset button.cancel_link {
+	border: 0;
+	background: none;
+	color: red;
+	font: normal 1.2em "Copse", Arial, Helvetica, sans-serif;
+	
+	span {
+		border-bottom: 1px solid red;
+	}
+}
+
+
 
 form#new_kudo_flag {
 	input[type=submit] {
+		/* temporarily hiding this item */
+		display: none;
+		
+		
 		border: 0;
 		background-color: red;
 		padding: 5px 8px;
