@@ -4,6 +4,7 @@ class ChangeKudoFlagAgainAddFlaggersColumnToKudos < ActiveRecord::Migration
     remove_column :kudo_flags, :flaggable_type
     add_column :kudo_flags, :kudo_id, :integer
     add_index  :kudo_flags, :kudo_id
+    add_column :kudos, :flaggers, :default => [].to_yaml
   end
 
   def down
