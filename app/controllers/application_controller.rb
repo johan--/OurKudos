@@ -9,6 +9,15 @@ class ApplicationController < ActionController::Base
 
   include OurKudos::Controllers::IpVerification
 
+  def render_404
+    respond_to do |format|
+      format.html { render :file => "#{Rails.root}/public/404.html", :status => "404 Not Found" }
+      format.xml  { render :nothing => true, :status => "404 Not Found" }
+      format.json { render :text => "{}", :status => "404 Not Found" }
+      end
+    true
+  end
+
   def after_sign_in_path_for resource
     (session[:"user.return_to"].nil?) ?
         home_path : session[:"user.return_to"].to_s
@@ -43,16 +52,11 @@ class ApplicationController < ActionController::Base
       session['user.email_for_password_recovery'] = nil
   end
 
-  def facebook_icon
-    '<img src =\'/assets/facebook_icon.png\' />'.html_safe
+  def can_register?
+    return true if cookies[:can_register] == "true"
+    render_404  if SETTINGS[:sign_up_disabled] == 'yes'
+    true
   end
-
-  def twitter_icon
-    '<img src =\'/assets/twitter_icon.png\'  />'.html_safe
-  end
-
-
-
 
 
 end

@@ -19,7 +19,7 @@
    = f.select(:kudo_category_id, options_for_select(KudoCategory.collection_for_kudo_form), {:prompt => "Uncategorized"}, :class => "full-width-select" )
 
  #kudo_send_col_right
-  - if social_sharing_disabled?
+  - unless social_sharing_enabled?
    %p.notice= t(:kudos_sharing_disabled)
   %p
    = f.label :to, t(:send_to)

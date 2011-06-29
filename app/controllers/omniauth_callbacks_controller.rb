@@ -1,5 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_filter :ip_check, :set_omniauth_data
+  before_filter :ip_check, :can_register?, :set_omniauth_data
   
   attr_accessor :omniauth_data
   attr_accessor :preexisting_authorization_token

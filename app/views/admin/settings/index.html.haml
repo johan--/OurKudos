@@ -1,9 +1,23 @@
-#kudos-settings
+%h4 Please note that any changes below will be applied with next deployment
+
+#social_sharing_enabled
   = form_for @social_sharing_enabled, :url => admin_setting_path(@social_sharing_enabled), :method => :put do |f|
-    = label_tag "settings-social-sharing-enabled", "Social Sharing Enabled"
-    = radio_button_tag "settings[value]", "no", (@social_sharing_enabled.value == "no" || @social_sharing_enabled.value.blank?)
-    No
-    = radio_button_tag "settings[value]", "yes", @social_sharing_enabled.value == "yes"
-    Yes
-    %br/
-    = f.submit "Submit", :div => false
+    %p
+      = label_tag "settings-social-sharing-enabled", "Social Sharing Enabled"
+      = radio_button_tag "settings[value]", "no", (@social_sharing_enabled.value == "no" || @social_sharing_enabled.value.blank?)
+      No
+      = radio_button_tag "settings[value]", "yes", @social_sharing_enabled.value == "yes"
+      Yes
+
+    %p= f.submit "Save", :div => false
+
+#sign_up_disabled
+  = form_for @sign_up_disabled, :url => admin_setting_path(@sign_up_disabled), :method => :put do |f|
+    %p
+      = label_tag "settings-sign-up-disabled", "Sign up Disabled"
+      = radio_button_tag "settings[value]", "no", (@sign_up_disabled.value == "no" || @sign_up_disabled.value.blank?)
+      No
+      = radio_button_tag "settings[value]", "yes", @sign_up_disabled.value == "yes"
+      Yes
+
+    %p= f.submit "Save", :div => false

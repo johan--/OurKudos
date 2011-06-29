@@ -4,6 +4,7 @@ class Admin::SettingsController < ApplicationController
 
   def index
     @social_sharing_enabled = Settings[:social_sharing_enabled]
+    @sign_up_disabled       = Settings[:sign_up_disabled]
   end
 
   def update

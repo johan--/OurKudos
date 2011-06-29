@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   def error_messages_for object
     s = "<div class='error' id='error_explanation'>"
     object.errors.full_messages.uniq.each  do |error|
@@ -40,13 +40,16 @@ module ApplicationHelper
     admin_user_identity_path(user, identity)
   end
 
-  def social_sharing_disabled?
-    Settings[:social_sharing_enabled].value == "no" rescue false
-  end
-
   def kudo_flag_path_user_info user
     link_to user.to_s + "(#{user.kudo_flags.size})", admin_user_path(user)
   end
+
+  SETTINGS.each do |key, value|
+     method = "#{key}?"
+     define_method method do
+       value == 'yes'
+     end
+   end
 
 
 

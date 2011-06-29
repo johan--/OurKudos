@@ -9,6 +9,7 @@ class EmailValidator < ActiveModel::EachValidator
       record.errors[attribute] << (options[:message]  || "has already been taken") if record.is_a?(Identity) && search_identity_table(value, record)
     end
 
+    record.errors[:base] << I18n.t(:email_is_different_than_invitation_email, :email => record.email) if  consider_invitation_email?(record) && invalid_invitation_email?(record)
   end
 
   def identity_email_exists?(record, email)
@@ -37,6 +38,14 @@ class EmailValidator < ActiveModel::EachValidator
 
   def search_identities_table email
      Identity.where(:identity => email, :identity_type => "email")
+  end
+
+  def consider_invitation_email?(record)
+    record.is_a?(User) && record.new_record? && !record.consider_invitation_email.blank?
+  end
+
+  def invalid_invitation_email?(record)
+    record.email != record.consider_invitation_email
   end
 
 
