@@ -19,7 +19,7 @@ class ProfilePicturesController < ApplicationController
     if current_user.remove_system_avatar!
       redirect_to home_path, :notice => I18n.t(:profile_picture_removed)
     else
-      render :home_path, :alert => I18n.t(:unable_to_remove_that_picture)
+      render home_path, :alert => I18n.t(:unable_to_remove_that_picture)
     end
   end
 
