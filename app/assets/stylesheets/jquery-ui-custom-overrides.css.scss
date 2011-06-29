@@ -60,13 +60,15 @@ span.ui-dialog-title {
 div.ui-dialog-buttonpane div.ui-dialog-buttonset button.action_button {
 	border: 0;
 	background: none;
-	background-color: #c90816;
-	padding: 5px 8px;
+	
+	padding: 5px 23px 5px 8px;
 	border-radius: 5px;
 	color: #fff;
 	font: normal 1.2em "Copse", Arial, Helvetica, sans-serif;
 	cursor: pointer;
 	outline: none;
+	background: url(action_button_bg.png) no-repeat right;
+	background-color: #c90816;
 	
 	&:hover {
 		background-color: #bbb;
