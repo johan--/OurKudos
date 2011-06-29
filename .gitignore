@@ -12,3 +12,4 @@ public/assets/*
 .sass-cache/*
 *.swp
 *.DS_Store
+/public/system/*
