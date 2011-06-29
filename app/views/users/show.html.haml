@@ -107,6 +107,7 @@
 .userprofile_col_right
   %h3= t :profile_picture
   %p= link_to t(:upload_new_profile_picture), new_user_profile_picture_path(current_user), :class => "action_link"
+  %p= link_to(t(:remove_my_current_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete) if current_user.has_profile_picture?
   
   %h3= t :gender
   %p= current_user.gender

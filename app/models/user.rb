@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
     middle_name
   end
   # ======================
-  # == instance methods ==
+  # ====== avatars =======
   # ======================
 
   has_attached_file :profile_picture, :styles => {
@@ -86,6 +86,12 @@ class User < ActiveRecord::Base
       :small    => "50x50#"
   }
 
+    include Gravtastic
+    gravtastic :email, :secure => true, :filetype => :png, :size => 50
+
+  # ======================
+  # == instance methods ==
+  # ======================
   def to_s
     "#{first_name} #{middle_name} #{last_name}"
   end
@@ -331,7 +337,16 @@ class User < ActiveRecord::Base
   # THIS WILL BE REFACTORED TO SUPPORT FACEBOOK / GRAVATAR / TWITTER
   def current_profile_picture
     return profile_picture(:small) unless profile_picture(:small).to_s.include?("missing")
+    return gravatar_url
     'avatar_unknown.png'
+  end
+
+  def has_profile_picture?
+    !profile_picture(:small).to_s.include?("missing")
+  end
+
+  def remove_system_avatar!
+    update_attribute :profile_picture, nil
   end
 
   class << self

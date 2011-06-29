@@ -33,6 +33,7 @@ gem 'uglifier'
 gem 'therubyracer'
 gem 'hoptoad_notifier'
 gem 'paperclip'
+gem 'gravtastic'
 
 group :test do
   gem "cucumber"
