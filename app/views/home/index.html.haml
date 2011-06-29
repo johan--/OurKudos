@@ -6,7 +6,7 @@
     Send Kudos Today!
   %p= link_to image_tag('join_now_button.png', :alt=>"Join Ourkudos now!"), new_user_registration_path unless sign_up_disabled?
   %p= image_tag('kudos_hugging.png')
-  %p= link_to image_tag('sign-in-facebook.gif', :alt => "Connect with Facebook"), omniauth_authorize_path(:user, 'facebook') unless sign_up_disabled?
+  %p= link_to image_tag('sign-in-facebook.gif', :alt => "Connect with Facebook"), omniauth_authorize_path(:user, 'facebook')
 #col_right
   = render :partial => "shared/messaging"
   #recent_kudos_cont_top
