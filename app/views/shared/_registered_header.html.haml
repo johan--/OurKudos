@@ -6,4 +6,4 @@
     = link_to "My Account", user_path(current_user)
     &bull;
     = link_to('Sign Out', destroy_user_session_path)
-  = image_tag('avatar_unknown.png', :id => 'user_avatar', :class=>'avatar')
+  = image_tag(current_user.current_profile_picture, :id => 'user_avatar', :class=>'avatar')

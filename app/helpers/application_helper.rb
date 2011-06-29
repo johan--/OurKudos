@@ -55,6 +55,10 @@ module ApplicationHelper
     Settings[:social_sharing_enabled] == 'yes'
   end
 
+  def profile_picture
+    current_user.current_profile_picture
+  end
+
 
   
 end

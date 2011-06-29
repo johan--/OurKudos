@@ -7,9 +7,11 @@ class User < ActiveRecord::Base
          
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :city, :state_or_province,
-                  :postal_code, :phone_number, :mobile_number, :gender, :role_ids
+                  :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
+                  :profile_picture
 
-  attr_accessor :primary_identity, :skip_password_validation, :remember_old_pass, :consider_invitation_email
+  attr_accessor :primary_identity, :skip_password_validation,
+                :remember_old_pass, :consider_invitation_email
   # ================
   # = associations =
   # ================
@@ -77,6 +79,13 @@ class User < ActiveRecord::Base
   # ======================
   # == instance methods ==
   # ======================
+
+  has_attached_file :profile_picture, :styles => {
+      :large    => "300x300!",
+      :medium   => '150x150!',
+      :small    => "50x50#"
+  }
+
   def to_s
     "#{first_name} #{middle_name} #{last_name}"
   end
@@ -315,7 +324,15 @@ class User < ActiveRecord::Base
     update_attribute :penalty_score, (my_improperly_flagged_kudos.size * factor).to_i
   end
 
+  def to_param
+    "#{self.id}-#{self.to_s.underscore.gsub(" ",'-')}"
+  end
 
+  # THIS WILL BE REFACTORED TO SUPPORT FACEBOOK / GRAVATAR / TWITTER
+  def current_profile_picture
+    return profile_picture(:small) unless profile_picture(:small).to_s.include?("missing")
+    'avatar_unknown.png'
+  end
 
   class << self
 
