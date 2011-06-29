@@ -2,13 +2,13 @@ $(document).ready(function(){
 	// if there are Rails flash alerts or Devise form errors, capture the HTML and insert into interstitial message area
 	
 	if ($('#error_explanation').length) {
-		$('#error_explanation').dialog({modal: true, resizable: false, title: 'Action Required:', draggable: false, buttons: [{ text: "Okay", click: function(){$(this).dialog("close");}, class: 'action_button' } ] });
+		$('#error_explanation').dialog({width: 446, modal: true, resizable: false, title: 'Action Required:', draggable: false, buttons: [{ text: "Okay", click: function(){$(this).dialog("close");}, class: 'action_button' } ] });
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 	}
 	
 	if ($('.alert').length) {
-		$('.alert').dialog({modal: true, resizable: false, title: 'Alert:', draggable: false, buttons: [{ text: "Okay", click: function(){$(this).dialog("close");}, class: 'action_button' } ]});
+		$('.alert').dialog({width: 446, modal: true, resizable: false, title: 'Alert:', draggable: false, buttons: [{ text: "Okay", click: function(){$(this).dialog("close");}, class: 'action_button' } ]});
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 	}

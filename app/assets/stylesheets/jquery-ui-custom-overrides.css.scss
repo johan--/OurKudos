@@ -53,7 +53,7 @@ div.flow-around-object {
 span.ui-dialog-title {
 	font: 2.0em "Copse", Arial, Helvetica, sans-serif;
 	text-shadow: 2px 2px 0px #880606;
-	width: 8.5em;
+	width: 13em;
 	padding: .5em 0 1em .2em;
 }
 
@@ -112,7 +112,8 @@ div.ui-dialog div#error_explanation, div.ui-dialog div.alert {
 	color: #000;
 }
 
+/* determines position of "x" close control in header area */
 .ui-dialog-titlebar .ui-dialog-titlebar-close {
-	right: -4px;
-	top: 5px;
+	right: 0px;
+	top: 10px;
 }
