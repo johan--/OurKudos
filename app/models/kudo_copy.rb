@@ -36,8 +36,11 @@ class KudoCopy < ActiveRecord::Base
   class << self
 
    def move_invitation_kudos_to user
-     KudoCopy.for_email(user.email).each do |kudo|
-       kudo.kudoable.destroy
+     kudos = EmailKudo.where(:email => user.email).
+                      map(&:kudo).compact.flatten
+
+     kudos.each do |kudo|
+       kudo.kudoable.destroy if kudo.kudoable
        kudo.recipient           = user
        kudo.folder              = user.inbox
        kudo.temporary_recipient = nil
