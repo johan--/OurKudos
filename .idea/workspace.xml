@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ok.iml" afterPath="$PROJECT_DIR$/.idea/ok.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.haml" afterPath="$PROJECT_DIR$/app/views/users/show.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/views/users/en.yml" afterPath="$PROJECT_DIR$/config/locales/views/users/en.yml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="347" column="13" selection-start="10573" selection-end="10573" vertical-scroll-proportion="0.64906305">
+            <state line="347" column="13" selection-start="10573" selection-end="10573" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -44,7 +39,16 @@
       <file leaf-file-name="profile_pictures_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
+            <state line="21" column="72" selection-start="544" selection-end="573" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="en.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="68" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.9318569">
               <folding />
             </state>
           </provider>
@@ -97,7 +101,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20110629161305_add_profile_picture_to_users.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/views/profile_pictures/new.html.haml" />
-        <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
         <option value="$PROJECT_DIR$/app/views/shared/_registered_header.html.haml" />
         <option value="$PROJECT_DIR$/app/views/kudos/_home_page_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
@@ -107,6 +110,7 @@
         <option value="$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/users/show.html.haml" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
       </list>
     </option>
   </component>
@@ -222,6 +226,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -569,13 +599,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="54" selection-start="2933" selection-end="2933" vertical-scroll-proportion="0.8637138">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/registered.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="17" selection-start="410" selection-end="410" vertical-scroll-proportion="0.53333336" />
@@ -642,13 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="6" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="109" column="2" selection-start="3062" selection-end="3062" vertical-scroll-proportion="0.0">
@@ -658,7 +674,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="347" column="13" selection-start="10573" selection-end="10573" vertical-scroll-proportion="0.64906305">
+        <state line="347" column="13" selection-start="10573" selection-end="10573" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="72" selection-start="544" selection-end="573" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="68" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.9318569">
           <folding />
         </state>
       </provider>
