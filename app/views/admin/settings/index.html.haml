@@ -12,7 +12,7 @@
     %p= f.submit "Save", :div => false
 
 #sign_up_disabled
-  = form_for @sign_up_disabled, :url => admin_setting_path(@sign_up_disabled), :method => :put do |f|
+  = form_for @sign_up_disabled, :url => admin_setting_path(:id => @sign_up_disabled), :method => :put do |f|
     %p
       = label_tag "settings-sign-up-disabled", "Sign up Disabled"
       = radio_button_tag "settings[value]", "no", (@sign_up_disabled.value == "no" || @sign_up_disabled.value.blank?)
