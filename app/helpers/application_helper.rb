@@ -59,6 +59,13 @@ module ApplicationHelper
     current_user.current_profile_picture
   end
 
+  def profile_picture_for user
+    image_tag(user.current_profile_picture, :class => 'avatar')
+  end
+
+  def anon_picture
+    image_tag 'avatar_unknown.png', :class => 'avatar'
+  end
 
   
 end

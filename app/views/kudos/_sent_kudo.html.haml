@@ -1,5 +1,8 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
- = image_tag(kudo.author.current_profile_picture, :class=>'avatar')
+ - if kudo.author
+  = profile_picture_for(kudo.author)
+ - else
+  = anon_picture
  .kudo_message_bubble_cont
   .kudo_message_top
   .kudo_message_mid
