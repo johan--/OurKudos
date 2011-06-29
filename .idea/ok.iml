@@ -192,7 +192,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="rails" version="3.1.0.rc1" bound="EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="rails" version="3.1.0.rc4" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
