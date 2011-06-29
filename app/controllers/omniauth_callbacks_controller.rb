@@ -28,10 +28,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def omniauth_sign_up
-     if SETTINGS[:sign_up_disabled] == "yes"
+     user = user_from_omniauth_or_identities
+     if user.new_record?
         redirect_to root_path, :notice => I18n.t(:administrator_has_disabled_that_option)
      else
-      process_redirections_or_sign_up_for user_from_omniauth_or_identities
+      process_redirections_or_sign_up_for user
      end
   end
 

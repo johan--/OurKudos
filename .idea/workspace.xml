@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/views/users/en.yml" afterPath="$PROJECT_DIR$/config/locales/views/users/en.yml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +38,7 @@
       <file leaf-file-name="omniauth_callbacks_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="26" selection-start="930" selection-end="930" vertical-scroll-proportion="0.45217392">
+            <state line="34" column="46" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.40869564">
               <folding />
             </state>
           </provider>
@@ -83,8 +81,8 @@
         <option value="$PROJECT_DIR$/app/views/admin/settings/index.html.haml" />
         <option value="$PROJECT_DIR$/app/models/settings.rb" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb" />
         <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
+        <option value="$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb" />
       </list>
     </option>
   </component>
@@ -628,7 +626,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="26" selection-start="930" selection-end="930" vertical-scroll-proportion="0.45217392">
+        <state line="34" column="46" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.40869564">
           <folding />
         </state>
       </provider>
