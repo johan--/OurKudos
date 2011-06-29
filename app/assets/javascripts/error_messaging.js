@@ -20,18 +20,13 @@ $(document).ready(function(){
 	// the video tour button clicked (move this to a separate file at some point)
   $('a.video_tour_link').click(function(){
   	$('body').append('<div id="kudos_video"></div>');
-  	$('#kudos_video').html('<iframe width="425" height="349" src="http://www.youtube.com/embed/ahHZFck-2ys?rel=0" frameborder="0" allowfullscreen></iframe>').dialog({modal: true, width: 467, resizable: false, buttons: [{ text: "Exit", click: function(){$(this).dialog("close");} } ]  });
+  	$('#kudos_video').html('<iframe width="425" height="349" src="http://www.youtube.com/embed/ahHZFck-2ys?rel=0" frameborder="0" allowfullscreen></iframe>').dialog({modal: true, width: 446, resizable: false, buttons: [{ text: "Exit", click: function(){$(this).dialog("close"); $('div#kudos_video').remove(); } } ]  });
   	
   	$('button.ui-button').addClass('action_button');
+  	
   	/* fix some styling rules that really apply to error messages */
   	
   	$('.ui-widget-header').css('display','none');
-  	
-  	/* close button on jquery ui modal dialog clicked, remove the video content from the DOM */
-  	$('a.ui-dialog-titlebar-close').click(function(){
-			
-			$('div#kudos_video').remove();
-		});
   	
   	
   	return false;
