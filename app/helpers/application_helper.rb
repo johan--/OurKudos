@@ -51,7 +51,9 @@ module ApplicationHelper
      end
    end
 
-
+  def social_sharing_enabled?
+    Settings[:social_sharing_enabled] == 'yes'
+  end
 
 
   

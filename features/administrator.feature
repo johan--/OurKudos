@@ -115,7 +115,7 @@ Scenario: Administrator can add/remove user roles
     And I go to admin area page
     And I follow "Website options"
     And I choose "settings_value_no"
-    And I press "Submit"
+    And I press "Save"
     Then I should see "Website Options updated."
     When I follow "Sign Out"
     And I follow "Sign in button" image
