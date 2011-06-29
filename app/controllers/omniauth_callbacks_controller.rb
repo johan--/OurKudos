@@ -1,5 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  before_filter :ip_check, :can_register?, :set_omniauth_data
+  before_filter :ip_check, :set_omniauth_data
   
   attr_accessor :omniauth_data
   attr_accessor :preexisting_authorization_token
@@ -28,7 +28,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def omniauth_sign_up
-     process_redirections_or_sign_up_for user_from_omniauth_or_identities
+     if SETTINGS[:sign_up_disabled] == "yes"
+        redirect_to root_path, :notice => I18n.t(:administrator_has_disabled_that_option)
+     else
+      process_redirections_or_sign_up_for user_from_omniauth_or_identities
+     end
   end
 
   def add_new_authentication
