@@ -439,3 +439,18 @@ h3 {
 	width: 280px;
 }
 
+/* Profile pics re-ordering function */
+
+ul.profile_pics {
+	li {
+		padding: 5px;
+		cursor: move;
+		border: 2px dotted #aaa;
+		border-radius: 5px;
+		width: 15em;
+		margin-bottom: 5px;
+		font: 1.4em "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", sans-serif;
+		
+	}
+}
+

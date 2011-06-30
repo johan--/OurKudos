@@ -7,8 +7,8 @@
 
 
   = hidden_field_tag "user_id", current_user.to_param
-  %ul.sortable
+  %ul.sortable.profile_pics
     - current_user.profile_picture_priority.each do |position, type|
-      %li{:id => position, :style =>"display:block; width: 100px; font-size: 15px; border: 1px solid black;background-color:yellow"}= type.to_s.capitalize
+      %li{:id => position}= type.to_s.capitalize
 
 
