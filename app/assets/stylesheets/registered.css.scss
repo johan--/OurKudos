@@ -443,14 +443,26 @@ h3 {
 
 ul.profile_pics {
 	li {
-		padding: 5px;
+		padding: 10px;
 		cursor: move;
 		border: 2px dotted #aaa;
 		border-radius: 5px;
-		width: 15em;
+		width: 10em;
 		margin-bottom: 5px;
 		font: 1.4em "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", sans-serif;
+		color: #333;
+		height: 60px;
+		background-color: #fff;
 		
+		&:hover {
+			background-color: $yellow;
+		}
+		
+		img.avatar {
+			float: left;
+			margin-right: 10px;
+			
+		}
 	}
 }
 

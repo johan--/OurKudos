@@ -71,6 +71,9 @@ body {
 
 img.avatar {
 	border: 3px solid #fff;
+	width: 52px;
+	height: 52px;
+	overflow: hidden;
 	-webkit-box-shadow: 0 0 5px 2px #ccc;
 	-moz-box-shadow: 0 0 5px 2px #ccc;
 	box-shadow: 0 0 5px 2px #ccc;
