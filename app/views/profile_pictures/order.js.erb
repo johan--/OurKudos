@@ -1,0 +1,4 @@
+
+$('div#message_container').html('<%= escape_javascript render :partial => "kudo_flags/message", :locals => {:message => I18n.t(:settings_saved) } %>');
+
+$('div#message_container').effect("highlight");

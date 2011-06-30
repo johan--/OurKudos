@@ -96,6 +96,7 @@ class User < ActiveRecord::Base
   # == instance methods ==
   # ======================
   def to_s
+    return "#{first_name} #{last_name}" if middle_name.blank?
     "#{first_name} #{middle_name} #{last_name}"
   end
   
@@ -370,6 +371,17 @@ class User < ActiveRecord::Base
 
   def remove_system_avatar!
     update_attribute :profile_picture, nil
+  end
+
+  def set_new_profile_pictures_order data_string, save = false
+
+    data_string.split(",").each_with_index do |picture_type, index|
+       profile_picture_priority[index+1] = picture_type.downcase.to_sym
+    end
+
+    save(:validate => false) if save
+
+    self.profile_picture_priority
   end
 
 

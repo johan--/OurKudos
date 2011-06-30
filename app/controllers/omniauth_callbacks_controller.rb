@@ -38,7 +38,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def add_new_authentication
     return false if current_user.nil?
-     debugger
+
     if preexisting_authorization_token && preexisting_authorization_token.user != current_user
       flash[:alert] = "You have created two accounts and they can't be merged automatically. If you want to merge them please sign in, and use or merge account functionally"
       fetch_facebook_friends

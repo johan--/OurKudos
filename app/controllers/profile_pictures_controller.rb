@@ -23,4 +23,17 @@ class ProfilePicturesController < ApplicationController
     end
   end
 
+  def order
+    if request.format.html?
+      render :order
+    else
+      unless params[:order].blank?
+        current_user.set_new_profile_pictures_order params[:order], true
+        render 'order'
+      else
+        render :nothing => true
+      end
+     end
+  end
+
 end
