@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
 
   has_many :facebook_friends
   has_many :kudo_flags, :foreign_key => :flagger_id
+
   # ================
   # ====scopes =====
   # ================
@@ -89,6 +90,8 @@ class User < ActiveRecord::Base
     include Gravtastic
     gravtastic :email, :secure => true, :filetype => :png, :size => 50
 
+
+  serialize :profile_picture_priority
   # ======================
   # == instance methods ==
   # ======================
@@ -112,10 +115,12 @@ class User < ActiveRecord::Base
   end
 
   def look_for_other_fields omniauth
-    self.email      = omniauth.recursive_find_by_key("email")      if self.email.blank? && omniauth.recursive_find_by_key("email")
-    self.last_name  = omniauth.recursive_find_by_key("last_name")  if omniauth.recursive_find_by_key("last_name")
-    self.first_name = omniauth.recursive_find_by_key("first_name") if omniauth.recursive_find_by_key("first_name")
-    self.gender     = omniauth.recursive_find_by_key("gender")     if omniauth.recursive_find_by_key("gender")
+    self.email             = omniauth.recursive_find_by_key("email")      if self.email.blank? && omniauth.recursive_find_by_key("email")
+    self.last_name         = omniauth.recursive_find_by_key("last_name")  if omniauth.recursive_find_by_key("last_name")
+    self.first_name        = omniauth.recursive_find_by_key("first_name") if omniauth.recursive_find_by_key("first_name")
+    self.gender            = omniauth.recursive_find_by_key("gender")     if omniauth.recursive_find_by_key("gender")
+    self.social_picture_fb = omniauth.recursive_find_by_key("image")      if omniauth.recursive_find_by_key("image") && omniauth['provider'] == 'facebook'
+    self.social_picture_tw = omniauth.recursive_find_by_key("image")      if omniauth.recursive_find_by_key("image") && omniauth['provider'] == 'twitter'
   end
 
   def has_role?(role_sym)
@@ -336,18 +341,38 @@ class User < ActiveRecord::Base
 
   # THIS WILL BE REFACTORED TO SUPPORT FACEBOOK / GRAVATAR / TWITTER
   def current_profile_picture
-    return profile_picture(:small) unless profile_picture(:small).to_s.include?("missing")
-    return gravatar_url
-    'avatar_unknown.png'
+    avatar_from_position 1
+  end
+
+  def profile_picture_from type, position
+   case type
+      when :system
+        has_profile_picture? ?
+            profile_picture(:small) : avatar_from_position(position + 1)
+     when :gravatar
+       gravatar_url :default => avatar_from_position(position+1)
+     when :facebook
+       social_picture_fb.blank? ?
+           avatar_from_position(position+1) : social_picture_fb
+     when :twitter
+       social_picture_tw.blank? ?
+           'avatar_unknown.png' : social_picture_tw
+    end
   end
 
   def has_profile_picture?
     !profile_picture(:small).to_s.include?("missing")
   end
 
+  def avatar_from_position position
+    profile_picture_from profile_picture_priority[position], position
+  end
+
   def remove_system_avatar!
     update_attribute :profile_picture, nil
   end
+
+
 
   class << self
 
@@ -365,6 +390,13 @@ class User < ActiveRecord::Base
     def newsfeed_kudos user
       Kudo.public_or_friends_kudos.author_or_recipient user
     end
+
+    def default_profile_picture_types
+      { 1   => :system,   2 => :gravatar,
+        3   => :facebook, 4 => :twitter}
+    end
+
+
 
   end
 

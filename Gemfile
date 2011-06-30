@@ -34,6 +34,8 @@ gem 'therubyracer'
 gem 'hoptoad_notifier'
 gem 'paperclip'
 gem 'gravtastic'
+gem 'memcache'
+gem 'memcache-client'
 
 group :test do
   gem "cucumber"

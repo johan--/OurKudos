@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629161305) do
+ActiveRecord::Schema.define(:version => 20110630092654) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -277,8 +277,8 @@ ActiveRecord::Schema.define(:version => 20110629161305) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                    :default => "", :null => false
-    t.string   "encrypted_password",        :limit => 128, :default => "", :null => false
+    t.string   "email",                                    :default => "",                                                            :null => false
+    t.string   "encrypted_password",        :limit => 128, :default => "",                                                            :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -315,6 +315,9 @@ ActiveRecord::Schema.define(:version => 20110629161305) do
     t.integer  "penalty_score",                            :default => 0
     t.string   "profile_picture_file_name"
     t.string   "profile_picture_type"
+    t.string   "profile_picture_priority",                 :default => "--- \n1: :system\n2: :gravatar\n3: :facebook\n4: :twitter\n"
+    t.string   "social_picture_fb"
+    t.string   "social_picture_tw"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

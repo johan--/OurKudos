@@ -6,7 +6,7 @@ class AutocompletesController < ApplicationController
   def new
     case params[:object]
       when 'identities'
-        @items = confirmed_identities(keyword, 10).map(&:identity).uniq
+        @items = confirmed_identities(params[:term], 10).map(&:identity).uniq
       when 'recipients'
         look_for_identities_and_facebook_friends
       else
