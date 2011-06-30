@@ -5,10 +5,11 @@
 
   #message_container
 
-
   = hidden_field_tag "user_id", current_user.to_param
   %ul.sortable.profile_pics
     - current_user.profile_picture_priority.each do |position, type|
-      %li{:id => position}= type.to_s.capitalize
+      %li{:id => position}
+        = type.to_s.capitalize
+
 
 

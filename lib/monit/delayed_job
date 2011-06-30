@@ -1,0 +1,22 @@
+#! /bin/sh
+set_path="cd /home/deploy/apps/ourkudosmainsite/current"
+
+case "$1" in
+  start)
+        echo -n "Starting delayed_job: "
+                su - rails -c "$set_path; RAILS_ENV=staging script/delayed_job start" >> /var/log/delayed_job.log 2>&1
+        echo "done."
+        ;;
+  stop)
+        echo -n "Stopping sphinx: "
+                su - rails -c "$set_path; RAILS_ENV=staging script/delayed_job stop" >> /var/log/delayed_job.log 2>&1
+        echo "done."
+        ;;
+      *)
+            N=/etc/init.d/delayed_job_staging
+            echo "Usage: $N {start|stop}" >&2
+            exit 1
+            ;;
+    esac
+
+    exit 0
