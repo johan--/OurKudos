@@ -111,7 +111,8 @@
   - if current_user.has_profile_picture?
     %p= link_to(t(:remove_my_current_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete, :confirm => I18n.t(:are_you_sure))
 
-  %p= link_to( t(:prioritize_my_profile_pictures), order_user_profile_pictures_path(current_user), :class => "action_link", :method => :get)
+  %p
+    = render 'profile_pictures/sorting'
 
   %h3= t :gender
   %p= current_user.gender

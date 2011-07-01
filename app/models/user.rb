@@ -341,7 +341,6 @@ class User < ActiveRecord::Base
     "#{self.id}-#{self.to_s.underscore.gsub(" ",'-')}"
   end
 
-  # THIS WILL BE REFACTORED TO SUPPORT FACEBOOK / GRAVATAR / TWITTER
   def current_profile_picture
     avatar_from_position 1
   end

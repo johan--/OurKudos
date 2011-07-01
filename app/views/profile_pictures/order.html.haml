@@ -1,17 +1,2 @@
 %h3= t(:drag_and_drop_picture_type_to_sort_it)
-= form_for current_user, :url => order_user_profile_pictures_path(current_user), :html => {:id => :order_pictures_form}, :method => :post do |f|
-
-  = error_messages_for current_user
-
-  = t(:empty_images_will_be_skipped)
-  #message_container
-
-  = hidden_field_tag "user_id", current_user.to_param
-  %ul.sortable.profile_pics
-    - current_user.profile_picture_priority.each do |position, type|
-      %li{:id => position, "data-picture-type" => type.to_s.strip}>
-        = image_tag current_user.get_url_for_type(type)
-        = type.to_s.capitalize
-
-
-
+= render 'sorting'

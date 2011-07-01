@@ -11,4 +11,4 @@
 //= require googleanalytics
 //= require admin/reports
 //= require kudo_flags
-//= require profile_pictures
+//= require users
