@@ -2,3 +2,8 @@
 $('div#message_container').html('<%= escape_javascript render :partial => "kudo_flags/message", :locals => {:message => I18n.t(:settings_saved) } %>');
 
 $('div#message_container').effect("highlight");
+
+$("img#user_avatar").remove();
+
+$('p#header_user_info_nav').after('<%=escape_javascript image_tag(current_user.current_profile_picture, :id => 'user_avatar', :class=>'avatar') %>');
+
