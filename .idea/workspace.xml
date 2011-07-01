@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/profile_pictures.js.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/profile_pictures.js.coffee" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/profile_pictures/order.html.haml" afterPath="$PROJECT_DIR$/app/views/profile_pictures/order.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/locales/views/users/en.yml" afterPath="$PROJECT_DIR$/config/locales/views/users/en.yml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,10 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="order.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="order.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/profile_pictures/order.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="2" selection-start="232" selection-end="232" vertical-scroll-proportion="0.17391305">
+            <state line="5" column="2" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="en.yml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="39" column="35" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.79826087">
               <folding />
             </state>
           </provider>
@@ -98,12 +104,12 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/profile_pictures.js" />
         <option value="$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb" />
-        <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
         <option value="$PROJECT_DIR$/app/views/profile_pictures/order.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/profile_pictures_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/profile_pictures.js.coffee" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/profile_pictures/order.html.haml" />
+        <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
       </list>
     </option>
   </component>
@@ -161,7 +167,43 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -179,7 +221,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="locales" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -187,7 +233,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="profile_pictures" />
+              <option name="myItemId" value="users" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -492,11 +538,6 @@
         <state line="9" column="84" selection-start="258" selection-end="258" vertical-scroll-proportion="0.30981067" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="43" selection-start="3108" selection-end="3108" vertical-scroll-proportion="0.7972743" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/kudo_flags/create.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="62" selection-start="523" selection-end="523" vertical-scroll-proportion="0.37478706" />
@@ -547,7 +588,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/profile_pictures/order.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="2" selection-start="232" selection-end="232" vertical-scroll-proportion="0.17391305">
+        <state line="5" column="2" selection-start="232" selection-end="232" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="35" selection-start="3100" selection-end="3100" vertical-scroll-proportion="0.79826087">
           <folding />
         </state>
       </provider>
