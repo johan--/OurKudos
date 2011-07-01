@@ -3,12 +3,14 @@
 
   = error_messages_for current_user
 
+  = t(:empty_images_will_be_skipped)
   #message_container
 
   = hidden_field_tag "user_id", current_user.to_param
   %ul.sortable.profile_pics
     - current_user.profile_picture_priority.each do |position, type|
-      %li{:id => position}
+      %li{:id => position, "data-picture-type" => type.to_s.strip}>
+        = image_tag current_user.get_url_for_type(type)
         = type.to_s.capitalize
 
 

@@ -385,12 +385,12 @@ class User < ActiveRecord::Base
     self.profile_picture_priority
   end
 
-  def get_image_from_type type
+  def get_url_for_type type
     case type
       when :facebook ; social_picture_fb.blank? ?
-          "no facebook connection yet" : social_picture_fb.to_s
+          'avatar_unknown.png' : social_picture_fb.to_s
       when :twitter  ; social_picture_tw.blank? ?
-          "no twitter connection yet" : social_picture_tw.to_s
+          'avatar_unknown.png' : social_picture_tw.to_s
       when :system   ; has_profile_picture? ?
           profile_picture(:small) :  'avatar_unknown.png'
       when :gravatar ;  gravatar_url.to_s

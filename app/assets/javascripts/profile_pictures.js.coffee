@@ -16,4 +16,4 @@ jQuery ->
         complete: (request) ->
           jQuery("ul.sortable").effect "highlight"
         
-        url: "/users/" + user_id + "/profile_pictures/order.js?order=" + jQuery.map(jQuery("ul.sortable").children(), (element, item) -> jQuery(element).text()).join(",")
+        url: "/users/" + user_id + "/profile_pictures/order.js?order=" + jQuery.map(jQuery("ul.sortable").children(), (element, item) -> jQuery(element).attr('data-picture-type')).join(",")
