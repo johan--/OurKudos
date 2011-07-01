@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/monit/memcached.monitrc" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/monit/dj_worker_sh.save" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/monit/job_runner.monit.save" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy.rb" afterPath="$PROJECT_DIR$/config/deploy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/monit/delayed_job.monitrc" afterPath="$PROJECT_DIR$/lib/monit/delayed_job.monitrc" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/monit/delayed_job" afterPath="$PROJECT_DIR$/lib/monit/delayed_job" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,16 +30,25 @@
       <file leaf-file-name="deploy.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="59" selection-start="2262" selection-end="2262" vertical-scroll-proportion="0.0">
+            <state line="68" column="37" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="memcached.monitrc" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="delayed_job" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/monit/delayed_job">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="632" selection-end="632" vertical-scroll-proportion="0.76521736">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="memcached.monitrc" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/monit/memcached.monitrc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="32" selection-start="477" selection-end="477" vertical-scroll-proportion="0.24347825">
+            <state line="7" column="54" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -93,10 +98,10 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/profile_pictures/order.html.haml" />
         <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
-        <option value="$PROJECT_DIR$/lib/monit/delayed_job" />
         <option value="$PROJECT_DIR$/lib/monit/delayed_job.monitrc" />
         <option value="$PROJECT_DIR$/lib/monit/memcached.monitrc" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
+        <option value="$PROJECT_DIR$/lib/monit/delayed_job" />
       </list>
     </option>
   </component>
@@ -558,13 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/monit/delayed_job">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="632" selection-end="632" vertical-scroll-proportion="0.76521736">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/monit/delayed_job.monitrc">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="20" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0">
@@ -579,16 +577,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
+    <entry file="file://$PROJECT_DIR$/lib/monit/memcached.monitrc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="59" selection-start="2262" selection-end="2262" vertical-scroll-proportion="0.0">
+        <state line="7" column="54" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/monit/memcached.monitrc">
+    <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="32" selection-start="477" selection-end="477" vertical-scroll-proportion="0.24347825">
+        <state line="68" column="37" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/monit/delayed_job">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="632" selection-end="632" vertical-scroll-proportion="0.76521736">
           <folding />
         </state>
       </provider>
