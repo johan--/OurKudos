@@ -109,7 +109,7 @@
   %p= link_to t(:upload_new_profile_picture), new_user_profile_picture_path(current_user), :class => "action_link"
 
   - if current_user.has_profile_picture?
-    %p= link_to(t(:remove_my_current_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete, :confirm => I18n.t(:are_you_sure))
+    %p= link_to(t(:remove_my_uploaded_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete, :confirm => I18n.t(:are_you_sure))
 
   %p
     = render 'profile_pictures/sorting'
