@@ -45,7 +45,7 @@ class KudosController < ApplicationController
      if @kudo && @kudo.hide_for!(current_user)
       redirect_to home_path(:kudos => :newsfeed), :notice => I18n.t(:kudo_has_been_successfuly_removed)
     else
-      redirect_to home_path(:kudos => :newsfeed), :notice => I18n.t(:we_couldn_do_that_sorry)
+      redirect_to home_path(:kudos => :newsfeedou), :notice => I18n.t(:we_couldn_do_that_sorry)
     end
   end
 

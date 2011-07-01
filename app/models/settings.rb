@@ -4,7 +4,8 @@ class Settings < ActiveRecord::Base
     def seed!
       create [
         { :name => "social-sharing-enabled", :value => "yes" },
-        { :name => "sign-up-disabled", :value => "no" }
+        { :name => "sign-up-disabled", :value => "no" },
+        { :name => "test-environment-special-message", :value => "Special message goes here"}
       ]
     end
 

@@ -5,6 +5,7 @@ class Admin::SettingsController < ApplicationController
   def index
     @social_sharing_enabled = Settings[:social_sharing_enabled]
     @sign_up_disabled       = Settings[:sign_up_disabled]
+    @special_message        = Settings[:test_environment_special_message]
   end
 
   def update
