@@ -1,6 +1,0 @@
-check process my_app_job_runner_1
-  with pidfile /home/deploy/apps/ourkudosmainsite/current/home/deploy/apps/ourkudosmainsite/current//tmp/pids/job_runner.1.pid
-  start program = "/var/www/apps/my_app/shared/dj_monit_runner start production 1" as uid whatever and gid whatever
-  stop program = "/var/www/apps/my_app/shared/dj_monit_runner stop production 1" as uid whatever and gid whatever
-  group my_app
-

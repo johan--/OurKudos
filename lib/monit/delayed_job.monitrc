@@ -1,3 +1,4 @@
 check process delayed_job with pidfile "/home/deploy/apps/ourkudosmainsite/shared/pids/delayed_job.pid"
 start program = "/etc/init.d/delayed_job start"
 stop program = "/etc/init.d/delayed_job stop"
+if totalmem > 500.0 MB then restart
