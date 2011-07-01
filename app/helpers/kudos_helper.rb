@@ -16,4 +16,23 @@ module KudosHelper
     kudo
   end
 
+  def sent_kudo_destroy_link kudo
+    if kudo.can_be_deleted_by?(current_user)
+      link_to('', destroy_sent_user_kudo_path(current_user, kudo),
+                                :method => :delete,
+                                :confirm => I18n.t(:are_you_sure),
+                                :class => "delete_kudo_btn")
+      else     #just hide that kudo, cannot be deleted by non-author
+      link_to('', hide_user_kudo_path(current_user, kudo),
+                                :method => :delete,
+                                :confirm => I18n.t(:are_you_sure),
+                                :class => "delete_kudo_btn")
+     end
+  end
+
+  def kudo_author_picture kudo
+    return  profile_picture_for(kudo.author) if kudo.author
+    anon_picture
+  end
+
 end

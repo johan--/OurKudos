@@ -31,7 +31,7 @@ class Kudo < ActiveRecord::Base
 
 
   serialize :flaggers
-
+  serialize :hidden_for
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -196,8 +196,25 @@ class Kudo < ActiveRecord::Base
   end
 
   def visible_for? user = nil
-    return false if user && flaggers.include?(user.id)
+    return false if user && is_flagged_by?(user) || is_hidden_for?(user)
     true
+  end
+
+  #sent kudos can be deleted only by author, others can just hide it in newsfeed.
+  #If this array includes user id, it won't show up
+  def is_hidden_for? user
+     hidden_for.include?(user.id)
+  end
+
+  def hide_for! user
+    return true if is_hidden_for?(user)
+
+    hidden_for << user.id
+    update_attribute :hidden_for, hidden_for.uniq
+  end
+
+  def is_flagged_by? user
+    flaggers.include?(user.id)
   end
 
   def flaggers_ids_names

@@ -48,6 +48,7 @@ module Devise
                                             :default=> [message, message.to_s])
     end
 
+    #this is used to set resend link parameters when user tries to sign in but has not activeated account yet.
     def get_param_type
        return "email"      if (!params[:user].blank?    && env['omniauth.auth'].blank? && !params[:user][:email].blank?) || params[:action] == "facebook"
        return "user_id"    if (!params[:user_id].blank? && env['omniauth.auth'].blank? && !params[:user].blank?)

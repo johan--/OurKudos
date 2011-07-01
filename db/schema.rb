@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110630092654) do
+ActiveRecord::Schema.define(:version => 20110701064422) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "key"
@@ -198,6 +198,7 @@ ActiveRecord::Schema.define(:version => 20110630092654) do
     t.boolean  "removed",                     :default => false
     t.string   "flaggers",                    :default => "--- []\n\n"
     t.boolean  "has_been_improperly_flagged"
+    t.string   "hidden_for",                  :default => "--- []\n\n"
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"
@@ -315,7 +316,7 @@ ActiveRecord::Schema.define(:version => 20110630092654) do
     t.integer  "penalty_score",                            :default => 0
     t.string   "profile_picture_file_name"
     t.string   "profile_picture_type"
-    t.string   "profile_picture_priority",                 :default => "--- \n1: :system\n2: :gravatar\n3: :facebook\n4: :twitter\n"
+    t.text     "profile_picture_priority",                 :default => "--- \n1: :system\n2: :gravatar\n3: :facebook\n4: :twitter\n"
     t.string   "social_picture_fb"
     t.string   "social_picture_tw"
   end

@@ -1,8 +1,5 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
- - if kudo.author
-  = profile_picture_for(kudo.author)
- - else
-  = anon_picture
+ = kudo_author_picture kudo
  .kudo_message_bubble_cont
   .kudo_message_top
   .kudo_message_mid
@@ -18,12 +15,7 @@
    - unless kudo_object(kudo).has_been_improperly_flagged?
     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id }
 
-   -if kudo.can_be_deleted_by?(current_user)
-
-    %div= link_to('', destroy_sent_user_kudo_path(current_user, kudo),
-                                :method => :delete,
-                                :confirm => I18n.t(:are_you_sure),
-                                :class => "delete_kudo_btn")
+   %div= sent_kudo_destroy_link(kudo)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
 
