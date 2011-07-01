@@ -1,0 +1,57 @@
+#!/bin/bash
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+APP_NAME=your_app_name_here #<--fill this in
+APP_DIR=/h
+RAILS_ROOT=$APP_DIR/current
+
+if [ "$3" ]; then
+    RUNNER="$3"
+else
+    RUNNER=1
+fi
+
+RAILS_ENV=o$2
+
+PID_FILE=$RAILS_ROOT/tmp/pids/job_runner.$RUNNER.pid
+LOG_FILE=$RAILS_ROOT/log/job_runner.$RUNNER.log
+
+exec 2>&1
+exec 1>>$LOG_FILE
+
+cd $RAILS_ROOT
+echo "Received $1"
+
+function stop {
+  echo "Checking for pid at $PID_FILE..."
+  if [ -f $PID_FILE ]; then
+    echo "Pid found.  Killing `cat $PID_FILE`"
+    kill `cat $PID_FILE` 2>/dev/null; true
+    echo "Done.  Removing pid file $PID_FILE"
+    rm -f $PID_FILE
+    echo "All done."
+  else
+    echo "No pid file"
+  fi
+}
+
+function start {
+    echo $$ > $PID_FILE
+    echo "Starting runner $RUNNER... ($$)"
+    CMD="$RAILS_ROOT/script/runner"
+    OPTIONS=" -e $RAILS_ENV $APP_DIR/shared/job_runner.rb"
+    echo $CMD $OPTIONS
+    exec $CMD $OPTIONS
+}
+
+case $1 in
+  start)
+    stop
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  *)
+    echo "WTF"
+    ;;
+esac
