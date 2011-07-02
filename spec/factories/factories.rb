@@ -169,3 +169,7 @@ Factory.define :merchant do |m|
   m.affiliate_code "123abc"
   m.description "The place to get stuff"
 end
+
+Factory.define :gift_group do |gg|
+   gg.name "Food Gifts"
+end

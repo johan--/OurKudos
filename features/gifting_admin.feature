@@ -80,3 +80,17 @@ Scenario: Administrator can add Gift Groups
   And I press "Add Group"
   Then I should see "Food Gifts"
   And I should be on the Gift Groups page
+
+Scenario: Administrator can remove Gift Groups
+  Given I'm logged in as an administrator with:
+    | email              | password     | id |
+    | admin@example2.net | secret pass1 | 1  |
+  And the following Gift Groups exist:
+    | name       |
+    | Food Gifts |
+  When I go to admin area page
+  And I follow "Gifting"
+  And I follow "Gift Groups"
+  Then I should see "Food Gifts"
+  When I follow "Remove"
+  Then I should not see "Food Gifts"

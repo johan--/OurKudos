@@ -17,6 +17,15 @@ class Admin::Gifting::GiftGroupsController < ApplicationController
       render :index
     end
   end
+ 
+  def destroy
+    @gift_group =GiftGroup.find params[:id]
+    if @gift_group.destroy
+      redirect_to(:back, :notice => I18n.t(:gift_group_has_been_deleted))
+    else
+      redirect_to(:back, :notice => I18n.t(:gift_group_has_not_been_deleted))
+    end
+  end
   
   
 end

@@ -55,6 +55,12 @@ Given /^the following Merchants exists:$/ do |table|
   end
 end
 
+Given /^the following Gift Groups exist:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory :gift_group, attributes
+  end
+end
+
 Before('@background-jobs') do
   system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"
 end
