@@ -43,6 +43,11 @@ Given /^the following Kudo Categories exists:$/ do |table|
   end
 end
 
+Given /^the following Affiliate Programs exists:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory :affiliate_programs, attributes
+  end
+end
 
 
 Before('@background-jobs') do

@@ -8,9 +8,6 @@ class Admin::Gifting::AffiliateProgramsController < ApplicationController
     @affiliate_programs = AffiliateProgram.all
   end
 
-  def new
-  end
-
   def create
     @affiliate_program = AffiliateProgram.new params[:affiliate_program]
     if @affiliate_program.save
@@ -21,5 +18,13 @@ class Admin::Gifting::AffiliateProgramsController < ApplicationController
     end
   end
 
+  def destroy
+    @affiliate_program = AffiliateProgram.find params[:id]
+    if @affiliate_program.destroy
+      redirect_to(:back, :notice => I18n.t(:affiliate_program_has_been_deleted))
+    else
+      redirect_to(:back, :notice => I18n.t(:affiliate_program_has_not_been_deleted))
+    end
+  end
   
 end

@@ -156,3 +156,8 @@ end
 Factory.define :kudo_category do |kc|
    kc.name "Food"
 end
+
+Factory.define :affiliate_program do |ap|
+   ap.name "Affiliate Program"
+   ap.homepage "www.cj.com"
+end
