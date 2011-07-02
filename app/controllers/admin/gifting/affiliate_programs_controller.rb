@@ -12,7 +12,7 @@ class Admin::Gifting::AffiliateProgramsController < ApplicationController
     @affiliate_program = AffiliateProgram.new params[:affiliate_program]
     if @affiliate_program.save
       flash[:notice] = I18n.t(:affiliate_program_has_been_saved)
-      respond_with @kudo_category, :location => admin_gifting_affiliate_programs_path
+      respond_with @gift_group, :location => admin_gifting_affiliate_programs_path
     else
       render :index
     end

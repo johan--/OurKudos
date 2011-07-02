@@ -67,3 +67,16 @@ Scenario: Administrator can remove Merchant
   Then I should see "Disney Store"
   When I follow "Remove"
   Then I should not see "Disney Store"
+
+Scenario: Administrator can add Gift Groups
+  Given I'm logged in as an administrator with:
+    | email              | password     | id |
+    | admin@example2.net | secret pass1 | 1  |
+  When I go to admin area page
+  And I follow "Gifting"
+  And I follow "Gift Groups"
+  Then I should be on the Gift Groups page
+  When I fill in "Group Name" with "Food Gifts"
+  And I press "Add Group"
+  Then I should see "Food Gifts"
+  And I should be on the Gift Groups page

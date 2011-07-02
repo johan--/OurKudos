@@ -1,0 +1,15 @@
+
+%h3= t(:listing_gift_groups)
+= form_for @gift_group, :url => admin_gifting_gift_groups_path, :method => :post do |f|
+
+  = error_messages_for @gift_group
+
+  = f.label :name, t(:group_name)
+  = f.text_field :name
+  = f.submit t(:add_group)
+%hr
+%ul.admin_list
+  - for gift_group in @gift_groups do
+    %li
+      = gift_group.name
+      = link_to t(:remove), admin_gifting_gift_group_path(gift_group), :method => :delete, :confirm => I18n.t(:are_you_sure)
