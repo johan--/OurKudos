@@ -1,0 +1,32 @@
+= form_for @user, :method => :put do |f|
+  = error_messages_for @user
+  %p
+    = f.label :streetadress, "Street Address"
+    %br
+    = f.text_field :streetadress
+  %p
+    = f.label :address2, "Address 2"
+    %br
+    = f.text_field :address2
+  %p
+    = f.label :city, "City/Town"
+    %br
+    = f.text_field :city
+  %p
+    = f.label :state_or_province, "State/Province"
+    %br
+    = f.text_field :state_or_province
+  %p
+    = f.label :postal_code
+    %br
+    = f.text_field :postal_code
+  %p
+    = f.label :phone_number
+    %br
+    = f.text_field :phone_number
+  %p
+    = f.label :mobile_number
+    %br
+    = f.text_field :mobile_number
+  %p
+    = f.submit "Update My Info"
