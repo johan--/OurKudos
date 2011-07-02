@@ -153,3 +153,17 @@ ul.admin_list {
 	}
 }
 
+ul.wide_admin_list {
+	list-style: none;
+	
+	li {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+		width: 30em;
+		border-bottom: 1px dotted $very_light_gray;
+		padding: 5px 0;
+		
+		a {
+			float: right;
+		}	
+	}
+}

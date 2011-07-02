@@ -7,5 +7,11 @@ Scenario: Administrator can add Affiliate Programs
       | admin@example2.net | secret pass1 | 1  |
     When I go to admin area page
     And I follow "Gifting"
-    And I follow "Add Affiliate Program"
-    Then I should be on the new Affiliate Program page
+    And I follow "Affiliate Programs"
+    Then I should be on the Affiliate Program page
+    When I fill in "Name" with "Commission Junction"
+    And I fill in "Homepage" with "www.cj.com"
+    And I press "Create Affiliate Program"
+    Then I should see "Commission Junction"
+    And I should see "www.cj.com"
+    And I should be on the Affiliate Program page

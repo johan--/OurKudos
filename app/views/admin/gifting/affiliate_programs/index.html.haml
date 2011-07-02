@@ -1,0 +1,18 @@
+%h3= t(:listing_affiliate_programs)
+= form_for @affiliate_program, :url => admin_gifting_affiliate_programs_path, :method => :post do |f|
+
+  = error_messages_for @affiliate_program
+
+  = f.label :name
+  = f.text_field :name
+  = f.label :homepage
+  = f.text_field :homepage
+  = f.submit t(:create_affiliate_program)
+%hr
+%ul.wide_admin_list
+  - for affiliate_program in @affiliate_programs do
+    %li
+      = affiliate_program.name
+      = affiliate_program.homepage
+      = link_to t(:remove), admin_gifting_affiliate_program_path(affiliate_program), :method => :delete, :confirm => I18n.t(:are_you_sure)
+
