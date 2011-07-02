@@ -10,3 +10,4 @@
     %li#adminreportslink= link_to t(:admin_reports), admin_reports_path
     - if current_user.has_role?(:editor) || current_user.has_role?(:admin)
       %li#kudosflagslink= link_to t(:flagged_kudos), admin_kudo_flags_path
+    %li#admingiftinglink= link_to t(:gifting), admin_gifting_root_path
