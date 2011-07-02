@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110702172055) do
+ActiveRecord::Schema.define(:version => 20110702190437) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -209,6 +209,16 @@ ActiveRecord::Schema.define(:version => 20110702172055) do
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"
+
+  create_table "merchants", :force => true do |t|
+    t.string   "name"
+    t.string   "homepage"
+    t.string   "affiliate_code"
+    t.text     "description"
+    t.integer  "affiliate_program_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "merges", :force => true do |t|
     t.integer  "merged_by"

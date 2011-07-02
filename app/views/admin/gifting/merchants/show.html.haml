@@ -1,0 +1,19 @@
+%p
+  %b Name:
+  = @merchant.name
+%p
+  %b Homepage:
+  = @merchant.homepage
+%p
+  %b Affiliate Program:
+  = @merchant.affiliate_program.name unless @merchant.affiliate_program.nil?
+%p
+  %b Affiliate code:
+  = @merchant.affiliate_code
+%p
+  %b Description:
+  = raw @merchant.description
+= link_to 'Edit', edit_admin_gifting_merchant_path(@merchant)
+\|
+= link_to 'Back', admin_gifting_merchants_path
+

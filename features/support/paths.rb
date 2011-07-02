@@ -26,6 +26,8 @@ module NavigationHelpers
       '/home?kudos=sent'
     when /the Affiliate Program page/
       admin_gifting_affiliate_programs_path
+    when /the Merchants page/
+      admin_gifting_merchants_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
