@@ -49,6 +49,11 @@ Given /^the following Affiliate Programs exists:$/ do |table|
   end
 end
 
+Given /^the following Merchants exists:$/ do |table|
+  table.hashes.each do |attributes|
+    Factory :merchants, attributes
+  end
+end
 
 Before('@background-jobs') do
   system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"

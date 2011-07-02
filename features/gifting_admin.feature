@@ -53,3 +53,17 @@ Scenario: Administrator can add mechants
   And I should see "123abc"
   And I should see "The place to shop"
   And I should see "Commission Place"
+
+Scenario: Administrator can remove Merchant
+  Given I'm logged in as an administrator with:
+    | email              | password     | id |
+    | admin@example2.net | secret pass1 | 1  |
+  And the following merchants exist:
+    | name           | homepage   |
+    | Disney Store   | www.disneystore.com |
+  When I go to admin area page
+  And I follow "Gifting"
+  And I follow "Merchants" 
+  Then I should see "Disney Store"
+  When I follow "Remove"
+  Then I should not see "Disney Store"

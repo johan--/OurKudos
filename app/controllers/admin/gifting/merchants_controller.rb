@@ -4,6 +4,7 @@ class Admin::Gifting::MerchantsController < ApplicationController
   respond_to :html
   
   def index
+    @merchants = Merchant.all
   end
 
   def show
@@ -25,6 +26,12 @@ class Admin::Gifting::MerchantsController < ApplicationController
   end
 
   def destroy
+    @merchant = Merchant.find params[:id]
+    if @merchant.destroy
+      redirect_to(:back, :notice => I18n.t(:merchant_has_been_deleted))
+    else
+      redirect_to(:back, :notice => I18n.t(:merchant_has_not_been_deleted))
+    end
   end
   
 end

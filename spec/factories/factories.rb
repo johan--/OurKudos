@@ -158,6 +158,14 @@ Factory.define :kudo_category do |kc|
 end
 
 Factory.define :affiliate_program do |ap|
-   ap.name "Affiliate Program"
-   ap.homepage "www.cj.com"
+  ap.name "Affiliate Program"
+  ap.homepage "www.cj.com"
+end
+
+Factory.define :merchant do |m|
+  m.name "Disney Store"
+  m.homepage "www.disneystore.com"
+  m.association :affiliate_program
+  m.affiliate_code "123abc"
+  m.description "The place to get stuff"
 end

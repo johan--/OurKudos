@@ -35,3 +35,19 @@ Scenario: A user tries to sign up with its email/password (twitter)
   And I follow "Sign in button" image
   When I follow "Sign in with Twitter" image
   Then I should see "No twitter account found!. You cannot create account using twitter, please sign up - using either facebook or native sign up method or sign in to your existing account, then click this icon again to create your twitter credentials"
+
+Scenario: Editing a user profile
+  Given I'm logged in as a user with:
+    | email             | password     | id |
+    | user@example.net  | secret pass1 | 1  |
+  When I follow "My Account"
+  And I follow "Edit my personal info"
+  And I fill in "Street Address" with "726 Farr Court"
+  And I fill in "Postal Code" with "54701"
+  And I fill in "City" with "Eau Claire" 
+  And I fill in "State/Province" with "Wisconsin"
+  And I press "Update My Info"
+  Then I should see "726 Farr Court"
+  And I should see "54701"
+  And I should see "Eau Claire"
+  And I should see "Wisconsin"
