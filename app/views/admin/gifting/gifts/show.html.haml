@@ -1,0 +1,35 @@
+%p
+  %strong Name:
+  = @gift.name
+%p
+  %strong Gift Groups:
+  %br
+  - @gift.gift_groups.each do |gift|
+    = gift.name
+    %br
+%p
+  %strong Description:
+  = raw @gift.description
+%p
+  %strong Link:
+  = @gift.link
+%p
+  %strong Price:
+  = number_to_currency(@gift.price)
+%p
+  %strong Affiliate Program:
+  = @gift.merchant.affiliate_program.name unless @gift.merchant.affiliate_program.nil?
+%p
+  %strong Merchant:
+  = @gift.merchant_name unless @gift.merchant.nil?
+%p
+  %strong Affiliate Code:
+  = @gift.affiliate_code
+%p
+  %strong Active:
+  = @gift.active ? "Active" : "Inactive"
+
+= link_to 'Edit', edit_admin_gifting_gift_path(@gift)
+\|
+= link_to 'Back', admin_gifting_gifts_path
+

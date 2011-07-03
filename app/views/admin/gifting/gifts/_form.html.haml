@@ -1,0 +1,56 @@
+//content_for :head do
+//  javascript_include_tag :ckeditor
+//= form_for gift, :html => {:multipart => true} do |f|
+= form_for gift, :url => admin_gifting_gifts_path, :method => :post do |f|
+  = error_messages_for gift
+  %p
+    = f.label :merchant_id, t(:merchant)
+    %br
+    = f.collection_select(:merchant_id, Merchant.all, :id, :name, {:include_blank => "select a merchant"})
+  %p
+    = f.label :affiliate_code, t(:affiliate_code)
+    %br
+    = f.text_field :affiliate_code
+    //%p{:class => 'notice'}
+    //*If Commission Junction product use the product SKU
+    //%p{:class => 'notice'}
+    //*If Commission Junction product only these fields and the image are required
+  %p
+    = f.label :name, t(:name)
+    %br
+    = f.text_field :name
+  %p
+    %strong
+      Gift Groups
+    %br
+    - GiftGroup.all.each do |group|
+      = check_box_tag "gift[gift_group_ids][]", group.id, gift.gift_groups.include?(group)
+      = group.name
+  %p
+    = f.label :description
+    %br
+    //= f.cktext_area :description, :width => '800px', :height => '200px'
+    = f.text_area :description, :width => '800px', :height => '200px'
+  %p
+    = f.label :price
+    %br
+    = f.text_field :price
+  %p
+    = f.label :link
+    = f.text_field :link
+  //- unless f.object.new_record?
+  //= image_tag gift.image.url(:standard)
+
+  %p
+    = f.label :image
+    = f.file_field :image
+  %p
+    = f.label :active
+    %br
+    - if f.object.new_record?
+      = f.check_box :active, :checked => true
+    -else
+      = f.check_box :active
+  %p
+    = f.submit
+

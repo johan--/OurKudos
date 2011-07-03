@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110702204227) do
+ActiveRecord::Schema.define(:version => 20110703113911) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -137,6 +137,23 @@ ActiveRecord::Schema.define(:version => 20110702204227) do
 
   create_table "gift_groups", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gift_groups_gifts", :id => false, :force => true do |t|
+    t.integer "gift_id"
+    t.integer "gift_group_id"
+  end
+
+  create_table "gifts", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "price"
+    t.string   "link"
+    t.boolean  "active"
+    t.integer  "merchant_id"
+    t.string   "affiliate_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

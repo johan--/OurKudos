@@ -94,3 +94,37 @@ Scenario: Administrator can remove Gift Groups
   Then I should see "Food Gifts"
   When I follow "Remove"
   Then I should not see "Food Gifts"
+
+Scenario: Administrator can add Gifts
+  Given I'm logged in as an administrator with:
+    | email              | password     | id |
+    | admin@example2.net | secret pass1 | 1  |
+  And the following merchants exist:
+    | name         | homepage   |
+    | Disney Store | www.disneystore.com |
+  And the following gift groups exist:
+    | name        |
+    | Kids Gifts  |
+    | Food Gifts  |
+    | Movie Gifts |
+    | Pet Gifts   |
+  When I go to admin area page
+  And I follow "Gifting"
+  And I follow "Gifts"
+  And I follow "Add Gift"
+  And I fill in "Name" with "Fantasia"
+  And I fill in "Description" with "Follow Yensid through a music journey"
+  And I fill in "Price" with "19.99"
+  And I select "Disney Store" from "Merchant"
+  When I check "gift[gift_group_ids][]"
+  And I fill in "Affiliate Code" with "123abd"
+  And I fill in "Link" with "www.disneystore.com/code123abc"
+  And I press "Create Gift"
+  Then I should see "Fantasia"
+  And I should see "Follow Yensid through a music journey"
+  And I should see "19.99"
+  And I should see "Disney Store"
+  And I should see "Kids Gift"
+  And I should see "123abc"
+  And I should see "www.disneystore.com/code123abc"
+

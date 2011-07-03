@@ -1,0 +1,14 @@
+%h3= t(:gifts)
+%p= link_to t(:add_gift), new_admin_gifting_gift_path
+%table
+  %tr
+    %th Name
+    %th Price
+    %th Active
+  - @gifts.each do |gift|
+    %tr
+      %td= link_to gift.name, admin_gifting_gift_path(gift.id)
+      %td= number_to_currency(gift.price)
+      %td= gift.active ? "Active" : "Inactive"
+
+
