@@ -117,8 +117,10 @@ Scenario: Administrator can add Gifts
   And I fill in "Price" with "19.99"
   And I select "Disney Store" from "Merchant"
   When I check "gift[gift_group_ids][]"
+#When I check "gift[gift_group_ids][]" within "Gift Groups
   And I fill in "Affiliate Code" with "123abd"
   And I fill in "Link" with "www.disneystore.com/code123abc"
+#And I attach "fantasia_disney.gif" to "Image"
   And I press "Create Gift"
   Then I should see "Fantasia"
   And I should see "Follow Yensid through a music journey"
