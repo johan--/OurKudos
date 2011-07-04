@@ -5,10 +5,12 @@
     %th Name
     %th Price
     %th Active
+    %th
   - @gifts.each do |gift|
     %tr
       %td= link_to gift.name, admin_gifting_gift_path(gift.id)
       %td= number_to_currency(gift.price)
       %td= gift.active ? "Active" : "Inactive"
+      %td= link_to t(:remove), admin_gifting_gift_path(gift), :method => :delete, :confirm => I18n.t(:are_you_sure)
 
 

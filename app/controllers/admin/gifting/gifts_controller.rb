@@ -24,4 +24,14 @@ class Admin::Gifting::GiftsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @gift = Gift.find params[:id]
+    if @gift.destroy
+      redirect_to(:back, :notice => I18n.t(:gift_has_been_deleted))
+    else
+      redirect_to(:back, :notice => I18n.t(:gift_has_not_been_deleted))
+    end
+  end
+
 end

@@ -128,3 +128,17 @@ Scenario: Administrator can add Gifts
   And I should see "123abc"
   And I should see "www.disneystore.com/code123abc"
 
+Scenario: Administrator can delete Gifts
+  Given I'm logged in as an administrator with:
+    | email              | password     | id |
+    | admin@example2.net | secret pass1 | 1  |
+  And the following Gifts exist:
+    | name      |
+    | Fantasia  |
+  When I go to admin area page
+  And I follow "Gifting"
+  And I follow "Gifts"
+  Then I should see "Fantasia"
+  When I follow "Remove" 
+  Then I should not see "Fantasia"
+  

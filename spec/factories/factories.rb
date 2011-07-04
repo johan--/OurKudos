@@ -173,3 +173,13 @@ end
 Factory.define :gift_group do |gg|
    gg.name "Food Gifts"
 end
+
+Factory.define :gift do |g|
+  g.name "Fantasia"
+  g.description "A journey through sound"
+  g.association :merchant
+  g.affiliate_code "123abc"
+  g.price "12.34"
+  g.link "www.store.com"
+  g.active true
+end
