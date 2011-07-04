@@ -1,7 +1,7 @@
 //content_for :head do
 //  javascript_include_tag :ckeditor
 //= form_for gift, :html => {:multipart => true} do |f|
-= form_for gift, :url => admin_gifting_gifts_path, :method => :post do |f|
+= form_for gift, :url => admin_gifting_gifts_path, :method => :post, :html => {:multipart => true} do |f|
   = error_messages_for gift
   %p
     = f.label :merchant_id, t(:merchant)
@@ -38,11 +38,11 @@
   %p
     = f.label :link
     = f.text_field :link
-  //- unless f.object.new_record?
-  //= image_tag gift.image.url(:standard)
+  - unless f.object.new_record?
+    = image_tag gift.image.url(:standard)
 
   %p
-    = f.label :image
+    = f.label :image, t(:image)
     = f.file_field :image
   %p
     = f.label :active

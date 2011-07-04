@@ -182,4 +182,5 @@ Factory.define :gift do |g|
   g.price "12.34"
   g.link "www.store.com"
   g.active true
+  g.after_create {|gg| Factory(:gift_group, :users => [gg])}
 end
