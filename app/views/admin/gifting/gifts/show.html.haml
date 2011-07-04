@@ -1,37 +1,51 @@
-%p
-  = image_tag @gift.image.url(:standard)
-%p
-  %strong Name:
-  = @gift.name
-%p
-  %strong Gift Groups:
-  %br
-  - @gift.gift_groups.each do |gift|
-    = gift.name
-    %br
-%p
-  %strong Description:
-  = raw @gift.description
-%p
-  %strong Link:
-  = @gift.link
-%p
-  %strong Price:
-  = number_to_currency(@gift.price)
-%p
-  %strong Affiliate Program:
-  = @gift.merchant.affiliate_program.name unless @gift.merchant.affiliate_program.nil?
-%p
-  %strong Merchant:
-  = @gift.merchant_name unless @gift.merchant.nil?
-%p
-  %strong Affiliate Code:
-  = @gift.affiliate_code
-%p
-  %strong Active:
-  = @gift.active ? "Active" : "Inactive"
+#gift
+  #gift_img
+    %p
+      = image_tag @gift.image.url(:standard)
+  #gift_details
+    %p
+      %span{:class => "label"} 
+        Name:
+      = @gift.name
+    %p
+      %span{:class => "label"} 
+        Gift Groups:
+      %br
+      - @gift.gift_groups.each do |gift|
+        = gift.name
+        %br
+    %p
+      %span{:class => "label"} 
+        Link:
+      = @gift.link
+    %p
+      %span{:class => "label"} 
+        Price:
+      = number_to_currency(@gift.price)
+    %p
+      %span{:class => "label"} 
+        Affiliate Program:
+      = @gift.merchant.affiliate_program.name unless @gift.merchant.affiliate_program.nil?
+    %p
+      %span{:class => "label"} 
+        Merchant:
+      = @gift.merchant_name unless @gift.merchant.nil?
+    %p
+      %span{:class => "label"} 
+        Affiliate Code:
+      = @gift.affiliate_code
+    %p
+      %span{:class => "label"} 
+        Active:
+      = @gift.active ? "Active" : "Inactive"
+  %div{:class => "clear"}
+  #gift_description
+    %p
+      %span{:class => "label"} 
+        Description:
+      = raw @gift.description
 
-= link_to 'Edit', edit_admin_gifting_gift_path(@gift)
-\|
-= link_to 'Back', admin_gifting_gifts_path
+  //= link_to 'Edit', edit_admin_gifting_gift_path(@gift)
+  \|
+  = link_to 'Back', admin_gifting_gifts_path
 

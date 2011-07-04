@@ -1,18 +1,19 @@
 %h3= t(:gifts)
 %p= link_to t(:add_gift), new_admin_gifting_gift_path
-%table
-  %tr
-    %th 
-    %th Name
-    %th Price
-    %th Active
-    %th
-  - @gifts.each do |gift|
+#gifting_list
+  %table
     %tr
-      %td= image_tag gift.image.url(:thumb)
-      %td= link_to gift.name, admin_gifting_gift_path(gift.id)
-      %td= number_to_currency(gift.price)
-      %td= gift.active ? "Active" : "Inactive"
-      %td= link_to t(:remove), admin_gifting_gift_path(gift), :method => :delete, :confirm => I18n.t(:are_you_sure)
+      %th Name
+      %th Price
+      %th Merchant
+      %th Active
+      %th
+    - @gifts.each do |gift|
+      %tr
+        %td= link_to gift.name, admin_gifting_gift_path(gift.id), :class => "bold_link"
+        %td= number_to_currency(gift.price)
+        %td= gift.merchant_name
+        %td= gift.active ? "Active" : "Inactive"
+        %td= link_to t(:remove), admin_gifting_gift_path(gift), :method => :delete, :confirm => I18n.t(:are_you_sure)
 
 

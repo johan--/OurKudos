@@ -1,6 +1,7 @@
 %h3 Gifting
-%p
-  = link_to t(:affiliate_programs), admin_gifting_affiliate_programs_path
-  = link_to t(:merchants), admin_gifting_merchants_path
-  = link_to t(:gift_groups), admin_gifting_gift_groups_path
-  = link_to t(:gifts), admin_gifting_gifts_path
+#gifting_nav
+  %ul
+    %li= link_to t(:affiliate_programs), admin_gifting_affiliate_programs_path
+    %li= link_to t(:merchants), admin_gifting_merchants_path
+    %li= link_to t(:gift_groups), admin_gifting_gift_groups_path
+    %li= link_to t(:gifts), admin_gifting_gifts_path

@@ -148,6 +148,7 @@ ul.admin_list {
 		padding: 5px 5px;
 		
 		a {
+		  padding-left: 5px;
 			float: right;
 		}	
 	}
@@ -166,4 +167,65 @@ ul.wide_admin_list {
 			float: right;
 		}	
 	}
+}
+
+#gifting_nav {
+  ul {
+    li {
+      font-size: 14px;
+      padding: 5px;
+      float: left;
+    }
+  }
+}
+
+#gifting_list {
+  a {
+    float: none
+  }
+  a.bold_link {
+    font-weight: bold;
+    text-decoration: none;
+  }
+	li {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+		width: 30em;
+		border-bottom: 1px dotted $very_light_gray;
+		padding: 5px 3px;
+  }
+	th {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+		border-bottom: 1px dotted $very_light_gray;
+		padding: 5px 3px;
+  }
+}
+
+#gift {
+  .label {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
+#gift_img {
+  width: 40%;
+  float: left;
+  img {
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: 1px 1px 1px #000;
+    -moz-box-shadow: 1px 1px 1px #000;
+    -webkit-box-shadow: 1px 1px 1px #000;
+    
+  }
+}
+#gift_details {
+  width: 40%;
+  float: left;
+}
+.clear {
+  clear: both;
 }

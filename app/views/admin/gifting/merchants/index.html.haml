@@ -2,11 +2,11 @@
 %p
   = link_to t(:add_merchant), new_admin_gifting_merchant_path
 
-%ul.admin_list
-  - for merchant in @merchants do
-    %li
-      = merchant.name
-      = link_to t(:remove), admin_gifting_merchant_path(merchant), :method => :delete, :confirm => I18n.t(:are_you_sure)
-      = link_to "View" , admin_gifting_merchant_path(merchant)
+#gifting_list
+  %ul
+    - for merchant in @merchants do
+      %li
+        = link_to merchant.name, admin_gifting_merchant_path(merchant), :class => "bold_link"
+        = link_to t(:remove), admin_gifting_merchant_path(merchant), :method => :delete, :confirm => I18n.t(:are_you_sure)
 
 
