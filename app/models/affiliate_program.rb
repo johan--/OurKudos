@@ -7,6 +7,6 @@ class AffiliateProgram < ActiveRecord::Base
 
   # ================
   # = Validations ==
-  validates :name,  :presence => true
+  validates :name,  :presence => true, :uniqueness => true
   # ================
 end
