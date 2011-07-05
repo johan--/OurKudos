@@ -36,6 +36,7 @@ gem 'paperclip'
 gem 'gravtastic'
 gem 'memcache'
 gem 'memcache-client'
+gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 
 group :test do
   gem "cucumber"

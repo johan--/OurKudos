@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/galetahub/rails-ckeditor.git
+  revision: 8d955f2bdc5aede984004f656d013e7961919f8e
+  branch: rails3
+  specs:
+    ckeditor (3.5.4)
+      mime-types (>= 1.16)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -324,6 +332,7 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   capybara
+  ckeditor!
   coffee-filter
   coffee-script
   cucumber
