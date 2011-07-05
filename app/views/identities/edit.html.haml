@@ -1,4 +1,4 @@
-%h3= t :edit_identity
+%h2= t :edit_identity
 
 = form_for @identity, :url => user_identity_path(current_user), :method => :put do |f|
     
@@ -6,7 +6,6 @@
 
   = render :partial => "identities/form_fields", :locals => {:f => f}
   
-  = f.submit t(:update_identity)
-
-
-= link_to t(:back_to_my_account_settings), user_path(current_user)
+  %p
+    = f.submit t(:update_identity)
+    = link_to 'cancel', user_path(current_user), :class => 'action_link'

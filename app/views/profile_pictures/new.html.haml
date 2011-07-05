@@ -1,4 +1,4 @@
-%h4= t(:add_profile_picture)
+%h2= t(:add_profile_picture)
 = form_for current_user, :url => user_profile_pictures_path(current_user), :method => :post do |f|
 
   = error_messages_for current_user
@@ -7,4 +7,6 @@
 
   %p= f.file_field :profile_picture
 
-  %p= f.submit "Upload"
+  %p
+    = f.submit "Upload"
+    = link_to 'cancel', user_path(current_user), :class => 'action_link'
