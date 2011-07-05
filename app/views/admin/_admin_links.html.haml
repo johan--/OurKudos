@@ -10,4 +10,11 @@
     %li#adminreportslink= link_to t(:admin_reports), admin_reports_path
     - if current_user.has_role?(:editor) || current_user.has_role?(:admin)
       %li#kudosflagslink= link_to t(:flagged_kudos), admin_kudo_flags_path
-    %li#admingiftinglink= link_to t(:gifting), admin_gifting_root_path
+    %li#admingiftinglink
+      Gifting
+      %ul#gifting_subnav.admin_subnav
+        %li= link_to t(:affiliate_programs), admin_gifting_affiliate_programs_path
+        %li= link_to t(:merchants), admin_gifting_merchants_path
+        %li= link_to t(:gift_groups), admin_gifting_gift_groups_path
+        %li= link_to t(:gifts), admin_gifting_gifts_path
+

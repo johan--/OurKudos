@@ -82,7 +82,7 @@ ul#nav_admin {
 	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
 	margin-bottom: 15px;
 
-	li {
+	> li {
 		display: inline;
 		padding-right: 10px;
 	
@@ -228,4 +228,26 @@ ul.wide_admin_list {
 }
 .clear {
   clear: both;
+}
+
+/* admin drop-down navigation */
+ul.admin_subnav {
+	display: none;
+	width: 12em;
+	position: absolute;
+	
+	li {
+		display: block;
+	}
+}
+
+li#admingiftinglink {
+	cursor: pointer;
+	position: relative;
+	
+	&:hover {
+		ul#gifting_subnav {
+			display: block;
+		}
+	}
 }
