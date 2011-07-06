@@ -15,5 +15,6 @@
         %td= gift.merchant_name
         %td= gift.active ? "Active" : "Inactive"
         %td= link_to t(:remove), admin_gifting_gift_path(gift), :method => :delete, :confirm => I18n.t(:are_you_sure)
+        %td= link_to t(:edit), edit_admin_gifting_gift_path(gift)
 
 

@@ -25,6 +25,21 @@ class Admin::Gifting::GiftsController < ApplicationController
     end
   end
 
+  def edit
+    @gift = Gift.find params[:id]
+  end
+
+  def update
+    params[:gift][:gift_group_ids] ||= []
+    @gift = Gift.find params[:id]
+    if @gift.update_attributes(params[:gift])
+      flash[:notice] = "Successfully updated gift"
+      redirect_to admin_gifting_gift_path(@gift)
+    else
+      render :action => 'edit'
+    end
+  end
+
   def destroy
     @gift = Gift.find params[:id]
     if @gift.destroy

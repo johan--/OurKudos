@@ -1,12 +1,10 @@
 //= content_for :head do
 //= javascript_include_tag 'ckeditor/ckeditor.js'
 
-- if f.object.new_record?
-  = form_for gift, :url => admin_gifting_gifts_path, :method => :post, :html => {:multipart => true} do |f|
-- else
-  = form_for gift, :url => admin_gifting_gifts_path(gift), :method => :put, :html => {:multipart => true} do |f|
+%h3= t(:edit_gift)
+= form_for @gift, :url => admin_gifting_gift_path(@gift), :method => :put, :html => {:multipart => true} do |f|
 
-  = error_messages_for gift
+  = error_messages_for @gift
   %p
     = f.label :merchant_id, t(:merchant)
     %br
@@ -28,7 +26,7 @@
       Gift Groups
     %br
     - GiftGroup.all.each do |group|
-      = check_box_tag "gift[gift_group_ids][]", group.id, gift.gift_groups.include?(group)
+      = check_box_tag "gift[gift_group_ids][]", group.id, @gift.gift_groups.include?(group)
       = group.name
   %p
     = f.label :description
@@ -43,7 +41,7 @@
     = f.label :link
     = f.text_field :link
   - unless f.object.new_record?
-    = image_tag gift.image.url(:standard)
+    = image_tag @gift.image.url(:standard)
 
   %p
     = f.label :image, t(:image)
