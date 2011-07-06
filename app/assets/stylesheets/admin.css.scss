@@ -248,6 +248,19 @@ li#admingiftinglink {
 	&:hover {
 		ul#gifting_subnav {
 			display: block;
+			background: #fff;
+			border: 2px solid #3841A6;
+      -webkit-border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      -moz-border-radius-bottomright: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      border-top: none;
+      li {
+        padding: 2px 5px;
+      }
+			        
 		}
 	}
 }
