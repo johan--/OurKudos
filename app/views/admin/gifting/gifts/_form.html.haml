@@ -1,10 +1,7 @@
 //= content_for :head do
 //= javascript_include_tag 'ckeditor/ckeditor.js'
 
-- if f.object.new_record?
-  = form_for gift, :url => admin_gifting_gifts_path, :method => :post, :html => {:multipart => true} do |f|
-- else
-  = form_for gift, :url => admin_gifting_gifts_path(gift), :method => :put, :html => {:multipart => true} do |f|
+= form_for gift, :url => admin_gifting_gifts_path, :method => :post, :html => {:multipart => true} do |f|
 
   = error_messages_for gift
   %p
