@@ -8,5 +8,6 @@
       %li
         = link_to merchant.name, admin_gifting_merchant_path(merchant), :class => "bold_link"
         = link_to t(:remove), admin_gifting_merchant_path(merchant), :method => :delete, :confirm => I18n.t(:are_you_sure)
+        = link_to t(:edit), edit_admin_gifting_merchant_path(merchant)
 
 

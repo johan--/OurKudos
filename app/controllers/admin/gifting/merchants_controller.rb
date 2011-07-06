@@ -25,6 +25,21 @@ class Admin::Gifting::MerchantsController < ApplicationController
     end
   end
 
+  def edit
+    @merchant = Merchant.find params[:id]
+  end
+
+  def update
+    @merchant = Merchant.find params[:id]
+    if @merchant.update_attributes(params[:merchant])
+      flash[:notice] = "Successfully updated Merchant"
+      respond_with @merchant, :location => admin_gifting_merchants_path
+    else
+      render :action => 'edit'
+    end
+  end
+  
+
   def destroy
     @merchant = Merchant.find params[:id]
     if @merchant.destroy

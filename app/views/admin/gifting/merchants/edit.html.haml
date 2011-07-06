@@ -1,7 +1,7 @@
-//- content_for :head do
-//= javascript_include_tag 'ckeditor/ckeditor.js'
-= form_for merchant, :url => admin_gifting_merchants_path, :method => :post do |f|
-  = error_messages_for merchant
+%h3= t(:edit_merchant)
+= form_for @merchant, :url => admin_gifting_merchant_path(@merchant), :method => :put do |f|
+
+  = error_messages_for @merchant
 
   .field
     = f.label :name
@@ -25,3 +25,4 @@
     - else
       = f.submit t(:update_merchant)
 
+= link_to 'Back', admin_gifting_merchants_path

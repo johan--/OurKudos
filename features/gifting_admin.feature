@@ -68,6 +68,20 @@ Scenario: Administrator can remove Merchant
   When I follow "Remove"
   Then I should not see "Disney Store"
 
+Scenario: Administrator can edit a Merchant
+  Given I'm logged in as an administrator with:
+    | email              | password     | id |
+    | admin@example2.net | secret pass1 | 1  |
+  And the following merchants exist:
+    | name           | homepage   |
+    | Disney Store   | www.disneystore.com |
+  When I go to the Merchants page
+  Then I should see "Disney Store"
+  When I follow "Edit"
+  And I fill in "Name" with "The Disney Store"
+  And I press "Update Merchant"
+  Then I should see "The Disney Store"
+
 Scenario: Administrator can add Gift Groups
   Given I'm logged in as an administrator with:
     | email              | password     | id |
