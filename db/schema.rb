@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704001858) do
+ActiveRecord::Schema.define(:version => 20110706230838) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20110704001858) do
     t.string   "name"
     t.text     "description"
     t.float    "price"
-    t.string   "link"
+    t.text     "link"
     t.boolean  "active"
     t.integer  "merchant_id"
     t.string   "affiliate_code"
