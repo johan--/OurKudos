@@ -1,5 +1,6 @@
 class Admin::KudoCategoriesController < Admin::AdminController
   before_filter :authenticate_user!
+  layout 'admin'
   respond_to :html
 
   def index

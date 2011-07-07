@@ -1,6 +1,6 @@
-class Admin::Gifting::AffiliateProgramsController < ApplicationController
+class Admin::Gifting::AffiliateProgramsController < Admin::AdminController
   before_filter :authenticate_user!
-  layout 'admin'
+  #layout 'admin'
   respond_to :html
   
   def index
@@ -9,6 +9,7 @@ class Admin::Gifting::AffiliateProgramsController < ApplicationController
   end
 
   def create
+   @affiliate_programs = AffiliateProgram.all
     @affiliate_program = AffiliateProgram.new params[:affiliate_program]
     if @affiliate_program.save
       flash[:notice] = I18n.t(:affiliate_program_has_been_saved)
@@ -28,3 +29,4 @@ class Admin::Gifting::AffiliateProgramsController < ApplicationController
   end
   
 end
+

@@ -1,4 +1,4 @@
-class Admin::Gifting::GiftGroupsController < ApplicationController
+class Admin::Gifting::GiftGroupsController < Admin::AdminController
   before_filter :authenticate_user!
   layout 'admin'
   respond_to :html
@@ -9,6 +9,7 @@ class Admin::Gifting::GiftGroupsController < ApplicationController
   end
 
   def create
+    @gift_groups = GiftGroup.all
     @gift_group = GiftGroup.new params[:gift_group]
     if @gift_group.save
       flash[:notice] = I18n.t(:gift_group_has_been_saved)
