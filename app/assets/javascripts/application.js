@@ -12,3 +12,4 @@
 //= require admin/reports
 //= require kudo_flags
 //= require users
+//= require jquery.wysiwyg

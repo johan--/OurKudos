@@ -1,5 +1,10 @@
-//- content_for :head do
-//= javascript_include_tag 'ckeditor/ckeditor.js'
+:javascript
+  (function($) {
+    $(document).ready(function() {
+      $('.wysiwyg').wysiwyg();
+    });
+  })(jQuery);
+
 = form_for merchant, :url => admin_gifting_merchants_path, :method => :post do |f|
   = error_messages_for merchant
 
@@ -17,8 +22,7 @@
     = f.text_field :affiliate_code
   .field
     = f.label :description
-    //= f.cktext_area :description, :width => '800px', :height => '200px'
-    = f.text_area :description, :width => '800px', :height => '200px'
+    = f.text_area :description, :width => '800px', :height => '200px', :class => 'wysiwyg'
   .actions
     - if f.object.new_record?
       = f.submit t(:create_merchant)

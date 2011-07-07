@@ -1,6 +1,13 @@
 //= content_for :head do
 //= javascript_include_tag 'ckeditor/ckeditor.js'
 
+:javascript
+  (function($) {
+    $(document).ready(function() {
+      $('.wysiwyg').wysiwyg();
+    });
+  })(jQuery);
+
 %h3= t(:edit_gift)
 = form_for @gift, :url => admin_gifting_gift_path(@gift), :method => :put, :html => {:multipart => true} do |f|
 
@@ -13,10 +20,10 @@
     = f.label :affiliate_code, t(:affiliate_code)
     %br
     = f.text_field :affiliate_code
-    //%p{:class => 'notice'}
-    //*If Commission Junction product use the product SKU
-    //%p{:class => 'notice'}
-    //*If Commission Junction product only these fields and the image are required
+    %p{:class => 'cj_notice'}
+      *If Commission Junction product use the product SKU
+    %p{:class => 'cj_notice'}
+      *If Commission Junction product only these fields and the image are required
   %p
     = f.label :name, t(:name)
     %br
@@ -31,8 +38,7 @@
   %p
     = f.label :description
     %br
-    //= f.cktext_area :description, :width => '800px', :height => '200px'
-    = f.text_area :description, :width => '800px', :height => '200px'
+    = f.text_area :description, :width => '800px', :height => '200px', :class => "wysiwyg"
   %p
     = f.label :price
     %br

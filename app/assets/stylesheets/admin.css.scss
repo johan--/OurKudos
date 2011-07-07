@@ -232,10 +232,8 @@ ul.wide_admin_list {
 }
 #gift_details {
   width: 40%;
+  overflow: hidden;
   float: left;
-}
-.clear {
-  clear: both;
 }
 
 /* admin drop-down navigation */
@@ -271,4 +269,15 @@ li#admingiftinglink {
 			        
 		}
 	}
+}
+
+#cj_required {
+  border: 1px solid #000099;
+  background: #99ccff;
+  padding: 5px;
+  margin-bottom: 15px;
+  p.cj_notice {
+    font-size: 10px;
+  }
+  
 }

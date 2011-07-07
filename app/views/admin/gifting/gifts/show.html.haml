@@ -17,7 +17,7 @@
     %p
       %span{:class => "label"} 
         Link:
-      = @gift.link
+      = link_to "Affiliate Link", @gift.link, :target => "_blank"
     %p
       %span{:class => "label"} 
         Price:
@@ -38,7 +38,7 @@
       %span{:class => "label"} 
         Active:
       = @gift.active ? "Active" : "Inactive"
-  %div{:class => "clear"}
+  %div{:class => "clearing"}
   #gift_description
     %p
       %span{:class => "label"} 
