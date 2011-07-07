@@ -26,7 +26,7 @@ class Gift < ActiveRecord::Base
 
   def retrieve_from_commission_junction
     #needs reactoring
-    if self.merchant.affiliate_program.name == "Commission Junction" && !self.affiliate_code.blank? && !self.merchant_id.blank?
+    if !self.merchant_id.blank? && self.merchant.affiliate_program.name == "Commission Junction" && !self.affiliate_code.blank? 
       merchant_code = self.merchant.affiliate_code
 
       info = commission_junction_api_call(merchant_code, self.affiliate_code)
