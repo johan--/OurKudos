@@ -162,30 +162,8 @@ ul.admin_list {
 	}
 }
 
-ul.wide_admin_list {
-	list-style: none;
-	
-	li {
-		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
-		width: 30em;
-		border-bottom: 1px dotted $very_light_gray;
-		padding: 5px 3px;
-		
-		a {
-			float: right;
-		}	
-	}
-}
 
-#gifting_nav {
-  ul {
-    li {
-      font-size: 14px;
-      padding: 5px;
-      float: left;
-    }
-  }
-}
+
 
 #gifting_list {
   a {
@@ -241,6 +219,12 @@ ul.admin_subnav {
 	display: none;
 	width: 12em;
 	position: absolute;
+	top: 15px;
+	left: -3px;
+	background: $very_very_light_blue;
+	z-index: 1000;
+	opacity: .8;
+	padding-bottom: 3px;
 	
 	li {
 		display: block;
@@ -254,15 +238,7 @@ li#admingiftinglink {
 	&:hover {
 		ul#gifting_subnav {
 			display: block;
-			background: #fff;
-			border: 2px solid #3841A6;
-      -webkit-border-bottom-right-radius: 5px;
-      -webkit-border-bottom-left-radius: 5px;
-      -moz-border-radius-bottomright: 5px;
-      -moz-border-radius-bottomleft: 5px;
-      border-bottom-right-radius: 5px;
-      border-bottom-left-radius: 5px;
-      border-top: none;
+			
       li {
         padding: 2px 5px;
       }
