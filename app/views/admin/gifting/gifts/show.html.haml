@@ -45,7 +45,10 @@
         Description:
       = raw @gift.description
 
-  //= link_to 'Edit', edit_admin_gifting_gift_path(@gift)
+  = link_to 'Edit', edit_admin_gifting_gift_path(@gift)
   \|
   = link_to 'Back', admin_gifting_gifts_path
+  - if @gift.merchant.affiliate_program && @gift.merchant.affiliate_program.name == "Commission Junction"
+    |
+    = link_to "Retrieve From Commission Junction", admin_gifting_commission_junction_update_path(@gift.id)
 

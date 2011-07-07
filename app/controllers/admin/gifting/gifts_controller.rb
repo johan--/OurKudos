@@ -49,4 +49,14 @@ class Admin::Gifting::GiftsController < ApplicationController
     end
   end
 
+  def commission_junction_update
+    @gift = Gift.find params[:id]
+    if @gift.update_commission_junction
+      redirect_to admin_gifting_gift_path(@gift), :notice => "#{@gift.name} was successfully updated"
+    else
+      flash[:error] = "Updated Failed, please update manually"
+      render :action => 'edit'
+    end
+  end
+  
 end

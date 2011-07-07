@@ -44,6 +44,25 @@ class Gift < ActiveRecord::Base
     end
   end
 
+  def update_commission_junction
+    #needs refactoring
+    info = commission_junction_api_call(self.merchant.affiliate_code, self.affiliate_code)
+    unless info == "bad uri"
+      doc = Nokogiri::XML(info)
+self.price = doc.xpath('//price').first.text
+self.link = doc.xpath('//buy-url').first.text
+      if self.save
+        true
+      else
+        false
+      end
+    else
+      false
+    end
+  end
+  
+
+
   def commission_junction_api_call(merchant_code, affiliate_code)
     #needs refactoring, maybe into its own module
     merchant = merchant_code.strip
