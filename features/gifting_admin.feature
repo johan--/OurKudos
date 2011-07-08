@@ -6,7 +6,6 @@ Scenario: Administrator can add Affiliate Programs
     | email              | password     | id |
     | admin@example2.net | secret pass1 | 1  |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Affiliate Programs"
   Then I should be on the Affiliate Program page
   When I fill in "Name" with "Commission Junction"
@@ -24,7 +23,6 @@ Scenario: Administrator can remove Affiliate Program
     | name                | homepage   |
     | Commission Junction | www.cj.com |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Affiliate Programs"
   Then I should see "Commission Junction"
   When I follow "Remove"
@@ -38,7 +36,6 @@ Scenario: Administrator can add mechants
     | name                | homepage   |
     | Commission Place    | www.cp.com |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Merchants"
   Then I should be on the Merchants page
   When I follow "Add Merchant"
@@ -62,7 +59,6 @@ Scenario: Administrator can remove Merchant
     | name           | homepage   |
     | Disney Store   | www.disneystore.com |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Merchants" 
   Then I should see "Disney Store"
   When I follow "Remove"
@@ -87,7 +83,6 @@ Scenario: Administrator can add Gift Groups
     | email              | password     | id |
     | admin@example2.net | secret pass1 | 1  |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Gift Groups"
   Then I should be on the Gift Groups page
   When I fill in "Group Name" with "Food Gifts"
@@ -103,7 +98,6 @@ Scenario: Administrator can remove Gift Groups
     | name       |
     | Food Gifts |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Gift Groups"
   Then I should see "Food Gifts"
   When I follow "Remove"
@@ -123,7 +117,6 @@ Scenario: Administrator can add Gifts
     | Movie Gifts |
     | Pet Gifts   |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Gifts"
   And I follow "Add Gift"
   And I fill in "Name" with "Fantasia"
@@ -152,7 +145,6 @@ Scenario: Administrator can delete Gifts
     | name      |
     | Fantasia  |
   When I go to admin area page
-  And I follow "Gifting"
   And I follow "Gifts"
   Then I should see "Fantasia"
   When I follow "Remove" 
