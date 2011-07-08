@@ -30,6 +30,8 @@ module NavigationHelpers
       admin_gifting_merchants_path
     when /the Gift Groups page/
       admin_gifting_gift_groups_path
+    when /the public Gifts page/
+      gifts_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
