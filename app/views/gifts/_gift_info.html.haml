@@ -1,0 +1,26 @@
+#gift_col_one
+  %h3
+    = gift.name
+  %p
+    %strong Description:
+    = raw gift.description
+  %h3
+    = gift.merchant.name
+  %p{:class => 'merchant_description'}
+    = raw gift.merchant.description
+  %h4
+    Legal Disclaimer
+  %p.legal_description
+    Actual product packaging and materials may contain more and different information than what is shown on out website. We recommend that you not rely solely on the information presented and that you always read labels, warnings, and directions before using or consuming product.
+#gift_col_two
+  = image_tag gift.image.url(:standard)
+  %p
+    %strong Price:
+    = number_to_currency(gift.price)
+  %p.afffiliate_disclaimer
+    When you select the gift, you will be transeferred to out trusted merchant where you will complete the purchase process
+
+  %p= link_to(image_tag('send_gift.png', :class => "clear_back"), gift.link, {:target => "_blank"})
+%div.clearing
+
+
