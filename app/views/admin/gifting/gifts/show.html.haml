@@ -43,7 +43,8 @@
     %p
       %span{:class => "label"} 
         Description:
-      = raw @gift.description
+      %span{:class => 'wysiyg_display'} 
+        = raw @gift.description
 
   = link_to 'Edit', edit_admin_gifting_gift_path(@gift)
   \|

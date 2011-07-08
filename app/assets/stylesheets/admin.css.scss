@@ -260,3 +260,10 @@ li#admingiftinglink {
 div.field_with_errors {
   display: inline;
 }
+.wysiwyg_display {
+  p {
+    b {
+      font-weight: bold;
+    }
+  }
+}
