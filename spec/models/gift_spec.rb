@@ -20,4 +20,14 @@ describe Gift do
 
   end
 
+  context "auto retrievable gift" do
+    
+    it "should auto retrieve information on create" do
+      let(:merchant) {Factory(:retrievable_merchant).id}
+      gift = Gift.create!({Factory(:retrievable_merchant).id}, 
+                          :affiliate_code => "OSF33D707")
+      gift.name.should equal?("Miniature Tuscan Olive Tree")
+    end
+  end
+
 end
