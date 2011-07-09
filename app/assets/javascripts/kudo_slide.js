@@ -85,7 +85,3 @@ $.fn.infiniteCarousel = function () {
         });
     });  
 };
-
-$(document).ready(function () {
-  $('.infiniteCarousel').infiniteCarousel();
-});

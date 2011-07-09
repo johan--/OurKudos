@@ -2,7 +2,8 @@
 jQuery(function($) {
 
   $("#gift_select_slider input[type=radio]").attr('checked', false);
-  //$("#gift_select_slider input[type=radio]").click(function(event) {
+
+  //repopulate slider
   $("#gift_select_slider a").click(function(event) {
          
      //unbind click that were bound on DOM load
@@ -13,7 +14,6 @@ jQuery(function($) {
         $('.wrapper li').remove();
      // Step 2 fetch new data
         var gift_group = $(this).attr('name');
-     //   var group_name = $("#gift_select_slider input[type=radio]:checked + label").text();
      var group_name = $(this).attr('title');
 
 					  jQuery.get('/gifts/list_gifts_in_group_slider/' + gift_group + ".js", function(data){
@@ -34,6 +34,7 @@ jQuery(function($) {
 
 })
 
+//display gift info
 jQuery(function($) {
   $(".wrapper a").live('click', function(event) {
 
@@ -54,5 +55,6 @@ jQuery(document).ready(function(){
   $('.infiniteCarousel .wrapper').css({'min-height' : '230px'});
   $('#pages p').show();
 //  $('.infiniteCarousel ul li').css({'height' : '85px'})
+  $('.infiniteCarousel').infiniteCarousel();
 
 });

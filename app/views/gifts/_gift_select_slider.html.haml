@@ -4,7 +4,7 @@
       %a{:href => "/gifts/#{gift.id}", :name => gift.id }
         %span{:class => 'carousel_img'}
           = image_tag(gift.image.url(:thumb), :name => gift.id)
-        %br
+        %br/
         = truncate(gift.name, :length => 20)
-        %br
+        %br/
         = number_to_currency gift.price
