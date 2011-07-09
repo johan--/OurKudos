@@ -162,10 +162,24 @@ Factory.define :affiliate_program do |ap|
   ap.homepage "www.cj.com"
 end
 
+#Factory.define :commission_junction, :parent => :affiliate_program do |ap|
+Factory.define :commission_junction, :class => 'AffiliateProgram' do |ap|
+  ap.name "Commission Junction"
+  ap.homepage "www.cj.com"
+end
+
 Factory.define :merchant do |m|
   m.name "Disney Store"
   m.homepage "www.disneystore.com"
   m.association :affiliate_program
+  m.affiliate_code "123abc"
+  m.description "The place to get stuff"
+end
+
+Factory.define :retreivable_merchant, :class => "Merchant" do |m|
+  m.name "Organic Bouquet"
+  m.homepage "www.OrganicBouquet.com"
+  m.affiliate_program { |ap| ap.association(:commission_junction)}
   m.affiliate_code "123abc"
   m.description "The place to get stuff"
 end
@@ -181,5 +195,11 @@ Factory.define :gift do |g|
   g.affiliate_code "123abc"
   g.price "12.34"
   g.link "www.store.com"
+  g.active true
+end
+
+Factory.define :retrievable_gift, :class => "Gift" do |g|
+  g.merchant { |m| m.association(:retreivable_merchant)}
+  g.affiliate_code "OSF33D707"
   g.active true
 end

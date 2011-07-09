@@ -37,7 +37,6 @@ gem 'gravtastic'
 gem 'memcache'
 gem 'memcache-client'
 gem 'nokogiri'
-#gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
 
 group :test do
   gem "cucumber"
@@ -54,6 +53,8 @@ group :test do
   gem "timecop"
   gem 'ruby-debug19'
   gem 'sqlite3'
+  gem 'fakeweb'
+  gem 'fakeweb-matcher' 
 end
 
 group :development do

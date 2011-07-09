@@ -89,5 +89,11 @@ self.link = doc.xpath('//buy-url').first.text
       end
     end
 
+  def auto_retrievable?
+    if !self.merchant_id.blank? && self.merchant.affiliate_program.name == "Commission Junction" && !self.affiliate_code.blank? 
+    return true
+    end
+
+  end
     
 end
