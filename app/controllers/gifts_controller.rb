@@ -14,7 +14,6 @@ layout :choose_layout
     @gift_groups = GiftGroup.find_by_sql("SELECT DISTINCT gg.id, gg.name from gift_groups_gifts g JOIN gift_groups gg on gg.id = g.gift_group_id")
     @featured_gift = Gift.first
     @width = (160 * @gifts.count)
-    
   end
 
   def show
