@@ -67,6 +67,10 @@ Given /^the following Gifts exist:$/ do |table|
   end
 end
 
+When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
+  attach_file(field, path)
+end
+
 Before('@background-jobs') do
   system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"
 end

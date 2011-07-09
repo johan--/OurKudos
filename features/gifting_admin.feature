@@ -111,11 +111,11 @@ Scenario: Administrator can add Gifts
     | name         | homepage   |
     | Disney Store | www.disneystore.com |
   And the following gift groups exist:
-    | name        |
-    | Kids Gifts  |
-    | Food Gifts  |
-    | Movie Gifts |
-    | Pet Gifts   |
+    | name        | id  |
+    | Kids Gifts  | 1   |
+    | Food Gifts  | 2   |
+    | Movie Gifts | 3   |
+    | Pet Gifts   | 4   |
   When I go to admin area page
   And I follow "Gifts"
   And I follow "Add Gift"
@@ -123,20 +123,16 @@ Scenario: Administrator can add Gifts
   And I fill in "Description" with "Follow Yensid through a music journey"
   And I fill in "Price" with "19.99"
   And I select "Disney Store" from "Merchant"
-  When I check "gift[gift_group_ids][]"
-#When I check "gift[gift_group_ids][]" within "Gift Groups
-  And I fill in "Affiliate Code" with "123abd"
+  When I fill in "Affiliate Code" with "123abc"
   And I fill in "Link" with "www.disneystore.com/code123abc"
-#And I attach "fantasia_disney.gif" to "Image"
+  And I attach the file at "features/assets/disney_fantasia.gif" to "Image"
   And I press "Create Gift"
   Then I should see "Fantasia"
   And I should see "Follow Yensid through a music journey"
   And I should see "19.99"
   And I should see "Disney Store"
-  And I should see "Kids Gift"
   And I should see "123abc"
-  And I should see "www.disneystore.com/code123abc"
-
+  And I should see "Affiliate Link"
 Scenario: Administrator can delete Gifts
   Given I'm logged in as an administrator with:
     | email              | password     | id |

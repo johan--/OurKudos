@@ -30,7 +30,7 @@
       Gift Groups
     %br
     - GiftGroup.all.each do |group|
-      = check_box_tag "gift[gift_group_ids][]", group.id, gift.gift_groups.include?(group)
+      = check_box_tag "gift[gift_group_ids][]", group.id, gift.gift_groups.include?(group), :id => group.name
       = group.name
   %p
     = f.label :description
