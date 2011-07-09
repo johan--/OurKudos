@@ -1,4 +1,3 @@
-//= require jquery
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.tokeninput
@@ -13,3 +12,5 @@
 //= require kudo_flags
 //= require users
 //= require jquery.wysiwyg
+//= require kudo_slide.js
+//= require kudo_slide_funct.js

@@ -1,0 +1,10 @@
+- gifts.each_with_index do |gift, index|
+  %li
+    %p
+      %a{:href => "/gifts/#{gift.id}", :name => gift.id }
+        %span{:class => 'carousel_img'}
+          = image_tag(gift.image.url(:thumb), :name => gift.id)
+        %br
+        = truncate(gift.name, :length => 20)
+        %br
+        = number_to_currency gift.price

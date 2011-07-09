@@ -1,3 +1,4 @@
+
 #gift_select_slider {
   display:none;
   border: 1px solid #00cc00;
@@ -9,9 +10,12 @@
   width: 610px;
   margin: auto;
   margin-bottom: 10px;
+  h3 {
+    border: none;
+  }
   a {
     font-family: comic sans ms;
-    background: url(../images/button.png) no-repeat center center;
+    background: url(button.png) no-repeat center center;
     text-decoration: none;
     display: inline-block;
     vertical-align: middle;
@@ -34,6 +38,9 @@
   width: 610px;
   margin: auto;
   margin-bottom: 10px;
+  h3 {
+    border-top: none;
+  }
   li {
     list-style: none;
     display: inline;
@@ -201,12 +208,18 @@ span.carousel_img a img{
   width: 55%;
   margin-left: 25px;
   float: left
+  h3 {
+    border: none;
+  }
 }
 
 #gift_col_two {
   width: 30%;
   padding: 0 40px 0 20px;
   float: right;
+  h3 {
+    border: none;
+  }
   img{
     padding: 5px;
     border: 1px solid #000;

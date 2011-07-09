@@ -20,4 +20,27 @@ layout :choose_layout
   def show
     @gift = Gift.find(params[:id])
   end
+
+  def list_gifts_in_group_slider
+    if params[:id].to_s == '0'
+      @gifts = Gift.where(:active => true)
+    else
+      group = GiftGroup.find(params[:id])
+      @gifts = group.gifts.where(:active => true)
+    end
+    respond_to do |format|
+      format.html
+      format.js {render 'gift_select_slider'}
+    end
+  end
+
+  def get_gift
+    @gift = Gift.find params[:id]
+    respond_to do |format|
+      format.html
+      format.js {render 'gift'}
+    end
+  end
+  
+  
 end
