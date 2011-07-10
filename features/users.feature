@@ -43,7 +43,7 @@ Scenario: Editing a user profile
   When I follow "My Account"
   And I follow "Edit my personal info"
   And I fill in "Street Address" with "726 Farr Court"
-  And I fill in "Postal Code" with "54701"
+  And I fill in "Zip Code" with "54701"
   And I fill in "City" with "Eau Claire" 
   And I fill in "State/Province" with "Wisconsin"
   And I press "Update My Info"
