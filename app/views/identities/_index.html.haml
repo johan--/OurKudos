@@ -1,8 +1,8 @@
 %h3= t(:current_user_identities) unless admin_request?
 
-%p= t :only_confirmed_identites_are_valid
+%p.note= t :only_confirmed_identites_are_valid
 
-%table.admin_type1
+%table.registered_type1
   %thead
     %th= t :identity_type
     %th= t :identity

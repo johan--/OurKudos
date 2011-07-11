@@ -1,47 +1,52 @@
 %h2= t :my_account_settings
 
 .userprofile_col_left
-
+  
   %h3= t :personal_info
+  
+  %p.note= t :privacy_blurb
+  
   %p
-    %span.alignleft
-      = label_tag(:first_name, 'First Name')
-      = current_user.first_name
-    %span.alignright
-      = label_tag(:last_name, 'Last Name')
-      = current_user.last_name
+    = label_tag(:first_name, 'First Name')
+    %span.datavalue= current_user.first_name
+    %br
+  %p   
+    = label_tag(:last_name, 'Last Name')
+    %span.datavalue= current_user.last_name
+    %br
   %p
     = label_tag(:streetadress, 'Street Address')
-    = current_user.streetadress
-  
+    %span.datavalue= current_user.streetadress
+    %br
   %p
     = label_tag(:postal_code, 'Postal/Zip Code')
-    = current_user.postal_code
-  
+    %span.datavalue= current_user.postal_code
+    %br
   %p
-    %span.alignleft
-      = label_tag(:city, 'City/Town')
-      = current_user.city
-    %span.alignright
-      = label_tag(:state_or_province, 'State/Province')
-      = current_user.state_or_province
-  
+    = label_tag(:city, 'City/Town')
+    %span.datavalue= current_user.city
+    %br
   %p
-    %span.alignleft
-      = label_tag(:phone_number, 'Home phone')
-      = current_user.phone_number
-    %span.alignright
-      = label_tag(:mobile_number, 'Mobile phone')
-      = current_user.mobile_number
-   
+    = label_tag(:state_or_province, 'State/Province')
+    %span.datavalue= current_user.state_or_province
+    %br
+  %p
+    = label_tag(:phone_number, 'Home phone')
+    %span.datavalue= current_user.phone_number
+    %br
+  %p
+    = label_tag(:mobile_number, 'Mobile phone')
+    %span.datavalue= current_user.mobile_number
+    %br
   %p
     = label_tag(:about_me,'About me')
-   
+    %br
   %p
     = label_tag(:birthday,'Birthday')
-    = current_user.birthday
+    %span.datavalue= current_user.birthday
+    %br
    
-  %p= t :privacy_blurb
+  
    
   %p.clearing
     = link_to t(:edit_personal_info), edit_user_path, :class => "action_link"
@@ -50,30 +55,30 @@
   
   %h4= t :email_notifications
   %p
-    = label_tag(:get_an_email_whenever_you_receive_kudos)
+    %span.datavalue=  t :get_an_email_whenever_you_receive_kudos
   %p
-    = label_tag(:receive_a_weekly_summary_of_kudos_in_your_community)
+    %span.datavalue= t(:receive_a_weekly_summary_of_kudos_in_your_community)
   %p
-    = label_tag(:allow_businesses_that_youve_sent_kudos_to_to_notify_you_of_specials)
+    %span.datavalue= t(:allow_businesses_that_youve_sent_kudos_to_to_notify_you_of_specials)
   %p
-    = label_tag(:allow_other_businesses_in_your_area_to_notify_you_of_specials)
+    %span.datavalue= t(:allow_other_businesses_in_your_area_to_notify_you_of_specials)
   
   %h4= t :mobile_phone_notifications
   %p
-    = label_tag(:get_your_kudos_via_text_message)
+    %span.datavalue= t(:get_your_kudos_via_text_message)
   
   %h4= t :facebook_and_twitter_defaults
   %p
-    = label_tag(:post_kudos_you_send_to_your_facebook_wall)
+    %span.datavalue= t(:post_kudos_you_send_to_your_facebook_wall)
   %p
-    = label_tag(:tweet_kudos_you_send)
+    %span.datavalue= t(:tweet_kudos_you_send)
   
   %h4= t :kudos_scope_default
   %p
-    = label_tag(:show_kudos_to_the_world_by_default)
+    %span.datavalue= t(:show_kudos_to_the_world_by_default)
   
   
-  %p.clearing
+  %p
     = link_to t(:edit_messaging_prefs), '/', :class => "action_link"
     |
     = link_to t(:manage_blocked_senders_list), '/', :class => "action_link"
@@ -83,7 +88,7 @@
   
   %h3= t :authentications
 
-  %p
+  %p.note
     = t :you_can_authenticate_using_following_methods
   
   %p

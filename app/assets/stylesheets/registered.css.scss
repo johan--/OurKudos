@@ -399,6 +399,50 @@ p#kudos_search_cont {
 
 /* User account settings */
 
+body.users_show {
+	label {
+		color: $dark_green;
+		font-weight: normal;
+		font-size: 1.3em;
+		display: block;
+		width: 10em;
+		float: left;
+		text-align: right;
+		margin-right: 7px;
+
+	}
+	
+	h3 {
+		font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		color: #fff;
+		background-color: $very_dark_gray;
+		padding: 7px 15px;
+		margin-bottom: 15px;
+	}
+	
+	span.datavalue {
+		font-size: 1.3em;
+		font-weight: bold;
+		color: $very_dark_gray;
+		line-height: 1.3em;
+		
+	}
+	
+	h4 {
+		font: normal 1.3em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		color: $headers_blue;
+		margin-bottom: 3px;
+	}
+
+	.note {
+		font: italic 1.1em Arial, Helvetica, sans-serif;
+		color: $medium_gray;
+		border-top: 1px dotted $medium_gray;
+		border-bottom: 1px dotted $medium_gray;
+		padding: 5px;
+	}
+}
+
 img.sn_tile_status {
 	
 	vertical-align: middle;
@@ -416,11 +460,7 @@ span.sn_status_dim {
 	color: $light_gray;
 }
 
-h3 {
-	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	color: $light_gray;
-	border-top: 1px solid $light_gray;
-}
+
 
 .userprofile_col_left, .userprofile_col_right {
 	float: left;
@@ -439,6 +479,32 @@ h3 {
 .userprofile_col_right {
 	width: 280px;
 }
+
+
+table.registered_type1 {
+	width: 100%;
+	background-color: #fff;
+	
+	th {
+		padding: 8px 0;
+		font: 1.1em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
+		background-color: $very_light_gray;
+		
+		a {
+			color: $very_dark_gray;
+		}
+		
+	}
+	
+	td {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+		padding: 8px 0 8px 10px;
+		border-bottom: 1px dotted $very_light_gray;
+	}	
+	
+}
+
+
 
 /* Profile pics re-ordering function */
 
