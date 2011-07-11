@@ -9,4 +9,9 @@ class Merchant < ActiveRecord::Base
   # = Validations ==
   validates :name,  :presence => true, :uniqueness => true
   # ================
+
+  # ================
+  # ==== Scopes ====
+  default_scope order('name')
+  # ================
 end
