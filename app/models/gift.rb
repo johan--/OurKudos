@@ -1,5 +1,4 @@
 class Gift < ActiveRecord::Base
-#attr_accessor :image_file_name
   # ================
   # ==Associations==
   belongs_to :merchant
@@ -28,8 +27,6 @@ class Gift < ActiveRecord::Base
   def retrieve_from_commission_junction
     #needs reactoring
       if self.auto_retrievable?
-        merchant_code = self.merchant.affiliate_code
-
         info = OurKudos::CommissionJunction.api_call(self.merchant.affiliate_code, self.affiliate_code)
         unless info == "bad uri"
           doc = Nokogiri::XML(info)
@@ -52,11 +49,7 @@ class Gift < ActiveRecord::Base
       doc = Nokogiri::XML(info)
       self.price = doc.xpath('//price').first.text
       self.link = doc.xpath('//buy-url').first.text
-      if self.save
-        true
-      else
-        false
-      end
+      self.save
     else
       false
     end
@@ -66,11 +59,7 @@ class Gift < ActiveRecord::Base
 
 
   def auto_retrievable?
-    if !self.merchant_id.blank? && self.merchant.affiliate_program.name == "Commission Junction" && !self.affiliate_code.blank? 
-      return true
-    else
-      return false
-    end
+    !self.merchant_id.blank? && self.merchant.affiliate_program.name == "Commission Junction" && !self.affiliate_code.blank? 
   end
     
 end
