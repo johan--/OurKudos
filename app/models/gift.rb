@@ -1,5 +1,5 @@
 class Gift < ActiveRecord::Base
-  attr_accessor :image_file_name
+#attr_accessor :image_file_name
   # ================
   # ==Associations==
   belongs_to :merchant
