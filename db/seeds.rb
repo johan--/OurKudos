@@ -13,8 +13,8 @@ Role.create([
   ])
 
  admin = User.create(:email =>"admin@example.net",
-               :password => "admin123",
-               :password_confirmation => "admin123",
+               :password => "Kud05adm1n",
+               :password_confirmation => "Kud05adm1n",
                :first_name => "Admin",
                :confirmed  => true, 
                :last_name => "Big Boss")
