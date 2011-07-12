@@ -1,19 +1,36 @@
-%p
-  %b Name:
-  = @merchant.name
-%p
-  %b Homepage:
-  = @merchant.homepage
-%p
-  %b Affiliate Program:
-  = @merchant.affiliate_program.name unless @merchant.affiliate_program.nil?
-%p
-  %b Affiliate code:
-  = @merchant.affiliate_code
-%p
-  %b Description:
-  = raw @merchant.description
-= link_to 'Edit', edit_admin_gifting_merchant_path(@merchant)
-\|
-= link_to 'Back', admin_gifting_merchants_path
+#merchant
+  %h2
+    = @merchant.name
+  %p
+    %b Homepage:
+    = @merchant.homepage
+  %p
+    %b Affiliate Program:
+    = @merchant.affiliate_program.name unless @merchant.affiliate_program.nil?
+  %p
+    %b Affiliate code:
+    = @merchant.affiliate_code
+  %p
+    %b Description:
+    = raw @merchant.description
+  #group_admin
+    %p
+      %b
+        = "#{@merchant.name}'s Gifts"
+    %ul
+      - @merchant.gifts.each do |gift|
+        %li
+          %p
+            %a{:href => "/gifts/admin_show/#{gift.id}"}
+              %span{:class => 'carousel_img'}
+                = image_tag(gift.image.url(:thumb), :name => gift.id)
+              %br
+              = truncate(gift.name, :length => 20)
+              %br
+              = number_to_currency gift.price
+    %div{:class => 'clearing'}
+    
+  = link_to 'Edit', edit_admin_gifting_merchant_path(@merchant)
+  \|
+  = link_to 'Back', admin_gifting_merchants_path
 

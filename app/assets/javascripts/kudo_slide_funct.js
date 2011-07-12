@@ -55,5 +55,6 @@ jQuery(document).ready(function(){
   $('#pages p').show();
 //  $('.infiniteCarousel ul li').css({'height' : '85px'})
   $('.infiniteCarousel').infiniteCarousel();
+  $('.wysiwyg').wysiwyg();
 
 });

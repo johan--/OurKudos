@@ -1,32 +1,24 @@
-:javascript
-  (function($) {
-    $(document).ready(function() {
-      $('.wysiwyg').wysiwyg();
-    });
-  })(jQuery);
-
-= form_for merchant, :url => admin_gifting_merchants_path, :method => :post do |f|
-  = error_messages_for merchant
-
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :homepage
-    = f.text_field :homepage
-  .field
-    = f.label :affiliate_program_id, 'Affiliate Program'
-    = f.collection_select(:affiliate_program_id, AffiliateProgram.all, :id, :name, {:include_blank => "select an affiliate program"})
-  .field
-    = f.label :affiliate_code, t(:affiliate_code)
-    = f.text_field :affiliate_code
+= error_messages_for @merchant
+#gifting_form
+  %table
+    %tr
+      %td= f.label :name
+      %td= f.text_field :name
+    %tr
+      %td= f.label :homepage
+      %td= f.text_field :homepage
+    %tr
+      %td= f.label :affiliate_program_id, 'Affiliate Program'
+      %td= f.collection_select(:affiliate_program_id, AffiliateProgram.all, :id, :name, {:include_blank => "select an affiliate program"})
+    %tr
+      %td= f.label :affiliate_code, t(:affiliate_code)
+      %td= f.text_field :affiliate_code
   .field
     = f.label :description
-    = f.text_area :description, :width => '800px', :height => '200px', :class => 'wysiwyg'
+    = f.text_area :description, :cols => '100', :class => "wysiwyg"
   .actions
     - if f.object.new_record?
       = f.submit t(:create_merchant)
     - else
       = f.submit t(:update_merchant)
     = link_to 'Cancel', admin_gifting_merchants_path, :class => 'action_link'
-

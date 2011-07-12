@@ -1,12 +1,14 @@
 %h3 Merchants
 %p
   = link_to t(:add_merchant), new_admin_gifting_merchant_path
+  = link_to image_tag('add.png'), new_admin_gifting_merchant_path
 
 #gifting_list
   %ul
     - for merchant in @merchants do
       %li
         = link_to merchant.name, admin_gifting_merchant_path(merchant), :class => "bold_link"
+        = "(#{pluralize merchant.gifts.size, 'Gift'})"
         = link_to t(:remove), admin_gifting_merchant_path(merchant), :method => :delete, :confirm => I18n.t(:are_you_sure)
         = link_to t(:edit), edit_admin_gifting_merchant_path(merchant)
 
