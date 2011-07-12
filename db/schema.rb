@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706230838) do
+ActiveRecord::Schema.define(:version => 20110712132714) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(:version => 20110706230838) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-06-20 13:23:59'
+    t.datetime "unlock_in",       :default => '1911-06-03 13:13:42'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
@@ -292,7 +292,7 @@ ActiveRecord::Schema.define(:version => 20110706230838) do
 
   create_table "settings", :force => true do |t|
     t.string   "name"
-    t.string   "value"
+    t.text     "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
