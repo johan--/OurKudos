@@ -111,12 +111,15 @@
 
 .userprofile_col_right
   %h3= t :profile_picture
+  %p.note= t :you_can_reorder_avatars_to_select
+  
+  %p= render 'profile_pictures/sorting'
+
   %p= link_to t(:upload_new_profile_picture), new_user_profile_picture_path(current_user), :class => "action_link"
 
   - if current_user.has_profile_picture?
     %p= link_to(t(:remove_my_uploaded_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete, :confirm => I18n.t(:are_you_sure))
 
-  %p= render 'profile_pictures/sorting'
 
   %h3= t :gender
   %p
