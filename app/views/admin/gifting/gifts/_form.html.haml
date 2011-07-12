@@ -1,61 +1,53 @@
-:javascript
-  (function($) {
-    $(document).ready(function() {
-      $('.wysiwyg').wysiwyg();
-    });
-  })(jQuery);
+= error_messages_for @gift
 
-= form_for gift, :url => admin_gifting_gifts_path, :method => :post, :html => {:multipart => true} do |f|
+#cj_required
+  %p
+    = f.label :merchant_id, t(:merchant)
+    %br
+    = f.collection_select(:merchant_id, Merchant.all, :id, :name, {:include_blank => "select a merchant"})
+  %p
+    = f.label :affiliate_code, t(:affiliate_code)
+    %br
+    = f.text_field :affiliate_code
+    %p{:class => 'cj_notice'}
+      *If Commission Junction product use the product SKU
+    %p{:class => 'cj_notice'}
+      *If Commission Junction product only these fields and the image are required
+%p
+  = f.label :name, t(:name)
+  %br
+  = f.text_field :name
+%p
+  %strong
+    Gift Groups
+  %br
+  - GiftGroup.all.each do |group|
+    = check_box_tag "gift[gift_group_ids][]", group.id, @gift.gift_groups.include?(group), :id => group.name
+    = group.name
+%p
+  = f.label :description
+  %br
+  = f.text_area :description, :cols => '100', :class => "wysiwyg"
+%p
+  = f.label :price
+  %br
+  = f.text_field :price
+%p
+  = f.label :link
+  = f.text_field :link
+- unless f.object.new_record?
+  = image_tag @gift.image.url(:standard)
 
-  = error_messages_for gift
-  #cj_required
-    %p
-      = f.label :merchant_id, t(:merchant)
-      %br
-      = f.collection_select(:merchant_id, Merchant.all, :id, :name, {:include_blank => "select a merchant"})
-    %p
-      = f.label :affiliate_code, t(:affiliate_code)
-      %br
-      = f.text_field :affiliate_code
-      %p{:class => 'cj_notice'}
-        *If Commission Junction product use the product SKU
-      %p{:class => 'cj_notice'}
-        *If Commission Junction product only these fields and the image are required
-  %p
-    = f.label :name, t(:name)
-    %br
-    = f.text_field :name
-  %p
-    %strong
-      Gift Groups
-    %br
-    - GiftGroup.all.each do |group|
-      = check_box_tag "gift[gift_group_ids][]", group.id, gift.gift_groups.include?(group), :id => group.name
-      = group.name
-  %p
-    = f.label :description
-    %br
-    = f.text_area :description, :cols => '100', :class => "wysiwyg"
-  %p
-    = f.label :price
-    %br
-    = f.text_field :price
-  %p
-    = f.label :link
-    = f.text_field :link
-  - unless f.object.new_record?
-    = image_tag gift.image.url(:standard)
-
-  %p
-    = f.label :image, t(:image)
-    = f.file_field :image
-  %p
-    = f.label :active
-    %br
-    - if f.object.new_record?
-      = f.check_box :active, :checked => true
-    -else
-      = f.check_box :active
-  %p
-    = f.submit
-    = link_to 'Cancel', admin_gifting_gifts_path, :class => 'action_link'
+%p
+  = f.label :image, t(:image)
+  = f.file_field :image
+%p
+  = f.label :active
+  %br
+  - if f.object.new_record?
+    = f.check_box :active, :checked => true
+  -else
+    = f.check_box :active
+%p
+  = f.submit
+  = link_to 'Cancel', admin_gifting_gifts_path, :class => 'action_link'

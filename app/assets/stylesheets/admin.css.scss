@@ -166,6 +166,7 @@ ul.admin_list {
 
 
 #gifting_list {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
   a {
     float: none
   }
@@ -174,15 +175,15 @@ ul.admin_list {
     text-decoration: none;
   }
 	li {
-		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
 		width: 30em;
 		border-bottom: 1px dotted $very_light_gray;
 		padding: 5px 3px;
   }
-	th {
-		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+	th, td {
 		border-bottom: 1px dotted $very_light_gray;
 		padding: 5px 3px;
+  }
+  td {
   }
 }
 

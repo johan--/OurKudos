@@ -1,2 +1,3 @@
 %h3= t(:add_gift)
-= render 'form', :gift => @gift
+= form_for @gift, :url => admin_gifting_gifts_path, :method => :post, :html => {:multipart => true} do |f|
+  = render 'form', :f => f
