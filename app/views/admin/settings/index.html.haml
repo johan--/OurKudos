@@ -26,7 +26,7 @@
   = form_for @special_message, :url => admin_setting_path(:id => @special_message), :method => :put do |f|
     %p
       = label_tag "settings-special-message", "Test environment special message (only used when sign up disabled)"
-    %p= text_area_tag "settings[value]", @special_message.value, :size => "36x3"
+    %p= text_area_tag "settings[value]", @special_message.value, :size => "120x30"
 
     %p= f.submit "Save", :div => false
 
