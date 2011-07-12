@@ -9,7 +9,7 @@
   = f.text_field :homepage
   = f.submit t(:create_affiliate_program)
 %hr
-%ul.wide_admin_list
+%ul.admin_list
   - for affiliate_program in @affiliate_programs do
     %li
       = affiliate_program.name

@@ -4,7 +4,7 @@
   = link_to image_tag('add.png'), new_admin_gifting_merchant_path
 
 #gifting_list
-  %ul
+  %ul.admin_list
     - for merchant in @merchants do
       %li
         = link_to merchant.name, admin_gifting_merchant_path(merchant), :class => "bold_link"
