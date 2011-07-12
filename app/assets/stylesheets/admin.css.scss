@@ -2,6 +2,7 @@
  *= require master
  *= require jquery-ui-1.8.13.custom
  *= require jquery-ui-custom-overrides
+ *= require wysiwyg
  CSS Admin section styles
 */
 
@@ -151,7 +152,7 @@ ul.admin_list {
 	
 	li {
 		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
-		width: 20em;
+		width: 40em;
 		border-bottom: 1px dotted $very_light_gray;
 		padding: 5px 5px;
 		
@@ -163,29 +164,6 @@ ul.admin_list {
 }
 
 
-
-
-#gifting_list {
-		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
-  a {
-    float: none;
-  }
-  a.bold_link {
-    font-weight: bold;
-    text-decoration: none;
-  }
-	li {
-		width: 30em;
-		border-bottom: 1px dotted $very_light_gray;
-		padding: 5px 3px;
-  }
-	th, td {
-		border-bottom: 1px dotted $very_light_gray;
-		padding: 5px 3px;
-  }
-  td {
-  }
-}
 
 #gift {
   .label {
