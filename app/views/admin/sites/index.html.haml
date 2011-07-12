@@ -1,10 +1,8 @@
-=link_to t(:add_new_site), new_admin_site_path, :class => "action_link"
-
+%h3= t :listing_our_kudos_client_sites
+%p= link_to t(:add_new_site), new_admin_site_path, :class => "action_link"
+  
+%p.note= t :all_site_api_keys_will_be_blocked
 - if @sites.any?
-  
-  %h3= t :listing_our_kudos_client_sites
-  %p.note= t :all_site_api_keys_will_be_blocked
-  
   = form_tag ban_admin_sites_path, :method => :put do 
     
     %table.admin_type1
@@ -33,7 +31,7 @@
             %td= link_to 'edit', admin_site_path(site)
             %td= link_to 'remove', admin_site_path(site), :method => :delete, :confirm => I18n.t(:are_you_sure)
   
-    = submit_tag t :activate_deactivate_selected
+    %p= submit_tag t :activate_deactivate_selected
   
   
 

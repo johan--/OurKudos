@@ -128,6 +128,7 @@ h3 {
 table.admin_type1 {
 	width: 100%;
 	background-color: #fff;
+	margin-bottom: 10px;
 	
 	th {
 		padding: 8px 0;
@@ -282,4 +283,13 @@ div.field_with_errors {
   .field label {
     padding-right: 10px;
   }
+}
+
+.note {
+	font: italic 1.1em Arial, Helvetica, sans-serif;
+	color: $medium_gray;
+	border-top: 1px dotted $medium_gray;
+	border-bottom: 1px dotted $medium_gray;
+	padding: 5px;
+	background-color: rgba(255,255,255,.2);
 }
