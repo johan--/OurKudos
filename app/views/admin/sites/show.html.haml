@@ -8,7 +8,7 @@
     
 %h4= t(:site_api_keys)
 
-%ul
+%ul.admin_list
   - for key in @keys do 
   
     %li
@@ -20,6 +20,5 @@
       = link_to_if(key.expired?, t(:key_enable), admin_api_key_path(:id => key, :subaction => "enable"), :method => :put)
       = link_to(t(:key_remove), admin_api_key_path(:id => key, :subaction => "remove"), :method => :put)
       
-  %p= link_to t(:new_api_key_for_this_site), new_admin_site_api_key_path(@site)  
+  %p= link_to t(:new_api_key_for_this_site), new_admin_site_api_key_path(@site), :class => 'action_link'  
 
-%p= link_to t(:admin_sites_listing),  admin_sites_path

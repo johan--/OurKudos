@@ -13,4 +13,4 @@
   - for role in @roles do
     %li
       = role.name
-      = link_to t(:destroy_role), admin_role_path(role), :method => :delete, :confirm => I18n.t(:are_you_sure)
+      = link_to t(:remove), admin_role_path(role), :method => :delete, :confirm => I18n.t(:are_you_sure)

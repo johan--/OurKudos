@@ -3,6 +3,7 @@
 - if @sites.any?
   
   %h3= t :listing_our_kudos_client_sites
+  %p.note= t :all_site_api_keys_will_be_blocked
   
   = form_tag ban_admin_sites_path, :method => :put do 
     
@@ -29,12 +30,12 @@
               %code= site.application_secret
             %td
               %code= site.application_id
-            %td= link_to t(:site), admin_site_path(site)
-            %td= link_to t(:site_remove), admin_site_path(site), :method => :delete, :confirm => I18n.t(:are_you_sure)
+            %td= link_to 'edit', admin_site_path(site)
+            %td= link_to 'remove', admin_site_path(site), :method => :delete, :confirm => I18n.t(:are_you_sure)
   
     = submit_tag t :activate_deactivate_selected
   
-  %small= t :all_site_api_keys_will_be_blocked
+  
 
 - else
   

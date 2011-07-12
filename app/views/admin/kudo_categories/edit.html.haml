@@ -6,4 +6,6 @@
 
   = f.label :name, "New Name"
   = f.text_field :name
-  = f.submit 
+  %p
+    = f.submit 
+    = link_to 'cancel', admin_kudo_categories_path, :class => "action_link"
