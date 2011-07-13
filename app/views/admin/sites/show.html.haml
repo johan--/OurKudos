@@ -1,4 +1,4 @@
-%h3= link_to @site.to_s, @site.to_s, :target => "_blank"
+%h3= link_to @site.url, @site.to_s, :target => "_blank"
 
 = form_for @site, :url => admin_site_path(@site), :method => :put do |f|   
   
@@ -6,13 +6,13 @@
   
   = render :partial => "form", :locals => { :f => f, :button_name => t(:update_site) }
     
-%h4= t(:site_api_keys)
+%h3= t(:site_api_keys)
 
 %ul.admin_list
   - for key in @keys do 
   
     %li
-      %strong= key.key  
+      = key.key  
       = t(:key_disabled) if key.expired?
       
       = link_to t(:key_regenerate), admin_api_key_path(:id => key, :subaction => "regenerate"), :method => :put
