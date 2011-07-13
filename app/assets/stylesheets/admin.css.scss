@@ -141,6 +141,14 @@ ul.admin_list {
 	}
 }
 
+body#admin_sites {
+	ul.admin_list {
+		li {
+			width: 70em;
+		}
+	}
+}
+
 .note {
 	font: italic 1.1em Arial, Helvetica, sans-serif;
 	color: $medium_gray;

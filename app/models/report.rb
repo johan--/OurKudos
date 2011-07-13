@@ -17,8 +17,8 @@ class Report
       def all
         [
           Report.new(:id => 1, :name => "People signed up",      :data => ->(from, to){ User.send :date_range ,from, to }),
-          Report.new(:id => 2, :name => "Invitations send out",  :data => ->(from, to){ EmailKudo.send :date_range ,from, to }),
-          Report.new(:id => 3, :name => "Kudos send",            :data => ->(from, to){ Kudo.send :date_range ,from, to }),
+          Report.new(:id => 2, :name => "Invitations sent out",  :data => ->(from, to){ EmailKudo.send :date_range ,from, to }),
+          Report.new(:id => 3, :name => "Kudos sent",            :data => ->(from, to){ Kudo.send :date_range ,from, to }),
           Report.new(:id => 4, :name => "Facebook shares",       :data => ->(from, to){ FacebookKudo.send :date_range ,from, to }),
           Report.new(:id => 5, :name => "Twitter shares",        :data => ->(from, to){ TwitterKudo.send :date_range ,from, to })
         ]
@@ -32,7 +32,7 @@ class Report
         [
           ['Users',
                         [['People signed up','1'],
-                         ["Invitations send out",'2']
+                         ["Invitations sent out",'2']
                          ]
           ],
           ['Messages',  [['Kudos sent','3'],
