@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :address2, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
-                  :profile_picture, :birthday
+                  :profile_picture, :birthday, :hide_birth_year
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email

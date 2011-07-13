@@ -34,5 +34,9 @@
     %br
     = f.date_select :birthday, :start_year => 1910, :end_year => Time.now.year - 12
   %p
+    = f.label :hide_birth_year, t(:hide_birth_year)
+    %br
+    = f.check_box :hide_birth_year
+  %p
     = f.submit t(:update_my_info)
     = link_to 'cancel', user_path(current_user), :class => 'action_link'

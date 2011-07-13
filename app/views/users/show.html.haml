@@ -44,7 +44,9 @@
     %br
   %p
     = label_tag(:birthday,'Birthday')
-    %span.datavalue= current_user.birthday
+    %span.datavalue
+      = current_user.birthday
+      = '(birth year hidden)' if current_user.hide_birth_year
     %br
    
   
