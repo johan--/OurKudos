@@ -19,6 +19,10 @@
     %span.datavalue= current_user.streetadress
     %br
   %p
+    = label_tag(:address2, 'Address 2')
+    %span.datavalue= current_user.address2
+    %br
+  %p
     = label_tag(:postal_code, 'Postal/Zip Code')
     %span.datavalue= current_user.postal_code
     %br
@@ -37,9 +41,6 @@
   %p
     = label_tag(:mobile_number, 'Mobile phone')
     %span.datavalue= current_user.mobile_number
-    %br
-  %p
-    = label_tag(:about_me,'About me')
     %br
   %p
     = label_tag(:birthday,'Birthday')
