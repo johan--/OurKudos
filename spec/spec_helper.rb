@@ -11,6 +11,7 @@ require 'fakeweb_matcher'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
   # == Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -32,6 +33,7 @@ RSpec.configure do |config|
     FakeWeb.allow_net_connect = false
     
     FakeWeb.register_uri :get, "https://product-search.api.cj.com/v2/product-search?advertiser-sku=OSF33D707&advertiser-ids=123abc&website-id=5253557", :body => fakeweb_path('olive_tree.xml')
+    FakeWeb.register_uri :get, "https://product-search.api.cj.com/v2/product-search?advertiser-sku=badurl&advertiser-ids=123abc&website-id=5253557", :body => fakeweb_path('bad_url.xml')
   end
 end
 
