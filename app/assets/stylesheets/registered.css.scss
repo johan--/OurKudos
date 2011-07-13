@@ -481,31 +481,6 @@ span.sn_status_dim {
 }
 
 
-table.registered_type1 {
-	width: 100%;
-	background-color: #fff;
-	
-	th {
-		padding: 8px 0;
-		font: 1.1em "Lucida Sans Unicode", "Lucida Grande", verdana, helvetica, sans-serif;
-		background-color: $very_light_gray;
-		
-		a {
-			color: $very_dark_gray;
-		}
-		
-	}
-	
-	td {
-		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
-		padding: 8px 0 8px 10px;
-		border-bottom: 1px dotted $very_light_gray;
-	}	
-	
-}
-
-
-
 /* Profile pics re-ordering function */
 
 ul.profile_pics {

@@ -13,11 +13,12 @@
   %br/
   = f.text_field :token, :size => 35, :class => "string"
    
-%p.authentication-field.field 
+%p.authentication-field.field
+  %p.note= t(:provider_secret_explanation)
   =f.label :secret, t(:provider_secret)
    
-  %br/
-  %small= t(:provider_secret_explanation)
+  
+  
    
   %br/
   = f.text_field :secret, :size => 35, :class => "string"
