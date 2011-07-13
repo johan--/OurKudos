@@ -36,16 +36,16 @@
     %br
   %p
     = label_tag(:phone_number, 'Home phone')
-    %span.datavalue= current_user.phone_number
+    %span.datavalue= number_to_phone current_user.phone_number
     %br
   %p
     = label_tag(:mobile_number, 'Mobile phone')
-    %span.datavalue= current_user.mobile_number
+    %span.datavalue= number_to_phone current_user.mobile_number
     %br
   %p
     = label_tag(:birthday,'Birthday')
     %span.datavalue
-      = current_user.birthday
+      = l(current_user.birthday, :format => :long)
       = '(birth year hidden)' if current_user.hide_birth_year
     %br
    
