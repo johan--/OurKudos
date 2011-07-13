@@ -18,6 +18,10 @@ layout :choose_layout
 
   def show
     @gift = Gift.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js {render 'gift', :layout => false}
+    end
   end
 
   def list_gifts_in_group_slider
@@ -33,13 +37,13 @@ layout :choose_layout
     end
   end
 
-  def get_gift
-    @gift = Gift.find params[:id]
-    respond_to do |format|
-      format.html
-      format.js {render 'gift'}
-    end
-  end
+#  def get_gift
+#    @gift = Gift.find params[:id]
+#    respond_to do |format|
+#      format.html
+#      format.js {render 'gift'}
+#    end
+#  end
   
   
 end
