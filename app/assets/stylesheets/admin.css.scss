@@ -171,6 +171,10 @@ legend {
   color: $headers_blue;
 }
 
+span.user_data {
+	font-weight: bold;
+	color: $dark_gray;
+}
 
 #gift {
   .label {
