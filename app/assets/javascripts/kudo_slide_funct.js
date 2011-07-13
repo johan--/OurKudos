@@ -38,7 +38,7 @@ jQuery(function($) {
   $(".wrapper a").live('click', function(event) {
 
     var gift_id = $(this).attr('name');
-    jQuery.get('/gifts/get_gift/' + gift_id + ".js", function(data){
+    jQuery.get('/gifts/' + gift_id + ".js", function(data){
       $("#gift_info").html(data);
     })
     return false;

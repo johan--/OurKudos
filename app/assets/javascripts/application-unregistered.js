@@ -11,5 +11,6 @@
 //= require libs
 //= require sessions
 //= require googleanalytics
+//= require jquery.wysiwyg
 //= require kudo_slide.js
 //= require kudo_slide_funct.js
