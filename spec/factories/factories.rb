@@ -3,6 +3,8 @@ Factory.sequence(:forbidden_password)       { |n| "User Role #{n}" }
 Factory.sequence(:role_name)                { |n| "Password #{n}" }
 Factory.sequence(:admin_role_name)          { |n| "Admin Role #{n}" }
 Factory.sequence(:email)                    { |n| "email#{n}@email.com" }
+Factory.sequence(:gift_name)                { |n| "gift #{n}" }
+Factory.sequence(:gift_group_name)          { |n| "gift_group #{n}" }
 
 Factory.define :site do |s|
   s.site_name { Factory.next(:site_name) }
@@ -189,13 +191,14 @@ Factory.define :gift_group do |gg|
 end
 
 Factory.define :gift do |g|
-  g.name "Fantasia"
+  g.name { Factory.next(:gift_name) }
   g.description "A journey through sound"
   g.association :merchant
   g.affiliate_code "123abc"
   g.price "12.34"
   g.link "www.store.com"
   g.active true
+  g.gift_groups {|gg| [gg.association(:gift_group)]}
 end
 
 Factory.define :retrievable_gift, :class => "Gift" do |g|
@@ -203,3 +206,4 @@ Factory.define :retrievable_gift, :class => "Gift" do |g|
   g.affiliate_code "OSF33D707"
   g.active true
 end
+
