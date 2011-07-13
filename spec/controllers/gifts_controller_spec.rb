@@ -2,9 +2,21 @@ require 'spec_helper'
 
 describe GiftsController do
 
-  it "should render index" do
-    get 'index'
-    response.should render_template('index')
+  context 'index action ' do
+    it "should render index" do
+      get 'index'
+      response.should render_template('index')
+    end
+
+    it "should show only gift groups that have a gifts" do
+      @group1 = Factory(:gift_group)
+      @group2 = Factory(:gift_group)
+      @gift = Factory(:gift, :gift_group_ids => [@group1.id])
+      
+      get 'index'
+      assigns(:gift_groups).should include(@group1)
+      assigns(:gift_groups).should_not include(@group2)
+    end
   end
 
   it "should handle show properly" do
@@ -17,21 +29,24 @@ describe GiftsController do
   context "list group in slider" do
     before(:each) do 
       @group = Factory(:gift_group)
-      @gift1 = Factory(:gift, :name => 'Gift1')
-#@gift2 = Factory(:gift, :name => 'Gift2')
+      @gift1 = Factory(:gift, :gift_group_ids => [@group.id])
+      @gift2 = Factory(:gift)
     end
 
     it "should show all gifts when 0 is passed in" do
       get "list_gifts_in_group_slider", :id => 0, :format => 'js'
-#need to test to make sure both gifts are shown
       response.should be_success
+      assigns(:gifts).should include(@gift1)
+      assigns(:gifts).should include(@gift2)
     end
 
     it "should show only gifts for group id passed in" do
       get "list_gifts_in_group_slider", :id => @group.id, :format => 'js'
-#need to test to make sure only gift in group gift shown
       response.should be_success
+      assigns(:gifts).should include(@gift1)
+      assigns(:gifts).should_not include(@gift2)
     end
+
   end
 
 end

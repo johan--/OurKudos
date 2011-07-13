@@ -3,7 +3,6 @@ Factory.sequence(:forbidden_password)       { |n| "User Role #{n}" }
 Factory.sequence(:role_name)                { |n| "Password #{n}" }
 Factory.sequence(:admin_role_name)          { |n| "Admin Role #{n}" }
 Factory.sequence(:email)                    { |n| "email#{n}@email.com" }
-Factory.sequence(:gift_name)                { |n| "gift #{n}" }
 Factory.sequence(:gift_group_name)          { |n| "gift_group #{n}" }
 
 Factory.define :site do |s|
@@ -160,7 +159,7 @@ Factory.define :kudo_category do |kc|
 end
 
 Factory.define :affiliate_program do |ap|
-  ap.name "Affiliate Program"
+  ap.sequence(:name) {|n| "program#{n}" }
   ap.homepage "www.cj.com"
 end
 
@@ -171,7 +170,7 @@ Factory.define :commission_junction, :class => 'AffiliateProgram' do |ap|
 end
 
 Factory.define :merchant do |m|
-  m.name "Disney Store"
+  m.sequence(:name) {|n| "merchant#{n}" }
   m.homepage "www.disneystore.com"
   m.association :affiliate_program
   m.affiliate_code "123abc"
@@ -187,11 +186,11 @@ Factory.define :retreivable_merchant, :class => "Merchant" do |m|
 end
 
 Factory.define :gift_group do |gg|
-   gg.name "Food Gifts"
+  gg.sequence(:name) {|n| "group#{n}" }
 end
 
 Factory.define :gift do |g|
-  g.name { Factory.next(:gift_name) }
+  g.sequence(:name) {|n| "gift#{n}" }
   g.description "A journey through sound"
   g.association :merchant
   g.affiliate_code "123abc"
