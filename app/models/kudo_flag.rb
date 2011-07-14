@@ -84,9 +84,9 @@ class KudoFlag < ActiveRecord::Base
 
     def reasons_for_select
       [
-        ['Reason 1', 'Reason 1'],
-        ['Reason 2', 'Reason 2'],
-        ['Another reason', 'Another reason'],
+        ['spam', 'This Kudo is spam or clearly an advertisement.'],
+        ['offensive', 'This Kudo is offensive, lewd or obscene.'],
+        ['incorrect_recipient', 'I am not the intended recipient of this Kudo.'],
         ['We wdoill change that later', 'We will change that later']
       ]
     end
