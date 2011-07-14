@@ -1,24 +1,28 @@
 = error_messages_for @merchant
 #gifting_form
-  %table
-    %tr
-      %td= f.label :name
-      %td= f.text_field :name
-    %tr
-      %td= f.label :homepage
-      %td= f.text_field :homepage
-    %tr
-      %td= f.label :affiliate_program_id, 'Affiliate Program'
-      %td= f.collection_select(:affiliate_program_id, AffiliateProgram.all, :id, :name, {:include_blank => "select an affiliate program"})
-    %tr
-      %td= f.label :affiliate_code, t(:affiliate_code)
-      %td= f.text_field :affiliate_code
-  .field
+  %p
+    = f.label :name
+    %br/
+    = f.text_field :name
+  %p
+    = f.label :homepage
+    %br/
+    = f.text_field :homepage
+  %p
+    = f.label :affiliate_program_id, 'Affiliate Program'
+    %br/
+    = f.collection_select(:affiliate_program_id, AffiliateProgram.all, :id, :name, {:include_blank => "select an affiliate program"})
+  %p
+    = f.label :affiliate_code, t(:affiliate_code)
+    %br/
+    = f.text_field :affiliate_code
+  %p
     = f.label :description
+    %br/
     = f.text_area :description, :cols => '100', :class => "wysiwyg"
-  %p.actions
+  %p
     - if f.object.new_record?
       = f.submit t(:create_merchant)
     - else
       = f.submit t(:update_merchant)
-    = link_to 'Cancel', admin_gifting_merchants_path, :class => 'action_link'
+    = link_to 'cancel', admin_gifting_merchants_path, :class => 'action_link'

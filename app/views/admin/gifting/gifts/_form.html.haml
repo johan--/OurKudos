@@ -34,6 +34,7 @@
   = f.text_field :price
 %p
   = f.label :link
+  %br/
   = f.text_field :link
 - unless f.object.new_record?
   = image_tag @gift.image.url(:standard)
@@ -50,4 +51,4 @@
     = f.check_box :active
 %p
   = f.submit
-  = link_to 'Cancel', admin_gifting_gifts_path, :class => 'action_link'
+  = link_to 'cancel', admin_gifting_gifts_path, :class => 'action_link'
