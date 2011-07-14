@@ -57,7 +57,7 @@ processProviderOnKudosForm  = (provider) ->
 
   jQuery(checkboxName).click ->
     if jQuery(checkboxName).attr('data-connected') is 'false'
-        if confirm "It seems that you don't have a " + provider + " account conneted yet. Would you like to connect your " + provider + " account with OurKudos now?"
+        if confirm "It seems that you don't have a " + provider + " account connected yet. Would you like to connect your " + provider + " account with OurKudos now?"
            location.href = location.href.replace("home",'').replace(/users\/\d{1,}\/kudos/,'') +  'users/auth/' + provider
            OurKudos.Cookies.setCookie cookieName,'yes'
            OurKudos.Cookies.setCookie contentCookie,  jQuery("#kudo_message_textarea").val()
