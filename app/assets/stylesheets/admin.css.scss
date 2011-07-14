@@ -247,9 +247,11 @@ li#admingiftinglink {
   }
   
 }
+
 div.field_with_errors {
   display: inline;
 }
+
 .wysiwyg_display {
   p {
     b {
@@ -257,6 +259,7 @@ div.field_with_errors {
     }
   }
 }
+
 #merchant {
   p {
     font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
@@ -265,6 +268,7 @@ div.field_with_errors {
     font-weight: bold;
   }
 }
+
 #group_admin {
   li {
     list-style: none;
@@ -282,15 +286,6 @@ div.field_with_errors {
   }
   li a {
     text-decoration: none;
-  }
-}
-#gifting_form {
-  font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
-  td label {
-    padding-right: 10px;
-  }
-  .field label {
-    padding-right: 10px;
   }
 }
 
