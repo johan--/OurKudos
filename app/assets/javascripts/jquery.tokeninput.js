@@ -11,7 +11,7 @@
 (function ($) {
 // Default settings
 var DEFAULT_SETTINGS = {
-    hintText: "Type in a search term",
+    hintText: "Enter the recipient's name or email. Press [tab] to accept.",
     noResultsText: "No results",
     searchingText: "Searching...",
     deleteText: "&times;",
