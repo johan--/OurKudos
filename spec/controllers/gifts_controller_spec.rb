@@ -20,7 +20,6 @@ describe GiftsController do
   end
 
   it "should handle show properly" do
-    #needs a gift created
     @gift = Factory(:gift)
     get 'show', {:id => @gift.id}
     response.should be_success
