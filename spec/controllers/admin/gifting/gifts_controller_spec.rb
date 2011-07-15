@@ -111,4 +111,141 @@ describe Admin::Gifting::GiftsController do
     end
   end
 
+  describe "Showing the gift admin page" do
+    before(:each) do 
+      @gift = mock_model(Gift)
+      Gift.stub!(:find).with("1").and_return(@gift)
+    end
+
+    it "assigns the requested gift as @gift" do
+      Gift.stub(:find).with("1") {@gift}
+      get :show, :id => "1"
+      assigns(:gift).should be(@gift)
+    end
+
+  end
+    
+
+    it "assigns the requested gift as @gift" do
+      Gift.stub(:find).with("1") {@gift}
+      get :edit, :id => "1"
+      assigns(:gift).should be(@gift)
+    end
+
+  describe "editing a gift with valid params" do
+    before(:each) do 
+      @gift = mock_model(Gift, :update_attributes => true)
+      Gift.stub!(:find).with("1").and_return(@gift)
+    end
+    
+
+    it "assigns the requested project as @project" do
+      Gift.stub(:find).with("1") {@gift}
+      get :edit, :id => "1"
+      assigns(:gift).should be(@gift)
+    end
+
+    it "should find gift and return object" do 
+      Gift.should_receive(:find).with("1").and_return(@gift)
+      put :update, :id => "1", :gift => {}
+    end
+
+    it "should update the gift objects attributes" do
+      @gift.should_receive(:update_attributes).and_return(true)
+      put :update, :id => "1", :gift => {}
+    end
+
+    it "should have a flash notice" do
+      put :update, :id => "1", :gift => {}
+      flash[:notice].should_not be_blank
+    end
+
+    it "should have a successful flash notice" do
+      put :update, :id => "1", :gift => {}
+      flash[:notice].should eql 'Successfully updated gift'
+    end
+
+    it "should redirect to the gift's show page" do
+      put :update, :id => "1", :gift => {}
+      response.should redirect_to(admin_gifting_gift_url(@gift))
+    end
+  end
+
+  describe "updating a gift with invalid params" do
+    before(:each) do 
+      @gift = mock_model(Gift, :update_attributes => false)
+      Gift.stub!(:find).with("1").and_return(@gift)
+    end
+
+    it "should find gift and return object" do
+      Gift.should_receive(:find).with("1").and_return(@gift)
+      put :update, :id => "1", :gift => {}
+    end
+
+    it "should update the gift objects attributes" do
+      @gift.should_receive(:update_attributes).and_return(false)
+      put :update, :id => "1", :gift => {}
+    end
+
+    it "should render the edit form " do
+      put :update, :id => "1", :gift => {}
+      response.should render_template('edit')
+    end
+  end
+
+  describe "deleteing a gift" do
+    before(:each) do 
+      @gift = mock_model(Gift)
+      Gift.stub!(:find).with("1").and_return(@gift)
+    end
+    it "should destroy the requested gift" do
+      Gift.should_receive(:find).with("1").and_return(@gift)
+      @gift.should_receive(:destroy)
+      delete :destroy, :id => "1"
+    end
+
+    it "should redirect on success" do
+      Gift.should_receive(:find).with("1").and_return(@gift)
+      delete :destroy, :id => "1"
+      response.should redirect_to(admin_gifting_gifts_url)
+    end
+
+    it "should set flash[:notice] on success" do
+      Gift.should_receive(:find).with("1").and_return(@gift)
+      delete :destroy, :id => "1"
+      flash[:notice].should eql 'Gift has been deleted'
+    end
+
+    it "should redirect on failure" do
+      Gift.stub!(:find).and_return(@gift = mock_model(Gift, :destroy => false))
+      delete :destroy, :id => "1"
+      response.should redirect_to(admin_gifting_gifts_url)
+    end
+
+    it "should set flash[:notice] on success" do
+      Gift.stub!(:find).and_return(@gift = mock_model(Gift, :destroy => false))
+      delete :destroy, :id => "1"
+      flash[:notice].should eql 'Gift has not been deleted'
+    end
+
+  end
+
+  describe "commission junction update"
+    before(:each) do 
+      @gift = mock_model(Gift)
+      Gift.stub!(:find).with("1").and_return(@gift)
+    end
+
+    it "should update the attributes"
+
+    it "should redirect on success"
+
+    it "should set the flash[:notice on success"
+
+    it "should render form on failure"
+
+    it "should set flash[:error} on failure"
+
+  end
+
 end
