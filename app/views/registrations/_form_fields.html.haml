@@ -19,3 +19,7 @@
   = f.label :last_name
   %br/
   = f.text_field :last_name,  :class => "string"
+%p
+  = f.label :birthday, "Birthday (why do we need this?)"
+  %br/
+  = f.date_select :birthday, :start_year => 1910, :end_year => Time.now.year, :prompt => true

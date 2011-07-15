@@ -49,6 +49,7 @@ class User < ActiveRecord::Base
   validates :password,   :format   => { :with => RegularExpressions.password },
                          :is_forbidden_password => true,
                          :confirmation => true, :unless => :skip_password_validation
+  validates :birthday,   :presence => true
   # ================
   # == extensions ==
   # ================
