@@ -139,7 +139,7 @@ describe Admin::Gifting::GiftsController do
     end
     
 
-    it "assigns the requested project as @project" do
+    it "assigns the requested gift as @gift" do
       Gift.stub(:find).with("1") {@gift}
       get :edit, :id => "1"
       assigns(:gift).should be(@gift)
@@ -230,21 +230,36 @@ describe Admin::Gifting::GiftsController do
 
   end
 
-  describe "commission junction update"
+  describe "commission junction update" do
     before(:each) do 
       @gift = mock_model(Gift)
+      @gift.stub!(:name, "Testname")
       Gift.stub!(:find).with("1").and_return(@gift)
     end
 
-    it "should update the attributes"
+    it "should redirect on success" do
+      @gift.should_receive(:update_commission_junction).and_return(true)
+      get :commission_junction_update, :id => "1" 
+      response.should be_redirect
+    end
 
-    it "should redirect on success"
+    it "should set the flash[:notice on success" do
+      @gift.should_receive(:update_commission_junction).and_return(true)
+      get :commission_junction_update, :id => "1" 
+      flash[:notice].should_not be_blank
+    end
 
-    it "should set the flash[:notice on success"
+    it "should render form on failure" do
+      @gift.should_receive(:update_commission_junction).and_return(false)
+      get :commission_junction_update, :id => "1" 
+      response.should render_template('edit')
+    end
 
-    it "should render form on failure"
-
-    it "should set flash[:error} on failure"
+    it "should set flash[:error} on failure" do
+      @gift.should_receive(:update_commission_junction).and_return(false)
+      get :commission_junction_update, :id => "1" 
+      flash[:error].should eql "Updated Failed, please update manually"
+    end
 
   end
 
