@@ -28,7 +28,8 @@ class Kudo < ActiveRecord::Base
                                          select("DISTINCT kudos.*").
                                          where("kudos.created_at >= ?", user.created_at.to_s(:db)).
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
-  scope :local_kudos, ->(user) {where("kudos.author_id IN (#{local_authors(user)})")}
+scope :local_kudos, ->(user) {joins(:kudo_copies).
+                                where("kudo_copies.recipient_id IN (#{local_authors(user)})")}
 
 
   serialize :flaggers
