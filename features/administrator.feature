@@ -48,7 +48,7 @@ Scenario: Administrator can display user details page
         | user3@example.net  | secret pass1 | 4  |
     And I go to admin area page
     And I follow "Users"
-    And I follow "More details"
+    And I follow "edit"
     Then I should see "Showing user admin@example4.net"
     And I should see "Demographics"
     And I should see "Member since"
@@ -69,7 +69,7 @@ Scenario: Administrator can change user informations
         | user3@example.net  | secret pass1 | 4  |
     And I go to admin area page
     And I follow "Users"
-    And I follow "More details"
+    And I follow "edit"
     And I fill in "user_mobile_number" with "123456789"
     And I press "Update settings"
     Then I should see "User data updated successfully"
@@ -144,7 +144,7 @@ Scenario: Administrator can add/remove user roles
       | Food |
     When I go to admin area page
     And I follow "Kudo Categories"
-    And I follow "Rename"
+    And I follow "Edit"
     And I fill in "New Name" with "Congrats"
     And I press "Update Kudo category"
     Then I should see "Congrats"
