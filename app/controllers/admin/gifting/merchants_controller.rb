@@ -32,7 +32,7 @@ class Admin::Gifting::MerchantsController < ApplicationController
   def update
     @merchant = Merchant.find params[:id]
     if @merchant.update_attributes(params[:merchant])
-      flash[:notice] = "Successfully updated Merchant"
+      flash[:notice] = "Successfully updated merchant"
       respond_with @merchant, :location => admin_gifting_merchants_path
     else
       render :action => 'edit'
@@ -43,9 +43,9 @@ class Admin::Gifting::MerchantsController < ApplicationController
   def destroy
     @merchant = Merchant.find params[:id]
     if @merchant.destroy
-      redirect_to(:back, :notice => I18n.t(:merchant_has_been_deleted))
+      redirect_to(admin_gifting_merchants_path, :notice => I18n.t(:merchant_has_been_deleted))
     else
-      redirect_to(:back, :notice => I18n.t(:merchant_has_not_been_deleted))
+      redirect_to(admin_gifting_merchants_path, :notice => I18n.t(:merchant_has_not_been_deleted))
     end
   end
   

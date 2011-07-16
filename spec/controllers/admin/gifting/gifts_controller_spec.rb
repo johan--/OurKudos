@@ -13,7 +13,7 @@ describe Admin::Gifting::GiftsController do
     assigns(:gifts).should_not be_nil
   end
 
-  context "creating a valid gift" do
+  describe "creating a valid gift" do
     before(:each) do 
       Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => true))
     end
@@ -66,7 +66,7 @@ describe Admin::Gifting::GiftsController do
   end
 
   
-  context "creating an invalid gift" do
+  describe "creating an invalid gift" do
     before(:each) do 
       Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => false))
     end
@@ -124,20 +124,14 @@ describe Admin::Gifting::GiftsController do
     end
 
   end
-    
+  
 
-    it "assigns the requested gift as @gift" do
-      Gift.stub(:find).with("1") {@gift}
-      get :edit, :id => "1"
-      assigns(:gift).should be(@gift)
-    end
 
   describe "editing a gift with valid params" do
     before(:each) do 
       @gift = mock_model(Gift, :update_attributes => true)
       Gift.stub!(:find).with("1").and_return(@gift)
     end
-    
 
     it "assigns the requested gift as @gift" do
       Gift.stub(:find).with("1") {@gift}
