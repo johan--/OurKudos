@@ -413,15 +413,17 @@ class User < ActiveRecord::Base
     end
 
     def newsfeed_kudos user
-      Kudo.public_or_friends_kudos.author_or_recipient(user)
+      Kudo.public_or_friends_kudos.author_or_recipient(user).local_kudos(user)
     end
+
 
     #Local kudos section
     def local_kudos user
       zip_codes = OurKudos::OkGeo.find_local_zip_codes(user.postal_code) 
       zip_codes << user.postal_code
-      local_users = User.find_all_by_postal_code(zip_codes)
-      local_kudos = local_users.map {|user| user.received_kudos.where(:share_scope => nil )}
+      local_users = User.find_all_by_postal_code(zip_codes).collect{|u| u.id }.join(",")
+#local_kudos = local_users.map {|user| user.received_kudos.where(:share_scope => nil )}
+#local_kudos[0]
     end
 
     def default_profile_picture_types

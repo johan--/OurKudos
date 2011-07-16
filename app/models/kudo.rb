@@ -28,6 +28,7 @@ class Kudo < ActiveRecord::Base
                                          select("DISTINCT kudos.*").
                                          where("kudos.created_at >= ?", user.created_at.to_s(:db)).
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
+  scope :local_kudos, ->(user) {where("kudos.author_id IN (#{local_authors(user)})")}
 
 
   serialize :flaggers
@@ -250,6 +251,10 @@ class Kudo < ActiveRecord::Base
 
 
   class << self
+
+    def local_authors user
+      User.local_kudos user
+    end
 
     def social_sharing_enabled?
       @social_sharing_enabled ||= Settings[:social_sharing_enabled].value == 'yes'
