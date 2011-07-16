@@ -44,7 +44,7 @@ describe Admin::Gifting::AffiliateProgramsController do
       valid_create
     end
 
-    it "should save the gift" do 
+    it "should save the affiliate program" do 
       @affiliate_program.should_receive(:save).and_return(true)
       valid_create
     end
@@ -132,7 +132,7 @@ describe Admin::Gifting::AffiliateProgramsController do
       response.should redirect_to(admin_gifting_affiliate_programs_url)
     end
 
-    it "should set flash[:notice] on success" do
+    it "should set flash[:notice] on falure" do
       AffiliateProgram.stub!(:find).and_return(@affiliate_program = mock_model(AffiliateProgram, :destroy => false))
       delete :destroy, :id => "1"
       flash[:notice].should eql 'Affiliate Program has not been deleted'
