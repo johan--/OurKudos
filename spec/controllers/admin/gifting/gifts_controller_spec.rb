@@ -193,7 +193,7 @@ describe Admin::Gifting::GiftsController do
     end
   end
 
-  describe "deleteing a gift" do
+  describe "deleting a gift" do
     before(:each) do 
       @gift = mock_model(Gift)
       Gift.stub!(:find).with("1").and_return(@gift)
