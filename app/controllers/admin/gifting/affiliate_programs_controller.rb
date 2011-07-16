@@ -22,9 +22,9 @@ class Admin::Gifting::AffiliateProgramsController < Admin::AdminController
   def destroy
     @affiliate_program = AffiliateProgram.find params[:id]
     if @affiliate_program.destroy
-      redirect_to(:back, :notice => I18n.t(:affiliate_program_has_been_deleted))
+      redirect_to(admin_gifting_affiliate_programs_path, :notice => I18n.t(:affiliate_program_has_been_deleted))
     else
-      redirect_to(:back, :notice => I18n.t(:affiliate_program_has_not_been_deleted))
+      redirect_to(admin_gifting_affiliate_programs_path, :notice => I18n.t(:affiliate_program_has_not_been_deleted))
     end
   end
   
