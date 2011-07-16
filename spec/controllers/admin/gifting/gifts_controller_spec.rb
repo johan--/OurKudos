@@ -216,7 +216,7 @@ describe Admin::Gifting::GiftsController do
       response.should redirect_to(admin_gifting_gifts_url)
     end
 
-    it "should set flash[:notice] on success" do
+    it "should set flash[:notice] on failure" do
       Gift.stub!(:find).and_return(@gift = mock_model(Gift, :destroy => false))
       delete :destroy, :id => "1"
       flash[:notice].should eql 'Gift has not been deleted'
