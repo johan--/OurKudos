@@ -254,7 +254,7 @@ scope :local_kudos, ->(user) {joins(:kudo_copies).
   class << self
 
     def local_authors user
-      User.local_kudos user
+      User.local_users user
     end
 
     def social_sharing_enabled?
