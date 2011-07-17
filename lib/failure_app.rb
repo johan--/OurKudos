@@ -8,10 +8,13 @@ module Devise
       message = :inactive if message == :invalid_token && params[:action] == "twitter"
 
       if message.is_a?(Symbol)
-        if message != :inactive && message != :unauthenticated
+        if  message == :timeout
+          flash[:alert] = nil
+        elsif message != :inactive && message != :unauthenticated
           message_without_link message
         elsif  message == :inactive
-          message_with_link message
+          message_without_link message
+#message_with_link message
         elsif  message == :unauthenticated
           flash[:notice] = I18n.t('devise.failure.unauthenticated')
           flash[:notice] = I18n.t(:please_sign_in_with_email, :email => params[:recipient].to_s) if user_attempted_to_visit_inbox?
