@@ -415,7 +415,7 @@ class User < ActiveRecord::Base
     def newsfeed_kudos user
       public_kudos = Kudo.public_or_friends_kudos.author_or_recipient(user) 
       local_kudos = Kudo.local_kudos(user)
-      (public_kudos + local_kudos).uniq
+      (public_kudos + local_kudos).uniq.first(15)
     end
 
 
