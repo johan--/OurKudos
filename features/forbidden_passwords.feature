@@ -9,7 +9,7 @@ Scenario: Administrator can add/remomve forbidden password to the list
     And I fill in "Password" with "Password1"
     And I press "Add to list"
     Then I should see "Password has been added to the list"
-    When I follow "Remove it"
+    When I follow "Remove"
     Then I should see "Forbidden Password has been removed from the list"
 
 Scenario: User tries to delete passwords

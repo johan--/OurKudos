@@ -9,6 +9,9 @@ Scenario: User can create an account natively
   And I fill in "Last name" with "Walczak"
   And I fill in "signup_user_password" with "verysecretpassword1"
   And I fill in "user_password_confirmation" with "verysecretpassword1"
+  And I select "1985" from "user_birthday_1i"
+  And I select "November" from "user_birthday_2i"
+  And I select "11" from "user_birthday_3i"
   And I press "Sign up"
   And I should see "You have signed up successfully. Please check your email and confirm your account"
 
