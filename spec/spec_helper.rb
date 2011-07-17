@@ -34,6 +34,8 @@ RSpec.configure do |config|
     
     FakeWeb.register_uri :get, "https://product-search.api.cj.com/v2/product-search?advertiser-sku=OSF33D707&advertiser-ids=123abc&website-id=5253557", :body => fakeweb_path('olive_tree.xml')
     FakeWeb.register_uri :get, "https://product-search.api.cj.com/v2/product-search?advertiser-sku=badurl&advertiser-ids=123abc&website-id=5253557", :body => fakeweb_path('bad_url.xml')
+    FakeWeb.register_uri :get, "http://okgeo.rkudos.com/zip/54701", :body => fakeweb_path('54701.js')
+    FakeWeb.register_uri :get, "http://okgeo.rkudos.com/zip/54700", :body => fakeweb_path('54700.js')
   end
 end
 
