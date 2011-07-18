@@ -1,4 +1,4 @@
-%h3= t :your_facebook_friends_list
+%h2= t :your_facebook_friends_list
 
 
 - if @facebook_friends.any?
@@ -10,7 +10,8 @@
       - for friend in @facebook_friends do
         %tr
           %td= friend.name
-
+          
+  %p= link_to('back to my account', current_user, :method => :get, :class => 'action_link')
 - else
 
   = button_to t(:pull_my_friends_from_facebook), user_facebook_friends_path(@user), :method => :post

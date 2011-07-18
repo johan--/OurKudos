@@ -1,8 +1,8 @@
-%h3= t(:showing_your_contacts)
+%h2= t(:showing_your_contacts)
 
 - if current_user.friendships.any?
 
-  %p= t(:my_contacts)
+  %h4= t(:my_contacts)
   %table.type1
     %thead
       %th= t :user_friend
@@ -17,11 +17,11 @@
 
 - if current_user.inverse_friends.any?
 
-  %p= t(:friended_by_users)
+  %h4= t(:friended_by_users)
   %ul
     - for user in current_user.inverse_friends do
       %li= user.email
 
 
-= link_to(:back, current_user, :method => :get, :class => 'action_link')
+%p= link_to('back to my account', current_user, :method => :get, :class => 'action_link')
 

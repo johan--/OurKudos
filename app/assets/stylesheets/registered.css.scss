@@ -399,7 +399,7 @@ p#kudos_search_cont {
 
 /* User account settings */
 
-body.users_show {
+body.users_show, body.friendships_show, body.facebook_friends_index {
 	label {
 		color: $dark_green;
 		font-weight: normal;
@@ -433,7 +433,11 @@ body.users_show {
 		color: $headers_blue;
 		margin-bottom: 3px;
 	}
-
+  
+  ul {
+  	margin-bottom: 10px;
+  }
+  
 	.note {
 		font: italic 1.1em Arial, Helvetica, sans-serif;
 		color: $medium_gray;
