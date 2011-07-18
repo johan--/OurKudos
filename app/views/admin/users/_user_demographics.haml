@@ -4,25 +4,38 @@
   %fieldset
     %legend= t :user_demographics
   
-    %p.user-field
+    %p
       = @user.to_s
     
-    %p.user-field
+    %p
       = t :user_address
-      = f.text_field :streetadress, :size => 10
-      = f.text_field :city, :size => 10
-      ,
-      = f.text_field :state_or_province, :size => 10
-      ,
-      = f.text_field :postal_code, :size => 6
       %br/
+      = f.text_field :streetadress, :size => 40
+    %p
+      = f.text_field :address2, :size => 30
+    %p
+      = f.label :city
+      %br/
+      = f.text_field :city, :size => 20
+    %p
+      = f.label :state_or_province
+      %br/
+      = f.text_field :state_or_province, :size => 30
+    %p
+      =f.label :postal_code
+      %br/
+      = f.text_field :postal_code, :size => 10
   
-    %p.user-field
+    %p
       = t :user_phone
       = f.text_field :phone_number, :size => 12
     
-    %p.user-field
+    %p
       = t :user_mobile
       = f.text_field :mobile_number, :size => 12
+    %p
+      = f.label :birthday
+      %br/
+      = f.date_select(:birthday, :start_year => 1910, :end_year => Time.now.year, :prompt => true)
 
     = f.submit t(:change_user_data)
