@@ -16,4 +16,7 @@
     = link_to(image_tag('facebook_icon.png'),'http://www.facebook.com/ourkudos')
     = link_to(image_tag('twitter_icon.png'),'http://www.twitter.com/ourkudos')
 
-%p#footer_copyright copyright &copy; 2011 OurKudos LLC
+%p#footer_copyright
+  copyright &copy;
+  = Time.now.year
+  OurKudos LLC
