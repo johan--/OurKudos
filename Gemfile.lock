@@ -361,7 +361,6 @@ DEPENDENCIES
   memcache
   memcache-client
   multi_json
-  nokogiri
   oauth2
   oauth2-core
   omniauth
