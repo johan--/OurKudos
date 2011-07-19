@@ -36,7 +36,6 @@ gem 'paperclip'
 gem 'gravtastic'
 gem 'memcache'
 gem 'memcache-client'
-gem 'nokogiri'
 
 group :test do
   gem "cucumber"
@@ -54,12 +53,11 @@ group :test do
   gem 'ruby-debug19'
   gem 'sqlite3'
   gem 'fakeweb'
-  gem 'fakeweb-matcher' 
+  gem 'fakeweb-matcher'
   gem 'cover_me', '>= 1.0.6.rc6'
 end
 
 group :development do
   gem 'capistrano'
   gem 'capistrano-ext'
-  gem 'ruby-debug19'
 end  
