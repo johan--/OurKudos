@@ -402,16 +402,6 @@ class User < ActiveRecord::Base
 
   end
 
-  def update_my_kudo_zips_with new_postal_code
-    received_kudos.each do |kudo_copy|
-      kudo_copy.update_attribute :postal_code
-    end
-    sent_kudos.each do |kudo|
-
-    end
-  end
-
-
   class << self
 
     def get_identity_user_by email
