@@ -7,8 +7,8 @@
         %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for_link('sent')
       %li
         %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for_link('received')
-      %li
-        %h2= link_to 'Local',   home_path(:kudos => "local"), :class => kudos_current_class_for_link('local')
+      //%li
+        //%h2= link_to 'Local',   home_path(:kudos => "local"), :class => kudos_current_class_for_link('local')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
       = form_tag do
