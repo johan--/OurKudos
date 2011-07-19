@@ -7,6 +7,8 @@
         %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for_link('sent')
       %li
         %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for_link('received')
+      //%li
+      //%h2= link_to 'Local Kudos',   home_path(:kudos => "local"), :class => kudos_current_class_for_link('local')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
       = form_tag do
@@ -23,6 +25,9 @@
 
       - elsif params[:kudos] == "received"
         = render :partial => "kudos/received_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
+
+      - elsif params[:kudos] == "local"
+        = render :partial => "kudos/sent_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
 
     
   #kudo_dashboard_bot

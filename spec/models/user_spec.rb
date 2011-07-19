@@ -104,6 +104,32 @@ describe User do
     
   end  
   
-  
+  context "the users dashboard" do
+    describe User, "local kudos tab" do
+      before(:each) do 
+        @user1 = Factory(:user, :postal_code => '54701')
+        @user2 = Factory(:user, :postal_code => '54720')
+        @kudo = Factory(:kudo, :to => @user2.identities.first.id.to_s)
+      end
+
+      it "should respond to local_kudos" do
+        @user1.should respond_to('local_kudos')
+      end
+
+      it "should return @user2 as a local user for @user1" do
+        local_users = User.local_users(@user1).split(",")
+        local_users.should include(@user2.id.to_s)
+      end
+
+      it "should return include kudos from local zips codes" do
+        @user1.local_kudos.should include(@kudo)
+      end
+
+      it "should be an ActiveRecord::Relation" do
+        @user1.local_kudos.should be_an(ActiveRecord::Relation)
+      end
+
+    end
+  end
 
 end

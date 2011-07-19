@@ -270,6 +270,11 @@ class User < ActiveRecord::Base
     (@newsfeed_kuds ||= User.newsfeed_kudos(self)) : []
   end
 
+  def local_kudos
+   !postal_code.blank? ?
+    (@local_kudos ||= Kudo.local_kudos(self)) : []
+  end
+
   def destroy_friendships
     Friendship.where(:friend_id => self.id).destroy_all
   end
@@ -412,13 +417,9 @@ class User < ActiveRecord::Base
     end
 
     def newsfeed_kudos user
-      public_kudos = Kudo.public_or_friends_kudos.author_or_recipient(user) 
-      local_kudos = Kudo.local_kudos(user)
-      (public_kudos + local_kudos).uniq
+      Kudo.public_or_friends_kudos.author_or_recipient(user) 
     end
 
-
-    #Local kudos section
     def local_users user
       unless user.postal_code.blank?
         zip_codes = OurKudos::OkGeo.find_local_zip_codes(user.postal_code) 
