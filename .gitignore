@@ -13,5 +13,5 @@ public/assets/*
 *.swp
 *.DS_Store
 /public/system/*
-coverage
+coverage/
 coverage.data
