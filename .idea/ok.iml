@@ -54,6 +54,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="cover_me" version="1.0.6.rc6" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="cucumber" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -91,6 +97,18 @@
     <requirement>
       <requirement>
         <dependency name="factory_girl_rails" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="fakeweb" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="fakeweb-matcher" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -181,6 +199,12 @@
     <requirement>
       <requirement>
         <dependency name="multi_json" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="nokogiri" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -434,6 +458,10 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] paperclip (v2.3.12, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/paperclip-2.3.12)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] cocaine (v0.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cocaine-0.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] gravtastic (v3.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gravtastic-3.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] memcache-client (v1.8.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/memcache-client-1.8.5)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] memcache (v1.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/memcache-1.2.13)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] nokogiri (v1.4.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/nokogiri-1.4.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activemodel-3.1.0.rc4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-cache (v1.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rack-cache-1.0.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rubyntlm (v0.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rubyntlm-0.1.1)" level="application" />
@@ -464,9 +492,12 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-openid (v1.3.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rack-openid-1.3.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] arel (v2.1.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/arel-2.1.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] gravtastic (v3.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gravtastic-3.1.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] memcache-client (v1.8.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/memcache-client-1.8.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] memcache (v1.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/memcache-1.2.13)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb (v1.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-1.3.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cover_me (v1.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cover_me-1.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb-matcher (v1.2.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-matcher-1.2.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] yamler (v0.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/yamler-0.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb (v1.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-1.3.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] configatron (v2.8.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/configatron-2.8.2)" level="application" />
   </component>
 </module>
 

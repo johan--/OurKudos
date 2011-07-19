@@ -424,7 +424,8 @@ class User < ActiveRecord::Base
       unless user.postal_code.blank?
         zip_codes = OurKudos::OkGeo.find_local_zip_codes(user.postal_code) 
         zip_codes << user.postal_code
-        local_users = User.find_all_by_postal_code(zip_codes).collect{|u| u.id }.join(",")
+        User.find_all_by_postal_code(zip_codes).
+            collect(&:id).join(",")
       else
         user.id
       end

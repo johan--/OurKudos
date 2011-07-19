@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(:version => 20110712132714) do
   create_table "ips", :force => true do |t|
     t.string   "address"
     t.boolean  "blocked",         :default => false
-    t.datetime "unlock_in",       :default => '1911-06-03 13:13:42'
+    t.datetime "unlock_in",       :default => '1911-06-20 13:23:59'
     t.integer  "failed_attempts", :default => 0
     t.datetime "last_seen"
     t.datetime "created_at"
