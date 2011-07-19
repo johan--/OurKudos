@@ -12,12 +12,15 @@
       = kudo.recipients_readable_list
     %p= kudo.body
 
+    
    - unless kudo_object(kudo).has_been_improperly_flagged?
     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id }
 
    %div= sent_kudo_destroy_link(kudo)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
+   .social_buttons
+    %g:plusone
 
    .clearing
   .kudo_message_bot

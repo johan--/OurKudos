@@ -7,6 +7,7 @@
     = stylesheet_link_tag 'registered'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Copse'
     = csrf_meta_tag
+    = javascript_include_tag "https://apis.google.com/js/plusone.js"
   %body{:class => "#{controller_name}_#{action_name}"}
     #mainarea
       #header
