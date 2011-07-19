@@ -402,6 +402,7 @@ class User < ActiveRecord::Base
 
   end
 
+
   class << self
 
     def get_identity_user_by email

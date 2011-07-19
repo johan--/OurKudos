@@ -11,9 +11,12 @@
         .kudo_message_mid
           %p
             %span.receiver= @kudo.kudo.recipient.to_s
-            = " - "
+            = " - " unless @kudo.kudo.category.blank?
             %span.category= @kudo.kudo.category
-          %p= @kudo.kudo.body
+          %p
+            = @kudo.email
+            %br/
+            = @kudo.kudo.body
         .kudo_message_bot
       .clearing
     %h3
