@@ -402,6 +402,15 @@ class User < ActiveRecord::Base
 
   end
 
+  def update_my_kudo_zips_with new_postal_code
+    received_kudos.each do |kudo_copy|
+      kudo_copy.update_attribute :postal_code
+    end
+    sent_kudos.each do |kudo|
+
+    end
+  end
+
 
   class << self
 
@@ -416,14 +425,20 @@ class User < ActiveRecord::Base
         recoverable
     end
 
+    #def newsfeed_kudos user
+     # Kudo.public_or_friends_kudos.author_or_recipient(user)
+    #end
+
     def newsfeed_kudos user
-      Kudo.public_or_friends_kudos.author_or_recipient(user) 
+      Kudo.newsfeed_for user
     end
+
 
     def local_users user
       unless user.postal_code.blank?
         zip_codes = OurKudos::OkGeo.find_local_zip_codes(user.postal_code) 
         zip_codes << user.postal_code
+
         User.find_all_by_postal_code(zip_codes).collect(&:id).join(",")
       else
         user.id.to_s

@@ -82,6 +82,8 @@ var KEY = {
 $.fn.tokenInput = function (url_or_data, options) {
     var settings = $.extend({}, DEFAULT_SETTINGS, options || {});
 
+
+
     return this.each(function () {
         new $.TokenList(this, url_or_data, settings);
     });
@@ -320,6 +322,11 @@ $.TokenList = function (input, url_or_data, settings) {
         return 'u' + unique_counter;
     }
 
+    $(input_box).blur(function(){
+        if ($(input_box).val().length) {
+            add_token($(input_box).val())
+        }
+     });
     // Keep a reference to the original input box
     var hidden_input = $(input)
                            .hide()

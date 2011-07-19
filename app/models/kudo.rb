@@ -29,7 +29,8 @@ class Kudo < ActiveRecord::Base
                                          where("kudos.created_at >= ?", user.created_at.to_s(:db)).
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
   scope :local_kudos, ->(user) { joins(:kudo_copies).
-                                  where("kudo_copies.recipient_id IN (#{local_authors(user)})")}
+                                  where("kudo_copies.recipient_id IN (#{local_authors(user)})") }
+
 
 
   serialize :flaggers
@@ -259,6 +260,19 @@ class Kudo < ActiveRecord::Base
 
     def social_sharing_enabled?
       @social_sharing_enabled ||= Settings[:social_sharing_enabled].value == 'yes'
+    end
+
+    def newsfeed_for user
+       kudos  = Kudo.arel_table
+       copies = KudoCopy.arel_table
+
+       joins(:kudo_copies).select("DISTINCT kudos.*").
+        where(kudos[:share_scope].eq(nil).
+                      and(kudos[:removed].eq(false)).
+                      or(kudos[:share_scope].eq('friends')).
+                      or(kudos[:created_at].gteq(user.created_at.to_s(:db))).
+                      or(kudos[:author_id].in(user.friends_ids_list)).
+                      or(copies[:recipient_id].in(local_authors(user))) )
     end
 
   end

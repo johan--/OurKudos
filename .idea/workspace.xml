@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94d54edb-62d0-4d85-a8fd-e4b7de7c6558" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
     </list>
@@ -36,19 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="429" column="48" selection-start="13363" selection-end="13363" vertical-scroll-proportion="14.616695">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gift.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/gift.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="62" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
+            <state line="435" column="66" selection-start="13328" selection-end="13328" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -57,16 +50,16 @@
       <file leaf-file-name="jquery.tokeninput.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="20" column="34" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="kudo.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="255" column="21" selection-start="7867" selection-end="7867" vertical-scroll-proportion="-8.08">
+            <state line="275" column="8" selection-start="8574" selection-end="8574" vertical-scroll-proportion="0.85765123">
               <folding />
             </state>
           </provider>
@@ -86,7 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/lib/failure_app.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20110701064422_add_hidden_for_field_to_kudos.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/config/locales/views/kudos/en.yml" />
@@ -100,6 +92,7 @@
         <option value="$PROJECT_DIR$/app/views/admin/settings/index.html.haml" />
         <option value="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
       </list>
@@ -540,6 +533,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="38" selection-start="4103" selection-end="4103" vertical-scroll-proportion="0.85178876">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="34" selection-start="552" selection-end="552" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/identity.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -549,35 +556,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/gift.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="62" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.tokeninput.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="255" column="21" selection-start="7867" selection-end="7867" vertical-scroll-proportion="-8.08">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/omniauth_callbacks_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="38" selection-start="4103" selection-end="4103" vertical-scroll-proportion="0.85178876">
+        <state line="34" column="62" selection-start="1140" selection-end="1140" vertical-scroll-proportion="0.44293016">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="429" column="48" selection-start="13363" selection-end="13363" vertical-scroll-proportion="14.616695">
+        <state line="435" column="66" selection-start="13328" selection-end="13328" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="275" column="8" selection-start="8574" selection-end="8574" vertical-scroll-proportion="0.85765123">
           <folding />
         </state>
       </provider>
