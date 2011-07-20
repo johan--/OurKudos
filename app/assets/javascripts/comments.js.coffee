@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+jQuery ->
+    jQuery("a.action_link.comment_form_toggle").click ->
+        id = $(this).attr('id');
+
+        jQuery(".comments_form#comments_form_" + id).toggle();
+        jQuery("p.message_container#container_" + id).html('');
+
+    jQuery("a.action_link.form_close").click ->
+        id = $(this).attr('id');
+
+        jQuery(".comments_form#comments_form_" + id).hide();

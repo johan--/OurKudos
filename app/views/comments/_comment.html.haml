@@ -1,0 +1,5 @@
+.comments{:id => "comments_#{kudo.id}"}>
+ = render :partial => "comments/comments", :locals => {:kudo => kudo}
+
+.comments_form{:id => "comments_form_#{kudo.id}", :style => "display:none"}
+ = render :partial => "comments/form", :locals => {:kudo => kudo}

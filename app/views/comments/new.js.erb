@@ -1,0 +1,6 @@
+var comment_form = ".comments_form#comments_form_<%= @commentable.id %>";
+var trigger      = "#link_<%= @commentable.id %>";
+
+$(comment_form).html("<%= escape_javascript(render :partial => "comments/form") %>");
+
+$(comment_form).toggle('slow');

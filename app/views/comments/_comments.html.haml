@@ -1,0 +1,7 @@
+- for comment in kudo.comments.reverse do
+ %p
+  %span.smaller
+   = comment.created_at.to_s(:long)
+   = comment.user.to_s + ' ' + t(:kudo_comments_wrote)
+  %br/
+  = comment.comment

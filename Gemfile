@@ -35,16 +35,12 @@ gem 'paperclip'
 gem 'gravtastic'
 gem 'memcache'
 gem 'memcache-client'
-<<<<<<< HEAD
-=======
 gem 'nokogiri'
 gem 'capistrano'
 gem 'texticle'
 gem 'capistrano-ext'
 gem 'acts_as_commentable'
 gem 'omniauth', '~> 0.2.6'
-gem 'oa-oauth'
->>>>>>> Kudos Comments MVC
 
 group :test do
   gem "cucumber"
@@ -66,7 +62,7 @@ group :test do
   gem 'cover_me', '>= 1.0.6.rc6'
 end
 
+
 group :development do
-  gem 'capistrano'
-  gem 'capistrano-ext'
-end  
+  gem 'ruby-debug19'
+end

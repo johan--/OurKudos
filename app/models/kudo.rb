@@ -2,8 +2,6 @@ class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
 
-
-
   has_many  :kudo_copies, :dependent => :destroy
   has_many  :recipients, :through => :kudo_copies
 
@@ -35,6 +33,9 @@ class Kudo < ActiveRecord::Base
 
   serialize :flaggers
   serialize :hidden_for
+
+
+  acts_as_commentable
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }

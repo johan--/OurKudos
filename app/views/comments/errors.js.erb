@@ -1,0 +1,4 @@
+var error_div = 'p.red.message_container#container_<%= @commentable.id %>';
+
+jQuery(error_div).html("<%= escape_javascript @comment.errors.full_messages.join(",") %>");
+jQuery(error_div).effect('highlight', {}, 3000);

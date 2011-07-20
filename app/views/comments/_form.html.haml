@@ -1,0 +1,13 @@
+.kudo_comment_form{:id => kudo.id}
+  = form_for Comment.new, :url => kudo_comments_path(kudo), :method => :post, :remote => true, :html => {:id => "form_#{kudo.id}" } do |f|
+
+    %p.red.message_container{:id => "container_#{kudo.id}"}
+
+    %p
+      = f.label :comment, t(:kudo_comment)
+      %br/
+      = f.text_area :comment, :size => "66x3"
+    %p
+      = f.submit t(:kudo_add_comment)
+      = t(:or)
+      = link_to t(:kudo_form_close), '#', :class => "action_link form_close", :id => kudo.id

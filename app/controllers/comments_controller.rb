@@ -1,11 +1,20 @@
 class CommentsController < ApplicationController
+  before_filter :get_commentable
+
+  respond_to :js
+
+  def new
+    @comment = @commentable.comments.build
+  end
 
   def create
     @comment = @commentable.comments.build params[:comment]
     @comment.user = current_user
 
-    if @comment.save
-    else
+    respond_with @comment do |format|
+      format.js do
+        render 'errors' unless @comment.save
+      end
     end
   end
 

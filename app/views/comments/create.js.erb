@@ -1,0 +1,7 @@
+var comments_div = 'div.comments#comments_<%= @commentable.id %>';
+var comment_form = 'form_<%= @commentable.id %>';
+
+$(comments_div).html("<%= escape_javascript(render :partial => "comments/comments", :locals => {:kudo => @commentable}) %>");
+$(comments_div).effect('highlight', {}, 2000);
+
+document.getElementById(comment_form).reset();
