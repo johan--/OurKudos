@@ -90,7 +90,7 @@ img#user_avatar {
 	position: relative;
 	
 	h1 {
-		font: bold 3em "Nunito", Arial, Helvetica, sans-serif;
+		font: normal 3em "NunitoBold", Arial, Helvetica, sans-serif;
 		color: $headers_blue;
 		padding-bottom: 30px;
 		line-height: 0;
@@ -260,7 +260,7 @@ ul#nav_kudo_dashboard {
 			text-decoration: none;
 			font-size: 1.3em;
 			color: #fff;
-			font-family: "Nunito", "Copse", sans-serif;
+			font-family: "NunitoRegular", "Copse", sans-serif;
 			
 			&.active {
 				color: $headers_blue;
