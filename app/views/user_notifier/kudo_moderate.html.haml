@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= t(:dear_user, :user => @user).html_safe
+
+    %p= t :kudo_commented_by, :by => @author.to_s
+
+    %p
+      %blockquote= @comment.comment
+
+    %p= t(:you_can_deceide_what_to_do_with_this_and_other_comments)
+
+    %ul
+      %li= link_to t(:kudo_reject_comment), kudo_comment_url(@kudo, @comment), :method => :delete
+      %li= link_to t(:kudo_email_no_moderation), kudo_comment_url(@kudo, @comment), :method => :update
