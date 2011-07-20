@@ -20,4 +20,12 @@ class Comment < ActiveRecord::Base
     !commentable.comments_moderation_enabled.blank?
   end
 
+  class << self
+
+    def allowed_actions
+      %w(reject no_moderation no_commenting)
+    end
+
+  end
+
 end

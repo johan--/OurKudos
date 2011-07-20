@@ -35,10 +35,11 @@ class User < ActiveRecord::Base
   has_many :facebook_friends
   has_many :kudo_flags, :foreign_key => :flagger_id
 
+  has_many :comments
   # ================
   # ====scopes =====
   # ================
-  scope :date_range, ->(from, to) { User.where(:created_at => from..to) }
+  scope :date_range, ->(from, to) { where(:created_at => from..to) }
   # ================
   # = validations  =
   # ================

@@ -13,5 +13,7 @@
     %p= t(:you_can_deceide_what_to_do_with_this_and_other_comments)
 
     %ul
-      %li= link_to t(:kudo_reject_comment), kudo_comment_url(@kudo, @comment), :method => :delete
-      %li= link_to t(:kudo_email_no_moderation), kudo_comment_url(@kudo, @comment), :method => :update
+      %li= link_to t(:kudo_reject_comment), new_comments_moderation_url(:subaction => "reject", :id => @comment.id)
+      %li= link_to t(:kudo_email_no_moderation),
+                                            new_comments_moderation_url(:subaction => "no_moderation", :id => @comment.id)
+      %li= link_to t(:kudo_disable_commenting), new_comments_moderation_url(:subaction => "no_commenting", :id => @comment.id)

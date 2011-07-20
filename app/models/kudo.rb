@@ -252,6 +252,14 @@ class Kudo < ActiveRecord::Base
     kudo_flags.map(&:flagger).map(&:id).sort
   end
 
+  def disable_moderation!
+    update_attribute :comments_moderation_enabled, false
+  end
+
+  def disable_commenting!
+    update_attribute :comments_disabled, true
+  end
+
 
   class << self
 
