@@ -20,7 +20,11 @@
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
    .social_buttons
-    %g:plusone
+    .google_plus
+     %g:plusone
+    .facebook_like
+     %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+     %fb:like{:href => "", :send => "false", :layout => "button_count", :width => "100", :show_faces => "false", :font => "trebuchet ms"}
 
    .clearing
   .kudo_message_bot
