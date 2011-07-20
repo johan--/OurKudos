@@ -72,12 +72,13 @@ class User < ActiveRecord::Base
   # == pg indexes ==
   # ================
   #TODO define more indexes as needed
-  index do
-    email
-    first_name
-    last_name
-    middle_name
-  end
+  #coomented out because I have problems with texticle gem locally
+  #index do
+  #  email
+  #  first_name
+  #  last_name
+  #  middle_name
+  #end
   # ======================
   # ====== avatars =======
   # ======================

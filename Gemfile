@@ -13,7 +13,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'texticle'
 gem 'sprockets', '2.0.0.beta.10'
-gem 'omniauth'
 gem 'cancan'
 gem 'honeypot-captcha'
 gem 'oauth2'
@@ -36,6 +35,16 @@ gem 'paperclip'
 gem 'gravtastic'
 gem 'memcache'
 gem 'memcache-client'
+<<<<<<< HEAD
+=======
+gem 'nokogiri'
+gem 'capistrano'
+gem 'texticle'
+gem 'capistrano-ext'
+gem 'acts_as_commentable'
+gem 'omniauth', '~> 0.2.6'
+gem 'oa-oauth'
+>>>>>>> Kudos Comments MVC
 
 group :test do
   gem "cucumber"

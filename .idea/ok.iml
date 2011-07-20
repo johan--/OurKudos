@@ -204,6 +204,21 @@
     </requirement>
     <requirement>
       <requirement>
+<<<<<<< HEAD
+=======
+        <dependency name="nokogiri" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="oa-oauth" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
+>>>>>>> Kudos Comments MVC
         <dependency name="oauth2" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -216,7 +231,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="omniauth" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="omniauth" version="0.2.6" bound="LATEST_IN_BRANCH" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -486,6 +501,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-openid (v1.3.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rack-openid-1.3.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] arel (v2.1.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/arel-2.1.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/erubis-2.7.0)" level="application" />
+<<<<<<< HEAD
     <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb (v1.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-1.3.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] cover_me (v1.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cover_me-1.1.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb-matcher (v1.2.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-matcher-1.2.2)" level="application" />
@@ -507,6 +523,15 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] launchy (v2.0.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/launchy-2.0.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] gherkin (v2.4.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gherkin-2.4.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] libv8 (v3.3.10.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/libv8-3.3.10.2-x86_64-linux)" level="application" />
+=======
+    <orderEntry type="library" scope="PROVIDED" name="[gem] acts_as_commentable (v3.0.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/acts_as_commentable-3.0.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] fuubar-cucumber (v0.0.12, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fuubar-cucumber-0.0.12)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] email_spec (v1.2.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/email_spec-1.2.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v1.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-1.0.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-rails (v2.6.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-rails-2.6.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] launchy (v2.0.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/launchy-2.0.3)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] gherkin (v2.4.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gherkin-2.4.5)" level="application" />
+>>>>>>> Kudos Comments MVC
   </component>
 </module>
 
