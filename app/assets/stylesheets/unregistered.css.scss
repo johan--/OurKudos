@@ -178,6 +178,15 @@ img.avatar {
 	  margin: 0 auto 10px auto;
 	  width: 650px;
   }
+  .social_buttons {
+    float: right;
+    .google_plus{
+      float: right;
+    }
+    .facebook_like{
+      float: right;
+    }
+  }
   
   h1 {
 		text-align: center;

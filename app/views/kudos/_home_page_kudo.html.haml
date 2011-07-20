@@ -11,5 +11,11 @@
         %span.greater_than >
         %span.receiver= kudo.recipients_readable_list
       %p= kudo.body
+      .social_buttons
+        .google_plus
+          %g:plusone
+        .facebook_like
+          %script{:src => "http://connect.facebook.net/en_US/all.js#xfbml=1"}
+          %fb:like{:href => "", :send => "false", :layout => "button_count", :width => "100", :show_faces => "false", :font => "trebuchet ms"}
     .kudo_message_bot
   .clearing
