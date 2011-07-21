@@ -60,6 +60,10 @@ class Kudo < ActiveRecord::Base
       end
   end
 
+  def recipients_ids
+    @recipients_ids ||= kudo_copies.map(&:recipient_id).compact.flatten.uniq
+  end
+
   def allowed_recipient? recipient
     recipient.match(RegularExpressions.twitter) ||
       recipient.match(RegularExpressions.email) ||
@@ -78,6 +82,13 @@ class Kudo < ActiveRecord::Base
         rec if rec.to_i == 0 #strings
       end
     end.join(", ")
+  end
+
+  def recipients_emails
+    kudo_copies.map do |copy|
+      copy.temporary_recipient.blank? ?
+          copy.recipient.email : copy.temporary_recipient
+    end.compact.flatten.uniq
   end
 
   def author_as_recipient?
@@ -267,6 +278,7 @@ class Kudo < ActiveRecord::Base
     blocked_commentators << user.id
     save(:validate => false) if savedb
   end
+
 
 
   class << self

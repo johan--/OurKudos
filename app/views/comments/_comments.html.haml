@@ -1,7 +1,12 @@
 - for comment in kudo.comments.reverse do
- %p
+
+ %p{:class => cycle('odd', 'even')}
+
   %span.smaller
    = comment.created_at.to_s(:long)
-   = comment.user.to_s + ' ' + t(:kudo_comments_wrote)
+   %b= comment.user.to_s + ' ' + t(:kudo_comments_wrote)
+
   %br/
+
   = comment.comment
+  = link_to "x", kudo_comment_path(kudo, comment), :method  => :delete, :confirm => I18n.t(:are_you_sure)

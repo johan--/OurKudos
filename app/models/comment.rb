@@ -25,6 +25,10 @@ class Comment < ActiveRecord::Base
     self.commentable.blocked_commentators.include? user_id.to_i
   end
 
+  def is_allowed_to_be_removed_by? user
+    self.commentable.recipients_ids.include? user.id
+  end
+
   class << self
 
     def allowed_actions

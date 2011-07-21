@@ -49,7 +49,8 @@ class UserNotifier < ActionMailer::Base
   def password_changed user, password
     @user      = user
     @password  = password
-    mail :to => @user.email, :subject => I18n.t(:email_subject_your_password_has_been_successfuly_changed)
+    mail :to      => @user.email,
+         :subject => I18n.t(:email_subject_your_password_has_been_successfuly_changed)
   end
 
   def kudo_moderate comment
@@ -57,7 +58,7 @@ class UserNotifier < ActionMailer::Base
     @author  = comment.user
     @kudo    = comment.commentable
     @user    = @kudo.author
-    mail :to => @user.email, :subject => I18n.t(:email_subject_kudo_comments_moderation)
+    mail :to => @kudo.recipients_emails, :subject => I18n.t(:email_subject_kudo_comments_moderation)
   end
 
 
