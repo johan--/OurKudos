@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
 
   scope :for_user, ->(user) { where(:user_id => user.id)}
 
+  validates_with CommentValidator
   after_save :send_moderation_notification, :if => :can_send_moderation_notification?
 
 
@@ -20,10 +21,14 @@ class Comment < ActiveRecord::Base
     !commentable.comments_moderation_enabled.blank?
   end
 
+  def is_blocked_sender?
+    self.commentable.blocked_commentators.include? user_id.to_i
+  end
+
   class << self
 
     def allowed_actions
-      %w(reject no_moderation no_commenting)
+      %w(reject no_moderation no_commenting block_sender)
     end
 
   end

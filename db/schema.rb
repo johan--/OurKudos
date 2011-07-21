@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110720151650) do
+ActiveRecord::Schema.define(:version => 20110721094405) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -249,6 +249,7 @@ ActiveRecord::Schema.define(:version => 20110720151650) do
     t.string   "hidden_for",                  :default => "--- []\n\n"
     t.boolean  "comments_moderation_enabled", :default => true
     t.boolean  "comments_disabled",           :default => false
+    t.string   "blocked_commentators",        :default => "--- []\n\n"
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"

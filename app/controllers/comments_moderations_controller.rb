@@ -27,6 +27,9 @@ class CommentsModerationsController < ApplicationController
         when "no_commenting"
           @commentable.disable_commenting!
           redirect_to home_path, :notice => I18n.t(:commenting_has_been_disabled)
+        when 'block_sender'
+          @commentable.block_commentator! @comment.user
+          redirect_to home_path, :notice => I18n.t(:commenting_has_been_disabled_for_that_user)
       end
      else
        render_404

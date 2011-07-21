@@ -33,6 +33,7 @@ class Kudo < ActiveRecord::Base
 
   serialize :flaggers
   serialize :hidden_for
+  serialize :blocked_commentators
 
 
   acts_as_commentable
@@ -258,6 +259,13 @@ class Kudo < ActiveRecord::Base
 
   def disable_commenting!
     update_attribute :comments_disabled, true
+  end
+
+  def block_commentator! user, savedb = true
+    self.comments.for_user(user).destroy_all
+
+    blocked_commentators << user.id
+    save(:validate => false) if savedb
   end
 
 
