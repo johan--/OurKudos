@@ -18,7 +18,7 @@
 - if current_user.inverse_friends.any?
 
   %h4= t(:friended_by_users)
-  %ul
+  %ul.type2
     - for user in current_user.inverse_friends do
       %li= user.email
 

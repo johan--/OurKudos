@@ -307,6 +307,25 @@ table.type1 {
 	
 }
 
+/* lists */
+
+ul.type2 {
+	list-style: none;
+	
+	li {
+		font: 1.2em "Andale Mono", "Lucida Sans Unicode", "Lucida Grande", monospace;
+		width: 40em;
+		border-bottom: 1px dotted $very_light_gray;
+		padding: 5px 5px;
+		
+		a {
+		  padding-left: 5px;
+			float: right;
+		}	
+	}
+}
+
+
 
 
 /* Compensation for mobile devices, this is not a full mobile-only implementation, just adjustments */
