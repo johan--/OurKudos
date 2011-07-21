@@ -67,6 +67,17 @@ Given /^the following Gifts exist:$/ do |table|
   end
 end
 
+Given /^the a set of Gifts and Groups exist:$/ do
+  group1 = Factory(:gift_group, :name => "group1")
+  group2 = Factory(:gift_group, :name => "group2")
+  Factory(:gift,  :name => "group_gift", 
+                  :description => "testdescription",
+                  :gift_group_ids => [group1.id])
+  3.times do |i|
+    Factory(:gift, :name => "gift#{i + 1}")
+  end
+end
+
 When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
   attach_file(field, path)
 end
