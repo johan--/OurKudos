@@ -33,6 +33,7 @@ class KudosController < ApplicationController
   def destroy
     @kudo = current_user.received_kudos.find params[:id]
     if @kudo && @kudo.destroy
+      @kudo.kudo.remove_from_system_kudos_cache current_user
       redirect_to home_path(:kudos => :received), :notice => I18n.t(:kudo_has_been_successfuly_removed_from_your_inbox)
     else
       redirect_to home_path(:kudos => :received), :notice => I18n.t(:we_couldn_do_that_sorry)

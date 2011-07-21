@@ -34,7 +34,7 @@ class Kudo < ActiveRecord::Base
   serialize :flaggers
   serialize :hidden_for
   serialize :blocked_commentators
-
+  serialize :system_kudos_recipients_cache
 
   acts_as_commentable
 
@@ -129,6 +129,8 @@ class Kudo < ActiveRecord::Base
                         :kudoable     => self,
                         :folder_id    => recipient.inbox.id,
                         :share_scope  => share_scope
+
+      self.system_kudos_recipients_cache << recipient.id
 
       Friendship.process_friendships_between author, recipient
       Friendship.process_friendships_between recipient, author
@@ -277,6 +279,11 @@ class Kudo < ActiveRecord::Base
 
     blocked_commentators << user.id
     save(:validate => false) if savedb
+  end
+
+  def remove_from_system_kudos_cache user
+    system_kudos_recipients_cache.delete(user.id)
+    save :validate => false
   end
 
 

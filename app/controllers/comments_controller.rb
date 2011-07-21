@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find params[:id]
+
     if !@comment.blank? && @comment.is_allowed_to_be_removed_by?(current_user)
       redirect_to home_path, :notice => I18n.t(:comment_has_been_removed)
     else

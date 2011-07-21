@@ -26,7 +26,7 @@ class Comment < ActiveRecord::Base
   end
 
   def is_allowed_to_be_removed_by? user
-    self.commentable.recipients_ids.include? user.id
+    self.commentable.system_kudos_recipients_cache.include? user.id
   end
 
   class << self
