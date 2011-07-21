@@ -14,7 +14,6 @@ Scenario: Accessing the Gifting page
   And I go to the public Gifts page
   Then I should see "Fantasia"
 
-@javascript
 Scenario: Accessing the Gifting page
   Given the following gift groups exist:
     | name        |
