@@ -25,7 +25,7 @@
     .google_plus
      %g:plusone
     .facebook_like
-     %fb:like{:href => "", :send => "false", :layout => "button_count", :width => "125", :show_faces => "false", :font => "trebuchet ms"}
+     %fb:like{:href => "#{kudo_url(kudo)}", :send => "false", :layout => "button_count", :width => "125", :show_faces => "false", :font => "trebuchet ms"}
     .kudo_comment
      - unless kudo.kudo.comments_disabled?
       = link_to t(:kudo_comment), 'javascript:void(0)', :class  => "action_link comment_form_toggle",
