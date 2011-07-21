@@ -1,0 +1,8 @@
+= t(:dear_user, :user => @email).html_safe
+
+= t(:merge_confirm_explanation)
+
+= raw t(:confirm_merge)
+
+= link_to t(:confirm_merge_link), confirmation_url(:id => @confirmation.key, :merge => "true")
+    

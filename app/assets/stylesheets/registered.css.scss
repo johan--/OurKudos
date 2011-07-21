@@ -455,13 +455,14 @@ body.users_show, body.friendships_show, body.facebook_friends_index {
   	margin-bottom: 10px;
   }
   
-	.note {
-		font: italic 1.1em Arial, Helvetica, sans-serif;
-		color: $medium_gray;
-		border-top: 1px dotted $medium_gray;
-		border-bottom: 1px dotted $medium_gray;
-		padding: 5px;
-	}
+}
+
+.note {
+	font: italic 1.1em Arial, Helvetica, sans-serif;
+	color: $medium_gray;
+	border-top: 1px dotted $medium_gray;
+	border-bottom: 1px dotted $medium_gray;
+	padding: 5px;
 }
 
 img.sn_tile_status {

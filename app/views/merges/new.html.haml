@@ -6,7 +6,7 @@
     = error_messages_for @merge
   
     
-    %p.explanation= t(:merge_explanation)
+    %p.note= t(:merge_explanation)
   
     %p= label_tag "merge-account-autocomplete", t(:enter_account_identity)
     %p= text_field_tag :identity, params[:identity], :class => "string", :id => 'merge-account-autocomplete', :size => 30
