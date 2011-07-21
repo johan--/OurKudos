@@ -1,6 +1,6 @@
 class KudosController < ApplicationController
   layout "registered"
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show]
   before_filter :get_kudos, :only => [:new, :create]
 
   respond_to :html
@@ -19,8 +19,15 @@ class KudosController < ApplicationController
   end
 
   def show
-    @kudos = current_user.inbox.kudos.page(params[:page]).per(5)
+    @kudo = Kudo.find(params[:id])
+    unless @kudo.share_scope.blank?
+      flash[:notice] = t(:you_are_not_authorized_to_view_kudo)
+      redirect_to root_url
+    end
   end
+#def show
+#    @kudos = current_user.inbox.kudos.page(params[:page]).per(5)
+# end
 
   def destroy
     @kudo = current_user.received_kudos.find params[:id]
