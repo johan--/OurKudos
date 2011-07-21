@@ -1,3 +1,5 @@
-= render 'sent_kudo', :kudo => @kudo
+= render 'home_page_kudo', :kudo => @kudo
+
 = unless current_user
-  %h2 Join Now
+  %p= image_tag('kudos_hugging.png')
+  %p= link_to image_tag('join_now_button.png', :alt=>"Join Ourkudos now!"), new_user_registration_path unless sign_up_disabled?

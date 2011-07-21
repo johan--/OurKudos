@@ -24,6 +24,7 @@ class KudosController < ApplicationController
       flash[:notice] = t(:you_are_not_authorized_to_view_kudo)
       redirect_to root_url
     end
+    render :layout => 'unregistered' unless current_user
   end
 #def show
 #    @kudos = current_user.inbox.kudos.page(params[:page]).per(5)
