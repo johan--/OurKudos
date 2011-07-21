@@ -14,6 +14,11 @@
 
     %ul
       %li= link_to t(:kudo_reject_comment), new_comments_moderation_url(:subaction => "reject", :id => @comment.id)
+      %li= link_to t(:kudo_reject_comment_abusive), new_comments_moderation_url(:subaction => "block_sender", :id => @comment.id)
+
+    %p= t :block_moderation_message
+    %ul
       %li= link_to t(:kudo_email_no_moderation),
                                             new_comments_moderation_url(:subaction => "no_moderation", :id => @comment.id)
+
       %li= link_to t(:kudo_disable_commenting), new_comments_moderation_url(:subaction => "no_commenting", :id => @comment.id)
