@@ -10,5 +10,5 @@
 
   = comment.comment
 
-  - if comment.is_allowed_to_be_removed_by current_user
+  - if comment.is_allowed_to_be_removed_by? current_user
    = link_to "x", kudo_comment_path(kudo, comment), :method  => :delete, :confirm => I18n.t(:are_you_sure)

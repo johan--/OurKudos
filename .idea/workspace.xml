@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/kudos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/kudos_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/comment.rb" afterPath="$PROJECT_DIR$/app/models/comment.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comments/_comments.html.haml" afterPath="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_comments.html.haml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_comments.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/comments/_comments.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="2" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
+            <state line="12" column="43" selection-start="262" selection-end="262" vertical-scroll-proportion="0.4130809">
               <folding />
             </state>
           </provider>
@@ -50,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20110721163035_add_system_kudos_cache_to_kudos.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="20110721163035_add_system_kudos_cache_to_kudos.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20110721163035_add_system_kudos_cache_to_kudos.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="4" selection-start="191" selection-end="191" vertical-scroll-proportion="0.17211704">
+            <state line="5" column="4" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -114,8 +108,8 @@
         <option value="$PROJECT_DIR$/app/controllers/kudos_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
-        <option value="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
         <option value="$PROJECT_DIR$/db/migrate/20110721163035_add_system_kudos_cache_to_kudos.rb" />
+        <option value="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
       </list>
     </option>
   </component>
@@ -631,13 +625,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/comments/_comments.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="290" column="75" selection-start="8765" selection-end="8765" vertical-scroll-proportion="-9.24">
@@ -654,7 +641,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20110721163035_add_system_kudos_cache_to_kudos.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="4" selection-start="191" selection-end="191" vertical-scroll-proportion="0.17211704">
+        <state line="5" column="4" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/comments/_comments.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="43" selection-start="262" selection-end="262" vertical-scroll-proportion="0.4130809">
           <folding />
         </state>
       </provider>
