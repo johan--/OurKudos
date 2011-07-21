@@ -22,6 +22,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find params[:id]
 
     if !@comment.blank? && @comment.is_allowed_to_be_removed_by?(current_user)
+      @comment.destroy
       redirect_to home_path, :notice => I18n.t(:comment_has_been_removed)
     else
       redirect_to home_path, :alert => I18n.t(:comment_has_not_been_removed)

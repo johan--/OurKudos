@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/comments/_comments.html.haml" afterPath="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/kudos_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/kudos_controller.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,10 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_comments.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_comments.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/comments/_comments.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="43" selection-start="262" selection-end="262" vertical-scroll-proportion="0.4130809">
+            <state line="12" column="43" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,19 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudos_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/kudos_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="30" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comments_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="comments_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/comments_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="39" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
+            <state line="22" column="2" selection-start="469" selection-end="469" vertical-scroll-proportion="0.24096386">
               <folding />
             </state>
           </provider>
@@ -104,12 +96,12 @@
         <option value="$PROJECT_DIR$/config/locales/views/comments/en.yml" />
         <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
         <option value="$PROJECT_DIR$/config/locales/views/user_notifier/en.yml" />
-        <option value="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/kudos_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20110721163035_add_system_kudos_cache_to_kudos.rb" />
         <option value="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/kudos_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
       </list>
     </option>
   </component>
@@ -611,30 +603,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/comments_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="39" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="34" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="290" column="75" selection-start="8765" selection-end="8765" vertical-scroll-proportion="-9.24">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/kudos_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="30" selection-start="1191" selection-end="1191" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -648,7 +619,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/_comments.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="43" selection-start="262" selection-end="262" vertical-scroll-proportion="0.4130809">
+        <state line="12" column="43" selection-start="262" selection-end="262" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/kudos_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="4" selection-start="867" selection-end="867" vertical-scroll-proportion="0.65404475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="34" selection-start="774" selection-end="774" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/comments_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="2" selection-start="469" selection-end="469" vertical-scroll-proportion="0.24096386">
           <folding />
         </state>
       </provider>
