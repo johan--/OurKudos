@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	before_filter :authenticate_user!, :only => [:home]
-  before_filter :get_kudos, :check_if_recipient_valid, :only => [:home]
+  before_filter :check_if_recipient_valid, :only => [:home]
   before_filter :check_invitation, :only => [:invite]
   layout :choose_layout
 
@@ -14,6 +14,7 @@ class HomeController < ApplicationController
   
   def home
     @kudo    = Kudo.new
+    get_kudos
   end
 
   def invite

@@ -67,5 +67,9 @@ module ApplicationHelper
     image_tag 'avatar_unknown.png', :class => 'avatar'
   end
 
+  def spinner_tag
+    image_tag 'spinner.gif', :id => "spinner", :style => "display:none", :width => 16, :height => 16
+  end
+
   
 end

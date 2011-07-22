@@ -15,3 +15,4 @@
 //= require kudo_slide.js
 //= require kudo_slide_funct.js
 //= require comments
+//= require pagination
