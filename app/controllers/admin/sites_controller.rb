@@ -1,6 +1,6 @@
 class Admin::SitesController < Admin::AdminController
   before_filter :authenticate_user!
-  
+  load_and_authorize_resource
   respond_to :html, :js
   
   def index

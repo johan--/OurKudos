@@ -1,5 +1,6 @@
 class Admin::IdentitiesController <  Admin::AdminController
   before_filter :get_user
+  load_and_authorize_resource
 
   def new
     @identity = @user.identities.new

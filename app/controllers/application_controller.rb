@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :facebook_icon, :twitter_icon
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to home_path, :alert => exception.message
   end
 
   include OurKudos::Controllers::IpVerification

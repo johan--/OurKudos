@@ -9,7 +9,8 @@
 Role.create([
     {:name => "admin"},
     {:name => "editor"},
-    {:name => "user"}
+    {:name => "user"},
+    {:name => "gift editor"}
   ])
 
  admin = User.create(:email =>"admin@example.net",

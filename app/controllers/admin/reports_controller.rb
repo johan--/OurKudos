@@ -1,5 +1,6 @@
 class Admin::ReportsController < Admin::AdminController
   helper_method :sort_column, :sort_direction
+  load_and_authorize_resource
 
   def index
     @reports = Report.all

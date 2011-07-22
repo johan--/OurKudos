@@ -4,7 +4,7 @@ class Admin::Gifting::MerchantsController < ApplicationController
   respond_to :html
   
   def index
-    @merchants = Merchant.all
+    @merchants = Merchant.scoped #contrary to all 'scoped' runs query only when needed
   end
 
   def show

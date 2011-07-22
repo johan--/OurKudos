@@ -1,6 +1,7 @@
 class Admin::ApiKeysController < Admin::AdminController
   before_filter :authenticate_user!
-  
+  load_and_authorize_resource
+
   def new
     @site = Site.find params[:site_id]
     @site.api_keys.create

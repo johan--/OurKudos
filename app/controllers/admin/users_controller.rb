@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::AdminController
   before_filter :authenticate_user!
-  
+  load_and_authorize_resource
   respond_to :html, :js
   helper_method :sort_column, :sort_direction
   

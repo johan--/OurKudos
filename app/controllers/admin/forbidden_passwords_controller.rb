@@ -2,6 +2,7 @@ class Admin::ForbiddenPasswordsController <  Admin::AdminController
   
   respond_to :html
   before_filter :get_passwords
+  load_and_authorize_resource
 
   def index    
     @forbidden_password = ForbiddenPassword.new

@@ -1,6 +1,7 @@
 class Admin::AuthenticationsController < Admin::AdminController
   before_filter :authenticate_user!
   before_filter :get_user
+  load_and_authorize_resource
 
   def new
     @user.authentications.new

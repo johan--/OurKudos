@@ -1,6 +1,6 @@
 class Admin::Gifting::GiftsController < ApplicationController
   before_filter :authenticate_user!
-  layout 'admin'
+  load_and_authorize_resource
   respond_to :html
   
   def index

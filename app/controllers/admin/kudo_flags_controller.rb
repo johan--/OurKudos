@@ -25,9 +25,6 @@ class Admin::KudoFlagsController < Admin::AdminController
 
   private
 
-
-  private
-
     def sort_column
         allowed_items = %w{kudo_flags.created_at kudos.body users.last_name
                            kudo_flags.flag_reason most_flagged flagged_count}
