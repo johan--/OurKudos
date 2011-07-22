@@ -16,3 +16,4 @@
 //= require kudo_slide_funct.js
 //= require comments
 //= require pagination
+//= require admin/pages

@@ -4,7 +4,7 @@ class Page < ActiveRecord::Base
   validates :locale, :presence => true
   validates :body,   :presence => true
 
-  validates :slug, :uniqueness => true, :scope => :locale
+  validates :slug, :uniqueness => true
 
   SLUGS = {
     "faq" => "FAQ",
@@ -23,6 +23,11 @@ class Page < ActiveRecord::Base
     def seed!
       SLUGS.each{|slug| Page.create(:slug=> slug[0], :title => slug[1], :locale => "en", :body => "placeholder")}
     end
+
+    def Page.slugs_for_select
+      Page::SLUGS.map { |slug, label| [label, slug]}
+    end
+
   end
 
 end
