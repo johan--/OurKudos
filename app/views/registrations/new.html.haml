@@ -9,7 +9,7 @@
     
     = label_tag :terms_of_service
     %br/
-    = text_area_tag :terms_of_service, 'Lorem ipsum' ,:size => '100x12', :disabled => true
+    = text_area_tag :terms_of_service, strip_tags(@terms_of_service) ,:size => '100x12', :disabled => true
     
     %p
       = check_box_tag :read_tos_confirmation

@@ -6,11 +6,13 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     build_resource
     autofill_form
+    @terms_of_service = Page.find_by_slug('terms-of-service').body
     render_with_scope :new 
   end
 
   def create
     resource = build_resource
+    @terms_of_service = Page.find_by_slug('terms-of-service').body
     resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication]
     resource.add_role
 
