@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722104748) do
+ActiveRecord::Schema.define(:version => 20110722181220) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -270,6 +270,15 @@ ActiveRecord::Schema.define(:version => 20110722104748) do
     t.integer  "identity_id"
     t.integer  "merged_id"
     t.string   "merged_with_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.string   "locale"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

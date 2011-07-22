@@ -27,3 +27,4 @@ Role.create([
 
  Settings.seed!
  KudoCategory.seed!
+ Page.seed!
