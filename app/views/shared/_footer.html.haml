@@ -1,14 +1,14 @@
 %ul#nav_footer
   %li
-    = link_to('About Us','/about')
+    = link_to('About Us', page_path(:id => 'about-us'))
   %li
     = link_to('Support','/support')
   %li
-    = link_to('Privacy','/privacy')
+    = link_to('Privacy',page_path(:id => 'privacy-policy'))
   %li
     = link_to('Blog','http://ourkudos.org')
   %li
-    = link_to('Contact','/contact')
+    = link_to('Contact', page_path(:id => "contact-us"))
   %li#footer_separator
     = image_tag('footer_separator.png')
   %li
