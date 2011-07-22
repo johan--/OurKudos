@@ -2,17 +2,21 @@
 
   = error_messages_for @page
 
-  .field
+  %p.field
     = f.label :title
+    %br/
     = f.text_field :title
-  .field
+  %p.field
     = f.label :slug
+    %br/
     = f.select :slug, Page.slugs_for_select
-  .field
+  %p.field
     = f.label :locale
+    %br/
     = f.select :locale, [["en", "en"], ["pl", "pl"]]
-  .field
+  %p.field
     = f.label :body
     = f.text_area :body, :cols => 80
-  .actions
+  %p.actions
     = f.submit 'Save'
+    = link_to t(:cancel), admin_pages_path, :class => 'action_link'

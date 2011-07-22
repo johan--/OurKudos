@@ -111,7 +111,8 @@ body#admin_settings li#systemoptionslink a, body#admin_kudo_categories li#kudoca
 body#admin_reports li#adminreportslink a, body#admin_kudo_flags li#kudosflagslink a,
 body#admin_affiliate_programs li#admingiftinglink, body#admin_merchants li#admingiftinglink, 
 body#admin_gift_groups li#admingiftinglink, body#admin_gifts li#admingiftinglink, 
-body#admin_identities li#userslink a, body#admin_authentications li#userslink a {
+body#admin_identities li#userslink a, body#admin_authentications li#userslink a, 
+body#admin_pages li#adminpageslink a {
 	color: $headers_blue;
 	
 	&:hover {
