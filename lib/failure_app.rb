@@ -38,7 +38,7 @@ module Devise
     def message_without_link message
       I18n.t(:"#{scope}.#{message}", :resource_name    => scope,
                                               :scope   => "devise.failure",
-                                              :default => [message, message.to_s])
+                                              :default => [message, message.to_s]).html_safe
 
     end
 
@@ -48,7 +48,7 @@ module Devise
                                             :param  => get_param,
                                             :type   => get_param_type,
                                             :scope  => "devise.failure",
-                                            :default=> [message, message.to_s])
+                                            :default=> [message, message.to_s]).html_safe
     end
 
     #this is used to set resend link parameters when user tries to sign in but has not activeated account yet.

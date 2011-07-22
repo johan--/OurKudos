@@ -1,5 +1,5 @@
 jQuery ->
-    jQuery("a.action_link.comment_form_toggle").click ->
+    jQuery("a.action_link.comment_form_toggle").live 'click', ->
         id = $(this).attr('id');
 
         jQuery(".comments_form#comments_form_" + id).toggle();
