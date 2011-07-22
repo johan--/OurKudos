@@ -11,4 +11,4 @@
 #pagination
  - unless @kudos.last_page?
   = spinner_tag
-  = link_to "More", "javascript:void(0)", :class => "next_page"
+  = link_to("+ show more kudos", "javascript:void(0)", :class => "next_page")

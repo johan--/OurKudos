@@ -376,6 +376,23 @@ a.delete_kudo_btn {
     float:right;
   }
 }
+
+#pagination {
+	text-align: right;
+	
+	.next_page {
+		font: normal 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+		color: $dark_green;
+		text-decoration: none;
+	
+	  &:hover {
+	  	text-decoration: underline;
+	  }
+	
+	}
+	
+}
+
 /* end kudos messaging */
 
 
