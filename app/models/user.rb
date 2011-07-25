@@ -107,6 +107,11 @@ class User < ActiveRecord::Base
     return "#{first_name} #{last_name}" if middle_name.blank?
     "#{first_name} #{middle_name} #{last_name}"
   end
+
+  def secured_name
+    return "#{first_name} #{last_name.first.capitalize}." if middle_name.blank?
+    "#{first_name} #{middle_name.first.capitalize}. #{last_name.first.capitalize}."
+  end
   
   def apply_omniauth omniauth, skip_user = false
     unless omniauth['credentials'].blank?

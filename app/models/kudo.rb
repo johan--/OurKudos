@@ -43,7 +43,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_readable_list
-    kudo_copies.map(&:copy_recipient).uniq.join(", ")
+    kudo_copies.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
   end
 
   def author_as_recipient
@@ -99,6 +99,7 @@ class Kudo < ActiveRecord::Base
     return if to.blank? || js_validation_only # stop processing if validation with javascript
 
     system_recipients = []
+    set_as_private if all_recipients_are_emails?
 
     recipients_list.each do |id|
 
@@ -161,6 +162,14 @@ class Kudo < ActiveRecord::Base
       send_twitter_kudo(author.twitter_auth.nickname)  if share_scope.blank? && !author.twitter_auth.blank?
       send_facebook_kudo(author.facebook_auth.uid)     if share_scope.blank? && !author.facebook_auth.blank?
       send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
+  end
+
+  def all_recipients_are_emails?
+    !recipients_list.map {|recipient| recipient.match(RegularExpressions.email) }.include?(nil)
+  end
+
+  def set_as_private
+    self.share_scope = 'recipient'
   end
 
   def fix_share_scope

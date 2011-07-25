@@ -15,9 +15,9 @@ class KudoCopy < ActiveRecord::Base
 
   def copy_recipient
     return if own_kudo?
-    return self.recipient.to_s        unless self.recipient.blank?
-    return self.temporary_recipient   if self.recipient.blank? && self.kudoable.is_a?(EmailKudo)
-    self.facebook_friend.name         if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
+    return self.recipient.secured_name   unless self.recipient.blank?
+    return ''                            if self.recipient.blank? && self.kudoable.is_a?(EmailKudo)
+    self.facebook_friend.name            if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
   end
 
   def own_kudo?
