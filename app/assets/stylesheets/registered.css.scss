@@ -548,7 +548,8 @@ ul.profile_pics {
 }
 
 #social_buttons {
-  width: 30%;
+  width: 100px;
+  margin-left: 20px;
   float: left;
   a {
     text-decoration: none;
@@ -562,4 +563,13 @@ ul.profile_pics {
 #facebook_button {
   width: 50%;
   float: right;
+}
+.fb_like {
+  width: 57px;
+  float: right;
+}
+.fb_like iframe {
+  width:55px!important;
+  overflow: hidden;
+  height: 27px!important;
 }

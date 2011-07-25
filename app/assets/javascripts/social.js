@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 
     $(this).empty();
     //////START GOOGLE//////
-    gapi.plusone.render(this, {"size" : "medium"," count" : "false", "href" : base_url + kudo_id});
+    gapi.plusone.render(this, {"size" : "small", "count" : "false", "href" : base_url + kudo_id});
     //////END GOOGLE//////
     $('html').attr("xmlns:og","http://www.facebook.com/2008/fbml").attr("xmlns:fb","http://www.facebook.com/2008/fbml");
 
@@ -19,7 +19,7 @@ jQuery(document).ready(function(){
       var fb_url = base_url + kudo_id,
       fb_like = '<div class="fb_like"><fb:like href="'+fb_url+'" layout="standard" show_faces="false" action="like" colorscheme="light"></fb:like></div>';
       
-      $(this).append(fb_like);
+      $(this).after(fb_like);
       
 
     // Load in FB javascript SDK
