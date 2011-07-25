@@ -17,3 +17,4 @@
 //= require comments
 //= require pagination
 //= require admin/pages
+//= require social

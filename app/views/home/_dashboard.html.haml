@@ -19,6 +19,9 @@
         %p#kudos_search_cont
           = text_field_tag(:searchterms,'',:placeholder=>'search')
         .clearing
+    %script{:type => "text/javascript", :src => "https://apis.google.com/js/plusone.js"}
+      :javascript
+        {"parsetags" : "explicit" }
     #kudos
       = render :partial => "kudos"
 

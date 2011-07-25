@@ -19,11 +19,12 @@
    %div= sent_kudo_destroy_link(kudo)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
-   .social_buttons
-    .google_plus
-     %g:plusone{:href => "#{kudo_path(kudo)}"}
-    .facebook_like
-     %fb:like{:href => "#{kudo_path(kudo)}", :send => "false", :layout => "button_count", :width => "100", :show_faces => "false", :font => "trebuchet ms"}
+    #social_buttons
+     #div{:id => "google_plus_#{kudo.id}"}
+     #div{:id => "facebook_like_#{kudo.id}"}
+      %a{:href=>"/", :name => kudo.id}
+       Share This Kudo
+    .clearing
 
     .kudo_comment
      - unless kudo.comments_disabled?

@@ -547,3 +547,19 @@ ul.profile_pics {
 	}
 }
 
+#social_buttons {
+  width: 30%;
+  float: left;
+  a {
+    text-decoration: none;
+    float: left;
+  }
+}
+#google_plus {
+  width: 50%;
+  float: right;
+}
+#facebook_button {
+  width: 50%;
+  float: right;
+}
