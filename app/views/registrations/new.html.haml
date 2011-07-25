@@ -12,11 +12,10 @@
     = text_area_tag :terms_of_service, strip_tags(@terms_of_service) ,:size => '100x12', :disabled => true
     
     %p
-      = check_box_tag :read_tos_confirmation
-      = label_tag :read_tos_confirmation, "I've read and agree to the Terms of Service"
+      = f.check_box :tos
+      = label_tag :terms_of_service_check, "I've read and agree to the Terms of Service"
     
     %p= f.submit "Sign up"
     %p -OR-
     %p= link_to image_tag('sign-up-with-facebook-btn.png'), omniauth_authorize_path(:user, 'facebook')
 
-    

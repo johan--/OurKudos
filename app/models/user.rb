@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,:omniauthable,
@@ -8,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :address2, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
-                  :profile_picture, :birthday, :hide_birth_year
+                  :profile_picture, :birthday, :hide_birth_year, :tos
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email
@@ -50,6 +51,10 @@ class User < ActiveRecord::Base
   validates :password,   :format   => { :with => RegularExpressions.password },
                          :is_forbidden_password => true,
                          :confirmation => true, :unless => :skip_password_validation
+
+  validates_acceptance_of :tos, :on        => :create,
+                                :message   => I18n.t(:tos_must_be_accepted),
+                                :accept    => '1'
   # ================
   # == extensions ==
   # ================
