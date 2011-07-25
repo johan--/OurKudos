@@ -12,10 +12,11 @@
   %body
     #mainarea
       #header
-        = render 'shared/unregistered_header'
+        = render 'shared/unregistered_header' if controller_name != "profiles"
+        = render "shared/profile_header"      if controller_name == 'profiles'
       #main_top					 
       #main
         = yield
-    										 
+
         #footer					 
           = render 'shared/footer'
