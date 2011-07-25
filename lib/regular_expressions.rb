@@ -15,6 +15,14 @@ module RegularExpressions
   def self.facebook_friend
     /^fb_{1}/
   end
+
+  def self.protocol
+    /^http(?:s?)\:\/\//
+  end
+
+  def self.protocol_with_domain
+
+  end
  #TODO place other reg exps here
 
 end

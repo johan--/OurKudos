@@ -11,7 +11,7 @@ class Kudo < ActiveRecord::Base
   attr_accessible  :subject, :body, :to, :share_scope,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 
-  before_create :fix_share_scope, :prepare_copies, :if => :new_record?
+  before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
 
   validates_with KudoValidator
@@ -37,6 +37,8 @@ class Kudo < ActiveRecord::Base
   serialize :system_kudos_recipients_cache
 
   acts_as_commentable
+  include OurKudos::Helpers::Sanitization
+
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -293,6 +295,10 @@ class Kudo < ActiveRecord::Base
   def remove_from_system_kudos_cache user
     system_kudos_recipients_cache.delete(user.id)
     save :validate => false
+  end
+
+  def fix_links
+    clean_up_links! if author.credibility == 0
   end
 
 
