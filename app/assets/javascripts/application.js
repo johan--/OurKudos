@@ -18,3 +18,6 @@
 //= require pagination
 //= require admin/pages
 //= require social
+//= require controls/wysiwyg.image
+//= require controls/wysiwyg.link
+//= require controls/wysiwyg.table
