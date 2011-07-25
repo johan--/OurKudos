@@ -161,12 +161,12 @@ describe Admin::Gifting::AffiliateProgramsController do
     describe "users who are gift_editors" do
       before(:each) do
         @user = Factory(:user)
-        @user.roles << Role.create(:name => "gift")
+        @user.roles << Role.create(:name => "gift editor")
       end
 
       it "should have have the gift editor role, but not admin" do
         @user.has_role?(:admin).should be_false
-        @user.has_role?(:gift).should be_true
+        @user.has_role?('gift editor').should be_true
       end
 
       it "should allow access for user with gift role" do
@@ -185,12 +185,12 @@ describe Admin::Gifting::AffiliateProgramsController do
       
       it "should not have gift or editor roles" do
         @user.has_role?(:admin).should be_false
-        @user.has_role?(:gift).should be_false
+        @user.has_role?('gift editor').should be_false
       end
 
       it "should redirect for standard users" do
         get 'index'
-        response.should redirect_to(root_path)
+        response.should redirect_to("/home")
       end
       
     end
