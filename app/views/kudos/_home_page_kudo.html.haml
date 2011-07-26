@@ -5,7 +5,7 @@
     = anon_picture
   .kudo_message_bubble_cont
     .kudo_message_top
-    .kudo_message_mid{"data-id" => kudo.id }
+    .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
       %p
         %span.sender= kudo.author.to_s
         %span.greater_than >

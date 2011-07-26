@@ -2,7 +2,7 @@
  = kudo_author_picture kudo
  .kudo_message_bubble_cont
   .kudo_message_top
-  .kudo_message_mid{"data-id" => kudo.id }
+  .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
    .kudo_message_text_cont
     %p
      %span.category= kudo.category
