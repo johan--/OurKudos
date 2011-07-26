@@ -547,20 +547,21 @@ ul.profile_pics {
 	}
 }
 
-#social_buttons {
-  width: 100px;
+.social_buttons {
+  width: 120px;
   margin-left: 20px;
+  height: 30px;
   float: left;
   a {
     text-decoration: none;
     float: left;
   }
 }
-#google_plus {
+.plusone_button {
   width: 50%;
-  float: right;
+  float: left;
 }
-#facebook_button {
+.facebook_like {
   width: 50%;
   float: right;
 }

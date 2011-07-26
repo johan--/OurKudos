@@ -311,3 +311,31 @@ ul.invite_list {
 img#video_tour_image_btn {
 	cursor: pointer;
 }
+
+.social_buttons {
+  width: 120px;
+  margin-left: 20px;
+  height: 30px;
+  float: left;
+  a {
+    text-decoration: none;
+    float: left;
+  }
+}
+.plusone_button {
+  width: 50%;
+  float: left;
+}
+.facebook_like {
+  width: 50%;
+  float: right;
+}
+.fb_like {
+  width: 57px;
+  float: right;
+}
+.fb_like iframe {
+  width:55px!important;
+  overflow: hidden;
+  height: 27px!important;
+}

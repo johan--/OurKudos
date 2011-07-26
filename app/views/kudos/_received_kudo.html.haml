@@ -21,11 +21,9 @@
    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.kudo.id}"}
-    #social_buttons
-     #div{:id => "google_plus_#{kudo.id}"}
-     #div{:id => "facebook_like_#{kudo.id}"}
-      %a{:href=>"/", :name => kudo.id}
-       Share This Kudo
+    .social_buttons
+     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
+     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
     .clearing
     .kudo_comment
      - unless kudo.kudo.comments_disabled?

@@ -5,17 +5,15 @@
     = anon_picture
   .kudo_message_bubble_cont
     .kudo_message_top
-    .kudo_message_mid
+    .kudo_message_mid{"data-id" => kudo.id }
       %p
         %span.sender= kudo.author.to_s
         %span.greater_than >
         %span.receiver= kudo.recipients_readable_list
       %p= kudo.body
-      #social_buttons
-        #div{:id => "google_plus_#{kudo.id}"}
-        #div{:id => "facebook_like_#{kudo.id}"}
-          %a{:href=>"/", :name => kudo.id}
-            Share This Kudo
+      .social_buttons
+        %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
+        %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
       .clearing
 
     .kudo_message_bot

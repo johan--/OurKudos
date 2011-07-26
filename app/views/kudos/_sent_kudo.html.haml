@@ -2,7 +2,7 @@
  = kudo_author_picture kudo
  .kudo_message_bubble_cont
   .kudo_message_top
-  .kudo_message_mid
+  .kudo_message_mid{"data-id" => kudo.id }
    .kudo_message_text_cont
     %p
      %span.category= kudo.category
@@ -19,11 +19,9 @@
    %div= sent_kudo_destroy_link(kudo)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
-    #social_buttons
-     #div{:id => "google_plus_#{kudo.id}"}
-     #div{:id => "facebook_like_#{kudo.id}"}
-      %a{:href=>"/", :name => kudo.id}
-       Share This Kudo
+    .social_buttons
+     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
+     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
     .clearing
 
     .kudo_comment
