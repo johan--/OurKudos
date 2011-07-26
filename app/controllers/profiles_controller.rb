@@ -1,12 +1,12 @@
 class ProfilesController < ApplicationController
 
+
   layout 'unregistered'
 
   def show
-    debugger
     redirect_to home_path if user_signed_in?
 
-    @user = User.find params[:user_id]
+    @user = User.find paramsd[:user_id]
     get_public_kudos
   end
 

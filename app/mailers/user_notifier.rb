@@ -69,4 +69,3 @@ class UserNotifier < ActionMailer::Base
 
 
 end
-x

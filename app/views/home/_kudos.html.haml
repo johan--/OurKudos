@@ -9,6 +9,6 @@
   = render :partial => "kudos/sent_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
 
 #pagination
- - unless @kudos.last_page?
+ - unless (@kudos.last_page? rescue false)
   = spinner_tag
   = link_to("+ show more kudos", "javascript:void(0)", :class => "next_page")
