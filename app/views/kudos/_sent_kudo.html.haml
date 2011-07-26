@@ -19,16 +19,17 @@
    %div= sent_kudo_destroy_link(kudo)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
-    .social_buttons
-     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
-     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
-    .clearing
 
+    .clearing
     .kudo_comment
      - unless kudo.comments_disabled?
       = link_to t(:kudo_comment), '#', :class   => "action_link comment_form_toggle",
                                                         :id     => kudo.id,
                                                         :remote => true
+    .social_buttons
+     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
+     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
+    .clearing
 
    = render :partial => "comments/comment", :locals => {:kudo => kudo}
    .clearing

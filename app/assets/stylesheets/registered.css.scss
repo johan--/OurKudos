@@ -365,15 +365,24 @@ a.delete_kudo_btn {
 }
 
 .social_buttons {
-  float: right;
-  .google_plus{
-    float: right;
+  width: 110px;
+  margin-left: 75px;
+  margin-top: -15px;
+  height: 20px;
+  float: left;
+  .plusone_button {
+    width: 50%;
+    float: left;
   }
-  .facebook_like{
+  .facebook_like {
+    width: 50%;
     float: right;
   }
   .kudo_comment{
-    float:right;
+    a {
+      margin-left: 10px;
+      float:left;
+    }
   }
 }
 
@@ -547,24 +556,6 @@ ul.profile_pics {
 	}
 }
 
-.social_buttons {
-  width: 120px;
-  margin-left: 20px;
-  height: 30px;
-  float: left;
-  a {
-    text-decoration: none;
-    float: left;
-  }
-}
-.plusone_button {
-  width: 50%;
-  float: left;
-}
-.facebook_like {
-  width: 50%;
-  float: right;
-}
 .fb_like {
   width: 57px;
   float: right;

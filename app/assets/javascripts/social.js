@@ -14,7 +14,7 @@ jQuery(document).ready(function(){
       if ($("#" + google_div).is(':empty')) {
         $(google_div).empty();
         //////START GOOGLE//////
-        gapi.plusone.render(google_div, {"size" : "medium", "count" : "false", "href" : base_url + kudo_id});
+        gapi.plusone.render(google_div, {"size" : "small", "count" : "false", "href" : base_url + kudo_id});
         //////END GOOGLE//////
         $('html').attr("xmlns:og","http://www.facebook.com/2008/fbml").attr("xmlns:fb","http://www.facebook.com/2008/fbml");
 
@@ -24,7 +24,7 @@ jQuery(document).ready(function(){
 
         // Build and inject Like button
           var fb_url = base_url + kudo_id,
-          fb_like = '<div class="fb_like"><fb:like href="'+fb_url+'" layout="standard" show_faces="false" action="like" colorscheme="light"></fb:like></div>';
+          fb_like = '<div class="fb_like"><fb:like href="'+fb_url+'" layout="button_count" show_faces="false" action="like" colorscheme="light"></fb:like></div>';
           
           $("#facebook_like_" + kudo_id).html(fb_like);
           
