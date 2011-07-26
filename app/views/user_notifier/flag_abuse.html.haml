@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+
+    %p= t(:dear_user, :user => @author.to_s)
+
+    %p= t :this_is_a_warning_from_our_administrative_stuff
+
+    %p= t(:you_have_flagged_too_many_kudos_incorectly)
+

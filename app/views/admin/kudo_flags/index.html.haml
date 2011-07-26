@@ -8,6 +8,7 @@
       %th= sortable "users.last_name",        t(:kf_flagger_name)
       %th= sortable "kudos.body",             t(:kf_flagged_body)
       %th= sortable "kudo_flags.created_at",  I18n.t(:kf_flagged_at)
+      %th= sortable "users.penalty_score",    t(:kf_score)
       %th= t(:flag_valid)
     %tbody
       - for flag in @kudo_flags do
@@ -16,6 +17,7 @@
           %td= kudo_flag_path_user_info flag.flagger
           %td= flag.flagged_kudo.body rescue nil
           %td= flag.created_at.strftime("%d-%m-%Y %I:%M:%S")
+          %td= flag.flagger.penalty_score.to_s + "%"
           %td= render :partial => 'flag_accept_form', :locals => {:flag => flag}
 
   = submit_tag t :accept_reject_selected_flags if @kudo_flags.any?

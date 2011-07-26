@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
                   :profile_picture, :birthday, :hide_birth_year, :tos
 
   attr_accessor :primary_identity, :skip_password_validation,
-                :remember_old_pass, :consider_invitation_email
+                :remember_old_pass, :consider_invitation_email,
+                :send_penalty_notification
   # ================
   # = associations =
   # ================
@@ -71,6 +72,7 @@ class User < ActiveRecord::Base
   before_save :add_role
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
+  after_save  :flag_abuse_notification
   before_destroy :set_identities_as_destroyable
   after_destroy  :remove_mergeables, :destroy_friendships
   before_create :build_inbox
@@ -347,6 +349,7 @@ class User < ActiveRecord::Base
   #each time user flags kudo as invalid
   def increase_penalty_score! author
     update_attribute :penalty_score, (my_improperly_flagged_kudos.size * get_factor_for(author)).to_i
+    self.send_penalty_notification = true if penalty_score > 30
     penalty_score
   end
 
@@ -413,6 +416,11 @@ class User < ActiveRecord::Base
     end
 
   end
+
+  def flag_abuse_notification
+    UserNotifier.delay.flag_abuse(self) if penalty_score >= 30  && self.send_penalty_notification
+  end
+
 
 
   class << self

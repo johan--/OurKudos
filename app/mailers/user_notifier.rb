@@ -61,5 +61,11 @@ class UserNotifier < ActionMailer::Base
     mail :to => @kudo.recipients_emails, :subject => I18n.t(:email_subject_kudo_comments_moderation)
   end
 
+  def flag_abuse user
+    @author = user
+    mail :to => @author.email, :subject => "[OurKudos] - Administrator warning"
+  end
+
+
 
 end
