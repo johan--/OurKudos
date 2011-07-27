@@ -1,25 +1,7 @@
-.wrapper-main
-  .kudo_message_cont
-    - if @kudo.author
-      = profile_picture_for(@kudo.author)
-    - else
-      = anon_picture
-    .kudo_message_bubble_cont
-      .kudo_message_top
-      .kudo_message_mid{"data-id" => @kudo.id, "data-scope" => @kudo.share_scope }
-        %p
-          %h1.hidden_heading= @kudo.body
-          %span.sender= @kudo.author.to_s
-          %span.greater_than >
-          %span.receiver= @kudo.recipients_readable_list
-        %p= @kudo.body
-        .social_buttons
-          %div{:id => "google_plus_#{@kudo.id}", :class => "plusone_button"}
-          %div{:id => "facebook_like_#{@kudo.id}", :class => "facebook_like"}
-        .clearing
+- content_for(:title) { @kudo.body }
 
-      .kudo_message_bot
-    .clearing
+.wrapper-main
+  = render 'home_page_kudo', :kudo => @kudo
 
   = unless current_user
     %p= image_tag('kudos_hugging.png')
