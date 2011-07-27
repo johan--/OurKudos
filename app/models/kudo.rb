@@ -144,6 +144,7 @@ class Kudo < ActiveRecord::Base
                         :author_id    => author.id,
                         :share_scope  => share_scope,
                         :kudoable => EmailKudo.create(:email => recipient)
+      author.increase_invitations :sent
   end
 
   def send_twitter_kudo recipient
