@@ -1,0 +1,6 @@
+%h2= t(:your_uploaded_images)
+
+- for picture in @pictures do
+  .uploaded_image_box= link_to(image_tag(picture.image(:small)), picture.image.url(:large))
+
+= link_to t(:upload_new_image), new_user_picture_path(current_user), :class => "action_link"

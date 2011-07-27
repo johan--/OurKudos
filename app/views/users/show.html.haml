@@ -127,3 +127,9 @@
   %h3= t :gender
   %p
     %span.datavalue= current_user.gender
+
+  %h3= t :image_storage
+  %p.note= t :you_can_upload_images_to_your_storage_and_use_them_later_when_sending_kudo
+
+  %p= link_to t(:upload_new_image),     new_user_picture_path(current_user), :class => "action_link"
+  %p= link_to t(:your_uploaded_images), user_pictures_path(current_user),    :class => "action_link"

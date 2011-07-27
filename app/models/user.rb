@@ -38,6 +38,7 @@ class User < ActiveRecord::Base
   has_many :kudo_flags, :foreign_key => :flagger_id
 
   has_many :comments
+  has_many :pictures
   # ================
   # ====scopes =====
   # ================

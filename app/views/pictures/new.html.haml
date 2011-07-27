@@ -1,0 +1,14 @@
+%h2= t(:upload_new_picture)
+= form_for @picture, :url => user_pictures_path(current_user, @picture), :method => :post, :html => {:multipart => true} do |f|
+
+  = error_messages_for @picture
+
+  %p= f.label :image
+
+  %p= f.file_field :image
+
+  %p
+    = f.submit "Upload"
+    = t(:or)
+    = link_to 'Cancel', user_path(current_user), :class => 'action_link'
+

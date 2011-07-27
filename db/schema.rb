@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727110355) do
+ActiveRecord::Schema.define(:version => 20110727133532) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -297,6 +297,15 @@ ActiveRecord::Schema.define(:version => 20110727110355) do
   add_index "permissions", ["access_token"], :name => "index_permissions_on_access_token"
   add_index "permissions", ["code"], :name => "index_permissions_on_code"
   add_index "permissions", ["refresh_token"], :name => "index_permissions_on_refresh_token"
+
+  create_table "pictures", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.integer  "user_id"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+  end
 
   create_table "reports", :force => true do |t|
     t.datetime "created_at"
