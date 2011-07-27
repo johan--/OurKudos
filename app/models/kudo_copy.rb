@@ -47,6 +47,7 @@ class KudoCopy < ActiveRecord::Base
        kudo.kudoable            = kudo.kudo
        kudo.save :validate => false
      end
+     user.increase_invitations :accepted
    end
 
   end

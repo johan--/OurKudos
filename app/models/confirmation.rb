@@ -9,4 +9,6 @@ class Confirmation < ActiveRecord::Base
      confirmable.class.name.underscore
    end
 
+
+
 end

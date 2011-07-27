@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110725190103) do
+ActiveRecord::Schema.define(:version => 20110727110355) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -391,6 +391,8 @@ ActiveRecord::Schema.define(:version => 20110725190103) do
     t.string   "social_picture_fb"
     t.string   "social_picture_tw"
     t.integer  "credibility",                              :default => 0
+    t.integer  "invitations_sent",                         :default => 0
+    t.integer  "invitations_accepted",                     :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

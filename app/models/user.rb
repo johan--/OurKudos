@@ -421,6 +421,11 @@ class User < ActiveRecord::Base
     UserNotifier.delay.flag_abuse(self) if penalty_score >= 30  && self.send_penalty_notification
   end
 
+  def increase_invitations type
+    column = "invitations_#{type}".to_sym
+    update_attribute column, self.send(column) + 1
+  end
+
 
 
   class << self
