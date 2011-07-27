@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
     ////
     var kudo_scope = $(".kudo_message_mid", this).data('scope');
     if (kudo_scope == undefined) {
-      var base_url = "www.rkudos.com/kudos/"
+      var base_url = "http://www.rkudos.com/kudos/"
       //var kudo_id = $(this).attr('name');
       kudo_id = $(".kudo_message_mid", this).data('id');
 
