@@ -1,14 +1,9 @@
-#col_right
+.wrapper-main
   = render :partial => "shared/messaging"
   #recent_kudos_cont_top
     %h2 Received
   #recent_kudos_cont
     - for kudo in @kudos do
       = render :partial => "kudos/home_page_kudo", :locals => {:kudo => kudo}
-
-
+  
   #recent_kudos_cont_bot
-
-  #recent_kudos_cont_top
-
-.clearing
