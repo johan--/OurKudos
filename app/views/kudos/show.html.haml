@@ -1,5 +1,6 @@
 - content_for(:title) { "OurKudos #{@kudo.body}" }
-- content_for(:metadescription) { @kudo.body }
+- content_for(:meta_description) { "OurKudos #{@kudo.body}" }
+- content_for(:metaog_url) { kudo_url(@kudo.id) }
 
 .wrapper-main
   = render 'home_page_kudo', :kudo => @kudo
