@@ -3,7 +3,8 @@
   %head
     %title
       = yield(:title) || "OurKudos"
-    %meta{:content => "#{yield(:head)}", :property => 'og:title'}
+    %meta{:content => "OurKudos", :property => 'og:title'}
+    %meta{:content => "#{yield(:metadescription)}", :name => 'description'}
     = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" 
     = javascript_include_tag 'application'
     = stylesheet_link_tag 'registered'
