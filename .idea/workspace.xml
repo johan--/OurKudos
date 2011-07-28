@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/tasks/schedule.rake" afterPath="$PROJECT_DIR$/lib/tasks/schedule.rake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,19 +27,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_form.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
+      <file leaf-file-name="kudo.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="75" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0">
+            <state line="15" column="4" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="schedule.rake" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/tasks/schedule.rake">
+      <file leaf-file-name="kudo_copy.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="50" selection-start="423" selection-end="423" vertical-scroll-proportion="0.4">
+            <state line="31" column="28" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,8 +59,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/profiles_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20110727133532_create_pictures.rb" />
         <option value="$PROJECT_DIR$/app/views/pictures/new.html.haml" />
@@ -74,6 +73,8 @@
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
         <option value="$PROJECT_DIR$/lib/tasks/schedule.rake" />
+        <option value="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
       </list>
     </option>
   </component>
@@ -167,6 +168,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -514,21 +533,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/locales/views/users/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="2" selection-start="4090" selection-end="4090" vertical-scroll-proportion="0.85915494" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pictures/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="21" selection-start="296" selection-end="302" vertical-scroll-proportion="0.4225352" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/views/pictures/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="22" selection-start="243" selection-end="243" vertical-scroll-proportion="0.13769363" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/profiles/new.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -590,16 +594,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
+    <entry file="file://$PROJECT_DIR$/lib/tasks/schedule.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="75" selection-start="459" selection-end="459" vertical-scroll-proportion="0.0">
+        <state line="24" column="0" selection-start="668" selection-end="668" vertical-scroll-proportion="0.8">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/tasks/schedule.rake">
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="50" selection-start="423" selection-end="423" vertical-scroll-proportion="0.4">
+        <state line="14" column="75" selection-start="459" selection-end="459" vertical-scroll-proportion="0.4770017">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.text.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="4" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="28" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

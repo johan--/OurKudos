@@ -11,4 +11,5 @@
 
     %p= SETTINGS[:test_environment_special_message] if SETTINGS[:sign_up_disabled] == "yes"
 
-    %p= link_to t(:see_entire_message_on_ourkudos), "#{@host}/invite?kudo_id=#{@kudo.key.to_s}&email=#{@email}"
+    %p= link_to t(:see_entire_message_on_ourkudos), invite_url(:kudo_id => @kudo.key.to_s, :email => @email)
+

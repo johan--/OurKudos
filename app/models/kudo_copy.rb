@@ -28,7 +28,7 @@ class KudoCopy < ActiveRecord::Base
     return true  if share_scope.blank?
     return true  if user == author
     return true  if share_scope == 'recipient' && user == recipient
-    return true  if share_scope == 'friends' && author.is_my_friend?(user)
+    return true  if share_scope == 'friends' && author && author.is_my_friend?(user)
     return false if user && kudo.flaggers.include?(user.id)
     false
   end
