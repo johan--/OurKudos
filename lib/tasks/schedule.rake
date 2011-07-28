@@ -6,7 +6,7 @@ namespace :cron do
 
     puts "Compressing directory...(current location: #{FileUtils.pwd})"
 
-    system("#{tar_binary} -zcvfh #{backup_file} ./public/system/")
+    system("#{tar_binary} -zcvfh #{backup_file} #{FileUtils.pwd}/public/system/")
 
     puts "Copying to storage dir: #{File.expand_path(backup_dir)} ..."
 
