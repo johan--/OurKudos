@@ -257,4 +257,72 @@ describe Admin::Gifting::GiftsController do
 
   end
 
+  describe "access control to pages" do
+    before(:each) do 
+      sign_out @admin
+    end
+
+    describe "should allow users who are administrators" do
+      before(:each) do
+        sign_in @admin
+      end
+
+      it "should allow access to index" do
+        get 'index'
+        response.should_not be_redirect
+      end
+
+    end
+
+    describe "users who are gift_editors" do
+      before(:each) do
+        @user = Factory(:user)
+        @user.roles << Role.create(:name => "gift editor")
+      end
+
+      it "should have have the gift editor role, but not admin" do
+        @user.has_role?(:admin).should be_false
+        @user.has_role?('gift editor').should be_true
+      end
+
+      it "should allow access to index for user with gift role" do
+        sign_in @user
+        get 'index'
+        response.should_not be_redirect
+      end
+
+      it "should allow access to edit for user with gift role" do
+        sign_in @user
+        gift = Factory(:gift)
+        get 'edit', :id => gift.id
+        response.should_not be_redirect
+      end
+    end
+
+
+    describe "standard users" do
+      before(:each) do
+        @user = Factory(:user)
+        sign_in @user
+      end
+      
+      it "should not have gift or editor roles" do
+        @user.has_role?(:admin).should be_false
+        @user.has_role?('gift editor').should be_false
+      end
+
+      it "should redirect from index for standard users" do
+        get 'index'
+        response.should redirect_to("/home")
+      end
+
+      it "should redirect from edit for standard users" do
+        gift = Factory(:gift)
+        get 'edit', :id => gift.id
+        response.should redirect_to("/home")
+      end
+      
+    end
+
+  end
 end
