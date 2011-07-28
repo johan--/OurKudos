@@ -1,13 +1,13 @@
 .kudo_message_cont
   - if kudo.author
-    = profile_picture_for(kudo.author)
+    = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author)
   - else
     = anon_picture
   .kudo_message_bubble_cont
     .kudo_message_top
     .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
       %p
-        %span.sender= kudo.author.to_s
+        %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author)
         %span.greater_than >
         %span.receiver= kudo.recipients_readable_list
       %p= kudo.body

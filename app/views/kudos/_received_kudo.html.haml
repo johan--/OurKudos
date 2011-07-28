@@ -1,6 +1,6 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.kudo.id}"}
  - if kudo.author
-  = profile_picture_for(kudo.author)
+  = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author)
  - else
   = anon_picture
  .kudo_message_bubble_cont
@@ -10,7 +10,7 @@
 
     %p{:id => "kudo_#{kudo.id}"}
      %span.category= kudo.category
-     %span.sender= kudo.author.to_s
+     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author)
      %span.greater_than &gt;
      %span.receiver
       = kudo.recipient.to_s

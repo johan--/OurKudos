@@ -268,8 +268,12 @@ span.sender, span.receiver {
 	font: bold 1.1em Verdana, "Copse", Arial, sans-serif;
 }
 
-span.sender {
+span.sender, span.sender a {
 	color: #c60;
+}
+
+span.sender a {
+ text-decoration: none;
 }
 
 span.receiver {

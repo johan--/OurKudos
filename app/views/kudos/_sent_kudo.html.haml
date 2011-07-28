@@ -1,12 +1,12 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
- = kudo_author_picture kudo
+ = link_to kudo_author_picture(kudo), user_profile_path(kudo.author)
  .kudo_message_bubble_cont
   .kudo_message_top
   .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
    .kudo_message_text_cont
     %p
      %span.category= kudo.category
-     %span.sender= kudo.author.to_s
+     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author)
      %span.greater_than &gt;
      %span.receiver
       = kudo.recipients_readable_list
