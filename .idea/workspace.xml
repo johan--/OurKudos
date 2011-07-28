@@ -38,7 +38,7 @@
       <file leaf-file-name="schedule.rake" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/tasks/schedule.rake">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="63" selection-start="345" selection-end="345" vertical-scroll-proportion="0.26666668">
+            <state line="12" column="50" selection-start="423" selection-end="423" vertical-scroll-proportion="0.4">
               <folding />
             </state>
           </provider>
@@ -599,7 +599,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/schedule.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="63" selection-start="345" selection-end="345" vertical-scroll-proportion="0.26666668">
+        <state line="12" column="50" selection-start="423" selection-end="423" vertical-scroll-proportion="0.4">
           <folding />
         </state>
       </provider>

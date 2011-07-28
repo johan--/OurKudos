@@ -4,9 +4,13 @@ namespace :cron do
     backup_file = "images_#{Time.now.strftime("%d-%m-%Y-%I-%S-%p")}.tar.gz"
     tar_binary  = `which tar`.strip
 
-    puts "Compressing directory...(current location: #{FileUtils.pwd})"
+    puts "Changing directory to #{FileUtils.pwd}/public/system/...(current location: #{FileUtils.pwd})"
 
-    system("#{tar_binary} -zcvfh #{backup_file} #{FileUtils.pwd}/public/system/")
+    FileUtils.cd "public/system/"
+
+    puts FileUtils.pwd
+
+    system("#{tar_binary} -cvzpf #{backup_file} ./")
 
     puts "Copying to storage dir: #{File.expand_path(backup_dir)} ..."
 
