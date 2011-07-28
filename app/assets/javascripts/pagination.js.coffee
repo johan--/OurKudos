@@ -17,6 +17,11 @@ jQuery ->
   jQuery("a.next_page").live 'click', ->
     loadPage ++currPage
 
+    jQuery(".notice, .alert, .error").remove()
+
+    jQuery("body").click ->
+      jQuery(".notice, .alert, .error").remove()
+
     jQuery("#spinner").show()
     jQuery("#pagination").prepend(' loading page...')
 

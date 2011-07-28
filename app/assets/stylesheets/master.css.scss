@@ -355,5 +355,14 @@ ul.type2 {
 		width: 1100px; /* prevents cropping of edges */
 	}
 }
+#tooltip {
+	position: absolute;
+	z-index: 3000;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+	opacity: 0.85;
+}
+#tooltip h3, #tooltip div { margin: 0; }
 
 

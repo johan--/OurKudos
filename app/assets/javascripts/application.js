@@ -21,3 +21,4 @@
 //= require controls/wysiwyg.image
 //= require controls/wysiwyg.link
 //= require controls/wysiwyg.table
+//= require jquery.tooltip
