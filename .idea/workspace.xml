@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,19 +27,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kudo.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml">
+      <file leaf-file-name="kudo.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="4" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kudo_copy.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="28" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
+            <state line="104" column="32" selection-start="3510" selection-end="3510" vertical-scroll-proportion="-1.4736842">
               <folding />
             </state>
           </provider>
@@ -59,8 +50,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20110727133532_create_pictures.rb" />
         <option value="$PROJECT_DIR$/app/views/pictures/new.html.haml" />
         <option value="$PROJECT_DIR$/config/locales/views/users/en.yml" />
         <option value="$PROJECT_DIR$/config/locales/views/pictures/en.yml" />
@@ -73,8 +62,10 @@
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
         <option value="$PROJECT_DIR$/lib/tasks/schedule.rake" />
-        <option value="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
+        <option value="$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/kudo_copy_observer.rb" />
       </list>
     </option>
   </component>
@@ -104,9 +95,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -135,7 +125,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -149,11 +143,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user_notifier" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -185,12 +183,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -293,6 +292,13 @@
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="CucumberRunConfigurationType" factoryName="Cucumber">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="" />
@@ -321,13 +327,6 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="CUCUMBER_RUNNER_PATH" VALUE="" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
-      <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" value="embedded" />
-        <option name="fileUrl" />
-      </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
     <configuration default="true" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda">
@@ -483,11 +482,11 @@
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953683" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27486712" sideWeight="0.0" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18147305" sideWeight="0.67038214" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -533,26 +532,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/profiles/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pictures/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="63" selection-start="124" selection-end="124" vertical-scroll-proportion="0.1" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="4" selection-start="3890" selection-end="3986" vertical-scroll-proportion="0.7632027" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/picture.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="27" selection-start="185" selection-end="185" vertical-scroll-proportion="0.2" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="428" column="53" selection-start="13306" selection-end="13306" vertical-scroll-proportion="0.318569" />
@@ -575,56 +554,72 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/schedule.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="48" selection-start="248" selection-end="248" vertical-scroll-proportion="0.17035775">
-          <folding />
-        </state>
+        <state line="5" column="48" selection-start="248" selection-end="248" vertical-scroll-proportion="0.17035775" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="30" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.03407155">
-          <folding />
-        </state>
+        <state line="38" column="30" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.03407155" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/tasks/schedule.rake">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="668" selection-end="668" vertical-scroll-proportion="0.8">
-          <folding />
-        </state>
+        <state line="24" column="0" selection-start="668" selection-end="668" vertical-scroll-proportion="0.8" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="75" selection-start="459" selection-end="459" vertical-scroll-proportion="0.4770017">
-          <folding />
-        </state>
+        <state line="14" column="75" selection-start="459" selection-end="459" vertical-scroll-proportion="0.4770017" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.text.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_notifier/kudo.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="4" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
+        <state line="12" column="0" selection-start="346" selection-end="346" vertical-scroll-proportion="0.610687">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="0" selection-start="706" selection-end="706" vertical-scroll-proportion="0.2544529">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="28" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0">
+        <state line="31" column="28" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.050890584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy_observer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="24" selection-start="139" selection-end="139" vertical-scroll-proportion="0.20356233">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/email_kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="32" selection-start="159" selection-end="159" vertical-scroll-proportion="0.3053435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="32" selection-start="3510" selection-end="3510" vertical-scroll-proportion="-1.4736842">
           <folding />
         </state>
       </provider>
