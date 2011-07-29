@@ -10,7 +10,7 @@
 
     %p{:id => "kudo_#{kudo.id}"}
      %span.category= kudo.category
-     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author), :class => "business_card"
+     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author), :class => "business_card" if kudo.author
      %span.greater_than &gt;
      %span.receiver
       = kudo.recipient.to_s
