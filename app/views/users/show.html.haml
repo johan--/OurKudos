@@ -1,10 +1,11 @@
 %h2= t :my_account_settings
 
 .userprofile_col_left
-  
   %h3= t :personal_info
   
   %p.note= t :privacy_blurb
+  %p
+    = link_to t(:change_my_password), new_user_password_change_path(current_user), :class => "bold_action_link"
   
   %p
     = label_tag(:first_name, 'First Name')
@@ -79,8 +80,6 @@
     = link_to t(:edit_messaging_prefs), '/', :class => "action_link"
     |
     = link_to t(:manage_blocked_senders_list), '/', :class => "action_link"
-    |
-    = link_to t(:change_my_password), new_user_password_change_path(current_user), :class => "action_link"
   
   
   %h3= t :one_click_sign_in_accounts
@@ -104,7 +103,7 @@
     |
     = link_to t(:show_my_friends), friendships_show_path, :class => "action_link"
     |
-    = link_to t(:show_my_facebook_friends), user_facebook_friends_path(current_user), :class => "action_link"  if current_user.connected_with_facebook?
+    = link_to t(:show_my_facebook_friends), user_facebook_friends_path(current_user), :class => "action_link"  if current_user.connected_with_facebook? && current_user.has_role?("admin")
 
 .userprofile_col_right
   %h3= t :profile_picture
@@ -118,8 +117,8 @@
     %p= link_to(t(:remove_my_uploaded_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete, :confirm => I18n.t(:are_you_sure))
 
 
-  %h3= t :image_storage
-  %p.note= t :you_can_upload_images_to_your_storage_and_use_them_later_when_sending_kudo
+  //%h3= t :image_storage
+  //%p.note= t :you_can_upload_images_to_your_storage_and_use_them_later_when_sending_kudo
 
   %p= link_to t(:upload_new_image),     new_user_picture_path(current_user), :class => "action_link"
   %p= link_to t(:your_uploaded_images), user_pictures_path(current_user),    :class => "action_link"
