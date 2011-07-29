@@ -118,10 +118,6 @@
     %p= link_to(t(:remove_my_uploaded_picture), user_profile_picture_path(current_user), :class => "action_link", :method => :delete, :confirm => I18n.t(:are_you_sure))
 
 
-  %h3= t :gender
-  %p
-    %span.datavalue= current_user.gender
-
   %h3= t :image_storage
   %p.note= t :you_can_upload_images_to_your_storage_and_use_them_later_when_sending_kudo
 
