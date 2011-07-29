@@ -1,6 +1,6 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.kudo.id}"}
  - if kudo.author
-  = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :class => "business_card"
+  = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :class => "business-card", :id => kudo_object(kudo).id
  - else
   = anon_picture
  .kudo_message_bubble_cont
@@ -10,7 +10,7 @@
 
     %p{:id => "kudo_#{kudo.id}"}
      %span.category= kudo.category
-     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author), :class => "business_card" if kudo.author
+     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author), :class => "business-card", :id => kudo_object(kudo) if kudo.author
      %span.greater_than &gt;
      %span.receiver
       = kudo.recipient.to_s
@@ -32,7 +32,7 @@
      %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
     .clearing
      = render :partial => "comments/comment",    :locals => {:kudo => kudo_object(kudo) }
-     = render :partial => "kudos/business_card"
+     = render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }
    .clearing
   .kudo_message_bot
  .clearing

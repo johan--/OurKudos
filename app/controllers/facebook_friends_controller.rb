@@ -1,4 +1,5 @@
 class FacebookFriendsController < ApplicationController
+  before_filter :authenticate_user!
   layout "registered"
 
   def index

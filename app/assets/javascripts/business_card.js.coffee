@@ -5,39 +5,49 @@ jQuery(window).mousedown (event) ->
 jQuery(window).mouseup (event) ->
   button_pressed = false
 
-jQuery.fn.business_card = ->
+jQuery.fn.businessCard = ->
   jQuery(this).hover ((event) ->
+
+
     return  if button_pressed == true
-    append = "<p id=\"business-card\">ASDFADFAF</p>"
-    jQuery("body").append append
 
-    if jQuery(window).width() < event.clientX + 390
-      clientX = event.clientX - 360 - 30
-    else
-      clientX = event.clientX + 30
+    id      = jQuery(this).attr("id")
+    content = jQuery(".business_card_popup#business_card_"+ id).html()
 
-    if jQuery(window).height() < event.clientY + 370
-      clientY = event.pageY - 360 + 10
-    else
-      clientY = event.pageY - 10
+    append = "<div class=\"business-card-window\" id=\"" + id + "\">" + content + "</div>"
 
-    jQuery("#business-card").css("top", clientY + "px").css("left", clientX + "px").fadeIn "fast"
+    setTimeout(->
+        jQuery("body").append(append)
+
+        if jQuery(window).width() < event.clientX
+          clientX = event.clientX - 30
+        else
+          clientX = event.clientX + 30
+
+        if jQuery(window).height() < event.clientY
+          clientY = event.pageY + 10
+        else
+          clientY = event.pageY - 10
+    , 2000)
+
+    jQuery(".business-card-window").css("top", clientY + "px").css("left", clientX + "px").fadeIn "fast"
   ), (e) ->
-    jQuery("#business-card").remove()
+   # jQuery(".business-card-window").remove()
 
   jQuery(this).mousedown (event) ->
-    jQuery("#business-card").remove()
+    jQuery(".business-card-window").remove()
 
   jQuery(this).mouseup (event) ->
-    jQuery("#business-card").remove()
+    jQuery(".business-card-window").remove()
 
   jQuery(this).mousemove (event) ->
-    if jQuery(window).width() < event.clientX + 390
-      clientX = event.clientX - 360 - 30
+    if jQuery(window).width() < event.clientX
+      clientX = event.clientX - 30
     else
       clientX = event.clientX + 30
-    if jQuery(window).height() < event.clientY + 370
-      clientY = event.pageY - 360 + 10
+    if jQuery(window).height() < event.clientY
+      clientY = event.pageY + 10
     else
       clientY = event.pageY - 10
-    jQuery("#business-card").css("top", clientY + "px").css "left", clientX + "px"
+    jQuery(".business-card-window").css("top", clientY + "px").css "left", clientX + "px"
+

@@ -362,17 +362,17 @@ class User < ActiveRecord::Base
     "#{self.id}-#{self.to_s.underscore.gsub(" ",'-')}"
   end
 
-  def current_profile_picture
-    avatar_from_position 1
+  def current_profile_picture size = :small
+    avatar_from_position 1, size
   end
 
-  def profile_picture_from type, position
+  def profile_picture_from type, position, size = :small
    case type
       when :system
         has_profile_picture? ?
-            profile_picture(:small) : avatar_from_position(position + 1)
+            profile_picture(size) : avatar_from_position(position + 1)
      when :gravatar
-       gravatar_url :default => avatar_from_position(position+1)
+       gravatar_url :default => avatar_from_position(position+1), :size => gravatar_size(size)
      when :facebook
        social_picture_fb.blank? ?
            avatar_from_position(position+1) : social_picture_fb
@@ -382,12 +382,17 @@ class User < ActiveRecord::Base
     end
   end
 
+  def gravatar_size size = :small
+    return 50 if size == :small
+    100
+  end
+
   def has_profile_picture?
     !profile_picture(:small).to_s.include?("missing")
   end
 
-  def avatar_from_position position
-    profile_picture_from profile_picture_priority[position], position
+  def avatar_from_position position, size = :small
+    profile_picture_from profile_picture_priority[position], position, size
   end
 
   def remove_system_avatar!
@@ -425,6 +430,13 @@ class User < ActiveRecord::Base
   def increase_invitations type
     column = "invitations_#{type}".to_sym
     update_attribute column, self.send(column) + 1
+  end
+
+  def demographics
+    "#{city} #{state_or_province}"       if city && state_or_province
+    "#{city}, state unknown"             if city && state_or_province.blank?
+    "city unknown, #{state_or_province}" if city.blank? && state_or_province
+    "city unkown, state uknown"          if city.blank? && state_or_province.blank?
   end
 
 

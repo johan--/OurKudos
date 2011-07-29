@@ -291,7 +291,7 @@ $.TokenList = function (input, url_or_data, settings) {
                         $(this).blur();
                         return true;
                     }
-                
+
                     if(selected_dropdown_item) {
                         add_token($(selected_dropdown_item));
                     }

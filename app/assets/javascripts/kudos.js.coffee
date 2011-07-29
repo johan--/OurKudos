@@ -82,7 +82,7 @@ jQuery ->
     processShareScope()
     scrollScreenToKudo()
 
-    jQuery(".business_card").tooltip()
+    jQuery(".business-card").businessCard()
 
     jQuery("input.share-scope").click ->
       processShareScope()

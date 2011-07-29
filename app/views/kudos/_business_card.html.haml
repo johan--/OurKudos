@@ -1,1 +1,9 @@
-.business_card_popup
+.business_card_popup{:id => "business_card_#{kudo.id}", :style => "display:none" }>
+  - author = kudo.author
+
+  .avatar= image_tag author.current_profile_picture(:medium), :width => 75, :height => 75
+  .name= author.to_s
+  .city= author.city
+  .demographics= author.demographics
+
+  = link_to "Send Kudo to this person", "javascript:void(0)", :class => "send_kudo_link", :id => author.id
