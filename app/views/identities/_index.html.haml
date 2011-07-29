@@ -1,12 +1,12 @@
-%h3= t(:current_user_identities) unless admin_request?
+%h3= t(:my_user_names_and_accounts) unless admin_request?
 
-%p.note= t :only_confirmed_identites_are_valid
+%p.note= t :only_confirmed_accounts_are_valid
 
 %table.type1
   %thead
-    %th= t :identity_type
-    %th= t :identity
-    %th= t :identity_confirmed
+    %th= t :type
+    %th= t :account_name
+    %th= t :confirmed
     %th edit
     %th remove
   %tbody
@@ -17,11 +17,11 @@
         %td= identity.confirmation.confirmed.to_s rescue 'none'
         %td
           - if !identity.is_primary?
-            = link_to t(:edit_identity_link),  admin_or_user_edit_identity_path(@user, identity)
+            = link_to t(:edit_account_link),  admin_or_user_edit_identity_path(@user, identity)
           - else
-            = t(:cannot_edit_primary_identity)
+            = t(:cannot_edit_primary_account)
         %td
           - if !identity.is_primary?
-            = link_to t(:remove_identity),  admin_or_user_identity_path(@user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete if !identity.is_primary?
+            = link_to t(:remove_account),  admin_or_user_identity_path(@user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete if !identity.is_primary?
           - else
-            = t(:cannot_remove_primary_identity)
+            = t(:cannot_remove_primary_account)
