@@ -75,9 +75,24 @@ processShareScope = ->
         jQuery("#kudo_facebook_sharing").removeAttr "disabled"
         jQuery("#kudo_twitter_sharing").removeAttr "disabled"
 
+checkLastSentForSocial  = (provider) ->
+  cookieName    = 'last_sent_with_' + provider
+  checkboxName  = ".kudo-" + provider + "-share"
+
+  jQuery(checkboxName).click ->
+    if jQuery(checkboxName).attr('data-connected') is 'true'
+      checked = jQuery(checkboxName).attr 'checked'
+      if checked == true
+        OurKudos.Cookies.setCookie cookieName,'yes'
+      else
+        OurKudos.Cookies.deleteCookie cookieName
+
 jQuery ->
     processProviderOnKudosForm 'facebook'
     processProviderOnKudosForm 'twitter'
+
+    checkLastSentForSocial 'facebook'
+    checkLastSentForSocial 'twitter'
 
     processShareScope()
     scrollScreenToKudo()

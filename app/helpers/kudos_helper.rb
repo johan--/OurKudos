@@ -35,4 +35,12 @@ module KudosHelper
     anon_picture
   end
 
+  def last_sent_with_twitter?
+    cookies["last_sent_with_twitter"] == "yes"
+  end
+
+  def last_sent_with_facebook?
+    cookies["last_sent_with_facebook"] == "yes"
+  end
+
 end

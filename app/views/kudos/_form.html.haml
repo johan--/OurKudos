@@ -48,10 +48,10 @@
   %span#social_share_choices
    = f.label :social_sharing, t(:kudo_share_on)
 	 
-   = f.check_box :facebook_sharing, {"data-connected" => current_user.connected_with_facebook?, :class => "kudo-facebook-share" }
+   = f.check_box :facebook_sharing, {"data-connected" => current_user.connected_with_facebook?, :class => "kudo-facebook-share", :checked => last_sent_with_facebook? }
    = label_tag 'social_sharing', image_tag('facebook_icon.png') + 'facebook'
 
-   = f.check_box :twitter_sharing, {"data-connected" => current_user.connected_with_twitter?, :class => "kudo-twitter-share" }
+   = f.check_box :twitter_sharing, {"data-connected" => current_user.connected_with_twitter?, :class => "kudo-twitter-share", :checked => last_sent_with_twitter? }
    = label_tag 'social_sharing', image_tag('twitter_icon.png') + 'twitter'
   %button#kudo_send_submit_button{:type => "submit"}
    = image_tag('kudo_send_button.png')
