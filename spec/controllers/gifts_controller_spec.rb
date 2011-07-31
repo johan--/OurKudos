@@ -3,19 +3,30 @@ require 'spec_helper'
 describe GiftsController do
 
   context 'index action ' do
+    before(:each) do 
+      @group1 = Factory(:gift_group)
+      @group2 = Factory(:gift_group)
+      @gift = Factory(:gift, :gift_group_ids => [@group1.id])
+    end
+
     it "should render index" do
       get 'index'
       response.should render_template('index')
     end
 
     it "should show only gift groups that have a gifts" do
-      @group1 = Factory(:gift_group)
-      @group2 = Factory(:gift_group)
-      @gift = Factory(:gift, :gift_group_ids => [@group1.id])
-      
       get 'index'
       assigns(:gift_groups).should include(@group1)
       assigns(:gift_groups).should_not include(@group2)
+    end
+
+    it "should show only show gifts for selected group" do
+      gift2 = Factory(:gift, :gift_group_ids => [@group2.id])
+
+      get 'index', {:gift_group => @group1.id}
+
+      assigns(:gifts).should include(@gift)
+      assigns(:gifts).should_not include(@gift2)
     end
   end
 

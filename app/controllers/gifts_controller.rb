@@ -8,7 +8,7 @@ layout :choose_layout
       @gifts = Gift.where(:active => true)
     else
       group = GiftGroup.find(params[:gift_group])
-      @gifts - group.gifts.where(:active => true)
+      @gifts = group.gifts.where(:active => true)
       @group_name = " - #{GiftGroup.find(params[:gift_group].to_i).name}"
     end
     @gift_groups = GiftGroup.find_by_sql("SELECT DISTINCT gg.id, gg.name from gift_groups_gifts g JOIN gift_groups gg on gg.id = g.gift_group_id")

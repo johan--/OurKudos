@@ -3,9 +3,10 @@
   %head
     %title
       = yield(:title) || "OurKudos"
-    %meta{:content => "OurKudos", :property => 'og:title'}
+    %meta{:property => 'og:title', :content => "#{yield(:metaog_title)}"}
     %meta{:content => "#{yield(:meta_description)}", :name => 'description'}
     %meta{:property => 'og:url', :content => "#{yield(:metaog_url)}"}
+    %meta{:property => 'og:type', :content => "website"}
     %meta{:property => 'og:image', :content => 'http://rkudos.com/assets/baltar_mailman_icon.png'}
     %meta{:property => 'og:site_name', :content => 'Our Kudos'}
     %meta{:property => 'og:description', :content => "#{yield(:meta_description)}"}

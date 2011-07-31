@@ -53,4 +53,13 @@ module KudosHelper
       "the world"
     end
   end
+
+  def open_graphic_title kudo
+    #kudo.author
+    if kudo.recipients.size > 1 
+      "#{kudo.author} sent Kudos to #{kudo.recipients.first.to_s} and others"
+    else
+      "#{kudo.author} sent Kudos to #{kudo.recipients.first.to_s}"
+    end
+  end
 end
