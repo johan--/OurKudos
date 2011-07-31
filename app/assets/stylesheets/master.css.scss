@@ -288,7 +288,10 @@ span.receiver {
 span.greater_than {
 	color: $very_light_gray;
 }
-
+span.share_scope {
+  float: right;
+	font: italic 0.9em Verdana, "Copse", Arial, sans-serif;
+}
 
 /* tables */
 

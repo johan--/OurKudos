@@ -43,4 +43,14 @@ module KudosHelper
     cookies["last_sent_with_facebook"] == "yes"
   end
 
+  def shared_with scope
+    case scope
+    when "friends"
+      "friends only"
+    when "recipient"
+      "recipient only"
+    else
+      "the world"
+    end
+  end
 end
