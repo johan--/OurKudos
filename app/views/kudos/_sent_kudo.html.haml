@@ -1,12 +1,12 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
- = link_to kudo_author_picture(kudo), user_profile_path(kudo.author)
+ = link_to kudo_author_picture(kudo), user_profile_path(kudo.author), :class => "business-card", :id => kudo.id
  .kudo_message_bubble_cont
   .kudo_message_top
   .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
    .kudo_message_text_cont
     %p
      %span.category= kudo.category
-     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author)
+     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author), :class => "business-card", :id => kudo.id if kudo.author
      %span.greater_than &gt;
      %span.receiver
       = kudo.recipients_readable_list
@@ -34,6 +34,7 @@
     .clearing
 
    = render :partial => "comments/comment", :locals => {:kudo => kudo}
+   = render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }
    .clearing
   .kudo_message_bot
  .clearing

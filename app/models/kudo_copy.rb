@@ -13,6 +13,7 @@ class KudoCopy < ActiveRecord::Base
   scope :recipients,                     where(:share_scope => "recipients")
   scope :for_email,  ->(email) {         where(:temporary_recipient => email) }
 
+
   def copy_recipient
     return if own_kudo?
     return self.recipient.secured_name   unless self.recipient.blank?

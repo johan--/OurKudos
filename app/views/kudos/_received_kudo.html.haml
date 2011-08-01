@@ -17,6 +17,7 @@
       = kudo.recipient.to_s
      %span.share_scope
       = "Shared with #{shared_with kudo.share_scope}"
+
     %p= kudo.body
 
    - unless kudo_object(kudo).has_been_improperly_flagged?
