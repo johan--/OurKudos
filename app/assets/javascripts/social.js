@@ -1,13 +1,12 @@
 
 jQuery(document).ready(function(){
  ////////////////////// 
-  //$("#social_buttons a").click(function(event) {
-  $(".kudo_message_cont").hover(function(event) {
+  $(".kudo_message_cont").live('mouseover mouseout', function(event) {
     ////
+    if (event.type == "mouseover") {
     var kudo_scope = $(".kudo_message_mid", this).data('scope');
     if (kudo_scope == undefined) {
       var base_url = "http://www.rkudos.com/kudos/"
-      //var kudo_id = $(this).attr('name');
       kudo_id = $(".kudo_message_mid", this).data('id');
 
       var google_div = "google_plus_" + kudo_id
@@ -47,8 +46,9 @@ jQuery(document).ready(function(){
       }
     }  
       //////////////////////////////////
-    }, function(event) {
+    } else { 
       $(".plusone_button", this).hide(); 
       $(".facebook_like", this).hide(); 
+    }
     });
 });
