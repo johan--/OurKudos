@@ -12,6 +12,7 @@
      %span.category= kudo.category
      %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author), :class => "business-card", :id => kudo_object(kudo) if kudo.author
      %span.greater_than &gt;
+
      %span.receiver
       = kudo.recipient.to_s
      %span.share_scope

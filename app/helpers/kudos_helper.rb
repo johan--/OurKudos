@@ -62,4 +62,6 @@ module KudosHelper
       "#{kudo.author} sent Kudos to #{kudo.recipients.first.to_s}"
     end
   end
+
+
 end
