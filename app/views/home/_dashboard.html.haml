@@ -17,7 +17,7 @@
           %br/
           = select_tag(:sortby)
         %p#kudos_search_cont
-          = text_field_tag(:searchterms,'',:placeholder=> 'search')
+          = render :partial => "home/search"
         .clearing
     %script{:type => "text/javascript", :src => "https://apis.google.com/js/plusone.js"}
       :javascript

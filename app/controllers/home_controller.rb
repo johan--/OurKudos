@@ -14,7 +14,12 @@ class HomeController < ApplicationController
   
   def home
     @kudo    = Kudo.new
-    get_kudos
+
+    if params[:searchterms].blank?
+      get_kudos
+    else
+      search_kudos
+    end
   end
 
   def invite
@@ -60,6 +65,10 @@ class HomeController < ApplicationController
           return true
          end
        end
+
+      def search_kudos
+        @kudos = []
+      end
 
     end
 
