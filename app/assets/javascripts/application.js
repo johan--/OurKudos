@@ -1,6 +1,6 @@
 //= require jquery_ujs
 //= require jquery-ui
-//= require jquery.tokeninput
+//= require jquery.tokeninput.custom
 //= require merges
 //= require kudos
 //= require digitalspaghetti.password

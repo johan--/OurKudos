@@ -1,3 +1,9 @@
+jQuery ->
+    jQuery("a.send_kudo_link").live 'click', ->
+
+        user_id = jQuery(this).attr("id")
+        jQuery.get("/users/"+ user_id + "/first_identities/0")
+
 button_pressed = false
 jQuery(window).mousedown (event) ->
   button_pressed = true

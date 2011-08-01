@@ -1,19 +1,6 @@
 document.getElementById("kudo_message_textarea").scrollIntoView(true);
 
-jQuery("ul.token_input_list").remove();
-
-jQuery(".kudo_recipient_list").tokenInput("/autocomplete/new?object=recipients", {
-  allowCustomEntry: true,
-  onAdd: function() {
-    return validateServerSideAndDisplayResults();
-  },
-  onDelete: function() {
-    return validateServerSideAndDisplayResults();
-  },
-  prePopulate: [
-      {
-          id : '<%= @identity.id %>',
-          name: '<%= "[#{@user.to_s}] #{@identity.identity}" %>'
-      }
-  ]
+$.Token.tokenInput('add',{
+    id : '<%= @identity.id %>',
+    name: '<%= "[#{@user.to_s}] #{@identity.identity}" %>'
 });

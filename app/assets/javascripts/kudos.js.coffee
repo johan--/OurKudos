@@ -102,7 +102,8 @@ jQuery ->
     jQuery("input.share-scope").click ->
       processShareScope()
 
-    jQuery(".kudo_recipient_list").tokenInput "/autocomplete/new?object=recipients",
+    $.Token = jQuery(".kudo_recipient_list")
+    $.Token.tokenInput "/autocomplete/new?object=recipients",
         allowCustomEntry: true
         onAdd: ->
            validateServerSideAndDisplayResults()
