@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_kudos.html.haml" afterPath="$PROJECT_DIR$/app/views/home/_kudos.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,28 +29,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+      <file leaf-file-name="_received_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="37" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0">
+            <state line="12" column="76" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="463" column="39" selection-start="14545" selection-end="14545" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_kudos.html.haml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/views/home/_kudos.html.haml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="27" selection-start="639" selection-end="639" vertical-scroll-proportion="0.4770017">
+            <state line="8" column="77" selection-start="411" selection-end="411" vertical-scroll-proportion="0.2725724">
               <folding />
             </state>
           </provider>
@@ -70,9 +64,6 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/master.css.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/business_card.js.coffee" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
-        <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/index.html.haml" />
         <option value="$PROJECT_DIR$/db/migrate/20110802084741_create_searches.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
@@ -83,6 +74,9 @@
         <option value="$PROJECT_DIR$/app/views/home/_dashboard.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/_search.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/_kudos.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
       </list>
     </option>
   </component>
@@ -237,7 +231,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="kudos" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -609,16 +603,6 @@
         <state line="14" column="0" selection-start="498" selection-end="498" vertical-scroll-proportion="0.49295774" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="77" selection-start="438" selection-end="438" vertical-scroll-proportion="0.2725724" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="45" selection-start="456" selection-end="456" vertical-scroll-proportion="0.39145908" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="15" selection-start="220" selection-end="220" vertical-scroll-proportion="0.4475043">
@@ -682,21 +666,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="37" selection-start="2143" selection-end="2143" vertical-scroll-proportion="0.0">
+        <state line="343" column="57" selection-start="10287" selection-end="10287" vertical-scroll-proportion="3.1465077">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="463" column="39" selection-start="14545" selection-end="14545" vertical-scroll-proportion="0.0">
+        <state line="15" column="29" selection-start="778" selection-end="778" vertical-scroll-proportion="-2.044293">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/_kudos.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="27" selection-start="639" selection-end="639" vertical-scroll-proportion="0.4770017">
+        <state line="13" column="39" selection-start="611" selection-end="611" vertical-scroll-proportion="0.44293016">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="76" selection-start="506" selection-end="506" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="77" selection-start="411" selection-end="411" vertical-scroll-proportion="0.2725724">
           <folding />
         </state>
       </provider>

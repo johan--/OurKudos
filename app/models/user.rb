@@ -77,17 +77,7 @@ class User < ActiveRecord::Base
   before_destroy :set_identities_as_destroyable
   after_destroy  :remove_mergeables, :destroy_friendships
   before_create :build_inbox
-  # ================
-  # == pg indexes ==
-  # ================
-  #TODO define more indexes as needed
-  #coomented out because I have problems with texticle gem locally
-  #index do
-  #  email
-  #  first_name
-  #  last_name
-  #  middle_name
-  #end
+
   # ======================
   # ====== avatars =======
   # ======================
