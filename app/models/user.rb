@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :address2, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
-                  :profile_picture, :birthday, :hide_birth_year, :tos
+                  :profile_picture, :birthday, :hide_birth_year, :tos, :is_banned
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email,
@@ -77,6 +77,16 @@ class User < ActiveRecord::Base
   before_destroy :set_identities_as_destroyable
   after_destroy  :remove_mergeables, :destroy_friendships
   before_create :build_inbox
+  after_update :deliver_ban_notification!
+
+  # ======================
+  # == full text search ==
+  # ======================
+
+  include PgSearch
+  pg_search_scope :search,
+                  :against => [:first_name, :last_name, :middle_name, :email]
+
 
   # ======================
   # ====== avatars =======
@@ -429,6 +439,10 @@ class User < ActiveRecord::Base
     "city unkown, state uknown"          if city.blank? && state_or_province.blank?
   end
 
+  def deliver_ban_notification!
+    UserNotifier.you_are_banned(self).deliver! if is_banned?
+  end
+
 
 
   class << self
@@ -443,10 +457,6 @@ class User < ActiveRecord::Base
                                                                             !email.blank? && email =~ RegularExpressions.email
         recoverable
     end
-
-    #def newsfeed_kudos user
-     # Kudo.public_or_friends_kudos.author_or_recipient(user)
-    #end
 
     def newsfeed_kudos user
       Kudo.newsfeed_for user

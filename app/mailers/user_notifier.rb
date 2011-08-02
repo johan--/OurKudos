@@ -66,6 +66,11 @@ class UserNotifier < ActionMailer::Base
     mail :to => @author.email, :subject => "[OurKudos] - Administrator warning"
   end
 
+  def you_are_banned user
+    @user = user
+    mail :to => @user.email, :subject => "[OurKudos] - You have been banned from OurKudos"
+  end
+
 
 
 end

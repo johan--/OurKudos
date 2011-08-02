@@ -6,6 +6,7 @@
     %th= sortable 'email', t(:user_sign_in_count)
     %th= t :user_details
     %th= t :user_remove
+    %th= t :admin_user_banned
   %tbody
     - for user in users do
       %tr
@@ -14,7 +15,5 @@
         %td= user.last_sign_in_at
         %td= user.sign_in_count
         %td= link_to 'edit', admin_user_path(user)
-        - if current_user != user
-          %td= link_to t(:user_remove), admin_user_path(user), :method => :delete, :confirm => I18n.t(:are_you_sure)
-        - else
-          %td= t :current_account
+        %td= admin_user_remove_link user
+        %td= render :partial => "admin/users/ban_form", :locals => {:user => user}

@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= t(:dear_user, :user => @user.first_name).html_safe
+
+    %p= t(:administrator_has_disabled_your_account)
+

@@ -13,7 +13,7 @@ module Devise
         else
           resource = valid_password? && identity.user rescue nil
 
-          if validate(resource){ resource.valid_password?(password) }
+          if validate(resource){ resource.valid_password?(password) && !resource.is_banned? }
             resource.after_database_authentication
             success!(resource)
           elsif !halted?

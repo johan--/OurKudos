@@ -1,0 +1,7 @@
+= form_for user, :url => admin_user_path(user), :method => :put, :html => {:method => :put} do |f|
+ = t(:yes)
+ = f.radio_button :is_banned, true
+ = t(:no)
+ = f.radio_button :is_banned, false
+ = f.submit t(:save_ban)
+
