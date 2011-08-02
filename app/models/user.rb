@@ -440,7 +440,7 @@ class User < ActiveRecord::Base
   end
 
   def deliver_ban_notification!
-    UserNotifier.you_are_banned(self).deliver! if is_banned?
+    UserNotifier.delay.you_are_banned(self) if is_banned?
   end
 
 
