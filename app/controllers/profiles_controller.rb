@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
 
     def get_public_kudos
       %w{received sent}.include?(params[:kudos]) ?
-          term = params[:kudos] : term = "newsfeed"
+          term = params[:kudos] : term = "received"
 
       @kudos = @user.send("#{term}_kudos").page(params[:page]).per(10)
       @kudos = Kudo.public_kudos.limit(10)         if term == 'received' && @kudos.blank?
