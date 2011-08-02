@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/master.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/master.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,7 +47,7 @@
       <file leaf-file-name="master.css.scss" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="15" selection-start="5141" selection-end="5141" vertical-scroll-proportion="0.48066297">
+            <state line="289" column="26" selection-start="5184" selection-end="5184" vertical-scroll-proportion="0.5543278">
               <folding />
             </state>
           </provider>
@@ -659,7 +656,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/master.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="15" selection-start="5141" selection-end="5141" vertical-scroll-proportion="0.48066297">
+        <state line="289" column="26" selection-start="5184" selection-end="5184" vertical-scroll-proportion="0.5543278">
           <folding />
         </state>
       </provider>
