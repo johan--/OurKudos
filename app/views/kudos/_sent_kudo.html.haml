@@ -9,7 +9,7 @@
      %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id if kudo.author
      %span.greater_than &gt;
      %span.receiver
-      = kudo.recipients_readable_list
+      = recipients_profiles kudo.recipients_names_ids
      %span.share_scope
       = "Shared with #{shared_with kudo.share_scope}"
     %p= kudo.body

@@ -40,6 +40,13 @@ module KudosHelper
      end
   end
 
+  def recipients_profiles kudo_recipients
+    html = kudo_recipients.map do |recipient|
+      link_to recipient.first, user_profile_path(recipient.last)
+    end.join(", ")
+    html.html_safe
+  end
+
   def kudo_author_picture kudo
     return  profile_picture_for(kudo.author) if kudo.author
     anon_picture

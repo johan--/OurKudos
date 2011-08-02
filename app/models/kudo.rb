@@ -60,6 +60,10 @@ class Kudo < ActiveRecord::Base
     kudo_copies.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
   end
 
+  def recipients_names_ids
+    kudo_copies.map {|kc| [kc.copy_recipient, kc.recipient_id] if kc.recipient_id}.compact
+  end
+
   def author_as_recipient
     @author_as_recipient ||= recipients_list.select do |recipient|
      author.identities_ids.include?(recipient.to_i) ||
