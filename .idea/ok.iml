@@ -246,6 +246,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="pg_search" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="rails" version="3.1.0.rc4" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -301,18 +307,6 @@
     <requirement>
       <requirement>
         <dependency name="sqlite3" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
-      </requirement>
-      <source from="Gemfile" />
-    </requirement>
-    <requirement>
-      <requirement>
-        <dependency name="texticle" version="0" bound="GREATER_OR_EQUAL" lib="texticle/rails" git="false" path="false" doRequire="true" />
-      </requirement>
-      <source from="Gemfile" />
-    </requirement>
-    <requirement>
-      <requirement>
-        <dependency name="texticle" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -387,7 +381,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] email_spec (v1.2.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/email_spec-1.2.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] memcache (v1.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/memcache-1.2.13)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb (v1.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-1.3.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] texticle (v2.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/texticle-2.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] devise (v1.2.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/devise-1.2.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] therubyracer (v0.9.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/therubyracer-0.9.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] factory_girl_rails (v1.0.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/factory_girl_rails-1.0.1)" level="application" />
@@ -487,6 +480,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-debug-base19 (v0.11.25, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ruby-debug-base19-0.11.25)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] whenever (v0.6.8, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/whenever-0.6.8)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] aaronh-chronic (v0.3.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/aaronh-chronic-0.3.9)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] pg_search (v0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/pg_search-0.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activemodel-3.1.0.rc4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-cache (v1.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rack-cache-1.0.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] yamler (v0.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/yamler-0.1.0)" level="application" />

@@ -67,7 +67,7 @@ class HomeController < ApplicationController
        end
 
       def search_kudos
-        @kudos = []
+        @kudos = Kudo.serchterms_kudos(params[:searchterms]).limit(10)
       end
 
     end

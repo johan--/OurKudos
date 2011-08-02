@@ -39,6 +39,18 @@ class Kudo < ActiveRecord::Base
   acts_as_commentable
   include OurKudos::Helpers::Sanitization
 
+  include PgSearch
+
+  pg_search_scope :serchterms_kudos,
+                  :against => :body,
+                  :associated_against => {
+    :author        => [:first_name, :last_name, :postal_code, :city],
+    :recipients    => [:first_name, :last_name, :postal_code, :city],
+    :kudo_category => [:name],
+
+  }
+
+
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }

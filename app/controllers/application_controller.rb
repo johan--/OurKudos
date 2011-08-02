@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def get_kudos
     if user_signed_in?
-      %w{received sent newsfeed local}.include?(params[:kudos]) ?
+      %w{received sent newsfeed local searchterms}.include?(params[:kudos]) ?
           term = params[:kudos] :
           term = "newsfeed"
       @kudos = current_user.send("#{term}_kudos").page(params[:page]).per(10) rescue []
