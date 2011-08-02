@@ -10,5 +10,6 @@
 
 #pagination
  - unless (@kudos.last_page? rescue false)
-  = spinner_tag
-  = link_to("+ show more kudos", "javascript:void(0)", :class => "next_page")
+  - if params[:searchterms].blank?
+   = spinner_tag
+   = link_to("+ show more kudos", "javascript:void(0)", :class => "next_page")
