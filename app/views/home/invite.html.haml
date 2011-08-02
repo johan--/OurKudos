@@ -1,7 +1,8 @@
 #youve_got_kudos_cont
   #youve_got_kudos_top
+    #youve_got_kudos_banner_cont
+      = image_tag('youve-got-kudos-banner.png')
   #youve_got_kudos_mid
-    %h1 You've Got Kudos!
     .kudo_message_cont
       #kudo_sender_cont
         %p= kudo_author_picture @kudo.kudo
@@ -18,50 +19,74 @@
           %p
             = @kudo.kudo.body
         .kudo_message_bot
+       
       .clearing
-    %h3
-      "It's fast, free and fun! In just
-      %span.blue_accent one minute
-      you can be a member!"
-      = link_to(image_tag('video_tour_btn.png'),'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
-      = link_to('join now placeholder',new_user_registration_path(:user => {:email => @kudo.email} ))
-
-  #youve_got_kudos_bot
-
-#invite_col_left
-  %h2 Simple communication for a complex world
-  = link_to(image_tag('video_tour_preview.png'),'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
-  .kudo_message_cont
-    = image_tag('avatar_unknown.png', :class=>'avatar')
-    .kudo_message_bubble_cont
-      .kudo_message_top
-      .kudo_message_mid
-        %p
-          %span.sender John Doe
-          %span.greater_than >
-          %span.receiver Jane Brown
-        %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
-      .kudo_message_bot
-    .clearing
-    
-  .kudo_message_cont
-    = image_tag('avatar_unknown.png', :class=>'avatar')
-    .kudo_message_bubble_cont
-      .kudo_message_top
-      .kudo_message_mid
-        %p
-          %span.sender John Doe
-          %span.greater_than >
-          %span.receiver Jane Brown
-        %p This is static mockup content, it is not database driven. This is just to show the layout and design, this will all be replaced by content from the db sent to view partial(s) and view helper(s)
-      .kudo_message_bot
-    .clearing
       
-#invite_col_right
-  %h2 Messages that make you smile
-  %ul.invite_list
-    %li bullet point 1
-    %li bullet point 2
-    %li bullet point 3
-  = image_tag('kudos_icon_hugging.png',:id=>'kudos_icon_hugging')
-.clearing
+      %h1
+        Send Kudos Back.
+        %span.reddened It's Fast, Free and Fun!
+      
+    .kudo_message_cont
+      #kudo_sender_cont
+        %p= image_tag('kudos-avatar-icon.png')
+      .kudo_message_bubble_cont
+        .kudo_message_top
+        .kudo_message_mid
+          = form_tag('/send_kudo')
+          %p= text_area_tag 'kudo_body', nil, :placeholder => "write something positive!"
+        
+        .kudo_message_bot
+        %button.kudo_reply_submit_btn{:type => "submit"}
+          = image_tag('send-now-btn.png')
+       
+      .clearing
+
+     
+     
+     
+      
+  #youve_got_kudos_bot
+  
+  .dotted_divider
+  #video_section  
+    %h2
+      Check Out Our
+      %strong FUN VIDEO!
+      = image_tag('curved-red-arrow.png')
+      = link_to(image_tag('video-tour-preview.png'),'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
+      or
+      = link_to(image_tag('red-join-now-btn.png'), new_user_registration_path )
+      
+  #one_two_three_cont
+    %h2
+      Share Kudos - Make Someone Smile
+      = image_tag('blue-exclamation-mark.png')
+    %h3 It's as easy as 1,2,3!
+    
+    .col_left
+      = image_tag('kudo-with-facebook-icon.png')
+      %h4
+        = image_tag('orange-circle-number-1.png')
+        Sign Up
+      %p
+        Use your Facebook account to
+        %br/
+        quickly sign in, OR Join OurKudos!
+      
+    .col_mid
+      = image_tag('envelopes-with-heart-and-smiley-face.png')
+      %h4
+        = image_tag('orange-circle-number-2.png')
+        Send Kudos
+      %p
+        Send a note of gratitude or congratulations
+        %br/
+        to those unsung heroes in your life.
+    
+    .col_right
+      = image_tag('kudos-open-arms-icon.png')
+      %h4
+        = image_tag('orange-circle-number-3.png')
+        Feel GREAT!
+      %p See the people in your life smile when you share Kudos!
+      

@@ -30,6 +30,7 @@
 #header-motto-splash {
 	position: absolute;
 	right: -10px;
+	z-index: 100;
 }
 
 #sign-in-button {
@@ -170,12 +171,44 @@ img.avatar {
 #youve_got_kudos_cont {
 	width: 944px;
 	margin: 0 auto;
+	padding-top: 15px;
 	padding-bottom: 40px;
-	background: url(8pxroundeddot.png) left bottom repeat-x;
 	margin-bottom: 30px;
 	
+	h1, h2, h3, h4 {
+	  font-family: "Puritan", Verdana, Helvetica, sans-serif;
+	}
+	
+	h1 {
+		font-size: 1.9em;
+		font-weight: bold;
+		color: #000;
+		margin: 0 0 20px 135px;
+		
+		span.reddened {
+			color: #c22328;
+			font-style: italic;
+		}
+	}
+	
+	h2 {
+		font-size: 3.4em;
+		color: #0a6398;
+		text-align: center;
+		
+		strong {
+		  font-weight: bold;
+		}
+	}
+	
+	h3 {
+		font-size: 1.7em;
+		color: #679ab8;
+		text-align: left;
+	}
+	
 	.kudo_message_cont {
-	  margin: 0 auto 10px auto;
+	  margin: 0 auto;
 	  width: 650px;
   }
   .social_buttons {
@@ -187,23 +220,79 @@ img.avatar {
       float: right;
     }
   }
+
+  textarea {
+  	width: 470px;
+  	height: 60px;
+  	border: 0;
+  	outline: 0;
+  }
   
-  h1 {
-		text-align: center;
-		margin-top: -10px;
-	}
-	
-	h3 {
-		font: normal 1.9em "Nunito", "Copse", Arial, Helvetica, sans-serif;
-		text-align: center;
-		
-		img {
-			vertical-align: middle;
-		}
-
-	}
-
-
+  button.kudo_reply_submit_btn {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    float: right;
+    cursor: pointer;
+  }
+  
+  .dotted_divider {
+  	padding-top: 15px;
+  	margin-bottom: 10px;
+  }
+  
+  #video_section {
+  	background: url(8pxroundeddot.png) left bottom repeat-x;
+  	padding-bottom: 10px;
+  	margin-bottom: 40px;
+  	
+  	img {
+  	  vertical-align: middle;
+  	}
+  }
+  
+  #one_two_three_cont {
+    margin: 0 0px 0 85px;
+    
+    p {
+    	font: normal 1.3em "Puritan", Verdana, Helvetica, sans-serif;
+    }
+    
+    h2 {
+    	text-align: left;
+    	margin-bottom: 6px;
+    }
+    
+    h4 {
+      font-size: 2.6em;
+      color: #0a6398;
+      margin-bottom: 10px;
+    }
+    
+    img {
+  	  vertical-align: middle;
+  	}
+  
+    div.col_left {
+    	width: 300px;
+    	float: left;
+    	padding-top: 20px;
+    }
+    
+    div.col_mid {
+    	width: 336px;
+    	float: left;
+    	padding-top: 20px;
+    }
+    
+    div.col_right {
+      width: 177px;
+      float: left;
+      padding-top: 20px;
+    }
+  
+  }
+  
 }
 
 
@@ -211,6 +300,16 @@ img.avatar {
 	width: 944px;
 	height: 29px;
 	background: url(container944_top.png) left top no-repeat;
+	position: relative;
+}
+
+#youve_got_kudos_banner_cont {
+	width: 336px;
+	height: 67px;
+	position: absolute;
+	top: -45px;
+	left: 320px;
+	z-index: 100;
 }
 
 #youve_got_kudos_mid {
@@ -244,6 +343,10 @@ img.avatar {
 }
 
 
+.dotted_divider {
+	background: url(8pxroundeddot.png) left bottom repeat-x;
+	height: 8px;
+}
 
 span.blue_accent {
 	color: #5591b4;
