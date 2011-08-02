@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110727133532) do
+ActiveRecord::Schema.define(:version => 20110802121720) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -402,6 +402,7 @@ ActiveRecord::Schema.define(:version => 20110727133532) do
     t.integer  "credibility",                              :default => 0
     t.integer  "invitations_sent",                         :default => 0
     t.integer  "invitations_accepted",                     :default => 0
+    t.boolean  "is_banned",                                :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
