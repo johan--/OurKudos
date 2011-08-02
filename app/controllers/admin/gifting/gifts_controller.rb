@@ -1,4 +1,4 @@
-class Admin::Gifting::GiftsController < ApplicationController
+class Admin::Gifting::GiftsController < Admin::AdminController
   before_filter :authenticate_user!
   load_and_authorize_resource
   respond_to :html

@@ -1,4 +1,4 @@
-class Admin::Gifting::MerchantsController < ApplicationController
+class Admin::Gifting::MerchantsController < Admin::AdminController
   before_filter :authenticate_user!
 
   load_and_authorize_resource
