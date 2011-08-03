@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/error_messaging.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/error_messaging.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/identity.rb" afterPath="$PROJECT_DIR$/app/models/identity.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_home_page_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_home_page_kudo.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_invitation_kudo_reply.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_invitation_kudo_reply.html.haml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/registrations/create.js.erb" afterPath="$PROJECT_DIR$/app/views/registrations/create.js.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/confirmable.rb" afterPath="$PROJECT_DIR$/lib/confirmable.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,37 +26,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="error_messaging.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
+      <file leaf-file-name="confirmations_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="102" selection-start="2523" selection-end="2611" vertical-scroll-proportion="0.0">
+            <state line="1" column="60" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create.js.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/registrations/create.js.erb">
+      <file leaf-file-name="home_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="35" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
+            <state line="15" column="113" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <file leaf-file-name="_received_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="446" column="32" selection-start="14095" selection-end="14095" vertical-scroll-proportion="0.0">
+            <state line="11" column="107" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmable.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/confirmable.rb">
+      <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="28" selection-start="857" selection-end="857" vertical-scroll-proportion="0.23333333">
+            <state line="4" column="2" selection-start="170" selection-end="170" vertical-scroll-proportion="0.13333334">
               <folding />
             </state>
           </provider>
@@ -94,12 +86,12 @@
         <option value="$PROJECT_DIR$/app/views/kudos/_invitation_kudo_reply.html.haml" />
         <option value="$PROJECT_DIR$/app/models/identity.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
-        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/views/kudos/_home_page_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/error_messaging.js" />
         <option value="$PROJECT_DIR$/app/views/registrations/create.js.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/lib/confirmable.rb" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
       </list>
     </option>
   </component>
@@ -172,6 +164,38 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="db" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="migrate" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -199,24 +223,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kudos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -603,27 +609,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/home/invite.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="31" selection-start="286" selection-end="286" vertical-scroll-proportion="0.2044293">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/confirmation.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/confirmation_observer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="96" selection-start="408" selection-end="408" vertical-scroll-proportion="0.4225352">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/registrations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="29" selection-start="1149" selection-end="1149" vertical-scroll-proportion="0.46507666">
@@ -648,13 +633,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/shared/_inline_errors.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="0" selection-start="448" selection-end="448" vertical-scroll-proportion="0.2725724">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="55" selection-start="55" selection-end="55" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -687,30 +665,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/confirmable.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="105" selection-start="857" selection-end="857" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="102" selection-start="2523" selection-end="2611" vertical-scroll-proportion="0.0">
+        <state line="47" column="38" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.3867121">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/registrations/create.js.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="35" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0">
+        <state line="6" column="35" selection-start="379" selection-end="379" vertical-scroll-proportion="0.2044293">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="446" column="32" selection-start="14095" selection-end="14095" vertical-scroll-proportion="0.0">
+        <state line="446" column="32" selection-start="14095" selection-end="14095" vertical-scroll-proportion="0.4088586">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/confirmable.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="28" selection-start="857" selection-end="857" vertical-scroll-proportion="0.23333333">
+        <state line="1" column="60" selection-start="54" selection-end="54" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="113" selection-start="425" selection-end="425" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="107" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="2" selection-start="170" selection-end="170" vertical-scroll-proportion="0.13333334">
           <folding />
         </state>
       </provider>
