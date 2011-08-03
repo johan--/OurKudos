@@ -27,7 +27,10 @@
      = "Shared with #{shared_with kudo.share_scope}"
     %span.kudo_date
      = kudo.created_at
-
+   .social_buttons
+    %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
+    %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
+    
    %p.kudo_body_text= kudo.body
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
@@ -35,12 +38,10 @@
    .clearing
    .kudo_comment
     - unless kudo.comments_disabled?
-     = link_to t(:kudo_comment), '#', :class   => "comment_form_toggle",
+     = link_to t(:kudo_add_comment), '#', :class   => "comment_form_toggle",
                                                         :id     => kudo.id,
                                                         :remote => true
-   .social_buttons
-    %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
-    %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
+   
    .clearing
 
    = render :partial => "comments/comment", :locals => {:kudo => kudo}

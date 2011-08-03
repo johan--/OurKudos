@@ -338,7 +338,7 @@ div.kudo_message_bot {
 .kudo_message_text_cont {
   
   p.kudo_body_text {
-    width: 660px;
+    width: 550px;
   	font: 1.2em Arial, Helvetica, sans-serif;
   	margin-bottom: 20px;
   	float: left;
@@ -409,6 +409,8 @@ a.comment_form_toggle {
 	text-decoration: underline;
 	font-size: 1.1em;
 	float: left;
+	display: block;
+	margin-bottom: 10px;
 }
 
 /*
@@ -439,8 +441,7 @@ a.comment_form_toggle {
 	float: right;
 	width: 100px;
 	height: 20px;
-	margin-bottom: 5px;
-	margin-top: 10px;
+	margin-right: 20px;
 	
 	.facebook_like {
 	  display: inline;
