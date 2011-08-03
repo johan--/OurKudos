@@ -12,7 +12,7 @@
     %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
    
    
-   %p{:id => "kudo_#{kudo.id}"}
+   %p.sender_recipients{:id => "kudo_#{kudo.id}"}
     
    
     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
@@ -21,7 +21,7 @@
     %span.receiver
      = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
     %span.category= "[#{kudo.category}]"
-   %p
+   %p.sharescope_date
     %span.share_scope
      = "Shared with #{shared_with kudo.share_scope}"
     %span.kudo_date
@@ -40,7 +40,7 @@
     .social_buttons
      %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
      %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
-    .clearing.border1
+    .clearing
     
    = render :partial => "comments/comment",    :locals => {:kudo => kudo_object(kudo) }
    // render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }

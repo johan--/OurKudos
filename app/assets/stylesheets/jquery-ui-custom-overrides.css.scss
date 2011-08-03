@@ -51,7 +51,7 @@ div.flow-around-object {
 }
 
 span.ui-dialog-title {
-	font: 2.0em "Copse", Arial, Helvetica, sans-serif;
+	font: 2.0em "NunitoBold", Arial, Helvetica, sans-serif;
 	text-shadow: 2px 2px 0px #880606;
 	width: 13em;
 	padding: .5em 0 1em .2em;
@@ -64,7 +64,7 @@ div.ui-dialog-buttonpane div.ui-dialog-buttonset button.action_button {
 	padding: 5px 23px 5px 8px;
 	border-radius: 5px;
 	color: #fff;
-	font: normal 1.2em "Copse", Arial, Helvetica, sans-serif;
+	font: normal 1.2em "NunitoBold", Arial, Helvetica, sans-serif;
 	cursor: pointer;
 	outline: none;
 	background: url(action_button_bg.png) no-repeat right top;
@@ -113,6 +113,7 @@ form#new_kudo_flag {
 div.ui-dialog div#error_explanation, div.ui-dialog div.alert {
 	border: none;
 	color: #000;
+	font-family: "Puritan", Verdana, Helvetica, sans-serif;
 }
 
 /* determines position of "x" close control in header area */

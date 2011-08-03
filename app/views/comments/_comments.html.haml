@@ -1,5 +1,6 @@
+- if !kudo.comments.empty?
+ .border1
 - for comment in kudo.comments.reverse do
-
  %p.comment_cont{:class => cycle('odd', 'even')}
   
   %span.commenter= comment.user.to_s
