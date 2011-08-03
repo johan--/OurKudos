@@ -1,5 +1,5 @@
 jQuery ->
-    jQuery("a.action_link.comment_form_toggle").live 'click', ->
+    jQuery("a.comment_form_toggle").live 'click', ->
         id = jQuery(this).attr('id');
 
         jQuery(".comments_form#comments_form_" + id).toggle()
@@ -7,7 +7,7 @@ jQuery ->
 
         jQuery(".notice, .alert, .error").remove()
 
-    jQuery("a.action_link.form_close").live 'click', ->
+    jQuery("a.form_close").live 'click', ->
         id = jQuery(this).attr('id');
 
         jQuery(".comments_form#comments_form_" + id).hide();

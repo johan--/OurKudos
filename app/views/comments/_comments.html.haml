@@ -1,14 +1,12 @@
 - for comment in kudo.comments.reverse do
 
- %p{:class => cycle('odd', 'even')}
-
-  %span.smaller
-   = comment.created_at.to_s(:long)
-   %b= comment.user.to_s + ' ' + t(:kudo_comments_wrote)
-
+ %p.comment_cont{:class => cycle('odd', 'even')}
+  
+  %span.commenter= comment.user.to_s
+  %span.comment_text= comment.comment
   %br/
-
-  = comment.comment
+  %span.kudo_date
+   = comment.created_at.to_s(:short)
 
   - if comment.is_allowed_to_be_removed_by? current_user
    = link_to "x", kudo_comment_path(kudo, comment), :method  => :delete, :confirm => I18n.t(:are_you_sure)

@@ -343,11 +343,13 @@ div.kudo_message_bot {
 
 */
 .kudo_message_text_cont {
-
+  
   p.kudo_body_text {
     width: 660px;
   	font: 1.2em Arial, Helvetica, sans-serif;
+  	margin-bottom: 20px;
   }
+  
 }
 
 span.share_scope {
@@ -399,6 +401,14 @@ a.delete_kudo_btn {
 	background: url(kudo_flag_icon_sprite.png) left top no-repeat;
 }
 
+a.comment_form_toggle {
+	color: $medium_blue;
+	text-decoration: underline;
+	font-size: 1.1em;
+	float: left;
+}
+
+/*
 .social_buttons {
   width: 110px;
   margin-left: 75px;
@@ -420,6 +430,54 @@ a.delete_kudo_btn {
     }
   }
 }
+*/
+
+.social_buttons {
+	float: right;
+	width: 100px;
+	height: 20px;
+	margin-bottom: 10px;
+	
+	.facebook_like {
+	  display: inline;
+	}
+	
+	.plusone_button {
+	  display: inline;
+	  margin-top: 2px !important;
+	}
+	
+}
+
+.fb_like {
+  width: 57px;
+  float: right;
+}
+
+.fb_like iframe {
+  width:51px!important;
+  overflow: hidden;
+  height: 27px!important;
+}
+
+p.comment_cont {
+	border-bottom: 1px dotted $light_gray;
+	margin-left: 30px;
+	padding: 15px 0;
+	
+	span.commenter {
+		font-size: 1.2em;
+		font-style: italic;
+		color: $medium_green;
+		margin-right: 5px;
+	}
+	
+	span.comment_text {
+		font-size: 1.2em;
+	}
+}
+
+
 
 #pagination {
 	text-align: right;
@@ -591,15 +649,7 @@ ul.profile_pics {
 	}
 }
 
-.fb_like {
-  width: 57px;
-  float: right;
-}
-.fb_like iframe {
-  width:51px!important;
-  overflow: hidden;
-  height: 27px!important;
-}
+
 .personal_info_actions {
   float: right;
 }

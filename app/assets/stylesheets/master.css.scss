@@ -74,6 +74,10 @@ body {
 	color: $warning_red;
 }
 
+.border1 {
+	border-bottom: 2px dotted $light_gray;
+}
+
 img.avatar {
 	border: 3px solid #fff;
 	width: 52px;

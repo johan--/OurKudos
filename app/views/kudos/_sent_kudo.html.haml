@@ -33,13 +33,13 @@
     .clearing
     .kudo_comment
      - unless kudo.comments_disabled?
-      = link_to t(:kudo_comment), '#', :class   => "action_link comment_form_toggle",
+      = link_to t(:kudo_comment), '#', :class   => "comment_form_toggle",
                                                         :id     => kudo.id,
                                                         :remote => true
     .social_buttons
      %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
      %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
-    .clearing
+    .clearing.border1
 
    = render :partial => "comments/comment", :locals => {:kudo => kudo}
    // render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }
