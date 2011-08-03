@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_kudos.html.haml" afterPath="$PROJECT_DIR$/app/views/home/_kudos.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_business_card.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_business_card.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
     </list>
     <ignored path="ok.iws" />
@@ -74,10 +72,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_received_kudo.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_received_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="7" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.72859746">
+            <state line="22" column="103" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,10 +99,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="5" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0">
+            <state line="4" column="4" selection-start="172" selection-end="172" vertical-scroll-proportion="0.14234875">
               <folding />
             </state>
           </provider>
@@ -147,8 +145,8 @@
         <option value="$PROJECT_DIR$/lib/confirmable.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_business_card.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/_kudos.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
       </list>
     </option>
   </component>
@@ -808,16 +806,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="5" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0">
+        <state line="22" column="103" selection-start="822" selection-end="822" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="7" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.72859746">
+        <state line="4" column="4" selection-start="172" selection-end="172" vertical-scroll-proportion="0.14234875">
           <folding />
         </state>
       </provider>
