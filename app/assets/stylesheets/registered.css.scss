@@ -300,9 +300,26 @@ div.kudo_message_cont {
 
 
 div.kudo_message_bubble_cont {
-	width: 770px;
+	/*width: 770px;*/
+	width: 750px;
+	border-radius: 15px;
+	border: 1px solid #ebecee;
+	background-color: #fff;
+	padding: 10px;
+	box-shadow: 2px 4px 6px #ebecee;
+	float: right;
 }
 
+div.kudo_message_bubble_nipple {
+	width: 19px;
+	height: 28px;
+	background: url(kb_nipple_bg.png) no-repeat left top;
+	margin-left: -29px;
+	margin-top: 10px;
+	float: left;
+}
+
+/*
 div.kudo_message_mid {
 	width: 770px;
 	background: url(kudo_message_mid_sprite.png) no-repeat left top;
@@ -324,23 +341,24 @@ div.kudo_message_bot {
 	background: url(kudo_message_bot_sprite.png) no-repeat left top;
 }
 
-
+*/
 .kudo_message_text_cont {
 	float: left;
 }
 
 a.delete_kudo_btn {
-	width: 15px;
-	height: 14px;
+	width: 17px;
+	height: 18px;
 	display: block;
 	float: right;
-	background: url(deletex_btn.png) no-repeat left top;
+	/*background: url(deletex_btn.png) no-repeat left top;*/
+	background: url(trashcan-sprite.png) no-repeat left -18px;
 	text-decoration: none;
 	clear: left;
 	margin-right: 45px;
 	
 	&:hover {
-		background-position: left -14px;
+		background-position: left top;
 	}
 }
 

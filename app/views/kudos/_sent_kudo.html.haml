@@ -3,22 +3,21 @@
   = link_to kudo_author_picture(kudo), user_profile_path(kudo.author), :id => kudo.id
  - else
   = anon_picture
- .kudo_message_bubble_cont
-  .kudo_message_top
-  .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
-   .kudo_message_text_cont
-    %p
-     %span.category= kudo.category
-     - unless kudo.author.blank?
-      %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
-     - else
-      (removed account)
-     %span.greater_than &gt;
-     %span.receiver
-      = recipients_profiles kudo.recipients_names_ids
-     %span.share_scope
-      = "Shared with #{shared_with kudo.share_scope}"
-    %p= kudo.body
+ .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
+  .kudo_message_bubble_nipple
+  .kudo_message_text_cont
+   %p
+    %span.category= kudo.category
+    - unless kudo.author.blank?
+     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
+    - else
+     (removed account)
+    %span.greater_than &gt;
+    %span.receiver
+     = recipients_profiles kudo.recipients_names_ids
+    %span.share_scope
+     = "Shared with #{shared_with kudo.share_scope}"
+   %p= kudo.body
 
     
    - unless kudo_object(kudo).has_been_improperly_flagged?
@@ -41,6 +40,6 @@
 
    = render :partial => "comments/comment", :locals => {:kudo => kudo}
    // render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }
-   .clearing
-  .kudo_message_bot
+   
+  
  .clearing

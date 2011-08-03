@@ -4,10 +4,10 @@ jQuery(document).ready(function(){
   $(".kudo_message_cont").live('mouseover mouseout', function(event) {
     ////
     if (event.type == "mouseover") {
-    var kudo_scope = $(".kudo_message_mid", this).data('scope');
+    var kudo_scope = $(".kudo_message_bubble_cont", this).data('scope');
     if (kudo_scope == undefined) {
       var base_url = "http://www.rkudos.com/kudos/"
-      kudo_id = $(".kudo_message_mid", this).data('id');
+      kudo_id = $(".kudo_message_bubble_cont", this).data('id');
 
       var google_div = "google_plus_" + kudo_id
       if ($("#" + google_div).is(':empty')) {

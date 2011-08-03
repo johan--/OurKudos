@@ -3,22 +3,21 @@
   = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :id => kudo_object(kudo).id
  - else
   = anon_picture
- .kudo_message_bubble_cont
-  .kudo_message_top
-  .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
-   .kudo_message_text_cont
+ .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
+  .kudo_message_bubble_nipple
+  .kudo_message_text_cont
 
-    %p{:id => "kudo_#{kudo.id}"}
-     %span.category= kudo.category
-     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
-     %span.greater_than &gt;
+   %p{:id => "kudo_#{kudo.id}"}
+    %span.category= kudo.category
+    %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
+    %span.greater_than &gt;
 
-     %span.receiver
-      = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
-     %span.share_scope
-      = "Shared with #{shared_with kudo.share_scope}"
+    %span.receiver
+     = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
+    %span.share_scope
+     = "Shared with #{shared_with kudo.share_scope}"
 
-    %p= kudo.body
+   %p= kudo.body
 
    - unless kudo_object(kudo).has_been_improperly_flagged?
     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.kudo.id }
