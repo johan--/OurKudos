@@ -4,46 +4,5 @@
   #youve_got_kudos_mid= render :partial => "kudos/invitation_kudo", :locals => {:kudo => @kudo.kudo, :email => @kudo.email}
   #youve_got_kudos_bot
   
-  .dotted_divider
-  #video_section  
-    %h2
-      Check Out Our
-      %strong FUN VIDEO!
-      = image_tag('curved-red-arrow.png')
-      = link_to(image_tag('video-tour-preview.png'),'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
-      or
-      = link_to(image_tag('red-join-now-btn.png'), new_user_registration_path )
-      
-  #one_two_three_cont
-    %h2
-      Share Kudos - Make Someone Smile
-      = image_tag('blue-exclamation-mark.png')
-    %h3 It's as easy as 1,2,3!
-    
-    .col_left
-      = image_tag('kudo-with-facebook-icon.png')
-      %h4
-        = image_tag('orange-circle-number-1.png')
-        Sign Up
-      %p
-        Use your Facebook account to
-        %br/
-        quickly sign in, OR Join OurKudos!
-      
-    .col_mid
-      = image_tag('envelopes-with-heart-and-smiley-face.png')
-      %h4
-        = image_tag('orange-circle-number-2.png')
-        Send Kudos
-      %p
-        Send a note of gratitude or congratulations
-        %br/
-        to those unsung heroes in your life.
-    
-    .col_right
-      = image_tag('kudos-open-arms-icon.png')
-      %h4
-        = image_tag('orange-circle-number-3.png')
-        Feel GREAT!
-      %p See the people in your life smile when you share Kudos!
+  = render "shared/video_and_one_two_three"
       
