@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="5f9064e8-790e-41ab-94f0-c3c0c8b881ee" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/home/_kudos.html.haml" afterPath="$PROJECT_DIR$/app/views/home/_kudos.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_business_card.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_business_card.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,7 +50,16 @@
       <file leaf-file-name="_business_card.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/kudos/_business_card.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="73" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="error_messaging.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="66" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,10 +74,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_received_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_received_kudo.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="107" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
+            <state line="38" column="7" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.72859746">
               <folding />
             </state>
           </provider>
@@ -80,10 +92,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_kudos.html.haml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_kudos.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/home/_kudos.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="64" selection-start="724" selection-end="724" vertical-scroll-proportion="0.5100182">
+            <state line="2" column="76" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -92,7 +104,7 @@
       <file leaf-file-name="_sent_kudo.html.haml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="19" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0">
+            <state line="42" column="5" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,8 +133,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/layouts/_inline_errors.html.js" />
-        <option value="$PROJECT_DIR$/app/views/registrations/_terms_of_service.html.haml" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/master.css.scss" />
         <option value="$PROJECT_DIR$/app/controllers/registrations_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/registrations/_form_fields_no_email.html.haml" />
@@ -135,8 +145,10 @@
         <option value="$PROJECT_DIR$/app/views/registrations/create.js.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/lib/confirmable.rb" />
-        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_business_card.html.haml" />
         <option value="$PROJECT_DIR$/app/views/home/_kudos.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml" />
       </list>
     </option>
   </component>
@@ -322,6 +334,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -676,13 +710,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="38" selection-start="2370" selection-end="2370" vertical-scroll-proportion="0.3867121">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/registrations/create.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="35" selection-start="379" selection-end="379" vertical-scroll-proportion="0.2044293">
@@ -746,30 +773,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_business_card.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/kudos/_received.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="19" selection-start="1295" selection-end="1295" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="107" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -781,9 +787,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_business_card.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="73" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/error_messaging.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="66" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/_kudos.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="64" selection-start="724" selection-end="724" vertical-scroll-proportion="0.5100182">
+        <state line="2" column="76" selection-start="185" selection-end="185" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_sent_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="5" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/kudos/_received_kudo.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="7" selection-start="1700" selection-end="1700" vertical-scroll-proportion="0.72859746">
           <folding />
         </state>
       </provider>
