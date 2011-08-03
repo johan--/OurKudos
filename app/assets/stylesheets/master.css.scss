@@ -274,7 +274,7 @@ div.kudo_message_mid p {
 }
 
 span.sender, span.receiver {
-	font: bold 1.1em Verdana, "Copse", Arial, sans-serif;
+	font: bold 1.2em Verdana, "Copse", Arial, sans-serif;
 }
 
 span.sender, span.sender a {
@@ -297,10 +297,7 @@ span.receiver a {
 span.greater_than {
 	color: $very_light_gray;
 }
-span.share_scope {
-  float: right;
-	font: italic 0.9em Verdana, "Copse", Arial, sans-serif;
-}
+
 
 /* tables */
 

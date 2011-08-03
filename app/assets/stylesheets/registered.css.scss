@@ -207,7 +207,7 @@ span#social_share_choices {
 
 /* Kudo Dashboard Styles */
 
-#kudo_dashboard_cont{
+#kudo_dashboard_cont {
 	width: 944px;
 	margin: 0 auto 20px auto;
 }
@@ -301,11 +301,11 @@ div.kudo_message_cont {
 
 div.kudo_message_bubble_cont {
 	/*width: 770px;*/
-	width: 750px;
+	width: 730px;
 	border-radius: 15px;
 	border: 1px solid #ebecee;
 	background-color: #fff;
-	padding: 10px;
+	padding: 15px;
 	box-shadow: 2px 4px 6px #ebecee;
 	float: right;
 }
@@ -314,8 +314,8 @@ div.kudo_message_bubble_nipple {
 	width: 19px;
 	height: 28px;
 	background: url(kb_nipple_bg.png) no-repeat left top;
-	margin-left: -29px;
-	margin-top: 10px;
+	margin-left: -34px;
+	margin-top: 8px;
 	float: left;
 }
 
@@ -343,14 +343,32 @@ div.kudo_message_bot {
 
 */
 .kudo_message_text_cont {
-	float: left;
+
+  p.kudo_body_text {
+    width: 660px;
+  	font: 1.2em Arial, Helvetica, sans-serif;
+  }
+}
+
+span.share_scope {
+	font: italic 0.9em Verdana, Arial, Helvetica, sans-serif;
+	padding-right: 10px;
+}
+
+span.kudo_date {
+	color: $light_gray;
+	font: bold 0.9em Verdana, Arial, Helvetica, sans-serif;
+}
+
+.kudo_side_controls {
+	width: 33px;
+	float: right;
 }
 
 a.delete_kudo_btn {
 	width: 17px;
 	height: 18px;
 	display: block;
-	float: right;
 	/*background: url(deletex_btn.png) no-repeat left top;*/
 	background: url(trashcan-sprite.png) no-repeat left -18px;
 	text-decoration: none;
@@ -363,11 +381,10 @@ a.delete_kudo_btn {
 }
 
 .kudo_flag_cont {
-	float: left;
 	cursor: pointer;
 	width: 33px;
 	height: 28px;
-	margin-top: 8px;
+	margin-bottom: 15px;
 	
 	&:hover {
 		background: url(kudo_flag_icon_sprite.png) left top no-repeat;

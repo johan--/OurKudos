@@ -6,8 +6,13 @@
  .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
   .kudo_message_bubble_nipple
   .kudo_message_text_cont
+   .kudo_side_controls
+    - unless kudo_object(kudo).has_been_improperly_flagged?
+     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id }
+
+    %div= sent_kudo_destroy_link(kudo)
+    
    %p
-    %span.category= kudo.category
     - unless kudo.author.blank?
      %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
     - else
@@ -15,15 +20,13 @@
     %span.greater_than &gt;
     %span.receiver
      = recipients_profiles kudo.recipients_names_ids
+    %span.category= "[#{kudo.category}]"
+   %p
     %span.share_scope
      = "Shared with #{shared_with kudo.share_scope}"
-   %p= kudo.body
-
-    
-   - unless kudo_object(kudo).has_been_improperly_flagged?
-    .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id }
-
-   %div= sent_kudo_destroy_link(kudo)
+    %span.kudo_date
+     = kudo.created_at
+   %p.kudo_body_text= kudo.body
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}
 
