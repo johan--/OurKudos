@@ -45,8 +45,10 @@ class HomeController < ApplicationController
 
       cookies[:can_register]   = true
 
-      @kudo = EmailKudo.find_by_key params[:kudo_id] rescue nil
+      @kudo = EmailKudo.with_kudo_by_key(params[:kudo_id]).first rescue nil
+
       cookies[:invite_email]  = @kudo.email rescue nil
+
       return true if !@kudo.blank? && @kudo.viewable_by_recipient?(params[:email], params[:kudo_id])
       redirect_to root_path, :notice => I18n.t(:you_are_not_allowed_to_view_this_kudo)
       false

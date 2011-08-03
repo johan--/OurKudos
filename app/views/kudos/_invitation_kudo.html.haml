@@ -1,0 +1,20 @@
+.kudo_message_cont
+  #kudo_sender_cont
+    %p= kudo_author_picture kudo
+    %p= kudo.author.to_s
+  .kudo_message_bubble_cont
+    .kudo_message_top
+    .kudo_message_mid
+      %p
+        %span.receiver= kudo.recipient.to_s
+        = " - " unless kudo.category.blank?
+        %span.category= kudo.category
+      %p
+        %span.receiver= email
+      %p
+        = kudo.body
+    .kudo_message_bot
+
+  .clearing
+
+  = render :partial => "kudos/invitation_kudo_reply"

@@ -3,48 +3,8 @@
     #youve_got_kudos_banner_cont
       = image_tag('youve-got-kudos-banner.png')
   #youve_got_kudos_mid
-    .kudo_message_cont
-      #kudo_sender_cont
-        %p= kudo_author_picture @kudo.kudo
-        %p= @kudo.kudo.author.to_s
-      .kudo_message_bubble_cont
-        .kudo_message_top
-        .kudo_message_mid
-          %p
-            %span.receiver= @kudo.kudo.recipient.to_s
-            = " - " unless @kudo.kudo.category.blank?
-            %span.category= @kudo.kudo.category
-          %p
-            %span.receiver= @kudo.email
-          %p
-            = @kudo.kudo.body
-        .kudo_message_bot
-       
-      .clearing
-      
-      %h1
-        Send Kudos Back.
-        %span.reddened It's Fast, Free and Fun!
-      
-    .kudo_message_cont
-      #kudo_sender_cont
-        %p= image_tag('kudos-avatar-icon.png')
-      .kudo_message_bubble_cont
-        .kudo_message_top
-        .kudo_message_mid
-          = form_tag('/send_kudo')
-          %p= text_area_tag 'kudo_body', nil, :placeholder => "write something positive!"
-        
-        .kudo_message_bot
-        %button.kudo_reply_submit_btn{:type => "submit"}
-          = image_tag('send-now-btn.png')
-       
-      .clearing
+    = render :partial => "kudos/invitation_kudo", :locals => {:kudo => @kudo.kudo, :email => @kudo.email}
 
-     
-     
-     
-      
   #youve_got_kudos_bot
   
   .dotted_divider
