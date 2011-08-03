@@ -34,10 +34,16 @@ $(document).ready(function(){
 
   $('img.submit-invitation-form').click(function(){
 
+    var message = $("#kudo_body").val();
+
+    if (message.length == 0) {
+        alert("If you want to reply to this kudo, please enter message")
+    } else {
+
      $("div.error_container").html('');
      $('body').append('<div id="invitation_registration_form"></div>');
 
-     var message = $("#kudo_body").val();
+
 
      $("input.first_message").val(message); // copy kudo message to hidden field
      $("#invitation_registration_form").html($("div.invitation-form-fields.hidden").html());
@@ -53,8 +59,9 @@ $(document).ready(function(){
 
          } } ]
         })
-  });
+  }
 
+});
         
 	
 
