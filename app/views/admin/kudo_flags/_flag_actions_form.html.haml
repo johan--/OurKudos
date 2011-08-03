@@ -1,0 +1,7 @@
+= form_tag "/", :method => :post
+%td 
+  = hidden_field_tag 'kudo_flag_id', flag.id
+  = select_tag 'action', options_for_select(KudoFlag::ACTIONS)
+  //select
+%td
+  = submit_tag 'Go', :confirm => "Are you sure?"

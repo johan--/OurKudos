@@ -149,6 +149,12 @@ Factory.define :kudo_copy_twitter, :class => "KudoCopy" do |kc|
   kc.kudo { Factory(:kudo) }
 end
 
+Factory.define :kudo_flag do |kf|
+  kf.flag_reason "Spam"
+  kf.flagger    {|u|  Factory(:user) }
+  kf.kudo      {|kudo| Factory(:kudo) }
+end
+
 Factory.define :facebook_friend do |ff|
    ff.name "Mietek Dziaslo"
    ff.first_name "Mietek"

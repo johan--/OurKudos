@@ -82,6 +82,12 @@ When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
   attach_file(field, path)
 end
 
+Given /^user "([^"]*)" has a flagged kudo$/ do |user_id|
+  user = User.find(user_id.to_i)
+  kudo = Factory(:kudo, :author_id => user.id)
+  Factory(:kudo_flag, :kudo_id => kudo.id)
+end
+
 Before('@background-jobs') do
   system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"
 end
