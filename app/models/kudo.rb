@@ -353,6 +353,26 @@ class Kudo < ActiveRecord::Base
       kudo.save :validate => false
     end
 
+    def allowed
+      %w{received sent newsfeed local}
+    end
+
+    #this shouldn't be run at all on large datasets
+    def count_comments!
+      all.each do |kudo|
+        current_count = kudo.comments.size
+        kudo.update_attribute(:comments_count, current_count) if kudo.comments_count != current_count
+      end
+    end
+
+    def options_for_sort
+      [['most recent kudos', 'recent'],
+       ['most commented upon', 'comments']
+        ]
+
+    end
+
+
   end
 
 

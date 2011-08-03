@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
 
   has_many :sent_kudos,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]
-  has_many :received_kudos, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
+  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
   has_many :folders
 
   has_many :friendships
@@ -450,6 +450,10 @@ class User < ActiveRecord::Base
 
       Kudo.for_identity self.id, identity, first_message
     end
+  end
+
+  def received_kudos
+    received.with_comments.select("DISTINCT(kudo_copies.id), #{KudoCopy.group_by_order.gsub("kudo_copies.id,",'')}")
   end
 
 

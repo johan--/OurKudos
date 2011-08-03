@@ -15,7 +15,7 @@
         %p#kudos_sortby_cont
           = label_tag(:sortby,'Sort by')
           %br/
-          = select_tag(:sortby)
+          = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
         %p#kudos_search_cont
           = render :partial => "home/search"
         .clearing

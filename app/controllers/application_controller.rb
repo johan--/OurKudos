@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def get_kudos
     if user_signed_in?
-      %w{received sent newsfeed local searchterms}.include?(params[:kudos]) ?
+      Kudo.allowed.include?(params[:kudos]) ?
           term = params[:kudos] :
           term = "newsfeed"
       @kudos = current_user.send("#{term}_kudos").page(params[:page]).per(10) rescue []
@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
       @kudos = @kudos.order("kudo_copies.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
 
       @kudos = Kudo.public_kudos(5) if @kudos.is_a?(Array) && @kudos.blank?
-
     end
     render :partial => "home/kudos" if request.xhr?
   end

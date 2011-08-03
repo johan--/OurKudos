@@ -7,12 +7,16 @@ class KudoCopy < ActiveRecord::Base
   belongs_to :kudoable, :polymorphic => true
   belongs_to :author,   :class_name => "User"
 
-  delegate   :category, :created_at, :subject, :body, :recipients, :to => :kudo
+  has_many :comments, :through => :kudo
+
+  delegate   :category, :created_at, :subject, :body, :recipients, :comments_count, :to => :kudo
 
   scope :friends,                        where(:share_scope => "friends")
   scope :recipients,                     where(:share_scope => "recipients")
   scope :for_email,  ->(email) {         where(:temporary_recipient => email) }
-
+  scope :with_comments,  joins(:kudo).joins(%q{
+                                                  LEFT JOIN "comments" ON "comments"."commentable_id" = "kudos"."id" AND "comments"."commentable_type" = 'Kudo'
+                                                        })
 
   def copy_recipient
     return if own_kudo?
@@ -50,6 +54,11 @@ class KudoCopy < ActiveRecord::Base
      end
      user.increase_invitations :accepted
    end
+
+   def grouping_order
+     KudoCopy.group_by_order + ", " + Kudo.group_by_order + ", " + Comment.group_by_order
+   end
+
 
   end
 
