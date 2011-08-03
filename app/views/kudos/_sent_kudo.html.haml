@@ -6,7 +6,10 @@
    .kudo_message_text_cont
     %p
      %span.category= kudo.category
-     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id if kudo.author
+     - unless kudo.author.blank?
+      %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
+     - else
+      (removed account)
      %span.greater_than &gt;
      %span.receiver
       = recipients_profiles kudo.recipients_names_ids

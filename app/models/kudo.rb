@@ -334,20 +334,21 @@ class Kudo < ActiveRecord::Base
        kudos  = Kudo.arel_table
        copies = KudoCopy.arel_table
 
-        joins(:kudo_copies).select("DISTINCT kudos.*").
+        joins(:kudo_copies).joins(:kudo_copies => :author).
+                      select("DISTINCT kudos.*").
                       where(kudos[:share_scope].eq(nil).
                       and(kudos[:removed].eq(false)).
                       or(kudos[:share_scope].eq('friends')).
                       or(kudos[:created_at].gteq(user.created_at.to_s(:db))).
                       or(kudos[:author_id].in(user.friends_ids_list)).
-                      or(copies[:recipient_id].in(local_authors(user))) )
+                      or(copies[:recipient_id].in(local_authors(user))))
 
     end
 
-    def for_identity author, identity
+    def for_identity author, identity, message
       kudo = Kudo.new :to        => identity.to_s,
-                      :body      => first_message,
-                      :author_id => id
+                      :body      => message,
+                      :author_id => author
 
       kudo.save :validate => false
     end

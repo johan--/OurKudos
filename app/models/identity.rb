@@ -1,5 +1,7 @@
 class Identity < ActiveRecord::Base
 
+
+  attr_accessor :no_confirmation
   # ================
   # = validations  =
   # ================

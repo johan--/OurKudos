@@ -7,9 +7,18 @@
     .kudo_message_top
     .kudo_message_mid{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
       %p
-        %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author)
+
+        %span.sender
+          - if kudo.author
+            = link_to kudo.author.to_s, user_profile_path(kudo.author)
+          - else
+            (removed account)
         %span.greater_than >
-        %span.receiver= kudo.recipients_readable_list
+        %span.receiver
+          - if kudo.is_a?(Kudo)
+            = kudo.recipients_readable_list
+          - else
+            = kudo.recipient.to_s
       %p= kudo.body
       .social_buttons
         %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}

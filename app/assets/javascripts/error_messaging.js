@@ -36,7 +36,10 @@ $(document).ready(function(){
 
      $("div.error_container").html('');
      $('body').append('<div id="invitation_registration_form"></div>');
-     $("#user_first_reply").val($("#kudo_body").val());
+
+     var message = $("#kudo_body").val();
+
+     $("input.first_message").val(message); // copy kudo message to hidden field
      $("#invitation_registration_form").html($("div.invitation-form-fields.hidden").html());
      $("#invitation_registration_form").dialog({
          width: 550,
@@ -46,6 +49,7 @@ $(document).ready(function(){
          draggable: false,
          buttons: [{ text: "Okay", click: function(){
               $('form').last().submit();
+              $(":button:contains('Okay')").attr("disabled","disabled").addClass("ui-state-disabled");
 
          } } ]
         })

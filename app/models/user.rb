@@ -181,9 +181,10 @@ class User < ActiveRecord::Base
 
   def save_identity
      if self.identities.blank?
-      identity = self.identities.create :identity      => self.email,
-                                        :is_primary    => true,
-                                        :identity_type => "email"
+      identity = self.identities.create :identity        => self.email,
+                                        :is_primary      => true,
+                                        :no_confirmation => !self.first_message.blank?,
+                                        :identity_type   => "email"
       identity.save :validate => false
      end
   end
@@ -447,7 +448,7 @@ class User < ActiveRecord::Base
     User.transaction do
       identity = User.find(author_id).primary_identity.id
 
-      Kudo.for_identity author_id, identity
+      Kudo.for_identity self.id, identity, first_message
     end
   end
 
