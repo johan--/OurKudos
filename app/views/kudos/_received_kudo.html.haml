@@ -25,7 +25,7 @@
     %span.share_scope
      = "Shared with #{shared_with kudo.share_scope}"
     %span.kudo_date
-     = kudo.created_at
+     = kudo.created_at.to_s(:short)
    .social_buttons
     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
@@ -38,7 +38,7 @@
    .clearing
    .kudo_comment
     - unless kudo.kudo.comments_disabled?
-     = link_to t(:kudo_comment), 'javascript:void(0)', :class  => "comment_form_toggle",
+     = link_to t(:kudo_add_comment), 'javascript:void(0)', :class  => "comment_form_toggle",
                                                 :id     => kudo_object(kudo).id,
                                                 :remote => true
    
