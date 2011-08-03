@@ -1,0 +1,8 @@
+<% params["#{model.class.name.underscore.to_sym}"].keys.each do |field|  %>
+    <% if model.errors[field].blank? %>
+      $('<%= "span##{field.to_s}" %>').removeClass('inline_error').html('');
+    <% else %>
+      $('<%= "span##{field.to_s}" %>').addClass('inline_error').html('<%= escape_javascript  model.errors[field].uniq.join(', ').html_safe %> ');
+      $('<%= "span##{field.to_s}" %>').effect('highlight', {}, 2000);
+    <% end %>
+<% end %>

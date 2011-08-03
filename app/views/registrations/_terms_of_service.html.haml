@@ -1,0 +1,8 @@
+= label_tag :terms_of_service
+%br/
+= text_area_tag :terms_of_service, strip_tags(@terms_of_service) ,:size => '100x12', :disabled => true
+
+%p
+ = f.check_box :tos
+ = label_tag :terms_of_service_check, "I've read and agree to the Terms of Service"
+ %span#tos

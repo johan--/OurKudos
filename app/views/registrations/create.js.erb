@@ -1,0 +1,6 @@
+<%= render :partial => "shared/inline_errors", :locals => {:model => resource} %>
+<% unless resource.errors.any? %>
+ $("#invitation_registration_form").dialog("close");
+ alert("You have successfully sent your message and registered your account. You can now login using your email and credentails provided")
+ $("#kudo_body").val('');
+<% end %>

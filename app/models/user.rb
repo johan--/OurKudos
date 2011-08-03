@@ -9,11 +9,12 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, 
                   :first_name, :last_name, :streetadress, :address2, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
-                  :profile_picture, :birthday, :hide_birth_year, :tos, :is_banned
+                  :profile_picture, :birthday, :hide_birth_year, :tos, :is_banned,
+                  :first_message
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email,
-                :send_penalty_notification
+                :send_penalty_notification, :first_message
   # ================
   # = associations =
   # ================
@@ -78,7 +79,6 @@ class User < ActiveRecord::Base
   after_destroy  :remove_mergeables, :destroy_friendships
   before_create :build_inbox
   after_update :deliver_ban_notification!
-
   # ======================
   # == full text search ==
   # ======================
@@ -441,6 +441,14 @@ class User < ActiveRecord::Base
 
   def deliver_ban_notification!
     UserNotifier.delay.you_are_banned(self) if is_banned?
+  end
+
+  def send_reply_kudo! author_id
+    User.transaction do
+      identity = User.find(author_id).primary_identity.id
+
+      Kudo.for_identity author_id, identity
+    end
   end
 
 

@@ -7,14 +7,6 @@
     = render :partial => "form_fields", :locals => {:f => f}
     = hidden_field_tag :autofill, params[:autofill]
     
-    = label_tag :terms_of_service
-    %br/
-    = text_area_tag :terms_of_service, strip_tags(@terms_of_service) ,:size => '100x12', :disabled => true
-    
-    %p
-      = f.check_box :tos
-      = label_tag :terms_of_service_check, "I've read and agree to the Terms of Service"
-    
     %p= f.submit "Sign up"
     %p -OR-
     %p= link_to image_tag('sign-up-with-facebook-btn.png'), omniauth_authorize_path(:user, 'facebook')

@@ -25,18 +25,10 @@ class HomeController < ApplicationController
   def invite
   	render :layout => 'unregistered'
   end
-  
-  def about
-  end
 
   def support
   end
-  
-  def contact
-  end
-  
-  def privacy
-  end
+
 
   private
 
@@ -49,7 +41,11 @@ class HomeController < ApplicationController
 
       cookies[:invite_email]  = @kudo.email rescue nil
 
+      @user = User.new
+      @terms_of_service = Page.find_by_slug('terms-of-service').body
+
       return true if !@kudo.blank? && @kudo.viewable_by_recipient?(params[:email], params[:kudo_id])
+
       redirect_to root_path, :notice => I18n.t(:you_are_not_allowed_to_view_this_kudo)
       false
     end

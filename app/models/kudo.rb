@@ -8,7 +8,7 @@ class Kudo < ActiveRecord::Base
   has_many :kudo_flags, :dependent => :destroy
 
   attr_accessor    :js_validation_only, :archived_kudo
-  attr_accessible  :subject, :body, :to, :share_scope,
+  attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 
   before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
@@ -342,6 +342,14 @@ class Kudo < ActiveRecord::Base
                       or(kudos[:author_id].in(user.friends_ids_list)).
                       or(copies[:recipient_id].in(local_authors(user))) )
 
+    end
+
+    def for_identity author, identity
+      kudo = Kudo.new :to        => identity.to_s,
+                      :body      => first_message,
+                      :author_id => id
+
+      kudo.save :validate => false
     end
 
   end

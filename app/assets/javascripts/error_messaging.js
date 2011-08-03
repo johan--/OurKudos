@@ -31,7 +31,25 @@ $(document).ready(function(){
   	
   	return false;
   });
-  
+
+  $('img.submit-invitation-form').click(function(){
+
+     $("div.error_container").html('');
+     $('body').append('<div id="invitation_registration_form"></div>');
+     $("#user_first_reply").val($("#kudo_body").val());
+     $("#invitation_registration_form").html($("div.invitation-form-fields.hidden").html());
+     $("#invitation_registration_form").dialog({
+         width: 550,
+         modal: true,
+         resizable: false,
+         title: 'Please provide missing information:',
+         draggable: false,
+         buttons: [{ text: "Okay", click: function(){
+              $('form').last().submit();
+
+         } } ]
+        })
+  });
 
         
 	

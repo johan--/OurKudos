@@ -2,7 +2,9 @@ class RegistrationsController < Devise::RegistrationsController
   include Devise::Controllers::InternalHelpers
   before_filter :can_register?
   layout 'unregistered'
-  
+
+  respond_to :html, :js
+
   def new
     build_resource
     autofill_form
@@ -25,8 +27,13 @@ class RegistrationsController < Devise::RegistrationsController
       session[:authentication] = nil
       session['omniauth']      = nil
       cookies[:can_register]   = nil
+      resource.send_reply_kudo! params[:author_id] if request.xhr? && !params[:author_id].blank?
     else
-      render_with_scope :new 
+      if request.xhr?
+        render 'create'
+      else
+        render_with_scope :new if request.format.html?
+      end
     end
   end
 
