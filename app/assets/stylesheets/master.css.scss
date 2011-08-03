@@ -254,10 +254,24 @@ div.kudo_message_cont {
 }
 
 div.kudo_message_bubble_cont {
-	float: left;
-	margin-left: 15px;
+	border-radius: 15px;
+	border: 1px solid #ebecee;
+	background-color: #fff;
+	padding: 15px;
+	box-shadow: 2px 4px 6px #ebecee;
+	float: right;
 }
 
+div.kudo_message_bubble_nipple {
+	width: 19px;
+	height: 28px;
+	background: url(kb_nipple_bg.png) no-repeat left top;
+	margin-left: -34px;
+	margin-top: 8px;
+	float: left;
+}
+
+/*
 div.kudo_message_top {
 	height: 11px;
 }
@@ -276,6 +290,9 @@ div.kudo_message_mid p {
 	margin-bottom: 0;
 	padding: 0 15px 8px 15px;
 }
+
+
+*/
 
 span.sender, span.receiver {
 	font: bold 1.2em Verdana, "Copse", Arial, sans-serif;
