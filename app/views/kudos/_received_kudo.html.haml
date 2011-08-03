@@ -31,16 +31,16 @@
    
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.kudo.id}"}
-    .clearing
-    .kudo_comment
-     - unless kudo.kudo.comments_disabled?
-      = link_to t(:kudo_comment), 'javascript:void(0)', :class  => "comment_form_toggle",
+   .clearing
+   .kudo_comment
+    - unless kudo.kudo.comments_disabled?
+     = link_to t(:kudo_comment), 'javascript:void(0)', :class  => "comment_form_toggle",
                                                 :id     => kudo_object(kudo).id,
                                                 :remote => true
-    .social_buttons
-     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
-     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
-    .clearing
+   .social_buttons
+    %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
+    %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
+   .clearing
     
    = render :partial => "comments/comment",    :locals => {:kudo => kudo_object(kudo) }
    // render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }
