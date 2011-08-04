@@ -7,3 +7,12 @@ jQuery ->
 
     jQuery('cancel-kudo-flag').click ->
         jQuery("div.popup_placeholder").dialog('close');
+
+    jQuery('#new_action').click ->
+        flagged_kudo = jQuery(this).data('id')
+        action = jQuery('#action_select_' + flagged_kudo).val()
+        user_id = jQuery(this).data('user_id')
+        alert('flagged kudo ' + action)
+        alert('action ' + action)
+        alert('user ' + user_id)
+        return false
