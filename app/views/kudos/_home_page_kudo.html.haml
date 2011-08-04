@@ -1,18 +1,22 @@
 .kudo_message_cont
-  - if kudo.author
-    = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author)
-  - else
-    = anon_picture
+  .avatar_cont
+    - if kudo.author
+      = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author)
+    - else
+      = anon_picture
+    
+    .sender
+      - if kudo.author
+        = link_to kudo.author.to_s, user_profile_path(kudo.author)
+      - else
+        (removed account)
+          
   .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
     .kudo_message_bubble_nipple
     
     %p
-      %span.sender
-        - if kudo.author
-          = link_to kudo.author.to_s, user_profile_path(kudo.author)
-        - else
-          (removed account)
-      %span.greater_than >
+      
+      %span.greater_than &gt;&gt;
       %span.receiver
         - if kudo.is_a?(Kudo)
           = kudo.recipients_readable_list

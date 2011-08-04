@@ -1,8 +1,15 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.id}"}
- - if kudo.author
-  = link_to kudo_author_picture(kudo), user_profile_path(kudo.author), :id => kudo.id
- - else
-  = anon_picture
+ .avatar_cont
+  - if kudo.author
+   = link_to kudo_author_picture(kudo), user_profile_path(kudo.author), :id => kudo.id
+  - else
+   = anon_picture
+ 
+  - unless kudo.author.blank?
+   .sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
+  - else
+   (removed account)
+  
  .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
   .kudo_message_bubble_nipple
   .kudo_message_text_cont
@@ -12,12 +19,8 @@
 
     %div= sent_kudo_destroy_link(kudo)
     
-   %p.sender_recipients
-    - unless kudo.author.blank?
-     %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
-    - else
-     (removed account)
-    %span.greater_than &gt;
+   %p.recipients_cont
+    %span.greater_than &gt;&gt;
     %span.receiver
      = recipients_profiles kudo.recipients_names_ids
     

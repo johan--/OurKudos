@@ -4,12 +4,10 @@
     %p= kudo.author.to_s
   .kudo_message_bubble_cont
     .kudo_message_bubble_nipple
-    %p
-      %span.receiver= kudo.recipient.to_s
-      = " - " unless kudo.category.blank?
-      %span.category= kudo.category
+
     %p
       %span.receiver= email
+      %span.category= "[#{kudo.category}]"
     %p
       = kudo.body
 

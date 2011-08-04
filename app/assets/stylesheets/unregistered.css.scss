@@ -145,29 +145,18 @@ input[type=text], input[type=password] {
 #recent_kudos_cont {
   /* unregistered homepage recent kudos listing */
   div.kudo_message_bubble_cont {
-	  width: 480px;
+	  width: 440px;
+	  margin-bottom: 10px;
+  }
+  
+  img.avatar {
 	  margin-bottom: 10px;
   }
 }
 
-div.kudo_message_mid {
-	background: url(kudo_message_mid_sprite.png) no-repeat left -184px;
-}
 
-div.kudo_message_top {
-	width: 526px;
-	background: url(kudo_message_top_sprite.png) no-repeat left -11px;
-}
 
-div.kudo_message_bot {
-	width: 526px;
-	background: url(kudo_message_bot_sprite.png) no-repeat left -13px;
-}
 
-img.avatar {
-	float: left;
-	margin-top: 8px;
-}
 
 /* end kudos messaging */
 
@@ -192,7 +181,7 @@ img.avatar {
 		font-size: 1.9em;
 		font-weight: bold;
 		color: #000;
-		margin: 0 0 20px 135px;
+		margin: 20px 0 20px 135px;
 		
 		span.reddened {
 			color: #c22328;

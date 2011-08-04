@@ -1,8 +1,11 @@
 .kudo_message_cont{:id => "kudo_message_id_#{kudo.kudo.id}"}
- - if kudo.author
-  = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :id => kudo_object(kudo).id
- - else
-  = anon_picture
+ .avatar_cont
+  - if kudo.author
+   = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :id => kudo_object(kudo).id
+  - else
+   = anon_picture
+  .sender= link_to kudo.author.to_s, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
+  
  .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
   .kudo_message_bubble_nipple
   .kudo_message_text_cont
@@ -12,16 +15,17 @@
     %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
    
    
-   %p.sender_recipients{:id => "kudo_#{kudo.id}"}
+   %p.recipients_cont{:id => "kudo_#{kudo.id}"}
     
    
-    %span.sender= link_to kudo.author.to_s, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
-    %span.greater_than &gt;
+    
+    %span.greater_than &gt;&gt;
 
     %span.receiver
      = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
-    %span.category= "[#{kudo.category}]"
+    
    %p.sharescope_date
+    %span.category= "[#{kudo.category}]"
     %span.share_scope
      = "Shared with #{shared_with kudo.share_scope}"
     %span.kudo_date
