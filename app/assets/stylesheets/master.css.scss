@@ -93,14 +93,14 @@ p {
 }
 
 h1 {
-	font: normal 4em "NunitoRegular", "Copse", Arial, Helvetica, sans-serif;
+	font: normal 4em "NunitoRegular", Arial, Helvetica, sans-serif;
 	color: $headers_blue;
 	margin-bottom: 10px;
 }
 
 h2 {
 	color: $headers_blue;
-	font: normal 1.7em "NunitoRegular", "Copse", Arial, sans-serif;
+	font: normal 1.7em "NunitoRegular", Arial, sans-serif;
 	margin-bottom: 10px;
 }
 
@@ -271,31 +271,8 @@ div.kudo_message_bubble_nipple {
 	float: left;
 }
 
-/*
-div.kudo_message_top {
-	height: 11px;
-}
-
-div.kudo_message_bot {
-	height: 13px;
-}
-
-div.kudo_message_mid {
-	padding-left: 18px;
-}
-
-div.kudo_message_mid p {
-	font: normal 1.2em Verdana, "Copse", Arial, sans-serif;
-	color: #000;
-	margin-bottom: 0;
-	padding: 0 15px 8px 15px;
-}
-
-
-*/
-
 span.sender, span.receiver {
-	font: bold 1.2em Verdana, "Copse", Arial, sans-serif;
+	font: bold 1.2em Verdana, Arial, Helvetica, sans-serif;
 }
 
 span.sender, span.sender a {

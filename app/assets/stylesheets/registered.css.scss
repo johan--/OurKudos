@@ -54,7 +54,7 @@
 }
 
 #header_user_info h4 {
-	font: normal 1.6em "Copse", Arial, Helvetica, sans-serif;
+	font: normal 1.6em "NunitoRegular", Arial, Helvetica, sans-serif;
 	color: #effaff;
 }
 
@@ -260,7 +260,7 @@ ul#nav_kudo_dashboard {
 			text-decoration: none;
 			font-size: 1.3em;
 			color: #fff;
-			font-family: "NunitoRegular", "Copse", sans-serif;
+			font-family: "NunitoRegular", Arial, Helvetica, sans-serif;
 			
 			&.active {
 				color: $headers_blue;
@@ -601,7 +601,7 @@ img.sn_tile_status {
 }
 
 span.sn_status, span.sn_status_dim {
-	font: normal 1.7em "Nunito","Copse", Arial, sans-serif;
+	font: normal 1.7em "NunitoRegular", Arial, Helvetica, sans-serif;
 }
 
 span.sn_status {
