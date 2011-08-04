@@ -86,8 +86,7 @@ class KudoFlag < ActiveRecord::Base
       [
         ['This Kudo is spam or clearly an advertisement.', 'spam'],
         ['This Kudo is offensive, lewd or obscene.', 'offensive'],
-        ['I am not the intended recipient of this Kudo.', 'incorrect_recipient'],
-        ['We wdoill change that later', 'We will change that later']
+        ['I am not the intended recipient of this Kudo.', 'incorrect_recipient']
       ]
     end
 
