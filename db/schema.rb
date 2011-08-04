@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803150430) do
+ActiveRecord::Schema.define(:version => 20110803215633) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -218,6 +218,14 @@ ActiveRecord::Schema.define(:version => 20110803150430) do
   add_index "kudo_copies", ["author_id"], :name => "index_kudo_copies_on_author_id"
   add_index "kudo_copies", ["kudoable_id"], :name => "index_kudo_copies_on_kudoable_id"
   add_index "kudo_copies", ["kudoable_type"], :name => "index_kudo_copies_on_kudoable_type"
+
+  create_table "kudo_flag_actions", :force => true do |t|
+    t.integer  "kudo_flag_id"
+    t.integer  "admin_user_id"
+    t.string   "action_taken"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "kudo_flags", :force => true do |t|
     t.string   "flag_reason"

@@ -21,12 +21,6 @@ class KudoFlag < ActiveRecord::Base
   scope :improperly_flagged_for, ->(user) {  with_kudo.flagger_is(user).
                                              where("kudos.has_been_improperly_flagged  = ?", true)  }
 
-  ###Constants###
-  ACTIONS = [ ['Suspend User','suspend'],
-              ['Delete User', 'delete'],
-              ['Message Author', 'message_author'],
-              ['Message Recipients', 'message_recipients']]
-  ###############
 
   def process_flagging
     recipients = flagged_kudo.people_received_ids.sort
