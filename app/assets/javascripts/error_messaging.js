@@ -51,7 +51,7 @@ $(document).ready(function(){
          width: 550,
          modal: true,
          resizable: false,
-         title: 'Please provide missing information:',
+         title: 'Just one easy step! Please register for an account for full access to OurKudos:',
          draggable: false,
          buttons: [{ text: "Okay", click: function(){
               $('form').last().submit();
