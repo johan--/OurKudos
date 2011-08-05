@@ -133,6 +133,11 @@ img#baltar_mailman_icon {
 	outline: none;
 }
 
+input#kudo_to {
+	/* this input box is hidden in favor of jqueryui autocomplete function */
+	display: none;
+}
+
 
 #kudo_message_cont_top {
 	width: 393px;

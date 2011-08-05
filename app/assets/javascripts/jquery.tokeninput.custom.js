@@ -378,7 +378,7 @@ $.TokenList = function (input, url_or_data_or_function, settings) {
     }
     
     // hides original input box
-    input.type = 'hidden';
+    /* input.type = 'hidden'; this line causes scripts to fail in IE8/7 */
     
     // Keep a reference to the original input box
     var hidden_input = $(input)
