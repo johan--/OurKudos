@@ -16,13 +16,14 @@
    
    
    %p.recipients_cont{:id => "kudo_#{kudo.id}"}
-    
    
-    
     %span.greater_than &gt;&gt;
 
     %span.receiver
-     = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
+     - if kudo.recipient
+      = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
+     - else
+      "unknown recipient(s)"
     
    %p.sharescope_date
     %span.category= "[#{kudo.category}]"
@@ -45,6 +46,8 @@
      = link_to t(:kudo_add_comment), 'javascript:void(0)', :class  => "comment_form_toggle",
                                                 :id     => kudo_object(kudo).id,
                                                 :remote => true
+    &nbsp;
+    = "(#{kudo.comments_count})" if kudo.comments_count > 0
    
    .clearing
     

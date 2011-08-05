@@ -34,7 +34,8 @@ module KudosHelper
     html = kudo_recipients.map do |recipient|
       link_to recipient.first, user_profile_path(recipient.last)
     end.join(", ")
-    html.html_safe
+    return html.html_safe unless html.empty?
+    "undisclosed recipient(s)"
   end
 
   def kudo_author_picture kudo
