@@ -30,6 +30,8 @@ class CommentsModerationsController < ApplicationController
         when 'block_sender'
           @commentable.block_commentator! @comment.user
           redirect_to home_path, :notice => I18n.t(:commenting_has_been_disabled_for_that_user)
+        when 'accept'
+          redirect_to home_path, :notice => I18n.t(:comment_has_been_accepted)
       end
      else
        render_404

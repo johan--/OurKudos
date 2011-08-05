@@ -32,7 +32,7 @@ class Comment < ActiveRecord::Base
   class << self
 
     def allowed_actions
-      %w(reject no_moderation no_commenting block_sender)
+      %w(reject no_moderation no_commenting block_sender accept)
     end
 
   end

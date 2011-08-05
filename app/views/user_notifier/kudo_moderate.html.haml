@@ -12,6 +12,7 @@
     %p= t(:you_can_deceide_what_to_do_with_this_and_other_comments)
 
     %ul
+      %li= link_to t(:kudo_accept_comment), new_comments_moderation_url(:subaction => "accept", :id => @comment.id)
       %li= link_to t(:kudo_reject_comment), new_comments_moderation_url(:subaction => "reject", :id => @comment.id)
       %li= link_to t(:kudo_reject_comment_abusive), new_comments_moderation_url(:subaction => "block_sender", :id => @comment.id)
 
