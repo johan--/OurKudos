@@ -23,5 +23,5 @@ jQuery ->
       jQuery(".notice, .alert, .error").remove()
 
     jQuery("#spinner").show()
-    jQuery("#pagination").prepend(' loading page...')
+    jQuery("#pagination").prepend(' loading more kudos...')
 
