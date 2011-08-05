@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-
-  layout :choose_layout
+	layout "unregistered"
 
   def show
     @page = Page.find_with_locale params[:id], I18n.locale

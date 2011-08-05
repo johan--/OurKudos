@@ -29,6 +29,7 @@ class HomeController < ApplicationController
   end
 
   def support
+  	render :layout => 'unregistered'
   end
 
 
