@@ -31,7 +31,15 @@ class Kudo < ActiveRecord::Base
 
   scope :for_dashboard, -> { joins(left_joins_categories).joins(left_joins_comments).joins(:author).joins(:recipients) }
 
+  scope :shared_with_friends, lambda { |user|
+      kudos  = Kudo.arel_table
+      copies = KudoCopy.arel_table
 
+      joins(:kudo_copies).where(kudos[:share_scope].eq('friends').
+                                      and(copies[:recipient_id].in(user.friends_ids_list)).
+                                      and(kudos[:created_at].gteq(user.created_at.to_s(:db)))
+                                )
+  }
 
   serialize :flaggers
   serialize :hidden_for
@@ -333,17 +341,13 @@ class Kudo < ActiveRecord::Base
     end
 
     def newsfeed_for user
-       kudos  = Kudo.arel_table
-       copies = KudoCopy.arel_table
-
-        joins(:kudo_copies).joins(:kudo_copies => :author).
-                      select("DISTINCT kudos.*").
-                      where((kudos[:removed].eq(false)).
-                      or(kudos[:share_scope].eq('friends').and(copies[:recipient_id].eq(user.id))).
-                      or(kudos[:created_at].gteq(user.created_at.to_s(:db))).
-                      or(kudos[:author_id].in(user.friends_ids_list)).
-                      or(copies[:recipient_id].in(local_authors(user)).and(kudos[:share_scope].eq(nil))))
-
+      joins(:author).joins(:kudo_copies).
+          joins(left_joins_categories).
+          joins(left_joins_comments).
+          select("DISTINCT kudos.*").
+          where(:removed => false).
+          where("kudos.created_at > ?", user.created_at.to_s(:db)).
+          where("#{shared_sql(user)} OR #{nearby_kudos_sql(user)}")
     end
 
     def for_identity author, identity, message
@@ -354,7 +358,7 @@ class Kudo < ActiveRecord::Base
       kudo.save :validate => false
     end
 
-    def allowed
+    def allowed_tabs
       %w{received sent newsfeed local}
     end
 
@@ -367,14 +371,15 @@ class Kudo < ActiveRecord::Base
     end
 
     def options_for_sort
-      [['most recent kudos', 'recent'],
-       ['most commented upon', 'comments']
+      [['most recent kudos', 'date_asc'],
+       ['oldest kudos', 'date_desc'],
+       ['most commented upon', 'comments_asc'],
+       ['least comments number', 'commemts_desc']
         ]
-
     end
 
     def allowed_sorting
-      %w{comments date}
+      %w{comments_asc comments_desc}
     end
 
 

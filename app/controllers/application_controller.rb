@@ -25,29 +25,18 @@ class ApplicationController < ActionController::Base
 
   def get_kudos
     if user_signed_in?
-      Kudo.allowed.include?(params[:kudos]) ?
+      Kudo.allowed_tabs.include?(params[:kudos]) ?
           term = params[:kudos] :
           term = "newsfeed"
       @kudos = current_user.send("#{term}_kudos").page(params[:page]).per(10) rescue []
 
       @kudos = Kudo.public_kudos.limit(10)         if term == 'newsfeed' && @kudos.blank?
-      @kudos = @kudos.order("#{sort_by_field(params[:sort_by])} DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
-      @kudos = @kudos.order("#{sort_by_field(params[:sort_by])} DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
+      @kudos = @kudos.order(Kudo.sort_by_field params[:sort_by] ) if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
+      @kudos = @kudos.order(Kudo.sort_by_field params[:sort_by] ) if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
 
       @kudos = Kudo.public_kudos(5) if @kudos.is_a?(Array) && @kudos.blank?
     end
     render :partial => "home/kudos" if request.xhr?
-  end
-
-  def sort_by_field field
-    if Kudo.allowed_sorting.include?(field)
-      case field
-        when 'date'     ; "kudos.id"
-        when 'comments' ; "kudos.comments_count"
-      end
-    else
-      "kudos.id"
-    end
   end
 
   def choose_layout

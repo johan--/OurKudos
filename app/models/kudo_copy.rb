@@ -16,6 +16,7 @@ class KudoCopy < ActiveRecord::Base
   scope :for_email,  ->(email) {         where(:temporary_recipient => email) }
   scope :for_dashboard,  joins(:kudo).joins(:author).joins(left_joins_categories).joins(left_joins_comments)
 
+
   def copy_recipient
     return if own_kudo?
     return self.recipient.secured_name   unless self.recipient.blank?

@@ -480,6 +480,12 @@ class User < ActiveRecord::Base
       Kudo.newsfeed_for user
     end
 
+    def newsfeed_for user
+      joins(:sent).joins(:received).
+          joins(left_joins_categories).joins(left_joins_comments).
+          select("DISTINCT kudos.*")
+    end
+
 
     def local_users user
       unless user.postal_code.blank?
