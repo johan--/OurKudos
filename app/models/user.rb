@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
-  has_many :sent_kudos,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]
+  has_many :sent,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]
   has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
   has_many :folders
 
@@ -453,7 +453,12 @@ class User < ActiveRecord::Base
   end
 
   def received_kudos
-    received.with_comments.select("DISTINCT(kudo_copies.id), #{KudoCopy.group_by_order.gsub("kudo_copies.id,",'')}")
+    received.for_dashboard.
+            select("distinct kudo_copies.*, kudos.*").group User.grouping_order
+  end
+
+  def sent_kudos
+    sent.for_dashboard.select("distinct kudos.*").group User.grouping_order
   end
 
 

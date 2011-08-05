@@ -14,9 +14,7 @@ class KudoCopy < ActiveRecord::Base
   scope :friends,                        where(:share_scope => "friends")
   scope :recipients,                     where(:share_scope => "recipients")
   scope :for_email,  ->(email) {         where(:temporary_recipient => email) }
-  scope :with_comments,  joins(:kudo).joins(%q{
-                                                  LEFT JOIN "comments" ON "comments"."commentable_id" = "kudos"."id" AND "comments"."commentable_type" = 'Kudo'
-                                                        })
+  scope :for_dashboard,  joins(:kudo).joins(:author).joins(left_joins_categories).joins(left_joins_comments)
 
   def copy_recipient
     return if own_kudo?
@@ -55,9 +53,7 @@ class KudoCopy < ActiveRecord::Base
      user.increase_invitations :accepted
    end
 
-   def grouping_order
-     KudoCopy.group_by_order + ", " + Kudo.group_by_order + ", " + Comment.group_by_order
-   end
+
 
 
   end

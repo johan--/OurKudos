@@ -31,12 +31,23 @@ class ApplicationController < ActionController::Base
       @kudos = current_user.send("#{term}_kudos").page(params[:page]).per(10) rescue []
 
       @kudos = Kudo.public_kudos.limit(10)         if term == 'newsfeed' && @kudos.blank?
-      @kudos = @kudos.order("kudos.id DESC")       if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
-      @kudos = @kudos.order("kudo_copies.id DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
+      @kudos = @kudos.order("#{sort_by_field(params[:sort_by])} DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
+      @kudos = @kudos.order("#{sort_by_field(params[:sort_by])} DESC") if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
 
       @kudos = Kudo.public_kudos(5) if @kudos.is_a?(Array) && @kudos.blank?
     end
     render :partial => "home/kudos" if request.xhr?
+  end
+
+  def sort_by_field field
+    if Kudo.allowed_sorting.include?(field)
+      case field
+        when 'date'     ; "kudos.id"
+        when 'comments' ; "kudos.comments_count"
+      end
+    else
+      "kudos.id"
+    end
   end
 
   def choose_layout

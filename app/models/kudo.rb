@@ -29,13 +29,15 @@ class Kudo < ActiveRecord::Base
   scope :local_kudos, ->(user) { joins(:kudo_copies).
                                   where("kudo_copies.recipient_id IN (#{local_authors(user)})") }
 
+  scope :for_dashboard, -> { joins(left_joins_categories).joins(left_joins_comments).joins(:author).joins(:recipients) }
+
 
 
   serialize :flaggers
   serialize :hidden_for
   serialize :blocked_commentators
   serialize :system_kudos_recipients_cache
-
+                                        :kudo_category
   acts_as_commentable
   include OurKudos::Helpers::Sanitization
 
@@ -336,12 +338,11 @@ class Kudo < ActiveRecord::Base
 
         joins(:kudo_copies).joins(:kudo_copies => :author).
                       select("DISTINCT kudos.*").
-                      where(kudos[:share_scope].eq(nil).
-                      and(kudos[:removed].eq(false)).
-                      or(kudos[:share_scope].eq('friends')).
+                      where((kudos[:removed].eq(false)).
+                      or(kudos[:share_scope].eq('friends').and(copies[:recipient_id].eq(user.id))).
                       or(kudos[:created_at].gteq(user.created_at.to_s(:db))).
                       or(kudos[:author_id].in(user.friends_ids_list)).
-                      or(copies[:recipient_id].in(local_authors(user))))
+                      or(copies[:recipient_id].in(local_authors(user)).and(kudos[:share_scope].eq(nil))))
 
     end
 
@@ -370,6 +371,10 @@ class Kudo < ActiveRecord::Base
        ['most commented upon', 'comments']
         ]
 
+    end
+
+    def allowed_sorting
+      %w{comments date}
     end
 
 
