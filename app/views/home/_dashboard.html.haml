@@ -16,7 +16,7 @@
           = label_tag(:sortby,'Sort by')
           %br/
           = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
-          = hidden_field_tag :kudos, params[:kudos] unless params[:searchterms].blank?
+          = hidden_field_tag :kudos, params[:kudos]
         %p#kudos_search_cont
           = render :partial => "home/search"
         .clearing

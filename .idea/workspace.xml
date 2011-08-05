@@ -38,7 +38,7 @@
       <file leaf-file-name="_dashboard.html.haml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="87" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.51107323">
+            <state line="18" column="51" selection-start="983" selection-end="983" vertical-scroll-proportion="0.6132879">
               <folding />
             </state>
           </provider>
@@ -679,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/home/_dashboard.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="87" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.51107323">
+        <state line="18" column="51" selection-start="983" selection-end="983" vertical-scroll-proportion="0.6132879">
           <folding />
         </state>
       </provider>
