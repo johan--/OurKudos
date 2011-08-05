@@ -44,6 +44,8 @@
      = link_to t(:kudo_add_comment), '#', :class   => "comment_form_toggle",
                                                         :id     => kudo.id,
                                                         :remote => true
+    &nbsp;
+    = "(#{kudo.comments_count})" if kudo.comments_count > 0
    
    .clearing
 
