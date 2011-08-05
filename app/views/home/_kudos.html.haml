@@ -12,4 +12,4 @@
  - unless (@kudos.last_page? rescue false)
   - if params[:searchterms].blank?
    = spinner_tag
-   = link_to("+ show more kudos", "javascript:void(0)", :class => "next_page")
+   = link_to("show more kudos #{image_tag('view-more-btn.png')}".html_safe, "javascript:void(0)", :class => "next_page")

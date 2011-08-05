@@ -445,13 +445,13 @@ p.comment_cont {
 	text-align: right;
 	
 	.next_page {
-		font: normal 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-		color: $dark_green;
+		font: bold 1.4em Verdana, Arial, Helvetica, sans-serif;
+		color: #a0becf;
 		text-decoration: none;
-	
-	  &:hover {
-	  	text-decoration: underline;
-	  }
+		
+		img {
+			vertical-align: middle;
+		}
 	
 	}
 	
