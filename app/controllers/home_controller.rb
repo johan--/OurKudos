@@ -2,7 +2,9 @@ class HomeController < ApplicationController
 	before_filter :authenticate_user!, :only => [:home]
   before_filter :check_if_recipient_valid, :only => [:home]
   before_filter :check_invitation, :only => [:invite]
+  before_filter :check_searchterms, :only => [:home]
   layout :choose_layout
+
 
   def index
     if user_signed_in?
@@ -64,10 +66,19 @@ class HomeController < ApplicationController
          end
        end
 
-      def search_kudos
-        @kudos = Kudo.serchterms_kudos(params[:searchterms]).limit(10)
-      end
+    end
 
+    def check_searchterms
+      params[:kudos] = "searchterms" if go_to_search_tab?
+    end
+
+    def search_kudos
+        @kudos = Kudo.serchterms_kudos(params[:searchterms]).where(:share_scope => nil).limit(10)
+    end
+
+    def go_to_search_tab?
+      (!params[:kudos].blank? && params[:kudos] != 'searchterms' && !params[:searchterms].blank?) ||
+        (params[:kudos].blank? && !params[:searchterms].blank?)
     end
 
 

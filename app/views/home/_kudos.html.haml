@@ -1,5 +1,5 @@
 - for kudo in @kudos
- - if params[:kudos] == "sent" || params[:kudos].blank? || params[:kudos] == "newsfeed"
+ - if params[:kudos] == "sent" || params[:kudos].blank? || params[:kudos] == "newsfeed" || params[:kudos] == "searchterms"
   = render :partial => "kudos/sent_kudo",     :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
 
  - elsif params[:kudos] == "received"
@@ -7,6 +7,7 @@
 
  - elsif params[:kudos] == "local"
   = render :partial => "kudos/sent_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
+ - elsif params[]
 
 #pagination
  - unless (@kudos.last_page? rescue false)

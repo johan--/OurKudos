@@ -359,7 +359,7 @@ class Kudo < ActiveRecord::Base
     end
 
     def allowed_tabs
-      %w{received sent newsfeed local}
+      %w{received sent newsfeed searchterms}
     end
 
     #this shouldn't be run at all on large datasets
@@ -371,10 +371,9 @@ class Kudo < ActiveRecord::Base
     end
 
     def options_for_sort
-      [['most recent kudos first', 'date_desc'],
+      [['newest kudos first', 'date_desc'],
        ['oldest kudos first', 'date_asc'],
-       ['most commented first', 'comments_desc'],
-       ['least commented first', 'comments_asc']
+       ['most commented first', 'comments_desc']
         ]
     end
 

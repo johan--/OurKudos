@@ -2,21 +2,25 @@
   #kudo_dashboard_top{:class => kudos_current_class_for_tab }
     %ul#nav_kudo_dashboard
       %li
-        %h2= link_to first_tab_helper,   home_path(first_tab_params), :class => kudos_current_class_for_link('newsfeed')
+        %h2= link_to 'Newsfeed', home_path(:kudos => "newsfeed"), :class => kudos_current_class_for_link('newsfeed')
       %li
         %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for_link('sent')
       %li
         %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for_link('received')
-      //%li
-      //  %h2= link_to 'Local',   home_path(:kudos => "local"), :class => kudos_current_class_for_link('local')
+      %li
+        %h2= link_to 'Search results', home_path(:kudos => "searchterms", :searchterms => params[:searchterms]),
+                                                                          :class => kudos_current_class_for_link('searchterms')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
       = form_tag home_path, :method => :get, :id => "sort_and_search_kudos_form" do
-        %p#kudos_sortby_cont
-          = label_tag(:sortby,'Sort by')
-          %br/
-          = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
-          = hidden_field_tag :kudos, params[:kudos]
+
+        - unless params[:kudos] == "searchterms"
+          %p#kudos_sortby_cont
+            = label_tag(:sortby,'Sort by')
+            %br/
+            = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
+            = hidden_field_tag :kudos, params[:kudos]
+
         %p#kudos_search_cont
           = render :partial => "home/search"
         .clearing

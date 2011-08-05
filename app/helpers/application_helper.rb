@@ -71,5 +71,6 @@ module ApplicationHelper
     image_tag 'spinner.gif', :id => "spinner", :style => "display:none", :width => 16, :height => 16
   end
 
+
   
 end

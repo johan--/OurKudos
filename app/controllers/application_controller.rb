@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
           term = "newsfeed"
       @kudos = current_user.send("#{term}_kudos").page(params[:page]).per(10) rescue []
 
-      @kudos = Kudo.public_kudos.limit(10)         if term == 'newsfeed' && @kudos.blank?
+      @kudos = Kudo.public_kudos.limit(10)                        if term == 'newsfeed' && @kudos.blank?
       @kudos = @kudos.order(Kudo.sort_by_field params[:sort_by] ) if @kudos.respond_to?(:order) && @kudos.first.is_a?(Kudo)
       @kudos = @kudos.order(Kudo.sort_by_field params[:sort_by] ) if @kudos.respond_to?(:order) && @kudos.first.is_a?(KudoCopy)
 

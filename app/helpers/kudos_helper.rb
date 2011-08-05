@@ -1,7 +1,7 @@
 module KudosHelper
 
   def kudos_current_class_for_link tab
-     return 'active' if (tab == 'newsfeed' && params[:kudos].blank?) || (tab == 'searchterms' && params[:kudos].blank?)
+     return 'active' if (tab == 'newsfeed' && params[:kudos].blank?)
 
      params[:kudos] == tab ? 'active' : ''
   end
@@ -14,16 +14,6 @@ module KudosHelper
   def kudo_object kudo
     return kudo.kudo if kudo.is_a?(KudoCopy)
     kudo
-  end
-
-  def first_tab_helper
-    return "Search results" unless params[:searchterms].blank?
-    "News Feed"
-  end
-
-  def first_tab_params
-    return :searchterms => params[:searchterms] unless params[:searchterms].blank?
-    {:kudos => :newsfeed}
   end
 
   def sent_kudo_destroy_link kudo
