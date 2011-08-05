@@ -1,13 +1,16 @@
 loadPage = (pageNo) ->
 
-  kudos = jQuery.getQueryString("kudos")
+  kudos   = jQuery.getQueryString("kudos")
+  sort_by = jQuery.getQueryString("sort_by")
+
+  sort_by = '' if sort_by is undefined
 
   if kudos == undefined
-    url = "/home?page="
+    url = "/home.js?page=" + pageNo + "&sort_by=" + sort_by
   else
-    url = "/home?kudos=" + kudos + "&page="
+    url = "/home.js?kudos=" + kudos + "&page=" + pageNo + "&sort_by=" + sort_by
 
-  jQuery.get url + pageNo, (response) ->
+  jQuery.get url, (response) ->
     jQuery("#pagination").remove()
     jQuery("#kudos").append response
 

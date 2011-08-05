@@ -15,7 +15,7 @@ class KudoCategory < ActiveRecord::Base
     end
 
     def collection_for_kudo_form
-      KudoCategory.all.map{|category| [category.name, category.id]  }
+      @categories ||= KudoCategory.all.map{|category| [category.name, category.id]  }
     end
 
 
