@@ -11,11 +11,12 @@
       //  %h2= link_to 'Local',   home_path(:kudos => "local"), :class => kudos_current_class_for_link('local')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
-      = form_tag home_path, :method => :get do
+      = form_tag home_path, :method => :get, :id => "sort_and_search_kudos_form" do
         %p#kudos_sortby_cont
           = label_tag(:sortby,'Sort by')
           %br/
           = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
+          = hidden_field_tag :kudos, params[:kudos]
         %p#kudos_search_cont
           = render :partial => "home/search"
         .clearing

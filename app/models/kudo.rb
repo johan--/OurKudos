@@ -371,15 +371,15 @@ class Kudo < ActiveRecord::Base
     end
 
     def options_for_sort
-      [['most recent kudos', 'date_asc'],
-       ['oldest kudos', 'date_desc'],
-       ['most commented upon', 'comments_asc'],
-       ['least comments number', 'commemts_desc']
+      [['most recent kudos first', 'date_desc'],
+       ['oldest kudos first', 'date_asc'],
+       ['most commented first', 'comments_desc'],
+       ['least commented first', 'comments_asc']
         ]
     end
 
     def allowed_sorting
-      %w{comments_asc comments_desc}
+      %w{comments_asc comments_desc date_asc date_dsc}
     end
 
 

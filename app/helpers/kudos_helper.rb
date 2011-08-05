@@ -17,12 +17,12 @@ module KudosHelper
   end
 
   def first_tab_helper
-    return "Search results" if params[:searchterms]
+    return "Search results" unless params[:searchterms].blank?
     "News Feed"
   end
 
   def first_tab_params
-    return :searchterms => params[:searchterms] if params[:searchterms]
+    return :searchterms => params[:searchterms] unless params[:searchterms].blank?
     {:kudos => :newsfeed}
   end
 
