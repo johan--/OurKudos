@@ -209,6 +209,7 @@ input[type=text], input[type=password] {
 	  margin: 0 auto;
 	  width: 650px;
   }
+  
   .social_buttons {
     float: right;
     .google_plus{
@@ -413,12 +414,19 @@ img#video_tour_image_btn {
 	cursor: pointer;
 }
 
+p.kudo_body_text {
+	width: 300px;
+	float: left;
+	font-size: 1.2em;
+}
+
 .social_buttons {
   width: 110px;
   margin-left: 10px;
   margin-top: 0px;
   height: 20px;
-  float: left;
+  float: right;
+  
   a {
     text-decoration: none;
     float: left;
