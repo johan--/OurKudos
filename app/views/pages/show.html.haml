@@ -1,8 +1,7 @@
-.wrapper-main
-  %h2= @page.title
-  
-  = raw @page.body
-  
-  - if current_user && current_user.has_role?(:admin)
-    %br
-    = link_to "Edit this page", edit_admin_page_path(@page)
+%h1= @page.title
+
+= raw @page.body
+
+- if current_user && current_user.has_role?(:admin)
+  %br
+  = link_to "Edit this page", edit_admin_page_path(@page)
