@@ -3,9 +3,9 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p= t(:dear_user, :user => @email).html_safe
+    //%p= t(:dear_user, :user => @email).html_safe
 
-    %p= t :kudo_email_explanation, :author => @author
+    %p= t :kudo_email_explanation, :author => @author.first_name
 
     %p= @kudo.kudo.body[0..100] + "..."
 
