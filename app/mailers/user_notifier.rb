@@ -33,7 +33,7 @@ class UserNotifier < ActionMailer::Base
 
   def kudo email_kudo
     @email  = email_kudo.email
-    @author = email_kudo.kudo.author.to_s
+    @author = email_kudo.kudo.author.first_name
     @kudo   = email_kudo
     @host   = host
     mail :to => @email, :subject => I18n.t(:someone_says_thank_you_to_you)
