@@ -67,7 +67,6 @@ class KudoFlag < ActiveRecord::Base
 
   def accept_flag!
     update_attribute :flag_valid, true
-    puts self.inspect
   end
 
   def reject_flag!
