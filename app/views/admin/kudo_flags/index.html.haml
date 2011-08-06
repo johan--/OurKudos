@@ -24,7 +24,9 @@
           %td= flag.created_at.strftime("%d-%m-%Y %I:%M:%S")
           %td= flag.flagger.penalty_score.to_s + "%"
           %td= render :partial => 'flag_accept_form', :locals => {:flag => flag}
-          %td= render :partial => 'flag_actions_form', :locals => {:flag => flag}
+          = hidden_field_tag "flag_action[#{flag.id}][current_user]", current_user.id
+          = hidden_field_tag "flag_action[#{flag.id}][kudo_flag]", flag.id
+          %td= select_tag "flag_action[#{flag.id}][action]", options_for_select(KudoFlagAction::ACTIONS), :id => "action_select_#{flag.id}", "data-id" => flag.id
 
   = submit_tag t :accept_reject_selected_flags if @kudo_flags.any?
 

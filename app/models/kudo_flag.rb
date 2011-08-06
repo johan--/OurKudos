@@ -2,6 +2,9 @@ class KudoFlag < ActiveRecord::Base
 
   belongs_to :flagger, :class_name => "User", :foreign_key => :flagger_id
   belongs_to :flagged_kudo, :class_name => "Kudo", :foreign_key => "kudo_id"
+  has_many :kudo_flag_actions
+
+  accepts_nested_attributes_for :kudo_flag_actions
 
   attr_accessor :ui_message
 

@@ -8,19 +8,22 @@ class Admin::KudoFlagsController < Admin::AdminController
 
 
   def flag
-    selected_ids = params[:kudo_flags]
+    no_action = KudoFlagAction.process_flag_action params[:flag_action]
 
-    if selected_ids.blank?
+    selected_ids = params[:kudo_flags] 
+
+    if selected_ids.blank? && no_action == true
        redirect_to :back, :alert => I18n.t(:select_at_least_one_kudo_flag)
+    elsif selected_ids.blank? && no_action == false
+      redirect_to admin_kudo_flags_path, :notice => I18n.t(:your_flags_changes_has_been_saved)
     else
-
       selected_ids.each do |key, value|
         flag = KudoFlag.find key.to_i
         value == 'true' ? flag.accept_flag! : flag.reject_flag!
       end
-
       redirect_to admin_kudo_flags_path, :notice => I18n.t(:your_flags_changes_has_been_saved)
     end
+    
   end
 
   private

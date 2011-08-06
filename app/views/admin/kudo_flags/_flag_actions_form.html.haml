@@ -1,4 +1,1 @@
-%td 
-  = select_tag 'action_taken', options_for_select(KudoFlagAction::ACTIONS), :id => "action_select_#{flag.id}", "data-id" => flag.id
-%td
-  = button_tag 'Go', :id => "new_action", "data-id" => flag.id, "data-user_id" => current_user.id
+= flag_action.select :action_taken, options_for_select(KudoFlagAction::ACTIONS), :id => "action_select_#{flag.id}", "data-id" => flag.id
