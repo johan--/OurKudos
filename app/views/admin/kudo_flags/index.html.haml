@@ -28,7 +28,7 @@
           = hidden_field_tag "flag_action[#{flag.id}][kudo_flag]", flag.id
           %td= select_tag "flag_action[#{flag.id}][action]", options_for_select(KudoFlagAction::ACTIONS), :id => "action_select_#{flag.id}", "data-id" => flag.id
 
-  = submit_tag t :accept_reject_selected_flags if @kudo_flags.any?
+  = submit_tag t :perform_actions if @kudo_flags.any?
 
 = link_to t :reset_this_form, :type => "button", :onclick => "document.forms.first.reset()" if @kudo_flags.any?
 

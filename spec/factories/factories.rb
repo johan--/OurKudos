@@ -151,8 +151,8 @@ end
 
 Factory.define :kudo_flag do |kf|
   kf.flag_reason "Spam"
-  kf.flagger    {|u|  Factory(:user) }
-  kf.kudo      {|kudo| Factory(:kudo) }
+  kf.flagger    {|u| u.association(:user) }
+  kf.flagged_kudo       {|k| k.association(:kudo) }
 end
 
 Factory.define :facebook_friend do |ff|

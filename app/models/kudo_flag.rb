@@ -6,7 +6,7 @@ class KudoFlag < ActiveRecord::Base
 
   accepts_nested_attributes_for :kudo_flag_actions
 
-  attr_accessor :ui_message
+  attr_accessor :ui_message, :flag_valid
 
   validates :flag_reason, :presence => true
 
@@ -67,6 +67,7 @@ class KudoFlag < ActiveRecord::Base
 
   def accept_flag!
     update_attribute :flag_valid, true
+    puts self.inspect
   end
 
   def reject_flag!
