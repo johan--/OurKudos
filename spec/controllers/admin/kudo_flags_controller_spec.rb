@@ -41,8 +41,10 @@ describe Admin::KudoFlagsController do
         #test not 100% valid
         KudoFlagAction.should_receive(:process_flag_action).and_return(true)
         valid_params = {:kudo_flags => {@kudo.id.to_s => 'true'}}
+        
         put 'flag', valid_params
-        response.should be_redirect
+        KudoFlag.all.should be_empty
+        Kudo.count.should eq(0)
       end
 
       it "should mark the flagged kudo invalid" do
@@ -50,13 +52,16 @@ describe Admin::KudoFlagsController do
         KudoFlagAction.should_receive(:process_flag_action).and_return(true)
         valid_params = {:kudo_flags => {@kudo.id.to_s => 'false'}}
         put 'flag', valid_params
-        response.should be_redirect
+        KudoFlag.first.flag_valid.should be(false)
+        Kudo.count.should eq(1)
       end
 
       it "should not show in the list after being validated" do
         KudoFlagAction.should_receive(:process_flag_action).and_return(true)
         valid_params = {:kudo_flags => {@kudo.id.to_s => 'true'}}
         put 'flag', valid_params
+        get 'index'
+        assigns[:kudo_flags].should_not include(@kudo)
       end
     end
 
@@ -67,13 +72,13 @@ describe Admin::KudoFlagsController do
         @valid_params = { :kudo_flags => {@kudo.id.to_s => 'false'}}
       end
 
-      it "should perform flag actions"
-      it "should not perfom any actions if all flag actions are no_action"
     end
 
     describe "submitting an empty form" do
-      it "should redirect back to the index action"
-      it "should show flash error"
+      it "should redirect back to the index action" do
+        put 'flag'
+        response.should be_redirect
+      end
     end
 
   end

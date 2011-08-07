@@ -10,7 +10,6 @@ class Admin::KudoFlagsController < Admin::AdminController
   def flag
     no_action = KudoFlagAction.process_flag_action params[:flag_action]
 
-    #epic_fail
     selected_ids = params[:kudo_flags] 
 
     if selected_ids.blank? && no_action == true
