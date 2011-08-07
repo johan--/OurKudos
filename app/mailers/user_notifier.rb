@@ -36,7 +36,7 @@ class UserNotifier < ActionMailer::Base
     @author = email_kudo.kudo.author.first_name
     @kudo   = email_kudo
     @host   = host
-    mail :to => @email, :subject => I18n.t(:someone_says_thank_you_to_you)
+    mail :to => @email, :subject => "#{@author} #{I18n.t(:new_kudo_in_your_inbox)}"
   end
 
   def system_kudo kudo_copy
