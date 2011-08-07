@@ -3,8 +3,6 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p= t(:dear_user, :user => @recipient.first_name).html_safe
-
     %p= t(:new_message_from, :author => @kudo.author)
     %p
       %blockquote= @kudo.body
@@ -12,4 +10,6 @@
       %br/
       = link_to t(:view_my_message_on_ourkudos), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}"
 
-
+    %p
+      = t :you_are_receiving_this_email_notice
+      //= link_to t(:click_here), 

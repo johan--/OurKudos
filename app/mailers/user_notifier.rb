@@ -43,7 +43,7 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo_copy
     @recipient = kudo_copy.recipient
     @host      = host
-    mail :to => @recipient.email, :subject => I18n.t(:new_kudo_in_your_inbox)
+    mail :to => @recipient.email, :subject => "#{@kudo.kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
   end
 
   def password_changed user, password
