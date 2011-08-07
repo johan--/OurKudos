@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
 
   has_many :comments
   has_many :pictures
+  has_one :messaging_preference
   # ================
   # ====scopes =====
   # ================
@@ -75,6 +76,7 @@ class User < ActiveRecord::Base
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   after_save  :flag_abuse_notification
+  after_save  :create_messaging_preferences, :on => :create
   before_destroy :set_identities_as_destroyable
   after_destroy  :remove_mergeables, :destroy_friendships
   before_create :build_inbox
@@ -426,6 +428,10 @@ class User < ActiveRecord::Base
 
   def flag_abuse_notification
     UserNotifier.delay.flag_abuse(self) if penalty_score >= 30  && self.send_penalty_notification
+  end
+
+  def create_messaging_preferences
+    MessagingPreference.create(:user_id => self.id)
   end
 
   def increase_invitations type

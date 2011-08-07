@@ -214,3 +214,7 @@ Factory.define :retrievable_gift, :class => "Gift" do |g|
   g.active true
 end
 
+Factory.define :messaging_preference do |mp|
+  mp.association :user
+  mp.system_kudo_email true
+end

@@ -1,0 +1,2 @@
+module MessagingPreferencesHelper
+end

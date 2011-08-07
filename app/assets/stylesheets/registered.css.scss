@@ -530,6 +530,13 @@ body.users_show, body.friendships_show, body.facebook_friends_index {
 		line-height: 1.3em;
 		
 	}
+
+	span.datalabel {
+		font-size: 1.3em;
+		font-weight: bold;
+		color: $dark_green;
+		line-height: 1.3em;
+	}
 	
 	h4 {
 		font: normal 1.3em "Lucida Sans Unicode", "Lucida Grande", sans-serif;

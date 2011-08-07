@@ -1,0 +1,15 @@
+%h2= t :messaging_preferences
+%p= @preference.user
+= form_for @preference, :method => :put do |f|
+  = error_messages_for @preference
+  
+  %p
+    = f.label :system_kudo_email, t(:system_kudo_email)
+    %br
+    = f.radio_button :system_kudo_email, true
+    = t :yes
+    = f.radio_button :system_kudo_email, false
+    = t :no
+  %p
+    = f.submit t(:update_my_preferences)
+    = link_to 'cancel', user_path(current_user), :class => 'action_link'

@@ -59,9 +59,10 @@
   
   %h4= t :email_notifications
   %p
-    %span.datavalue=  t :get_an_email_whenever_you_receive_kudos
+    %span.datalabel=  t :get_an_email_whenever_you_receive_kudos
+    %span.datavalue= @user.messaging_preference.system_kudo_email ? "Yes" : "No"
   %p
-    %span.datavalue= t(:receive_a_weekly_summary_of_kudos_in_your_community)
+    %span.datalabel= t(:receive_a_weekly_summary_of_kudos_in_your_community)
   /%p
   /  %span.datavalue= t(:allow_businesses_that_youve_sent_kudos_to_to_notify_you_of_specials)
   /%p
@@ -73,11 +74,11 @@
   
   %h4= t :kudos_scope_default
   %p
-    %span.datavalue= t(:show_kudos_to_the_world_by_default)
+    %span.datalabel= t(:show_kudos_to_the_world_by_default)
   
   
   %p
-    = link_to t(:edit_messaging_prefs), '/', :class => "action_link"
+    = link_to t(:edit_messaging_prefs), edit_messaging_preference_url(@user), :class => "action_link"
     |
     = link_to t(:manage_blocked_senders_list), '/', :class => "action_link"
   

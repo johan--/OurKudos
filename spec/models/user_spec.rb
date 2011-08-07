@@ -132,4 +132,12 @@ describe User do
     end
   end
 
+  describe 'messaging preferences' do
+    it "should create a messaging preference for a new user" do
+      user = Factory(:user)
+      user.messaging_preference.system_kudo_email.should eq(true)
+                                         
+    end
+  end
+
 end

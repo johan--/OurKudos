@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803215633) do
+ActiveRecord::Schema.define(:version => 20110807130325) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -279,6 +279,13 @@ ActiveRecord::Schema.define(:version => 20110803215633) do
     t.integer  "identity_id"
     t.integer  "merged_id"
     t.string   "merged_with_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messaging_preferences", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "system_kudo_email", :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
