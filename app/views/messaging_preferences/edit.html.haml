@@ -11,5 +11,12 @@
     = f.radio_button :system_kudo_email, false
     = t :no
   %p
+    = f.label :weekly_local_summary, t(:receive_a_weekly_summary_of_kudos_in_your_community)
+    %br
+    = f.radio_button :weekly_local_summary, true
+    = t :yes
+    = f.radio_button :weekly_local_summary, false
+    = t :no
+  %p
     = f.submit t(:update_my_preferences)
     = link_to 'cancel', user_path(current_user), :class => 'action_link'

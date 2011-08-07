@@ -63,6 +63,7 @@
     %span.datavalue= @user.messaging_preference.system_kudo_email ? "Yes" : "No"
   %p
     %span.datalabel= t(:receive_a_weekly_summary_of_kudos_in_your_community)
+    %span.datavalue= @user.messaging_preference.weekly_local_summary ? "Yes" : "No"
   /%p
   /  %span.datavalue= t(:allow_businesses_that_youve_sent_kudos_to_to_notify_you_of_specials)
   /%p
