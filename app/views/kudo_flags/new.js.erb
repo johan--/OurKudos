@@ -1,5 +1,6 @@
 var popup_html  = '<%= escape_javascript render :partial => "kudo_flag_popup" %>';
 var popup_box   = $("div.popup_placeholder#flag_popup_placeholder_<%= @kudo.id %>");
+var kudo_id = <%= @kudo.id %>;
 
 
 popup_box.html(popup_html).dialog({title: '<%= t(:kf_help_understand_message) %>', width: 446, modal: true, resizable: false, buttons: [{ text: "Flag this Kudo!", click: function(){$("form#new_kudo_flag").submit();} },{ text: "Cancel", click: function(){$(this).dialog("close");} } ]  });
@@ -7,3 +8,6 @@ popup_box.html(popup_html).dialog({title: '<%= t(:kf_help_understand_message) %>
 $('div.ui-dialog').prepend('<div id="dialog-kudos-character" class="flagman"></div>');
 $('button.ui-button:eq(0)').addClass('action_button');
 $('button.ui-button:eq(1)').addClass('cancel_link');
+$('button.ui-button:eq(1)').attr("data-kudo_id", kudo_id);
+
+$("div.popup_placeholder#flag_popup_placeholder_<%= @kudo.id %>").attr("data-kudo_id", kudo_id);
