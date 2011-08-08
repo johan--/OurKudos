@@ -7,7 +7,6 @@ class MessagingPreferencesController < ApplicationController
   end
 
   def update
-    puts params.inspect
     @preference = MessagingPreference.find_by_user_id(current_user.id)
     if @preference.update_attributes(params[:messaging_preference])
       flash[:notice] = "Successfully updated messaging preferences"

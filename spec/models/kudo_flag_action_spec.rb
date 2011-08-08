@@ -9,12 +9,7 @@ describe KudoFlagAction do
         @flag = Factory(:kudo_flag)
       end
 
-      it "should suspend the author" do
-        action = KudoFlagAction.new(:kudo_flag_id => @kudo.id,
-                                    :admin_user => @user.id,
-                                    :action_taken => 'suspend')
-
-      end
+      it "should suspend the author"
 
     end
 
