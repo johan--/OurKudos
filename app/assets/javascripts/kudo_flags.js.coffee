@@ -6,7 +6,6 @@ jQuery ->
         jQuery.get("/kudos/" + data_id + "/kudo_flags/new.js")
 
     jQuery('cancel-kudo-flag').click ->
-        #need to add clickable class back in
         jQuery("div.popup_placeholder").dialog('close');
 
     jQuery('div.popup_placeholder').bind 'dialogclose', ->
