@@ -1,9 +1,8 @@
 = form_for @kudo_flag, :url => kudo_kudo_flags_path(@kudo), :remote => true do |f|
-  = f.select :flag_reason, options_for_select(KudoFlag.reasons_for_select), {:prompt => t(:kf_please_select_reason) }
+  = f.select :flag_reason, options_for_select(KudoFlag.reasons_for_select(@kudo.author.id, current_user.id)), {:prompt => t(:kf_please_select_reason) }
 
   %p.message_container
 
   %p.kudo_flag_form{:id => @kudo.id}
     = f.submit t(:kf_flag_this_kudo)
-
 

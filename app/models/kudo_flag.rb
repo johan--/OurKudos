@@ -84,12 +84,14 @@ class KudoFlag < ActiveRecord::Base
 
   class << self
 
-    def reasons_for_select
-      [
-        ['This Kudo is spam or clearly an advertisement.', 'spam'],
-        ['This Kudo is offensive, lewd or obscene.', 'offensive'],
-        ['I am not the intended recipient of this Kudo.', 'incorrect_recipient']
-      ]
+    def reasons_for_select(author, user)
+      options = []
+      options << ['This Kudo is spam or clearly an advertisement.', 'spam']
+      options << ['This Kudo is offensive, lewd or obscene.', 'offensive']
+      unless author == user 
+        options << ['I am not the intended recipient of this Kudo.', 'incorrect_recipient']
+      end
+      options
     end
 
 
