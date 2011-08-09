@@ -5,10 +5,6 @@
  - elsif params[:kudos] == "received"
   = render :partial => "kudos/received_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
 
- - elsif params[:kudos] == "local"
-  = render :partial => "kudos/sent_kudo", :locals => {:kudo => kudo} if kudo.visible_for?(current_user)
- - elsif params[]
-
 #pagination
  - unless (@kudos.last_page? rescue false)
   - if params[:searchterms].blank?

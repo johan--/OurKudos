@@ -12,7 +12,7 @@ loadPage = (pageNo) ->
 
   jQuery.get url, (response) ->
     jQuery("#pagination").remove()
-    jQuery("#kudos").append response
+    jQuery("div#kudos").append response
 
 jQuery ->
   currPage = 1
@@ -26,5 +26,5 @@ jQuery ->
       jQuery(".notice, .alert, .error").remove()
 
     jQuery("#spinner").show()
-    jQuery("#pagination").prepend(' loading more kudos...')
+    jQuery("#pagination").prepend 'loading more kudos...'
 
