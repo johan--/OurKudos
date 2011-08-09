@@ -69,8 +69,10 @@ div.ui-dialog-buttonpane div.ui-dialog-buttonset button.action_button {
 	outline: none;
 	background: url(action_button_bg.png) no-repeat right top;
 	background-color: #c90816;
+	border: 2px solid #c90816;
 	
 	&:hover {
+	  border: 2px solid #000;
 	}
 }
 
