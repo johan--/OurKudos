@@ -17,9 +17,9 @@ class KudoFlagAction < ActiveRecord::Base
   
       unless param[1]['action'] == 'no_action' 
         no_action = false
-        action = KudoFlagAction.new(:kudo_flag_id => param[1]['kudo_flag'].to_i,
+        action = KudoFlagAction.new(:kudo_flag_id  => param[1]['kudo_flag'].to_i,
                                     :admin_user_id => param[1]['current_user'].to_i,
-                                    :action_taken => param[1]['action'] )
+                                    :action_taken  => param[1]['action'] )
         action.send("#{param[1]['action']}_action")
         action.save
       end

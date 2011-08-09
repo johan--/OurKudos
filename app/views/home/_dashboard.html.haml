@@ -7,8 +7,9 @@
         %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for_link('sent')
       %li
         %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for_link('received')
-      %li
-        %h2= link_to 'Search results', home_path(:kudos => "searchterms", :searchterms => params[:searchterms]),
+      - unless params[:searchterms].blank?
+        %li
+          %h2= link_to 'Search results', home_path(:kudos => "searchterms", :searchterms => params[:searchterms]),
                                                                           :class => kudos_current_class_for_link('searchterms')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
@@ -16,7 +17,7 @@
 
         - unless params[:kudos] == "searchterms"
           %p#kudos_sortby_cont
-            = label_tag(:sortby,'Sort by')
+            = label_tag :sortby,'Sort by'
             %br/
             = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
             = hidden_field_tag :kudos, params[:kudos]
