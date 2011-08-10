@@ -54,11 +54,6 @@
 	background: url(main_bg.png) repeat-y left top;
 }
 
-.wrapper-main {
-	padding: 0 30px;
-}
-
-
 #col_left, #col_right {
 	float: left;
 }
@@ -81,7 +76,6 @@ img#new-to-ok-arrow {
 #col_right {
 	width: 640px;
 	padding-top: 8px;
-
 }
 
 #recent_kudos_cont {
@@ -106,19 +100,6 @@ img#new-to-ok-arrow {
 }
 
 /* forms */
-
-label {
-	font: bold 1.1em Arial, Helvetica, sans-serif;
-	padding-left: 3px;
-}
-
-input[type=text], input[type=password] {
-	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	background-color: #e1f0be;
-	border: 2px solid #fff;
-	padding: 4px 7px;
-	@include rounded-edges(5px);
-}
 
 	/* password strength indicator on sign-up form */
 
@@ -155,10 +136,6 @@ input[type=text], input[type=password] {
   }
 }
 
-
-
-
-
 /* end kudos messaging */
 
 /* Invite styles */
@@ -169,6 +146,11 @@ input[type=text], input[type=password] {
 	padding-top: 15px;
 	padding-bottom: 40px;
 	margin-bottom: 30px;
+	
+	p.kudo_body_text {
+	  width: auto;
+	  float: none;
+  }
 	
 	div.kudo_message_bubble_cont {
 		width: 480px;
@@ -210,16 +192,6 @@ input[type=text], input[type=password] {
 	  margin: 0 auto;
 	  width: 650px;
   }
-  
-  .social_buttons {
-    float: right;
-    .google_plus{
-      float: right;
-    }
-    .facebook_like{
-      float: right;
-    }
-  }
 
   textarea {
   	width: 470px;
@@ -252,7 +224,7 @@ input[type=text], input[type=password] {
   }
   
   #one_two_three_cont {
-    margin: 0 0px 0 85px;
+    margin: 0 0 0 85px;
     
     p {
     	font: normal 1.3em "Puritan", Verdana, Helvetica, sans-serif;
@@ -363,57 +335,6 @@ span.blue_accent {
 	}
 }
 
-#invite_col_left { 
-	padding: 0 0 0 35px;
-	margin-right: 40px;
-	
-	div.kudo_message_bubble_cont {
-		width: 370px;
-	}
-	
-	div.kudo_message_mid {
-		background: url(kudo_message_mid_sprite.png) no-repeat left -368px;
-	}
-
-	div.kudo_message_top {
-		width: 526px;
-		background: url(kudo_message_top_sprite.png) no-repeat left -22px;
-	}
-	
-	div.kudo_message_bot {
-		width: 526px;
-		background: url(kudo_message_bot_sprite.png) no-repeat left -26px;
-	}
-
-
-}
-
-#invite_col_right {
-	position: relative;
-	padding: 0 35px 0 0;
-}
-
-#kudos_icon_hugging {
-	position: absolute;
-	right: 0;
-top: 30px; 
-}
-
-ul.invite_list {
-	list-style: disc;
-	margin: 0 0 10px 20px;
-	font: 1.3em Verdana, Arial, Helvetica, sans-serif;
-	color: $very_dark_gray;
-	
-	li {
-		margin-bottom: 8px;
-	}
-
-}
-
-img#video_tour_image_btn {
-	cursor: pointer;
-}
 
 p.kudo_body_text {
 	width: 300px;

@@ -77,10 +77,6 @@ img#user_avatar {
 	background: url(main_bg.png) repeat-y left top;
 }
 
-.wrapper-main {
-	padding: 0 30px;
-}
-
 
 /* Send Kudos Area */
 
@@ -171,11 +167,10 @@ input#kudo_to {
 #kudo_send_submit_region {
 	width: 835px;
 	height: 40px;
-	padding: 5px 5px 0 20px;
+	padding: 30px 5px 0 20px;
 	background: url(kudo_send_submit_region_bg.png) no-repeat left bottom;
 	clear: both;
 	margin: 0 auto;
-	padding-top: 30px;
 	
 	img {
 		vertical-align: middle;
@@ -199,8 +194,7 @@ input#kudo_to {
 
 span#social_share_choices {
 	float: left;
-	padding-top: 8px;
-	padding-left: 10px;
+	padding: 8px 0 0 10px;
 	
 	label {
 		padding-right: 20px;
@@ -220,22 +214,19 @@ span#social_share_choices {
 #kudo_dashboard_top {
 	width: 944px;
 	height: 78px;
-}
-
-.kdt_sent {
-	background: url(kudo_dashboard_top_sprite.png) no-repeat left -78px;
-}
-
-.kdt_received {
-	background: url(kudo_dashboard_top_sprite.png) no-repeat left -156px;
-}
-
-.kdt_newsfeed {
 	background: url(kudo_dashboard_top_sprite.png)  no-repeat left top;
 }
 
-.kdt_searchterms {
-	background: url(kudo_dashboard_top_sprite.png) no-repeat left -234px;
+#kudo_dashboard_cont div.kdt_sent {
+	background-position: left -78px;
+}
+
+#kudo_dashboard_cont div.kdt_received {
+	background-position: left -156px;
+}
+
+#kudo_dashboard_cont div.kdt_searchterms {
+	background-position: left -234px;
 }
 
 #kudo_dashboard_mid {
@@ -263,9 +254,7 @@ ul#nav_kudo_dashboard {
 		
 		h2 a {
 			text-decoration: none;
-			font-size: 1.3em;
-			color: #fff;
-			font-family: "NunitoRegular", Arial, Helvetica, sans-serif;
+			font: 1.3em "NunitoRegular", Arial, Helvetica, sans-serif #fff;
 			
 			&.active {
 				color: $headers_blue;
@@ -306,10 +295,12 @@ div.kudo_message_cont {
 
 div.kudo_message_bubble_cont {
 	width: 700px;
-	border-radius: 15px;
+	@include rounded-edges(15px);
 	border: 1px solid #ebecee;
 	background-color: #fff;
 	padding: 15px;
+	-moz-box-shadow: 2px 4px 6px #ebecee;
+	-webkit-box-shadow: 2px 4px 6px #ebecee;
 	box-shadow: 2px 4px 6px #ebecee;
 	float: right;
 }
@@ -354,7 +345,6 @@ a.delete_kudo_btn {
 	width: 17px;
 	height: 18px;
 	display: block;
-	/*background: url(deletex_btn.png) no-repeat left top;*/
 	background: url(trashcan-sprite.png) no-repeat left -18px;
 	text-decoration: none;
 	clear: left;
@@ -372,16 +362,16 @@ a.delete_kudo_btn {
 	margin-bottom: 15px;
 	
 	&:hover {
-		background: url(kudo_flag_icon_sprite.png) left top no-repeat;
+		background: url(kudo_flag_icon_sprite.png) no-repeat left top;
 	}
 }
 
 .kf_dimmed {
-	background: url(kudo_flag_icon_sprite.png) left -28px no-repeat;
+	background: url(kudo_flag_icon_sprite.png) no-repeat left -28px;
 }
 
 .kf_activated {
-	background: url(kudo_flag_icon_sprite.png) left top no-repeat;
+	background: url(kudo_flag_icon_sprite.png) no-repeat left top;
 }
 
 a.comment_form_toggle {
@@ -424,9 +414,8 @@ a.comment_form_toggle {
 
 p.comment_cont {
 	border-bottom: 1px dotted $light_gray;
-	margin-left: 30px;
 	padding: 7px 0;
-	margin-bottom: 0;
+	margin: 0 0 0 30px;
 	
 	span.commenter {
 		font-size: 1.2em;
@@ -441,6 +430,7 @@ p.comment_cont {
 	
 	&:last-child {
 		border-bottom: none;
+		padding-bottom: 0;
 	}
 }
 
@@ -469,23 +459,8 @@ p.comment_cont {
 
 /* forms */
 
-
-label {
-	font: bold 1.1em Arial, Helvetica, sans-serif;
-	padding-left: 3px;
-}
-
-input[type=text], input[type=password] {
-	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	background-color: #e1f0be;
-	border: 2px solid #fff;
-	padding: 4px 7px;
-	@include rounded-edges(5px);
-}
-
 p#kudos_sortby_cont {
 	float: left;
-
 }
 
 p#kudos_search_cont {
@@ -559,7 +534,6 @@ body.users_show, body.friendships_show, body.facebook_friends_index {
 }
 
 img.sn_tile_status {
-	
 	vertical-align: middle;
 }
 
@@ -575,8 +549,6 @@ span.sn_status_dim {
 	color: $light_gray;
 }
 
-
-
 .userprofile_col_left, .userprofile_col_right {
 	float: left;
 }
@@ -584,11 +556,6 @@ span.sn_status_dim {
 .userprofile_col_left {
 	width: 650px;
 	margin-right: 20px;
-	
-	.alignleft, .alignright {
-		float: left;
-		width: 30em;
-	}
 }
 
 .userprofile_col_right {
@@ -603,7 +570,7 @@ ul.profile_pics {
 		padding: 10px;
 		cursor: move;
 		border: 2px dotted #aaa;
-		border-radius: 5px;
+		@include rounded-edges(5px);
 		width: 10em;
 		margin-bottom: 5px;
 		font: 1.4em "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", sans-serif;
@@ -613,6 +580,7 @@ ul.profile_pics {
 		
 		&:hover {
 			background-color: $yellow;
+			border: 2px solid #aaa;
 		}
 		
 		img.avatar {

@@ -60,13 +60,13 @@ body {
 	clear: both;
 }
 
-.no_bot_marg {
-	margin-bottom: 0 !important;
-}
-
 .action_link {
 	font: 1.2em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	color: $warning_red;
+}
+
+.wrapper-main {
+	padding: 0 30px;
 }
 
 .border1 {
@@ -78,8 +78,8 @@ img.avatar {
 	width: 52px;
 	height: 52px;
 	overflow: hidden;
-	-webkit-box-shadow: 0 0 5px 2px #ccc;
 	-moz-box-shadow: 0 0 5px 2px #ccc;
+	-webkit-box-shadow: 0 0 5px 2px #ccc;
 	box-shadow: 0 0 5px 2px #ccc;
 }
 
@@ -138,8 +138,9 @@ h2 {
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
 	margin: 30px 40px 0 40px;
+	-moz-box-shadow: 0px -2px 7px #ddd;
+	-webkit-box-shadow: 0px -2px 7px #ddd;
 	box-shadow: 0px -2px 7px #ddd;
-
 	padding: 16px 0;
 	clear: both;
 }
@@ -160,10 +161,6 @@ ul#nav_footer li {
 	font: normal 1.3em Verdana, Arial, sans-serif;
 	color: #508bac;
 
-}
-
-ul#nav_footer li#footer_separator {
-	padding: 0 10px;
 }
 
 ul#nav_footer li a {
@@ -230,7 +227,7 @@ span.receiver {
 
 span.receiver a {
 	color: #690;
-    text-decoration: none;
+  text-decoration: none;
 }
 
 span.greater_than {
@@ -282,6 +279,55 @@ ul.type2 {
 	}
 }
 
+/* forms */
+
+label {
+	font: bold 1.1em Arial, Helvetica, sans-serif;
+	padding-left: 3px;
+}
+
+input[type=text], input[type=password] {
+	font: 1.4em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	background-color: #e1f0be;
+	border: 2px solid #fff;
+	padding: 4px 7px;
+	@include rounded-edges(5px);
+}
+
+/* end forms */
+
+
+
+.hidden {
+    display: none;
+}
+
+/*
+We will continue development of this feature in Alpha2 or Beta
+
+.business-card-window {
+	position: absolute;
+	z-index: 3000;
+    max-width: 250px;
+    font-size: 12px;
+    font-weight: bolder;
+	border: 1px solid #111;
+	background-color: #eee;
+	padding: 5px;
+    vertical-align:top;
+
+    div.close-link {
+
+      a.close_business_card_link {
+        float:  right;
+        margin-top: 5px;
+       }
+
+    }
+}
+
+*/
+
 
 
 
@@ -308,34 +354,6 @@ ul.type2 {
 		width: 1100px; /* prevents cropping of edges */
 	}
 }
-
-
-.business-card-window {
-	position: absolute;
-	z-index: 3000;
-    max-width: 250px;
-    font-size: 12px;
-    font-weight: bolder;
-	border: 1px solid #111;
-	background-color: #eee;
-	padding: 5px;
-    vertical-align:top;
-
-    div.close-link {
-
-      a.close_business_card_link {
-        float:  right;
-        margin-top: 5px;
-       }
-
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-
 
 
 
