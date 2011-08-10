@@ -20,8 +20,8 @@ module RegularExpressions
     /^http(?:s?)\:\/\//
   end
 
-  def self.protocol_with_domain
-
+  def self.merchant
+    /^mrt_{1}/
   end
  #TODO place other reg exps here
 

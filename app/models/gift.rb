@@ -30,7 +30,7 @@ class Gift < ActiveRecord::Base
         info = OurKudos::CommissionJunction.api_call(self.merchant.affiliate_code, self.affiliate_code)
         unless info == "bad uri"
           doc = Nokogiri::XML(info)
-          
+          debugger
           self.name = doc.xpath('//name').first.text
           self.link = doc.xpath('//buy-url').first.text
           self.description = doc.xpath('//description').first.text
