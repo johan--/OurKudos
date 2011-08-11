@@ -52,7 +52,7 @@ table {
 body {
 	font-size: 65%;
 	font-family: arial;
-	background: url(body_bg.jpg) repeat-x left top;
+	background: url(<%= asset_path 'body_bg.jpg' %>) repeat-x left top;
 	line-height: 1;
 }
 
@@ -132,7 +132,7 @@ h2 {
 /* footer */
 	
 #footer {
-	background: url(footer_bg.gif) repeat-x left top;
+	background: url(<%= asset_path 'footer_bg.gif' %>) repeat-x left top;
 	border: 3px solid #fff;
 	border-bottom: none;
 	border-top-left-radius: 15px;
@@ -196,7 +196,7 @@ div.kudo_message_bubble_cont {
 div.kudo_message_bubble_nipple {
 	width: 19px;
 	height: 28px;
-	background: url(kb_nipple_bg.png) no-repeat left top;
+	background: url(<%= asset_path 'kb_nipple_bg.png' %>) no-repeat left top;
 	margin-left: -34px;
 	margin-top: 8px;
 	float: left;
