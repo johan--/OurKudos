@@ -1,10 +1,9 @@
+@import "variables_and_mixins";
 
 #gift_select_slider {
   display:none;
   border: 1px solid #00cc00;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  @include rounded-edges(5px);
   padding: 5px;
   background: #99ff99;
   width: 610px;
@@ -30,9 +29,7 @@
 
 #gift_list_noscript {
   border: 1px solid #00cc00;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  @include rounded-edges(5px);
   padding: 5px;
   background: #99ff99;
   width: 610px;
@@ -51,9 +48,7 @@
   form {
     text-align: center;
     border: 1px solid #00cc00;
-    border-radius: 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
+    @include rounded-edges(5px);
     padding: 5px;
     background: #99ff99;
     width: 60%;
@@ -111,14 +106,12 @@ h3.featured_gift{
 .wrapper {
   overflow: hidden;
   border: 2px solid #6699cc;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  @include rounded-edges(5px);
   
 }
 .infiniteCarousel ul p {
   border: 5px solid #999;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  @include rounded-edges(5px);
   background: #fff;
   text-align: center;
   height: 200px;
@@ -161,7 +154,7 @@ h3.featured_gift{
   display: block;
   height: 36px;
   width: 37px;
-  background: url(arrow.png) no-repeat 0 0;
+  background: url(<%= asset_path 'arrow.png' %>) no-repeat 0 0;
   text-indent: -999px;
   position: absolute;
   top: 37px;
@@ -224,9 +217,7 @@ span.carousel_img a img{
     padding: 5px;
     border: 1px solid #000;
     background: #fff;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
+    @include rounded-edges(3px);
     box-shadow: 1px 1px 1px #000;
     -moz-box-shadow: 1px 1px 1px #000;
     -webkit-box-shadow: 1px 1px 1px #000;
