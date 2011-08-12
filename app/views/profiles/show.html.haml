@@ -8,7 +8,11 @@
         %span.datavalue= @user.secured_name
       %p
         %span.datalabel Location:
-        %span.datavalue= "#{@user.city}, #{@user.state_or_province}"
+        %span.datavalue
+          - if @user.city || @user.state_or_province
+            "#{@user.city}, #{@user.state_or_province}"
+          - else
+            [private: this member doesn't share their location]
       - if @user.birthday && !@user.hide_birth_year
         %p
           Birthday:
