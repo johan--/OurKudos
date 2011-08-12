@@ -15,8 +15,9 @@
             #{@user.city}, #{@user.state_or_province}
       - if @user.birthday && !@user.hide_birth_year
         %p
-          Birthday:
-          = l(@user.birthday, :format => :long)
+          %span.datalabel Birthday:
+          %span.datavalue= l(@user.birthday, :format => :long)
+          
       .clearing
       
     .contentarea_cont
