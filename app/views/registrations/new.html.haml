@@ -3,6 +3,13 @@
                                              :url => registration_path(resource_name)) do |f|
     %h2 Create a new OurKudos Account
     = error_messages_for @user
+    = sign_up_link
+    - if company_sign_up?
+      %p
+        = f.label :company_name
+        %br/
+        = f.text_field :company_name
+
   
     = render :partial => "form_fields", :locals => {:f => f}
     = hidden_field_tag :autofill, params[:autofill]

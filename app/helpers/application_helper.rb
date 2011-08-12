@@ -71,6 +71,20 @@ module ApplicationHelper
     image_tag 'spinner.gif', :id => "spinner", :style => "display:none", :width => 16, :height => 16
   end
 
+  def company_sign_up?
+    params[:company] == "true"
+  end
+
+  def sign_up_message
+    company_sign_up? ?
+        t(:click_here_to_register_as_a_person) : t(:click_here_to_register_as_an_entity)
+  end
+
+  def sign_up_link
+    link_to sign_up_message,
+            new_users_sign_up_path(:company => (!company_sign_up? ? "false" : "true"))
+  end
+
 
   
 end

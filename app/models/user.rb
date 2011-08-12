@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email,
-                :send_penalty_notification, :first_message
+                :send_penalty_notification, :first_message, :company_name
   # ================
   # = associations =
   # ================
@@ -186,7 +186,8 @@ class User < ActiveRecord::Base
       identity = self.identities.create :identity        => self.email,
                                         :is_primary      => true,
                                         :no_confirmation => !self.first_message.blank?,
-                                        :identity_type   => "email"
+                                        :identity_type   => "email",
+                                        :is_company      => !self.company_name.blank?
       identity.save :validate => false
      end
   end
