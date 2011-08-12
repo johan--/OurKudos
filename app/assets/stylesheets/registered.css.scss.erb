@@ -77,6 +77,10 @@ img#user_avatar {
 	background: url(<%= asset_path 'main_bg.png' %>) repeat-y left top;
 }
 
+.wrapper-main .wrapper-main {
+  /* some views which can be seen with the registered or unregistered head will double up wrappers */
+	padding: 0;
+}
 
 /* Send Kudos Area */
 
@@ -498,22 +502,7 @@ body.users_show, body.friendships_show, body.facebook_friends_index {
 		padding: 7px 15px;
 		margin-bottom: 15px;
 	}
-	
-	span.datavalue {
-		font-size: 1.3em;
-		font-weight: bold;
-		color: $very_dark_gray;
-		line-height: 1.3em;
 		
-	}
-
-	span.datalabel {
-		font-size: 1.3em;
-		font-weight: bold;
-		color: $dark_green;
-		line-height: 1.3em;
-	}
-	
 	h4 {
 		font: normal 1.3em "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 		color: $headers_blue;

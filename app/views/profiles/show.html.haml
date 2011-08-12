@@ -2,9 +2,18 @@
   #member_profile_cont
     .contentarea_cont
       %h2 Member Profile
-      = profile_picture_for(@user)
-      %p= "Name: #{@user.secured_name}"
-      %p= "Location: #{@user.city}, #{@user.state_or_province}"
+      #profile_avatar= profile_picture_for(@user)
+      %p
+        %span.datalabel Name:
+        %span.datavalue= @user.secured_name
+      %p
+        %span.datalabel Location:
+        %span.datavalue= "#{@user.city}, #{@user.state_or_province}"
+      - if @user.birthday && !@user.hide_birth_year
+        %p
+          Birthday:
+          = l(@user.birthday, :format => :long)
+      .clearing
       
     .contentarea_cont
       %h2 Recent Kudos
