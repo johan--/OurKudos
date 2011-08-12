@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
 
 
-  layout :choose_layout
+  layout 'unregistered'
 
   def show
 

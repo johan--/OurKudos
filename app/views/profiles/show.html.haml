@@ -1,9 +1,12 @@
 .wrapper-main
-  = render :partial => "shared/messaging"
-  #recent_kudos_cont_top
-    %h2 Received
-  #recent_kudos_cont
-    - for kudo in @kudos do
-      = render :partial => "kudos/home_page_kudo", :locals => {:kudo => kudo}
-  
-  #recent_kudos_cont_bot
+  #member_profile_cont
+    .contentarea_cont
+      %h2 Member Profile
+      = profile_picture_for(@user)
+      %p= "Name: #{@user.secured_name}"
+      %p= "Location: #{@user.city}, #{@user.state_or_province}"
+      
+    .contentarea_cont
+      %h2 Recent Kudos
+      - for kudo in @kudos do
+        = render :partial => "kudos/home_page_kudo", :locals => {:kudo => kudo}
