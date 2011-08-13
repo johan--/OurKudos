@@ -3,6 +3,7 @@ class ConfirmationsController < ApplicationController
 
   def show
     confirmation = Confirmation.find_by_key params[:id]
+    debugger
     confirmation.confirm!
 
     if confirmation.confirmed?

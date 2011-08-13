@@ -189,7 +189,7 @@ class User < ActiveRecord::Base
 
   def save_identity
      if self.identities.blank?
-       debugger
+
       identity = self.identities.create :identity        => primary_identity_value,
                                         :is_primary      => true,
                                         :no_confirmation => !self.first_message.blank?,
