@@ -17,10 +17,15 @@ jQuery(function($) {
     var gift_group = $(this).attr('name');
     var group_name = $(this).attr('title');
 
-    jQuery.get('/gifts/list_gifts_in_group_slider/' + gift_group + ".js", function(data){
-      $('.wrapper ul').append(data); 
-      $('ul > li');
-      $('.infiniteCarousel').infiniteCarousel();
+    //jQuery.get('/gifts/list_gifts_in_group_slider/' + gift_group + ".js", function(data){
+    jQuery.ajax({
+      url: '/gifts/list_gifts_in_group_slider/' + gift_group + ".js",
+      dataType: 'html',
+      success: function(data){
+        $('.wrapper ul').append(data); 
+        $('ul > li');
+        $('.infiniteCarousel').infiniteCarousel();
+      }
     });
 
     // Step 3 Rebind all carousel functions
@@ -34,17 +39,21 @@ jQuery(function($) {
 })
 
 //display gift info in gift_info div
-jQuery(function($) {
+jQuery(document).ready(function(){
   $(".wrapper a").live('click', function(event) {
-
     var gift_id = $(this).attr('name');
-    jQuery.get('/gifts/' + gift_id + ".js", function(data){
-      $("#gift_info").html(data);
-    })
-    return false;
+    jQuery.ajax({
+        type: 'GET',
+        dataType: 'html',
+        url: '/gifts/' + gift_id + ".js", 
+        success: function(data){
+          $("#gift_info").html(data);
+        } 
+    });
+    return false
   });
+});
 
-})
 
 //Graceful degredation JS and Document load calls
 jQuery(document).ready(function(){
