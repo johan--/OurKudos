@@ -95,7 +95,7 @@
     = show_authentication_status 'facebook'
     = show_authentication_status 'twitter'
   
-  %p
+  %p.note
     = t :you_can_always_authenticate_with_ourkudos
   
   %p= render :partial => "identities/index", :locals => {:identities => @identities }
