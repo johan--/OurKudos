@@ -10,11 +10,11 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :streetadress, :address2, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
                   :profile_picture, :birthday, :hide_birth_year, :tos, :is_banned,
-                  :first_message
+                  :first_message, :company_name
 
   attr_accessor :primary_identity, :skip_password_validation,
-                :remember_old_pass, :consider_invitation_email,
-                :send_penalty_notification, :first_message, :company_name
+                :remember_old_pass, :consider_invitation_email, :has_company,
+                :send_penalty_notification, :first_message
   # ================
   # = associations =
   # ================
@@ -48,13 +48,15 @@ class User < ActiveRecord::Base
   # ================
   # = validations  =
   # ================
-  validates :first_name, :presence => true
-  validates :last_name,  :presence => true
-  validates :email,      :presence => true, :email => true
-  validates :password,   :presence => true, :unless => :skip_password_validation
-  validates :password,   :format   => { :with => RegularExpressions.password },
-                         :is_forbidden_password => true,
-                         :confirmation => true, :unless => :skip_password_validation
+  validates :first_name,    :presence => true, :unless => :has_company
+  validates :last_name,     :presence => true, :unless => :has_company
+  validates :email,         :presence => true, :email => true
+  validates :password,      :presence => true, :unless => :skip_password_validation
+  validates :password,      :format   => { :with => RegularExpressions.password },
+                            :is_forbidden_password => true,
+                            :confirmation => true, :unless => :skip_password_validation
+
+  validates :company_name, :presence => true, :if => :has_company
 
   validates_acceptance_of :tos, :on        => :create,
                                 :message   => I18n.t(:tos_must_be_accepted),
@@ -109,8 +111,12 @@ class User < ActiveRecord::Base
   # == instance methods ==
   # ======================
   def to_s
-    return "#{first_name} #{last_name}" if middle_name.blank?
-    "#{first_name} #{middle_name} #{last_name}"
+    if self.first_name.blank? && self.last_name.blank?
+      self.company_name
+    else
+      return "#{first_name} #{last_name}" if middle_name.blank?
+      "#{first_name} #{middle_name} #{last_name}"
+    end
   end
 
   def secured_name
@@ -183,13 +189,24 @@ class User < ActiveRecord::Base
 
   def save_identity
      if self.identities.blank?
-      identity = self.identities.create :identity        => self.email,
+       debugger
+      identity = self.identities.create :identity        => primary_identity_value,
                                         :is_primary      => true,
                                         :no_confirmation => !self.first_message.blank?,
-                                        :identity_type   => "email",
-                                        :is_company      => !self.company_name.blank?
+                                        :identity_type   => primary_identity_type,
+                                        :is_company      => has_company
       identity.save :validate => false
      end
+  end
+
+  def primary_identity_type
+    return 'nonperson' if has_company
+    'email'
+  end
+
+  def primary_identity_value
+    return self.company_name unless self.company_name.blank?
+    self.email
   end
 
   def update_identity
@@ -513,6 +530,5 @@ class User < ActiveRecord::Base
 
 
   end
-
 
 end

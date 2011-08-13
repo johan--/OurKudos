@@ -43,7 +43,7 @@ class Identity < ActiveRecord::Base
   # = ar callbacks =
   # ================
   before_destroy :can_destroy?  
-  after_save :save_confirmation,          :if => :is_email?
+  after_save :save_confirmation,          :if => :needs_it?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
 
   # ====================
@@ -79,6 +79,10 @@ class Identity < ActiveRecord::Base
   def primary_identity_confirmed?
     is_primary? && confirmed?
   end
+
+  def needs_it?
+    is_email? || is_nonperson?
+  end
   # =================
   # = class methods =
   # =================
@@ -86,6 +90,7 @@ class Identity < ActiveRecord::Base
   def self.options_for_identity_type
     [['email', 'email'],
      ['name', 'name'],
+     ['company/business', 'nonperson'],
      ['twitter nick name', 'twitter']
     ]
   end

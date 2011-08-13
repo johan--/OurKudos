@@ -17,7 +17,7 @@ class RegistrationsController < Devise::RegistrationsController
     @terms_of_service = Page.find_by_slug('terms-of-service').body
     resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication]
     resource.add_role
-
+    check_company_registration
     resource.consider_invitation_email = cookies[:invite_email]
     if resource.save
       set_flash_message :alert, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
@@ -51,6 +51,10 @@ class RegistrationsController < Devise::RegistrationsController
 
     def autofill_form
       resource.attributes = session[:user] if params[:autofill]
+    end
+
+    def check_company_registration
+      resource.has_company = (params[:company] == "true")
     end
 
 

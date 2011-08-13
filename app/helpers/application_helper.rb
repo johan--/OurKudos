@@ -77,12 +77,12 @@ module ApplicationHelper
 
   def sign_up_message
     company_sign_up? ?
-        t(:click_here_to_register_as_a_person) : t(:click_here_to_register_as_an_entity)
+        t(:click_here_to_register_as_a_person) : t(:click_here_to_register_as_a_company)
   end
 
   def sign_up_link
     link_to sign_up_message,
-            new_users_sign_up_path(:company => (!company_sign_up? ? "false" : "true"))
+            new_user_registration_path(:company => !company_sign_up?), :class => "action_link"
   end
 
 

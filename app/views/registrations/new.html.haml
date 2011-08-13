@@ -10,7 +10,7 @@
         %br/
         = f.text_field :company_name
 
-  
+    = hidden_field_tag :company, params[:company]
     = render :partial => "form_fields", :locals => {:f => f}
     = hidden_field_tag :autofill, params[:autofill]
     
