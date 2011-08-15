@@ -1,16 +1,4 @@
 %span#base
-%p
-  = f.label :password, "Password (minimum of 6 characters, use at least one non-alphabet character)"
-  %br/
-  %span#password
-  = f.password_field :password, :class => "password", :id => "signup_user_password"
-  .clearing
-%p
-  = f.label :password_confirmation
-  %br/
-  = f.password_field :password_confirmation, :class => "password"
-  %span#password_confirmation
-
 - unless company_sign_up?
 
   %p
@@ -23,6 +11,19 @@
     %br/
     = f.text_field :last_name,  :class => "string"
     %span#last_name
+%p
+  = f.label :password, "Password (minimum of 6 characters, use at least one non-alphabet character)"
+  %br/
+  %span#password
+  = f.password_field :password, :class => "password", :id => "signup_user_password"
+  .clearing
+%p
+  = f.label :password_confirmation
+  %br/
+  = f.password_field :password_confirmation, :class => "password"
+  %span#password_confirmation
+
+
 
 = render :partial => "registrations/terms_of_service", :locals => {:f => f}
 
