@@ -32,7 +32,7 @@ $(document).ready(function(){
   	return false;
   });
 
-  $('img.submit-invitation-form').click(function(){
+  $('button.kudo_reply_submit_btn').click(function(){
 
     var message = $("#kudo_body").val();
 
