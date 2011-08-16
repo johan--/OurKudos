@@ -10,45 +10,45 @@
   %p
     = label_tag(:first_name, 'First Name')
     %span.datavalue= current_user.first_name
-    %br
+    .clearing
   %p   
     = label_tag(:last_name, 'Last Name')
     %span.datavalue= current_user.last_name
-    %br
+    .clearing
   %p
     = label_tag(:streetadress, 'Street Address')
     %span.datavalue= current_user.streetadress
-    %br
+    .clearing
   %p
     = label_tag(:address2, 'Address 2')
     %span.datavalue= current_user.address2
-    %br
+    .clearing
   %p
     = label_tag(:postal_code, 'Postal/Zip Code')
     %span.datavalue= current_user.postal_code
-    %br
+    .clearing
   %p
     = label_tag(:city, 'City/Town')
     %span.datavalue= current_user.city
-    %br
+    .clearing
   %p
     = label_tag(:state_or_province, 'State/Province')
     %span.datavalue= current_user.state_or_province
-    %br
+    .clearing
   %p
     = label_tag(:phone_number, 'Home phone')
     %span.datavalue= number_to_phone current_user.phone_number
-    %br
+    .clearing
   %p
     = label_tag(:mobile_number, 'Mobile phone')
     %span.datavalue= number_to_phone current_user.mobile_number
-    %br
+    .clearing
   %p
     = label_tag(:birthday,'Birthday')
     %span.datavalue
       = l(current_user.birthday, :format => :long) unless current_user.birthday.blank?
       = '(birth year hidden)' if current_user.hide_birth_year
-    %br
+    .clearing
    
   %p.clearing
   
