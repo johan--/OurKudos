@@ -120,6 +120,7 @@ class User < ActiveRecord::Base
   end
 
   def secured_name
+  	return company_name if !company_name.nil?
     return "#{first_name} #{last_name.first.capitalize}." if middle_name.blank?
     "#{first_name} #{middle_name.first.capitalize}. #{last_name.first.capitalize}."
   end
