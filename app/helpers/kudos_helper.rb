@@ -32,7 +32,11 @@ module KudosHelper
 
   def recipients_profiles kudo_recipients
     html = kudo_recipients.map do |recipient|
-      link_to recipient.first, user_profile_path(recipient.last)
+      if recipient.last
+        link_to recipient.first, user_profile_path(recipient.last)
+      else
+        recipient.first
+      end
     end.join(", ")
     return html.html_safe unless html.empty?
     "undisclosed recipient(s)"

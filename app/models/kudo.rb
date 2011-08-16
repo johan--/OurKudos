@@ -71,7 +71,13 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_names_ids
-    kudo_copies.map {|kc| [kc.copy_recipient, kc.recipient_id] if kc.recipient_id}.compact
+    kudo_copies.map do |kc|
+      if kc.recipient_id
+        [kc.copy_recipient, kc.recipient_id]
+      elsif kc.temporary_recipient
+        ["@#{kc.temporary_recipient}", nil]
+      end
+    end.compact
   end
 
   def author_as_recipient
