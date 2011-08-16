@@ -2,4 +2,4 @@
 <% unless resource.errors.any? %>
  window.location.href = '<%= home_url(:kudos=>:sent)%>';
 <% end %>
-$(":button:contains('Okay')").removeAttr("disabled").removeClass("ui-state-disabled");
+$(":button:contains('Submit')").removeAttr("disabled").removeClass("ui-state-disabled");
