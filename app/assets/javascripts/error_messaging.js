@@ -37,7 +37,7 @@ $(document).ready(function(){
     var message = $("#kudo_body").val();
 
     if (message.length == 0) {
-        alert("If you want to reply to this kudo, please enter message")
+        alert("If you want to reply to this kudo, please enter a message.")
     } else {
 
      $("div.error_container").html('');
@@ -48,17 +48,21 @@ $(document).ready(function(){
      $("input.first_message").val(message); // copy kudo message to hidden field
      $("#invitation_registration_form").html($("div.invitation-form-fields.hidden").html());
      $("#invitation_registration_form").dialog({
-         width: 550,
+         width: 446,
          modal: true,
          resizable: false,
          title: 'Just one easy step! Please register for an account for full access to OurKudos:',
          draggable: false,
-         buttons: [{ text: "Okay", click: function(){
+         buttons: [{ text: "Submit", click: function(){
               $('form').last().submit();
-              $(":button:contains('Okay')").attr("disabled","disabled").addClass("ui-state-disabled");
+              $(":button:contains('Submit')").attr("disabled","disabled").addClass("ui-state-disabled");
+              
 
          } } ]
-        })
+        
+        
+        });
+     $('button.ui-button').addClass('action_button');
   }
 
 });
