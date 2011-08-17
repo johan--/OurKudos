@@ -1,26 +1,25 @@
-.wrapper-main
-  #member_profile_cont
-    .contentarea_cont
-      %h2 Member Profile
-      #profile_avatar= profile_picture_for(@user)
+#member_profile_cont
+  .contentarea_cont
+    %h2 Member Profile
+    #profile_avatar= profile_picture_for(@user)
+    %p
+      %span.datalabel Name:
+      %span.datavalue= @user.secured_name
+    %p
+      %span.datalabel Location:
+      %span.datavalue
+        - if @user.city.blank? && @user.state_or_province.blank?
+          (this member chooses not to share their location)
+        - else
+          #{@user.city}, #{@user.state_or_province}
+    - if @user.birthday && !@user.hide_birth_year
       %p
-        %span.datalabel Name:
-        %span.datavalue= @user.secured_name
-      %p
-        %span.datalabel Location:
-        %span.datavalue
-          - if @user.city.blank? && @user.state_or_province.blank?
-            (this member chooses not to share their location)
-          - else
-            #{@user.city}, #{@user.state_or_province}
-      - if @user.birthday && !@user.hide_birth_year
-        %p
-          %span.datalabel Birthday:
-          %span.datavalue= l(@user.birthday, :format => :long)
-          
-      .clearing
-      
-    .contentarea_cont
-      %h2 Recent Kudos
-      - for kudo in @kudos do
-        = render :partial => "kudos/home_page_kudo", :locals => {:kudo => kudo}
+        %span.datalabel Birthday:
+        %span.datavalue= l(@user.birthday, :format => :long)
+        
+    .clearing
+    
+  .contentarea_cont
+    %h2 Recent Kudos
+    - for kudo in @kudos do
+      = render :partial => "kudos/home_page_kudo", :locals => {:kudo => kudo}
