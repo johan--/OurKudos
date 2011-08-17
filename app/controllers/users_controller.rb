@@ -17,10 +17,12 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.skip_password_validation = true
+    @user.has_company = true if @user.company_name
     if @user.update_attributes(params[:user])
       redirect_to @user, :notice  => "Successfully updated user."
     else
       render :action => 'edit'
     end
   end
+  
 end
