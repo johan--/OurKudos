@@ -37,7 +37,7 @@ class PasswordsController < Devise::PasswordsController
   def update
     self.resource = resource_class.reset_password_by_token(params[resource_name])
 
-    @user_id = resource_class.find_by_reset_password_token(params[:reset_password_token]).id rescue nil
+    @user_id = resource_class.find_by_reset_password_token!(params[:reset_password_token]).id rescue nil
     if resource.errors.empty?
       set_flash_message(:notice, :updated) if is_navigational_format?
       sign_in(resource_name, resource)
