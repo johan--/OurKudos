@@ -1,20 +1,19 @@
-.wrapper-main	
-  = form_for(resource, :as => resource_name, :html => { :honeypot => true },
-                                             :url => registration_path(resource_name)) do |f|
-    %h2 Create a new OurKudos Account
-    = error_messages_for @user
-    %p= sign_up_link
-    - if company_sign_up?
-      %p
-        = f.label :company_name
-        %br/
-        = f.text_field :company_name
+= form_for(resource, :as => resource_name, :html => { :honeypot => true },
+                                           :url => registration_path(resource_name)) do |f|
+  %h2 Create a new OurKudos Account
+  = error_messages_for @user
+  %p= sign_up_link
+  - if company_sign_up?
+    %p
+      = f.label :company_name
+      %br/
+      = f.text_field :company_name
 
-    = hidden_field_tag :company, params[:company]
-    = render :partial => "form_fields", :locals => {:f => f}
-    = hidden_field_tag :autofill, params[:autofill]
-    
-    %p= f.submit "Sign up"
-    %p -OR-
-    %p= link_to image_tag('sign-up-with-facebook-btn.png'), omniauth_authorize_path(:user, 'facebook')
+  = hidden_field_tag :company, params[:company]
+  = render :partial => "form_fields", :locals => {:f => f}
+  = hidden_field_tag :autofill, params[:autofill]
+  
+  %p= f.submit "Sign up"
+  %p -OR-
+  %p= link_to image_tag('sign-up-with-facebook-btn.png'), omniauth_authorize_path(:user, 'facebook')
 

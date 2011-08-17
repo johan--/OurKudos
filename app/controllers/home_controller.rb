@@ -11,7 +11,9 @@ class HomeController < ApplicationController
        redirect_to home_path
     else
       @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
+      render :layout => 'unregistered-nowrapper'
     end
+    
   end    
   
   def home
@@ -25,11 +27,9 @@ class HomeController < ApplicationController
   end
 
   def invite
-  	render :layout => 'unregistered'
   end
 
   def support
-  	render :layout => 'unregistered'
   end
 
 
