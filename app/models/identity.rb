@@ -102,7 +102,8 @@ class Identity < ActiveRecord::Base
 
   def self.find_for_authentication string
     identity = where(:identity      => string.gsub(/^@{1}/,'').downcase,
-                     :identity_type => get_type(string)).
+                     #:identity_type => get_type(string)).
+                     ).
                joins(:user).joins(:confirmation).first
 
     return nil if identity.blank? || (identity && !identity.confirmation.confirmed?)
