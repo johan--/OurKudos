@@ -27,12 +27,12 @@ Scenario: User creates/edits/removes identity
     | email             | password     |
     | user@example.net  | secret pass1 |
     When I follow "My Account"
-    And I follow "Add new identity"
+    And I follow "Add new account"
     And I select "email" from "Identity type"
     And I fill in "Identity" with "my@secondaryother.email.com"
     And I press "Add new identity"
     Then I should see "Your identity has been successfully created"
-    When I follow "Edit"
+    When I follow "Edit Account Link"
     And I select "email" from "Identity type"
     And I fill in "Identity" with "my@secondary.other.email.com"
     And I press "Update Identity"
