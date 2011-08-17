@@ -10,6 +10,7 @@ class PasswordChangesController < ApplicationController
   def create
     @user = current_user
     @user.remember_old_pass = true
+    @user.has_company = true if @user.company_name
     if request.post?
       if @user.update_attributes params[:user]
         update_session_for_user
