@@ -4,13 +4,15 @@ jQuery ->
 
         jQuery(this).removeClass("clickable") #to prevent multiple requests
         jQuery.get("/kudos/" + data_id + "/kudo_flags/new.js")
+        
 
     jQuery('cancel-kudo-flag').click ->
-        jQuery("div.popup_placeholder").dialog('close');
+        jQuery("div.popup_placeholder").dialog('close')
 
     jQuery('div.popup_placeholder').bind 'dialogclose', ->
         kudo_id = jQuery(this).data('kudo_id')
         jQuery('div.kudo_flag_cont.kf_dimmed[data-id='+kudo_id+']').addClass('clickable')
+        
 
     jQuery('#new_action').click ->
         flagged_kudo = jQuery(this).data('id')
