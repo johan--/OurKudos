@@ -29,9 +29,6 @@ class HomeController < ApplicationController
   def invite
   end
 
-  def support
-  end
-
 
   private
 
