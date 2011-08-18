@@ -22,7 +22,7 @@ class KudoCopy < ActiveRecord::Base
     return self.recipient.secured_name   unless self.recipient.blank?
     return ''                            if self.recipient.blank? && self.kudoable.is_a?(EmailKudo)
     self.facebook_friend.name            if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
-    "@#{self.temporary_recipient}"            if self.recipient.blank? && self.kudoable.is_a?(TwitterKudo)
+    "@#{self.temporary_recipient}"       if self.recipient.blank? && self.kudoable.is_a?(TwitterKudo)
   end
 
   def own_kudo?
