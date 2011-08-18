@@ -75,7 +75,7 @@ class Kudo < ActiveRecord::Base
       if kc.recipient_id
         [kc.copy_recipient, kc.recipient_id]
       elsif kc.temporary_recipient
-        ["@#{kc.temporary_recipient}", nil]
+        ["#{kc.temporary_recipient}", nil]
       end
     end.compact
   end
