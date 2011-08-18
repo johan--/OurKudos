@@ -295,6 +295,26 @@ input[type=text], input[type=password] {
 	@include rounded-edges(5px);
 }
 
+#tos_cont {
+	width: 540px;
+	height: 200px;
+	padding: 5px;
+	overflow: auto;
+	border: 1px solid $very_dark_gray;
+	background-color: #fff;
+	
+	font-size: 1.1em;
+	color: $very_dark_gray;
+	line-height: 1.3em;
+}
+
+#invitation_registration_form {
+/* when terms of service appears in modal dialog */
+	#tos_cont {
+		width: 400px;
+	}
+}
+
 /* end forms */
 
 /* member profile page */
