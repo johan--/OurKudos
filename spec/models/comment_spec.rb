@@ -24,7 +24,7 @@ describe Comment do
 
     end
 
-    describe "comment author not a recipient our author" do
+    describe "comment author not a recipient" do
       it "should send a moderation email" do
         count = DelayedJob.count
         comment = Comment.create!(  :title => "",
