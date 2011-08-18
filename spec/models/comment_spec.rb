@@ -4,20 +4,21 @@ describe Comment do
 
   describe "kudo comment mailers" do
     before(:each) do
-      @author = Factory(:user, :id => 1)
-      @kudo = Factory(:kudo, :author_id => @author.id)
+      @recipient = Factory(:user, :id => 1)
+      @kudo = Factory(:kudo)
       @user = Factory(:user, :id => 1337)
     end
 
-    describe "comment author by a recipient or author" do
+    describe "comment by a recipient" do
 
       it "should not send a moderation email" do
+        puts @kudo.recipients.first.id
         count = DelayedJob.count
         comment = Comment.create!(  :title => "",
                                     :comment => "Rspec is great",
                                     :commentable_id => @kudo.id,
                                     :commentable_type => "Kudo",
-                                    :user_id => @author.id)
+                                    :user_id => @kudo.recipients.first.id)
         DelayedJob.count.should eq(count) 
       end
 
