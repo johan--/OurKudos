@@ -7,14 +7,15 @@
 
 .cms-wysiwyg-pages {
 	h3 {
-		font: 1.5em "NunitoBold", Arial, Helvetica, sans-serif;
-		color: $very_dark_gray;
+		font: 1.5em "NunitoRegular", Arial, Helvetica, sans-serif;
+		color: $medium_green;
 	}
 	
 	
 	p {
 		font-size: 1.3em;
-		color: $medium_gray;
-		line-height: 1.2em;
+		color: $very_dark_gray;
+		line-height: 1.5em;
+		margin-bottom: 1.7em;
 	}
 }
