@@ -41,8 +41,8 @@ describe Kudo do
         new_kudo.prepare_copies
         new_kudo.save
 
-        new_kudo.recipients_readable_list.include?(identity.user.to_s).should be_true
-        new_kudo.recipients_readable_list.include?("some@email.com").should be_true
+        new_kudo.recipients_readable_list.include?("#{identity.user.first_name} #{identity.user.last_name[0]}.").should be_true
+        new_kudo.recipients_readable_list.include?("some@email.com").should be_false
       end
 
       it 'should make both user friends if system kudo was sent' do
@@ -78,6 +78,21 @@ describe Kudo do
         copy.kudoable.should be_an_instance_of(FacebookKudo)
       end
 
+    end
+
+    describe "recipients lists" do
+
+      context "with social sharing disabled" do
+        it "should return twitter handle as name if no twitter identity" do
+          sharing =  Settings.find_by_name("social-sharing-enabled")
+          sharing.update_attribute('value', 'no')
+
+          kudo = Factory(:kudo, :to => "'@ourkudos'")
+
+          kudo.recipients_readable_list.should eq("@ourkudos")
+        end
+
+      end
     end
 
   end

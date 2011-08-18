@@ -12,7 +12,6 @@ describe Comment do
     describe "comment by a recipient" do
 
       it "should not send a moderation email" do
-        puts @kudo.recipients.first.id
         count = DelayedJob.count
         comment = Comment.create!(  :title => "",
                                     :comment => "Rspec is great",
