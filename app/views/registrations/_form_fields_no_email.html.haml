@@ -17,6 +17,13 @@
   %span#password
   = f.password_field :password, :class => "password", :id => "signup_user_password"
   .clearing
+  
+%p
+  = f.label :postal_code, "Zip or Postal Code (Why do we need this?)", :title => 'We use this so that we can show you Kudos in your area.'
+  %br/
+  %span#postal_code
+  = f.text_field :postal_code
+  
 
 
 

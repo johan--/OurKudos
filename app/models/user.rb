@@ -61,6 +61,8 @@ class User < ActiveRecord::Base
   validates_acceptance_of :tos, :on        => :create,
                                 :message   => I18n.t(:tos_must_be_accepted),
                                 :accept    => '1'
+  validates :postal_code,		:presence => true
+  
   # ================
   # == extensions ==
   # ================
