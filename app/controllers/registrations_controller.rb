@@ -19,6 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource.add_role
     check_company_registration
     resource.consider_invitation_email = cookies[:invite_email]
+    resource.skip_password_validation = true
     if resource.save
       set_flash_message :alert, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
       expire_session_data_after_sign_in!
