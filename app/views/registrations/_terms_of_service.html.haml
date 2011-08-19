@@ -1,9 +1,6 @@
-= label_tag :terms_of_service
+= f.check_box :tos
+= label_tag :terms_of_service_check, "I've read and agree to the Terms of Service"
+%span#tos
 
 #tos_cont
  = @terms_of_service.html_safe
-
-%p
- = f.check_box :tos
- = label_tag :terms_of_service_check, "I've read and agree to the Terms of Service"
- %span#tos
