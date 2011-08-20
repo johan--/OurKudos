@@ -1,13 +1,13 @@
 .kudo_message_cont
   .avatar_cont
     - if kudo.author
-      = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author)
+      = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author.id)
     - else
       = anon_picture
     
     .sender
       - if kudo.author
-        = link_to kudo.author.to_s, user_profile_path(kudo.author)
+        = link_to kudo.author.to_s, user_profile_path(kudo.author.id)
       - else
         (removed account)
           
