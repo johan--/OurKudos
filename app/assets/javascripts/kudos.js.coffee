@@ -105,6 +105,7 @@ jQuery ->
     $.Token = jQuery(".kudo_recipient_list")
     $.Token.tokenInput "/autocomplete/new?object=recipients",
         allowCustomEntry: true
+        preventDuplicates: true
         onAdd: ->
            validateServerSideAndDisplayResults()
 
@@ -113,3 +114,4 @@ jQuery ->
 
     jQuery("select#sort_by").change ->
          jQuery("form#sort_and_search_kudos_form").submit()
+

@@ -23,3 +23,4 @@
 //= require controls/wysiwyg.link
 //= require controls/wysiwyg.table
 //= require business_card
+//= require kudo_body_parser

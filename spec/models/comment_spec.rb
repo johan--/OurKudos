@@ -11,13 +11,23 @@ describe Comment do
 
     describe "comment by a recipient" do
 
-      it "should not send a moderation email" do
+      it "should not send a moderation email when recipient comments" do
         count = DelayedJob.count
         comment = Comment.create!(  :title => "",
                                     :comment => "Rspec is great",
                                     :commentable_id => @kudo.id,
                                     :commentable_type => "Kudo",
                                     :user_id => @kudo.recipients.first.id)
+        DelayedJob.count.should eq(count) 
+      end
+
+      it "should not send a moderation email when author comments" do
+        count = DelayedJob.count
+        comment = Comment.create!(  :title => "",
+                                    :comment => "Rspec is great",
+                                    :commentable_id => @kudo.id,
+                                    :commentable_type => "Kudo",
+                                    :user_id => @kudo.author.id)
         DelayedJob.count.should eq(count) 
       end
 
