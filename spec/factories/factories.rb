@@ -57,6 +57,7 @@ Factory.define :user do |u|
   u.last_name 'Last name'
   u.password 'somepassvalid123'
   u.birthday '1999-11-11'
+  u.postal_code '54701'
   u.confirmed true
   u.roles {|roles| [roles.association(:role)] }
 end

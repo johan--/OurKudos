@@ -78,6 +78,19 @@ Given /^the a set of Gifts and Groups exist:$/ do
   end
 end
 
+Given /^the following identities exists without validation:$/ do |table|
+  table.hashes.each do |attributes|
+    identity = Identity.new(:user_id => attributes[:user_id],
+                            :identity => attributes[:identity],
+                            :identity_type => attributes[:identity_type])
+    identity.save(:validate => false)
+  end
+end
+
+When /^I loose focus from the "([^"]*)" field$/ do |field|
+  page.find('#kudo_kudo_category_id').click
+end
+
 When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
   attach_file(field, path)
 end
