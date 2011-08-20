@@ -13,5 +13,9 @@ jQuery(document).ready ->
           dataType: "json"
           url: "/autocomplete/new?object=recipients&q=%40" + handle
           success: (data) ->
-            $.Token.tokenInput "add", data[0]
+            #need to parse for if no identity
+            if data[0] == "no matches"
+              $.Token.tokenInput "add", "@" + handle
+            else
+              $.Token.tokenInput "add", data[0]
         ++i
