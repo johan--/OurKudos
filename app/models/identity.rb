@@ -31,6 +31,10 @@ class Identity < ActiveRecord::Base
                                                        where("lower(identity) LIKE lower(?) OR lower(users.first_name)  \
                                                               LIKE lower(?) OR lower(users.last_name) LIKE lower(?) OR lower(users.company_name) LIKE lower(?)",
                                                               "%#{search_term}%", "#{search_term}%", "#{search_term}%", "#{search_term}%") }
+  scope :exact_twitter_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
+                                                       where("user_id <> ?", user.id).
+                                                       where(:confirmations => {:confirmed => true}).
+                                                       where("lower(identity) = lower(?) AND identity_type = (?) ", "#{search_term}", 'twitter') }
 
   # ================
   # == extensions ==

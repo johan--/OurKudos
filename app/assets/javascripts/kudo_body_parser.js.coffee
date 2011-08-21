@@ -11,7 +11,7 @@ jQuery(document).ready ->
         jQuery.ajax 
           type: "GET"
           dataType: "json"
-          url: "/autocomplete/new?object=recipients&q=%40" + handle
+          url: "/autocomplete/new?object=exact&q=%40" + handle
           success: (data) ->
             #need to parse for if no identity
             if data[0] == "no matches"
