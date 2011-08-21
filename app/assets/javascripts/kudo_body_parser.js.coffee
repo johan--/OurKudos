@@ -10,6 +10,7 @@ jQuery(document).ready ->
         handle = handles[i].substring(1, handles[i].length)
         jQuery.ajax 
           type: "GET"
+          async: false
           dataType: "json"
           url: "/autocomplete/new?object=exact&q=%40" + handle
           success: (data) ->

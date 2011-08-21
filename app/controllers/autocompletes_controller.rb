@@ -32,9 +32,6 @@ class AutocompletesController < ApplicationController
 
     def exact_identity search_term
       identities = Identity.exact_twitter_for_user(keyword, current_user)
-      puts "------------"
-      puts identities
-      puts "------------"
       exact_identity = identities.map do |identity|
       { :id => identity.id, :name => (identity.is_twitter? ?
               "[#{identity.user.to_s}] @#{identity.identity}" :
