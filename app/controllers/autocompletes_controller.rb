@@ -18,6 +18,11 @@ class AutocompletesController < ApplicationController
     render :json => @items.to_json unless @items.blank?
   end
 
+  def inline_autocomplete_identites
+    @items = autocomplete_identities_for_user
+    render :json => @items.to_json #unless @items.blank?
+  end
+
   private
 
     def confirmed_identities search_term, limit
@@ -64,5 +69,10 @@ class AutocompletesController < ApplicationController
       params[:q].gsub RegularExpressions.twitter, ''
     end
 
+    def autocomplete_identities_for_user
+      friends = current_user.friendships.map{|f| f.friend_id}
+      Identity.where("user_id IN (?) AND identity_type = (?)",friends, 'twitter').map{ |i| i.identity}
+
+    end
 
 end

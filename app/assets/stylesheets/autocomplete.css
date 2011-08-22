@@ -1,0 +1,33 @@
+ul.auto-list{
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 2px solid #1f6994;
+	-webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px #1f6994;
+	background-color: #fff;
+	padding: 0;
+	margin:0;
+	list-style:none;
+}
+ul.auto-list > li:hover,
+ul.auto-list > li[data-selected=true]{
+	background-color: #A4C6ED;
+}
+
+ul.auto-list > li{
+	border: 1px solid gray;
+	cursor: default;
+	padding: 5px;
+	height: 20px;
+	font-size: 14px;
+  color: #1f6994;
+}
+
+mark{
+	font-weight: bold;
+}
+

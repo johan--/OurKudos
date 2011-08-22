@@ -24,3 +24,5 @@
 //= require controls/wysiwyg.table
 //= require business_card
 //= require kudo_body_parser
+//= require autocomplete_plugin
+//= require autocomplete
