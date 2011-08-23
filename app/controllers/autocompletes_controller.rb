@@ -18,7 +18,7 @@ class AutocompletesController < ApplicationController
     render :json => @items.to_json unless @items.blank?
   end
 
-  def inline_autocomplete_identites
+  def inline_autocomplete_identities
     @items = autocomplete_identities_for_user
     render :json => @items.to_json #unless @items.blank?
   end

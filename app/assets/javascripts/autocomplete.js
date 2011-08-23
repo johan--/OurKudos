@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){
   var handles;
   jQuery.ajax({
-    url: '/autocompletes/inline_autocomplete_identites',
+    url: '/autocompletes/inline_autocomplete_identities',
     async: false,
     dataType: 'json',
     success: function(data){
