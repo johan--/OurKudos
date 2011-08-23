@@ -2,7 +2,7 @@ jQuery(document).ready ->
   $("#kudo_message_textarea").focusout (event) ->
     handles = []
     handles = @value.match(/[@]+[A-Za-z0-9-_]+/g)
-    if handles.length > 0
+    if handles != null && handles.length > 0
       i = 0
       len = handles.length
       
