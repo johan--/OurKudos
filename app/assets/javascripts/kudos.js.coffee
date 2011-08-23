@@ -26,6 +26,7 @@ OurKudos.Cookies =
   deleteCookie: (name) ->
     @setCookie name, "", -1
 
+
 validateServerSideAndDisplayResults = ->
   author_id          = jQuery("input#author_id").val()
   form_data          = jQuery("form#kudo_send_form").serialize()
@@ -101,7 +102,7 @@ jQuery ->
       processShareScope()
 
     $.Token = jQuery(".kudo_recipient_list")
-    if $.Token
+    if $.Token.length > 0
         $.Token.tokenInput "/autocomplete/new?object=recipients",
             allowCustomEntry: true
             preventDuplicates: true

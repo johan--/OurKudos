@@ -13,8 +13,9 @@
   = render :partial => "form_fields", :locals => {:f => f}
 
   = hidden_field_tag :autofill, params[:autofill]
+  = hidden_field_tag :kudo_key, cookies[:kudo_key]
 
-  = hidden_field_tag "user[first_message]", session[:response], :class => "first_message"
+  = hidden_field_tag "user[first_message]", cookies[:response], :class => "first_message"
   
   %p= f.submit "Sign up"
   %p - OR -

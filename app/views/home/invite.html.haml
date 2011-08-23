@@ -1,7 +1,7 @@
 #youve_got_kudos_cont
   #youve_got_kudos_top
     #youve_got_kudos_banner_cont= image_tag('youve-got-kudos-banner.png')
-  #youve_got_kudos_mid= render :partial => "kudos/invitation_kudo", :locals => {:kudo => @kudo.kudo, :email => @kudo.email}
+  #youve_got_kudos_mid= render :partial => "kudos/invitation_kudo", :locals => {:key => @kudo.key, :kudo => @kudo.kudo, :email => @kudo.email}
   #youve_got_kudos_bot
   
   = render "shared/video_and_one_two_three"

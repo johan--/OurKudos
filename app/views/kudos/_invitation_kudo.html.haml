@@ -5,7 +5,7 @@
   .kudo_message_bubble_cont
     .kudo_message_bubble_nipple
 
-    %p
+    %p{:id => kudo.id, :class => "data-key"}
       %span.receiver= email
       %span.category= "[#{kudo.category}]"
     %p.kudo_body_text

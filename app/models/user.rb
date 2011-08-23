@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
   # ================
   validates :first_name,    :presence => true, :unless => :has_company
   validates :last_name,     :presence => true, :unless => :has_company
+  validates :last_name,     :presence => true, :unless => :has_company
   validates :email,         :presence => true, :email => true
   validates :password,      :presence => true, :unless => :skip_password_validation
   validates :password,      :format   => { :with => RegularExpressions.password },
@@ -476,6 +477,14 @@ class User < ActiveRecord::Base
       identity = User.find(author_id).primary_identity.id
 
       Kudo.for_identity self.id, identity, first_message
+    end
+  end
+
+  def comment_invitation_kudo key
+    User.transaction do
+       copy = KudoCopy.find key
+       copy.kudo.comments.create :comment => first_message,
+                                 :user_id => self.id
     end
   end
 

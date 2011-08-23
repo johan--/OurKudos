@@ -1,5 +1,11 @@
 %p
   = f.label :email
   %br/
-  = f.text_field :email, :class => "string", :disabled => email_present?
+
+  - if email_present?
+    = f.text_field :email, :class => "string", :disabled => true
+    = f.hidden_field :email
+  - else
+    = f.text_field :email, :class => "string"
+
 = render :partial => "form_fields_no_email", :locals => {:f => f}

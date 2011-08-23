@@ -6,6 +6,7 @@
 //= require kudos
 //= require digitalspaghetti.password
 //= require password_strength
+//= require kudos
 //= require error_messaging
 //= require libs
 //= require googleanalytics

@@ -1,3 +1,18 @@
+// TODO to fix load order to have an access to that function
+OurKudos = {};
+OurKudos.Cookies = {
+    setCookie: function(name, value, days) {
+      var date, expires;
+      if (days) {
+        date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+      } else {
+        expires = "";
+      }
+      return document.cookie = name + "=" + value + expires + "; path=/";
+    }
+ },
 $(document).ready(function(){
 	// if there are Rails flash alerts or Devise form errors, capture the HTML and insert into interstitial message area
 	
@@ -37,7 +52,8 @@ $(document).ready(function(){
 
   $('button.kudo_reply_submit_btn').click(function(){
 
-    var message = $("#kudo_body").val();
+    var message   = $("#kudo_body").val();
+    var kudo_key  = $("p.data-key").attr('id');
 
     if (message.length == 0) {
         alert("If you want to reply to this kudo, please enter a message.");
@@ -47,11 +63,12 @@ $(document).ready(function(){
      $("div.error_container").html('');
      $('body').append('<div id="invitation_registration_form"></div>');
 
-     OurKudos.Cookies.setCookie("response", message);
+     OurKudos.Cookies.setCookie("response",  message);
+     OurKudos.Cookies.setCookie("kudo_key", kudo_key);
   }
 
 });
         
-	
+
 
 }); // document.ready

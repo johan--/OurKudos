@@ -20,19 +20,16 @@ class RegistrationsController < Devise::RegistrationsController
     check_company_registration
     resource.consider_invitation_email = cookies[:invite_email]
     resource.skip_password_validation = true
+
     if resource.save
       set_flash_message :alert, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
       expire_session_data_after_sign_in!
-      session[:user] = nil
-      session[:authentication] = nil
-      session['omniauth']      = nil
-      cookies[:can_register]   = nil
       respond_with resource, :location => '/' do |format|
         format.html
-        format.js do
-        resource.send_reply_kudo! params[:author_id] if request.xhr? && !params[:author_id].blank?
-        flash[:notice] = I18n.t('devise.registrations.sent_and_registered')
-        sign_in :user, resource
+        unless cookies[:kudo_key].blank?
+          resource.comment_invitation_kudo cookies[:kudo_key]
+          flash[:notice] = I18n.t('devise.registrations.sent_and_registered')
+          sign_in :user, resource
         end
       end
     else
@@ -42,6 +39,7 @@ class RegistrationsController < Devise::RegistrationsController
         render_with_scope :new if request.format.html?
       end
     end
+    clean_up_session_and_cookies
   end
 
   def update
@@ -56,6 +54,15 @@ class RegistrationsController < Devise::RegistrationsController
 
     def check_company_registration
       resource.has_company = (params[:company] == "true")
+    end
+
+    def clean_up_session_and_cookies
+      session[:user] = nil
+      session[:authentication] = nil
+      session['omniauth']      = nil
+      cookies[:can_register]   = nil
+      cookies[:response]       = nil
+      cookies[:author_id]      = nil
     end
 
 

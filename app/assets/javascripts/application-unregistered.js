@@ -6,8 +6,8 @@
 //= require jquery.min
 //= require jquery_ujs
 //= require jquery-ui
-//= require digitalspaghetti.password
 //= require kudos
+//= require digitalspaghetti.password
 //= require password_strength
 //= require error_messaging
 //= require libs

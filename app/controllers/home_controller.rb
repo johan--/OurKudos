@@ -40,7 +40,6 @@ class HomeController < ApplicationController
       @kudo = EmailKudo.with_kudo_by_key(params[:kudo_id]).first rescue nil
 
       cookies[:invite_email]  = @kudo.email rescue nil
-      session[:response]     = cookies[:response]
 
       @user = User.new
       @terms_of_service = Page.find_by_slug('terms-of-service').body
