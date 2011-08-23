@@ -13,7 +13,6 @@ ul.auto-list{
 	margin:0;
 	list-style:none;
 }
-ul.auto-list > li:hover,
 ul.auto-list > li[data-selected=true]{
 	background-color: #A4C6ED;
 }
