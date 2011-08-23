@@ -488,8 +488,6 @@ class User < ActiveRecord::Base
     sent.for_dashboard.select("distinct kudos.*").group User.grouping_order
   end
 
-
-
   class << self
 
     def get_identity_user_by email
@@ -529,8 +527,6 @@ class User < ActiveRecord::Base
       { 1   => :system,   2 => :gravatar,
         3   => :facebook, 4 => :twitter}
     end
-
-
 
   end
 

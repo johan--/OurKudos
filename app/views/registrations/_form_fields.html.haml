@@ -1,5 +1,5 @@
 %p
   = f.label :email
   %br/
-  = f.text_field :email, :class => "string"
+  = f.text_field :email, :class => "string", :disabled => email_present?
 = render :partial => "form_fields_no_email", :locals => {:f => f}

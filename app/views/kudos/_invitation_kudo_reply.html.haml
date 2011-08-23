@@ -3,25 +3,14 @@
  %span.reddened It's Fast, Free and Fun!
  .kudo_message_cont
 #kudo_sender_cont
- %p= image_tag('kudos-avatar-icon.png')
+ %p= image_tag 'kudos-avatar-icon.png'
 .kudo_message_bubble_cont
  .kudo_message_bubble_nipple
  .invitation-form
   %p= text_area_tag 'kudo_body', nil, :placeholder => "write something positive!"
 
-  .invitation-form-fields.hidden
-   = form_for(@user, :html => { :honeypot => true }, :url    => registration_path(@user, :format => :js),
-                                                      :method => :post,
-                                                      :remote => true) do |f|
-
-    .error_container
-    = hidden_field_tag "author_id", @kudo.kudo.author_id
-    = render :partial => "registrations/form_fields_no_email", :locals => {:f => f}
-    = hidden_field_tag "user[email]", @kudo.email
-    = hidden_field_tag "user[first_message]", nil, :class => "first_message"
-    = hidden_field_tag "user[base]", nil
+  = render :partial => "kudos/invitation_registration_form"
 
 %button.kudo_reply_submit_btn{:type => "submit"}
- = image_tag('send-now-btn.png', :class => "submit-invitation-form")
-       
+ = link_to image_tag('send-now-btn.png', :class => "submit-invitation-form"), new_user_registration_path(:user => {:email => @kudo.email })
 .clearing

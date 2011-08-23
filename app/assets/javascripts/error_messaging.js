@@ -2,7 +2,10 @@ $(document).ready(function(){
 	// if there are Rails flash alerts or Devise form errors, capture the HTML and insert into interstitial message area
 	
 	if ($('#error_explanation').length) {
-		$('#error_explanation').dialog({width: 446, modal: true, resizable: false, title: 'Action Required:', draggable: false, buttons: [{ text: "Okay", click: function(){$(this).dialog("close");} } ] });
+		$('#error_explanation').dialog({
+            width: 446,
+            modal: true,
+            resizable: false, title: 'Action Required:', draggable: false, buttons: [{ text: "Okay", click: function(){$(this).dialog("close");} } ] });
 		$('.ui-dialog').prepend('<div id="dialog-kudos-character" class="stopcop"></div>');
 		$('.ui-dialog-content').prepend('<div class="flow-around-object"></div>');
 		// we style the button this way because doing it as a button config option breaks in IE8
@@ -37,32 +40,14 @@ $(document).ready(function(){
     var message = $("#kudo_body").val();
 
     if (message.length == 0) {
-        alert("If you want to reply to this kudo, please enter a message.")
+        alert("If you want to reply to this kudo, please enter a message.");
+        return false;
     } else {
 
      $("div.error_container").html('');
      $('body').append('<div id="invitation_registration_form"></div>');
 
-
-
-     $("input.first_message").val(message); // copy kudo message to hidden field
-     $("#invitation_registration_form").html($("div.invitation-form-fields.hidden").html());
-     $("#invitation_registration_form").dialog({
-         width: 446,
-         modal: true,
-         resizable: false,
-         title: 'Just one easy step! Please register for an account for full access to OurKudos:',
-         draggable: false,
-         buttons: [{ text: "Submit", click: function(){
-              $('form').last().submit();
-              $(":button:contains('Submit')").attr("disabled","disabled").addClass("ui-state-disabled");
-              
-
-         } } ]
-        
-        
-        });
-     $('button.ui-button').addClass('action_button');
+     OurKudos.Cookies.setCookie("response", message);
   }
 
 });

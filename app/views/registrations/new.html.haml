@@ -11,9 +11,12 @@
 
   = hidden_field_tag :company, params[:company]
   = render :partial => "form_fields", :locals => {:f => f}
+
   = hidden_field_tag :autofill, params[:autofill]
+
+  = hidden_field_tag "user[first_message]", session[:response], :class => "first_message"
   
   %p= f.submit "Sign up"
-  %p -OR-
+  %p - OR -
   %p= link_to image_tag('sign-up-with-facebook-btn.png'), omniauth_authorize_path(:user, 'facebook')
 

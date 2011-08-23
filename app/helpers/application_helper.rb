@@ -85,6 +85,12 @@ module ApplicationHelper
             new_user_registration_path(:company => !company_sign_up?), :class => "action_link"
   end
 
+  def email_present?
+    !params[:user].blank? &&
+        !params[:user].blank? &&
+        params[:user][:email].to_s =~ RegularExpressions.email
+  end
 
-  
+
+
 end

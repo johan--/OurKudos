@@ -97,21 +97,20 @@ jQuery ->
     processShareScope()
     scrollScreenToKudo()
 
-    jQuery(".business-card").businessCard()
-
     jQuery("input.share-scope").click ->
       processShareScope()
 
     $.Token = jQuery(".kudo_recipient_list")
-    $.Token.tokenInput "/autocomplete/new?object=recipients",
-        allowCustomEntry: true
-        preventDuplicates: true
-        onAdd: ->
-           validateServerSideAndDisplayResults()
+    if $.Token
+        $.Token.tokenInput "/autocomplete/new?object=recipients",
+            allowCustomEntry: true
+            preventDuplicates: true
+            onAdd: ->
+               validateServerSideAndDisplayResults()
 
-        onDelete: ->
-           validateServerSideAndDisplayResults()
+            onDelete: ->
+                validateServerSideAndDisplayResults()
 
-    jQuery("select#sort_by").change ->
-         jQuery("form#sort_and_search_kudos_form").submit()
+        jQuery("select#sort_by").change ->
+             jQuery("form#sort_and_search_kudos_form").submit()
 
