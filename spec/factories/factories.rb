@@ -68,6 +68,7 @@ Factory.define :other_user, :class => "User" do |u|
   u.first_name 'name'
   u.last_name 'last name'
   u.password 'somepassvalid1234'
+  u.postal_code '54701'
   u.birthday '1999-11-11'
   u.roles {|roles| [roles.association(:role)] }
 end
