@@ -12,7 +12,7 @@ gem 'multi_json'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'pg_search'
-gem 'sprockets', '2.0.0.beta10'
+gem 'sprockets', "2.0.0.beta.10"
 gem 'cancan'
 gem 'honeypot-captcha'
 gem 'oauth2'
