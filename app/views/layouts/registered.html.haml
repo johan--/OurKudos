@@ -14,7 +14,7 @@
     = stylesheet_link_tag 'registered'
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Puritan:400,700,400italic,700italic'
     = csrf_meta_tag
-    = javascript_tag "http://connect.facebook.net/en_US/all.js#xfbml=1"
+    = javascript_include_tag "http://connect.facebook.net/en_US/all.js#xfbml=1"
   %body{:class => "#{controller_name}_#{action_name}"}
     #mainarea
       #header
