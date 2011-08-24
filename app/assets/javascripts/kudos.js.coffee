@@ -104,6 +104,9 @@ jQuery ->
     jQuery("input.share-scope").click ->
       processShareScope()
 
+    jQuery("form#sort_and_search_kudos_form").submit ->
+        jQuery("#spinner").show()
+
     $.Token = jQuery(".kudo_recipient_list")
     if $.Token.length > 0
         $.Token.tokenInput "/autocomplete/new?object=recipients",
