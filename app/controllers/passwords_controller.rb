@@ -38,11 +38,13 @@ class PasswordsController < Devise::PasswordsController
     self.resource = resource_class.reset_password_by_token(params[resource_name])
 
     @user_id = resource_class.find_by_reset_password_token!(params[:reset_password_token]).id rescue nil
-    if resource.errors.empty?
+    resource.company?
+    unless resource.valid?
       set_flash_message(:notice, :updated) if is_navigational_format?
       sign_in(resource_name, resource)
       respond_with resource, :location => home_path
     else
+      debugger
       respond_with resource { render_with_scope :edit }
     end
   end
