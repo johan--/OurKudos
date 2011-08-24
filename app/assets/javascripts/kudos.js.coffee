@@ -105,7 +105,7 @@ jQuery ->
       processShareScope()
 
     jQuery("form#sort_and_search_kudos_form").submit ->
-        jQuery("#spinner-big").show()
+        jQuery("#big_spinner").show()
 
     $.Token = jQuery(".kudo_recipient_list")
     if $.Token.length > 0
