@@ -23,6 +23,10 @@ module RegularExpressions
   def self.merchant
     /^mrt_{1}/
   end
+
+  def self.word
+    /\S*/
+  end
  #TODO place other reg exps here
 
 end
