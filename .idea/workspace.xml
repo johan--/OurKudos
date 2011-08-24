@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ok.iml" afterPath="$PROJECT_DIR$/.idea/ok.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/staging.rb" afterPath="$PROJECT_DIR$/config/environments/staging.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -58,7 +56,7 @@
       <file leaf-file-name="staging.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="2403" selection-end="2403" vertical-scroll-proportion="0.8333333">
+            <state line="55" column="30" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.6666667">
               <folding />
             </state>
           </provider>
@@ -313,7 +311,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="2403" selection-end="2403" vertical-scroll-proportion="0.8333333">
+        <state line="55" column="30" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.6666667">
           <folding />
         </state>
       </provider>
