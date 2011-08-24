@@ -12,7 +12,7 @@
    .kudo_side_controls
     - unless kudo_object(kudo).has_been_improperly_flagged?
      .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.kudo.id }
-    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure), :class => "delete_kudo_btn")
+    %div= link_to('', user_kudo_path(current_user, kudo), :method => :delete, :confirm => I18n.t(:are_you_sure_you_want_to_delete), :class => "delete_kudo_btn")
    
    
    %p.recipients_cont{:id => "kudo_#{kudo.id}"}
