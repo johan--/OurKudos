@@ -381,7 +381,7 @@ DEPENDENCIES
   ruby_parser
   sass
   shoulda
-  sprockets (= 2.0.0.beta10)
+  sprockets (= 2.0.0.beta.10)
   sqlite3
   therubyracer
   timecop
