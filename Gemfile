@@ -25,7 +25,6 @@ gem 'fb_graph'
 gem 'twitter'
 gem "delayed_job"
 gem 'json'
-gem 'sass'
 gem 'coffee-script'
 gem 'coffee-filter'
 gem 'uglifier'
