@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/environments/staging.rb" afterPath="$PROJECT_DIR$/config/environments/staging.rb" />
-    </list>
+    <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="" />
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,7 +54,7 @@
       <file leaf-file-name="staging.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="30" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.6666667">
+            <state line="61" column="0" selection-start="2434" selection-end="2434" vertical-scroll-proportion="0.8">
               <folding />
             </state>
           </provider>
@@ -311,7 +309,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/staging.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="30" selection-start="2232" selection-end="2232" vertical-scroll-proportion="0.6666667">
+        <state line="61" column="0" selection-start="2434" selection-end="2434" vertical-scroll-proportion="0.8">
           <folding />
         </state>
       </provider>

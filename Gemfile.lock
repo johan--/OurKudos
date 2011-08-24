@@ -292,8 +292,8 @@ GEM
     sexp_processor (3.0.5)
     shoulda (2.11.3)
     simple_oauth (0.1.5)
-    sprockets (2.0.0.beta.14)
-      hike (~> 1.2)
+    sprockets (2.0.0.beta.10)
+      hike (~> 1.0)
       rack (~> 1.0)
       tilt (!= 1.3.0, ~> 1.1)
     sqlite3 (1.3.3)
@@ -381,7 +381,7 @@ DEPENDENCIES
   ruby_parser
   sass
   shoulda
-  sprockets
+  sprockets (= 2.0.0.beta10)
   sqlite3
   therubyracer
   timecop
