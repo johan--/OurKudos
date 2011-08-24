@@ -55,3 +55,11 @@
    // render :partial => "kudos/business_card", :locals => {:kudo => kudo_object(kudo) }
    
  .clearing
+:javascript
+  var reply = $.getQueryString("reply")
+
+  if (reply === "true") {
+    var comment_form = ".comments_form#comments_form_#{kudo.id}";
+    $(comment_form).html("#{escape_javascript(render :partial => "comments/form", :locals => {:kudo => kudo_object(kudo) } ) }");
+
+  }

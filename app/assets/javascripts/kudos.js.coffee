@@ -38,12 +38,15 @@ validateServerSideAndDisplayResults = ->
 
 scrollScreenToKudo = ->
   kudo_id = jQuery.getQueryString("kudo_id")
+
   if ((typeof jQuery.getQueryString("recipient") == "string") and (typeof kudo_id == "string"))
     kudo = document.getElementById "kudo_" + kudo_id
     try
        kudo.scrollIntoView(true)
     catch error
        console.log('No kudo to scroll ' + error)
+
+
 
 processProviderOnKudosForm  = (provider) ->
   cookieName    = 'check-' + provider + "-share"

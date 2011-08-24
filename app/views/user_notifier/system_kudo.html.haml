@@ -8,7 +8,8 @@
       %blockquote= @kudo.body
 
       %br/
-      = link_to t(:view_my_message_on_ourkudos), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}"
+      %p= link_to t(:view_my_message_on_ourkudos), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}"
+      %p= link_to t(:reply_to_this_kudo), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}&reply=true"
 
     %p
       = t :you_are_receiving_this_email_notice
