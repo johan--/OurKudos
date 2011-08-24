@@ -2,6 +2,30 @@
 
 @import "variables_and_mixins";
 
+@font-face {
+    font-family: 'NunitoRegular';
+    src: url(<%= asset_path 'nunito-regular-webfont.eot' %>);
+    src: url(<%= asset_path 'nunito-regular-webfont.eot?#iefix' %>) format('embedded-opentype'),
+         url(<%= asset_path 'nunito-regular-webfont.woff' %>) format('woff'),
+         url(<%= asset_path 'nunito-regular-webfont.ttf' %>) format('truetype'),
+         url(<%= asset_path 'nunito-regular-webfont.svg#NunitoRegular' %>) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'NunitoBold';
+    src: url(<%= asset_path 'nunito-bold-webfont.eot' %>);
+    src: url(<%= asset_path 'nunito-bold-webfont.eot?#iefix' %>) format('embedded-opentype'),
+         url(<%= asset_path 'nunito-bold-webfont.woff' %>) format('woff'),
+         url(<%= asset_path 'nunito-bold-webfont.ttf' %>) format('truetype'),
+         url(<%= asset_path 'nunito-bold-webfont.svg#NunitoBold' %>) format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 /* Begin CSS Reset */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
