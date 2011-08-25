@@ -27,3 +27,4 @@
 //= require kudo_body_parser
 //= require autocomplete_plugin
 //= require autocomplete
+//= require cursor

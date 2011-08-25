@@ -1,4 +1,5 @@
-.kudo_message_cont{:id => "kudo_message_id_#{kudo.kudo.id}"}
+- kudo_id = kudo.kudo.id
+.kudo_message_cont{:id => "kudo_message_id_#{kudo_id}"}
  .avatar_cont
   - if kudo.author
    = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :id => kudo_object(kudo).id
@@ -39,7 +40,7 @@
 
    
 
-   .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.kudo.id}"}
+   .popup_placeholder{:id => "flag_popup_placeholder_#{kudo_id}"}
    .clearing
    .kudo_comment
     - unless kudo.kudo.comments_disabled?
@@ -56,10 +57,12 @@
    
  .clearing
 :javascript
+  $(function(){
+
+  })
   var reply = $.getQueryString("reply")
 
-  if (reply === "true") {
-    var comment_form = ".comments_form#comments_form_#{kudo.id}";
-    $(comment_form).html("#{escape_javascript(render :partial => "comments/form", :locals => {:kudo => kudo_object(kudo) } ) }");
-
+  if (reply === "true" && $.getQueryString("kudo_id") === "#{kudo.id}") {
+    showCommentForm("#{kudo_id}");
+    $("#textarea_#{kudo_id}").setCursorPosition(0);
   }

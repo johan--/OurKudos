@@ -6,7 +6,7 @@
     %p
       = f.label :comment, t(:kudo_comment)
       %br/
-      = f.text_area :comment, :size => "66x3"
+      = f.text_area :comment, :size => "66x3", :id => "textarea_#{kudo.id}"
     %p
       = f.submit t(:kudo_add_comment)
       = t(:or)
