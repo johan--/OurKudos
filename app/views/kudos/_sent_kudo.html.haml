@@ -15,7 +15,7 @@
   .kudo_message_text_cont
    .kudo_side_controls
     - unless kudo_object(kudo).has_been_improperly_flagged?
-     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id }
+     .kudo_flag_cont.kf_dimmed.clickable{"data-id" => kudo.id, "title" => I18n.t(:click_here_to_flag_this_kudo) }
 
     %div= sent_kudo_destroy_link(kudo)
     

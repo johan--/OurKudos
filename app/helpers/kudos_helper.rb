@@ -21,12 +21,14 @@ module KudosHelper
       link_to('', destroy_sent_user_kudo_path(current_user, kudo),
                                 :method => :delete,
                                 :confirm => I18n.t(:are_you_sure_you_want_to_delete),
-                                :class => "delete_kudo_btn")
+                                :class => "delete_kudo_btn",
+                                :title => I18n.t(:click_here_to_delete_this_kudo))
       else     #just hide that kudo, cannot be deleted by non-author
       link_to('', hide_user_kudo_path(current_user, kudo),
                                 :method => :delete,
                                 :confirm => I18n.t(:are_you_sure_you_want_to_delete),
-                                :class => "delete_kudo_btn")
+                                :class => "delete_kudo_btn",
+                                :title => I18n.t(:click_here_to_delete_this_kudo))
      end
   end
 
