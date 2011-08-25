@@ -16,7 +16,7 @@
 
   %p
    = f.label :kudo_category_id, "Type of Kudo"
-   = f.select :kudo_category_id, KudoCategory.collection_for_kudo_form, {:prompt => "Select a Category…", :selected => 7}, :class => "full-width-select"
+   = f.select :kudo_category_id, KudoCategory.collection_for_kudo_form, {:prompt => "Select a Category…"}, :class => "full-width-select"
 
  #kudo_send_col_right
   - unless social_sharing_enabled?
