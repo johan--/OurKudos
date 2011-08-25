@@ -41,6 +41,7 @@ gem 'acts_as_commentable'
 gem 'omniauth', '~> 0.2.6'
 gem 'whenever'
 gem 'newrelic_rpm'
+gem 'mailman'
 
 group :test do
   gem "cucumber"
