@@ -20,8 +20,8 @@
   %h3= @report.name + ":" + @objects.size.to_i.to_s
 
 :javascript
-  $('#from').datepicker({ dateFormat: 'yy-mm-dd', buttonImageOnly: 'true', showOn: 'button', buttonImage: '/assets/calendar.png'});
-  $('#until').datepicker({ dateFormat: 'yy-mm-dd', buttonImageOnly: 'true', showOn: 'button', buttonImage: '/assets/calendar.png'});
+  $('#from').datepicker({ dateFormat: 'yy-mm-dd', buttonImageOnly: 'true', showOn: 'button', buttonImage: "#{escape_javascript asset_path('calendar.png')}"});
+  $('#until').datepicker({ dateFormat: 'yy-mm-dd', buttonImageOnly: 'true', showOn: 'button', buttonImage: "#{escape_javascript asset_path('calendar.png')}"});
    $(function(){
       $('#since_today').click(function(){
                                 $('#from').val('#{Date.today.strftime("%Y-%m-%d")}');
