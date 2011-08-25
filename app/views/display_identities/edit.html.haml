@@ -1,0 +1,15 @@
+%h2= t(:select_an_account)
+= form_tag user_display_identity_path, :method => :put do
+  %table
+    %th= t(:account_type)
+    %th{:colspan => 2}
+      = t(:display)
+    - @identities.each do |identity|
+      %tr
+        %td= identity.identity_type
+        %td= identity.identity
+        %td
+          = radio_button_tag "display_identity", identity.id, :checked => identity.display_identity?
+    %tr
+      %td= submit_tag "Update"
+  

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813121409) do
+ActiveRecord::Schema.define(:version => 20110823230856) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -182,9 +182,10 @@ ActiveRecord::Schema.define(:version => 20110813121409) do
     t.string   "identity_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_primary",    :default => false
+    t.boolean  "is_primary",       :default => false
     t.datetime "deleted_at"
-    t.boolean  "is_company",    :default => false
+    t.boolean  "is_company",       :default => false
+    t.boolean  "display_identity", :default => false
   end
 
   create_table "ips", :force => true do |t|

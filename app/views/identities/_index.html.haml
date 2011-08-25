@@ -7,6 +7,7 @@
     %th= t :type
     %th= t :account_name
     %th= t :confirmed
+    %th= t :displayed_account
     %th edit
     %th remove
   %tbody
@@ -15,6 +16,7 @@
         %td= identity.identity_type
         %td= identity.identity
         %td= identity.confirmation.confirmed.to_s rescue 'none'
+        %td= identity.display_identity ? "Yes" : ""
         %td
           - if !identity.is_primary?
             = link_to t(:edit_account_link),  admin_or_user_edit_identity_path(@user, identity)

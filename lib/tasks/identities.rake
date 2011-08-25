@@ -23,4 +23,14 @@ namespace :identities do
         
         puts "Done."
       end
+
+      task :reset_display_name => :environment  do
+        identities = Identity.where(:is_primary => true)
+        identities.each do |identity| 
+          puts "updating #{identity.user.to_s}..."
+          identity.update_attribute("display_identity", true)
+          puts "update done"
+        end
+      end
+
 end

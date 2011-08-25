@@ -123,5 +123,12 @@ class Identity < ActiveRecord::Base
     end
   end
   
+  def self.update_display_identity(user, new_display_identity)
+    old = Identity.where(:display_identity => true, :user_id => user.id).first
+    return false unless old.update_attribute('display_identity', false)
+    new = Identity.find(new_display_identity)
+    return false unless new.update_attribute('display_identity', true)
+    true
+  end
 
 end
