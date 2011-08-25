@@ -20,4 +20,5 @@ jQuery ->
         jQuery(".notice, .alert, .error").remove()
 
     jQuery("a.form_close").live 'click', ->
+        id = jQuery(this).attr('id');
         jQuery(".comments_form#comments_form_" + id).hide();
