@@ -24,11 +24,11 @@
 }
 
 .stopcop {
-	background: url(kudos_character_stop.png) no-repeat right top;
+	background: url(<%= asset_path 'kudos_character_stop.png' %>) no-repeat right top;
 }
 	
 .flagman {
-	background: url(kudos_character_flagman.png) no-repeat right top;
+	background: url(<%= asset_path 'kudos_character_flagman.png' %>) no-repeat right top;
 }
 
 /* This exists simply to make text flow around it as if the text were flowing around the Kudos character */
@@ -46,7 +46,7 @@ div.flow-around-object {
 }
 
 .ui-widget-header {
-	background: url(ui-widget-header-bg.png) no-repeat left bottom;
+	background: url(<%= asset_path 'ui-widget-header-bg.png' %>) no-repeat left bottom;
 	background-color: #c90816;
 }
 
@@ -67,7 +67,7 @@ div.ui-dialog-buttonpane div.ui-dialog-buttonset button.action_button {
 	font: normal 1.2em "NunitoBold", Arial, Helvetica, sans-serif;
 	cursor: pointer;
 	outline: none;
-	background: url(action_button_bg.png) no-repeat right top;
+	background: url(<%= asset_path 'action_button_bg.png' %>) no-repeat right top;
 	background-color: #c90816;
 	
 	&:hover {
