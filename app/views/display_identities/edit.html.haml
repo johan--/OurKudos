@@ -1,4 +1,5 @@
-%h2= t(:select_an_account)
+%h2= t(:change_display_account)
+%p.note Choose an identity to display throughout the OurKudos system as your public identity.
 = form_tag user_display_identity_path, :method => :put do
   %table.type1
     %th= t(:account_type)
@@ -13,5 +14,3 @@
   %p
     = submit_tag "Update"
     = link_to 'cancel', user_path(current_user), :class => 'action_link'
-    
-  
