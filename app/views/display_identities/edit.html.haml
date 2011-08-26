@@ -1,5 +1,5 @@
 %h2= t(:change_display_account)
-%p.note Choose an identity to display throughout the OurKudos system as your public identity.
+%p.note= t(:choose_an_identity_to_display)
 = form_tag user_display_identity_path, :method => :put do
   %table.type1
     %th= t(:account_type)
