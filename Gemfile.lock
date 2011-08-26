@@ -33,6 +33,9 @@ GEM
       multi_json (~> 1.0)
     acts_as_commentable (3.0.1)
     addressable (2.2.4)
+    airbrake (3.0)
+      activesupport
+      builder
     ancestry (1.2.4)
       activerecord (>= 2.2.2)
     archive-tar-minitar (0.5.2)
@@ -117,6 +120,7 @@ GEM
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.8.0)
     ffi (1.0.9)
+    fssm (0.2.7)
     fuubar-cucumber (0.0.12)
       cucumber
       ruby-progressbar (~> 0.0.10)
@@ -128,7 +132,6 @@ GEM
     highline (1.6.2)
     hike (1.2.1)
     honeypot-captcha (0.0.2)
-    hoptoad_notifier (2.4.11)
       activesupport
       builder
     hpricot (0.8.4)
@@ -149,6 +152,13 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    maildir (1.0.1)
+    mailman (0.4.0)
+      activesupport (>= 2.3.4)
+      fssm (>= 0.1.4)
+      i18n (>= 0.4.1)
+      mail (>= 2.0.3)
+      maildir (>= 0.5.0)
     memcache (1.2.13)
     memcache-client (1.8.5)
     mime-types (1.16)
@@ -334,6 +344,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable
+  airbrake
   ancestry
   cancan
   capistrano
@@ -357,12 +368,12 @@ DEPENDENCIES
   gravtastic
   haml
   honeypot-captcha
-  hoptoad_notifier
   hpricot
   jquery-rails
   json
   kaminari
   launchy
+  mailman
   memcache
   memcache-client
   multi_json
