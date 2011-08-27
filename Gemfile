@@ -61,7 +61,7 @@ group :test do
   gem 'sqlite3'
   gem 'fakeweb'
   gem 'fakeweb-matcher'
-  gem 'cover_me', '>= 1.0.6.rc6'
+  gem 'cover_me'
 end
 
 

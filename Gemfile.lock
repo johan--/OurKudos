@@ -72,7 +72,7 @@ GEM
     columnize (0.3.4)
     configatron (2.8.2)
       yamler (>= 0.1.0)
-    cover_me (1.1.0)
+    cover_me (1.1.2)
       configatron
       hashie
     cucumber (1.0.2)
@@ -352,7 +352,7 @@ DEPENDENCIES
   capybara
   coffee-filter
   coffee-script
-  cover_me (>= 1.0.6.rc6)
+  cover_me
   cucumber
   cucumber-rails (~> 0.5.1)
   database_cleaner
