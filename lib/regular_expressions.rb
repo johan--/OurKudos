@@ -27,6 +27,10 @@ module RegularExpressions
   def self.word
     /\S*/
   end
+
+  def self.received_kudos_subject
+    /sent you Kudos/
+  end
  #TODO place other reg exps here
 
 end
