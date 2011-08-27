@@ -109,7 +109,7 @@
     |
     = link_to t(:show_my_facebook_friends), user_facebook_friends_path(current_user), :class => "action_link"  if current_user.connected_with_facebook? && current_user.has_role?("admin")
     |
-    = link_to t(:change_display_account), edit_user_display_identity_path(current_user), :class => "action_link"
+    = link_to t(:change_display_account), user_display_identity_path(current_user), :class => "action_link"
 
 .userprofile_col_right
   %h3= t :profile_picture

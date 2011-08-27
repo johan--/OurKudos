@@ -12,7 +12,7 @@ class DisplayIdentitiesController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:error] = t(:there_was_a_problem_please_try_again)
-      redirect_to edit_user_display_identity_path(current_user)
+      redirect_to edit_display_identity_path(current_user)
     end
   end
 end
