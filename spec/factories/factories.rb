@@ -4,6 +4,9 @@ Factory.sequence(:role_name)                { |n| "Password #{n}" }
 Factory.sequence(:admin_role_name)          { |n| "Admin Role #{n}" }
 Factory.sequence(:email)                    { |n| "email#{n}@email.com" }
 Factory.sequence(:gift_group_name)          { |n| "gift_group #{n}" }
+Factory.sequence(:first_name)               { |n| "first_name #{n}" }
+Factory.sequence(:last_name)                { |n| "last_name #{n}" }
+Factory.sequence(:identity)                 { |n| "identity #{n}" }
 
 Factory.define :site do |s|
   s.site_name { Factory.next(:site_name) }
@@ -41,6 +44,7 @@ Factory.define :primary_identity, :class => "Identity" do |i|
   i.identity { Factory.next(:email) }
   i.identity_type 'email'
   i.is_primary true
+  i.display_identity true
   i.association :user
 end
 
@@ -53,8 +57,8 @@ end
 Factory.define :user do |u|
   u.email { Factory.next(:email) }
   u.created_at '1999-11-11'
-  u.first_name 'My name'
-  u.last_name 'Last name'
+  u.first_name { Factory.next(:first_name) }
+  u.last_name { Factory.next(:last_name) }
   u.password 'somepassvalid123'
   u.birthday '1999-11-11'
   u.postal_code '54701'
@@ -135,12 +139,12 @@ end
 
 Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
   kc.author    {|u|  Factory(:user) }
-  kc.body "Simply - thank you"
+  #kc.body "Simply - thank you"
   kc.kudo      {|kudo| Factory(:kudo) }
   kc.recipient {|r| Factory(:other_user) }
   kc.kudoable  {|k| Factory(:kudo)  }
-  kc.facebook_sharing false
-  kc.twitter_sharing  false
+  #kc.facebook_sharing false
+  #kc.twitter_sharing  false
 end
 
 Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|

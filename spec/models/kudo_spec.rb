@@ -33,15 +33,15 @@ describe Kudo do
         new_kudo.to = ''
         new_kudo.share_scope = 'friends'
 
-        identity        = Factory(:identity)
+        identity        = Factory(:identity, :display_identity => true)
         email           = "some@email.com"
 
-        new_kudo.to = "#{identity.id}, #{email}"
+        new_kudo.to = "#{identity.id}"
 
         new_kudo.prepare_copies
         new_kudo.save
 
-        new_kudo.recipients_readable_list.include?("#{identity.user.first_name} #{identity.user.last_name[0]}.").should be_true
+        new_kudo.recipients_readable_list.include?(identity.user.secured_name ).should be_true
         new_kudo.recipients_readable_list.include?("some@email.com").should be_false
       end
 
