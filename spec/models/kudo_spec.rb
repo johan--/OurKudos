@@ -96,4 +96,24 @@ describe Kudo do
     end
 
   end
+
+  describe "deleting a kudo" do
+    before(:each) do 
+      @user = Factory(:user)
+      @kudo = Factory(:kudo, :to => @user.primary_identity.id.to_s)
+    end
+
+    describe "user is only recipient" do
+      it "should respond to user_is_only_recipient" do
+        @kudo.should respond_to 'user_is_only_recipient?'
+        @kudo.user_is_only_recipient?(@user).should be(true)
+      end
+
+      it "should be deletable by user" do
+        @kudo.should respond_to 'can_be_deleted_by?'
+        @kudo.can_be_deleted_by?(@user).should be(true)
+      end
+    end
+
+  end
 end

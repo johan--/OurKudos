@@ -251,7 +251,11 @@ class Kudo < ActiveRecord::Base
   end
 
   def can_be_deleted_by? user
-    author == user
+    author == user || user_is_only_recipient?(user) == true
+  end
+
+  def user_is_only_recipient? user
+    recipients.size == 1 && recipients.include?(user) 
   end
 
   def people_received_ids
