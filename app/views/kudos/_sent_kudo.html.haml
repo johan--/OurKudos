@@ -6,7 +6,7 @@
    = anon_picture
  
   - unless kudo.author.blank?
-   .sender= link_to kudo.author.to_s, user_profile_path(kudo.author),  :id => kudo.id
+   .sender= link_to kudo.author.secured_name, user_profile_path(kudo.author),  :id => kudo.id
   - else
    (removed account)
   

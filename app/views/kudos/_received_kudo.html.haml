@@ -5,7 +5,7 @@
    = link_to profile_picture_for(kudo.author), user_profile_path(kudo.author), :id => kudo_object(kudo).id
   - else
    = anon_picture
-  .sender= link_to kudo.author.to_s, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
+  .sender= link_to kudo.author.secured_name, user_profile_path(kudo.author),:id => kudo_object(kudo) if kudo.author
   
  .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
   .kudo_message_bubble_nipple
@@ -22,7 +22,7 @@
 
     %span.receiver
      - if kudo.recipient
-      = link_to kudo.recipient.to_s, user_profile_path(kudo.recipient)
+      = link_to kudo.recipient.secured_name, user_profile_path(kudo.recipient)
      - else
       "unknown recipient(s)"
     

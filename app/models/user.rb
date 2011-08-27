@@ -1,4 +1,3 @@
-
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,:omniauthable,
@@ -14,7 +13,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email, :has_company,
-                :send_penalty_notification, :first_message
+                :send_penalty_notification, :first_message, 
+                :display_identity_name, :display_name
   # ================
   # = associations =
   # ================
@@ -124,6 +124,7 @@ class User < ActiveRecord::Base
 
   def secured_name
   	return company_name if !company_name.nil?
+  	return  "@#{display_identity.identity}" if display_identity.identity_type == "twitter"
     return "#{first_name} #{last_name.first.capitalize}." if middle_name.blank?
     "#{first_name} #{middle_name.first.capitalize}. #{last_name.first.capitalize}."
   end
@@ -196,6 +197,7 @@ class User < ActiveRecord::Base
 
       identity = self.identities.create :identity        => primary_identity_value,
                                         :is_primary      => true,
+                                        :display_identity => true,
                                         :no_confirmation => !self.first_message.blank?,
                                         :identity_type   => primary_identity_type,
                                         :is_company      => has_company
@@ -223,6 +225,10 @@ class User < ActiveRecord::Base
 
   def primary_identity
     @primary_identity ||= identities.find_by_is_primary true
+  end
+
+  def display_identity
+    @display_identity ||= identities.find_by_display_identity true
   end
 
   def primary_identity_changed

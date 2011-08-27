@@ -70,7 +70,19 @@ class Kudo < ActiveRecord::Base
     if to.present? && kudo_copies.size == 0
       to.gsub("'","")
     else
-      kudo_copies.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
+      #kudo_copies.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
+      #needs refactoring
+      kudo_copies.map do |i|
+        if !i.recipient.blank?
+          i.recipient.secured_name
+        else !i.temporary_recipient
+          if i.kudoable_type == "TwitterKudo"
+            "@#{i.temporary_recipient}"
+          else
+            i.temporary_recipient
+          end
+        end
+      end.uniq.compact.sort.join(",")
     end
   end
 

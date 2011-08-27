@@ -7,7 +7,7 @@
     
     .sender
       - if kudo.author
-        = link_to kudo.author.to_s, user_profile_path(kudo.author.id)
+        = link_to kudo.author.secured_name, user_profile_path(kudo.author.id)
       - else
         (removed account)
           
