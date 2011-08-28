@@ -251,7 +251,15 @@ class Kudo < ActiveRecord::Base
   end
 
   def can_be_deleted_by? user
-    author == user || user_is_only_recipient?(user) == true
+    author == user || user_is_only_recipient?(user) == true || is_last_to_delete?(user) == true
+  end
+
+  def recipients_who_have_not_deleted
+    system_kudos_recipients_cache - hidden_for  
+  end
+
+  def is_last_to_delete? user
+    recipients_who_have_not_deleted.length == 1 && recipients_who_have_not_deleted.first == user.id
   end
 
   def user_is_only_recipient? user

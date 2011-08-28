@@ -100,10 +100,13 @@ describe Kudo do
   describe "deleting a kudo" do
     before(:each) do 
       @user = Factory(:user)
-      @kudo = Factory(:kudo, :to => @user.primary_identity.id.to_s)
     end
 
     describe "user is only recipient" do
+      before(:each) do
+        @kudo = Factory(:kudo, :to => @user.primary_identity.id.to_s)
+      end
+
       it "should respond to user_is_only_recipient" do
         @kudo.should respond_to 'user_is_only_recipient?'
         @kudo.user_is_only_recipient?(@user).should be(true)
@@ -112,6 +115,44 @@ describe Kudo do
       it "should be deletable by user" do
         @kudo.should respond_to 'can_be_deleted_by?'
         @kudo.can_be_deleted_by?(@user).should be(true)
+      end
+    end
+
+    describe "multiple recipients" do
+      before(:each) do
+        @user2 = Factory(:user)
+        @kudo = Factory(:kudo, :to => "#{@user.primary_identity.id}, #{@user2.primary_identity.id}")
+      end
+
+      describe "no recipients have deleted the kudo" do
+        it "should be not be able to be deleted by current user" do
+          @kudo.recipients.size.should > 1
+          @kudo.can_be_deleted_by?(@user).should be(false)
+        end
+      end
+
+      describe "all recipients but user have deleted kudo" do
+        before(:each) do
+          @kudo.hide_for! @user2
+        end
+
+        it "should show user is in recipients who havent deleted kudo" do
+          @kudo.should respond_to 'recipients_who_have_not_deleted'
+        end
+
+        it "should show only user who has not deleted kudo" do
+          @kudo.recipients_who_have_not_deleted.size.should eq(1)
+          @kudo.recipients_who_have_not_deleted.first.should eq(@user.id)
+        end
+
+        it "should respond to last to delete kudo" do
+          @kudo.should respond_to 'is_last_to_delete?'
+          @kudo.is_last_to_delete?(@user).should be(true)
+        end
+
+        it "should be deletable by user" do
+          @kudo.can_be_deleted_by?(@user).should be(true)
+        end
       end
     end
 
