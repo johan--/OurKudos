@@ -44,9 +44,9 @@ class KudosController < ApplicationController
   def destroy_sent
     @kudo = Kudo.find params[:id]
     if @kudo && @kudo.soft_destroy
-      redirect_to home_path(:kudos => :sent), :notice => I18n.t(:kudo_has_been_successfuly_removed)
+      redirect_to root_url, :notice => I18n.t(:kudo_has_been_successfuly_removed)
     else
-      redirect_to home_path(:kudos => :sent), :notice => I18n.t(:we_couldn_do_that_sorry)
+      redirect_to root_url, :notice => I18n.t(:we_couldn_do_that_sorry)
     end
   end
 

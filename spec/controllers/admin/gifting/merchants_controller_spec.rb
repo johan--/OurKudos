@@ -34,11 +34,11 @@ describe Admin::Gifting::MerchantsController do
     end
 
     it "should create merchant" do 
-      Merchant.should_receive(:new).with( 'name' => "merchant1", 
-                                      'homepage' => "www.test.com",
-                                      'description' => "testdescription",
-                                      'affiliate_program_id' => 1,
-                                      'affiliate_code' => "123abc")
+      Merchant.should_receive(:new).with( :name => "merchant1", 
+                                          :homepage => "www.test.com",
+                                          :description => "testdescription",
+                                          :affiliate_program_id => 1,
+                                          :affiliate_code => "123abc")
       valid_create
     end
 
