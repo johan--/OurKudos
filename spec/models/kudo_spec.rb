@@ -116,6 +116,11 @@ describe Kudo do
         @kudo.should respond_to 'can_be_deleted_by?'
         @kudo.can_be_deleted_by?(@user).should be(true)
       end
+
+      it "should allow the user to delete kudo" do
+        @kudo.soft_destroy
+        @kudo.removed.should be(true)
+      end
     end
 
     describe "multiple recipients" do
@@ -153,6 +158,12 @@ describe Kudo do
         it "should be deletable by user" do
           @kudo.can_be_deleted_by?(@user).should be(true)
         end
+
+        it "should allow the user to delete kudo" do
+          @kudo.soft_destroy
+          @kudo.removed.should be(true)
+        end
+
       end
     end
 
