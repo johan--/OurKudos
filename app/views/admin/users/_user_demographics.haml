@@ -8,7 +8,7 @@
       = @user.to_s
     
     %p
-      = t :user_address
+      = f.label :user_address
       %br/
       = f.text_field :streetadress, :size => 40
     %p
@@ -27,11 +27,13 @@
       = f.text_field :postal_code, :size => 10
   
     %p
-      = t :user_phone
+      = f.label :user_phone
+      %br/
       = f.text_field :phone_number, :size => 20
     
     %p
-      = t :user_mobile
+      = f.label :user_mobile
+      %br/
       = f.text_field :mobile_number, :size => 20
     %p
       = f.label :birthday
