@@ -84,12 +84,16 @@ class UserNotifier < ActionMailer::Base
       if email.multipart? && system_kudo?(email)
         content = email.parts.select {|part| part.content_type.include?("text/html")}.first.body.to_s rescue ''
         document = Nokogiri::HTML content
-        document
+        document.to_s
       end
     end
 
+    def get_message_id_and_user_from document
+
+    end
+
     def system_kudo? email
-      email.subject.to_s.include? "ent you Kudos!"
+      email.subject.to_s.include? "sent you Kudos!"
     end
 
 
