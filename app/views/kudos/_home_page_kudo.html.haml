@@ -5,7 +5,8 @@
     - else
       = anon_picture
     
-    .sender  // This code launches one additoanal query per each shown kudo
+    .sender
+      -# This code launches one additional query per each shown kudo
       - if kudo.author
         = link_to kudo.author.secured_name, user_profile_path(kudo.author.id)
       - else
