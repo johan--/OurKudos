@@ -73,6 +73,25 @@ class UserNotifier < ActionMailer::Base
     mail :to => @user.email, :subject => "[OurKudos] - You have been banned from OurKudos"
   end
 
+  def receive email
+    puts get_document_from email
+  end
+
+
+  private
+
+    def get_document_from email
+      if email.multipart? && system_kudo?(email)
+        content = email.parts.select {|part| part.content_type.include?("text/html")}.first.body.to_s rescue ''
+        document = Nokogiri::HTML content
+        document
+      end
+    end
+
+    def system_kudo? email
+      email.subject.to_s.include? "ent you Kudos!"
+    end
+
 
 
 end

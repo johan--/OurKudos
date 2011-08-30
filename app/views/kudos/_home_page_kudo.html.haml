@@ -5,12 +5,12 @@
     - else
       = anon_picture
     
-    .sender
+    .sender  // This code launches one additoanal query per each shown kudo
       - if kudo.author
         = link_to kudo.author.secured_name, user_profile_path(kudo.author.id)
       - else
         (removed account)
-          
+
   .kudo_message_bubble_cont{"data-id" => kudo.id, "data-scope" => kudo.share_scope }
     .kudo_message_bubble_nipple
     

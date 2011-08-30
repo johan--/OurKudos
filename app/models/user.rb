@@ -197,7 +197,7 @@ class User < ActiveRecord::Base
 
       identity = self.identities.create :identity        => primary_identity_value,
                                         :is_primary      => true,
-                                        :display_identity => true,
+                                        :display_identity=> true,
                                         :no_confirmation => !self.first_message.blank?,
                                         :identity_type   => primary_identity_type,
                                         :is_company      => has_company

@@ -1,7 +1,12 @@
 CURRENT_EMAIL = 'notifications@ourkudos.com'
 require 'mailman'
+require File.expand_path('../../../config/environment', __FILE__)
 
-Mailman.config.rails_root = File.expand_path("./../../")
+
+Mailman.config.poll_interval = 0
+Mailman.config.ignore_stdin = true
+#Mailman.config.logger = Logger.new('log/mailman.log')
+
 Mailman.config.pop3 = {
   :username => CURRENT_EMAIL,
   :password => 'ba1tarm0hawk',
@@ -9,8 +14,9 @@ Mailman.config.pop3 = {
   :port     => 995,
   :ssl      => true
 }
-Mailman::Application.run do
-  from(CURRENT_EMAIL).subject(RegularExpressions.received_kudos_subject) do |kudo_id|
 
+Mailman::Application.run do
+  to(CURRENT_EMAIL) do
+   UserNotifier.receive(message)
   end
 end

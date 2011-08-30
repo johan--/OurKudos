@@ -66,6 +66,7 @@ class Kudo < ActiveRecord::Base
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
   end
 
+  #TODO FIX THIS: THIS CODE LAUNCHES ABOUT 3 additional queries for each shown kudo (that gives us about 30 per page)
   def recipients_readable_list
     if to.present? && kudo_copies.size == 0
       to.gsub("'","")
