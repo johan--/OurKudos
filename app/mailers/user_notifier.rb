@@ -17,9 +17,9 @@ class UserNotifier < ActionMailer::Base
       when :identity
         identity = confirmation.confirmable
 
-        @email   = identity.user.current_recipient_for identity
+        @email        = identity.user.current_recipient_for identity
         @first_name   = identity.user.current_first_name_for identity
-        @account = identity.user.identities.size == 1
+        @account      = identity.user.identities.size == 1
 
         subject  =  I18n.t('devise.mailer.confirmation_instructions.subject')
     end
@@ -74,22 +74,36 @@ class UserNotifier < ActionMailer::Base
   end
 
   def receive email
-    puts get_document_from email
+    Comment.reply_as_user_to_kudo get_user_from(email), get_message_id_from(get_document_from(email)), get_content_from(email)
   end
+
 
 
   private
 
+    def get_user_from email
+      Identity.find_by_identity(email.from.to_a.first).user rescue nil
+    end
+
     def get_document_from email
-      if email.multipart? && system_kudo?(email)
+      if process_incoming_email?(email)
         content = email.parts.select {|part| part.content_type.include?("text/html")}.first.body.to_s rescue ''
-        document = Nokogiri::HTML content
-        document.to_s
+        Nokogiri::HTML content
       end
     end
 
-    def get_message_id_and_user_from document
+    def get_message_id_from document
+      id = document.at("a").attributes['href'].to_s.split("kudo_id=").last.to_i
+      KudoCopy.find(id).kudo if id > 0
+    end
 
+    def process_incoming_email?(email)
+      email.multipart? && system_kudo?(email)
+    end
+
+    def get_content_from email
+      document = get_document_from email
+      document.css("body").xpath("*/preceding-sibling::text()[1]").first.text.to_s.strip
     end
 
     def system_kudo? email

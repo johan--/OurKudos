@@ -5,7 +5,9 @@ require File.expand_path('../../../config/environment', __FILE__)
 
 Mailman.config.poll_interval = 0
 Mailman.config.ignore_stdin = true
-#Mailman.config.logger = Logger.new('log/mailman.log')
+
+
+#Mailman.config.logger = File.new(File.expand_path('../../../log/mailman.log', __FILE__),'w+')
 
 Mailman.config.pop3 = {
   :username => CURRENT_EMAIL,
@@ -14,9 +16,10 @@ Mailman.config.pop3 = {
   :port     => 995,
   :ssl      => true
 }
-
-Mailman::Application.run do
-  to(CURRENT_EMAIL) do
-   UserNotifier.receive(message)
+while true
+  Mailman::Application.run do
+    to(CURRENT_EMAIL) do
+    UserNotifier.receive(message)
+    end
   end
 end

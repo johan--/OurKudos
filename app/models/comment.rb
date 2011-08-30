@@ -37,6 +37,12 @@ class Comment < ActiveRecord::Base
       %w(reject no_moderation no_commenting block_sender accept)
     end
 
+    def reply_as_user_to_kudo user, kudo, comment
+      create :user_id     => user.id,
+             :commentable => kudo,
+             :comment     => comment
+    end
+
   end
 
 end
