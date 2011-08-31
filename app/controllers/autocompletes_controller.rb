@@ -71,7 +71,13 @@ class AutocompletesController < ApplicationController
 
     def autocomplete_identities_for_user
       friends = current_user.friendships.map{|f| f.friend_id}
-      Identity.where("user_id IN (?) AND identity_type = (?)",friends, 'twitter').map{ |i| "@#{i.identity}"}
+      Identity.where("user_id IN (?)",friends).map do |i| 
+        if i.identity_type == 'twitter'
+          "@#{i.identity}"
+        else
+          i.identity
+        end
+      end
     end
 
 end
