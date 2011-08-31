@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/deploy.rb" afterPath="$PROJECT_DIR$/config/deploy.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/receiver/receive_emails.rb" afterPath="$PROJECT_DIR$/lib/receiver/receive_emails.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -37,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="deploy.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="deploy.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="41" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.034782607">
+            <state line="96" column="49" selection-start="2488" selection-end="2488" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,10 +53,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="receive_emails.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="receive_emails.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/receiver/receive_emails.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
+            <state line="3" column="29" selection-start="93" selection-end="93" vertical-scroll-proportion="0.10204082">
               <folding />
             </state>
           </provider>
@@ -119,8 +117,8 @@
         <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
         <option value="$PROJECT_DIR$/lib/receiver/daemon_control_script.rb" />
         <option value="$PROJECT_DIR$/log/mailman.log" />
-        <option value="$PROJECT_DIR$/lib/receiver/receive_emails.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
+        <option value="$PROJECT_DIR$/lib/receiver/receive_emails.rb" />
       </list>
     </option>
   </component>
@@ -423,18 +421,6 @@
         <state line="37" column="5" selection-start="618" selection-end="621" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/receiver/daemon_control_script.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="21" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/receiver/receive_emails.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="344" selection-end="344" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/mailman.log">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="0" selection-start="6629" selection-end="6629" vertical-scroll-proportion="0.0">
@@ -451,7 +437,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="41" selection-start="1838" selection-end="1838" vertical-scroll-proportion="0.034782607">
+        <state line="96" column="49" selection-start="2488" selection-end="2488" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/receiver/daemon_control_script.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="21" selection-start="206" selection-end="206" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/receiver/receive_emails.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="29" selection-start="93" selection-end="93" vertical-scroll-proportion="0.10204082">
           <folding />
         </state>
       </provider>

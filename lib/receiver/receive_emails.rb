@@ -1,7 +1,7 @@
 CURRENT_EMAIL = 'notifications@ourkudos.com'
 require 'mailman'
 
-ENV["RAILS_ENV"] ||= "production"
+ENV["RAILS_ENV"] ||= "staging"
 
 require File.expand_path('../../../config/environment', __FILE__)
 
