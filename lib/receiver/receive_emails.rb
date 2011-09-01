@@ -20,10 +20,9 @@ Mailman.config.pop3 = {
   :ssl      => true
 }
 
-while true          #infinite loop
-  Mailman::Application.run do
-    to CURRENT_EMAIL do
+
+ Mailman::Application.run do
+   to CURRENT_EMAIL do
     UserNotifier.receive(message)
-    end
-  end
-end
+   end
+ end
