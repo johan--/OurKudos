@@ -75,7 +75,7 @@ class UserNotifier < ActionMailer::Base
 
   def receive email
     if system_kudo?(email) && email.multipart?
-      Comment.reply_as_user_to_kudo get_user_from(email), get_message_id_from(get_document_from(email)), get_content_from(email)
+        Comment.reply_as_user_to_kudo(get_user_from(email), get_message_id_from(get_document_from(email)), get_content_from(email)) rescue nil
     end
   end
 
