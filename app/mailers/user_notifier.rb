@@ -1,3 +1,4 @@
+require 'email_parser'
 class UserNotifier < ActionMailer::Base
   default :from => "do-not-reply@ourkudos.com"
   include EmailParser

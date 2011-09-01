@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/email_parser.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/user_notifier.rb" afterPath="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -28,19 +26,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user_notifier.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user_notifier.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
+            <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email_parser.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="email_parser.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/email_parser.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="38" selection-start="462" selection-end="462" vertical-scroll-proportion="-0.39693356">
+            <state line="46" column="13" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="receive_emails.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/receiver/receive_emails.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,8 +90,8 @@
         <option value="$PROJECT_DIR$/config/schedule.rb" />
         <option value="$PROJECT_DIR$/config/deploy.rb" />
         <option value="$PROJECT_DIR$/lib/receiver/receive_emails.rb" />
-        <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
         <option value="$PROJECT_DIR$/lib/email_parser.rb" />
+        <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
       </list>
     </option>
   </component>
@@ -145,6 +152,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ok" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="receiver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -442,13 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/receiver/receive_emails.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.7955707">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.html.haml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -470,16 +488,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
+    <entry file="file://$PROJECT_DIR$/lib/receiver/receive_emails.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="20" selection-start="20" selection-end="20" vertical-scroll-proportion="0.0">
+        <state line="28" column="0" selection-start="601" selection-end="601" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/email_parser.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="38" selection-start="462" selection-end="462" vertical-scroll-proportion="-0.39693356">
+        <state line="46" column="13" selection-start="1410" selection-end="1410" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="21" selection-start="21" selection-end="21" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
