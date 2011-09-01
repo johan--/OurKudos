@@ -1,6 +1,6 @@
 class UserNotifier < ActionMailer::Base
   default :from => "do-not-reply@ourkudos.com"
-
+  include EmailParser
 
   def host
     "http://#{OurKudosMainSite::Application.config.action_mailer.default_url_options[:host]}"
@@ -11,9 +11,9 @@ class UserNotifier < ActionMailer::Base
     template      =  "#{confirmation.confirmable_klass_type}_confirmation"
     case type
       when :merge
-        @email   = confirmation.confirmable.identity.user.email
+        @email      = confirmation.confirmable.identity.user.email
         @first_name = confirmation.confirmable.identity.user.first_name
-        subject =  I18n.t(:subject_confirm_your_identity_for_merge_process)
+        subject     =  I18n.t(:subject_confirm_your_identity_for_merge_process)
       when :identity
         identity = confirmation.confirmable
 
@@ -79,36 +79,5 @@ class UserNotifier < ActionMailer::Base
     end
   end
 
-  private
-
-    def get_user_from email
-      Identity.find_by_identity(email.from.to_a.first).user rescue nil
-    end
-
-    def get_document_from email
-      if process_incoming_email?(email)
-        content = email.parts.select {|part| part.content_type.include?("text/html")}.first.body.to_s rescue ''
-        Nokogiri::HTML content
-      end
-    end
-
-    def get_message_id_from document
-      element = document.xpath("//a").select {|el| el.attributes['href'].to_s =~ /kudo_id=\d{1,}$/ }.first rescue nil
-      id = element.attributes['href'].to_s.split("kudo_id=").last.to_i unless element.blank?
-      KudoCopy.find(id).kudo if id > 0
-    end
-
-    def process_incoming_email?(email)
-      email.multipart? && system_kudo?(email)
-    end
-
-    def get_content_from email
-      document = get_document_from email
-      document.css("body").xpath("*/preceding-sibling::text()[1]").first.text.to_s.strip
-    end
-
-    def system_kudo? email
-      email.subject.to_s.include? "sent you Kudos!"
-    end
 
 end
