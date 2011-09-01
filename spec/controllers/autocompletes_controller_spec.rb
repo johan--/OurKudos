@@ -36,7 +36,7 @@ describe AutocompletesController do
 
   describe "inline_autocomplete_identities" do
     before(:each) do 
-      @other_user = Factory(:user) 
+      @other_user = Factory(:user, :first_name => "John", :last_name => "Doe") 
       identity = Identity.new(:user_id => @other_user.id,
                               :identity => "itweet", 
                               :identity_type => "twitter")
@@ -48,7 +48,7 @@ describe AutocompletesController do
 
     it 'should return and array of identities' do
       get 'inline_autocomplete_identities'
-      assigns[:items].should include('@itweet')
+      assigns[:items].should include(['@itweet', "John D."])
     end
 
   end
