@@ -307,7 +307,7 @@
 			//var a = list[i].replace(regEx,"<mark>$1</mark>");
 			 
 			
-			html += "<li data-value='"+list[i][0]+"' "+width+">"+list[i][0].replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+			html += "<li data-value='"+list[i]+"' "+width+">"+list[i].replace(regEx,"<mark>$1</mark>")+"</li>";
 		}
 		$(data.list).html(html);
 	}	
@@ -447,7 +447,7 @@
 	
 	function onUserSelected(li,data){
 		var seletedText = $(li).attr("data-value");
-	  	
+		
 		
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
@@ -502,7 +502,6 @@
 				switch(e.keyCode){
 					case 13:
 					case 40:
-					case 9:
 					case 38:
 						e.stopPropagation();
 						e.preventDefault();
@@ -529,8 +528,7 @@
 					e.preventDefault();
 					return false;
 				}
-				//add tab select
-				if( e.keyCode == 13 || e.keyCode == 9){//enter key and tab key
+				if( e.keyCode == 13 ){//enter key
 					var li = getCurrentSelected(data);
 					if( li ){
 						onUserSelected(li,data);
@@ -550,6 +548,7 @@
 				case 27:
 					return true;
 			}
+			
 			var text = getWords(data);
 			//console.log("getWords return ",text);
 			if( text != "" ){
