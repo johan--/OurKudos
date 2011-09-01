@@ -79,8 +79,6 @@ class UserNotifier < ActionMailer::Base
     end
   end
 
-
-
   private
 
     def get_user_from email
@@ -95,7 +93,8 @@ class UserNotifier < ActionMailer::Base
     end
 
     def get_message_id_from document
-      id = document.at("a").attributes['href'].to_s.split("kudo_id=").last.to_i
+      element = xpath("//a").select {|el| el.attributes['href'].to_s =~ /kudo_id=\d{1,}$/ }.first rescue nil
+      id = element.attributes['href'].to_s.split("kudo_id=").last.to_i unless element.blank?
       KudoCopy.find(id).kudo if id > 0
     end
 
@@ -111,7 +110,5 @@ class UserNotifier < ActionMailer::Base
     def system_kudo? email
       email.subject.to_s.include? "sent you Kudos!"
     end
-
-
 
 end
