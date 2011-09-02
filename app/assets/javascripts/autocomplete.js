@@ -6,9 +6,9 @@ jQuery(document).ready(function(){
     dataType: 'json',
     success: function(data){
       handles = data;
+    console.log(handles);
     }
   });
-
   $("#kudo_message_textarea").autocomplete({
     wordCount:1,
     mode: "inner",
@@ -16,7 +16,7 @@ jQuery(document).ready(function(){
       query: function(text,cb){
         var words = [];
         for( var i=0; i<handles.length; i++ ){
-          if( handles[i].toLowerCase().indexOf(text.toLowerCase()) == 0 ) words.push(handles[i]);
+          if( handles[i][0].toLowerCase().indexOf(text.toLowerCase()) == 0 ) words.push(handles[i]);
         }
         cb(words);								
       }

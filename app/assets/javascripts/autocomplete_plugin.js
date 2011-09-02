@@ -307,7 +307,7 @@
 			//var a = list[i].replace(regEx,"<mark>$1</mark>");
 			 
 			
-			html += "<li data-value='"+list[i]+"' "+width+">"+list[i].replace(regEx,"<mark>$1</mark>")+"</li>";
+			html += "<li data-value='"+list[i][1]+"' "+width+">"+list[i][0].replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
 		}
 		$(data.list).html(html);
 	}	
@@ -502,6 +502,7 @@
 				switch(e.keyCode){
 					case 13:
 					case 40:
+					case 9:
 					case 38:
 						e.stopPropagation();
 						e.preventDefault();
@@ -516,7 +517,7 @@
 		$(data.ta).keyup(function(e){
 			if( data.listVisible ){
 				//console.log("keCode=",e.keyCode);
-				if( e.keyCode == 40 ){//down key
+				if( e.keyCode == 40 || e.keyCode == 9){//down key
 					setSelected(+1,data);
 					e.stopPropagation();
 					e.preventDefault();
