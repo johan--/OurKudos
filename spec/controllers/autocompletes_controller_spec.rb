@@ -21,11 +21,22 @@ describe AutocompletesController do
       assigns[:items].size.should be(1)
     end
 
-    it "should exact match the query param" do
+    it "should exact match the query param for a twitter identity" do
       identity = 'itweet'
       get 'new', :object => 'exact', :q => identity
       assigns[:items].first['name'].should eq("[#{@other_user.first_name} #{@other_user.last_name}] @#{identity}")
     end
+
+    it "should exact match the query param for an email identity" do
+      identity = Identity.new(:user_id => @other_user.id,
+                              :identity => "myemail@notreal.com", 
+                              :identity_type => "email")
+      identity.save(:validate => false)
+      search_term = 'myemail@notreal.com'
+      get 'new', :object => 'exact', :q => search_term
+      assigns[:items].first['name'].should eq("[#{@other_user.first_name} #{@other_user.last_name}] #{search_term}")
+    end
+
 
     it "should return 'no matches' if no matches exist" do
       get 'new', :object => 'exact', :q => 'nousers'
