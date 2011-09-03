@@ -15,7 +15,8 @@ describe Admin::Gifting::MerchantsController do
 
   describe "creating a valid merchant" do
     before(:each) do 
-      Merchant.stub!(:new).and_return(@merchant = mock_model(Merchant, :save => true))
+      #Merchant.stub!(:new).and_return(@merchant = mock_model(Merchant, :save => true))
+      @valid_params = Factory.attributes_for(:merchant)
     end
 
     def valid_create
@@ -34,15 +35,13 @@ describe Admin::Gifting::MerchantsController do
     end
 
     it "should create merchant" do 
-      Merchant.should_receive(:new).with( :name => "merchant1", 
-                                          :homepage => "www.test.com",
-                                          :description => "testdescription",
-                                          :affiliate_program_id => 1,
-                                          :affiliate_code => "123abc")
-      valid_create
+      lambda {
+        post :create, :merchant => @valid_params
+      }.should change(Merchant, :count).by(1)
     end
 
     it "should save the merchant" do 
+      Merchant.stub!(:new).and_return(@merchant = mock_model(Merchant, :save => true))
       @merchant.should_receive(:save).and_return(true)
       valid_create
     end
@@ -53,11 +52,13 @@ describe Admin::Gifting::MerchantsController do
     end
 
     it "should assign gift" do
+      Merchant.stub!(:new).and_return(@merchant = mock_model(Merchant, :save => true))
       valid_create
       assigns(:merchant).should == @merchant
     end
 
-    it "should to the index path " do 
+    it "should redirect to the index path " do 
+      Merchant.stub!(:new).and_return(@merchant = mock_model(Merchant, :save => true))
       valid_create
       response.should redirect_to(admin_gifting_merchant_url(@merchant))
     end
@@ -67,6 +68,11 @@ describe Admin::Gifting::MerchantsController do
   describe "creating an invalid merchant" do
     before(:each) do 
       Merchant.stub!(:new).and_return(@merchant = mock_model(Merchant, :save => false))
+      @invalid_params =  {:name => "", 
+                          :homepage => "www.test.com",
+                          :description => "testdescription",
+                          :affiliate_program_id => 1,
+                          :affiliate_code => "123abc"}
     end
 
     def invalid_create
@@ -77,13 +83,10 @@ describe Admin::Gifting::MerchantsController do
                         :affiliate_code => "123abc"}
     end
 
-    it "should create the merchant" do
-      Merchant.should_receive(:new).with( 'name' => "merchant1", 
-                                      'homepage' => "www.test.com",
-                                      'description' => "testdescription",
-                                      'affiliate_program_id' => 1,
-                                      'affiliate_code' => "123abc")
-      invalid_create
+    it "should not create merchant" do 
+      lambda {
+        post :create, :merchant => @invalid_params
+      }.should_not change(Merchant, :count).by(1)
     end
 
     it "should save the merchant" do 

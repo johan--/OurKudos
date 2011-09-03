@@ -15,16 +15,17 @@ describe Admin::Gifting::GiftsController do
 
   describe "creating a valid gift" do
     before(:each) do 
-      Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => true))
-    end
-
-    def valid_create
-      post :create, :gift => { :name => "gift1", 
+      @valid_params = { :name => "gift1", 
                         :description => "testdescription",
                         :price => 1.00,
                         :link => "link",
                         :active => true,
                         :affiliate_code => "123abc"}
+
+    end
+
+    def valid_create
+      post :create, :gift => @valid_params
     end
 
     it "should render new and assign new gift" do 
@@ -34,17 +35,14 @@ describe Admin::Gifting::GiftsController do
       response.should render_template('new')
     end
 
-    it "should create gift" do 
-      Gift.should_receive(:new).with( 'name' => "gift1", 
-                                      'description' => "testdescription",
-                                      'price' => 1.00,
-                                      'link' => "link",
-                                      'active' => true,
-                                      'affiliate_code' => "123abc")
-      valid_create
+    it "should create gift" do
+      lambda {
+        post :create, :gift => @valid_params
+      }.should change(Gift, :count).by(1)
     end
 
     it "should save the gift" do 
+      Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => true))
       @gift.should_receive(:save).and_return(true)
       valid_create
     end
@@ -55,11 +53,13 @@ describe Admin::Gifting::GiftsController do
     end
 
     it "should assign gift" do
+      Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => true))
       valid_create
       assigns(:gift).should == @gift
     end
 
     it "should to the index path " do 
+      Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => true))
       valid_create
       response.should redirect_to(admin_gifting_gift_url(@gift))
     end
@@ -69,6 +69,12 @@ describe Admin::Gifting::GiftsController do
   describe "creating an invalid gift" do
     before(:each) do 
       Gift.stub!(:new).and_return(@gift = mock_model(Gift, :save => false))
+      @invalid_params = { :name => "gift1", 
+                        :description => "testdescription",
+                        :price => 'abd',
+                        :link => "link",
+                        :active => true,
+                        :affiliate_code => "123abc"}
     end
 
     def invalid_create
@@ -80,14 +86,10 @@ describe Admin::Gifting::GiftsController do
                         :affiliate_code => "123abc"}
     end
 
-    it "should create the gift" do
-      Gift.should_receive(:new).with( 'name' => "gift1", 
-                                      'description' => "testdescription",
-                                      'price' => 1.00,
-                                      'link' => "link",
-                                      'active' => true,
-                                      'affiliate_code' => "123abc")
-      invalid_create
+    it "should create gift" do
+      lambda {
+        post :create, :gift => @invalid_params
+      }.should_not change(Gift, :count).by(1)
     end
 
     it "should save the gift" do 
