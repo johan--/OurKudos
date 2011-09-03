@@ -73,9 +73,9 @@ class AutocompletesController < ApplicationController
       friends = current_user.friendships.map{|f| f.friend_id}
       Identity.where("user_id IN (?)",friends).map do |i| 
         if i.identity_type == 'twitter'
-          ["#{i.user.first_name} #{i.user.last_name[0]}", "@#{i.identity}"]
+          ["#{i.user.first_name} #{i.user.last_name[0]}.", "@#{i.identity}"]
         else
-          ["#{i.user.first_name} #{i.user.last_name[0]}", "#{i.identity}"]
+          ["#{i.user.first_name} #{i.user.last_name[0]}.", "#{i.identity}"]
         end
       end
     end

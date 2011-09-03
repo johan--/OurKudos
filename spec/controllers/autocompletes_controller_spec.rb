@@ -48,7 +48,7 @@ describe AutocompletesController do
 
     it 'should return and array of identities' do
       get 'inline_autocomplete_identities'
-      assigns[:items].should include(['@itweet', "John D."])
+      assigns[:items].should include(["John D.", '@itweet'])
     end
 
   end
