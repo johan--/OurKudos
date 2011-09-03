@@ -54,9 +54,9 @@ Scenario: Administrator can display user details page
     And I should see "Member since"
     And I should see "User last sign in IP"
     And I should see "Statistics"
-    And I should see "Address"
-    And I should see "Phone"
-    And I should see "Mobile"
+    And I should see "User address"
+    And I should see "User phone"
+    And I should see "User mobile"
 
 Scenario: Administrator can change user informations
     Given I'm logged in as an administrator with:
