@@ -35,6 +35,13 @@ describe KudoFlagAction do
         @user.is_banned?.should_not be(nil)
       end
 
+      it "should save the kudo flag action" do
+        params = {'1' => {"current_user" => "1", "kudo_flag" => @flag.id, "action" => "delete"}}
+        lambda {
+          KudoFlagAction.process_flag_action params
+        }.should change(KudoFlagAction, :count).by(1)
+      end
+
     end
 
   end
