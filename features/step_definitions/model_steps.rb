@@ -88,7 +88,7 @@ Given /^the following identities exists without validation:$/ do |table|
 end
 
 When /^I loose focus from the "([^"]*)" field$/ do |field|
-  page.find('#kudo_kudo_category_id').click
+  page.execute_script %Q{$('#{field}').blur()}
 end
 
 When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
@@ -99,6 +99,10 @@ Given /^user "([^"]*)" has a flagged kudo$/ do |user_id|
   user = User.find(user_id.to_i)
   kudo = Factory(:kudo, :author_id => user.id)
   Factory(:kudo_flag, :kudo_id => kudo.id)
+end
+
+Then /^I need to debug$/ do
+  #debug stuff
 end
 
 Before('@background-jobs') do
