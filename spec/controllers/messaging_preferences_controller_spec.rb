@@ -22,7 +22,12 @@ describe MessagingPreferencesController do
 
     end
     
-    #need a test to test a failed save
+    it "should redirect to edit on failed save" do
+      @messaging_preference = mock_model(MessagingPreference, :update_attributes => false)
+      MessagingPreference.stub!(:find_by_user_id).and_return(@messaging_preference)
+      put :update, :id => "1", :messaging_preference => {}
+      response.should render_template('edit')
+    end
   end
 
 end
