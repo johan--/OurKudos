@@ -161,6 +161,12 @@ Factory.define :kudo_flag do |kf|
   kf.flagged_kudo       {|k| k.association(:kudo) }
 end
 
+Factory.define :kudo_flag_action do |kfa|
+  kfa.kudo_flag {|u| u.association(:kudo_flag) }
+  kfa.admin_user {|u| u.association(:admin_user) }
+  kfa.action_taken 'suspend'
+end
+
 Factory.define :facebook_friend do |ff|
    ff.name "Mietek Dziaslo"
    ff.first_name "Mietek"

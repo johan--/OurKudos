@@ -33,7 +33,7 @@ class KudoFlagAction < ActiveRecord::Base
   end
 
   def suspend_action
-    self.kudo_flag.flagged_kudo.author.update_attribute(:is_banned,  true)
+    kudo_flag.flagged_kudo.author.update_attribute(:is_banned,  true)
   end
 
 end

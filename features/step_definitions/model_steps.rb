@@ -101,10 +101,6 @@ Given /^user "([^"]*)" has a flagged kudo$/ do |user_id|
   Factory(:kudo_flag, :kudo_id => kudo.id)
 end
 
-Then /^I need to debug$/ do
-  #debug stuff
-end
-
 Before('@background-jobs') do
   system "/usr/bin/env RAILS_ENV=#{Rails.env} rake jobs:work &"
 end
