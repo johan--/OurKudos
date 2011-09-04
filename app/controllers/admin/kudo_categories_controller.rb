@@ -38,9 +38,9 @@ class Admin::KudoCategoriesController < Admin::AdminController
   def destroy
     @kudo_category = KudoCategory.find params[:id]
     if @kudo_category.destroy
-      redirect_to(:back, :notice => I18n.t(:kudo_category_has_been_deleted))
+      redirect_to(admin_kudo_categories_path, :notice => I18n.t(:kudo_category_has_been_deleted))
     else
-      redirect_to(:back, :notice => I18n.t(:kudo_category_has_not_been_deleted))
+      redirect_to(admin_kudo_categories_path, :notice => I18n.t(:kudo_category_has_not_been_deleted))
     end
   end
 
