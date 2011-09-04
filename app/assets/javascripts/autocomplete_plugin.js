@@ -306,9 +306,9 @@
 		for( var i=0; i< list.length; i++ ){
 
 			//var a = list[i].replace(regEx,"<mark>$1</mark>");
-			 
+			var display = list[i][0].substring(1, list[i][0].length) 
 			
-			html += "<li data-value='"+list[i][1]+"' "+width+">"+list[i][0].replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+			html += "<li data-value='"+list[i][1]+"' "+width+">"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
 		}
 		$(data.list).html(html);
     $(data.list).find("li:first-child").attr("data-selected","true");
