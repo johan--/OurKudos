@@ -142,6 +142,7 @@
 	var _data = {};
 	var _count = 0;
 	function makeAutoComplete(ta,obj){
+	  //this begining of main function
 		_count++;
 		_data[_count] = {
 			id:"auto_"+_count,
@@ -310,6 +311,7 @@
 			html += "<li data-value='"+list[i][1]+"' "+width+">"+list[i][0].replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
 		}
 		$(data.list).html(html);
+    $(data.list).find("li:first-child").attr("data-selected","true");
 	}	
 	
 	function breakLines(text,data){
