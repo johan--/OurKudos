@@ -12,11 +12,10 @@ class CommentsModerationsController < ApplicationController
     begin
       email = @commentable.author.email
       session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)
-      if current_user
-        @commentable.author != current_user
+      if current_user && @commentable.author != current_user
         sign_out :user
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
-     else
+     elsif current_user.blank?
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
       end
    rescue

@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/ok.iml" afterPath="$PROJECT_DIR$/.idea/ok.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml" afterPath="$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/email_parser.rb" afterPath="$PROJECT_DIR$/lib/email_parser.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,7 +38,7 @@
       <file leaf-file-name="comments_moderations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="28" selection-start="778" selection-end="778" vertical-scroll-proportion="0.71550256">
+            <state line="21" column="8" selection-start="726" selection-end="726" vertical-scroll-proportion="0.6132879">
               <folding />
             </state>
           </provider>
@@ -472,7 +468,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="28" selection-start="778" selection-end="778" vertical-scroll-proportion="0.71550256">
+        <state line="21" column="8" selection-start="726" selection-end="726" vertical-scroll-proportion="0.6132879">
           <folding />
         </state>
       </provider>
