@@ -92,6 +92,20 @@ describe User do
 
     end
 
+    it 'should include user name in request param id' do
+      user = Factory(:user)
+
+      user.to_param.include?(user.id.to_s).should be_true
+      user.to_param.include?(user.first_name.gsub(" ",'-')).should be_true
+
+    end
+
+    it 'should know whether its a company or not' do
+      user = Factory(:user)
+      user.should.respond_to?("company?")
+    end
+
+
   describe User, "validations" do
     User.new(:first_name => "some name 323", :last_name => rand(100), :email => "email@com.pl")
 

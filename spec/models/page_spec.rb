@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Page do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "page class" do
+
+    it 'should be able to find given page by locale' do
+
+    end
+
+
+  end
 end

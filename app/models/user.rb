@@ -248,7 +248,7 @@ class User < ActiveRecord::Base
   end
 
   def save_confirmed_cache
-    update_attribute :confirmed, true if !self.confirmed && primary_identity.confirmation.confirmed?
+    update_attribute :confirmed, true if !self.confirmed && primary_identity.confirmed?
   end
 
   def current_recipient_for identity
@@ -340,6 +340,7 @@ class User < ActiveRecord::Base
   def undo_last_password_change!
     self.password_salt      = self.old_password_salt
     self.encrypted_password = self.old_encrypted_password
+
     save :validate => false
   end
 
@@ -449,7 +450,7 @@ class User < ActiveRecord::Base
           'avatar_unknown.png' : social_picture_tw.to_s
       when :system   ; has_profile_picture? ?
           profile_picture(:small) :  'avatar_unknown.png'
-      when :gravatar ;  gravatar_url.to_s
+      when :gravatar ; gravatar_url.to_s
     end
 
   end

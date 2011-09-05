@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+
   validates :title,  :presence => true
   validates :slug,   :presence => true
   validates :locale, :presence => true
@@ -16,6 +17,7 @@ class Page < ActiveRecord::Base
 
 
   class << self
+
     def find_with_locale slug, locale
       self.where(:slug => slug, :locale => locale).first
     end
@@ -25,7 +27,7 @@ class Page < ActiveRecord::Base
     end
 
     def Page.slugs_for_select
-      Page::SLUGS.map { |slug, label| [label, slug]}
+      Page::SLUGS.map { |slug, label| [label, slug] }
     end
 
   end
