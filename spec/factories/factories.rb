@@ -230,3 +230,10 @@ Factory.define :messaging_preference do |mp|
   mp.association :user
   mp.system_kudo_email true
 end
+
+Factory.define :page do |page|
+  page.title "Some title"
+  page.locale "en"
+  page.slug "slug"
+  page.body "some content"
+end

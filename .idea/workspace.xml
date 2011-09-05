@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="56e9eb2c-87a8-4685-b94e-35b43fa3334d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/page.rb" afterPath="$PROJECT_DIR$/app/models/page.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/factories/factories.rb" afterPath="$PROJECT_DIR$/spec/factories/factories.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/page_spec.rb" afterPath="$PROJECT_DIR$/spec/models/page_spec.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spec/models/user_spec.rb" afterPath="$PROJECT_DIR$/spec/models/user_spec.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -39,19 +37,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_spec.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="0" selection-start="3411" selection-end="3411" vertical-scroll-proportion="0.3877551">
+            <state line="107" column="0" selection-start="3411" selection-end="3411" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page_spec.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="page_spec.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spec/models/page_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0">
+            <state line="15" column="48" selection-start="430" selection-end="430" vertical-scroll-proportion="0.5102041">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="factories.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spec/factories/factories.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="228" column="78" selection-start="6203" selection-end="6203" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -60,7 +67,7 @@
       <file leaf-file-name="page.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/page.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="47" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
+            <state line="29" column="25" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -80,7 +87,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/comment.rb" />
         <option value="$PROJECT_DIR$/lib/receiver/control.rb" />
         <option value="$PROJECT_DIR$/lib/receiver/daemon_control_script.rb" />
@@ -93,9 +99,10 @@
         <option value="$PROJECT_DIR$/app/views/user_notifier/system_kudo.html.haml" />
         <option value="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/page.rb" />
-        <option value="$PROJECT_DIR$/spec/models/page_spec.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/spec/models/user_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/factories/factories.rb" />
+        <option value="$PROJECT_DIR$/spec/models/page_spec.rb" />
       </list>
     </option>
   </component>
@@ -447,13 +454,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spec/models/api_key_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/kudo_copy_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="42" selection-start="562" selection-end="562" vertical-scroll-proportion="0.81632656">
@@ -485,20 +485,6 @@
     <entry file="file://$PROJECT_DIR$/spec/models/authentication_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="23" selection-start="702" selection-end="702" vertical-scroll-proportion="0.3877551">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spec/models/page_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="123" selection-end="123" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/page.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="47" selection-start="435" selection-end="435" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -552,9 +538,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spec/factories/factories.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="228" column="78" selection-start="6203" selection-end="6203" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/user_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="0" selection-start="3411" selection-end="3411" vertical-scroll-proportion="0.3877551">
+        <state line="107" column="0" selection-start="3411" selection-end="3411" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/page.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="25" selection-start="732" selection-end="732" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spec/models/page_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="48" selection-start="430" selection-end="430" vertical-scroll-proportion="0.5102041">
           <folding />
         </state>
       </provider>
