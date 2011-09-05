@@ -2,7 +2,9 @@ module EmailParser
 
     def get_user_from email
       identity = email.from.to_a.first
-      Identity.find_by_identity(identity).user rescue log_error "Cannot find such identity #{identity}"
+      Identity.find_by_identity(identity).user
+    rescue
+      log_error "Cannot find such identity #{identity}"
     end
 
     def get_document_from email

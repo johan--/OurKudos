@@ -3,7 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p.reply-line-start
+    %p.reply-line-start{:style => "display:none"}
     %hr/
     %p.message-id{:id => @kudo.id}
       %p= t(:new_message_from, :author => @kudo.author)

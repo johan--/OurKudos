@@ -1,17 +1,34 @@
 class CommentsModerationsController < ApplicationController
-  before_filter :authenticate_user!,
-                :get_commentable_and_comment,
-                :get_subaction
+  layout "registered"
+  before_filter :get_commentable_and_comment, :check_user
+
 
 
   def new
+    get_subaction
+  end
+
+  def check_user
+    begin
+      email = @commentable.author.email
+      session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)
+      if current_user
+        @commentable.author != current_user
+        sign_out :user
+        redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
+     else
+        redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
+      end
+   rescue
+      redirect_to root_path, :notice => "Cannot find such kudo"
+   end
   end
 
 
   private
 
     def get_commentable_and_comment
-      @comment     = current_user.comments.find params[:id] rescue nil
+      @comment     = Comment.find params[:id] rescue nil
       @commentable = @comment.commentable if @comment
     end
 
