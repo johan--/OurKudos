@@ -473,6 +473,7 @@
 		data.ta.scrollTop = scrollTop;
 		data.ta.selectionEnd = pos+1+seletedText.length;
 		hideList(data);
+		addTokenInput($(li).attr("data-value"));
 		$(data.ta).focus();	
 	}
 	
@@ -580,5 +581,26 @@
 				miror.get(0).scrollTop = ta.scrollTop;
 			});
 	}	
+
+	function addTokenInput(handle){
+    if (handle.charAt(0) == "@") {
+      handle = handle.substring(1, handle.length);
+    }
+    jQuery.ajax({
+      type: "GET",
+      async: false,
+      dataType: "json",
+      url: "/autocomplete/new?object=exact&q=%40" + handle,
+      success: function(data) {
+        if (data[0] === "no matches") {
+          return $.Token.tokenInput("add", "@" + handle);
+        } else {
+          return $.Token.tokenInput("add", data[0]);
+        }
+      }
+    });
+  }
+
+
 })(jQuery);
 
