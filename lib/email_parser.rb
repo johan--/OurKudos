@@ -19,7 +19,7 @@ module EmailParser
     end
 
     def get_link_element document
-        document.xpath("//a").select {|el| el.attributes['href'].to_s =~ /kudo_id=\d{1,}$/ }.first
+      document.xpath("//a").select {|el| el.attributes['href'].to_s =~ /kudo_id=\d{1,}$/ }.first
     end
 
     def get_message_id_from document
@@ -39,8 +39,8 @@ module EmailParser
     def get_content_from email
       begin
         document = get_document_from email
-        document.xpath("//body").text.scan(/\S*\s*\S*\s{1,}please reply above this line/).
-                                first.gsub(reply_marker, '').strip
+        document.xpath("//body").text.split(/please reply above this line/).first.gsub("-------- ",'').strip
+
         #document.css("body//text()").text.strip.split("\n").first.strip
         #document.css("body").xpath("*/preceding-sibling::text()[1]").first.text.to_s.strip
       rescue
