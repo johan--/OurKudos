@@ -33,7 +33,7 @@ GEM
       multi_json (~> 1.0)
     acts_as_commentable (3.0.1)
     addressable (2.2.4)
-    airbrake (3.0)
+    airbrake (3.0.3)
       activesupport
       builder
     ancestry (1.2.4)
@@ -344,7 +344,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable
-  airbrake
+  airbrake (= 3.0.3)
   ancestry
   cancan
   capistrano
