@@ -3,8 +3,10 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
   %body
-    %p.reply-line-start{:style => "display:none"}
-    %hr/
+    %p.reply-line-start
+    = "-------- please reply above this line ---------"
+    %p.reply-line-end
+
     %p.message-id{:id => @kudo.id}
       %p= t(:new_message_from, :author => @kudo.author)
     %p

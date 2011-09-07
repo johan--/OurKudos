@@ -11,7 +11,7 @@ describe Page do
       Page::SLUGS.should be_an_instance_of Hash
     end
 
-    it 'should store all slug intsances under seed method' do
+    it 'should store all slug intsoances under seed method' do
       Page.should.respond_to?("seed")
       Page.seed!.size.should == Page::SLUGS.size
     end

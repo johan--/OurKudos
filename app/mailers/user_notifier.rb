@@ -14,7 +14,7 @@ class UserNotifier < ActionMailer::Base
       when :merge
         @email      = confirmation.confirmable.identity.user.email
         @first_name = confirmation.confirmable.identity.user.first_name
-        subject     =  I18n.t(:subject_confirm_your_identity_for_merge_process)
+        subject     = I18n.t(:subject_confirm_your_identity_for_merge_process)
       when :identity
         identity = confirmation.confirmable
 
