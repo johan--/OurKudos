@@ -65,6 +65,9 @@ GEM
     coffee-filter (0.1.1)
       coffee-script (>= 2.2.0)
       haml (>= 3.0.18)
+    coffee-rails (3.1.0)
+      coffee-script (>= 2.2.0)
+      railties (~> 3.1.0.rc1)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -299,6 +302,10 @@ GEM
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     sass (3.1.7)
+    sass-rails (3.1.0)
+      actionpack (~> 3.1.0)
+      railties (~> 3.1.0)
+      sass (>= 3.1.4)
     selenium-webdriver (2.5.0)
       childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
@@ -353,6 +360,7 @@ DEPENDENCIES
   capistrano-ext
   capybara
   coffee-filter
+  coffee-rails (~> 3.1.0)
   coffee-script
   cover_me
   cucumber
@@ -394,6 +402,7 @@ DEPENDENCIES
   ruby-debug19
   ruby_parser
   sass
+  sass-rails (~> 3.1.0)
   shoulda
   sprockets
   sqlite3

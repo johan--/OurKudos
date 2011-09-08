@@ -27,7 +27,6 @@ gem "delayed_job"
 gem 'json'
 gem 'coffee-script'
 gem 'coffee-filter'
-gem 'uglifier'
 gem 'therubyracer'
 gem 'airbrake'
 gem 'paperclip'
@@ -42,6 +41,12 @@ gem 'omniauth', '0.2.6'
 gem 'whenever'
 gem 'newrelic_rpm'
 gem 'mailman'
+
+group :assets do
+	gem 'sass-rails', "~> 3.1.0"
+	gem 'coffee-rails', "~> 3.1.0"
+	gem 'uglifier'
+end
 
 group :test do
   gem "cucumber"
