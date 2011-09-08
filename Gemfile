@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '3.1.0'
 gem 'rake'
 gem 'pg'
-gem 'devise', '~> 1.2.1'
+gem 'devise'
 gem 'ruby_parser'
 gem 'hpricot'
 gem 'haml'
@@ -29,7 +29,7 @@ gem 'coffee-script'
 gem 'coffee-filter'
 gem 'uglifier'
 gem 'therubyracer'
-gem 'airbrake', '3.0.3'
+gem 'airbrake'
 gem 'paperclip'
 gem 'gravtastic'
 gem 'memcache'
@@ -38,14 +38,14 @@ gem 'nokogiri'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem 'acts_as_commentable'
-gem 'omniauth', '~> 0.2.6'
+gem 'omniauth', '0.2.6'
 gem 'whenever'
 gem 'newrelic_rpm'
 gem 'mailman'
 
 group :test do
   gem "cucumber"
-  gem "cucumber-rails", '~> 0.5.1'
+  gem "cucumber-rails"
   gem "capybara"
   gem "database_cleaner"
   gem "email_spec"
@@ -53,7 +53,7 @@ group :test do
   gem "fuubar-cucumber"
   gem "launchy"
   gem "rspec-rails"
-  gem 'rspec-core', '2.6.4'
+  gem 'rspec-core'
   gem "shoulda"
   gem "timecop"
   gem 'ruby-debug19'

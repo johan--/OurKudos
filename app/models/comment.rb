@@ -34,7 +34,7 @@ class Comment < ActiveRecord::Base
   end
 
   def is_moderator?(user)
-      commentable.author == user ||
+    commentable.author == user ||
       (!user.blank? && commentable.recipients_emails.include?(user.email))
   end
 
