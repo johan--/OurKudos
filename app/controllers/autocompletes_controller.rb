@@ -20,7 +20,7 @@ class AutocompletesController < ApplicationController
 
   def inline_autocomplete_identities
     @items = autocomplete_identities_for_user
-    render :json => @items.to_json #unless @items.blank?
+    render :json => @items.to_json 
   end
 
   private
@@ -74,6 +74,8 @@ class AutocompletesController < ApplicationController
       Identity.where("user_id IN (?)",friends).map do |i| 
         if i.identity_type == 'twitter'
           ["@#{i.user.first_name} #{i.user.last_name[0]}.", "@#{i.identity}"]
+        elsif i.identity_type == "nonperson" && i.is_company?
+          ["@#{i.user.company_name}", "#{i.identity}"]
         else
           ["@#{i.user.first_name} #{i.user.last_name[0]}.", "#{i.identity}"]
         end
