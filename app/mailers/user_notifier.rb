@@ -56,12 +56,13 @@ class UserNotifier < ActionMailer::Base
          :subject => I18n.t(:email_subject_your_password_has_been_successfuly_changed)
   end
 
-  def kudo_moderate comment
+  def kudo_moderate comment, email
     @comment = comment
     @author  = comment.user
+    @email   = email
     @kudo    = comment.commentable
     @user    = @kudo.author
-    mail :to => @kudo.recipients_emails, :subject => I18n.t(:email_subject_kudo_comments_moderation)
+    mail :to => @email, :subject => I18n.t(:email_subject_kudo_comments_moderation)
   end
 
   def flag_abuse user

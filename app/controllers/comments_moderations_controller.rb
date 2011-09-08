@@ -1,4 +1,5 @@
 class CommentsModerationsController < ApplicationController
+
   layout "registered"
   before_filter :get_commentable_and_comment, :check_user
 
@@ -9,19 +10,16 @@ class CommentsModerationsController < ApplicationController
   end
 
   def check_user
-    begin
-      email = @commentable.author.email
+      email = params[:address]
+
       session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)
-      if current_user && @commentable.author != current_user
+
+      unless @comment.is_moderator?(current_user)
         sign_out :user
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
-     elsif current_user.blank?
-        redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
-      end
-   rescue
-      redirect_to root_path, :notice => "Cannot find such kudo"
-   end
+     end
   end
+
 
 
   private

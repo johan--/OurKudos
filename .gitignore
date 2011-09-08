@@ -5,9 +5,9 @@ tmp/
 config/database.yml
 nbproject/
 vendor/cache/
-.idea/*
-.idea/dictionaries/marcin.xml
-.idea/*xml
+/.idea/*
+/.idea/dictionaries/marcin.xml
+/.idea/*xml
 public/assets/*
 .sass-cache/*
 *.swp
@@ -16,3 +16,4 @@ public/assets/*
 coverage/
 coverage.data
 .rvmrc
+/bundle/*

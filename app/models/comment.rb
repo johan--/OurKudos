@@ -15,7 +15,9 @@ class Comment < ActiveRecord::Base
 
   def send_moderation_notification
     if commentable.system_kudos_recipients_cache.push(commentable.author_id).include?(user_id) == false
-      UserNotifier.delay.kudo_moderate self
+      for email in commentable.recipient_emails.compact.uniq do
+        UserNotifier.delay.kudo_moderate self, email
+      end
     end
   end
 
@@ -29,6 +31,11 @@ class Comment < ActiveRecord::Base
 
   def is_allowed_to_be_removed_by? user
     self.commentable.system_kudos_recipients_cache.include? user.id
+  end
+
+  def is_moderator?(user)
+      commentable.author == user ||
+      (!user.blank? && commentable.recipients_emails.include?(user.email))
   end
 
   class << self
