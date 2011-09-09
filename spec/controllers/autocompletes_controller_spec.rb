@@ -62,6 +62,8 @@ describe AutocompletesController do
       assigns[:items].should include(["@John D.", '@itweet'])
     end
 
+    it "should properly set non person identities"
+
   end
 
 end
