@@ -103,6 +103,11 @@ describe Admin::IdentitiesController do
         assigns[:identity].identity.should eq("not@real.com")
       end
 
+      it "assigns the requested identity as @identity" do
+        get :edit, :id => "1", :user_id => @user
+        assigns(:identity).should eq(@identity)
+      end
+
       it "should redirect to the users admin page" do
         put :update, :id => "1", :user_id => @user, :identity => @valid_params
         response.should redirect_to(admin_user_url(@user))
