@@ -36,10 +36,14 @@ module EmailParser
       email.multipart? && system_kudo?(email)
     end
 
+    def cleanup_reply content
+      content.gsub("notifications@ourkudos.com",'').gsub("<",'').gsub(">",'').gsub("wrote:","").strip
+    end
+
     def get_content_from email
       begin
-        document = get_document_from email
-        document.xpath("//body").text.split(/please reply above this line/).first.gsub("-------- ",'').strip
+        document = get_documet_from email
+        return cleanup_reply(document.xpath("//body").text.split(/please reply above this line/).first.gsub("-------- ",'').strip)
 
         #document.css("body//text()").text.strip.split("\n").first.strip
         #document.css("body").xpath("*/preceding-sibling::text()[1]").first.text.to_s.strip
