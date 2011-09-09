@@ -22,9 +22,9 @@ class Admin::ForbiddenPasswordsController <  Admin::AdminController
   def destroy
     @forbidden_password = ForbiddenPassword.find params[:id]
     if @forbidden_password.destroy
-      redirect_to(:back, :notice => I18n.t(:forbidden_password_has_been_deleted))
+      redirect_to(admin_forbidden_passwords_url, :notice => I18n.t(:forbidden_password_has_been_deleted))
     else
-      redirect_to(:back, :notice => I18n.t(:forbidden_password_has_not_been_deleted))
+      redirect_to(admin_forbidden_passwords_url, :notice => I18n.t(:forbidden_password_has_not_been_deleted))
     end
   end
 
