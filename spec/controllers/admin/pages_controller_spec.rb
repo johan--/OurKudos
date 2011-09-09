@@ -20,7 +20,6 @@ describe Admin::PagesController do
   describe "creating a valid page" do
     before(:each) do 
       @valid_params = Factory.attributes_for(:page)
-
     end
 
     def valid_create
@@ -71,7 +70,7 @@ describe Admin::PagesController do
     end
 
     def invalid_create
-      post :create, :gift => { }
+      post :create, :page => { }
     end
 
     it "should create page" do
