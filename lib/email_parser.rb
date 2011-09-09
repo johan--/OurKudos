@@ -42,7 +42,7 @@ module EmailParser
 
     def get_content_from email
       begin
-        document = get_documet_from email
+        document = get_document_from email
         return cleanup_reply(document.xpath("//body").text.split(/please reply above this line/).first.gsub("-------- ",'').strip)
 
         #document.css("body//text()").text.strip.split("\n").first.strip
