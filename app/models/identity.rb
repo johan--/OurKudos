@@ -54,7 +54,7 @@ class Identity < ActiveRecord::Base
   # = instance methods =
   # ====================
   def can_destroy?
-    !is_primary? 
+    !is_primary? && !display_identity?
   end
 
   def synchronize_email!
@@ -67,6 +67,7 @@ class Identity < ActiveRecord::Base
 
   def set_as_tetriary!
     self.is_primary = false
+    self.display_identity = false
     self.save :run_callbacks => false, :validate => false
   end
 
