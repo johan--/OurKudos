@@ -308,7 +308,7 @@
 			//var a = list[i].replace(regEx,"<mark>$1</mark>");
 			var display = list[i][0].substring(1, list[i][0].length) 
 			
-			html += "<li data-value='"+list[i][1]+"' "+width+">"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+			html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
 		}
 		$(data.list).html(html);
     $(data.list).find("li:first-child").attr("data-selected","true");
@@ -448,9 +448,9 @@
 	}
 	
 	function onUserSelected(li,data){
-		var seletedText = $(li).attr("data-value");
-		
-		
+		//var seletedText = $(li).attr("data-value");
+		var selectedText = $(li).attr("data-name");
+		selectedText = selectedText.substr(1, selectedText.length);
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
 		text = text.substr(0,selectionEnd);
@@ -459,6 +459,7 @@
 		var wordsFound = 0;
 		var pos = text.length-1;
 		
+		console.log(selectedText);
 		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
 			//ret.unshift(text.charAt(pos));
 			pos--;
@@ -466,12 +467,12 @@
 				wordsFound++;
 			}
 		}
-		var a = data.ta.value.substr(0,pos+1);
+		var a = data.ta.value.substr(0,pos);
 		var c = data.ta.value.substr(selectionEnd,data.ta.value.length);
 		var scrollTop = data.ta.scrollTop;
-		data.ta.value = a+seletedText+c;
+		data.ta.value = a+selectedText+c;
 		data.ta.scrollTop = scrollTop;
-		data.ta.selectionEnd = pos+1+seletedText.length;
+		data.ta.selectionEnd = pos+1+selectedText.length;
 		hideList(data);
 		addTokenInput($(li).attr("data-value"));
 		$(data.ta).focus();	
