@@ -37,8 +37,22 @@ describe Admin::KudoFlagsController do
         @kudo = Factory(:kudo_flag)
       end
 
+      it "should redirect when nothing is selected and no action is true" do
+        @request.env['HTTP_REFERER'] = admin_kudo_flags_url
+        KudoFlagAction.should_receive(:process_flag_action).and_return(true)
+        put 'flag'
+        response.should redirect_to(admin_kudo_flags_url)
+        flash[:alert].should eq('Please select at least one kudo flag!')
+      end
+
+      it "should redirect when nothing is selected and no action is false" do
+        KudoFlagAction.should_receive(:process_flag_action).and_return(false)
+        put 'flag', :kudo_flags => {}
+        response.should redirect_to(admin_kudo_flags_url)
+        flash[:notice].should eq('Your Flag Actions Have Been Performed')
+      end
+
       it "should mark the flagged kudo valid" do
-        #test not 100% valid
         KudoFlagAction.should_receive(:process_flag_action).and_return(true)
         valid_params = {:kudo_flags => {@kudo.id.to_s => 'true'}}
         
