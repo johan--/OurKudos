@@ -1,5 +1,5 @@
 class Admin::SettingsController < ApplicationController
-
+  before_filter :authenticate_user!
   layout "admin"
 
   def index
@@ -9,7 +9,8 @@ class Admin::SettingsController < ApplicationController
   end
 
   def update
-    if Settings[params[:id]].update_attributes params[:settings]
+    @setting = Settings.find(params[:id])
+    if @setting.update_attributes params[:settings]
       redirect_to admin_settings_path, :notice => "Website Options updated."
     else
       redirect_to admin_settings_path, :notice => "Website Options not updated."
