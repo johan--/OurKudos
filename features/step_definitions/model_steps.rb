@@ -37,11 +37,11 @@ Given /^jobs are being dispatched$/ do
     Delayed::Worker.new.work_off
 end
 
-Given /^the following Kudo Categories exists:$/ do |table|
-  table.hashes.each do |attributes|
-    Factory :kudo_category, attributes
-  end
-end
+#Given /^the following Kudo Categories exists:$/ do |table|
+#  table.hashes.each do |attributes|
+#    Factory :kudo_category, attributes
+#  end
+#end
 
 Given /^the following Affiliate Programs exists:$/ do |table|
   table.hashes.each do |attributes|
