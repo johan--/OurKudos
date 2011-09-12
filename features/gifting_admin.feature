@@ -94,7 +94,7 @@ Scenario: Administrator can remove Gift Groups
   Given I'm logged in as an administrator with:
     | email              | password     | id |
     | admin@example2.net | secret pass1 | 1  |
-  And the following Gift Groups exist:
+  And the following Gifting Groups exist:
     | name       |
     | Food Gifts |
   When I go to admin area page

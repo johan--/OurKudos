@@ -55,17 +55,17 @@ Given /^the following Merchants exists:$/ do |table|
   end
 end
 
-Given /^the following Gift Groups exist:$/ do |table|
+Given /^the following Gifting Groups exist:$/ do |table|
   table.hashes.each do |attributes|
     Factory :gift_group, attributes
   end
 end
 
-Given /^the following Gifts exist:$/ do |table|
-  table.hashes.each do |attributes|
-    Factory :gift, attributes
-  end
-end
+#Given /^the following gifts exist:$/ do |table|
+#  table.hashes.each do |attributes|
+#    Factory :gift, attributes
+#  end
+#end
 
 Given /^the a set of Gifts and Groups exist:$/ do
   group1 = Factory(:gift_group, :name => "group1")
