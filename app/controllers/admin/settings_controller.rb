@@ -9,7 +9,7 @@ class Admin::SettingsController < ApplicationController
   end
 
   def update
-    @setting = Settings.find(params[:id])
+    @setting = Settings.find_by_name(params[:id])
     if @setting.update_attributes params[:settings]
       redirect_to admin_settings_path, :notice => "Website Options updated."
     else
