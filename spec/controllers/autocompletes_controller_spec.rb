@@ -5,6 +5,11 @@ describe AutocompletesController do
     Settings.seed!
   end
 
+  before(:each) do 
+    @user = Factory(:user)
+    sign_in @user
+  end
+
   describe "Exact recipients" do
     before(:each) do 
       @other_user = Factory(:user) 
@@ -12,8 +17,6 @@ describe AutocompletesController do
                               :identity => "itweet", 
                               :identity_type => "twitter")
       identity.save(:validate => false)
-      @user = Factory(:user)
-      sign_in @user
     end
 
     it "should return only one recipient" do
@@ -45,6 +48,34 @@ describe AutocompletesController do
 
   end
 
+  describe "identities and recipients" do
+    before(:each) do 
+      @other_user = Factory(:user, 
+                            :first_name => "bob",
+                            :last_name => "smith") 
+      @identity = Identity.new(:user_id => @other_user.id,
+                              :identity => "itweet", 
+                              :identity_type => "twitter")
+      @identity.save(:validate => false)
+    end
+
+    it "should return list of identities" do
+      get 'new', :object => 'identities', :q => 'itweet'
+      assigns[:items].should include('itweet')
+    end
+
+    it "should return list of recipient" do
+      get 'new', :object => 'recipients', :q => 'itweet'
+      assigns[:items].first[:name].should include('[bob smith] @itweet')
+    end
+    
+    it "should return and empty array for bad parameter" do
+      get 'new', :object => '', :q => 'itweet'
+      assigns[:items].should be_blank
+    end
+    
+  end
+
   describe "inline_autocomplete_identities" do
     before(:each) do 
       @other_user = Factory(:user, :first_name => "John", :last_name => "Doe") 
@@ -62,7 +93,14 @@ describe AutocompletesController do
       assigns[:items].should include(["@John D.", '@itweet'])
     end
 
-    it "should properly set non person identities"
+    it "should properly set non person identities" do
+      identity = Identity.new(:user_id => @other_user.id,
+                              :identity => "company", 
+                              :identity_type => "noperson")
+      identity.save(:validate => false)
+      get 'inline_autocomplete_identities'
+      assigns[:items].should include(["@John D.", 'company'])
+    end
 
   end
 
