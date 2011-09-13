@@ -13,14 +13,16 @@ class CommentsModerationsController < ApplicationController
     begin
       email = params[:address]
 
-      session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)
+      session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)  rescue go_home
+
+
 
       unless @comment.is_moderator?(current_user)
         sign_out :user
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
       end
     rescue NoMethodError
-      redirect_to home_path, :notice => "You cannot accept already rejected comment!"
+
     end
   end
 
@@ -54,6 +56,10 @@ class CommentsModerationsController < ApplicationController
      else
        render_404
      end
+    end
+
+    def go_home
+      redirect_to home_path, :notice => "You cannot accept or reject already rejected or accepted comment!"
     end
 
 
