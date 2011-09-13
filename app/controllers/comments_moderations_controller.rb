@@ -1,12 +1,11 @@
 class CommentsModerationsController < ApplicationController
 
   layout "registered"
-  before_filter :get_commentable_and_comment
+  before_filter :get_commentable_and_comment, :check_user
 
 
 
   def new
-    check_user
     get_subaction
   end
 

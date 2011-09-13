@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1841a3-8fe1-4abe-a184-a1f56c281fbd" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -38,7 +39,7 @@
       <file leaf-file-name="comments_moderations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="6" selection-start="752" selection-end="752" vertical-scroll-proportion="0.85178876">
+            <state line="7" column="9" selection-start="153" selection-end="153" vertical-scroll-proportion="0.23850085">
               <folding />
             </state>
           </provider>
@@ -239,13 +240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/features/pages.feature">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="277" selection-end="277" vertical-scroll-proportion="0.0">
@@ -253,9 +247,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="6" selection-start="752" selection-end="752" vertical-scroll-proportion="0.85178876">
+        <state line="7" column="9" selection-start="153" selection-end="153" vertical-scroll-proportion="0.23850085">
           <folding />
         </state>
       </provider>
