@@ -16,7 +16,6 @@ Scenario: Administrator creates/edits/removes identity
     And I select "email" from "Identity type"
     And I fill in "Identity" with "my@secondary.other.email.com"
     And I press "Update Identity"
-    Then show me the page
     Then I should see "Your account has been successfully updated"
     And I should see "my@secondary.other.email.com"
     When I follow "Remove"
