@@ -10,6 +10,7 @@ class CommentsModerationsController < ApplicationController
   end
 
   def check_user
+    begin
       email = params[:address]
 
       session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)
@@ -17,7 +18,10 @@ class CommentsModerationsController < ApplicationController
       unless @comment.is_moderator?(current_user)
         sign_out :user
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
-     end
+      end
+    rescue NoMethodError
+      redirect_to home_path, :notice => "You cannot accept already rejected comment!"
+    end
   end
 
 
