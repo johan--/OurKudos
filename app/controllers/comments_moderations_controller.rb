@@ -52,8 +52,6 @@ class CommentsModerationsController < ApplicationController
         when 'accept'
           redirect_to home_path, :notice => I18n.t(:comment_has_been_accepted)
       end
-     else
-       render_404
      end
     end
 
