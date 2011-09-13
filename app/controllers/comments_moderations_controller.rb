@@ -1,16 +1,17 @@
 class CommentsModerationsController < ApplicationController
 
   layout "registered"
-  before_filter :get_commentable_and_comment, :check_user
+  before_filter :get_commentable_and_comment
 
 
 
   def new
+    check_user
     get_subaction
   end
 
   def check_user
-    begin
+    unless @comment.blank?
       email = params[:address]
 
       session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)  rescue go_home
@@ -19,7 +20,7 @@ class CommentsModerationsController < ApplicationController
         sign_out :user
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
       end
-    rescue
+    else
       go_home
     end
   end
