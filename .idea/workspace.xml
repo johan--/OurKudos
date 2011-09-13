@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1841a3-8fe1-4abe-a184-a1f56c281fbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb" />
     </list>
     <ignored path="ok.iws" />
@@ -39,7 +38,7 @@
       <file leaf-file-name="comments_moderations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="46" selection-start="606" selection-end="606" vertical-scroll-proportion="0.57921636">
+            <state line="23" column="28" selection-start="563" selection-end="563" vertical-scroll-proportion="0.4770017">
               <folding />
             </state>
           </provider>
@@ -208,7 +207,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="46" selection-start="606" selection-end="606" vertical-scroll-proportion="0.57921636">
+        <state line="23" column="28" selection-start="563" selection-end="563" vertical-scroll-proportion="0.4770017">
           <folding />
         </state>
       </provider>

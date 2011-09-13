@@ -10,7 +10,6 @@ class CommentsModerationsController < ApplicationController
   end
 
   def check_user
-    begin
       email = params[:address]
 
       session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)  rescue go_home
@@ -21,9 +20,7 @@ class CommentsModerationsController < ApplicationController
         sign_out :user
         redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
       end
-    rescue NoMethodError
 
-    end
   end
 
 
