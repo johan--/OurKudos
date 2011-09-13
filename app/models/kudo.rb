@@ -191,6 +191,9 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_email_kudo recipient
+      id = Identity.find_by_identity_and_identity_type(recipient, "email").user rescue nil
+
+      return send_system_kudo(id) unless id.blank?
       kudo_copies.build :temporary_recipient  => recipient,
                         :author_id    => author.id,
                         :share_scope  => share_scope,
