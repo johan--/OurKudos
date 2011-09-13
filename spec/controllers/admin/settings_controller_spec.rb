@@ -24,7 +24,7 @@ describe Admin::SettingsController do
       @admin = Factory(:admin_user)
       sign_in @admin
       @setting = mock_model(Settings, :update_attributes => true)
-      Settings.stub!(:find).with("1").and_return(@setting)
+      Settings.stub!(:find_by_name).with("1").and_return(@setting)
     end
   
     it "should find setting and return object" do 
@@ -58,11 +58,11 @@ describe Admin::SettingsController do
       @admin = Factory(:admin_user)
       sign_in @admin
       @setting = mock_model(Settings, :update_attributes => true)
-      Settings.stub!(:find).with("1").and_return(@setting)
+      Settings.stub!(:find_by_name).with("1").and_return(@setting)
     end
 
     it "should find setting and return object" do
-      Settings.should_receive(:find).with("1").and_return(@setting)
+      Settings.should_receive(:find_by_name).with("1").and_return(@setting)
       put :update, :id => "1", :settings => {}
     end
 
