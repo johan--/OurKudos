@@ -38,7 +38,7 @@
       <file leaf-file-name="comments_moderations_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="56" selection-start="747" selection-end="747" vertical-scroll-proportion="0.8177172">
+            <state line="25" column="6" selection-start="752" selection-end="752" vertical-scroll-proportion="0.85178876">
               <folding />
             </state>
           </provider>
@@ -255,7 +255,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/comments_moderations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="56" selection-start="747" selection-end="747" vertical-scroll-proportion="0.8177172">
+        <state line="25" column="6" selection-start="752" selection-end="752" vertical-scroll-proportion="0.85178876">
           <folding />
         </state>
       </provider>
