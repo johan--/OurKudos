@@ -1,3 +1,4 @@
+//Make sure to address focus issue
 jQuery(document).ready(function(){
   var handles;
   jQuery.ajax({
@@ -6,9 +7,10 @@ jQuery(document).ready(function(){
     dataType: 'json',
     success: function(data){
       handles = data;
-    console.log(handles);
+    //console.log(handles);
     }
   });
+
   $("#kudo_message_textarea").autocomplete({
     wordCount:1,
     mode: "inner",
@@ -18,6 +20,7 @@ jQuery(document).ready(function(){
         for( var i=0; i<handles.length; i++ ){
           if( handles[i][0].toLowerCase().indexOf(text.toLowerCase()) == 0 ) words.push(handles[i]);
         }
+        //console.log(words);
         cb(words);								
       }
     }

@@ -37,13 +37,18 @@ class AutocompletesController < ApplicationController
 
     def exact_identity search_term
       identities = Identity.confirmed_for_user(keyword, current_user)
-      exact_identity = identities.map do |identity|
+      @exact_identity = identities.map do |identity|
       { :id => identity.id, :name => (identity.is_twitter? ?
               "[#{identity.user.to_s}] @#{identity.identity}" :
               "[#{identity.user.to_s}] #{identity.identity}")}
       end
-      return [] if exact_identity.blank?
-      exact_identity
+      if @exact_identity.blank?
+        new_term = params[:q].gsub("@fb_","")
+        friend = FacebookFriend.find_by_facebook_id(new_term)
+        @exact_identity = [{:id => "fb_#{friend.facebook_id}", :name => ("FB - #{friend.name}")}] unless friend.blank?
+      end
+      return [] if @exact_identity.blank?
+      @exact_identity
     end
 
     def look_for_identities
@@ -71,7 +76,7 @@ class AutocompletesController < ApplicationController
 
     def autocomplete_identities_for_user
       friends = current_user.friendships.map{|f| f.friend_id}
-      Identity.where("user_id IN (?)",friends).map do |i| 
+      identities = Identity.where("user_id IN (?)",friends).map do |i| 
         if i.identity_type == 'twitter'
           ["@#{i.user.first_name} #{i.user.last_name[0]}.", "@#{i.identity}"]
         elsif i.identity_type == "nonperson" && i.is_company?
@@ -80,6 +85,10 @@ class AutocompletesController < ApplicationController
           ["@#{i.user.first_name} #{i.user.last_name[0]}.", "#{i.identity}"]
         end
       end
+      #facebookfriends
+      identities += current_user.facebook_friends.map do |friend|
+        ["@#{friend.first_name} #{friend.last_name[0]}.", "fb_#{friend.facebook_id}"]
+      end.uniq
     end
 
 end

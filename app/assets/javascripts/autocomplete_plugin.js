@@ -304,11 +304,15 @@
 		var taWidth = $(data.ta).width()-5;
 		var width = data.mode == "outter" ? "style='width:"+taWidth+"px;'" : "";
 		for( var i=0; i< list.length; i++ ){
-
-			//var a = list[i].replace(regEx,"<mark>$1</mark>");
-			var display = list[i][0].substring(1, list[i][0].length) 
-			
-			html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+        var display = list[i][0].substring(1, list[i][0].length) 
+      if (list[i][1].substring(0,3) == "fb_") {
+        
+        html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Facebook)</li>";
+        
+      } else {
+        //var a = list[i].replace(regEx,"<mark>$1</mark>");
+        html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+      }
 		}
 		$(data.list).html(html);
     $(data.list).find("li:first-child").attr("data-selected","true");
@@ -459,7 +463,7 @@
 		var wordsFound = 0;
 		var pos = text.length-1;
 		
-		console.log(selectedText);
+		//console.log(selectedText);
 		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
 			//ret.unshift(text.charAt(pos));
 			pos--;
@@ -587,6 +591,7 @@
     if (handle.charAt(0) == "@") {
       handle = handle.substring(1, handle.length);
     }
+    //console.log(handle);
     jQuery.ajax({
       type: "GET",
       async: false,
