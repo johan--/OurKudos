@@ -303,7 +303,12 @@
 		var regEx = new RegExp("("+text+")");
 		var taWidth = $(data.ta).width()-5;
 		var width = data.mode == "outter" ? "style='width:"+taWidth+"px;'" : "";
-		for( var i=0; i< list.length; i++ ){
+		//Change list length Here
+		var listLimit = 5;
+		if (list.length < 5) {
+		  listLimit = list.length;
+    }
+		for( var i=0; i< listLimit; i++ ){
         var display = list[i][0].substring(1, list[i][0].length) 
       if (list[i][1].substring(0,3) == "fb_") {
         
@@ -454,7 +459,7 @@
 	function onUserSelected(li,data){
 		//var seletedText = $(li).attr("data-value");
 		var selectedText = $(li).attr("data-name");
-		selectedText = selectedText.substr(1, selectedText.length);
+		selectedText = " " + selectedText.substr(1, selectedText.length);
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
 		text = text.substr(0,selectionEnd);
@@ -462,8 +467,7 @@
 		//var ret = [];
 		var wordsFound = 0;
 		var pos = text.length-1;
-		
-		//console.log(selectedText);
+		console.log(selectedText);
 		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
 			//ret.unshift(text.charAt(pos));
 			pos--;
