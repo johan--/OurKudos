@@ -10,7 +10,7 @@
         %td= identity.identity_type
         %td= identity.identity
         %td
-          = radio_button_tag "display_identity", identity.id, :checked => identity.display_identity?
+          = radio_button_tag "display_identity", identity.id, identity.display_identity?
   %p
     = submit_tag "Update"
     = link_to 'cancel', user_path(current_user), :class => 'action_link'
