@@ -35,6 +35,7 @@ class Identity < ActiveRecord::Base
                                                        where("user_id <> ?", user.id).
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) = lower(?) AND identity_type = (?) ", "#{search_term}", 'twitter') }
+  #default_scope :order => 'identity_type ASC'
 
   # ================
   # == extensions ==
