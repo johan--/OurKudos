@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user            = current_user
     @user
     @authentications = current_user.authentications
-    @identities      = current_user.identities.order('identity_type asc')
+    @identities      = current_user.identities.by_type
     @kudos           = current_user.inbox.kudos.page(params[:page]).per(5)
   end
   
