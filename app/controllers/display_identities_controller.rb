@@ -3,7 +3,7 @@ class DisplayIdentitiesController < ApplicationController
   layout 'registered'
 
   def edit
-    @identities = current_user.identities
+    @identities = current_user.identities.by_type
   end
 
   def update
