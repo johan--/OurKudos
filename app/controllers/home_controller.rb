@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-	before_filter :authenticate_user!, :only => [:home]
+	before_filter :authenticate_user!, :only => [:home],:unless => :request_from_kudo_email?
   before_filter :check_if_recipient_valid, :only => [:home]
   before_filter :check_invitation, :only => [:invite]
   before_filter :check_searchterms, :only => [:home]
@@ -52,9 +52,11 @@ class HomeController < ApplicationController
 
     def check_if_recipient_valid
       session['user.return_to'] = request.url if request_from_kudo_email?
+      recipient                 = params[:recipient].to_s.gsub(" ","+")  rescue nil
 
+      if user_signed_in?
        if request_from_kudo_email? && user_signed_in?
-         if params[:recipient] != current_user.email
+         if recipient != current_user.email
           sign_out(:user)
           redirect_to new_user_session_path, :alert => I18n.t(:please_sign_in_to_display_this_message)
           return false
@@ -63,6 +65,9 @@ class HomeController < ApplicationController
           return true
          end
        end
+      else
+        redirect_to new_user_session_path(:user => {:email => recipient }), :notice => I18n.t(:please_sign_in_to_display_this_message)
+      end
 
     end
 

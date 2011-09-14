@@ -14,6 +14,7 @@ class CommentsModerationsController < ApplicationController
       email = params[:address]
 
       session['user.return_to'] = new_comments_moderation_url(:subaction => params[:subaction], :id => @comment.id)  rescue nil
+
       unless @comment.blank?
         unless @comment.is_moderator?(current_user)
           sign_out :user
