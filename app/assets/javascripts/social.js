@@ -10,7 +10,7 @@ jQuery(document).ready(function(){
       var google_div = "google_plus_" + kudo_id
       if ($("#" + google_div).is(':empty')) {
 
-        renderGooglePlus(kudo_id, base_url, google_div);
+        renderGooglePlus(base_url, kudo_id, google_div);
         
         renderFacebookLike(base_url, kudo_id);
 
@@ -36,7 +36,7 @@ function delayButton(base_url, kudo_id, google_div, type) {
 };
 function renderGooglePlus(base_url, kudo_id, google_div) {
   $(google_div).empty();
-  gapi.plusone.render(google_div, {"size" : "small", "count" : "false", "href" : base_url + kudo_id});
+  gapi.plusone.render(google_div, {"size" : "small", "count" : "false", "href" : base_url + kudo_id });
   
 }
 
