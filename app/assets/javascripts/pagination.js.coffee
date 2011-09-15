@@ -10,9 +10,7 @@ loadPage = (pageNo) ->
   else
     url = "/home.js?kudos=" + kudos + "&page=" + pageNo + "&sort_by=" + sort_by
 
-  jQuery.get url, (response) ->
-    jQuery("#pagination").remove()
-    jQuery("div#kudos").append response
+  jQuery.get url
 
 jQuery ->
   currPage = 1

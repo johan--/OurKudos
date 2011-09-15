@@ -55,20 +55,20 @@ class HomeController < ApplicationController
       recipient                 = params[:recipient].to_s.gsub(" ","+")  rescue nil
 
       if user_signed_in?
-       if request_from_kudo_email? && user_signed_in?
+       if request_from_kudo_email?
          if recipient != current_user.email
           sign_out(:user)
-          redirect_to new_user_session_path, :alert => I18n.t(:please_sign_in_to_display_this_message)
+          redirect_to new_user_session_path(:user => {:email => recipient }), :alert => I18n.t(:please_sign_in_to_display_this_message)
           return false
          else
           session['user.return_to'] = nil
           return true
          end
        end
-      else
+      elsif request_from_kudo_email?
         redirect_to new_user_session_path(:user => {:email => recipient }), :notice => I18n.t(:please_sign_in_to_display_this_message)
       end
-
+      session['user.return_to'] = nil
     end
 
     def check_searchterms

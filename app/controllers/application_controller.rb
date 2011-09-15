@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :facebook_icon, :twitter_icon
-
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to home_path, :alert => exception.message
   end
@@ -36,7 +34,6 @@ class ApplicationController < ActionController::Base
 
       @kudos = Kudo.public_kudos(5) if @kudos.is_a?(Array) && @kudos.blank?
     end
-    render :partial => "home/kudos" if request.xhr?
   end
 
   def choose_layout

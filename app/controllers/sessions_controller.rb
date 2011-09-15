@@ -12,6 +12,7 @@ class SessionsController < Devise::SessionsController
     resource = Identity.find_for_authentication(params[:user][:email]).user rescue nil
     ip_check_for(resource, params[:user][:password])     if resource
     devise_sign_in  unless resource
+    session['user.return_to'] = nil
   end
 
   def destroy
