@@ -22,7 +22,6 @@ jQuery(document).ready(function(){
         }
         //console.log(words);
         cb(words);								
-        $('#kudo_message_textarea').focus();
       }
     }
   });
