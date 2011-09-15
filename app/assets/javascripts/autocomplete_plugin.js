@@ -467,7 +467,9 @@
 		//var ret = [];
 		var wordsFound = 0;
 		var pos = text.length-1;
-		console.log(selectedText);
+		if (pos == 0) {
+      selectedText = selectedText.substring(1, selectedText.length);
+    }
 		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
 			//ret.unshift(text.charAt(pos));
 			pos--;

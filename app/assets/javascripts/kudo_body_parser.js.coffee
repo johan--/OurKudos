@@ -44,7 +44,6 @@ emailAddressParser = (message) ->
   
 jQuery(document).ready ->
   $("#kudo_message_textarea").focusout (event) ->
-    #parse twitter identities
-    
-    twitterHandleParser(@value)
-    emailAddressParser(@value)
+    if $('ul.auto-list').is(':visible') == false
+      twitterHandleParser(@value)
+      emailAddressParser(@value)
