@@ -19,7 +19,7 @@ ul.auto-list > li[data-selected=true]{
 
 ul.auto-list > li{
 	border: 1px solid gray;
-	cursor: default;
+	cursor: pointer;
 	padding: 5px;
 	height: 20px;
 	font-size: 14px;

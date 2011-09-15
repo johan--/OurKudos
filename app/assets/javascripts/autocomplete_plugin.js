@@ -486,6 +486,8 @@
 		hideList(data);
 		addTokenInput($(li).attr("data-value"));
 		$(data.ta).focus();	
+    setCaretToPos(data.ta, data.ta.selectionEnd);
+    
 	}
 	
 	function registerEvents(data){
@@ -593,11 +595,29 @@
 			});
 	}	
 
+  function setSelectionRange(input, selectionStart, selectionEnd) {
+    if (input.setSelectionRange) {
+      input.focus();
+      input.setSelectionRange(selectionStart, selectionEnd);
+    }
+    else if (input.createTextRange) {
+      var range = input.createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', selectionEnd);
+      range.moveStart('character', selectionStart);
+      range.select();
+    }
+  }
+
+  function setCaretToPos (input, pos) {
+    setSelectionRange(input, pos, pos);
+  }
+  
 	function addTokenInput(handle){
     if (handle.charAt(0) == "@") {
       handle = handle.substring(1, handle.length);
     }
-    //console.log(handle);
+
     jQuery.ajax({
       type: "GET",
       async: false,
