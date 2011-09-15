@@ -41,7 +41,8 @@ class ApplicationController < ActionController::Base
   end
 
   def request_from_kudo_email?
-      params.keys.include?("kudo_id") && params.keys.include?("recipient")
+      params.keys.include?("kudo_id") && params.keys.include?("recipient") &&
+          request.referer.blank?
   end
 
   def save_email_for_pass_recovery

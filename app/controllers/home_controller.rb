@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 	before_filter :authenticate_user!, :only => [:home],:unless => :request_from_kudo_email?
-  before_filter :check_if_recipient_valid, :only => [:home]
+  before_filter :check_if_recipient_valid, :only => [:home], :if => :request_from_kudo_email?
   before_filter :check_invitation, :only => [:invite]
   before_filter :check_searchterms, :only => [:home]
   layout :choose_layout
@@ -68,7 +68,6 @@ class HomeController < ApplicationController
       elsif request_from_kudo_email?
         redirect_to new_user_session_path(:user => {:email => recipient }), :notice => I18n.t(:please_sign_in_to_display_this_message)
       end
-      session['user.return_to'] = nil
     end
 
     def check_searchterms
