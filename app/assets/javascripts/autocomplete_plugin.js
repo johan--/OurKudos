@@ -467,7 +467,9 @@
 		//var ret = [];
 		var wordsFound = 0;
 		var pos = text.length-1;
-		if (pos == 0) {
+		var working_string = data.ta.value;
+		var spaces = working_string.split(/ /g).length - 1;
+		if (working_string.substr(0,1) == "@" && spaces < 1 ) {
       selectedText = selectedText.substring(1, selectedText.length);
     }
 		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
@@ -487,6 +489,16 @@
 		addTokenInput($(li).attr("data-value"));
 		$(data.ta).focus();	
     setCaretToPos(data.ta, data.ta.selectionEnd);
+    
+    //check for ie
+    //var el = data.ta;
+    //var range = document.createRange();
+    //var sel = window.getSelection();
+    //range.setStart(el.childNodes[2], 5);
+    //range.collapse(true);
+    //sel.removeAllRanges();
+    //sel.addRange(range);
+    
     
 	}
 	
