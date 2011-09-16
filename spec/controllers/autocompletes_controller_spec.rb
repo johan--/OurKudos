@@ -90,7 +90,7 @@ describe AutocompletesController do
 
     it 'should return and array of identities' do
       get 'inline_autocomplete_identities'
-      assigns[:items].should include(["@John Doe ", '@itweet'])
+      assigns[:items].should include(["@John Doe", '@itweet'])
     end
 
     it "should properly set non person identities" do
@@ -99,7 +99,7 @@ describe AutocompletesController do
                               :identity_type => "noperson")
       identity.save(:validate => false)
       get 'inline_autocomplete_identities'
-      assigns[:items].should include(["@John Doe ", 'company'])
+      assigns[:items].should include(["@John Doe", 'company'])
     end
 
   end
