@@ -486,16 +486,7 @@
 		hideList(data);
 		addTokenInput($(li).attr("data-value"));
 		$(data.ta).focus();	
-    if( typeof $.browser.msie != 'undefined' ) {
-      setCaretToPos(data.ta, data.ta.selectionEnd);
-    } else {
-      var sel = document.selection.createRange();
-      sel.ta.moveStart ('character', -data.ta.value.length);
-      var caretPos = sel.text.length;
-      sel.moveStart ('character', iCaretPos);
-      sel.moveEnd ('character', 0);
-      sel.select ();
-    }
+    setCaretToPos(data.ta, data.ta.selectionEnd);
     
 	}
 	
