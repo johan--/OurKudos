@@ -629,6 +629,7 @@
     if (handle.charAt(0) == "@") {
       handle = handle.substring(1, handle.length);
     }
+    handle = handle.replace("+", "%2B")
 
     jQuery.ajax({
       type: "GET",

@@ -7,7 +7,6 @@ jQuery(document).ready(function(){
     dataType: 'json',
     success: function(data){
       handles = data;
-    //console.log(handles);
     }
   });
 

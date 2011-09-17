@@ -36,19 +36,25 @@ class AutocompletesController < ApplicationController
     end
 
     def exact_identity search_term
-      identities = Identity.confirmed_for_user(keyword, current_user)
-      @exact_identity = identities.map do |identity|
-      { :id => identity.id, :name => (identity.is_twitter? ?
+      identity = exact_confirmed_identity(keyword)
+      unless identity.blank?
+        @exact_identity = [{ :id => identity.id, 
+                            :name => (identity.is_twitter? ?
               "[#{identity.user.to_s}] @#{identity.identity}" :
-              "[#{identity.user.to_s}] #{identity.identity}")}
-      end
-      if @exact_identity.blank?
+              "[#{identity.user.to_s}] #{identity.identity}")}]
+      else
         new_term = params[:q].gsub("@fb_","")
         friend = FacebookFriend.find_by_facebook_id(new_term)
         @exact_identity = [{:id => "fb_#{friend.facebook_id}", :name => ("FB - #{friend.name}")}] unless friend.blank?
       end
       return [] if @exact_identity.blank?
       @exact_identity
+    end
+
+    def exact_confirmed_identity keyword
+      identity = Identity.find_by_identity(keyword)
+      return nil if identity.nil? or identity.confirmed? == false
+      identity
     end
 
     def look_for_identities
