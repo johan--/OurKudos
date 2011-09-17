@@ -490,6 +490,13 @@
 		$(data.ta).focus();	
     setCaretToPos(data.ta, data.ta.selectionEnd);
     
+    jQuery.each(jQuery.browser, function(i, val) {
+      console.log(i);
+      console.log(val);
+    });
+    var ua = $.browser;
+    if ( ua.msie && ua.version.slice(0,3) > "9" ) {
+      alert( "IE 9" );
     //check for ie
     //var el = data.ta;
     //var range = document.createRange();
@@ -498,6 +505,8 @@
     //range.collapse(true);
     //sel.removeAllRanges();
     //sel.addRange(range);
+    }
+    
     
     
 	}
