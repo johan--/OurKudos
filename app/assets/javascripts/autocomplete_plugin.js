@@ -309,7 +309,8 @@
 		  listLimit = list.length;
     }
 		for( var i=0; i< listLimit; i++ ){
-        var display = list[i][0].substring(1, list[i][0].length) 
+        var display = list[i][0].substring(0, list[i][0].length) 
+        display = display.replace(/ @/, ' ')
       if (list[i][1].substring(0,3) == "fb_") {
         
         html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Facebook)</li>";
@@ -459,7 +460,7 @@
 	function onUserSelected(li,data){
 		//var seletedText = $(li).attr("data-value");
 		var selectedText = $(li).attr("data-name");
-		selectedText = " " + selectedText.substr(1, selectedText.length);
+		selectedText = " " + selectedText.substr(0, selectedText.length);
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
 		text = text.substr(0,selectionEnd);
@@ -483,6 +484,8 @@
 		var c = data.ta.value.substr(selectionEnd,data.ta.value.length);
 		var scrollTop = data.ta.scrollTop;
 		data.ta.value = a+selectedText+c;
+		console.log(data.ta.value);
+		//line break gone here when first charactor
 		data.ta.scrollTop = scrollTop;
 		data.ta.selectionEnd = pos+1+selectedText.length;
 		hideList(data);
@@ -490,6 +493,7 @@
 		$(data.ta).focus();	
     setCaretToPos(data.ta, data.ta.selectionEnd);
     
+    //hack to focus IE 9 at the end of the text area
     var ua = $.browser;
     if ( ua.msie && ua.version == '9.0' ) {
       data.ta.value = data.ta.value;
