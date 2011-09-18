@@ -484,7 +484,6 @@
 		var c = data.ta.value.substr(selectionEnd,data.ta.value.length);
 		var scrollTop = data.ta.scrollTop;
 		data.ta.value = a+selectedText+c;
-		console.log(data.ta.value);
 		//line break gone here when first charactor
 		data.ta.scrollTop = scrollTop;
 		data.ta.selectionEnd = pos+1+selectedText.length;
