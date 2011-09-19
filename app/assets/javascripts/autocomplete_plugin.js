@@ -271,7 +271,9 @@
 	function getWords(data){
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
-		text = text.substr(0,selectionEnd);
+		if (text.charAt(0) == ' ') {
+      text = text.substr(1,selectionEnd);
+    }
 		if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
 		var ret = [];
 		var wordsFound = 0;
@@ -310,7 +312,6 @@
     }
 		for( var i=0; i< listLimit; i++ ){
         var display = list[i][0].substring(0, list[i][0].length) 
-        display = display.replace(/ @/, ' ')
       if (list[i][1].substring(0,3) == "fb_") {
         
         html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Facebook)</li>";
@@ -470,7 +471,7 @@
 		var pos = text.length-1;
 		var working_string = data.ta.value;
 		var spaces = working_string.split(/ /g).length - 1;
-		if (working_string.substr(0,1) == "@" && spaces < 1 ) {
+		if (working_string.substr(0,1) == "@" && spaces < 2 ) {
       selectedText = selectedText.substring(1, selectedText.length);
     }
 		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){

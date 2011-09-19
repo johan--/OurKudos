@@ -11,7 +11,7 @@ jQuery(document).ready(function(){
   });
 
   $("#kudo_message_textarea").autocomplete({
-    wordCount:1,
+    wordCount:2,
     mode: "inner",
     on: {
       query: function(text,cb){
@@ -19,6 +19,7 @@ jQuery(document).ready(function(){
         for( var i=0; i<handles.length; i++ ){
           var matchable = handles[i][0].split(' ');
           matchable.push(handles[i][1]);
+          matchable.push(handles[i][0]);
           for (var k=0; k<matchable.length; k++) {
             var matcher = "@" + matchable[k];
             if( matcher.toLowerCase().indexOf(text.toLowerCase()) == 0 ) {
