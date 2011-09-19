@@ -271,9 +271,7 @@
 	function getWords(data){
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
-		if (text.charAt(0) == ' ') {
-      text = text.substr(1,selectionEnd);
-    }
+		text = text.substr(0,selectionEnd);
 		if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
 		var ret = [];
 		var wordsFound = 0;
