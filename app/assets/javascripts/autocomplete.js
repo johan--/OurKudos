@@ -11,7 +11,7 @@ jQuery(document).ready(function(){
   });
 
   $("#kudo_message_textarea").autocomplete({
-    wordCount:1,
+    wordCount:2,
     mode: "inner",
     on: {
       query: function(text,cb){

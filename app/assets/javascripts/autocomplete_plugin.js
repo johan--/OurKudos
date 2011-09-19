@@ -271,6 +271,9 @@
 	function getWords(data){
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
+		if (text.indexOf(" @") > 0) {
+      text = text.substr(text.indexOf("@"), text.length);
+    }
 		text = text.substr(0,selectionEnd);
 		if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
 		var ret = [];

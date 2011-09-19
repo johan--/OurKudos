@@ -92,9 +92,9 @@ class AutocompletesController < ApplicationController
         end
       end
       #facebookfriends
-     # identities += current_user.facebook_friends.map do |friend|
-     #   ["#{friend.name}", "fb_#{friend.facebook_id}"]
-     # end.uniq
+      identities += current_user.facebook_friends.map do |friend|
+        ["#{friend.name}", "fb_#{friend.facebook_id}"]
+      end.uniq
     end
 
 end
