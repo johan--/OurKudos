@@ -152,6 +152,7 @@
 			clone:null,
 			lineHeight:0,
 			list:null,
+			wordsEntered:0,
 			charInLines:{},
 			mode:obj.mode,
 			chars:getDefaultCharArray()};
@@ -271,10 +272,9 @@
 	function getWords(data){
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
-		//if (text.indexOf(" @") > 0) {
-    //  text = text.substr(text.indexOf("@"), text.length);
-    //}
-		text = text.substr(0,selectionEnd);
+		if (text.indexOf(" @") > 0) {
+      text = text.substr(text.indexOf("@"), text.length);
+    }
 		if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
 		var ret = [];
 		var wordsFound = 0;
@@ -475,13 +475,16 @@
 		if (working_string.substr(0,1) == "@" && spaces < 2 ) {
       selectedText = selectedText.substring(1, selectedText.length);
     }
-		while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
+    var wordsEntered = data.wordCount;
+		//while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
+		while( wordsFound < data.wordsEntered && pos >= 0 && text.charAt(pos) != '\n'){
 			//ret.unshift(text.charAt(pos));
 			pos--;
 			if( text.charAt(pos) == ' ' || pos < 0 ){
 				wordsFound++;
 			}
 		}
+		//console.log(wordsFound);
 		var a = data.ta.value.substr(0,pos);
 		var c = data.ta.value.substr(selectionEnd,data.ta.value.length);
 		var scrollTop = data.ta.scrollTop;
@@ -580,6 +583,7 @@
 			
 			var text = getWords(data);
 			//console.log("getWords return ",text);
+			data.wordsEntered = text.split(" ").length;
 			if( text != "" ){
 				data.on.query(text,function(list){
 					//console.log("got list = ",list);
