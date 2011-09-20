@@ -502,6 +502,9 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.1.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber-rails (v1.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-rails-1.0.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v1.0.14, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/jquery-rails-1.0.14)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-rails (v3.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/coffee-rails-3.1.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sass-rails-3.1.1)" level="application" />
   </component>
 </module>
 

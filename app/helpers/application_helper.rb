@@ -52,7 +52,7 @@ module ApplicationHelper
    end
 
   def social_sharing_enabled?
-    Settings[:social_sharing_enabled] == 'yes'
+    Settings[:social_sharing_enabled].value == 'yes' rescue false
   end
 
   def profile_picture
