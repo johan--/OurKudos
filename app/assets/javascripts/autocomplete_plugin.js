@@ -290,8 +290,8 @@
 		////  if (text.substring(
 		////  console.log("first: |"+text);
     //}
-		if (text.indexOf(" @") > handleReset) {
-      text = text.substr(text.indexOf(" @")+1, text.length);
+		if (text.lastIndexOf(" @") > handleReset) {
+      text = text.substr(text.lastIndexOf(" @")+1, text.length);
     }
 		//if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
 		if( text.charAt(text.length-1) == '\n' ) return "";
