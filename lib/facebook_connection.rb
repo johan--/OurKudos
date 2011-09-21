@@ -18,9 +18,9 @@ module OurKudos
    def post_facebook_kudo kudo
      begin
       result = facebook_user.feed!(:message    => kudo.body,
-                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://preview.ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
-                                  :description => "It's all good!")
+                                   :description => "It's all good!")
       result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
        Rails.logger.info "SOCIAL_POSTING: Failed to post facebook kudo #{e.to_s}"

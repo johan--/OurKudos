@@ -348,7 +348,7 @@
     </requirement>
     <requirement>
       <requirement>
-        <dependency name="twitter" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+        <dependency name="twitter" version="1.4.1" bound="EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
     </requirement>
@@ -392,7 +392,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] email_spec (v1.2.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/email_spec-1.2.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] memcache (v1.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/memcache-1.2.13)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb (v1.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-1.3.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber-rails (v0.5.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-rails-0.5.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] oauth2-core (v0.1.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/oauth2-core-0.1.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] delayed_job (v2.1.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/delayed_job-2.1.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ancestry (v1.2.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ancestry-1.2.4)" level="application" />
@@ -407,7 +406,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] timecop (v0.3.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/timecop-0.3.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] honeypot-captcha (v0.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/honeypot-captcha-0.0.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] warden_oauth (v0.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/warden_oauth-0.1.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.1.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-core (v2.6.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-core-2.6.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] ruby-debug19 (v0.11.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ruby-debug19-0.11.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] kaminari (v0.12.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/kaminari-0.12.4)" level="application" />
@@ -420,7 +418,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] orm_adapter (v0.0.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/orm_adapter-0.0.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] fakeweb (v1.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fakeweb-1.3.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] diff-lcs (v1.1.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/diff-lcs-1.1.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.1.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] daemons (v1.1.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/daemons-1.1.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] xpath (v0.1.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/xpath-0.1.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-oauth2 (v0.8.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rack-oauth2-0.8.4)" level="application" />
@@ -428,7 +425,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rspec (v2.6.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-2.6.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] columnize (v0.3.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/columnize-0.3.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] hashie (v1.0.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/hashie-1.0.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] simple_oauth (v0.1.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/simple_oauth-0.1.5)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-script-source (v1.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/coffee-script-source-1.1.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-core (v2.6.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-core-2.6.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] warden (v1.0.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/warden-1.0.4)" level="application" />
@@ -444,7 +440,6 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] newrelic_rpm (v3.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/newrelic_rpm-3.1.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] mailman (v0.4.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/mailman-0.4.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] maildir (v1.0.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/maildir-1.0.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v1.0.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/jquery-rails-1.0.13)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] capistrano (v2.8.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/capistrano-2.8.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sqlite3 (v1.3.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sqlite3-1.3.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sprockets (v2.0.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sprockets-2.0.0)" level="application" />
@@ -462,49 +457,41 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] gravtastic (v3.2.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gravtastic-3.2.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] oauth2 (v0.5.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/oauth2-0.5.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber (v1.0.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-1.0.3)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] twitter (v1.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/twitter-1.7.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.5.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] fuubar-cucumber (v0.0.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fuubar-cucumber-0.0.13)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] factory_girl_rails (v1.2.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/factory_girl_rails-1.2.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] launchy (v2.0.5, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/launchy-2.0.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] faraday (v0.7.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/faraday-0.7.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] airbrake (v3.0.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/airbrake-3.0.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] whenever (v0.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/whenever-0.7.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] fb_graph (v2.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/fb_graph-2.1.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] therubyracer (v0.9.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/therubyracer-0.9.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] faraday_middleware (v0.7.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/faraday_middleware-0.7.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] faraday (v0.7.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/faraday-0.7.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] json (v1.5.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json-1.5.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] multi_xml (v0.3.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/multi_xml-0.3.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] hashie (v1.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/hashie-1.1.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] term-ansicolor (v1.0.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/term-ansicolor-1.0.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] factory_girl (v2.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/factory_girl-2.1.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] capybara (v1.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/capybara-1.1.1)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] addressable (v2.2.6, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/addressable-2.2.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] selenium-webdriver (v2.5.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/selenium-webdriver-2.5.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] gherkin (v2.4.18, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/gherkin-2.4.18)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sass-rails-3.1.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-rails (v3.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/coffee-rails-3.1.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activemodel-3.1.0.rc4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] yamler (v0.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/yamler-0.1.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] railties (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.1.0.rc4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-mocks (v2.6.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-mocks-2.6.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] ffi (v1.0.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ffi-1.0.9)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/actionmailer-3.1.0.rc4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] arel (v2.1.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/arel-2.1.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activesupport (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.1.0.rc4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.1.0.rc4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rubyzip (v0.9.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rubyzip-0.9.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-expectations (v2.6.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-expectations-2.6.0)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] json_pure (v1.5.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json_pure-1.5.4)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] childprocess (v0.2.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/childprocess-0.2.2)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] spruz (v0.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/spruz-0.2.13)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] haml (v3.1.3, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/haml-3.1.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] cucumber-rails (v1.0.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/cucumber-rails-1.0.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] jquery-rails (v1.0.14, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/jquery-rails-1.0.14)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] coffee-rails (v3.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/coffee-rails-3.1.1)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] sass-rails (v3.1.1, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/sass-rails-3.1.1)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] omniauth (vOmniAuth::Version::STRING, /home/marcin/Kod/ok/vendor/gems/omniauth-0.2.6) from path" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activemodel-3.1.0.rc4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] yamler (v0.1.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/yamler-0.1.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] railties (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.1.0.rc4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activerecord (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.1.0.rc4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rubyzip (v0.9.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rubyzip-0.9.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-expectations (v2.6.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-expectations-2.6.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] rspec-mocks (v2.6.0, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/rspec-mocks-2.6.0)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] json_pure (v1.5.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/json_pure-1.5.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] childprocess (v0.2.2, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/childprocess-0.2.2)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] ffi (v1.0.9, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/ffi-1.0.9)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] actionmailer (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/actionmailer-3.1.0.rc4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] arel (v2.1.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/arel-2.1.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activesupport (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.1.0.rc4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] spruz (v0.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/spruz-0.2.13)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc4)" level="application" />
   </component>
 </module>
 

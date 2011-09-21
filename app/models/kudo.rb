@@ -167,7 +167,7 @@ class Kudo < ActiveRecord::Base
        elsif recipient.blank? && id =~ RegularExpressions.twitter
          send_twitter_kudo id.gsub("@",'')   if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
-         send_social_kudo(id.gsub("fb_",'')) if Kudo.social_sharing_enabled?
+         send_facebook_kudo(id.gsub("fb_",'')) if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.merchant
          send_merchant_kudo(id.gsub(RegularExpressions.merchant,''))
        end
@@ -216,16 +216,9 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_social_kudo recipient = nil
-      send_twitter_kudo(author.twitter_auth.nickname)  if share_scope.blank? && !author.twitter_auth.blank?
-      send_facebook_kudo(author.facebook_auth.uid)     if share_scope.blank? && !author.facebook_auth.blank?
+      send_twitter_kudo(author.twitter_auth.nickname)  if twitter_sharing?  && share_scope.blank? && !author.twitter_auth.blank?
+      send_facebook_kudo(author.facebook_auth.uid)     if facebook_sharing? && share_scope.blank? && !author.facebook_auth.blank?
       send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
-  end
-
-  def send_merchant_kudo recipient
-    merchant = Merchant.find recipient
-    kudo_copies.build :temporary_recipient => recipient,
-                      :share_scope => share_scope,
-                      :author_id   => author.id
   end
 
   def all_recipients_are_emails?

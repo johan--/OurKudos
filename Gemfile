@@ -22,7 +22,7 @@ gem 'coffee-filter'
 gem 'oauth2-core'
 gem 'ancestry'
 gem 'fb_graph'
-gem 'twitter'
+gem 'twitter', '1.4.1'
 gem "delayed_job"
 gem 'json'
 gem 'coffee-script'
