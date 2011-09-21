@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
           matchable.push(handles[i][1]);
           matchable.push(handles[i][0]);
           for (var k=0; k<matchable.length; k++) {
-            var matcher = "@" + matchable[k];
+            var matcher = "@" + matchable[k] ;
             if( matcher.toLowerCase().indexOf(text.toLowerCase()) == 0 ) {
               words.push(handles[i]);
               break;

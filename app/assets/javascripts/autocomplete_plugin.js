@@ -272,10 +272,29 @@
 	function getWords(data){
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
-		if (text.indexOf(" @") > 0) {
-      text = text.substr(text.indexOf("@"), text.length);
+		var handleReset = 0;
+		//CODE FOR TWITTER HANDLE BUG STILL UNRESOLVED
+		//var handleMatcher = text.match(/\B[@]+[A-Za-z0-9-_]+\s/g);
+		//if (handleMatcher != null) {
+    //  var index = handleMatcher.length - 1;
+    //  handleReset = text.lastIndexOf(handleMatcher[index]);
+		//  text = text.substr(handleReset + handleMatcher[index].length, text.length);
+    //  console.log("handle reset: " + handleReset);
+    //  console.log("text: |"+text);
+    //  var n = text.lastIndexOf(' @');
+    //  if (n > 0) {
+    //    text = text.substr(text.indexOf(' @')+1,text.length)
+    //  }
+    //  console.log("new text: |"+text.substr(text.indexOf('@'),text.length));
+
+		////  if (text.substring(
+		////  console.log("first: |"+text);
+    //}
+		if (text.indexOf(" @") > handleReset) {
+      text = text.substr(text.indexOf(" @")+1, text.length);
     }
-		if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
+		//if( text.charAt(text.length-1) == ' ' || text.charAt(text.length-1) == '\n' ) return "";
+		if( text.charAt(text.length-1) == '\n' ) return "";
 		var ret = [];
 		var wordsFound = 0;
 		var pos = text.length-1;
@@ -477,19 +496,23 @@
     }
     var wordsEntered = data.wordCount;
 		//while( wordsFound < data.wordCount && pos >= 0 && text.charAt(pos) != '\n'){
-		while( wordsFound < data.wordsEntered && pos >= 0 && text.charAt(pos) != '\n'){
+		while( wordsFound < data.wordsEntered && pos > 0 && text.charAt(pos) != '\n'){
 			//ret.unshift(text.charAt(pos));
 			pos--;
 			if( text.charAt(pos) == ' ' || pos < 0 ){
 				wordsFound++;
 			}
 		}
-		//console.log(wordsFound);
 		var a = data.ta.value.substr(0,pos);
+		//re-insert newline it is the first char on line
+		var new_line_pos = data.ta.value.lastIndexOf("\n");
+		if (new_line_pos === pos){
+      a = a+"\n";
+      selectedText = selectedText.substr(1,selectedText.length);
+    }
 		var c = data.ta.value.substr(selectionEnd,data.ta.value.length);
 		var scrollTop = data.ta.scrollTop;
 		data.ta.value = a+selectedText+c;
-		//line break gone here when first charactor
 		data.ta.scrollTop = scrollTop;
 		data.ta.selectionEnd = pos+1+selectedText.length;
 		hideList(data);
@@ -513,8 +536,6 @@
 			e.preventDefault();
 			return false;
 		});
-		
-		
 		
 		$(data.ta).blur(function(e){
 			setTimeout(function(){
