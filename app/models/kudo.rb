@@ -79,6 +79,10 @@ class Kudo < ActiveRecord::Base
         else !i.temporary_recipient
           if i.kudoable_type == "TwitterKudo"
             "@#{i.temporary_recipient}"
+          elsif i.kudoable_type == "FacebookKudo"
+            friend = FacebookFriend.find_by_facebook_id(i.temporary_recipient)
+            return "unknown recipient" if friend.nil?
+            "#{friend.first_name} #{friend.last_name[0]}."
           else
             i.temporary_recipient
           end
@@ -91,7 +95,10 @@ class Kudo < ActiveRecord::Base
     kudo_copies.map do |kc|
       if kc.recipient_id
         [kc.copy_recipient, kc.recipient_id]
-      elsif kc.temporary_recipient
+      elsif kc.kudoable_type == "FacebookKudo"
+        friend = FacebookFriend.find_by_facebook_id(kc.temporary_recipient)
+        friend.blank? ? ["unknown recipient", nil] : ["#{friend.first_name} #{friend.last_name[0]}.", nil]
+      else kc.temporary_recipient
         ["#{kc.temporary_recipient}", nil]
       end
     end.compact
