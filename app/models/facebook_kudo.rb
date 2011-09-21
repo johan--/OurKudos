@@ -8,11 +8,11 @@ class FacebookKudo < ActiveRecord::Base
   def post_me!
      case self.kudo.share_scope
        when nil
-        self.response = kudo.author.post_facebook_kudo kudo
+        self.response = kudo.author.post_facebook_kudo kudo.kudo
        when 'friends'
-         self.response = kudo.author.post_to_friends_wall identifier, kudo
+         self.response = kudo.author.post_to_friends_wall identifier, kudo.kudo
        when 'recipient'
-         self.response = kudo.author.post_to_friends_wall identifier, kudo
+         self.response = kudo.author.post_to_friends_wall identifier, kudo.kudo
      end
 
     self.posted   = true
