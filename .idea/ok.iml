@@ -492,6 +492,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] activesupport (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.1.0.rc4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] spruz (v0.2.13, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/spruz-0.2.13)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activeresource (v3.1.0.rc4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/activeresource-3.1.0.rc4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] faraday (v0.7.4, /home/marcin/.rvm/gems/ruby-1.9.2-p180/gems/faraday-0.7.4)" level="application" />
   </component>
 </module>
 
