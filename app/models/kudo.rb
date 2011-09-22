@@ -67,20 +67,13 @@ class Kudo < ActiveRecord::Base
   end
 
   #TODO FIX THIS: THIS CODE LAUNCHES ABOUT 3 additional queries for each shown kudo (that gives us about 30 per page)
-  #Patched for preview.ourkudos.com, could be refactored
   def recipients_readable_list
     if to.present? && kudo_copies.size == 0
       to.gsub("'","")
     else
       #kudo_copies.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
       #needs refactoring
-    author_copies = kudo_copies.find_by_recipient_id(author_id)
-      unless author_copies.blank?
-        copies = kudo_copies - author_copies
-      else
-        copies = kudo_copies
-      end
-      copies.map do |i|
+      kudo_copies.map do |i|
         if !i.recipient.blank?
           i.recipient.secured_name
         else !i.temporary_recipient
@@ -99,14 +92,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_names_ids
-    #Patched for preview.ourkudos.com, could be refactored
-    author_copies = kudo_copies.find_by_recipient_id(author_id)
-    unless author_copies.blank?
-      copies = kudo_copies - author_copies
-    else
-      copies = kudo_copies
-    end
-    copies.map do |kc|
+    kudo_copies.map do |kc|
       if kc.recipient_id
         [kc.copy_recipient, kc.recipient_id]
       elsif kc.kudoable_type == "FacebookKudo"
