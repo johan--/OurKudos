@@ -595,7 +595,7 @@
 					  //exact match autocomplete
 					  if (list.length == 1) {
               for (var i=0; i<list[0].length; i++) {
-                if (text.substr(1,text.length).toLowerCase() == list[0][i].toLowerCase()) {
+                if (text.substr(1,text.length).toLowerCase() == list[0][i].toLowerCase() || text.toLowerCase() == list[0][i].toLowerCase()) {
                   var li = getCurrentSelected(data);
                   if( li ){
                     onUserSelected(li,data);

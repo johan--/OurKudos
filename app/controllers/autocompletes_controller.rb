@@ -84,9 +84,7 @@ class AutocompletesController < ApplicationController
       friends = current_user.friendships.map{|f| f.friend_id}
       identities = Identity.where("user_id IN (?)",friends).map do |i| 
         if i.identity_type == 'twitter'
-          #If this doens't change the method can get largely refactored
-          #["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
-          ["#{i.user.first_name} #{i.user.last_name}", "#{i.identity}"]
+          ["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
         elsif i.identity_type == "nonperson" && i.is_company?
           ["#{i.user.company_name}", "#{i.identity}"]
         else
