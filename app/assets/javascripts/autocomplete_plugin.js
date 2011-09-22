@@ -273,23 +273,6 @@
 		var selectionEnd = getTextAreaSelectionEnd(data.ta);//.selectionEnd;
 		var text = data.ta.value;
 		var handleReset = 0;
-		//CODE FOR TWITTER HANDLE BUG STILL UNRESOLVED
-		//var handleMatcher = text.match(/\B[@]+[A-Za-z0-9-_]+\s/g);
-		//if (handleMatcher != null) {
-    //  var index = handleMatcher.length - 1;
-    //  handleReset = text.lastIndexOf(handleMatcher[index]);
-		//  text = text.substr(handleReset + handleMatcher[index].length, text.length);
-    //  console.log("handle reset: " + handleReset);
-    //  console.log("text: |"+text);
-    //  var n = text.lastIndexOf(' @');
-    //  if (n > 0) {
-    //    text = text.substr(text.indexOf(' @')+1,text.length)
-    //  }
-    //  console.log("new text: |"+text.substr(text.indexOf('@'),text.length));
-
-		////  if (text.substring(
-		////  console.log("first: |"+text);
-    //}
 		if (text.lastIndexOf(" @") > handleReset) {
       text = text.substr(text.lastIndexOf(" @")+1, text.length);
     }
@@ -609,6 +592,18 @@
 				data.on.query(text,function(list){
 					//console.log("got list = ",list);
 					if( list.length ){
+					  //exact match autocomplete
+					  if (list.length == 1) {
+              for (var i=0; i<list[0].length; i++) {
+                if (text.substr(1,text.length).toLowerCase() == list[0][i].toLowerCase()) {
+                  var li = getCurrentSelected(data);
+                  if( li ){
+                    onUserSelected(li,data);
+					        }
+					        hideList(data);					
+                }
+              }
+            }
 						showList(data,list,text);	
 					}
 					else{
