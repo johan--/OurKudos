@@ -19,14 +19,14 @@ class KudoCopy < ActiveRecord::Base
 
   def copy_recipient
     return if own_kudo?
-    return self.recipient.secured_name   unless self.recipient.blank?
-    return ''                            if self.recipient.blank? && self.kudoable.is_a?(EmailKudo)
-    return facebook_friend_secured_name  if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
-    "@#{self.temporary_recipient}"       if self.recipient.blank? && self.kudoable.is_a?(TwitterKudo)
+    return self.recipient.secured_name   unless self.recipient_id.blank?
+    return ''                            if self.recipient_id.blank? && self.kudoable.is_a?(EmailKudo)
+    return facebook_friend_secured_name  if self.recipient_id.blank? && self.kudoable.is_a?(FacebookKudo)
+    "@#{self.temporary_recipient}"       if self.recipient_id.blank? && self.kudoable.is_a?(TwitterKudo)
   end
 
   def facebook_friend
-    @facebook_friend ||= FacebookFriend.find_by_identifier self.temporary_recipient
+    @facebook_friend ||= FacebookFriend.find_by_facebook_id self.temporary_recipient
   end
 
   def facebook_friend_secured_name
@@ -35,7 +35,8 @@ class KudoCopy < ActiveRecord::Base
   end
 
   def own_kudo?
-    self.recipient == self.author && !self.author.blank?
+    return self.recipient_id == self.author_id unless self.author_id.blank?
+    false
   end
 
   def visible_for? user = nil
