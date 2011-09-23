@@ -7,7 +7,7 @@ class Kudo < ActiveRecord::Base
 
   has_many :kudo_flags, :dependent => :destroy
 
-  attr_accessor    :js_validation_only, :archived_kudo
+  attr_accessor    :js_validation_only, :archived_kudo, :facebook_shared, :twitter_shared
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 

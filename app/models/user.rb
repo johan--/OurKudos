@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email, :has_company,
                 :send_penalty_notification, :first_message, 
-                :display_identity_name, :display_name, :facebook_shared, :twitter_shared
+                :display_identity_name, :display_name
   # ================
   # = associations =
   # ================
