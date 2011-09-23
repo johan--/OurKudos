@@ -29,7 +29,16 @@
       <file leaf-file-name="kudo.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="29" selection-start="7294" selection-end="7294" vertical-scroll-proportion="0.81850535">
+            <state line="234" column="6" selection-start="8201" selection-end="8208" vertical-scroll-proportion="1.3879004">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="facebook_kudo.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="47" selection-start="747" selection-end="758" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,7 +92,6 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/initializers/devise.rb" />
         <option value="$PROJECT_DIR$/lib/facebook_connection.rb" />
-        <option value="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
         <option value="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
@@ -91,6 +99,7 @@
         <option value="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
         <option value="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
+        <option value="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/kudo.rb" />
       </list>
     </option>
@@ -461,13 +470,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="79" selection-start="573" selection-end="573" vertical-scroll-proportion="0.4">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -496,9 +498,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="47" selection-start="747" selection-end="758" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="29" selection-start="7294" selection-end="7294" vertical-scroll-proportion="0.81850535">
+        <state line="234" column="6" selection-start="8201" selection-end="8208" vertical-scroll-proportion="1.3879004">
           <folding />
         </state>
       </provider>
