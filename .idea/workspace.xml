@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3e1841a3-8fe1-4abe-a184-a1f56c281fbd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
     </list>
@@ -32,16 +31,16 @@
       <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="64" selection-start="3299" selection-end="3299" vertical-scroll-proportion="-9.68">
+            <state line="209" column="5" selection-start="7336" selection-end="7336" vertical-scroll-proportion="-12.88">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudo_copy.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="kudo_copy.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="21" selection-start="1512" selection-end="1512" vertical-scroll-proportion="0.0">
+            <state line="30" column="57" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.51107323">
               <folding />
             </state>
           </provider>
@@ -56,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudos_helper.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="kudos_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="25" selection-start="1271" selection-end="1706" vertical-scroll-proportion="0.6666667">
+            <state line="46" column="5" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -187,7 +186,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mailers" />
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -205,7 +204,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
+              <option name="myItemId" value="mailers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -485,23 +484,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
+    <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="21" selection-start="1512" selection-end="1512" vertical-scroll-proportion="0.0">
+        <state line="46" column="5" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="64" selection-start="3299" selection-end="3299" vertical-scroll-proportion="-9.68">
+        <state line="209" column="5" selection-start="7336" selection-end="7336" vertical-scroll-proportion="-12.88">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="25" selection-start="1271" selection-end="1706" vertical-scroll-proportion="0.6666667">
+        <state line="30" column="57" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.51107323">
           <folding />
         </state>
       </provider>

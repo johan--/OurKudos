@@ -26,7 +26,7 @@ class KudoCopy < ActiveRecord::Base
   end
 
   def facebook_friend
-    @facebook_friend ||= FacebookFriend.find_by_facebook_id self.temporary_recipient
+    @facebook_friend ||= FacebookFriend.find_by_identifier self.temporary_recipient
   end
 
   def facebook_friend_secured_name
