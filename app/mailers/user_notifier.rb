@@ -17,10 +17,11 @@ class UserNotifier < ActionMailer::Base
         subject     = I18n.t(:subject_confirm_your_identity_for_merge_process)
       when :identity
         identity = confirmation.confirmable
+        user     = identity.user
 
-        @email        = identity.user.current_recipient_for identity
-        @first_name   = identity.user.current_first_name_for identity
-        @account      = identity.user.identities.size == 1
+        @email        = user.email
+        @first_name   = user.first_or_company_name
+        @account      = user.identities.size == 1
 
         subject  =  I18n.t('devise.mailer.confirmation_instructions.subject')
     end

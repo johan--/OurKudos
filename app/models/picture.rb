@@ -7,4 +7,5 @@ class Picture < ActiveRecord::Base
       :small    => "50x50#"
   }
 
+  validates_attachment_presence :image
 end

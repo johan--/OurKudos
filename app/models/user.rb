@@ -128,6 +128,12 @@ class User < ActiveRecord::Base
     return "#{first_name} #{last_name.first.capitalize}." if middle_name.blank?
     "#{first_name} #{middle_name.first.capitalize}. #{last_name.first.capitalize}."
   end
+
+  def first_or_company_name
+    return company_name unless self.company_name.blank?
+    first_name
+  end
+
   
   def apply_omniauth omniauth, skip_user = false
     unless omniauth['credentials'].blank?
@@ -249,16 +255,6 @@ class User < ActiveRecord::Base
 
   def save_confirmed_cache
     update_attribute :confirmed, true if !self.confirmed && primary_identity.confirmed?
-  end
-
-  def current_recipient_for identity
-    return identity.identity if identities.size > 1
-    self.email
-  end
-
-  def current_first_name_for identity
-    return identity.identity if identities.size > 1
-    self.first_name
   end
 
   def active_for_authentication?

@@ -3,7 +3,7 @@ class ConfirmationsController < ApplicationController
 
   def show
     confirmation = Confirmation.find_by_key params[:id]
-    debugger
+
     confirmation.confirm!
 
     if confirmation.confirmed?
@@ -27,7 +27,7 @@ class ConfirmationsController < ApplicationController
     def current_confirm_redirect_path(confirmation)
       case confirmation.confirmable_klass_type.to_sym
         when :identity
-          return root_path if confirmation.confirmable.user.identities.length == 1
+          return '/home' if confirmation.confirmable.user.identities.length == 1
           return user_path(confirmation.confirmable.user)
         when :merge
           merge_path(confirmation.confirmable)
