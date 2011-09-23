@@ -13,7 +13,8 @@ class Kudo < ActiveRecord::Base
 
   has_many :kudo_flags, :dependent => :destroy
 
-  attr_accessor    :js_validation_only, :archived_kudo, :facebook_shared, :twitter_shared, :previous_fb_copy
+  attr_accessor    :js_validation_only, :archived_kudo, :facebook_shared, :twitter_shared,
+                   :previous_fb_copy
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 
@@ -199,13 +200,12 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_facebook_kudo recipient
-    if facebook_shared.blank? && (previous_fb_copy.blank? || previous_fb_copy != recipient)
+    if  previous_fb_copy.blank? || previous_fb_copy != recipient
       kudo_copies.build :temporary_recipient => recipient,
                         :share_scope  => share_scope,
                         :author_id    => author.id,
                         :kudoable => FacebookKudo.create(:identifier => recipient)
       self.previous_fb_copy = recipient
-      self.facebook_shared = true
     end
   end
 

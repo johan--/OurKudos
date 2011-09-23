@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1841a3-8fe1-4abe-a184-a1f56c281fbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,19 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="kudo.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="5" selection-start="7336" selection-end="7336" vertical-scroll-proportion="-12.88">
+            <state line="209" column="29" selection-start="7294" selection-end="7294" vertical-scroll-proportion="0.81850535">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kudo_copy.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="kudo_copy.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="57" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.51107323">
+            <state line="38" column="24" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,7 +56,7 @@
       <file leaf-file-name="kudos_helper.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="46" column="5" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
+            <state line="17" column="47" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -484,23 +482,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="24" selection-start="1488" selection-end="1488" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="5" selection-start="1706" selection-end="1706" vertical-scroll-proportion="0.0">
+        <state line="17" column="47" selection-start="414" selection-end="414" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="5" selection-start="7336" selection-end="7336" vertical-scroll-proportion="-12.88">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="57" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.51107323">
+        <state line="209" column="29" selection-start="7294" selection-end="7294" vertical-scroll-proportion="0.81850535">
           <folding />
         </state>
       </provider>
