@@ -601,6 +601,7 @@
                     onUserSelected(li,data);
 					        }
 					        hideList(data);					
+					        return;
                 }
               }
             }
