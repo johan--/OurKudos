@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e1841a3-8fe1-4abe-a184-a1f56c281fbd" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/user_notifier.rb" afterPath="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/picture.rb" afterPath="$PROJECT_DIR$/app/models/picture.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo.rb" afterPath="$PROJECT_DIR$/app/models/kudo.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/kudo_copy.rb" afterPath="$PROJECT_DIR$/app/models/kudo_copy.rb" />
     </list>
     <ignored path="ok.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,64 +29,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="identity_confirmation.text.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.text.haml">
+      <file leaf-file-name="kudo.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="83" column="64" selection-start="3299" selection-end="3299" vertical-scroll-proportion="-9.68">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="identity_confirmation.html.haml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.html.haml">
+      <file leaf-file-name="kudo_copy.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
+            <state line="40" column="21" selection-start="1512" selection-end="1512" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_notifier.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
+      <file leaf-file-name="application_helper.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="8" selection-start="792" selection-end="792" vertical-scroll-proportion="-17.6">
+            <state line="74" column="5" selection-start="1975" selection-end="1975" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email_parser.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/email_parser.rb">
+      <file leaf-file-name="kudos_helper.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="81" selection-start="1559" selection-end="1714" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="55" selection-start="4984" selection-end="4984" vertical-scroll-proportion="-91.2">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirmations_controller.rb" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="23" selection-start="858" selection-end="858" vertical-scroll-proportion="0.38732395">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="picture.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/picture.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="2" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
+            <state line="46" column="25" selection-start="1271" selection-end="1706" vertical-scroll-proportion="0.6666667">
               <folding />
             </state>
           </provider>
@@ -106,8 +79,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/kudos/_form.html.haml" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/controllers/kudos_controller.rb" />
@@ -117,11 +88,13 @@
         <option value="$PROJECT_DIR$/lib/facebook_connection.rb" />
         <option value="$PROJECT_DIR$/app/models/facebook_kudo.rb" />
         <option value="$PROJECT_DIR$/app/views/comments/_comments.html.haml" />
-        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/mailers/user_notifier.rb" />
         <option value="$PROJECT_DIR$/app/models/picture.rb" />
         <option value="$PROJECT_DIR$/app/controllers/confirmations_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/kudo_copy.rb" />
+        <option value="$PROJECT_DIR$/app/helpers/kudos_helper.rb" />
+        <option value="$PROJECT_DIR$/app/models/kudo.rb" />
       </list>
     </option>
   </component>
@@ -214,24 +187,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ok" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="mailers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -250,7 +205,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -441,43 +396,9 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/kudos/_form.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="54" selection-start="1458" selection-end="1458" vertical-scroll-proportion="2.4210527" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/twitter_connection.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="9" selection-start="85" selection-end="85" vertical-scroll-proportion="0.1362862" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/queries_parts.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/devise.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="2" selection-start="576" selection-end="576" vertical-scroll-proportion="0.2725724" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="79" selection-start="573" selection-end="573" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/regular_expressions.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="86" selection-start="205" selection-end="205" vertical-scroll-proportion="-4.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/comments/_comments.html.haml">
@@ -494,34 +415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.text.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/email_parser.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="81" selection-start="1559" selection-end="1714" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="8" selection-start="792" selection-end="792" vertical-scroll-proportion="-17.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/picture.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="2" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0">
@@ -529,16 +422,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="55" selection-start="4984" selection-end="4984" vertical-scroll-proportion="-91.2">
+        <state line="22" column="7" selection-start="690" selection-end="693" vertical-scroll-proportion="0.14084508">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/confirmations_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="23" selection-start="858" selection-end="858" vertical-scroll-proportion="0.38732395">
+        <state line="132" column="55" selection-start="4984" selection-end="4984" vertical-scroll-proportion="4.198895">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/email_parser.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="81" selection-start="1559" selection-end="1714" vertical-scroll-proportion="1.6901408">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/user_notifier.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="8" selection-start="792" selection-end="792" vertical-scroll-proportion="0.78291816">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="487" selection-end="487" vertical-scroll-proportion="0.4770017">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/user_notifier/identity_confirmation.text.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="79" selection-start="573" selection-end="573" vertical-scroll-proportion="0.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/facebook_friend.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="5" selection-start="1975" selection-end="1975" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo_copy.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="21" selection-start="1512" selection-end="1512" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/kudo.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="64" selection-start="3299" selection-end="3299" vertical-scroll-proportion="-9.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/kudos_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="25" selection-start="1271" selection-end="1706" vertical-scroll-proportion="0.6666667">
           <folding />
         </state>
       </provider>

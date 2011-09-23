@@ -2,7 +2,13 @@ class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
 
-  has_many  :kudo_copies, :dependent => :destroy
+  has_many  :kudo_copies, :dependent => :destroy do
+
+    def with_recipients
+      includes(:recipient)
+    end
+
+  end
   has_many  :recipients, :through => :kudo_copies
 
   has_many :kudo_flags, :dependent => :destroy
@@ -66,40 +72,17 @@ class Kudo < ActiveRecord::Base
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
   end
 
-  #TODO FIX THIS: THIS CODE LAUNCHES ABOUT 3 additional queries for each shown kudo (that gives us about 30 per page)
   def recipients_readable_list
-    if to.present? && kudo_copies.size == 0
-      to.gsub("'","")
-    else
-      #kudo_copies.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
-      #needs refactoring
-      kudo_copies.map do |i|
-        if !i.recipient.blank?
-          i.recipient.secured_name
-        else !i.temporary_recipient
-          if i.kudoable_type == "TwitterKudo"
-            "@#{i.temporary_recipient}"
-          elsif i.kudoable_type == "FacebookKudo"
-            friend = FacebookFriend.find_by_facebook_id(i.temporary_recipient)
-            return "unknown recipient" if friend.nil?
-            "#{friend.first_name} #{friend.last_name[0]}."
-          else
-            i.temporary_recipient
-          end
-        end
-      end.uniq.compact.sort.join(",")
-    end
+    return to.gsub("'","") if to.present? && kudo_copies.size == 0
+    kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
   end
 
   def recipients_names_ids
-    kudo_copies.map do |kc|
+    kudo_copies.with_recipients.map do |kc|
       if kc.recipient_id
         [kc.copy_recipient, kc.recipient_id]
-      elsif kc.kudoable_type == "FacebookKudo"
-        friend = FacebookFriend.find_by_facebook_id(kc.temporary_recipient)
-        friend.blank? ? ["unknown recipient", nil] : ["#{friend.first_name} #{friend.last_name[0]}.", nil]
-      else kc.temporary_recipient
-        ["#{kc.temporary_recipient}", nil]
+      else
+        [kc.copy_recipient, nil]
       end
     end.compact
   end

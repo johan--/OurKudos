@@ -21,8 +21,17 @@ class KudoCopy < ActiveRecord::Base
     return if own_kudo?
     return self.recipient.secured_name   unless self.recipient.blank?
     return ''                            if self.recipient.blank? && self.kudoable.is_a?(EmailKudo)
-    self.facebook_friend.name            if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
+    return facebook_friend_secured_name  if self.recipient.blank? && self.kudoable.is_a?(FacebookFriend)
     "@#{self.temporary_recipient}"       if self.recipient.blank? && self.kudoable.is_a?(TwitterKudo)
+  end
+
+  def facebook_friend
+    @facebook_friend ||= FacebookFriend.find_by_facebook_id self.temporary_recipient
+  end
+
+  def facebook_friend_secured_name
+    facebook_friend.blank? ?  "unknown recipient" :
+        "#{facebook_friend.first_name} #{facebook_friend.last_name.first}."
   end
 
   def own_kudo?
