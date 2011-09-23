@@ -9,12 +9,12 @@ class User < ActiveRecord::Base
                   :first_name, :last_name, :streetadress, :address2, :city, :state_or_province,
                   :postal_code, :phone_number, :mobile_number, :gender, :role_ids,
                   :profile_picture, :birthday, :hide_birth_year, :tos, :is_banned,
-                  :first_message, :company_name
+             c     :first_message, :company_name
 
   attr_accessor :primary_identity, :skip_password_validation,
                 :remember_old_pass, :consider_invitation_email, :has_company,
                 :send_penalty_notification, :first_message, 
-                :display_identity_name, :display_name
+                :display_identity_name, :display_name, :facebook_shared, :twitter_shared
   # ================
   # = associations =
   # ================

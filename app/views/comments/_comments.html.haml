@@ -3,7 +3,7 @@
 - for comment in kudo.comments.reverse do
  %p.comment_cont{:class => cycle('odd', 'even')}
   
-  %span.commenter= comment.user.secured_name
+  %span.commenter= comment.user.secured_name rescue '(deleted account)'
   %span.comment_text= comment.comment
   %br/
   %span.kudo_date

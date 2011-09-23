@@ -216,10 +216,13 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_facebook_kudo recipient
-    kudo_copies.build :temporary_recipient => recipient,
-                      :share_scope  => share_scope,
-                      :author_id    => author.id,
-                      :kudoable => FacebookKudo.create(:identifier => recipient)
+    unless facebook_shared #prevents to send multiple copies
+      kudo_copies.build :temporary_recipient => recipient,
+                        :share_scope  => share_scope,
+                        :author_id    => author.id,
+                        :kudoable => FacebookKudo.create(:identifier => recipient)
+      self.facebook_shared = true
+    end
   end
 
   def send_social_kudo recipient = nil
@@ -245,7 +248,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def category
-    return '' if kudo_category.blank?
+    return '' if kudo_category_id.blank?
 
     kudo_category.name.to_s
   end
