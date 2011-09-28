@@ -1,6 +1,6 @@
 = content_for(:meta_description, 'The site for sharing thanks, congratulations and Kudos with friends')
 = content_for(:metaog_title, 'OurKudos')
-= content_for(:metaog_url, "#{root_url}")
+= content_for(:metaog_url, "#{request.url}")
   
 #col_left
   = link_to(image_tag('new_to_ok_arrow.png', :id => 'new-to-ok-arrow'), 'http://www.youtube.com/watch?v=ahHZFck-2ys', :class => "video_tour_link")
