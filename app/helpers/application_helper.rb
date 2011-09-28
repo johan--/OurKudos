@@ -91,8 +91,8 @@ module ApplicationHelper
         params[:user][:email].to_s =~ RegularExpressions.email
   end
 
-	def image_meta_tag_url image
-		return "#{root_url}".chop + asset_path(image)
+	def absolute_image_url image
+		File.join root_url,asset_path(image)
 	end
 
 end

@@ -7,8 +7,8 @@
     %meta{:property => 'og:title', :content => "#{yield(:metaog_title)}"}
     %meta{:property => 'og:type', :content => "article"}
     %meta{:property => 'og:url', :content => "#{yield(:metaog_url)}"}
-    %meta{:property => 'og:image', :content => image_meta_tag_url('header_motto_splash.png') }
-    %meta{:property => 'og:image', :content => image_meta_tag_url('baltar_mailman_icon.png') }
+    %meta{:property => 'og:image', :content => absolute_image_url('header_motto_splash.png') }
+    %meta{:property => 'og:image', :content => absolute_image_url('baltar_mailman_icon.png') }
     %meta{:property => 'og:site_name', :content => 'Our Kudos'}
     %meta{:property => 'og:description', :content => "#{yield(:meta_description)}"}
      
