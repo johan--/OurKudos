@@ -1,7 +1,7 @@
-- content_for(:title) { "OurKudos #{@kudo.body}" }
-- content_for(:meta_description) { "OurKudos #{@kudo.body}" }
-- content_for(:metaog_url) { kudo_url(@kudo.id) }
-- content_for(:metaog_title) { open_graphic_title @kudo }
+= content_for(:title) { "OurKudos #{@kudo.body}" }
+= content_for(:meta_description) { "OurKudos #{@kudo.body}" }
+= content_for(:metaog_url) { kudo_url(@kudo.id) }
+= content_for(:metaog_title) { open_graphic_title @kudo }
 
 .spacer
 .wrapper-main
