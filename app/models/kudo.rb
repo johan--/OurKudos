@@ -13,7 +13,9 @@ class Kudo < ActiveRecord::Base
 
   has_many :kudo_flags, :dependent => :destroy
 
-  attr_accessor    :js_validation_only, :archived_kudo, :facebook_shared, :twitter_shared
+  attr_accessor    :js_validation_only, :archived_kudo,
+                   :facebook_shared, :twitter_shared
+
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id
 
@@ -32,6 +34,7 @@ class Kudo < ActiveRecord::Base
                                          select("DISTINCT kudos.*").
                                          where("kudos.created_at >= ?", user.created_at.to_s(:db)).
                                          where("kudos.author_id IN (#{user.friends_ids_list}) OR kudo_copies.recipient_id IN (#{user.friends_ids_list})")}
+
   scope :local_kudos, ->(user) { joins(:kudo_copies).
                                   where("kudo_copies.recipient_id IN (#{local_authors(user)})") }
 
@@ -71,8 +74,6 @@ class Kudo < ActiveRecord::Base
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
   end
-
-
 
   def recipients_readable_list
     return to.gsub("'","") if to.present? && kudo_copies.size == 0
@@ -142,7 +143,8 @@ class Kudo < ActiveRecord::Base
     return if to.blank? || js_validation_only # stop processing if validation with javascript
 
     system_recipients = []
-    set_as_private if all_recipients_are_emails?
+    set_as_private   if all_recipients_are_emails?
+    send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
 
     recipients_list.each do |id|
 
@@ -152,7 +154,6 @@ class Kudo < ActiveRecord::Base
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
          send_system_kudo(recipient)
-         send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
@@ -160,8 +161,6 @@ class Kudo < ActiveRecord::Base
          send_twitter_kudo id.gsub("@",'')   if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
          send_facebook_kudo(id.gsub("fb_",'')) if Kudo.social_sharing_enabled?
-       elsif recipient.blank? && id =~ RegularExpressions.merchant
-         send_merchant_kudo(id.gsub(RegularExpressions.merchant,''))
        end
 
 
@@ -201,18 +200,16 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_facebook_kudo recipient
-    unless facebook_shared #prevents to send multiple copies
       kudo_copies.build :temporary_recipient => recipient,
                         :share_scope  => share_scope,
                         :author_id    => author.id,
                         :kudoable => FacebookKudo.create(:identifier => recipient)
-      self.facebook_shared = true
-    end
   end
 
   def send_social_kudo recipient = nil
       send_twitter_kudo(author.twitter_auth.nickname)  if twitter_sharing?  && share_scope.blank? && !author.twitter_auth.blank?
       send_facebook_kudo(author.facebook_auth.uid)     if facebook_sharing? && share_scope.blank? && !author.facebook_auth.blank?
+
       send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
   end
 

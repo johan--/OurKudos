@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823230856) do
+ActiveRecord::Schema.define(:version => 20110930111559) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20110823230856) do
     t.boolean  "posted"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "message_type"
   end
 
   create_table "folders", :force => true do |t|
