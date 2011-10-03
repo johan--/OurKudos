@@ -19,7 +19,7 @@ class HomeController < ApplicationController
   def home
     @kudo    = Kudo.new
 
-    if params[:searchterms].blank?
+    unless params[:kudos]=="searchterms"
       get_kudos
     else
       search_kudos
@@ -75,7 +75,11 @@ class HomeController < ApplicationController
     end
 
     def search_kudos
-        @kudos = Kudo.serchterms_kudos(params[:searchterms]).where(:share_scope => nil).limit(10)
+      unless params[:searchterms].blank?
+      	@kudos = Kudo.serchterms_kudos(params[:searchterms]).where(:share_scope => nil).limit(10)
+      else
+        @kudos = []
+      end
     end
 
     def go_to_search_tab?
