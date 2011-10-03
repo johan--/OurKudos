@@ -7,9 +7,8 @@
         %h2= link_to 'Sent',     home_path(:kudos =>'sent'),      :class => kudos_current_class_for_link('sent')
       %li
         %h2= link_to 'Received', home_path(:kudos => "received"), :class => kudos_current_class_for_link('received')
-      - unless params[:searchterms].blank?
-        %li
-          %h2= link_to 'Search results', home_path(:kudos => "searchterms", :searchterms => params[:searchterms]),
+      %li
+        %h2= link_to 'Search', home_path(:kudos => "searchterms", :searchterms => params[:searchterms]),
                                                                           :class => kudos_current_class_for_link('searchterms')
   #kudo_dashboard_mid
     #kudo_dashboard_search_cont
@@ -21,9 +20,10 @@
             %br/
             = select_tag "sort_by", options_for_select(Kudo.options_for_sort, params[:sort_by])
             = hidden_field_tag :kudos, params[:kudos]
-
-        %p#kudos_search_cont
-          = render :partial => "home/search"
+        
+        - if params[:kudos] == "searchterms"
+          %p#kudos_search_cont
+            = render :partial => "home/search"
         .clearing
     %script{:type => "text/javascript", :src => "https://apis.google.com/js/plusone.js"}
       :javascript
