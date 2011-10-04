@@ -9,5 +9,5 @@
  .invitation-form
   %p= text_area_tag 'kudo_body', nil, :placeholder => "write something positive!"
 
- = link_to image_tag('send-now-btn.png', :class => "submit-invitation-form"), new_user_registration_path(:user => {:email => @kudo.email })
+= link_to image_tag('send-now-btn.png', :class => "submit-invitation-form"), new_user_registration_path(:user => {:email => @kudo.email })
 .clearing
