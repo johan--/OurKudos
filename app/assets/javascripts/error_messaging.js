@@ -50,7 +50,7 @@ $(document).ready(function(){
   	return false;
   });
 
-  $('button.kudo_reply_submit_btn').click(function(){
+  $('.submit-invitation-form').click(function(){
 
     var message   = $("#kudo_body").val();
     var kudo_key  = $("p.data-key").attr('id');
