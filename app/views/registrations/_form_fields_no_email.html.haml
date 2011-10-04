@@ -23,9 +23,6 @@
   %br/
   %span#postal_code
   = f.text_field :postal_code
-  
 
-
-
-= render :partial => "registrations/terms_of_service", :locals => {:f => f}
+= f.hidden_field :tos, :value => '1'
 
