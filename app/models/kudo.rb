@@ -3,9 +3,11 @@ class Kudo < ActiveRecord::Base
   belongs_to :kudo_category
 
   has_many  :kudo_copies, :dependent => :destroy do
+
     def with_recipients
       includes(:recipient)
     end
+
   end
   has_many  :recipients, :through => :kudo_copies
 
@@ -51,7 +53,8 @@ class Kudo < ActiveRecord::Base
   serialize :flaggers
   serialize :hidden_for
   serialize :blocked_commentators
-  serialize :system_kudos_recipients_cache, :kudo_category
+  serialize :system_kudos_recipients_cache
+                                        :kudo_category
   acts_as_commentable
   include OurKudos::Helpers::Sanitization
 
