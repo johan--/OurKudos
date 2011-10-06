@@ -47,6 +47,7 @@ class Identity < ActiveRecord::Base
   # ================
   # = ar callbacks =
   # ================
+  before_save :downcase_email_identity
   before_destroy :can_destroy?  
   after_save :save_confirmation,          :if => :needs_it?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
@@ -88,6 +89,10 @@ class Identity < ActiveRecord::Base
 
   def needs_it?
     is_email? || is_nonperson?
+  end
+  
+  def downcase_email_identity
+  	self.identity = self.identity.downcase if self.identity.present? && self.identity_type == 'email'
   end
   # =================
   # = class methods =

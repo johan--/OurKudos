@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   # ================
   # = ar callbacks =
   # ================
-  before_save :add_role
+  before_save :add_role, :downcase_email
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   after_save  :flag_abuse_notification
@@ -502,6 +502,10 @@ class User < ActiveRecord::Base
 
   def company?
     self.has_company = !self.company_name.blank?
+  end
+  
+  def downcase_email
+  	self.email = self.email.downcase if self.email.present?
   end
 
   class << self

@@ -16,7 +16,7 @@
       = f.check_box :remember_me
       = f.label :remember_me
   %button{ :type => "submit", :id => "sign_in_submit_btn" }
-    = image_tag 'sign-in-btn.png'      
+    = image_tag 'sign-in-btn.png', :alt => 'sign in'      
   - if devise_mapping.recoverable? && controller_name != 'passwords'
     .forgot_password_links
       = render :partial => "passwords/forgot_password_links"
