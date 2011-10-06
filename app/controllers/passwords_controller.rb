@@ -44,7 +44,6 @@ class PasswordsController < Devise::PasswordsController
       sign_in(resource_name, resource)
       respond_with resource, :location => home_path
     else
-      debugger
       respond_with resource { render_with_scope :edit }
     end
   end
@@ -53,6 +52,10 @@ class PasswordsController < Devise::PasswordsController
 
     def after_sending_reset_password_instructions_path_for(resource_name)
       new_session_path(resource_name)
+    end
+
+    def send_failure_notice(username, ip, user_agent)
+      UserNotifier.login_failure_notify('password', username, ip, user_agent).deliver
     end
 
 

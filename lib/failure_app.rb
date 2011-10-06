@@ -10,6 +10,9 @@ module Devise
       if message.is_a?(Symbol)
         if  message == :timeout
           flash[:alert] = nil
+        elsif message == :invalid
+          send_failure_notice(params[:user][:email], request.remote_ip, request.user_agent)
+          flash[:alert] = "Incorrect Username and/or Password"
         elsif message != :inactive && message != :unauthenticated
           message_without_link message
         elsif  message == :inactive
@@ -80,7 +83,9 @@ module Devise
       %w(html */*).include? request_format.to_s
     end
 
-
+    def send_failure_notice(user, ip, user_agent)
+      UserNotifier.login_failure_notify("username", user, ip, user_agent).deliver
+    end
 
   end
 end
