@@ -47,7 +47,7 @@ class Identity < ActiveRecord::Base
   # ================
   # = ar callbacks =
   # ================
-  before_save :downcase_email_identity
+  before_validation :downcase_email_identity
   before_destroy :can_destroy?  
   after_save :save_confirmation,          :if => :needs_it?
   after_save :save_twitter_confirmation!, :if => :is_twitter?

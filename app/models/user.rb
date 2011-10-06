@@ -77,7 +77,8 @@ class User < ActiveRecord::Base
   # ================
   # = ar callbacks =
   # ================
-  before_save :add_role, :downcase_email
+  before_validation :downcase_email
+  before_save :add_role
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   after_save  :flag_abuse_notification
