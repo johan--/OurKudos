@@ -236,6 +236,11 @@ class User < ActiveRecord::Base
 
   def display_identity
     @display_identity ||= identities.find_by_display_identity true
+    if @display_identity.blank?
+      @display_identity = primary_identity
+    else
+      @display_identity
+    end
   end
 
   def primary_identity_changed

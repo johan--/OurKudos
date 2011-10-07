@@ -154,4 +154,16 @@ describe User do
     end
   end
 
+  describe 'User methods and attributes' do
+    before(:each) do
+      @user = Factory(:user, :first_name => "Steve", :last_name => 'Woz')
+    end
+
+    it 'should return a secured name when no display identity' do
+      identity = @user.identities.first
+      identity.update_attribute('display_identity', false)
+      @user.secured_name.should eq('Steve W.')
+    end
+  end
+  
 end
