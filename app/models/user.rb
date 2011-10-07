@@ -498,7 +498,9 @@ class User < ActiveRecord::Base
   end
 
   def sent_kudos
-    sent.for_dashboard.select("distinct kudos.*").group User.grouping_order
+    #sent.for_dashboard.select("distinct kudos.*").group User.grouping_order
+    # various joins in for_dashboard scope are removing legitimate kudos
+    sent
   end
 
   def company?
