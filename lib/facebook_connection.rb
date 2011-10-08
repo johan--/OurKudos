@@ -17,7 +17,7 @@ module OurKudos
 
    def post_facebook_kudo kudo
      begin
-      result = facebook_user.feed!(:message    => kudo.body,
+      result = facebook_user.post!(:message    => kudo.body,
                                    :link       => "http://www.ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
@@ -31,7 +31,7 @@ module OurKudos
    def post_to_friends_wall friend, kudo
      begin
        fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
-       result =    fb_friend.post!(:message    => kudo.body,
+       result =    fb_friend.feed!(:message    => kudo.body,
                                    :link       => "http://www.ourkudos.com/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
                                    :description => "It's all good!")
