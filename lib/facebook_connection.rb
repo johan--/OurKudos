@@ -17,7 +17,7 @@ module OurKudos
 
    def post_facebook_kudo kudo
      begin
-      result = facebook_user.post!(:message    => kudo.body,
+      result = facebook_user.feed!(:message    => kudo.body,
                                    :link       => "http://www.ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
