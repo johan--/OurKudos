@@ -4,7 +4,7 @@
   %h2 Sign In
   %p= link_to image_tag('sign-in-facebook.gif', :alt => "Connect with Facebook"), omniauth_authorize_path(:user, 'facebook')
   %p= link_to image_tag('sign-in-with-twitter-d.png', :alt => "Sign in with Twitter"), omniauth_authorize_path(:user, 'twitter')
-  %p - OR -
+  %h2 - or -
   
   %p
     = f.label :email

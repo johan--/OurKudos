@@ -19,7 +19,7 @@
   
   %button{ :type => "submit", :id => "new_registration_submit_btn" }
     = image_tag 'sign-up-btn.png', :alt => "sign up"
-  %p - OR -
+  %h2 - or -
   %p= link_to image_tag('sign-up-with-facebook-btn.png'), omniauth_authorize_path(:user, 'facebook')
 
   %p
