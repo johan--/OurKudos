@@ -145,6 +145,10 @@ class Kudo < ActiveRecord::Base
     system_recipients = []
     set_as_private   if all_recipients_are_emails?
     send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
+    
+    if Kudo.social_sharing_enabled? && has_no_facebook_recipient? && facebook_sharing?
+      send_facebook_kudo(author.facebook_auth.uid, 'feed')
+    end
 
     recipients_list.each do |id|
 
@@ -160,12 +164,22 @@ class Kudo < ActiveRecord::Base
        elsif recipient.blank? && id =~ RegularExpressions.twitter
          send_twitter_kudo id.gsub("@",'')   if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
-         send_facebook_kudo(id.gsub("fb_",'')) if Kudo.social_sharing_enabled?
+         send_facebook_kudo(id.gsub("fb_",''), 'wall') if Kudo.social_sharing_enabled?
        end
-
 
     end
     kudo_copies
+  end
+
+  def has_no_facebook_recipient? 
+    identity   = Identity.find(id.to_i) rescue nil
+    recipient  = identity.user rescue nil
+    recipients_list.each do |id|
+      if recipient.blank? && id =~ RegularExpressions.facebook_friend
+        return false
+      end
+    end
+    return true
   end
 
   def send_system_kudo recipient
@@ -199,18 +213,18 @@ class Kudo < ActiveRecord::Base
                       :kudoable => TwitterKudo.create(:twitter_handle => recipient)
   end
 
-  def send_facebook_kudo recipient
+  def send_facebook_kudo recipient, type
       kudo_copies.build :temporary_recipient => recipient,
                         :share_scope  => share_scope,
                         :author_id    => author.id,
-                        :kudoable => FacebookKudo.create(:identifier => recipient)
+                        :kudoable => FacebookKudo.create(:identifier => recipient, :post_type => type)
   end
 
   def send_social_kudo recipient = nil
       send_twitter_kudo(author.twitter_auth.nickname)  if twitter_sharing?  && share_scope.blank? && !author.twitter_auth.blank?
-      send_facebook_kudo(author.facebook_auth.uid)     if facebook_sharing? && share_scope.blank? && !author.facebook_auth.blank?
+      #send_facebook_kudo(author.facebook_auth.uid)     if facebook_sharing? && share_scope.blank? && !author.facebook_auth.blank?
 
-      send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
+      #send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
   end
 
   def all_recipients_are_emails?

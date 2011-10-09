@@ -18,7 +18,7 @@ module OurKudos
    def post_facebook_kudo kudo
      begin
       result = facebook_user.feed!(:message    => kudo.body,
-                                   :link       => "http://www.ourkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
       result.is_a?(FbGraph::Post)
@@ -32,11 +32,15 @@ module OurKudos
      begin
        fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
        result =    fb_friend.feed!(:message    => kudo.body,
-                                   :link       => "http://www.ourkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://preview.ourkudos.com/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
                                    :description => "It's all good!")
         result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
+       # puts '----'
+       # puts 'error'
+       # puts e.inspect
+       # puts '----'
        Rails.logger.info "SOCIAL_POSTING: Failed to post facebook kudo on friends wall #{e.to_s}"
        e.to_s
      end
@@ -49,9 +53,5 @@ module OurKudos
    def connected_with_facebook?
      !facebook_auth.blank?
    end
-
-
-
-
   end
 end
