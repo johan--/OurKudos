@@ -5,7 +5,7 @@
 
   = hidden_field_tag "user_id", @user_id unless @user_id.blank?         # for resending confirmation instructions from this screen
   %p
-    = f.label :password
+    = f.label :password, "Password (minimum of 6 characters, use at least one non-alphabet character)"
     %br/
     = f.password_field :password
   %p

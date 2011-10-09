@@ -2,7 +2,7 @@
 = form_for(current_user, :url => user_password_changes_path(current_user), :html => { :method => :post }) do |f|
   = error_messages_for current_user
   %p
-    = f.label :password
+    = f.label :password, "Password (minimum of 6 characters, use at least one non-alphabet character)"
     %br/
     = f.password_field :password
   %p
