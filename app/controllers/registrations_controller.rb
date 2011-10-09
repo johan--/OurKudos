@@ -8,13 +8,13 @@ class RegistrationsController < Devise::RegistrationsController
   def new
     build_resource
     autofill_form
-    @terms_of_service = Page.find_by_slug('terms-of-service').body
+    #@terms_of_service = Page.find_by_slug('terms-of-service').body
     render_with_scope :new 
   end
 
   def create
     resource = build_resource
-    @terms_of_service = Page.find_by_slug('terms-of-service').body
+    #@terms_of_service = Page.find_by_slug('terms-of-service').body
     resource.authentications.build(session[:authentication]) if params[:autofill] && session[:authentication]
     resource.add_role
     check_company_registration
@@ -22,7 +22,7 @@ class RegistrationsController < Devise::RegistrationsController
     resource.skip_password_validation = true
 
     if resource.save
-      set_flash_message :alert, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
+      set_flash_message :notice, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
       expire_session_data_after_sign_in!
       respond_with resource, :location => '/' do |format|
         format.html
