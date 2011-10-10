@@ -82,11 +82,17 @@ class UserNotifier < ActionMailer::Base
     end
   end
 
-  def login_failure_notify(subject, username, ip, user_agent)
+  def login_failure_notify_admin(subject, username, ip, user_agent)
     @user = username
     @ip = ip
     @user_agent = user_agent
     mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => "Failed Login bad #{subject}"
+  end
+
+  def login_failure_notify_user(user, ip_address)
+    @user = user
+    @ip_address = ip_address
+    mail :to => @user.email, :subject => "Failed Login Attempt at OurKudos"
   end
 
 end

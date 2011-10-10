@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= t(:dear_user, :user => @user.first_name).html_safe
+
+    %p
+      Somebody tried to sign in to your  
+      = link_to 'OurKudos', root_url
+      = "account at ip:#{@ip_address} using your email account: "
+
+    %p
+      If this was you, and you need to reset your password, 
+      = link_to 'click here to reset your password', new_user_password_url

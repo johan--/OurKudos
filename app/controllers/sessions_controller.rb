@@ -13,7 +13,11 @@ class SessionsController < Devise::SessionsController
     ip_check_for(resource, params[:user][:password])     if resource
     devise_sign_in  unless resource
     if session['user.email_for_password_recovery'] != nil
-      send_failure_notice(params[:user][:email], request.remote_ip, request.user_agent)
+      puts "----"
+      puts resource.inspect
+      puts "----"
+      send_failure_notice_to_user(resource, request.remote_ip) if resource
+      send_failure_notice_to_admin(params[:user][:email], request.remote_ip, request.user_agent)
     end
     session['user.return_to'] = nil
   end
@@ -31,8 +35,12 @@ class SessionsController < Devise::SessionsController
       respond_with resource, :location => redirect_location(resource_name, resource)
     end
 
-    def send_failure_notice(user, ip, user_agent)
-      UserNotifier.login_failure_notify("password", user, ip, user_agent).deliver
+    def send_failure_notice_to_admin(user, ip, user_agent)
+      UserNotifier.delay.login_failure_notify_admin("password", user, ip, user_agent)
+    end
+
+    def send_failure_notice_to_user(resource, ip_address)
+      UserNotifier.delay.login_failure_notify_user(resource, ip_address)
     end
 end
 
