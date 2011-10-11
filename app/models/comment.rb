@@ -14,11 +14,11 @@ class Comment < ActiveRecord::Base
 
 
   def send_moderation_notification
-    if commentable.system_kudos_recipients_cache.push(commentable.author_id).include?(user_id) == false
+    #if commentable.system_kudos_recipients_cache.push(commentable.author_id).include?(user_id) == false
       for email in commentable.recipients_emails.compact.uniq do
         UserNotifier.delay.kudo_moderate self, email
       end
-    end
+    #end
   end
 
   def can_send_moderation_notification?
