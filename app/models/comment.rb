@@ -19,8 +19,8 @@ class Comment < ActiveRecord::Base
         UserNotifier.delay.kudo_moderate self, email
       end
     end
-    # whenever a comment is created, notify the original Kudo author
-    UserNotifier.delay.kudo_moderate self, self.commentable.author.email
+    # whenever a comment is created, notify the original Kudo author unless commenter and original author are same
+    UserNotifier.delay.kudo_moderate self, self.commentable.author.email unless self.commentable.author_id == user_id
   end
 
   def can_send_moderation_notification?
