@@ -61,7 +61,7 @@ class AutocompletesController < ApplicationController
        identities = confirmed_identities(keyword, 10).map do |identity|
           { :id => identity.id, :name => (identity.is_twitter? ?
               "[#{identity.user.to_s}] @#{identity.identity}" :
-              "[#{identity.user.to_s}] #{identity.identity}")}
+              "[#{identity.user.to_s}] Email")}
        end
       return [] if identities.blank?
       identities
