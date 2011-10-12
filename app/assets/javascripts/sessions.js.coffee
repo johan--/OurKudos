@@ -1,6 +1,6 @@
 jQuery ->
   jQuery("input#user_email").blur ->
-    email = jQuery("input#user_email").val()
+    email = jQuery("input#user_email").val().toLowerCase()
     if (email.length > 0) and (email.match(/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/))
       /* the user entered a properly formatted email address */
       email = encodeURIComponent(email)
