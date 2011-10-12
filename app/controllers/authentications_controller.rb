@@ -16,7 +16,7 @@ class AuthenticationsController < ApplicationController
   
   def find_from_email
   	
-  	user = User.find_by_email params[:email]
+  	user = User.find_by_email params[:email].downcase
   	@authentications = user.authentications if user
   	if @authentications
   		twitter_found = false
