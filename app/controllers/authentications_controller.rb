@@ -27,13 +27,13 @@ class AuthenticationsController < ApplicationController
   			facebook_found = true if authentication.provider == "facebook"
   		end
   		
-  		render :text => 'both' and return if twitter_found && facebook_found
-  		render :text => 'facebook' and return if facebook_found
-  		render :text => 'twitter' and return if twitter_found
+  		render :text => "You can sign in by clicking the Connect with Facebook or Sign in with Twitter buttons above instead." and return if twitter_found && facebook_found
+  		render :text => "You can sign in by clicking the Connect with Facebook button above instead." and return if facebook_found
+  		render :text => "You can sign in by clicking the Sign in with Twitter button above instead." and return if twitter_found
   		
   	end
   	
-  	render :text => 'none'
+  	render :nothing => true
   	
   end
   
