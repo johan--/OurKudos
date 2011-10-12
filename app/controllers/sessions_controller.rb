@@ -21,13 +21,6 @@ class SessionsController < Devise::SessionsController
     end
     session['user.return_to'] = nil
    
-    if resource.authentications.any?
-      resource.authentications.each do |auth|
-      	flash[:notice] += " You can also sign in with your connected Twitter account." if auth.provider == "twitter"
-      	flash[:notice] += " You can also sign in with your connected Facebook account." if auth.provider == "facebook"
-      end
-      
-    end
   end
 
   def destroy
