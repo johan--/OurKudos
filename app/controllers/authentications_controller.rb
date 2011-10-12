@@ -18,7 +18,7 @@ class AuthenticationsController < ApplicationController
   	
   	user = User.find_by_email params[:email]
   	@authentications = user.authentications if user
-  	if @authentications.any?
+  	if @authentications
   		twitter_found = false
   		facebook_found = false
   		both_found = false
