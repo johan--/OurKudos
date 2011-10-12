@@ -21,7 +21,11 @@ class KudoCopy < ActiveRecord::Base
     return if own_kudo?
     #need check if recipient is deleted
     return ''                            if self.recipient_id.blank? && self.kudoable.is_a?(EmailKudo)
-    return self.recipient.secured_name if self.recipient_id.present? && self.kudoable.is_a?(Kudo) 
+    if self.recipient_id.present? && self.kudoable.is_a?(Kudo)
+      unless self.recipient.blank?
+        return self.recipient.secured_name  
+      end
+    end
     return facebook_friend_secured_name  if self.recipient_id.blank? && self.kudoable.is_a?(FacebookKudo)
     "@#{self.temporary_recipient}"       if self.recipient_id.blank? && self.kudoable.is_a?(TwitterKudo)
   end

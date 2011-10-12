@@ -11,37 +11,37 @@ describe Comment do
 
     describe "comment by a recipient" do
 
-      it "should not send a moderation email when recipient comments" do
-        count = DelayedJob.count
-        comment = Comment.create!(  :title => "",
+      it "should send a moderation email when recipient comments" do
+        lambda {
+          Comment.create!(  :title => "",
                                     :comment => "Rspec is great",
                                     :commentable_id => @kudo.id,
                                     :commentable_type => "Kudo",
                                     :user_id => @kudo.recipients.first.id)
-        DelayedJob.count.should eq(count) 
+        }.should change(DelayedJob, :count).by(1)
       end
 
       it "should not send a moderation email when author comments" do
-        count = DelayedJob.count
-        comment = Comment.create!(  :title => "",
-                                    :comment => "Rspec is great",
-                                    :commentable_id => @kudo.id,
-                                    :commentable_type => "Kudo",
-                                    :user_id => @kudo.author.id)
-        DelayedJob.count.should eq(count) 
+        lambda {
+          comment = Comment.create!(  :title => "",
+                                      :comment => "Rspec is great",
+                                      :commentable_id => @kudo.id,
+                                      :commentable_type => "Kudo",
+                                      :user_id => @kudo.author.id)
+        }.should_not change(DelayedJob, :count)
       end
 
     end
 
     describe "comment author not a recipient" do
       it "should send a moderation email" do
-        count = DelayedJob.count
-        comment = Comment.create!(  :title => "",
+        lambda {
+          comment = Comment.create!(:title => "",
                                     :comment => "Rspec is great",
                                     :commentable_id => @kudo.id,
                                     :commentable_type => "Kudo",
                                     :user_id => @user.id)
-        DelayedJob.count.should eq(count + 1) 
+        }.should change(DelayedJob, :count)
       end
     end
 

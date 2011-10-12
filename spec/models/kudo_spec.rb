@@ -73,7 +73,7 @@ describe Kudo do
         new_kudo.kudo_copies.destroy_all
         new_kudo.should respond_to 'send_facebook_kudo'
 
-        copy = new_kudo.send_facebook_kudo "12345676543"
+        copy = new_kudo.send_facebook_kudo "12345676543", "wall"
 
         copy.kudoable.should be_an_instance_of(FacebookKudo)
       end
