@@ -84,7 +84,7 @@ module Devise
     end
 
     def send_failure_notice(user, ip, user_agent)
-      UserNotifier.login_failure_notify("username", user, ip, user_agent).deliver
+      UserNotifier.login_failure_notify_admin("username", user, ip, user_agent).deliver
     end
 
   end
