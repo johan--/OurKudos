@@ -7,5 +7,6 @@
     = f.hidden_field :email
   - else
     = f.text_field :email, :class => "string"
+.clearing
 
 = render :partial => "form_fields_no_email", :locals => {:f => f}

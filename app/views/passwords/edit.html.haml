@@ -7,7 +7,8 @@
   %p
     = f.label :password, "Password (minimum of 6 characters, use at least one non-alphabet character)"
     %br/
-    = f.password_field :password
+    = f.password_field :password, :id => "change_user_password"
+  .clearing
   %p
     = f.label :password_confirmation
     %br/
