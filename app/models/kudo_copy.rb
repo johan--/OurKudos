@@ -19,6 +19,7 @@ class KudoCopy < ActiveRecord::Base
 
   def copy_recipient
     return if own_kudo?
+    return if copy_recipient_is_author?
     #need check if recipient is deleted
     return ''                            if self.recipient_id.blank? && self.kudoable.is_a?(EmailKudo)
     if self.recipient_id.present? && self.kudoable.is_a?(Kudo)
@@ -45,7 +46,7 @@ class KudoCopy < ActiveRecord::Base
   end
 
   #can be merged with own_kudo? method
-  def copy_recipient_is_author
+  def copy_recipient_is_author?
     author_ids = author.identities.map{|i| i.identity}
     return author_ids.include?(temporary_recipient) 
   end

@@ -186,6 +186,10 @@ describe Kudo do
           @kudo2.recipients_readable_list.should include("@stevejobs")
         end
 
+        it "should not return the author in the recipients readable list with twitter sharing on" do
+          @kudo2.recipients_readable_list.should_not include("@mickeymouse")
+        end
+
         it "should return the to user in the recipients names Ids with twitter sharing on" do
           @kudo2.recipients_names_ids.should eq([["@stevejobs", nil]])
         end
