@@ -66,8 +66,9 @@ class Kudo < ActiveRecord::Base
     :author        => [:first_name, :last_name, :postal_code, :city],
     :recipients    => [:first_name, :last_name, :postal_code, :city],
     :kudo_category => [:name],
+    :comments      => [:comment]
 
-  }
+  },:using => { :tsearch => { :prefix => true }}
 
 
 
