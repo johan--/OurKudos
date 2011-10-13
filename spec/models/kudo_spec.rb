@@ -93,6 +93,105 @@ describe Kudo do
         end
 
       end
+
+      describe "recipients readable list on email kudo" do
+        before(:each) do
+          @to_user = Factory(:user, 
+                             :id => 1337,
+                             :first_name => "Steve", 
+                             :last_name => "Jobs")
+          @author = Factory(:user, 
+                            :id => 1923,
+                            :first_name => "Walt", 
+                            :last_name => "Disney")
+          @kudo = Factory( :kudo, 
+                                  :author => @author, 
+                                  :to => @to_user.primary_identity.identity)
+        end
+
+        it "should return the to user in the recipients readable list" do
+          @kudo.recipients_readable_list.should include("Steve J.")
+        end
+
+        it "should not return the author in the recipients readable list" do
+          @kudo.recipients_readable_list.should_not include("Walt")
+        end
+
+        it "should return the to user in the recipients names Ids" do
+          @kudo.recipients_names_ids.should eq([["Steve J.", 1337]])
+        end
+
+      end
+
+      describe "recipients readable list on Facebook kudo" do
+        before(:each) do
+          @to_user = Factory(:facebook_friend, 
+                             :id => 1337,
+                             :first_name => "Steve", 
+                             :last_name => "Jobs",
+                             :facebook_id => 1337)
+          @author = Factory(:user, 
+                            :id => 1923,
+                            :first_name => "Walt", 
+                            :last_name => "Disney")
+          @kudo = Factory(  :kudo, 
+                            :author => @author, 
+                            :to => "fb_#{@to_user.id}")
+        end
+
+        it "should return the to user in the recipients readable list" do
+          @kudo.recipients_readable_list.should include("Steve J.")
+        end
+
+        it "should return the to user in the recipients names Ids" do
+          @kudo.recipients_names_ids.should eq([["Steve J.", nil]])
+        end
+
+      end
+
+      describe "recipients readable list on twitter" do
+        before(:each) do
+          @to_user = Factory(:user, 
+                             :id => 1337,
+                             :first_name => "Steve", 
+                             :last_name => "Jobs")
+          @author = Factory(:user, 
+                            :id => 1923,
+                            :first_name => "Walt", 
+                            :last_name => "Disney")
+          identity = Identity.new(:identity => "mickeymouse",
+                                  :identity_type => "twitter",
+                                  :user_id => @author.id,
+                                  :is_primary =>false)
+          identity.save(:validate => false)
+                              
+          @kudo1 = Factory( :kudo, 
+                            :author => @author, 
+                            :to => "@stevejobs")
+          @kudo2 = Factory( :kudo, 
+                            :author => @author, 
+                            :twitter_sharing => true,
+                            :to => "@stevejobs, @mickeymouse")
+        end
+
+        it "should return the to user in the recipients readable list with twitter sharing off" do
+          @kudo1.recipients_readable_list.should include("@stevejobs")
+        end
+
+        it "should return the to user in the recipients names Ids with twitter sharing off" do
+          @kudo1.recipients_names_ids.should eq([["@stevejobs", nil]])
+        end
+
+        it "should return the to user in the recipients readable list with twitter sharing on" do
+          @kudo2.recipients_readable_list.should include("@stevejobs")
+        end
+
+        it "should return the to user in the recipients names Ids with twitter sharing on" do
+          @kudo2.recipients_names_ids.should eq([["@stevejobs", nil]])
+        end
+
+      end
+
     end
 
   end
