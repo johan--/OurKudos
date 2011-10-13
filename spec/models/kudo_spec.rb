@@ -196,6 +196,24 @@ describe Kudo do
 
       end
 
+      describe "recipients readable list for unverified recipient" do
+
+        context "share scope world" do
+          it "should show unverified email recipient in recipients readable list" do
+            kudo = Factory(:kudo, :to => "awesome@email.com", 
+                                  :share_scope => nil)
+            kudo.recipients_readable_list.should eq("awesome")
+          end
+
+          it "should show kudo as a public kudo" do
+            kudo = Factory(:kudo, :to => "awesome@email.com", 
+                                  :share_scope => nil)
+            Kudo.public_kudos.should include(kudo)
+          end
+        end
+
+      end
+
     end
 
   end

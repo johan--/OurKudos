@@ -31,6 +31,11 @@ module RegularExpressions
   def self.received_kudos_subject
     /sent you Kudos/
   end
+
+  def self.email_username
+    /^([^@\s]+)/i
+  end
+
  #TODO place other reg exps here
 
 end

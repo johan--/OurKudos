@@ -146,7 +146,8 @@ class Kudo < ActiveRecord::Base
     return if to.blank? || js_validation_only # stop processing if validation with javascript
 
     system_recipients = []
-    set_as_private   if all_recipients_are_emails?
+    #commented the set as private out but kept method
+    #set_as_private   if all_recipients_are_emails?
     send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
     
     if Kudo.social_sharing_enabled? && has_no_facebook_recipient? && facebook_sharing?
