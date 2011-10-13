@@ -47,8 +47,12 @@ class KudoCopy < ActiveRecord::Base
 
   #can be merged with own_kudo? method
   def copy_recipient_is_author?
-    author_ids = author.identities.map{|i| i.identity}
-    return author_ids.include?(temporary_recipient) 
+    if author
+      author_ids = author.identities.map{|i| i.identity}
+      return author_ids.include?(temporary_recipient) 
+    else
+      return false
+    end
   end
 
   def visible_for? user = nil
