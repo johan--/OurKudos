@@ -9,7 +9,7 @@
   %p
     = f.label :email
     %br/
-    = f.text_field :email
+    = f.text_field :email, :value => session['user.email_for_password_recovery']
     %span#email_warning_message
     .clearing
   %p

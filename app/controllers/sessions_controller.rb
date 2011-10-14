@@ -13,9 +13,6 @@ class SessionsController < Devise::SessionsController
     ip_check_for(resource, params[:user][:password])     if resource
     devise_sign_in  unless resource
     if session['user.email_for_password_recovery'] != nil
-      puts "----"
-      puts resource.inspect
-      puts "----"
       send_failure_notice_to_user(resource, request.remote_ip) if resource
       send_failure_notice_to_admin(params[:user][:email], request.remote_ip, request.user_agent)
     end
