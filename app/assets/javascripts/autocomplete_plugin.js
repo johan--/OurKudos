@@ -322,7 +322,7 @@
       } else if (list[i][1].charAt(0) == "@"){
         //var a = list[i].replace(regEx,"<mark>$1</mark>");
         //html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
-        html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Twitter)</li>";
+        html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Twitter: "+list[i][1]+")</li>";
       }  else {
         html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Email)</li>";
       }
