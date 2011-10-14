@@ -315,14 +315,14 @@
     }
 		for( var i=0; i< listLimit; i++ ){
         var display = list[i][0].substring(0, list[i][0].length) 
-        console.log(list[i][1].charAt(0));
       if (list[i][1].substring(0,3) == "fb_") {
         
         html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Facebook)</li>";
         
       } else if (list[i][1].charAt(0) == "@"){
         //var a = list[i].replace(regEx,"<mark>$1</mark>");
-        html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+        //html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" ("+list[i][1]+")</li>";
+        html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Twitter)</li>";
       }  else {
         html += "<li data-value='"+list[i][1]+"' "+width+" data-name='"+list[i][0]+"'>"+display.replace(regEx,"<mark>$1</mark>")+" (Email)</li>";
       }

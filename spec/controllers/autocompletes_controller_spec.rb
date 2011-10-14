@@ -27,7 +27,7 @@ describe AutocompletesController do
     it "should exact match the query param for a twitter identity" do
       identity = 'itweet'
       get 'new', :object => 'exact', :q => identity
-      assigns[:items].first['name'].should eq("[#{@other_user.first_name} #{@other_user.last_name}] @#{identity}")
+      assigns[:items].first['name'].should eq("#{@other_user.first_name} #{@other_user.last_name} (@#{identity})")
     end
 
     it "should exact match the query param for an email identity" do
@@ -37,7 +37,7 @@ describe AutocompletesController do
       identity.save(:validate => false)
       search_term = 'myemail@notreal.com'
       get 'new', :object => 'exact', :q => search_term
-      assigns[:items].first['name'].should eq("[#{@other_user.first_name} #{@other_user.last_name}] #{search_term}")
+      assigns[:items].first['name'].should eq("#{@other_user.first_name} #{@other_user.last_name} (#{search_term})")
     end
 
 
@@ -66,7 +66,7 @@ describe AutocompletesController do
 
     it "should return list of recipient" do
       get 'new', :object => 'recipients', :q => 'itweet'
-      assigns[:items].first[:name].should include('[bob smith] @itweet')
+      assigns[:items].first[:name].should include('bob smith (Twitter)')
     end
     
     it "should return and empty array for bad parameter" do
