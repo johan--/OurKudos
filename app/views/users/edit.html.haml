@@ -30,6 +30,10 @@
     %br
     = f.text_field :mobile_number
   %p
+    = f.label :time_zone, t(:time_zone)
+    %br
+    = f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones
+  %p
     = f.label :birthday, t(:birthday)
     %br
     = f.date_select :birthday, :start_year => 1910, :end_year => Time.now.year, :prompt => true

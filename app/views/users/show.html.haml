@@ -49,6 +49,10 @@
       = l(current_user.birthday, :format => :long) unless current_user.birthday.blank?
       = '(birth year hidden)' if current_user.hide_birth_year
     .clearing
+  %p
+    = label_tag(:time_zone, 'Time Zone')
+    %span.datavalue= current_user.time_zone
+    .clearing
    
   %p.clearing
   

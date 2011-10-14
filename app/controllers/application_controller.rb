@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :set_user_time_zone
 
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to home_path, :alert => exception.message
@@ -60,5 +61,9 @@ class ApplicationController < ActionController::Base
     true
   end
 
+  private
+  def set_user_time_zone
+    Time.zone = current_user.time_zone if current_user && current_user.time_zone.present?
+  end
 
 end
