@@ -66,7 +66,7 @@ describe AutocompletesController do
 
     it "should return list of recipient" do
       get 'new', :object => 'recipients', :q => 'itweet'
-      assigns[:items].first[:name].should include('bob smith (Twitter)')
+      assigns[:items].first[:name].should include('bob smith (Twitter: @itweet)')
     end
     
     it "should return and empty array for bad parameter" do
