@@ -8,10 +8,8 @@ Scenario: User can create an account natively
   And I fill in "First name" with "Marcin"
   And I fill in "Last name" with "Walczak"
   And I fill in "signup_user_password" with "verysecretpassword1"
-  And I select "1985" from "user_birthday_1i"
-  And I select "November" from "user_birthday_2i"
-  And I select "11" from "user_birthday_3i"
-  And I press "Sign up"
+  And I fill in "user_postal_code" with "12345"
+  And I press "new_registration_submit_btn"
   And I should see "You have signed up successfully. Please check your email and confirm your account"
 
 Scenario: A user unsuccessfully signs in with their email/password
@@ -19,13 +17,14 @@ Scenario: A user unsuccessfully signs in with their email/password
   When I follow "Sign in button" image
   And I fill in "Email" with "marcin.walczak@gmail.com"
   And I fill in "Password" with "verysecretpassword1"
-  And I press "Sign in"
-  Then I should see "Invalid email or password"
+  And I press "sign_in_submit_btn"
+  Then I should see "Incorrect Username and/or Password"
 
 @omniauth_test_success_facebook
 Scenario: A user signs in with their email/password (facebook)
   Given I am on the homepage
   When I follow "Connect with Facebook" image
+  Then show me the page
   And I fill in "signup_user_password" with "verysecretpassword1"
   And I fill in "user_password_confirmation" with "verysecretpassword1"
   And I press "Sign up"

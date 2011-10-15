@@ -2,7 +2,7 @@ Given /^I sign in with "([^"]*)" and "([^"]*)"$/ do |username, password|
   And %Q{I go to the new user session page}
   And %Q{I fill in "Email" with "#{username}"}
   And %Q{I fill in "Password" with "#{password}"}
-  And %Q{I press "Sign in"}
+  And %Q{I press "sign_in_submit_btn"}
 end
 
 Given /^I'm logged in as an administrator with:$/ do |table|
@@ -24,7 +24,7 @@ Given /^I tried to login with "([^"]*)" email "([^"]*)" times unsuccessfully$/ d
     And %Q{I go to the new user session page}
     And %Q{I fill in "Email" with "#{email}"}
     And %Q{I fill in "Password" with "'badpass'"}
-    And %Q{I press "Sign in"}
+    And %Q{I press "sign_in_submit_btn"}
   end
 end
 

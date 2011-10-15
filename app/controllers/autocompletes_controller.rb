@@ -41,8 +41,8 @@ class AutocompletesController < ApplicationController
       unless identity.blank?
         @exact_identity = [{ :id => identity.id, 
                             :name => (identity.is_twitter? ?
-              "#{identity.user.to_s} (@#{identity.identity})" :
-              "#{identity.user.to_s} (#{identity.identity})")}]
+              "#{identity.user.to_s} (Twitter: @#{identity.identity})" :
+              "#{identity.user.to_s} (Email)")}]
               #"[#{identity.user.to_s}] @#{identity.identity}" :
               #"[#{identity.user.to_s}] #{identity.identity}")}]
       else

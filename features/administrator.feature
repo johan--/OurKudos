@@ -1,7 +1,5 @@
 Feature: System administration
 
-
-
 Scenario: Administrator can sort users
     Given I'm logged in as an administrator with:
       | email              | password     | id |
@@ -121,7 +119,7 @@ Scenario: Administrator can add/remove user roles
     And I follow "Sign in button" image
     And I fill in "Email" with "user@example.net"
     And I fill in "Password" with "secret pass1"
-    And I press "Sign in"
+    And I press "sign_in_submit_btn"
     Then I should see "Administrator has disabled posting to social sites."
 
   Scenario: Administrator can add Category description
