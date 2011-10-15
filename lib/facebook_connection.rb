@@ -16,8 +16,10 @@ module OurKudos
    end
 
    def post_facebook_kudo kudo
+     list = clean_readable_list(kudo.recipients_readable_list)
+     message = kudo.body + "\nShared with: #{list}"
      begin
-      result = facebook_user.feed!(:message    => kudo.body,
+      result = facebook_user.feed!(:message    => message,
                                    :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
@@ -53,5 +55,11 @@ module OurKudos
    def connected_with_facebook?
      !facebook_auth.blank?
    end
+
+    def clean_readable_list(list)
+      cleaned_list = list.gsub(',unknown recipient','').gsub('unknown recipient,', '')
+      cleaned_list.gsub(",",", ")
+    end
+
   end
 end
