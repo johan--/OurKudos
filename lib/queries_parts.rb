@@ -33,9 +33,9 @@ class ActiveRecord::Base
     def sort_by_field field
       if Kudo.allowed_sorting.include?(field)
       case field
-        when 'date_asc'      ; "kudos.id ASC"
+        when 'date_asc'      ; "kudos.updated_at ASC"
         when 'comments_asc'  ; "kudos.comments_count ASC"
-        when 'date_desc'     ; "kudos.id DESC"
+        when 'date_desc'     ; "kudos.updated_at DESC"
         when 'comments_desc' ; "kudos.comments_count DESC"
       end
       else
