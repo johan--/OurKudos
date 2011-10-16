@@ -26,7 +26,6 @@ class Kudo < ActiveRecord::Base
   validates_with KudoValidator
   validates :body,        :presence => true, :unless => :js_validation_only # when this is set to true we are not running prepare copies, only recipient validation is run
 
-  default_scope :order => 'updated_at DESC'
   scope :public_kudos,            where(:share_scope => nil).where(:removed => false)
   scope :date_range, ->(from,to){ where(:created_at  => from..to) }
   scope :not_removed,             where(:removed => false)
