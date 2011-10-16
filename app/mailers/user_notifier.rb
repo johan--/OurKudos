@@ -50,6 +50,15 @@ class UserNotifier < ActionMailer::Base
     end
   end
 
+  def social_system_kudo kudo, recipient
+    @kudo      = kudo
+    @recipient = recipient
+    @host      = host
+    if @recipient.messaging_preference.system_kudo_email?
+      mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+    end
+  end
+
   def password_changed user, password
     @user      = user
     @password  = password

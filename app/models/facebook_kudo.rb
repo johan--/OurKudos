@@ -17,6 +17,7 @@ class FacebookKudo < ActiveRecord::Base
        when 'feed'
          self.response = kudo.author.post_facebook_kudo kudo.kudo
      end
+    send_system_email
     self.posted   = true
     save :validate => false
   end
@@ -26,4 +27,10 @@ class FacebookKudo < ActiveRecord::Base
     @facebook_friend ||= FacebookFriend.where(:facebook_id => self.identifier).first
   end
 
+  def send_system_email
+    authentication = Authentication.find_by_uid(identifier)
+    return false if authentication.blank? || authentication.provider <> 'facebook'
+    member  = authentication.user 
+    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
+  end
 end

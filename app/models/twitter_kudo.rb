@@ -12,9 +12,17 @@ class TwitterKudo < ActiveRecord::Base
        when 'friends', 'recipient'
         self.response = kudo.author.direct_message_to twitter_handle, kudo
      end
+    send_system_email
     self.posted   = true
     save :validate => false
   end
   handle_asynchronously :post_me!
+
+  def send_system_email
+    identity = Identity.where('identity = ? AND identity_type = "twitter"', twitter_handle).first
+    return false if identity.blank? 
+    member  = identity.user 
+    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
+  end
 
 end

@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p.reply-line-start
+    = "-------- please reply above this line ---------"
+    %p.reply-line-end
+
+    %p.message-id{:id => @kudo.id}
+      %p= t(:new_message_from, :author => @kudo.author)
+    %p
+      %blockquote= @kudo.body
+
+      %br/
+      %p= link_to t(:view_my_message_on_ourkudos), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}"
+
+      %p= link_to t(:reply_to_this_kudo), "#{@host}/home/received?recipient=#{@recipient.email}&kudo_id=#{@kudo.id}&reply=true"
+
+
+    %p
+      = t :you_are_receiving_this_email_notice
+      = link_to t(:click_here), edit_messaging_preference_url(@recipient)
