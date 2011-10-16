@@ -39,7 +39,7 @@ class ActiveRecord::Base
         when 'comments_desc' ; "kudos.comments_count DESC"
       end
       else
-        "kudos.id DESC"
+        "kudos.updated_at DESC"
       end
     end
 

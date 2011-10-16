@@ -17,7 +17,8 @@ class Kudo < ActiveRecord::Base
                    :facebook_shared, :twitter_shared
 
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
-                   :facebook_sharing, :twitter_sharing, :kudo_category_id
+                   :facebook_sharing, :twitter_sharing, :kudo_category_id,
+                   :updated_at
 
   before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
@@ -25,6 +26,7 @@ class Kudo < ActiveRecord::Base
   validates_with KudoValidator
   validates :body,        :presence => true, :unless => :js_validation_only # when this is set to true we are not running prepare copies, only recipient validation is run
 
+  default_scope :order => 'updated_at DESC'
   scope :public_kudos,            where(:share_scope => nil).where(:removed => false)
   scope :date_range, ->(from,to){ where(:created_at  => from..to) }
   scope :not_removed,             where(:removed => false)
@@ -421,14 +423,14 @@ class Kudo < ActiveRecord::Base
     end
 
     def options_for_sort
-      [['newest kudos first', 'updated_at_desc'],
-       ['oldest kudos first', 'updated_at_asc'],
+      [['newest kudos first', 'date_desc'],
+       ['oldest kudos first', 'date_asc'],
        ['most commented first', 'comments_desc']
         ]
     end
 
     def allowed_sorting
-      %w{comments_asc comments_desc updated_at_asc updated_at_dsc}
+      %w{comments_asc comments_desc date_asc date_desc}
     end
 
 

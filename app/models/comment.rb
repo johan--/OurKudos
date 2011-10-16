@@ -11,6 +11,7 @@ class Comment < ActiveRecord::Base
 
   validates_with CommentValidator
   after_save :send_moderation_notification, :if => :can_send_moderation_notification?
+  after_save :update_kudo_updated_at_time
 
 
   def send_moderation_notification
@@ -40,6 +41,9 @@ class Comment < ActiveRecord::Base
       (!user.blank? && commentable.recipients_emails.include?(user.email))
   end
 
+  def update_kudo_updated_at_time
+    commentable.update_attribute("updated_at", Time.now)
+  end
   class << self
 
     def allowed_actions
