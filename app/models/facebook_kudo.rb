@@ -29,7 +29,7 @@ class FacebookKudo < ActiveRecord::Base
 
   def send_system_email
     authentication = Authentication.find_by_uid(identifier)
-    return false if authentication.blank? || authentication.provider <> 'facebook'
+    return false if authentication.blank? || authentication.provider != 'facebook'
     member  = authentication.user 
     UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
   end
