@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
       Kudo.allowed_tabs.include?(params[:kudos]) ?
           term = params[:kudos] :
           term = "newsfeed"
+      params[:sort_by] = 'date_desc' if params[:sort_by].blank?
       @kudos = current_user.send("#{term}_kudos").page(params[:page]).per(10) rescue []
 
       @kudos = Kudo.public_kudos.limit(10)                        if term == 'newsfeed' && @kudos.blank?
