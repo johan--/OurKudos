@@ -195,6 +195,11 @@ class User < ActiveRecord::Base
     authentications.map(&:provider)
   end
 
+  def facebook_identifier
+    return nil unless current_providers.include?('facebook')
+    authentications.find_by_provider('facebook').uid
+  end
+
   def my_options_for_providers
    Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
   end

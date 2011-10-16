@@ -49,7 +49,11 @@ class KudoCopy < ActiveRecord::Base
   def copy_recipient_is_author?
     if author
       author_ids = author.identities.map{|i| i.identity}
-      return author_ids.include?(temporary_recipient) 
+      return true if author_ids.include?(temporary_recipient) 
+      unless author.facebook_identifier.blank?
+        return true if author.facebook_identifier == temporary_recipient
+      end
+      return false
     else
       return false
     end
