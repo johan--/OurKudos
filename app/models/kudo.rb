@@ -97,7 +97,8 @@ class Kudo < ActiveRecord::Base
   def author_as_recipient
     @author_as_recipient ||= recipients_list.select do |recipient|
      author.identities_ids.include?(recipient.to_i) ||
-          author.identities.map(&:identity).include?(recipient)
+          author.identities.map(&:identity).include?(recipient) ||
+          author.identities.map(&:identity).include?(recipient.sub!(/^@/,''))
     end
   end
 
@@ -154,7 +155,7 @@ class Kudo < ActiveRecord::Base
     if Kudo.social_sharing_enabled? && has_no_facebook_recipient? && facebook_sharing?
       send_facebook_kudo(author.facebook_auth.uid, 'feed')
     end
-
+		
     recipients_list.each do |id|
 
       identity   = Identity.find(id.to_i) rescue nil
@@ -378,8 +379,6 @@ class Kudo < ActiveRecord::Base
   def fix_links
     clean_up_links! if author.credibility == 0
   end
-
-
 
   class << self
 
