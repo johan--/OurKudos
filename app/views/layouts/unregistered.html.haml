@@ -19,7 +19,7 @@
     = javascript_include_tag "https://apis.google.com/js/plusone.js"
     = javascript_include_tag "http://connect.facebook.net/en_US/all.js#xfbml=1"
     = csrf_meta_tag
-  %body
+  %body{:class => "#{controller_name}_#{action_name}"}
     #mainarea
       #header
         = render 'shared/unregistered_header'
