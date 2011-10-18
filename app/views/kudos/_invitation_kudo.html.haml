@@ -1,7 +1,7 @@
 .kudo_message_cont
-  #kudo_sender_cont
+  .avatar_cont
     %p= kudo_author_picture kudo
-    %p= kudo.author.to_s
+    .sender= kudo.author.to_s
   .kudo_message_bubble_cont
     .kudo_message_bubble_nipple
 
@@ -13,4 +13,4 @@
 
   .clearing
 
-  = render :partial => "kudos/invitation_kudo_reply"
+= render :partial => "kudos/invitation_kudo_reply"

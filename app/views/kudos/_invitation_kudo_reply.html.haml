@@ -1,13 +1,13 @@
 %h1
  Send Kudos Back.
  %span.reddened It's Fast, Free and Fun!
- .kudo_message_cont
-#kudo_sender_cont
- %p= image_tag 'kudos-avatar-icon.png'
-.kudo_message_bubble_cont
- .kudo_message_bubble_nipple
- .invitation-form
-  %p= text_area_tag 'kudo_body', nil, :placeholder => "write something positive!"
+.kudo_message_cont
+ .avatar_cont
+  %p= image_tag 'kudos-avatar-icon.png'
+ .kudo_message_bubble_cont
+  .kudo_message_bubble_nipple
+  .invitation-form
+   %p= text_area_tag 'kudo_body', nil, :placeholder => "write something positive!"
 
-%p#invite_send_now= link_to image_tag('send-now-btn.png', :class => "submit-invitation-form"), new_user_registration_path(:user => {:email => @kudo.email })
-.clearing
+ %p#invite_send_now= link_to image_tag('send-now-btn.png', :class => "submit-invitation-form"), new_user_registration_path(:user => {:email => @kudo.email })
+ .clearing
