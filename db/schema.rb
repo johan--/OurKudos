@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111014213959) do
+ActiveRecord::Schema.define(:version => 20111017234835) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -376,6 +376,7 @@ ActiveRecord::Schema.define(:version => 20111014213959) do
     t.datetime "updated_at"
     t.string   "response"
     t.boolean  "posted",         :default => false
+    t.string   "tweet_type"
   end
 
   create_table "users", :force => true do |t|

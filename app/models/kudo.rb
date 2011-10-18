@@ -150,10 +150,16 @@ class Kudo < ActiveRecord::Base
     system_recipients = []
     #commented the set as private out but kept method
     #set_as_private   if all_recipients_are_emails?
-    send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
+    #send_social_kudo if Kudo.social_sharing_enabled? && social_sharing?
     
     if Kudo.social_sharing_enabled? && has_no_facebook_recipient? && facebook_sharing?
       send_facebook_kudo(author.facebook_auth.uid, 'feed')
+    end
+
+    if Kudo.social_sharing_enabled? && has_no_twitter_recipient? && twitter_sharing? && !author.twitter_auth.blank?
+      send_twitter_kudo author.twitter_auth.nickname, 'self'
+    elsif Kudo.social_sharing_enabled? && !has_no_twitter_recipient? && !twitter_sharing? && !author.twitter_auth.blank?
+      send_twitter_kudo author.twitter_auth.nickname, 'mention'
     end
 		
     recipients_list.each do |id|
@@ -167,8 +173,8 @@ class Kudo < ActiveRecord::Base
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
-       elsif recipient.blank? && id =~ RegularExpressions.twitter
-         send_twitter_kudo id.gsub("@",'')   if Kudo.social_sharing_enabled?
+       #elsif recipient.blank? && id =~ RegularExpressions.twitter
+         #send_twitter_kudo id.gsub("@",''), 'mention' if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
          send_facebook_kudo(id.gsub("fb_",''), 'wall') if Kudo.social_sharing_enabled?
        end
@@ -182,6 +188,17 @@ class Kudo < ActiveRecord::Base
     recipient  = identity.user rescue nil
     recipients_list.each do |id|
       if recipient.blank? && id =~ RegularExpressions.facebook_friend
+        return false
+      end
+    end
+    return true
+  end
+
+  def has_no_twitter_recipient? 
+    #check temporary recipient
+    recipients_list.each do |id|
+      identity   = Identity.find(id.to_i) rescue nil
+      if identity.identity_type == 'twitter'
         return false
       end
     end
@@ -212,11 +229,11 @@ class Kudo < ActiveRecord::Base
       author.increase_invitations :sent
   end
 
-  def send_twitter_kudo recipient
+  def send_twitter_kudo recipient, type
     kudo_copies.build :temporary_recipient => recipient,
                       :share_scope  => share_scope,
                       :author_id    => author.id,
-                      :kudoable => TwitterKudo.create(:twitter_handle => recipient)
+                      :kudoable => TwitterKudo.create(:twitter_handle => recipient, :tweet_type => type)
   end
 
   def send_facebook_kudo recipient, type
@@ -227,7 +244,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_social_kudo recipient = nil
-      send_twitter_kudo(author.twitter_auth.nickname)  if twitter_sharing?  && share_scope.blank? && !author.twitter_auth.blank?
+      send_twitter_kudo(author.twitter_auth.nickname, 'self')  if twitter_sharing?  && share_scope.blank? && !author.twitter_auth.blank?
       #send_facebook_kudo(author.facebook_auth.uid)     if facebook_sharing? && share_scope.blank? && !author.facebook_auth.blank?
 
       #send_facebook_kudo(recipient)                    if !recipient.blank? && share_scope == 'friends'
