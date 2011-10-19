@@ -4,7 +4,7 @@
  %p.comment_cont{:class => cycle('odd', 'even')}
   
   %span.commenter= comment.user.secured_name rescue '(deleted account)'
-  %span.comment_text= comment.comment
+  %span.comment_text= simple_format(comment.comment)
   %br/
   %span.kudo_date
    = comment.created_at.to_s(:short)
