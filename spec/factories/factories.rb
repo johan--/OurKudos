@@ -127,6 +127,7 @@ Factory.define :twitter_kudo do |fk|
   fk.twitter_handle "@twitter_handle"
   fk.response nil
   fk.posted false
+  fk.tweet_type 'self'
   fk.kudo { Factory(:kudo_copy_twitter)}
 end
 Factory.define :kudo do |kudo|

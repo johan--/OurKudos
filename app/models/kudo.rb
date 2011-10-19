@@ -173,8 +173,8 @@ class Kudo < ActiveRecord::Base
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
-       #elsif recipient.blank? && id =~ RegularExpressions.twitter
-         #send_twitter_kudo id.gsub("@",''), 'mention' if Kudo.social_sharing_enabled?
+       elsif recipient.blank? && id =~ RegularExpressions.twitter
+         send_twitter_kudo id.gsub("@",''), 'copy' if Kudo.social_sharing_enabled?
        elsif recipient.blank? && id =~ RegularExpressions.facebook_friend
          send_facebook_kudo(id.gsub("fb_",''), 'wall') if Kudo.social_sharing_enabled?
        end

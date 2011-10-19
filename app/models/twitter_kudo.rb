@@ -42,14 +42,22 @@ class TwitterKudo < ActiveRecord::Base
 
   def build_message kudo
     message = kudo.body
-    recipients = kudo_twitter_recipients kudo.recipients_list
+    recipient = kudo_twitter_recipients kudo.recipients_list
     #still need a method to ensure message is 140chars
-    message + " " + recipients
+    if recipient_is_in_kudo_body? recipient
+      message
+    else
+      recipient + " " + message     
+    end
+  end
+
+  def recipient_is_in_kudo_body?(recipient)
+    return true if kudo.kudo.body.include?(recipient)
+    false
   end
 
   def kudo_twitter_recipients recipients  
     twitter_recipients_string = []
-    #twitter_recipients_string << temporary_recipient if temporary_recipient[0] == "@"
     recipients.each do |id|
       if id[0] == "@"
         twitter_recipients_string << id
@@ -60,6 +68,7 @@ class TwitterKudo < ActiveRecord::Base
         twitter_recipients_string << "@#{identity.identity}"
       end
     end
-    twitter_recipients_string.join(", ")
+    #twitter_recipients_string.join(", ")
+    twitter_recipients_string.first
   end
 end

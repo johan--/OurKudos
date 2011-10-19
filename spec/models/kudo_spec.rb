@@ -64,7 +64,7 @@ describe Kudo do
 
         new_kudo.should respond_to 'send_twitter_kudo'
 
-        copy = new_kudo.send_twitter_kudo "@twitter_handle"
+        copy = new_kudo.send_twitter_kudo "@twitter_handle", 'self'
 
         copy.kudoable.should be_an_instance_of(TwitterKudo)
       end
