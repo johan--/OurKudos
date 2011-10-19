@@ -37,7 +37,7 @@
     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
     
-   %p.kudo_body_text= kudo.body
+   .kudo_body_text= simple_format(kudo.body)
 
    
 

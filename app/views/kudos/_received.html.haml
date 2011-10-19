@@ -14,7 +14,7 @@
               %span.receiver
                 = kudo.recipient.to_s
                 %small= link_to(t(:remove_this_kudo), kudo_path(kudo), :method => :delete, :confirm => I18n.t(:are_you_sure_you_want_to_delete))
-            %p= kudo.body
+            = simple_format(kudo.body)
           .kudo_message_bot
         .clearing
 

@@ -23,7 +23,7 @@
           = kudo.recipients_readable_list
         - else
           = kudo.recipient.to_s
-    %p.kudo_body_text= kudo.body
+    .kudo_body_text= simple_format(kudo.body)
     .clearing
 
   .clearing
