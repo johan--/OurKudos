@@ -197,8 +197,9 @@ class Kudo < ActiveRecord::Base
   def has_no_twitter_recipient? 
     #check temporary recipient
     recipients_list.each do |id|
+      return false if id[0] == "@"
       identity   = Identity.find(id.to_i) rescue nil
-      if identity.identity_type == 'twitter'
+      if identity.present?  && identity.identity_type == 'twitter'
         return false
       end
     end

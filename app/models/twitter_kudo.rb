@@ -49,9 +49,14 @@ class TwitterKudo < ActiveRecord::Base
 
   def kudo_twitter_recipients recipients  
     twitter_recipients_string = []
+    #twitter_recipients_string << temporary_recipient if temporary_recipient[0] == "@"
     recipients.each do |id|
+      if id[0] == "@"
+        twitter_recipients_string << id
+        next
+      end
       identity   = Identity.find(id.to_i) rescue nil
-      if identity.identity_type == 'twitter' 
+      if identity.present? && identity.identity_type == 'twitter' 
         twitter_recipients_string << "@#{identity.identity}"
       end
     end

@@ -28,9 +28,9 @@ module OurKudos
     end
 
 
-     def post_twitter_kudo kudo
+     def post_twitter_kudo message
         begin
-          result = twitter_user.update kudo.body
+          result = twitter_user.update message
           result.is_a?(Hashie::Rash)
           true
         rescue Errno, Exception => e
