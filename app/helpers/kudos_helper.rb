@@ -80,9 +80,13 @@ module KudosHelper
   
   # if a Kudo is longer than 150 characters or has more than 3 newlines, truncate the display
   def truncate_kudo_text kudo_text
-  	return kudo_text[0..kudo_text.index(/(.?\n){3}/).to_i] if kudo_text.count("\n") > 2
-  	return truncate(kudo_text, :length => 150, :separator => ' ') if kudo_text.length > 150
-  	kudo_text
+  	indexpos = 0
+		3.times {
+  		indexpos = kudo_text.index(/\n/,indexpos).to_i+1
+		}
+		return truncate(kudo_text, :length => indexpos+1, :separator => ' ') if kudo_text.count("\n") > 2
+		return truncate(kudo_text, :length => 150, :separator => ' ') if kudo_text.length > 150
+		kudo_text
   end
 
 end
