@@ -7,7 +7,7 @@
 
     %p= t :kudo_email_explanation, :author => @author
 
-    %p= @kudo.kudo.body[0..100] + "..."
+    = simple_format(@kudo.kudo.body[0..100]) + "..."
 
     %p= SETTINGS[:test_environment_special_message] if SETTINGS[:sign_up_disabled] == "yes"
 

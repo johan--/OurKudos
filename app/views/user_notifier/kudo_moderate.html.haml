@@ -6,10 +6,9 @@
 
     %p= t :kudo_commented_by, :by => @author.to_s
 
-    %p
-      %blockquote= @comment.comment
+    = simple_format(@comment.comment)
 
-    %p= t(:you_can_deceide_what_to_do_with_this_and_other_comments)
+    %p= t(:you_can_decide_what_to_do_with_this_and_other_comments)
 
     %ul
       %li= link_to t(:kudo_accept_comment), new_comments_moderation_url(:subaction => "accept", :id => @comment.id, :address => @email)
