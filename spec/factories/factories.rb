@@ -140,12 +140,9 @@ end
 
 Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
   kc.author    {|u|  Factory(:user) }
-  #kc.body "Simply - thank you"
   kc.kudo      {|kudo| Factory(:kudo) }
   kc.recipient {|r| Factory(:other_user) }
   kc.kudoable  {|k| Factory(:kudo)  }
-  #kc.facebook_sharing false
-  #kc.twitter_sharing  false
 end
 
 Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|

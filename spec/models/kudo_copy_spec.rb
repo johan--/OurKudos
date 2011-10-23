@@ -8,17 +8,16 @@ describe KudoCopy do
 
   describe "instance" do
     before(:each) do 
-      @user = Factory(:user)
+      @user = Factory(:user, :first_name => "Steve", :last_name => "Jobs")
       @user.primary_identity.update_attribute('display_identity', true)
     end
 
     it 'should know about its recipient name' do
-      @kudo_copy = Factory(:kudo_copy_system)
+      @kudo_copy = Factory(:kudo_copy_system, :recipient => @user)
 
       @kudo_copy.should respond_to "copy_recipient"
-      @kudo_copy.copy_recipient.should == @user.secured_name
-      @kudo_copy.recipient = kudo_copy.author
-      @kudo_copy.copy_recipient.should be_nil
+      @kudo_copy.copy_recipient.should eq("Steve J.")
+      @kudo_copy.recipient eq(@user)
     end
 
   end
