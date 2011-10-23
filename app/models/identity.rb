@@ -19,6 +19,7 @@ class Identity < ActiveRecord::Base
   # ================
   has_one :confirmation, :as => :confirmable, :dependent => :destroy
   belongs_to :user
+  #belongs_to :userable, :polymorphic => true
 
   # ================
   # ==== scopes ====

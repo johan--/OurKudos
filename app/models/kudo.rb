@@ -22,7 +22,7 @@ class Kudo < ActiveRecord::Base
 
   before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
-  #after_create :save_non_members
+  after_save :process_virtual_users
 
 
   validates_with KudoValidator
@@ -400,26 +400,8 @@ class Kudo < ActiveRecord::Base
     clean_up_links! if author.credibility == 0
   end
 
-  def save_non_members
-    non_members = []
-    recipients_list.each do |recipient|
-      identity = Identity.find(recipient.to_i) rescue nil
-      if identity.blank?
-        non_member << recipient
-      end
-    end
-    non_members
-  end
-
-  def create_non_members non_members
-    non_members.each do |non_member|
-      type = determine_type non_member
-    end
-  end
-
-  def determine_type identity
-    return "twitter" if identity[0] == "@"
-    return "email" if identity.include?("@")
+  def process_virtual_users
+    VirtualUser.process_new_kudo(self) 
   end
 
   class << self
