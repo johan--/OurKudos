@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023144355) do
+ActiveRecord::Schema.define(:version => 20111023224815) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -179,15 +179,16 @@ ActiveRecord::Schema.define(:version => 20111023144355) do
   end
 
   create_table "identities", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "identifiable_id"
     t.string   "identity"
     t.string   "identity_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_primary",       :default => false
+    t.boolean  "is_primary",        :default => false
     t.datetime "deleted_at"
-    t.boolean  "is_company",       :default => false
-    t.boolean  "display_identity", :default => false
+    t.boolean  "is_company",        :default => false
+    t.boolean  "display_identity",  :default => false
+    t.string   "identifiable_type"
   end
 
   create_table "ips", :force => true do |t|
@@ -435,7 +436,7 @@ ActiveRecord::Schema.define(:version => 20111023144355) do
   create_table "virtual_users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "merged"
+    t.boolean  "merged",     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

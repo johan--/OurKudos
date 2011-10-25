@@ -88,7 +88,8 @@ describe User do
 
       some_user.set_identities_as_destroyable
 
-      Identity.for(some_user).each { |id| id.destroy.should be_true }
+      #Identity.for(some_user).each { |id| id.destroy.should be_true }
+      some_user.identities.each { |id| id.destroy.should be_true }
 
     end
 

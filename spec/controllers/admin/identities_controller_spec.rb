@@ -31,7 +31,7 @@ describe Admin::IdentitiesController do
         @admin = Factory(:admin_user)
         sign_in @admin
         @user = Factory(:user)
-        @valid_params = Factory.attributes_for(:identity, :user_id => @user.id)
+        @valid_params = Factory.attributes_for(:identity, :identifiable_id => @user.id, :identifiable_type => @user.class.to_s)
       end
  
       it 'should create a new identity' do
@@ -94,7 +94,7 @@ describe Admin::IdentitiesController do
         sign_in @admin
         @user = Factory(:user)
         User.stub!(:find).with(@user.to_param).and_return(@user)
-        @identity = Factory(:identity, :id => 1, :user => @user)
+        @identity = Factory(:identity, :id => 1, :identifiable => @user)
         @valid_params = {:identity => "not@real.com", :identity_type => "email"}
       end
 
@@ -121,7 +121,7 @@ describe Admin::IdentitiesController do
         sign_in @admin
         @user = Factory(:user)
         User.stub!(:find).with(@user.to_param).and_return(@user)
-        @identity = Factory(:identity, :id => 1, :user => @user)
+        @identity = Factory(:identity, :id => 1, :identifiable => @user)
         @invalid_params = {:identity => "", :identity_type => "email"}
       end
 
@@ -138,7 +138,7 @@ describe Admin::IdentitiesController do
         sign_in @admin
         @user = Factory(:user)
         User.stub!(:find).with(@user.to_param).and_return(@user)
-        @identity = Factory(:identity, :id => 1, :user => @user)
+        @identity = Factory(:identity, :id => 1, :identifiable => @user)
       end
       it "should destroy the requested identity" do
         lambda {

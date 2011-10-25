@@ -3,7 +3,7 @@ class CreateVirtualUsers < ActiveRecord::Migration
     create_table :virtual_users do |t|
       t.string :first_name
       t.string :last_name
-      t.boolean :merged
+      t.boolean :merged, :default => false
 
       t.timestamps
     end

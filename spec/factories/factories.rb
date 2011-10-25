@@ -37,7 +37,8 @@ Factory.define :identity do |i|
   i.identity { Factory.next(:email) }
   i.identity_type 'email'
   i.is_primary false
-  i.user { Factory(:user) }
+  #i.user { Factory(:user) }
+  i.identifiable { Factory(:user) }
 end
 
 Factory.define :primary_identity, :class => "Identity" do |i|
@@ -45,7 +46,8 @@ Factory.define :primary_identity, :class => "Identity" do |i|
   i.identity_type 'email'
   i.is_primary true
   i.display_identity true
-  i.association :user
+  #i.association :user
+  i.identifiable { Factory(:user) }
 end
 
 Factory.define :identity_confirmation, :class => "Confirmation" do |c|
