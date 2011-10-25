@@ -161,7 +161,8 @@ describe Kudo do
                             :last_name => "Disney")
           identity = Identity.new(:identity => "mickeymouse",
                                   :identity_type => "twitter",
-                                  :user_id => @author.id,
+                                  :identifiable_id => @author.id,
+                                  :identifiable_type => @author.class.to_s,
                                   :is_primary =>false)
           identity.save(:validate => false)
                               

@@ -86,14 +86,18 @@ class AutocompletesController < ApplicationController
     end
 
     def autocomplete_identities_for_user
-      friends = current_user.friendships.map{|f| f.friend_id}
-      identities = Identity.where("user_id IN (?)",friends).map do |i| 
+      #friends = current_user.friendships.map{|f| f.friend_id}
+      friends = current_user.friendships.map{|f| f.friend}
+      #identities = Identity.where("user_id IN (?)",friends).map do |i| 
+      friends_identities = friends.map{|f| f.identities}.flatten
+      identities = []
+      friends_identities.each do |i|
         if i.identity_type == 'twitter'
-          ["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
+          identities << ["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
         elsif i.identity_type == "nonperson" && i.is_company?
-          ["#{i.user.company_name}", "#{i.identity}"]
+          identities << ["#{i.user.company_name}", "#{i.identity}"]
         else
-          ["#{i.user.first_name} #{i.user.last_name}", "#{i.identity}"]
+          identities << ["#{i.user.first_name} #{i.user.last_name}", "#{i.identity}"]
         end
       end
       #facebookfriends

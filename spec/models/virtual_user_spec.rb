@@ -18,8 +18,15 @@ describe VirtualUser do
       }.should change(VirtualUser, :count).by(1)
     end
 
+    it 'should intially set the first and last name to identity' do
+      @kudo = Factory(:kudo, :to => "@mickeymouse")
+      virtual_user = VirtualUser.first
+      virtual_user.first_name.should eq("@mickeymouse")
+      virtual_user.last_name.should eq("@mickeymouse")
+    end
 
     #should update a virtual user when sent them
+    #kudo needs to get updated with virtual user id
   end
 
 end

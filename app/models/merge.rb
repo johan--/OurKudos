@@ -49,7 +49,7 @@ class Merge < ActiveRecord::Base
     def accounts new_user, identity
       return Merge.new if identity.blank?
         new_user.merges.build  :merged_by         => new_user.id,
-                               :merged_id         => identity.user_id,
+                               :merged_id         => identity.identifiable_id,
                                :merged_with_email => identity.user.email,
                                :identity_id       => identity.id        
 

@@ -18,22 +18,22 @@ class Identity < ActiveRecord::Base
   # = associations =
   # ================
   has_one :confirmation, :as => :confirmable, :dependent => :destroy
-  belongs_to :user
-  #belongs_to :userable, :polymorphic => true
+  #belongs_to :user
+  belongs_to :identifiable, :polymorphic => true
 
   # ================
   # ==== scopes ====
   # ================
   scope :emails,   where(:identity_type => "email")
   scope :twitters, where(:identity_type => "twitter")
-  scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
-                                                       where("user_id <> ?", user.id).
+  scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins('INNER JOIN users ON users.id = identities.identifiable_id').
+                                                       where("identifiable_id <> ?", user.id).
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) LIKE lower(?) OR lower(users.first_name)  \
                                                               LIKE lower(?) OR lower(users.last_name) LIKE lower(?) OR lower(users.company_name) LIKE lower(?)",
                                                               "%#{search_term}%", "#{search_term}%", "#{search_term}%", "#{search_term}%") }
   scope :exact_twitter_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
-                                                       where("user_id <> ?", user.id).
+                                                       where("identifiable_id <> ?", user.id).
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) = lower(?) AND identity_type = (?) ", "#{search_term}", 'twitter') }
   scope :by_type, :order => 'identity_type ASC'
@@ -62,6 +62,10 @@ class Identity < ActiveRecord::Base
 
   def synchronize_email!
     self.update_attribute :identity, self.user.email
+  end
+
+  def user
+    self.identifiable
   end
 
   def mergeable?
@@ -117,7 +121,7 @@ class Identity < ActiveRecord::Base
     identity = where(:identity      => string.gsub(/^@{1}/,'').downcase).
                where("identities.identity_type = ? OR identities.identity_type = ?",
                      'nonperson', 'email').
-              joins(:user).joins(:confirmation).first
+              joins('INNER JOIN users ON users.id = identities.identifiable_id').joins(:confirmation).first
 
     return nil if identity.blank? || (identity && !identity.confirmation.confirmed?)
     identity
@@ -132,7 +136,7 @@ class Identity < ActiveRecord::Base
   end
   
   def self.update_display_identity(user, new_display_identity)
-    old = Identity.where(:display_identity => true, :user_id => user.id).first
+    old = Identity.where(:display_identity => true, :identifiable_id => user.id, :identifiable_id => user.class.to_s).first
     return false unless old.update_attribute('display_identity', false)
     new = Identity.find(new_display_identity)
     return false unless new.update_attribute('display_identity', true)

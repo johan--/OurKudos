@@ -27,8 +27,9 @@ class VirtualUser < ActiveRecord::Base
     end
 
     def create_virtual_user recipient
-      VirtualUser.create( :first_name => recipient['identity'],
-                          :last_name =>  recipient['identity'])
+      user = VirtualUser.new(:first_name => recipient[:identity],
+                             :last_name =>  recipient[:identity])
+      user.save
     end
 
    # def create_identity recipient, virtual_user

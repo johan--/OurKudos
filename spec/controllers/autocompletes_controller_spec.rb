@@ -13,7 +13,7 @@ describe AutocompletesController do
   describe "Exact recipients" do
     before(:each) do 
       @other_user = Factory(:user) 
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "itweet", 
                               :identity_type => "twitter")
       identity.save(:validate => false)
@@ -31,7 +31,7 @@ describe AutocompletesController do
     end
 
     it "should exact match the query param for an email identity" do
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "myemail@notreal.com", 
                               :identity_type => "email")
       identity.save(:validate => false)
@@ -53,7 +53,7 @@ describe AutocompletesController do
       @other_user = Factory(:user, 
                             :first_name => "bob",
                             :last_name => "smith") 
-      @identity = Identity.new(:user_id => @other_user.id,
+      @identity = Identity.new(:identifiable => @other_user,
                               :identity => "itweet", 
                               :identity_type => "twitter")
       @identity.save(:validate => false)
@@ -79,7 +79,7 @@ describe AutocompletesController do
   describe "inline_autocomplete_identities" do
     before(:each) do 
       @other_user = Factory(:user, :first_name => "John", :last_name => "Doe") 
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "itweet", 
                               :identity_type => "twitter")
       identity.save(:validate => false)
@@ -94,7 +94,7 @@ describe AutocompletesController do
     end
 
     it "should properly set non person identities" do
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "company", 
                               :identity_type => "noperson")
       identity.save(:validate => false)

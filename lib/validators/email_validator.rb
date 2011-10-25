@@ -18,8 +18,7 @@ class EmailValidator < ActiveModel::EachValidator
   end
 
   def search_identity_table(email, record)
-      return !search_identities_table(email).
-               where("user_id <> ?", record.id).blank? unless record.new_record?
+      return !search_identities_table(email).where("(identifiable_id <> ? OR identifiable_type <> ?)", record.id, record.class.to_s).blank? unless record.new_record?
 
       !search_identities_table(email).blank? if record.new_record?
   end

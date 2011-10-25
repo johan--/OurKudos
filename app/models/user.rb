@@ -19,11 +19,12 @@ class User < ActiveRecord::Base
   # = associations =
   # ================
 
-  has_many :authentications
-  has_many :identities
-  has_many :permissions
-  has_many :confirmations, :through => :identities
-  has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
+  has_many  :authentications
+  has_many  :identities, :as => :identifiable
+  has_many  :permissions
+  has_many  :confirmations, :through => :identities, :source => :identifiable, 
+            :source_type => "User"
+  has_many  :merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
   has_many :sent,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]
@@ -205,13 +206,13 @@ class User < ActiveRecord::Base
   end
 
   def save_identity
-     if self.identities.blank?
-
-      identity = self.identities.create :identity        => primary_identity_value,
+    if self.identities.blank?
+      identity = self.identities.build :identity        => primary_identity_value,
                                         :is_primary      => true,
                                         :display_identity=> true,
                                         :no_confirmation => !self.first_message.blank?,
                                         :identity_type   => primary_identity_type,
+                                        :identifiable_type => self.class.name,
                                         :is_company      => has_company
       identity.save :validate => false
      end
@@ -253,7 +254,8 @@ class User < ActiveRecord::Base
   end
 
   def set_identities_as_destroyable
-    Identity.for(self).each  { |identity| identity.set_as_tetriary! }
+    #Identity.for(self).each  { |identity| identity.set_as_tetriary! }
+    self.identities.each  { |identity| identity.set_as_tetriary! }
   end
 
   def is_confirmed?

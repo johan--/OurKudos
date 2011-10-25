@@ -13,7 +13,7 @@ describe Identity do
 
     let(:identity) do
           Identity.new(:identity      => 'some@email.com',
-                     :user          => Factory(:user),
+                     :identifiable          => Factory(:user),
                      :identity_type => "email")
     end
 
