@@ -37,7 +37,7 @@ class TwitterKudo < ActiveRecord::Base
     identity = Identity.where('identity = ? AND identity_type = ?', twitter_handle, 'twitter').first
     return false if identity.blank? 
     member  = identity.user
-    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
+    UserNotifier.delay.social_system_kudo kudo.kudo, member if (member.present? && !tweet_type=="self")
   end
 
   def build_message kudo
