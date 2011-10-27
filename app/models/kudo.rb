@@ -20,9 +20,9 @@ class Kudo < ActiveRecord::Base
                    :facebook_sharing, :twitter_sharing, :kudo_category_id,
                    :updated_at
 
-  before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
+  before_create :replace_virtual_users, :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
-  after_save :process_virtual_users
+  after_create :process_virtual_users, :on => :create
 
 
   validates_with KudoValidator
@@ -146,6 +146,21 @@ class Kudo < ActiveRecord::Base
     !author_as_recipient.blank?
   end
 
+  def replace_virtual_users
+    # need to make this non members only for speed
+    recipients_list.each do |recipient|
+      recipient = recipient[1..-1] if recipient[0] == "@"
+      identity = Identity.find_by_identity(recipient)
+      unless identity.blank?
+        if identity.identity_type == 'twitter'
+          self.to = to.gsub("@#{recipient}", identity.id.to_s)
+        else
+          self.to = to.gsub(recipient, identity.id.to_s)
+        end
+      end
+    end
+  end
+
   def prepare_copies
     return if to.blank? || js_validation_only # stop processing if validation with javascript
 
@@ -171,7 +186,7 @@ class Kudo < ActiveRecord::Base
 
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
-         send_system_kudo(recipient)
+         send_system_kudo(recipient) unless recipient.is_a?(VirtualUser)
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
