@@ -31,7 +31,6 @@ class AutocompletesController < ApplicationController
 
     def look_for_friends
       FacebookFriend.friends_by_name_for_user(keyword, current_user).map do |friend|
-          #{:id => "fb_#{friend.facebook_id}", :name => "FB - #{friend.name}"}
           {:id => "fb_#{friend.facebook_id}", :name => "#{friend.name} (Facebook)"}
         end
     end
@@ -63,8 +62,6 @@ class AutocompletesController < ApplicationController
     def look_for_identities
        identities = confirmed_identities(keyword, 10).map do |identity|
           { :id => identity.id, :name => (identity.is_twitter? ?
-              #"[#{identity.user.to_s}] @#{identity.identity}" :
-              #"[#{identity.user.to_s}] Email")}
               "#{identity.user.to_s} (Twitter: @#{identity.identity})" :
               "#{identity.user.to_s} (Email)")}
        end
@@ -86,9 +83,7 @@ class AutocompletesController < ApplicationController
     end
 
     def autocomplete_identities_for_user
-      #friends = current_user.friendships.map{|f| f.friend_id}
       friends = current_user.friendships.map{|f| f.friend}
-      #identities = Identity.where("user_id IN (?)",friends).map do |i| 
       friends_identities = friends.map{|f| f.identities}.flatten
       identities = []
       friends_identities.each do |i|
@@ -100,7 +95,6 @@ class AutocompletesController < ApplicationController
           identities << ["#{i.user.first_name} #{i.user.last_name}", "#{i.identity}"]
         end
       end
-      #facebookfriends
       identities += current_user.facebook_friends.map do |friend|
         ["#{friend.name}", "fb_#{friend.facebook_id}"]
       end.uniq

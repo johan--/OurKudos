@@ -79,6 +79,12 @@ Factory.define :other_user, :class => "User" do |u|
   u.roles {|roles| [roles.association(:role)] }
 end
 
+Factory.define :virtual_user do |u|
+  u.first_name { Factory.next(:first_name) }
+  u.last_name { Factory.next(:last_name) }
+  u.merged false
+end
+
 Factory.define :friendship do |fr|
   fr.user { Factory(:user)}
   fr.friend { Factory(:other_user) }
