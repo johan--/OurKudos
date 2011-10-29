@@ -1,6 +1,50 @@
 class VirtualUser < ActiveRecord::Base
   has_many  :identities, :as => :identifiable
 
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
+
+  validates_uniqueness_of :first_name, :scope => :last_name, :case_sensitive => false
+
+  def check_and_process_merge attributes
+    virtual_user = virtual_users_with_new_name attributes
+    if virtual_user.present? && virtual_user.id != self.id
+      merge_identities virtual_user
+      self.destroy
+    else
+      self.update_attributes attributes
+    end
+  end
+
+  def to_s
+    return first_name if first_name == last_name
+    "#{first_name} #{last_name[0]}."
+  end
+
+  def virtual_name
+    if first_name == last_name 
+      if first_name.match(RegularExpressions.email).present?
+        return first_name.match(RegularExpressions.email_username)[0]
+      else
+        return first_name 
+      end
+    end
+    "#{first_name} #{last_name[0]}."
+  end
+
+  def virtual_users_with_new_name attributes
+    VirtualUser.where(:first_name => attributes[:first_name], :last_name => attributes[:last_name])[0]
+  end
+
+  def merge_identities existing_virtual_user
+    identities = self.identities
+    identities.each do |identity|
+      return false unless identity.update_attribute('identifiable_id', existing_virtual_user.id)
+    end
+  end
+
+
+  #Class Methods
   class << self
     def process_new_kudo kudo
       new_virtual_users = []
@@ -48,12 +92,12 @@ class VirtualUser < ActiveRecord::Base
     end
 
     def update_kudo kudo, identities
-      new_kudo_to = []
+      new_kudo_to  = kudo.to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
       identities.each do |identity|
         identity_to_replace = identity.identity
         identity_to_replace = "@#{identity_to_replace}" if identity.identity_type == 'twitter'
-        old_kudo_to = kudo.to
-        new_kudo_to << old_kudo_to.gsub(identity_to_replace, identity.id.to_s)
+        new_kudo_to.delete(identity_to_replace)
+        new_kudo_to << "'#{identity.id.to_s}'"
       end
       kudo.to = new_kudo_to.join(",")
       kudo.save(:validate => false)
@@ -62,10 +106,23 @@ class VirtualUser < ActiveRecord::Base
     def update_kudo_copies identity
       copies =  KudoCopy.where(:temporary_recipient => identity.identity)
       copies.each do |copy|
-        copy.recipient_id = identity.id 
+        copy.recipient_id = identity.identifiable_id 
+        copy.recipient_type = identity.identifiable_type
         copy.temporary_recipient = nil
         copy.save!(:validate => false)
       end
+    end
+
+    def update_from_member virtual_users
+      virtual_users.each do |user|
+        virtual_user = VirtualUser.find(user[0])
+        unless virtual_user.blank?
+          attributes = {:first_name => user[1][:first_name],
+                        :last_name => user[1][:last_name] }
+          return false unless virtual_user.check_and_process_merge attributes
+        end
+      end
+      true
     end
 
   end

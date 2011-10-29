@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe User do
+  before(:all) do
+    Settings.seed!
+  end
 
   context 'given an instance' do 
       let(:user) { Factory(:user) }

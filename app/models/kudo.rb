@@ -9,7 +9,11 @@ class Kudo < ActiveRecord::Base
     end
 
   end
-  has_many  :recipients, :through => :kudo_copies
+  #has_many  :recipients, :through => :kudo_copies
+  has_many :recipients, :through => :kudo_copies, :source => :recipient, :source_type => 'User'
+  has_many :virtual_recipients, :through => :kudo_copies, :source => :recipient, :source_type => 'VirtualUser'
+
+  #has_many :recipients, :as => :recipient
 
   has_many :kudo_flags, :dependent => :destroy
 
@@ -87,7 +91,7 @@ class Kudo < ActiveRecord::Base
   def recipients_names_ids
     kudo_copies.with_recipients.map do |kc|
       unless kc.copy_recipient_is_author?
-        if kc.recipient_id
+        if kc.recipient_id && kc.recipient_type == "User"
           [kc.copy_recipient, kc.recipient_id]
         else
           [kc.copy_recipient, nil]
@@ -224,11 +228,12 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_system_kudo recipient
-      kudo_copies.build :recipient_id => recipient.id,
-                        :author_id    => author.id,
-                        :kudoable     => self,
-                        :folder_id    => recipient.inbox.id,
-                        :share_scope  => share_scope
+      kudo_copies.build :recipient_id   => recipient.id,
+                        :recipient_type => recipient.class.to_s,
+                        :author_id      => author.id,
+                        :kudoable       => self,
+                        :folder_id      => recipient.inbox.id,
+                        :share_scope    => share_scope
 
       self.system_kudos_recipients_cache << recipient.id
 

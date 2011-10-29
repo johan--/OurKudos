@@ -66,6 +66,7 @@ class KudosController < ApplicationController
 
     def kudo_redirections_and_validations
         if @kudo.save
+          session[:last_kudo] = @kudo.id
           redirect_to '/home', :notice => I18n.t(:your_kudo_has_been_sent)
         else
           render :new
