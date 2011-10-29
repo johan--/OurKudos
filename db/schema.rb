@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023224815) do
+ActiveRecord::Schema.define(:version => 20111028211611) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -218,6 +218,7 @@ ActiveRecord::Schema.define(:version => 20111023224815) do
     t.string   "kudoable_type"
     t.string   "share_scope"
     t.integer  "author_id"
+    t.string   "recipient_type"
   end
 
   add_index "kudo_copies", ["author_id"], :name => "index_kudo_copies_on_author_id"

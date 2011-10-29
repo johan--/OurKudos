@@ -1,7 +1,9 @@
 class KudoCopy < ActiveRecord::Base
 
   belongs_to :kudo
-  belongs_to :recipient, :class_name => "User"
+  #belongs_to :recipient, :class_name => "User"
+  belongs_to :recipient, :polymorphic => true
+  #belongs_to :recipientable, :polymorphic => true, :foreign_key => 'recipient_id'
   belongs_to :folder
 
   belongs_to :kudoable, :polymorphic => true
@@ -21,6 +23,7 @@ class KudoCopy < ActiveRecord::Base
     return if own_kudo?
     return if copy_recipient_is_author?
     #need check if recipient is deleted
+    return self.recipient.virtual_name if recipient_type == 'VirtualUser' && recipient_id.present?
     return temporary_recipient.match(RegularExpressions.email_username)[0] if self.recipient_id.blank? && self.kudoable.is_a?(EmailKudo)
     if self.recipient_id.present? && self.kudoable.is_a?(Kudo)
       unless self.recipient.blank?
@@ -41,13 +44,15 @@ class KudoCopy < ActiveRecord::Base
   end
 
   def own_kudo?
-    return self.recipient_id == self.author_id unless self.author_id.blank?
+    return self.recipient_id == self.author_id && recipient_type == 'User' unless self.author_id.blank?
     false
   end
 
   #can be merged with own_kudo? method
+  #REFACTOR
   def copy_recipient_is_author?
     if author
+      return true if own_kudo?
       author_ids = author.identities.map{|i| i.identity}
       return true if author_ids.include?(temporary_recipient) 
       unless author.facebook_identifier.blank?

@@ -41,7 +41,14 @@ describe VirtualUser do
       @kudo = Factory(:kudo, :author => @user, :to => "@mickeymouse")
       KudoCopy.count.should eq(1)
       virtual_user = VirtualUser.find_by_first_name('@mickeymouse')
-      KudoCopy.first.recipient_id.should eq(virtual_user.identities.first.id)
+      KudoCopy.first.recipient_id.should eq(virtual_user.id)
+    end
+
+    it 'should show that the kudo knows about the new virtual identity' do
+      @kudo = Factory(:kudo, :author => @user, :to => "@mickey")
+      KudoCopy.count.should eq(1)
+      virtual_user = VirtualUser.find_by_first_name('@mickey')
+      @kudo.virtual_recipients.should include(virtual_user)
     end
     #should update a virtual user when sent them
   end
@@ -61,13 +68,37 @@ describe VirtualUser do
       lambda {
         @kudo = Factory(:kudo, :author => author, :to => "@stevejobs")
       }.should_not change(Identity, :count)
-      #@kudo.to.should include(@identity.id.to_s)
     end
     
     it "should save virtual identity as kudo recipient" do
       @kudo = Factory(:kudo, :to => "@stevejobs")
       @kudo.to.should include(@identity.id.to_s)
     end
+  end
+
+  describe 'updating a virtual users first and last name' do
+    before(:each) do
+      @user = Factory(:virtual_user, :first_name => 'Walt', :last_name => 'Disney')
+      @identity = Identity.new( :identifiable_id => @user.id,
+                                :identifiable_type => "VirtualUser",
+                                :identity => "stevejobs",
+                                :identity_type => 'twitter')
+      @identity.save(:validate => false)
+    end
+
+    it 'should be able to update first name and last name' do
+      @user.update_attributes(:first_name => 'steve', :last_name => 'jobs')
+      @user.first_name.should eq('steve')
+      @user.last_name.should eq('jobs')
+      @user.should be_valid
+    end
+
+    it 'should be unique on first and last name' do
+      user2 = Factory(:virtual_user, :first_name => 'Steve', :last_name => 'Jobs')
+      user2.update_attributes(:first_name => 'Walt', :last_name => 'Disney')
+      user2.should_not be_valid
+    end
+
   end
 
 end

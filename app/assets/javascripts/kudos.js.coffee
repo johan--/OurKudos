@@ -91,12 +91,23 @@ checkLastSentForSocial  = (provider) ->
       else
         OurKudos.Cookies.deleteCookie cookieName
 
+showVirtualUserForm = ->
+  jQuery("#virtual_user_form").slideDown 2000
+
+hideVirtualUserForm = ->
+  jQuery("#virtual_user_form").slideUp 500
+  return false
+
 jQuery ->
     processProviderOnKudosForm 'facebook'
     processProviderOnKudosForm 'twitter'
 
     checkLastSentForSocial 'facebook'
     checkLastSentForSocial 'twitter'
+
+    showVirtualUserForm()
+    jQuery(".close_virtual_user_form").click ->
+      hideVirtualUserForm()
 
     processShareScope()
     scrollScreenToKudo()
@@ -121,3 +132,8 @@ jQuery ->
         jQuery("select#sort_by").change ->
              jQuery("form#sort_and_search_kudos_form").submit()
 
+    showVirtualUserForm()
+    jQuery(".close_virtual_user_form").click ->
+      hideVirtualUserForm()
+    jQuery("#virtual_users_submit").click ->
+      jQuery("#big_spinner").show()

@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def index
     if user_signed_in?
-       redirect_to home_path
+      redirect_to home_path
     else
       @kudos =  Kudo.public_kudos.order("id DESC").limit(5)
       render :layout => 'unregistered-nowrapper'
@@ -18,7 +18,8 @@ class HomeController < ApplicationController
   
   def home
     @kudo    = Kudo.new
-
+    @last_kudo = Kudo.find(session[:last_kudo]) unless session[:last_kudo].blank?
+    session[:last_kudo] = nil
     unless params[:kudos]=="searchterms"
       get_kudos
     else

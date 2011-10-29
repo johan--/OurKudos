@@ -151,6 +151,7 @@ Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
   kc.kudo      {|kudo| Factory(:kudo) }
   kc.recipient {|r| Factory(:other_user) }
   kc.kudoable  {|k| Factory(:kudo)  }
+  kc.recipient_type 'User'
 end
 
 Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|
