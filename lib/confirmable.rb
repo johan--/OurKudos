@@ -22,6 +22,7 @@ module OurKudos
       end
 
       def save_confirmation        
+        return true if self.is_a?(Confirmation) && self.confirmable_type == "Identity"
         create_confirmation(:confirmable_type => self.class.name, 
                             :confirmable_id   => self.id,
                             :confirmed        => already_confirmed?) if needs_confirmation?

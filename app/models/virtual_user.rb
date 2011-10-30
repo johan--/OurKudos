@@ -21,6 +21,12 @@ class VirtualUser < ActiveRecord::Base
     "#{first_name} #{last_name[0]}."
   end
 
+  def email
+    identity = self.identities.where(:identity_type => 'email').first
+    return false if identities.blank?
+    identity.identity
+  end
+
   def virtual_name
     if first_name == last_name 
       if first_name.match(RegularExpressions.email).present?

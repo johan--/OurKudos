@@ -6,7 +6,6 @@
   = form_tag '/virtual_users/update', :method => :post do
     - kudo.virtual_recipients.each do |virtual_user|
       %h3
-        Form for: 
         = virtual_user.first_name
       %p 
         First Name:
@@ -16,7 +15,7 @@
         Last Name:
         %br
         = text_field_tag "virtual_users[#{virtual_user.id}][last_name]"
-      %p
-        = submit_tag "Save Information", :id => 'virtual_users_submit'
-        %a.close_virtual_user_form
-          close
+    %p
+      = submit_tag "Save Information", :id => 'virtual_users_submit'
+      %a.close_virtual_user_form
+        close
