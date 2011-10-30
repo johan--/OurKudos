@@ -1,0 +1,14 @@
+%table.type1
+  %thead
+    %th First Name
+    /%th= sortable "first_name", "First Name"
+    %th Last Name
+    /%th= sortable 'last_name', "Last Name"
+    %th= t :user_details
+    %th= t :user_remove
+  %tbody
+    - for user in users do
+      %tr
+        %td= user.first_name
+        %td= user.last_name
+        %td= link_to 'edit', admin_virtual_user_path(user)
