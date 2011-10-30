@@ -30,7 +30,7 @@ module OurKudos
 
      def post_twitter_kudo message
         begin
-          result = twitter_user.update message
+          #result = twitter_user.update message
           result.is_a?(Hashie::Rash)
           true
         rescue Errno, Exception => e
@@ -49,9 +49,6 @@ module OurKudos
           e.to_s
         end
     end
-
-
-
 
   end
 end

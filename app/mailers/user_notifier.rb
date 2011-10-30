@@ -45,8 +45,10 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo_copy
     @recipient = kudo_copy.recipient
     @host      = host
-    if @recipient.messaging_preference.system_kudo_email?
-      mail :to => @recipient.email, :subject => "#{@kudo.kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+    unless @kudo.recipient_type == 'VirtualUser' 
+      if @recipient.messaging_preference.system_kudo_email?
+        mail :to => @recipient.email, :subject => "#{@kudo.kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+      end
     end
   end
 
@@ -54,7 +56,7 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo
     @recipient = recipient
     @host      = host
-    if @recipient.messaging_preference.system_kudo_email?
+    if @recipient.is_a?(User) && @recipient.messaging_preference.system_kudo_email?
       mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
     end
   end

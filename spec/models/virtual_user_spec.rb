@@ -17,6 +17,12 @@ describe VirtualUser do
       }.should change(VirtualUser, :count).by(1)
     end
 
+    it 'should create a newvirtual user from a nonmember email' do
+      lambda {
+        @kudo = Factory(:kudo, :to => "walt@disney.com")
+      }.should change(VirtualUser, :count).by(1)
+    end
+
     it 'should intially set the first and last name to identity' do
       @kudo = Factory(:kudo, :to => "@mickeymouse")
       virtual_user = VirtualUser.first
@@ -99,6 +105,21 @@ describe VirtualUser do
       user2.should_not be_valid
     end
 
+  end
+
+  describe "virtual user instance methods" do
+    before(:each) do
+      @user = Factory(:virtual_user)
+      @identity = Identity.new( :identifiable_id => @user.id,
+                                :identifiable_type => "VirtualUser",
+                                :identity => "steve@jobs.com",
+                                :identity_type => 'email')
+      @identity.save(:validate => false)
+    end
+    
+    it 'should have an email if it has an email identity' do
+      @user.email.should eq('steve@jobs.com')
+    end
   end
 
 end

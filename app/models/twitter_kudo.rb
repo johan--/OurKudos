@@ -25,7 +25,6 @@ class TwitterKudo < ActiveRecord::Base
       when 'mention'
         message = build_message kudo.kudo
         self.response = kudo.author.post_twitter_kudo message
-        #self.response = kudo.author.direct_message_to twitter_handle, kudo
     end
     send_system_email
     self.posted   = true
@@ -36,9 +35,9 @@ class TwitterKudo < ActiveRecord::Base
   def send_system_email
     identity = Identity.where('identity = ? AND identity_type = ?', twitter_handle, 'twitter').first
     return false if identity.blank? 
-    return false if identity.user.id == author_id
+    return false if identity.user.id == kudo.author_id
     member  = identity.user
-    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
+    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present? && member.is_a?(User)
   end
 
   def build_message kudo
