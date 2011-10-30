@@ -57,7 +57,7 @@ class VirtualUser < ActiveRecord::Base
       recipients = kudo.recipients_list 
 
       recipients.each do |recipient|
-        next if recipient.to_i != 0
+        next if recipient.to_i != 0 || recipient[0..2] == "fb_"
         type = get_identity_type recipient
         new_virtual_users << {:identity => recipient, :type => type}
       end

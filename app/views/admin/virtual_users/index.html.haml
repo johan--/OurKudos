@@ -1,0 +1,11 @@
+%h3= t(:listing_users)
+
+= render :partial => "admin/virtual_users/search_form"
+
+= paginate @users
+
+= render :partial => "users", :locals => {:users => @users}
+          
+= paginate @users
+          
+          
