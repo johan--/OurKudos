@@ -16,7 +16,7 @@ module AuthenticationsHelper
 
      end
 
-      content_tag :p, do
+      content_tag :p do
         link_to (image + content_tag(:span ,provider.titleize, :class => klass)),
                 path, :method => method
       end
