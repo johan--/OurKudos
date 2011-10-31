@@ -4,11 +4,12 @@
     /%th= sortable "first_name", "First Name"
     %th Last Name
     /%th= sortable 'last_name', "Last Name"
-    %th= t :user_details
-    %th= t :user_remove
+    %th Edit
+    %th Remove
   %tbody
     - for user in users do
       %tr
-        %td= user.first_name
+        %td= link_to user.first_name, admin_virtual_user_path(user)
         %td= user.last_name
-        %td= link_to 'edit', admin_virtual_user_path(user)
+        %td= link_to 'Edit', edit_admin_virtual_user_path(user)
+        %td= link_to 'Delete', admin_virtual_user_path(user), :confirm => "Are you sure?"
