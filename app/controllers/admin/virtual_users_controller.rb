@@ -11,13 +11,16 @@ class Admin::VirtualUsersController < Admin::AdminController
     #@users = @users.order "#{sort_column} #{sort_direction}"
   end
 
+  def edit
+    @user = VirtualUser.find params[:id]
+  end
+
   def update
     @user = VirtualUser.find params[:id]
-    @user.skip_password_validation = true
-    if @user && @user.update_attributes(params[:user])
-      redirect_to admin_users_path, :notice => I18n.t(:user_data_updated_successfully)
+    if @user.update_attributes(params[:virtual_user])
+      redirect_to admin_virtual_users_path, :notice => "Virtual User updated"
     else
-      redirect_to admin_user_path(@user), :alert => @user.errors.full_messages.join(", ")
+      redirect_to admin_virtual_user_path(@user), :alert => @user.errors.full_messages.join(", ")
     end
   end
   
@@ -27,10 +30,10 @@ class Admin::VirtualUsersController < Admin::AdminController
   
   def destroy
     @user = VirtualUser.find params[:id]
-    if @user && @user.authentications.destroy_all && @user.destroy
-      redirect_to admin_users_path, :notice => I18n.t(:user_removed_successfully)
+    if @user.destroy
+      redirect_to admin_virtual_users_path, :notice => "Virtual User removed"
     else
-      redirect_to admin_users_path, :notice => I18n.t(:user_not_removed_successfully)
+      redirect_to admin_virtual_users_path, :notice => "There was problem removing this virtual user"
     end
   end
   
@@ -44,7 +47,5 @@ class Admin::VirtualUsersController < Admin::AdminController
     def sort_direction
       %{asc desc}.include?(params[:direction].to_s) ? (return params[:direction]) : (return "asc")
     end
-
-
   
 end
