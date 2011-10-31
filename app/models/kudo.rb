@@ -186,11 +186,11 @@ class Kudo < ActiveRecord::Base
     recipients_list.each do |id|
 
       identity   = Identity.find(id.to_i) rescue nil
-      recipient  = identity.user rescue nil
+      recipient  = identity.identifiable rescue nil
 
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
-         send_system_kudo(recipient) unless recipient.is_a?(VirtualUser)
+         send_system_kudo(recipient) 
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
@@ -228,17 +228,20 @@ class Kudo < ActiveRecord::Base
   end
 
   def send_system_kudo recipient
+    inbox = recipient.is_a?(User)? recipient.inbox.id : 0
       kudo_copies.build :recipient_id   => recipient.id,
                         :recipient_type => recipient.class.to_s,
                         :author_id      => author.id,
                         :kudoable       => self,
-                        :folder_id      => recipient.inbox.id,
+                        :folder_id      => inbox,
                         :share_scope    => share_scope
 
       self.system_kudos_recipients_cache << recipient.id
-
-      Friendship.process_friendships_between author, recipient
-      Friendship.process_friendships_between recipient, author
+      
+      if recipient.is_a?(User)
+        Friendship.process_friendships_between author, recipient
+        Friendship.process_friendships_between recipient, author
+      end
   end
 
   def send_email_kudo recipient
@@ -422,6 +425,10 @@ class Kudo < ActiveRecord::Base
 
   def process_virtual_users
     VirtualUser.process_new_kudo(self) 
+  end
+
+  def new_virtual_recipients
+    self.virtual_recipients.where('first_name = last_name')
   end
 
   class << self
