@@ -13,5 +13,5 @@
     :javascript
       {parsetags : "explicit" }
 = render :partial => "home/dashboard"
-- if @last_kudo.present? && @last_kudo.virtual_recipients.any?
+- if @last_kudo.present? && @last_kudo.new_virtual_recipients.any?
   = render :partial => "virtual_users/form", :locals => {:kudo => @last_kudo}
