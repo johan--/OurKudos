@@ -26,8 +26,8 @@ describe VirtualUser do
     it 'should intially set the first and last name to identity' do
       @kudo = Factory(:kudo, :to => "@mickeymouse")
       virtual_user = VirtualUser.first
-      virtual_user.first_name.should eq("@mickeymouse")
-      virtual_user.last_name.should eq("@mickeymouse")
+      virtual_user.first_name.should eq("")
+      virtual_user.last_name.should eq("")
     end
 
     it 'should create a new identity for the new virtual user' do
@@ -46,14 +46,16 @@ describe VirtualUser do
     it 'should update any associated kudo copies' do
       @kudo = Factory(:kudo, :author => @user, :to => "@mickeymouse")
       KudoCopy.count.should eq(1)
-      virtual_user = VirtualUser.find_by_first_name('@mickeymouse')
+      identity = Identity.find_by_identity('mickeymouse')
+      virtual_user = identity.identifiable
       KudoCopy.first.recipient_id.should eq(virtual_user.id)
     end
 
     it 'should show that the kudo knows about the new virtual identity' do
       @kudo = Factory(:kudo, :author => @user, :to => "@mickey")
       KudoCopy.count.should eq(1)
-      virtual_user = VirtualUser.find_by_first_name('@mickey')
+      identity = Identity.find_by_identity('mickey')
+      virtual_user = identity.identifiable
       @kudo.virtual_recipients.should include(virtual_user)
     end
     #should update a virtual user when sent them
@@ -99,10 +101,10 @@ describe VirtualUser do
       @user.should be_valid
     end
 
-    it 'should be unique on first and last name' do
+    it 'should be not unique on first and last name' do
       user2 = Factory(:virtual_user, :first_name => 'Steve', :last_name => 'Jobs')
       user2.update_attributes(:first_name => 'Walt', :last_name => 'Disney')
-      user2.should_not be_valid
+      user2.should be_valid
     end
 
   end
