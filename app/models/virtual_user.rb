@@ -14,11 +14,13 @@ class VirtualUser < ActiveRecord::Base
   end
 
   def virtual_name
-    if first_name == last_name 
-      if first_name.match(RegularExpressions.email).present?
-        return first_name.match(RegularExpressions.email_username)[0]
+    if first_name.blank? 
+      if identity.identity_type == 'email'
+        return identity.identity.match(RegularExpressions.email_username)[0]
+      elsif identity.identity_type == 'twitter'
+        return "@#{identity.identity}" 
       else
-        return first_name 
+        return identity.identity
       end
     end
     "#{first_name} #{last_name[0]}."
@@ -60,8 +62,8 @@ class VirtualUser < ActiveRecord::Base
     end
 
     def create_virtual_user recipient
-      user = VirtualUser.new(:first_name => recipient[:identity],
-                             :last_name =>  recipient[:identity])
+      user = VirtualUser.new(:first_name => '',
+                             :last_name =>  '')
       user.save
       user
     end
