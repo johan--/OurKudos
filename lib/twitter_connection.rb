@@ -42,12 +42,28 @@ module OurKudos
 
     def direct_message_to user, kudo
       begin
-        twitter_user.direct_message_create user, kudo.body
+        #twitter_user.direct_message_create user, kudo.body
         true
        rescue Errno, Exception => e
           Rails.logger.info "SOCIAL_POSTING: Failed to post twitter direct message #{e.to_s}"
           e.to_s
         end
+    end
+
+    def get_user_info handle
+      begin
+        twitter_user = Twitter.user(handle)
+        user = Hash.new
+        unless twitter_user.protected? || twitter_user.blank?
+          name = twitter_user.name.split(" ")
+          user[:first_name] = name.first
+          name.shift
+          user[:last_name] = name.join(" ")
+        end
+        user
+      rescue 
+        nil
+      end
     end
 
   end

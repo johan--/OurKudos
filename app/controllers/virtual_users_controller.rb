@@ -4,7 +4,7 @@ class VirtualUsersController < ApplicationController
   
   def update
     @virtual_user = VirtualUser.find params[:id]
-    if @virtual_user.check_and_process_merge(params[:virtual_user])
+    if @virtual_user.update_attributes(params[:virtual_user])
       redirect_to root_url, :notice  => "Thank You"
     else
       #need to resend the form
