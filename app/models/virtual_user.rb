@@ -1,20 +1,7 @@
 class VirtualUser < ActiveRecord::Base
-  has_many  :identities, :as => :identifiable
+  has_one  :identity, :as => :identifiable, :dependent => :destroy
 
-  validates :first_name, :presence => true
-  validates :last_name, :presence => true
-
-  validates_uniqueness_of :first_name, :scope => :last_name, :case_sensitive => false
-
-  def check_and_process_merge attributes
-    virtual_user = virtual_users_with_new_name attributes
-    if virtual_user.present? && virtual_user.id != self.id
-      merge_identities virtual_user
-      self.destroy
-    else
-      self.update_attributes attributes
-    end
-  end
+  include OurKudos::TwitterConnection
 
   def to_s
     return first_name if first_name == last_name
@@ -22,8 +9,7 @@ class VirtualUser < ActiveRecord::Base
   end
 
   def email
-    identity = self.identities.where(:identity_type => 'email').first
-    return false if identities.blank?
+    return nil unless identity.identity_type == 'email'
     identity.identity
   end
 
@@ -38,17 +24,11 @@ class VirtualUser < ActiveRecord::Base
     "#{first_name} #{last_name[0]}."
   end
 
-  def virtual_users_with_new_name attributes
-    VirtualUser.where(:first_name => attributes[:first_name], :last_name => attributes[:last_name])[0]
+  def update_from_twitter identity
+    user_info = get_user_info identity
+    self.update_attributes user_info unless user_info.blank?
+    return true
   end
-
-  def merge_identities existing_virtual_user
-    identities = self.identities
-    identities.each do |identity|
-      return false unless identity.update_attribute('identifiable_id', existing_virtual_user.id)
-    end
-  end
-
 
   #Class Methods
   class << self
@@ -125,11 +105,12 @@ class VirtualUser < ActiveRecord::Base
         unless virtual_user.blank?
           attributes = {:first_name => user[1][:first_name],
                         :last_name => user[1][:last_name] }
-          return false unless virtual_user.check_and_process_merge attributes
+          return false unless virtual_user.update_attributes attributes
         end
       end
       true
     end
+
 
   end
 

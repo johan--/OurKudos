@@ -52,6 +52,7 @@ class Identity < ActiveRecord::Base
   before_destroy :can_destroy?  
   after_save :save_confirmation,          :if => :needs_it?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
+  after_save :update_virtual_user, :if => :is_twitter?
 
   # ====================
   # = instance methods =
@@ -98,6 +99,11 @@ class Identity < ActiveRecord::Base
   
   def downcase_email_identity
   	self.identity = self.identity.downcase if self.identity.present? && self.identity_type == 'email'
+  end
+
+  def update_virtual_user
+    return true unless identifiable_type == 'VirtualUser'
+    return identifiable.update_from_twitter self.identity
   end
   # =================
   # = class methods =

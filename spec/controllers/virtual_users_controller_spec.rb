@@ -38,12 +38,6 @@ describe VirtualUsersController do
       Identity.find(@identity.id).identifiable_id.should eq(@virtual_user.id)
     end
 
-    it 'should remove the current new virtual user' do
-      lambda {
-        valid_params = {:first_name => "Walt", :last_name => "Disney"}
-        put :update, :id => @new_virtual_user.id, :virtual_user => valid_params
-      }.should change(VirtualUser, :count).by(-1)
-    end
 
   end
 
