@@ -23,7 +23,8 @@ module OurKudos
      module AddActsAsMergeable
           def acts_as_mergeable(options = {})
             belongs_to :user
-            scope :for,   ->(user) { where(:user_id => user.id) }
+            scope :for_auth,   ->(user) { where(:user_id => user.id) }
+            scope :for_identity,   ->(user) { where(:identifiable_id => user.id) }
 
             class_eval <<-END
               include OurKudos::Acts::Mergeable::InstanceMethods
@@ -45,7 +46,7 @@ module OurKudos
        end
 
        def change_owner_to new_user
-         self.update_attribute :user_id, new_user.id
+         self.update_attribute :identifiable_id, new_user.id
        end
 
 
