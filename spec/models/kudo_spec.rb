@@ -213,6 +213,19 @@ describe Kudo do
           end
         end
 
+        describe 'new_virtual_recipients' do
+
+          it 'should have a new virtual recipient on new email kudo' do
+            kudo = Factory(:kudo, :to => "awesome@email.com")
+            kudo.new_virtual_recipients.empty?.should be_false
+          end
+
+          it 'should not have a new virtual recipient on new twitter kudo' do
+            kudo = Factory(:kudo, :to => "@waltdisney")
+            kudo.new_virtual_recipients.empty?.should be_true
+          end
+        end
+
       end
 
     end

@@ -59,6 +59,26 @@ describe KudosController do
 
   end
 
+  describe 'sending to non members' do
+    before(:each) do 
+      @user = Factory(:user)
+      sign_in @user
+    end
+
+    describe 'email' do
+    
+      it 'should set last kudo in session' do
+        @valid_params = Factory.attributes_for(:kudo, :to => "mickey@mouse.com")
+        post :create, :kudo => @valid_params, :format => :html
+        Kudo.count.should eq(1)
+        kudo = Kudo.first
+        session[:last_kudo].should eq(kudo.id)
+      end
+
+    end
+
+  end
+
   describe "deleting a kudo" do
     before(:each) do 
       @user = Factory(:user)

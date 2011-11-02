@@ -428,7 +428,12 @@ class Kudo < ActiveRecord::Base
   end
 
   def new_virtual_recipients
-    self.virtual_recipients.where('first_name = last_name')
+    new_virtual_users = []
+    virtual_users = self.virtual_recipients.where('first_name = ? AND last_name = ?', '','')
+    virtual_users.each do |user|
+      new_virtual_users << user if user.identity.identity_type == 'email'
+    end
+    new_virtual_users
   end
 
   class << self
