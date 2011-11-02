@@ -180,7 +180,8 @@ class User < ActiveRecord::Base
 
   def remove_mergeables
     Merge.mergeables.each do |mergeable|
-      mergeable.for(self).destroy_all
+      mergeable.for_auth(self).destroy_all if mergeable == Authentication
+      mergeable.for_identity(self).destroy_all if mergeable == Identity
     end
   end
 
