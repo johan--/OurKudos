@@ -1,0 +1,10 @@
+= form_for virtual_merge, :url => virtual_merges_path, :method => :post do |f|
+  
+  = error_messages_for virtual_merge
+
+  %p= label_tag "merge-virtual-account", 'Unconfirmed Identity'
+  %p= text_field_tag :identity, params[:identity], :class => "string", :id => 'merge-virtual-account', :size => 30
+  %p
+    = f.submit "Merge unconfirmed account with my account"
+    = link_to t(:cancel), user_path(current_user), :class=>'action_link'
+

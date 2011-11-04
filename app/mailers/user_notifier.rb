@@ -12,8 +12,12 @@ class UserNotifier < ActionMailer::Base
     template      =  "#{confirmation.confirmable_klass_type}_confirmation"
     case type
       when :merge
-        @email      = confirmation.confirmable.identity.user.email
-        @first_name = confirmation.confirmable.identity.user.first_name
+        @email      = confirmation.confirmable.identity.identifiable.email
+        @first_name = confirmation.confirmable.identity.identifiable.first_name
+        subject     = I18n.t(:subject_confirm_your_identity_for_merge_process)
+      when :virtual_merge
+        @email      = confirmation.confirmable.identity.identifiable.email
+        @first_name = confirmation.confirmable.identity.identifiable.first_name
         subject     = I18n.t(:subject_confirm_your_identity_for_merge_process)
       when :identity
         identity = confirmation.confirmable
@@ -27,6 +31,7 @@ class UserNotifier < ActionMailer::Base
     end
 
     mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
+    #mail :to => @email, :subject => subject do |format|
       format.html { render template }
       format.text { render template }
     end

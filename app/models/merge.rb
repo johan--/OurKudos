@@ -14,7 +14,7 @@ class Merge < ActiveRecord::Base
   # ================
   validates :identity_id, :presence         => true
   validates :identity_id, :identity_primary => true
-  validates :password,    :presence         => true
+  validates :password,    :presence         => true, :unless => :virtual_merge?
   validates :password,    :merge_password   => true, :unless => ->(user) { user.password.blank? }
   # ================
   # == extensions ==
@@ -32,14 +32,16 @@ class Merge < ActiveRecord::Base
      Merge.transaction do
       self.merged.set_identities_as_destroyable
       Merge.mergeables.each do |model|
-          objects = self.merged.send model.to_s.underscore.pluralize
+          objects = self.merged.send model.to_s.underscore.pluralize 
           model.change_objects_owner_to objects, self.merger          
       end
-
-      self.merged.destroy
+      self.merged.destroy 
      end
    end
 
+  def virtual_merge?
+    false
+  end
 
   # =================
   # = class methods =

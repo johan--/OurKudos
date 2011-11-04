@@ -13,6 +13,9 @@ module OurKudos
       end
 
       def confirm!    
+        puts '-----'
+        puts 'confirm'
+        puts '-----'
         current_object.update_attribute :confirmed, true
       end
 

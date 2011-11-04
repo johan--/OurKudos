@@ -5,9 +5,9 @@ class ConfirmationsController < ApplicationController
     confirmation = Confirmation.find_by_key params[:id]
 
     confirmation.confirm!
-
     if confirmation.confirmed?
       sign_in :user, confirmation.confirmable.merger if merge_confirmation?
+      sign_in :user, confirmation.confirmable.merger if virtual_merge_confirmation?
       sign_in :user, confirmation.confirmable.user   if account_confirmation?
 
       redirect_to current_confirm_redirect_path(confirmation), :notice => I18n.t(:resource_confirmed, :resource => confirmation.confirmable_klass_type)
@@ -31,11 +31,17 @@ class ConfirmationsController < ApplicationController
           return user_path(confirmation.confirmable.user)
         when :merge
           merge_path(confirmation.confirmable)
+        when :virtual_merge
+          virtual_merge_path(confirmation.confirmable)
       end
     end
 
     def merge_confirmation?
       params[:merge] == "true" 
+    end
+
+    def virtual_merge_confirmation?
+      params[:virtual_merge] == "true" 
     end
 
     def account_confirmation?

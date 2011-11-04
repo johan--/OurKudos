@@ -53,11 +53,8 @@ module OurKudos
        module ClassMethods
 
           def change_objects_owner_to objects, new_user
-            objects.each {|object| object.change_owner_to new_user  }
+            objects.each {|object| object.change_owner_to new_user } 
           end
-
-     
-
          
        end
 
