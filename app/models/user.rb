@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many  :confirmations, :through => :identities, :source => :identifiable, 
             :source_type => "User"
   has_many  :merges, :foreign_key => :merged_by, :dependent => :destroy
+  has_many  :virtual_merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
   has_many :sent,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]

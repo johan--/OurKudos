@@ -13,7 +13,7 @@ describe Merge do
     Merge.should respond_to 'accounts'
 
     result = Merge.accounts new_user, identity
-    result.password = identity.user.password
+    result.password = identity.identifiable.password
     
     result.identity.stub!(:mergeable?).and_return(true)
     
@@ -28,7 +28,5 @@ describe Merge do
     result.valid?.should be_false
     result.save.should be_false    
   end
-
- 
 
 end

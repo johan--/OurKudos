@@ -1,0 +1,12 @@
+%h3= t :merge_your_accounts
+
+#merge-account-form-step-2
+ = form_for @merge, :url => virtual_merge_path(@merge), :method => :put do
+    
+  = error_messages_for @merge
+  %p= t(:about_to_merge_accounts, :first => @merge.identity.identity, :second => current_user.email)
+  .field
+   %p.explanation= t(:click_button_below_to_merge_your_accounts)
+
+  %p= submit_tag t(:merge_accounts)
+

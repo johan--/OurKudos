@@ -1,5 +1,5 @@
 class VirtualUser < ActiveRecord::Base
-  has_one  :identity, :as => :identifiable, :dependent => :destroy
+  has_one  :identity, :as => :identifiable
 
   include OurKudos::TwitterConnection
 
@@ -11,6 +11,10 @@ class VirtualUser < ActiveRecord::Base
   def email
     return nil unless identity.identity_type == 'email'
     identity.identity
+  end
+
+  def has_role?(role)
+    false
   end
 
   def virtual_name

@@ -18,4 +18,12 @@
       = f.submit t(:merge_my_current_account_with_this_account)
       = link_to t(:cancel), user_path(current_user), :class=>'action_link'
 
-  = render 'virtual_merges/form', :virtual_merge => @virtual_merge
+  = form_for @virtual_merge do |f|
+    
+    = error_messages_for @virtual_merge
+
+    %p= label_tag "merge-virtual-account", 'Unconfirmed Identity'
+    %p= text_field_tag :identity, params[:identity], :class => "string", :id => 'merge-virtual-account', :size => 30
+    %p
+      = f.submit "Merge unconfirmed account with my account"
+      = link_to t(:cancel), user_path(current_user), :class=>'action_link'
