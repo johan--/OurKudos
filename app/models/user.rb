@@ -81,6 +81,7 @@ class User < ActiveRecord::Base
   # ================
   before_validation :downcase_email
   before_save :add_role
+  after_save  :merge_virtual_user
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   after_save  :flag_abuse_notification
@@ -205,6 +206,21 @@ class User < ActiveRecord::Base
 
   def my_options_for_providers
    Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
+  end
+
+  def merge_virtual_user
+    return unless self.has_virtual_user?
+    self.virtual_user.merge(self) unless self.virtual_user.blank?
+  end
+
+  def virtual_user
+    virtual_user = Identity.find_by_identity(self.email).identifiable 
+    return virtual_user unless virtual_user.is_a?(User)
+    nil
+  end
+
+  def has_virtual_user?
+    Identity.find_by_identity(self.email).present? 
   end
 
   def save_identity

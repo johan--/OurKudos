@@ -37,7 +37,7 @@ class EmailValidator < ActiveModel::EachValidator
   end
 
   def search_identities_table email
-     Identity.where(:identity => email, :identity_type => "email")
+     Identity.where(:identity => email, :identity_type => "email", :identifiable_type => 'User')
   end
 
   def consider_invitation_email?(record)

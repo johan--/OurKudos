@@ -36,6 +36,14 @@ class VirtualUser < ActiveRecord::Base
     return true
   end
 
+  def merge user
+    identity_to_change = self.identity
+    identity_to_change.identifiable_id = user.id
+    identity_to_change.identifiable_type = user.class.to_s
+    identity_to_change.is_primary = true
+    identity_to_change.save
+  end
+
   #Class Methods
   class << self
     def process_new_kudo kudo
