@@ -9,14 +9,19 @@ class VirtualMergesController < ApplicationController
   end
 
   def create
-    @identity = Identity.find_by_identity params[:identity]
+    identity = params[:identity]
+    identity = identity[1..-1] if identity[0] == "@"
+    @identity = Identity.find_by_identity identity
 
     @merge = VirtualMerge.accounts current_user, @identity
     if @merge.save        
-       redirect_to new_merge_path, :notice => I18n.t(:merge_instructions_sent)
+      message = I18n.t(:merge_instructions_sent) if @identity.identity_type != 'twitter'
+      message = 'Your Twitter account has been merged' if @identity.identity_type = 'twitter'
+      redirect_to user_path(current_user), :notice => message
     else
-      #render :new
-      redirect_to new_merge_path
+      message = I18n.t(:please_authorize_with_twitter_before_adding) if @identity.identity_type = 'twitter'
+      message = 'There was a problem merging you account' if @identity.identity_type != 'twitter'
+       redirect_to new_merge_path, :alert => message
     end
   end
 
