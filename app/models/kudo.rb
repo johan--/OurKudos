@@ -85,7 +85,7 @@ class Kudo < ActiveRecord::Base
 
   def recipients_readable_list
     return to.gsub("'","") if to.present? && kudo_copies.size == 0
-    kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
+    kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.uniq.compact.sort.join(",")
   end
 
   def recipients_names_ids
@@ -97,7 +97,7 @@ class Kudo < ActiveRecord::Base
           [kc.copy_recipient, nil]
         end
       end
-    end.compact
+    end.uniq.compact
   end
 
   def author_as_recipient

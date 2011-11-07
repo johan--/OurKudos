@@ -1,16 +1,20 @@
 class VirtualUser < ActiveRecord::Base
   has_one  :identity, :as => :identifiable
 
+  # == Delegators ==
+  delegate :identity, :to => :identity, :prefix => true
+  delegate :identity_type, :to => :identity
+  # ================
   include OurKudos::TwitterConnection
 
   def to_s
-    return first_name if first_name == last_name
+    return identity_identity if first_name == last_name
     "#{first_name} #{last_name[0]}."
   end
 
   def email
-    return nil unless identity.identity_type == 'email'
-    identity.identity
+    return nil unless identity_type == 'email'
+    identity_identity
   end
 
   def has_role?(role)
@@ -19,12 +23,12 @@ class VirtualUser < ActiveRecord::Base
 
   def virtual_name
     if first_name.blank? 
-      if identity.identity_type == 'email'
-        return identity.identity.match(RegularExpressions.email_username)[0]
-      elsif identity.identity_type == 'twitter'
-        return "@#{identity.identity}" 
+      if identity_type == 'email'
+        return identity_identity.match(RegularExpressions.email_username)[0]
+      elsif identity_type == 'twitter'
+        return "@#{identity_identity}" 
       else
-        return identity.identity
+        return identity_identity
       end
     end
     "#{first_name} #{last_name[0]}."

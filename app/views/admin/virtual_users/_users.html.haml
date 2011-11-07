@@ -4,6 +4,8 @@
     /%th= sortable "first_name", "First Name"
     %th Last Name
     /%th= sortable 'last_name', "Last Name"
+    %th Identity
+    %th Identity Type
     %th Edit
     %th Remove
   %tbody
@@ -11,5 +13,7 @@
       %tr
         %td= link_to user.first_name, admin_virtual_user_path(user)
         %td= user.last_name
+        %td= user.identity_identity
+        %td= user.identity_type
         %td= link_to 'Edit', edit_admin_virtual_user_path(user)
         %td= link_to 'Delete', admin_virtual_user_path(user), :confirm => "Are you sure?"

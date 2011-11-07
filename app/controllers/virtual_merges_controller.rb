@@ -15,8 +15,8 @@ class VirtualMergesController < ApplicationController
 
     @merge = VirtualMerge.accounts current_user, @identity
     if @merge.save        
-      message = I18n.t(:merge_instructions_sent) if @identity.identity_type != 'twitter'
       message = 'Your Twitter account has been merged' if @identity.identity_type = 'twitter'
+      message = I18n.t(:merge_instructions_sent) if @identity.identity_type = 'email'
       redirect_to user_path(current_user), :notice => message
     else
       message = I18n.t(:please_authorize_with_twitter_before_adding) if @identity.identity_type = 'twitter'
