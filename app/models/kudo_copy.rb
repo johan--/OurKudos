@@ -19,15 +19,23 @@ class KudoCopy < ActiveRecord::Base
   scope :for_dashboard,  joins(:kudo).joins(:author).joins(left_joins_categories).joins(left_joins_comments)
 
 
+  #needs Refactoring
   def copy_recipient
     return if own_kudo?
     return if copy_recipient_is_author?
     #need check if recipient is deleted
     return self.recipient.virtual_name if recipient_type == 'VirtualUser' && recipient_id.present?
     return temporary_recipient.match(RegularExpressions.email_username)[0] if self.recipient_id.blank? && self.kudoable.is_a?(EmailKudo)
-    if self.recipient_id.present? && self.kudoable.is_a?(Kudo)
-      unless self.recipient.blank?
-        return self.recipient.secured_name  
+    if self.recipient_id.present? 
+      if self.kudoable.is_a?(Kudo)
+        unless self.recipient.blank?
+          return self.recipient.secured_name  
+        end
+      else
+  #this is needed because when an email kudo member joins, kudo is not converted
+        unless self.recipient.blank?
+          return self.recipient.secured_name  
+        end
       end
     end
     return facebook_friend_secured_name  if self.recipient_id.blank? && self.kudoable.is_a?(FacebookKudo)
