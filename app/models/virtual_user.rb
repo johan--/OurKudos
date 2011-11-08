@@ -48,6 +48,10 @@ class VirtualUser < ActiveRecord::Base
     identity_to_change.save
   end
 
+  def authentications
+    []
+  end
+
   #Class Methods
   class << self
     def process_new_kudo kudo

@@ -57,3 +57,6 @@ Given /^I don't have any authentications yet$/ do
  Authentication.destroy_all
 end
 
+When /^no one is logged in$/ do
+  visit('/users/sign_out')
+end

@@ -52,3 +52,53 @@ Scenario: User can merge its virtual email accounts
     And I should see "Merge your accounts"
     When I press "Merge my accounts"
     Then I should see "You have successfuly merged your accounts"
+
+
+Scenario: User attemping to merge twitter account not in system
+    Given I'm logged in as a user with:
+      | email                    | password     |
+      | currentuser@example.net  | secret pass1 |
+    And jobs are being dispatched
+    When I follow "My Account"
+    And I follow "Merge my accounts"
+    And I fill in "Unconfirmed Identity" with "example@example.com"
+    And I press "Merge unconfirmed account with my account"
+    Then I should see "There was a problem merging you account"
+
+Scenario: User attempting to merge twitter handle without authorizing twitter
+    Given I'm logged in as a user with:
+      | email                    | password     |
+      | currentuser@example.net  | secret pass1 |
+    And the following virtual users exists:
+      | first_name | last_name  | id |
+      | bob        | smith      | 1  |
+    And the following confirmed identities exists:
+      | identity  | identity_type | identifiable_id | identifiable_type | is_primary |
+     | @stevejobs | twitter       | 1               | VirtualUser       | false |
+    When I follow "My Account"
+    And I follow "Merge my accounts"
+    And I fill in "Unconfirmed Identity" with "@stevejobs"
+    And I press "Merge unconfirmed account with my account"
+    Then I should see "There was a problem merging you account"
+
+Scenario: User can join from existing virtual user
+  Given I'm logged in as a user with:
+    | email                    | password     |
+    | currentuser@example.net  | secret pass1 |
+  And jobs are being dispatched
+  When I go to the signed in users home page
+  And I fill in "kudo_message_textarea" with "Some message"
+  And I fill in "kudo_to" with "example@example.com"
+  And I press "Kudo_send_button" image button
+  #When I open the email with subject "[OurKudos] - Please confirm, that you are account owner"
+  And no one is logged in
+  Then I should have 1 email
+  When I open the email
+  When I follow "Reply to this message on OurKudos" in the email
+  And I fill in "Email" with "example@example.com"
+  And I fill in "First name" with "Steve"
+  And I fill in "Last name" with "Jobs"
+  And I fill in "Password" with "secret1"
+  And I fill in "postal code" with "54701"
+  And I press "Sign up"
+  Then I should see "You have successfuly merged your accounts"
