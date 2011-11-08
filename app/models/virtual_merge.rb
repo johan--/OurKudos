@@ -4,6 +4,7 @@ class VirtualMerge < ActiveRecord::Base
   belongs_to :identity
   has_one :confirmation, :as => :confirmable, :dependent => :destroy
 
+  validates :merged_by, :presence => true
   validates :identity_id, :virtual_twitter => true, :unless => :not_twitter?
   # ================
   # == extensions ==
@@ -29,11 +30,11 @@ class VirtualMerge < ActiveRecord::Base
       update_copies
       
       self.merged.destroy 
-      
      end
    end
 
    def not_twitter?
+     return true if self.identity.blank?
      self.identity.identity_type != 'twitter'
    end
 
