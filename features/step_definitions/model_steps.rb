@@ -37,6 +37,8 @@ Given /^jobs are being dispatched$/ do
     Delayed::Worker.new.work_off
 end
 
+
+
 #Given /^the following Kudo Categories exists:$/ do |table|
 #  table.hashes.each do |attributes|
 #    Factory :kudo_category, attributes
@@ -102,6 +104,10 @@ end
 
 When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
   attach_file(field, path)
+end
+
+When /^there are no pages yet$/ do
+  Page.destroy_all
 end
 
 Given /^user "([^"]*)" has a flagged kudo$/ do |user_id|

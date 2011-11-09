@@ -26,8 +26,11 @@ describe Friendship do
 
     context "an instance" do
       let(:friendship) do
-        Friendship.create(:user_id => Factory(:user).id, :friend_id => Factory(:other_user).id,
-                          :contacts_count => 0, :last_contacted_at => "1911-10-10") #old friendship :-))
+        Friendship.create(:user_id => Factory(:user).id, 
+                          :friendable_id => Factory(:other_user).id,
+                          :friendable_type => 'User',
+                          :contacts_count => 0, 
+                          :last_contacted_at => "1911-10-10") #old friendship :-))
       end
 
       it 'should updated its own statistics when called' do
