@@ -85,7 +85,11 @@ Scenario: User can join from existing virtual user
   Given I'm logged in as a user with:
     | email                    | password     |
     | currentuser@example.net  | secret pass1 |
+  And the following pages exists:
+    | slug             | 
+    | terms-of-service | 
   And jobs are being dispatched
+  And settings are seeded
   When I go to the signed in users home page
   And I fill in "kudo_message_textarea" with "Some message"
   And I fill in "kudo_to" with "example@example.com"
@@ -95,10 +99,11 @@ Scenario: User can join from existing virtual user
   Then I should have 1 email
   When I open the email
   When I follow "Reply to this message on OurKudos" in the email
+  And I go to the new user registration page
   And I fill in "Email" with "example@example.com"
   And I fill in "First name" with "Steve"
   And I fill in "Last name" with "Jobs"
-  And I fill in "Password" with "secret1"
-  And I fill in "postal code" with "54701"
-  And I press "Sign up"
+  And I fill in "signup_user_password" with "secret1"
+  And I fill in "user_postal_code" with "54701"
+  And I press "new_registration_submit_btn"
   Then I should see "You have successfuly merged your accounts"

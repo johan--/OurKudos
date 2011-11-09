@@ -83,7 +83,7 @@ class AutocompletesController < ApplicationController
     end
 
     def autocomplete_identities_for_user
-      friends = current_user.friendships.map{|f| f.friend}
+      friends = current_user.friendships.map{|f| f.friendable}
       friends_identities = friends.map{|f| f.identities}.flatten
       identities = []
       friends_identities.each do |i|

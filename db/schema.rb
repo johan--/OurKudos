@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111103212436) do
+ActiveRecord::Schema.define(:version => 20111108235538) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -140,15 +140,16 @@ ActiveRecord::Schema.define(:version => 20111103212436) do
   end
 
   create_table "friendships", :force => true do |t|
-    t.integer  "friend_id"
+    t.integer  "friendable_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_contacted_at"
     t.integer  "contacts_count",    :default => 0
+    t.string   "friendable_type"
   end
 
-  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
+  add_index "friendships", ["friendable_id"], :name => "index_friendships_on_friend_id"
   add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "gift_groups", :force => true do |t|

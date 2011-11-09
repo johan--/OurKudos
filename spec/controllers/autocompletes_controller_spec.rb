@@ -84,7 +84,9 @@ describe AutocompletesController do
                               :identity_type => "twitter")
       identity.save(:validate => false)
       @user = Factory(:user)
-      Factory(:friendship, :user_id => @user.id, :friend_id => @other_user.id)
+      Factory(:friendship, :user_id => @user.id,
+              :friendable_id => @other_user.id,
+              :friendable_type => 'User')
       sign_in @user
     end
 

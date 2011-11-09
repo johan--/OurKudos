@@ -14,6 +14,8 @@ module NavigationHelpers
       admin_site_path Site.last
     when /the last user detail page/
       admin_user_path(User.last)
+    when /the new user registraion page/
+      '/users/sign_up'
     when /the sign in users page/
       new_new_user_session_path
     when /admin area page/

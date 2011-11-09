@@ -32,8 +32,9 @@ class User < ActiveRecord::Base
   has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
   has_many :folders
 
-  has_many :friendships
-  has_many :friends,             :through    => :friendships
+  has_many :friendships, :foreign_key => 'user_id'
+  has_many :friends, :through => :friendships, :source => :friendable, 
+           :source_type => "User"
   has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friend_id"
   has_many :inverse_friends,     :through    => :inverse_friendships, :source      => :user
 
@@ -306,16 +307,17 @@ class User < ActiveRecord::Base
 
   def add_friend friend
     return false if is_my_friend? friend
-    friendships.create :friend_id => friend.id
+    Friendship.create :friendable => friend, :user => self
     true
   end
 
   def is_my_friend? friend
-     !(friendship_for friend).blank?
+    !(friendship_for friend).blank?
   end
 
   def friendship_for person
-    friendships.select {|f| f.friend == person }.first
+    friendships_hack = Friendship.where(:user_id => self.id)
+    friendships_hack.select {|f| f.friendable == person }.first
   end
 
   def any_email_kudos?
@@ -349,7 +351,7 @@ class User < ActiveRecord::Base
   end
 
   def destroy_friendships
-    Friendship.where(:friend_id => self.id).destroy_all
+    Friendship.where(:friendable_id => self.id, :friendable_type => 'User').destroy_all
   end
 
   def password_salt= password_salt

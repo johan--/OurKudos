@@ -87,7 +87,7 @@ end
 
 Factory.define :friendship do |fr|
   fr.user { Factory(:user)}
-  fr.friend { Factory(:other_user) }
+  fr.friendable { Factory(:other_user) }
   fr.last_contacted_at Time.now
   fr.contacts_count 0
 end
