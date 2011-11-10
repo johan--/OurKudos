@@ -36,7 +36,10 @@ class AutocompletesController < ApplicationController
     end
 
     def exact_identity search_term
+      puts '---' 
+      puts keyword
       identity = exact_confirmed_identity(keyword)
+      puts identity
       unless identity.blank?
         @exact_identity = [{ :id => identity.id, 
                             :name => (identity.is_twitter? ?
@@ -55,8 +58,13 @@ class AutocompletesController < ApplicationController
 
     def exact_confirmed_identity keyword
       identity = Identity.find_by_identity(keyword)
-      return nil if identity.nil? or identity.confirmed? == false
-      identity
+      puts identity.inspect
+      if identity.identifiable_type = 'VirtualUser'
+        return identity
+      else
+        return nil if identity.nil? or identity.confirmed? == false
+        return identity
+      end
     end
 
     def look_for_identities
