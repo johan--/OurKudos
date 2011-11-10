@@ -18,11 +18,11 @@ class CommentsModerationsController < ApplicationController
       unless @comment.blank?
         unless @comment.is_moderator?(current_user)
           sign_out :user
-          redirect_to new_user_session_path(:user => {:email => email}), :notice => "Please sign in as #{email}"
+          redirect_to new_user_session_path(:user => {:email => email}), :notice => t(:please_sign_in_as, :email => email)
         end
       else
         sign_out :user
-        redirect_to root_path(:user => {:email => email}), :notice => "This comment has been already removed from system"
+        redirect_to root_path(:user => {:email => email}), :notice => t(:comment_has_been_removed)
       end
   end
 
@@ -57,7 +57,7 @@ class CommentsModerationsController < ApplicationController
     end
 
     def go_home
-      redirect_to home_path, :notice => "This comment has been already removed from system"
+      redirect_to home_path, :notice => t(:comment_has_been_removed)
     end
 
 

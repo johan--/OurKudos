@@ -12,10 +12,10 @@ class OauthController < ApplicationController
 
    def access_token
       site = Site.authenticate params[:client_id], params[:client_secret]
-      render :json => {:error => "Could not find application"} and return if site.blank?
+      render :json => {:error => t(:could_not_find_application)} and return if site.blank?
 
       permission = Permission.authenticate params[:code], site.id
-      render :json => {:error => "Could not authenticate access code"} and return if permission.blank?
+      render :json => {:error => t(:could_not_authenticate_access_code)} and return if permission.blank?
 
 
       permission.start_expiry_period!
