@@ -13,11 +13,11 @@ class Friendship < ActiveRecord::Base
   class << self
 
       def process_friendships_between person, friend
+        puts 'called for virtual'
         person.add_friend(friend) #if false means already on contact list
         friendship = person.friendship_for friend
         friendship.update_friendship_statistics
       end
-
 
   end
 

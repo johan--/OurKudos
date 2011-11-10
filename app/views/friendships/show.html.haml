@@ -11,7 +11,7 @@
     %tbody
       - for friendship in current_user.friendships do
         %tr
-          %td= friendship.friend.email rescue "(deleted)"
+          %td= friendship.friendable.email rescue "(deleted)"
           %td= friendship.contacts_count.to_i
           %td= time_ago_in_words(friendship.last_contacted_at) + " #{t(:ago)}"
 
