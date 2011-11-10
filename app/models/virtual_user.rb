@@ -1,5 +1,8 @@
 class VirtualUser < ActiveRecord::Base
   has_one  :identity, :as => :identifiable
+  has_many :friendships, :foreign_key => 'user_id', :dependent => :destroy
+  has_many :friends, :through => :friendships, :source => :friendable, 
+           :source_type => "VirtualUser"
 
   # == Delegators ==
   delegate :identity, :to => :identity, :prefix => true
@@ -19,6 +22,10 @@ class VirtualUser < ActiveRecord::Base
 
   def has_role?(role)
     false
+  end
+
+  def identities
+    [identity]  
   end
 
   def virtual_name
@@ -75,6 +82,7 @@ class VirtualUser < ActiveRecord::Base
       recipients_to_replace = []
       recipients.each do |recipient|
         user = create_virtual_user recipient
+        create_friendship user, kudo.author
         new_identity = create_identity recipient, user
         recipients_to_replace << new_identity
       end
@@ -97,6 +105,10 @@ class VirtualUser < ActiveRecord::Base
       identity.save(:validate => false)
       update_kudo_copies identity
       identity
+    end
+
+    def create_friendship user, author
+      Friendship.process_friendships_between author, user
     end
 
     def update_kudo kudo, identities

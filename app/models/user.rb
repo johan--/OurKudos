@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   has_many :friendships, :foreign_key => 'user_id'
   has_many :friends, :through => :friendships, :source => :friendable, 
            :source_type => "User"
-  has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friend_id"
+  has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friendable_id", :conditions => 'friendable_type = User'
   has_many :inverse_friends,     :through    => :inverse_friendships, :source      => :user
 
   has_many :facebook_friends

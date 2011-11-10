@@ -10,8 +10,9 @@ class KudoCopyObserver < ActiveRecord::Observer
         friendships = Friendship.where(:user_id => user.id,
                                        :friendable_id => record.recipient.id,
                                        :friendable_type => record.recipient.class.to_s).first
+        #this is duplicating logic in the send_system_kudo method
         #friendships = user.friendships.find_by_friend_id(record.recipient.id)
-        friendships.update_friendship_statistics unless user.friendships.blank?
+        #friendships.update_friendship_statistics unless user.friendships.blank?
       end
     end
   end

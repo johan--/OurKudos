@@ -7,6 +7,50 @@ describe Friendship do
       @future_friend = Factory(:other_user)
     end
 
+  describe "creating a friendship via a kudo" do
+    before(:each) do 
+      User.all.each {|user| user.friendships.destroy_all }
+      @user          = Factory(:user)
+      @future_friend = Factory(:other_user)
+    end
+
+    it 'should respond to add friend' do
+      @user.add_friend(@future_friend)
+      @user.friendships.should_not be_blank
+      @user.friendships.count.should eq(1)
+      friendship = @user.friendship_for @future_friend
+      friendship.update_friendship_statistics
+      friendship.should be_an_instance_of(Friendship)
+      friendship.contacts_count.should == 1
+    end
+
+    it "should create the friendship relationship" do 
+      @user.friendships.should be_blank
+      @user.friends.should be_blank
+
+      Factory(:kudo,  :author => @user, 
+                      :to => @future_friend.identities.first.id.to_s)
+
+      @user.friendships.should_not be_blank
+
+      friendship = @user.friendships.first
+      friendship.should be_an_instance_of(Friendship)
+      friendship.contacts_count.should == 1
+
+    end
+
+    it 'should create the friendship for a virtual user' do
+      Factory(:kudo,  :author => @user, 
+                      :to => 'not@real.com')
+      @user.friendships.should_not be_blank
+
+      friendship = @user.friendships.first
+      friendship.should be_an_instance_of(Friendship)
+      friendship.contacts_count.should == 1
+    end
+
+  end
+
   context "class" do
 
     it 'should be able to process friendships between two users' do
