@@ -56,7 +56,7 @@ $(document).ready(function(){
     var kudo_key  = $("p.data-key").attr('id');
 
     if (message.length == 0) {
-        alert("If you want to reply to this kudo, please enter a message.");
+        alert("<%= t(:if_you_want_to_reply_to_this_kudo) %>");
         return false;
     } else {
 

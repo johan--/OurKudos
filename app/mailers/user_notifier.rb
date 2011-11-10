@@ -77,12 +77,12 @@ class UserNotifier < ActionMailer::Base
 
   def flag_abuse user
     @author = user
-    mail :to => @author.email, :subject => "[OurKudos] - Administrator warning"
+    mail :to => @author.email, :subject => t(:email_subject_administrator_warning)
   end
 
   def you_are_banned user
     @user = user
-    mail :to => @user.email, :subject => "[OurKudos] - You have been banned from OurKudos"
+    mail :to => @user.email, :subject => t(:email_subject_you_have_been_banned)
   end
 
   def receive email
@@ -95,13 +95,13 @@ class UserNotifier < ActionMailer::Base
     @user = username
     @ip = ip
     @user_agent = user_agent
-    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => "Failed Login bad #{subject}"
+    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => t(:email_subject_failed_login, :subject => subject)
   end
 
   def login_failure_notify_user(user, ip_address)
     @user = user
     @ip_address = ip_address
-    mail :to => @user.email, :subject => "Failed Login Attempt at OurKudos"
+    mail :to => @user.email, :subject => t(:email_subject_failed_login_attempt)
   end
 
 end
