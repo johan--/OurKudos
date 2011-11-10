@@ -56,7 +56,7 @@ $(document).ready(function(){
     var kudo_key  = $("p.data-key").attr('id');
 
     if (message.length == 0) {
-        alert("<%= t(:if_you_want_to_reply_to_this_kudo) %>");
+        alert("<%= I18n.t(:if_you_want_to_reply_to_this_kudo) %>");
         return false;
     } else {
 
