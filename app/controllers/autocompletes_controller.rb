@@ -10,7 +10,7 @@ class AutocompletesController < ApplicationController
       when 'recipients'
         look_for_identities_and_facebook_friends
       when 'exact'
-        @items = exact_identity(params[:term])
+        @items = exact_identity(params[:q])
       else
         @items  = []
     end
@@ -26,7 +26,16 @@ class AutocompletesController < ApplicationController
   private
 
     def confirmed_identities search_term, limit
-      Identity.confirmed_for_user(search_term, current_user).order(:identity).limit(limit)
+      Identity.confirmed_for_user(search_term, current_user)
+    end
+
+    def virtual_identities search_term, limit
+      Identity.virtual_for_user(search_term, current_user)
+    end
+
+    def combined_identities search_term, limit
+      identities = confirmed_identities(search_term, limit) + virtual_identities(search_term, limit)
+      identities.uniq.first(10).sort_by(&:identity)
     end
 
     def look_for_friends
@@ -36,17 +45,9 @@ class AutocompletesController < ApplicationController
     end
 
     def exact_identity search_term
-      puts '---' 
-      puts keyword
-      identity = exact_confirmed_identity(keyword)
-      puts identity
+      identity = exact_confirmed_identity(search_term)
       unless identity.blank?
-        @exact_identity = [{ :id => identity.id, 
-                            :name => (identity.is_twitter? ?
-              "#{identity.user.to_s} (Twitter: @#{identity.identity})" :
-              "#{identity.user.to_s} (Email)")}]
-              #"[#{identity.user.to_s}] @#{identity.identity}" :
-              #"[#{identity.user.to_s}] #{identity.identity}")}]
+        @exact_identity = identity.autocomplete_name
       else
         new_term = params[:q].gsub("@fb_","")
         friend = FacebookFriend.find_by_facebook_id(new_term)
@@ -56,22 +57,24 @@ class AutocompletesController < ApplicationController
       @exact_identity
     end
 
-    def exact_confirmed_identity keyword
-      identity = Identity.find_by_identity(keyword)
-      puts identity.inspect
-      if identity.identifiable_type = 'VirtualUser'
+    def exact_confirmed_identity search_term 
+      search_for = search_term.gsub RegularExpressions.twitter, ''
+      identity = Identity.find_by_identity(search_for) 
+      return nil if identity.blank?
+      if identity.identifiable_type == 'VirtualUser'
         return identity
       else
-        return nil if identity.nil? or identity.confirmed? == false
+        #return nil if identity.confirmed? == false
         return identity
       end
+      return identity
     end
 
     def look_for_identities
-       identities = confirmed_identities(keyword, 10).map do |identity|
+       identities = combined_identities(keyword, 10).map do |identity|
           { :id => identity.id, :name => (identity.is_twitter? ?
-              "#{identity.user.to_s} (Twitter: @#{identity.identity})" :
-              "#{identity.user.to_s} (Email)")}
+              "#{identity.identifiable.to_s} (Twitter: @#{identity.identity})" :
+              "#{identity.identifiable.to_s} (Email)")}
        end
       return [] if identities.blank?
       identities

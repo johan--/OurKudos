@@ -32,6 +32,11 @@ class Identity < ActiveRecord::Base
                                                        where("lower(identity) LIKE lower(?) OR lower(users.first_name)  \
                                                               LIKE lower(?) OR lower(users.last_name) LIKE lower(?) OR lower(users.company_name) LIKE lower(?)",
                                                               "%#{search_term}%", "#{search_term}%", "#{search_term}%", "#{search_term}%") }
+
+  scope :virtual_for_user, ->(search_term, user) {  where("identifiable_id <> ?", user.id).
+                                                    where("identifiable_type = ?", "VirtualUser") 
+                                                     where("lower(identity) LIKE lower(?)", "#{search_term}%")}
+
   scope :exact_twitter_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
                                                        where("identifiable_id <> ?", user.id).
                                                        where(:confirmations => {:confirmed => true}).
@@ -99,6 +104,12 @@ class Identity < ActiveRecord::Base
   
   def downcase_email_identity
   	self.identity = self.identity.downcase if self.identity.present? && self.identity_type == 'email'
+  end
+
+  def autocomplete_name
+    [{ :id => id, :name => (is_twitter? ?
+          "#{identifiable.to_s} (Twitter: @#{identity})" :
+          "#{identifiable.to_s} (Email)")}]
   end
 
   def update_virtual_user

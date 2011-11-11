@@ -13,8 +13,9 @@ describe AutocompletesController do
   describe "Exact recipients" do
     before(:each) do 
       @other_user = Factory(:user) 
-      identity = Identity.new(:identifiable => @other_user,
+      identity = Identity.new(:identifiable_id => @other_user,
                               :identity => "itweet", 
+                              :identifiable_type => 'User',
                               :identity_type => "twitter")
       identity.save(:validate => false)
     end
