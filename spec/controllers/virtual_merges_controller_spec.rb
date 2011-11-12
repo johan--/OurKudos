@@ -39,7 +39,6 @@ describe VirtualMergesController do
     describe 'twitter identity' do
       before(:each) do 
         #need to stub twitter connect
-        #If you wan't to add this identity please make sure you have authorized your account with twitter first (by clicking on twitter icon), only valid twitter identites are allowed
         @identity = Identity.new(:identifiable => @virtual_user,
                                  :identity => 'notreal',
                                  :identity_type => 'twitter')
@@ -47,17 +46,16 @@ describe VirtualMergesController do
         @valid_params = {:identity => '@notreal'}
       end
 
-      it 'should create a virtual merge' do
+      it 'should not create a virtual merge if not twitter authorized' do
         lambda{
           post :create,  @valid_params 
-        }.should change(VirtualMerge, :count).by(1)
+        }.should_not change(VirtualMerge, :count)
       end
 
-      it 'should set the flash for twitter identity' do
+      it 'should tell user they need to add twitter account' do
         post :create,  @valid_params 
         response.should be_redirect
-        puts assigns[:merge].errors.inspect
-        flash[:notice].should eq('Message has been sent. For further instructions, please check email address associated with your merge account')
+        flash[:alert].should eq("If you wan't to add this identity please make sure you have authorized your account with twitter first (by clicking on twitter icon), only valid twitter identites are allowed")
       end
     end
     
