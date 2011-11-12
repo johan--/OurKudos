@@ -10,9 +10,9 @@ class ConfirmationsController < ApplicationController
       sign_in :user, confirmation.confirmable.merger if virtual_merge_confirmation?
       sign_in :user, confirmation.confirmable.user   if account_confirmation?
 
-      redirect_to current_confirm_redirect_path(confirmation), :notice => I18n.t(:resource_confirmed, :resource => confirmation.confirmable_klass_type)
+      redirect_to current_confirm_redirect_path(confirmation), :notice => I18n.t(:resource_confirmed, :resource => set_resource(confirmation.confirmable_klass_type))
     else
-      redirect_to root_path, :alert => I18n.t(:unable_to_confirm_resource, :resource => confirmation.confirmable_klass_type)
+      redirect_to root_path, :alert => I18n.t(:unable_to_confirm_resource, :resource => set_resource(confirmation.confirmable_klass_type))
     end
   end
 
@@ -76,6 +76,10 @@ class ConfirmationsController < ApplicationController
       end
     end
 
+    def set_resource resource
+      return resource unless resource == 'virtual_merge'
+      'merge'
+    end
 
 
 end
