@@ -23,6 +23,9 @@ class VirtualUser < ActiveRecord::Base
     "#{first_name} #{last_name[0]}."
   end
 
+  def secured_name
+    self.to_s
+  end
   def email
     return nil unless identity_type == 'email'
     identity_identity

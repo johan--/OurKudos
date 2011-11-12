@@ -61,7 +61,7 @@ class VirtualMerge < ActiveRecord::Base
       friendships.each do |friendship_to_update|
         existing_friendships = current_friendship
         if existing_friendships.any?
-          existing_friendship.first.update_friendship_statistics
+          existing_friendships.first.update_friendship_statistics
           friendship_to_update.destroy
         else
           friendship_to_update.friendable_id = self.merger.id
@@ -77,6 +77,7 @@ class VirtualMerge < ActiveRecord::Base
     end
 
     def save_twitter_confirmation!
+      debugger
       update_identity = self.run!
       return false if update_identity == false
       create_confirmation( :confirmable_type  => self.identity.class.name,
