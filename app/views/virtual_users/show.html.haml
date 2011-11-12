@@ -1,0 +1,12 @@
+#member_profile_cont
+  .contentarea_cont
+    %h2 Member Profile
+    %p
+      %span.datalabel Name:
+      %span.datavalue= @virtual_user.secured_name
+    .clearing
+    
+  .contentarea_cont
+    %h2 Recent Kudos
+    - for kudo in @kudos do
+      = render :partial => "kudos/home_page_kudo", :locals => {:kudo => kudo}
