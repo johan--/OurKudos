@@ -1,9 +1,12 @@
 class VirtualUser < ActiveRecord::Base
+  # == Relationships ==
   has_one  :identity, :as => :identifiable
   has_many :friendships, :foreign_key => 'user_id', :dependent => :destroy
   has_many :friends, :through => :friendships, :source => :friendable, 
            :source_type => "VirtualUser"
 
+  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
+  # ================
   # == Delegators ==
   delegate :identity, :to => :identity, :prefix => true
   delegate :identity_type, :to => :identity
@@ -83,6 +86,11 @@ class VirtualUser < ActiveRecord::Base
 
   def authentications
     []
+  end
+
+  def received_kudos
+    received.for_dashboard.
+            select("distinct kudo_copies.*, kudos.*").group VirtualUser.grouping_order
   end
 
   #Class Methods

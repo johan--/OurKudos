@@ -22,7 +22,8 @@
    %p.recipients_cont
     %span.greater_than &gt;&gt;
     %span.receiver
-     = recipients_profiles kudo.recipients_names_ids
+     /= recipients_profiles kudo.recipients_names_ids
+     = recipients_profiles kudo.recipients_names_links
     
    %p.sharescope_date
     %span.category= "[#{kudo.category}]"

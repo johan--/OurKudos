@@ -11,7 +11,7 @@ class VirtualMergesController < ApplicationController
   def create
     identity = params[:identity]
     identity = identity[1..-1] if identity[0] == "@"
-    @identity = Identity.find_by_identity identity
+    @identity = Identity.find_by_identity identity.downcase
     type = ''
     unless @identity.blank?
       type = @identity.identity_type

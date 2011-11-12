@@ -100,6 +100,20 @@ class Kudo < ActiveRecord::Base
     end.uniq.compact
   end
 
+  def recipients_names_links
+    kudo_copies.with_recipients.map do |kc|
+      unless kc.copy_recipient_is_author?
+        if kc.recipient_id && kc.recipient_type == "User"
+          [kc.copy_recipient, "/users/#{kc.recipient_id}/profile"]
+        elsif kc.recipient_id && kc.recipient_type == "VirtualUser"
+          [kc.copy_recipient, "/virtual_users/#{kc.recipient_id}"]
+        else
+          [kc.copy_recipient, nil]
+        end
+      end
+    end.uniq.compact
+  end
+
   def author_as_recipient
     @author_as_recipient ||= recipients_list.select do |recipient|
      author.identities_ids.include?(recipient.to_i) ||
