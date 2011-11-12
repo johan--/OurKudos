@@ -98,7 +98,9 @@ class AutocompletesController < ApplicationController
       friends_identities = friends.map{|f| f.identities}.flatten
       identities = []
       friends_identities.each do |i|
-        if i.identifiable_type == 'VirtualUser'
+        if i.identifiable_type == 'VirtualUser' && i.identity_type == 'twitter'
+          identities << ["#{i.identifiable.to_s}", "@#{i.identity}"]
+        elsif i.identifiable_type == 'VirtualUser' && i.identity_type == 'email'
           identities << ["#{i.identifiable.to_s}", "#{i.identity}"]
         elsif i.identity_type == 'twitter'
           identities << ["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
