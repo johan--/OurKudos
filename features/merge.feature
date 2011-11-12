@@ -107,3 +107,6 @@ Scenario: User can join from existing virtual user
   And I fill in "user_postal_code" with "54701"
   And I press "new_registration_submit_btn"
   Then I should see "You have successfuly merged your accounts"
+
+  Scenario:
+

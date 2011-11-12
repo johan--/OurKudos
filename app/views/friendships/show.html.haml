@@ -6,12 +6,14 @@
   %table.type1
     %thead
       %th= t :user_friend
+      %th= 'Type'
       %th= t :contacts_count
       %th= t :last_contacted_at
     %tbody
       - for friendship in current_user.friendships do
         %tr
           %td= friendship.friendable.email rescue "(deleted)"
+          %td= friendship.friendable_type
           %td= friendship.contacts_count.to_i
           %td= time_ago_in_words(friendship.last_contacted_at) + " #{t(:ago)}"
 
