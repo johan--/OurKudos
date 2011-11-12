@@ -59,10 +59,21 @@ class VirtualMerge < ActiveRecord::Base
       friendships = Friendship.where(:friendable_id => self.merged.id,
                                      :friendable_type => self.merged.class.to_s)
       friendships.each do |friendship_to_update|
-        friendship_to_update.friendable_id = self.merger.id
-        friendship_to_update.friendable_type = 'User'
-        friendship_to_update.save(:validate => false)
+        existing_friendships = current_friendship
+        if existing_friendships.any?
+          existing_friendship.first.update_friendship_statistics
+          friendship_to_update.destroy
+        else
+          friendship_to_update.friendable_id = self.merger.id
+          friendship_to_update.friendable_type = 'User'
+          friendship_to_update.save(:validate => false)
+        end
       end
+    end
+
+    def current_friendship
+      Friendship.where(:friendable_id => self.merger.id,
+                       :friendable_type => 'User')
     end
 
     def save_twitter_confirmation!
