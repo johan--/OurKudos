@@ -1,7 +1,13 @@
 class VirtualUsersController < ApplicationController
-  before_filter :authenticate_user!
-  layout 'registered'
+  before_filter :authenticate_user!, :except => [:show]
+  layout :choose_layout
   
+  def show
+    @virtual_user = VirtualUser.find params[:id]
+    @kudos = @virtual_user.send("received_kudos")
+    @kudos.sort! { |a,b| b.updated_at <=> a.updated_at }
+  end
+
   def update
     @virtual_user = VirtualUser.find params[:id]
     if @virtual_user.update_attributes(params[:virtual_user])
