@@ -30,8 +30,8 @@ class UserNotifier < ActionMailer::Base
         subject  =  I18n.t('devise.mailer.confirmation_instructions.subject')
     end
 
-    mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
-    #mail :to => @email, :subject => subject do |format|
+    #mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
+    mail :to => @email, :subject => subject do |format|
       format.html { render template }
       format.text { render template }
     end
@@ -84,12 +84,12 @@ class UserNotifier < ActionMailer::Base
 
   def flag_abuse user
     @author = user
-    mail :to => @author.email, :subject => t(:email_subject_administrator_warning)
+    mail :to => @author.email, :subject => "[OurKudos] - Administrator warning"
   end
 
   def you_are_banned user
     @user = user
-    mail :to => @user.email, :subject => t(:email_subject_you_have_been_banned)
+    mail :to => @user.email, :subject => "[OurKudos] - You have been banned from OurKudos"
   end
 
   def receive email
@@ -102,13 +102,13 @@ class UserNotifier < ActionMailer::Base
     @user = username
     @ip = ip
     @user_agent = user_agent
-    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => t(:email_subject_failed_login, :subject => subject)
+    #mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => "Failed Login bad #{subject}"
   end
 
   def login_failure_notify_user(user, ip_address)
     @user = user
     @ip_address = ip_address
-    mail :to => @user.email, :subject => t(:email_subject_failed_login_attempt)
+    mail :to => @user.email, :subject => "Failed Login Attempt at OurKudos"
   end
 
 end

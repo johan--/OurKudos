@@ -31,9 +31,10 @@ describe Friendship do
       Factory(:kudo,  :author => @user, 
                       :to => @future_friend.identities.first.id.to_s)
 
-      @user.friendships.should_not be_blank
+      user = User.find(@user.id)
+      user.friendships.should_not be_blank
 
-      friendship = @user.friendships.first
+      friendship = user.friendships.first
       friendship.should be_an_instance_of(Friendship)
       friendship.contacts_count.should == 1
 
@@ -61,9 +62,10 @@ describe Friendship do
 
       Friendship.process_friendships_between @user, @future_friend
 
-      @user.friendships.should_not be_blank
+      user = User.find(@user.id)
+      user.friendships.should_not be_blank
 
-      friendship = @user.friendships.first
+      friendship = user.friendships.first
       friendship.should be_an_instance_of(Friendship)
       friendship.contacts_count.should == 1
     end

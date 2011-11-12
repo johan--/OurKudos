@@ -5,14 +5,15 @@ class VirtualMerge < ActiveRecord::Base
   has_one :confirmation, :as => :confirmable, :dependent => :destroy
 
   validates :merged_by, :presence => true
-  validates :identity_id, :virtual_twitter => true, :unless => :not_twitter?
+  validates :identity_id, :virtual_twitter => true, :if => :is_twitter?
   # ================
   # == extensions ==
   # ================
 
   #before_save :check_twitter_auth, :unless => :not_twitter?
-  after_save :save_confirmation, :if => :not_twitter?
-  after_save :save_twitter_confirmation!, :unless => :not_twitter?
+  after_save :save_confirmation, :unless => :is_twitter?
+  after_save :save_twitter_confirmation!, :if => :is_twitter?
+  after_save :update_friendships
   include OurKudos::Confirmable
   # ======================
   # == instance methods ==
@@ -28,6 +29,8 @@ class VirtualMerge < ActiveRecord::Base
       identity_to_update.confirmation.confirm!
 
       update_copies
+
+      update_friendships
       
       self.merged.destroy 
      end
@@ -38,12 +41,27 @@ class VirtualMerge < ActiveRecord::Base
      self.identity.identity_type != 'twitter'
    end
 
+   def is_twitter?
+     return false if self.identity.blank?
+     self.identity.identity_type == 'twitter'
+   end
+
     def update_copies
       kudo_copies = KudoCopy.where(:recipient_id => self.merged.id,
                                    :recipient_type => self.merged.class.to_s)
       kudo_copies.each do |copy|
         copy.update_attributes(:recipient_id => self.merger.id,
                                :recipient_type => self.merger.class.to_s)
+      end
+    end
+
+    def update_friendships
+      friendships = Friendship.where(:friendable_id => self.merged.id,
+                                     :friendable_type => self.merged.class.to_s)
+      friendships.each do |friendship_to_update|
+        friendship_to_update.friendable_id = self.merger.id
+        friendship_to_update.friendable_type = 'User'
+        friendship_to_update.save(:validate => false)
       end
     end
 

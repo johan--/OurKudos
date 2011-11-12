@@ -11,7 +11,15 @@ class VirtualUser < ActiveRecord::Base
   include OurKudos::TwitterConnection
 
   def to_s
-    return identity_identity if first_name == last_name
+    if first_name.blank? 
+      if identity_type == 'email'
+        return identity_identity.match(RegularExpressions.email_username)[0]
+      elsif identity_type == 'twitter'
+        return "@#{identity_identity}" 
+      else
+        return identity_identity
+      end
+    end
     "#{first_name} #{last_name[0]}."
   end
 

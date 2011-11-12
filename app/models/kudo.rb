@@ -183,18 +183,12 @@ class Kudo < ActiveRecord::Base
       send_twitter_kudo author.twitter_auth.nickname, 'mention'
     end
 		
-    puts '-----------------'
-    puts 'kudo recipients list'
-    puts recipients_list
     recipients_list.each do |id|
 
       identity   = Identity.find(id.to_i) rescue nil
       recipient  = identity.identifiable rescue nil
-      puts 'kudo'
-      puts self.inspect
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
-         puts 'prepare copies --recipients'
          send_system_kudo(recipient) 
 
        elsif recipient.blank? && id =~ RegularExpressions.email
