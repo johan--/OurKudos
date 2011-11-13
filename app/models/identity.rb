@@ -119,6 +119,7 @@ class Identity < ActiveRecord::Base
   end
 
   def update_virtual_user
+    return true unless identity_type == 'twitter'
     return true unless identifiable_type == 'VirtualUser'
     return identifiable.update_from_twitter self.identity
   end
