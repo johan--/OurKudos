@@ -123,7 +123,7 @@ class Identity < ActiveRecord::Base
     return true unless identifiable_type == 'VirtualUser'
     return identifiable.update_from_twitter self.identity
   end
-  handle_asynchronously :update_virtual_user
+  #handle_asynchronously :update_virtual_user
 
 
   # =================
@@ -163,7 +163,9 @@ class Identity < ActiveRecord::Base
   end
   
   def self.update_display_identity(user, new_display_identity)
-    old = Identity.where(:display_identity => true, :identifiable_id => user.id, :identifiable_id => user.class.to_s).first
+    old = Identity.where(:display_identity => true, :identifiable_id => user.id, :identifiable_type => 'User').first
+    #epic_fail
+    return false if old.blank?
     return false unless old.update_attribute('display_identity', false)
     new = Identity.find(new_display_identity)
     return false unless new.update_attribute('display_identity', true)
