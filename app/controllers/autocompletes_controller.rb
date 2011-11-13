@@ -26,9 +26,6 @@ class AutocompletesController < ApplicationController
   private
 
     def confirmed_identities search_term, limit
-      puts '-------------'
-      puts "|#{search_term}|"
-      puts '-------------'
       unless search_term.blank?
         Identity.confirmed_for_user(search_term, current_user)
       else
@@ -50,8 +47,8 @@ class AutocompletesController < ApplicationController
     end
 
     def look_for_friends
-      unless keyword.blank?
-        FacebookFriend.friends_by_name_for_user(keyword, current_user).map do |friend|
+      unless params[:q].blank?
+        FacebookFriend.friends_by_name_for_user(params[:q], current_user).map do |friend|
             {:id => "fb_#{friend.facebook_id}", :name => "#{friend.name} (Facebook)"}
         end 
        else
