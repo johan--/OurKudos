@@ -30,8 +30,8 @@ class UserNotifier < ActionMailer::Base
         subject  =  I18n.t('devise.mailer.confirmation_instructions.subject')
     end
 
-    #mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
-    mail :to => @email, :subject => subject do |format|
+    mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
+    #mail :to => @email, :subject => subject do |format|
       format.html { render template }
       format.text { render template }
     end

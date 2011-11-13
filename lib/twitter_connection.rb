@@ -30,7 +30,7 @@ module OurKudos
 
      def post_twitter_kudo message
         begin
-          #result = twitter_user.update message
+          result = twitter_user.update message
           result.is_a?(Hashie::Rash)
           true
         rescue Errno, Exception => e
@@ -42,7 +42,7 @@ module OurKudos
 
     def direct_message_to user, kudo
       begin
-        #twitter_user.direct_message_create user, kudo.body
+        twitter_user.direct_message_create user, kudo.body
         true
        rescue Errno, Exception => e
           Rails.logger.info "SOCIAL_POSTING: Failed to post twitter direct message #{e.to_s}"
