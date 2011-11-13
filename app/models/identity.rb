@@ -123,8 +123,7 @@ class Identity < ActiveRecord::Base
     return true unless identifiable_type == 'VirtualUser'
     return identifiable.update_from_twitter self.identity
   end
-  #handle_asynchronously :update_virtual_user
-
+  handle_asynchronously :update_virtual_user
 
   # =================
   # = class methods =
