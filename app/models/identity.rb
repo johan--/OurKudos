@@ -27,14 +27,20 @@ class Identity < ActiveRecord::Base
   scope :emails,   where(:identity_type => "email")
   scope :twitters, where(:identity_type => "twitter")
   scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins('INNER JOIN users ON users.id = identities.identifiable_id').
-                                                       where("identifiable_id <> ?", user.id).
+                                                       where("identifiable_id <> ? AND identity_type <> ?", user.id, 'twitter').
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) LIKE lower(?) OR lower(users.first_name)  \
                                                               LIKE lower(?) OR lower(users.last_name) LIKE lower(?) OR lower(users.company_name) LIKE lower(?)",
                                                               "%#{search_term}%", "#{search_term}%", "#{search_term}%", "#{search_term}%") }
 
+  scope :twitter_for_user, ->(search_term, user) { joins(:confirmation).
+                                                       where("identifiable_id <> ?", user.id).
+                                                       where("identity_type = ?",'twitter').
+                                                       where("lower(identity) LIKE lower(?)", "#{search_term}%").
+                                                       where(:confirmations => {:confirmed => true})}
+
   scope :virtual_for_user, ->(search_term, user) {  where("identifiable_id <> ?", user.id).
-                                                    where("identifiable_type = ?", "VirtualUser") 
+                                                    where("identifiable_type = ?", "VirtualUser").
                                                      where("lower(identity) LIKE lower(?)", "#{search_term}%")}
 
   scope :exact_twitter_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
