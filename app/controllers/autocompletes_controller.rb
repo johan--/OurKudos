@@ -26,7 +26,18 @@ class AutocompletesController < ApplicationController
   private
 
     def confirmed_identities search_term, limit
-      Identity.confirmed_for_user(search_term, current_user)
+      puts '-------------'
+      puts "|#{search_term}|"
+      puts '-------------'
+      unless search_term.blank?
+        Identity.confirmed_for_user(search_term, current_user)
+      else
+        []
+      end
+    end
+
+    def twitter_identities search_term, limit
+      Identity.twitter_for_user(search_term, current_user)
     end
 
     def virtual_identities search_term, limit
@@ -34,14 +45,18 @@ class AutocompletesController < ApplicationController
     end
 
     def combined_identities search_term, limit
-      identities = confirmed_identities(search_term, limit) + virtual_identities(search_term, limit)
+      identities = confirmed_identities(search_term, limit) + virtual_identities(search_term, limit) + twitter_identities(search_term, limit)
       identities.uniq.first(10).sort_by(&:identity)
     end
 
     def look_for_friends
-      FacebookFriend.friends_by_name_for_user(keyword, current_user).map do |friend|
-          {:id => "fb_#{friend.facebook_id}", :name => "#{friend.name} (Facebook)"}
-        end
+      unless keyword.blank?
+        FacebookFriend.friends_by_name_for_user(keyword, current_user).map do |friend|
+            {:id => "fb_#{friend.facebook_id}", :name => "#{friend.name} (Facebook)"}
+        end 
+       else
+         []
+       end
     end
 
     def exact_identity search_term
