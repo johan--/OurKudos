@@ -6,9 +6,10 @@
     %p
       = t(:dear_user, :user => @first_name).html_safe
       %br/
-      Thanks for signing up for OurKudos.com. All you have to do now is click the link below to confirm that you own this email account. 
-
-    %p Please confirm your registration by clicking on the link below.:
-
-    %p= link_to t(:confirm_my_account), confirmation_url(:id => @confirmation.key, :account => @account)
-
+      Welcome to OurKudos!
+      %br/
+      Please click 
+      = succeed ' ' do
+        = link_to 'HERE', confirmation_url(:id => @confirmation.key, :account => @account)
+      to confirm your email.
+    %p= image_tag 'ourkudos_mailbag_logo.gif'
