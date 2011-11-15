@@ -44,6 +44,11 @@
    = f.label :share_scope, 'Recipient only'
 
    = hidden_field_tag "author_id", current_user.id
+   
+   %p
+    = check_box_tag :add_card, 'true'
+    = label_tag :add_card, "Add e-card", :id => "add_ecard"
+    
  #kudo_send_submit_region
   %span#social_share_choices
    = f.label :social_sharing, t(:kudo_share_on)
