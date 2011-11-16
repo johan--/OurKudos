@@ -18,7 +18,7 @@ class HomeController < ApplicationController
   
   def home
     @kudo    = Kudo.new
-
+    @attachments = Attachment.where(:active => true)
     unless params[:kudos]=="searchterms"
       get_kudos
     else
