@@ -1,0 +1,51 @@
+#gift_select_slider
+  %h3
+    OurKudos Gift Catalog -
+    %span{:id => "group_name"}
+      All
+
+  %a{:href => "/gifts/?gift_group=0", :name => 0, :title => "All"}
+    All
+  - @gift_groups.each do |group|
+    %a{:href => "/gifts/?gift_group=#{group.id}", :name => group.id, :title => group.name}
+      = group.name
+  %div{:class => 'clearing'}
+#gift_list_noscript
+  #no_script_groups
+    %h3
+      OurKudos Gift Catalog
+      = @group_name
+    %a{:href => "/gifts/?gift_group=0"}
+      All
+    - @gift_groups.each do |group|
+      %a{:href => "/gifts/?gift_group=#{group.id}"}
+        = group.name
+    %div{:class => 'clearing'}
+#carousel
+  %div{:class => 'infiniteCarousel'}
+    %div{:class => 'wrapper'}
+      %ul{:style => "width: #{@width}px;"}
+        -@gifts.each do |gift|
+          %li
+            %p
+              %a{:href => "/gifts/#{gift.id}", :name => gift.id}
+                %span{:class => 'carousel_img'}
+                  = image_tag(gift.image.url(:thumb), :name => gift.id)
+                %br
+                = truncate(gift.name, :length => 20)
+                %br
+                = number_to_currency gift.price
+
+#pages
+  %p
+    Page
+    %span{:id => 'current_page'}
+    of
+    %span{:id => 'total_pages'}
+
+%div{:class => 'clear'}
+#gift_info
+  %h3{:class => 'featured_gift'}
+    Featured Gift
+  = render 'gift_info', :gift => @featured_gift
+
