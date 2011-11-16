@@ -1,4 +1,4 @@
-%h3= t(:card)
+%h3= t(:cards)
 %p
   = link_to t(:add_card), new_admin_attachment_path, :class => 'action_link'
   = link_to image_tag('add.png'), new_admin_attachment_path
@@ -7,7 +7,6 @@
     %thead
       %tr
         %th Name
-        %th Description
         %th Active
         %th Edit
         %th Remove
@@ -16,7 +15,6 @@
       - @attachments.each do |attachment|
         %tr
           %td= link_to attachment.name, admin_attachment_path(attachment.id), :class => "bold_link"
-          %td= truncate(attachment.description, :size => 30)
           %td= attachment.active ? "Active" : "Inactive"
           %td= link_to t(:edit), edit_admin_attachment_path(attachment)
           %td= link_to t(:remove), admin_attachment_path(attachment), :method => :delete, :confirm => I18n.t(:are_you_sure)

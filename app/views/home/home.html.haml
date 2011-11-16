@@ -14,6 +14,8 @@
 
 #kudo_ecard_cont
   / this will be refactored into a partial view when controllers and models are setup
+  %h2
+    Select a card
   #carousel
     %div{:class => 'infiniteCarousel'}
       %div{:class => 'wrapper'}
@@ -21,11 +23,15 @@
           -@attachments.each do |attachment|
             %li
               %p
-                %a{:href => "/cards/#{attachment.id}", :name => attachment.id}
+                %a{:href => "/", :name => attachment.id}
                   %span{:class => 'carousel_img'}
                     = image_tag(attachment.attachment.url(:thumb), :name => attachment.id)
                   %br
                   = truncate(attachment.name, :length => 20)
+                  %br
+                  %br
+                %a{:href => "/cards/#{attachment.to_param}", 'data-attachment_id' => attachment.id, 'data-link_type' => 'preview', :target => "_blank"}
+                  (preview)
 
   #pages
     %p
