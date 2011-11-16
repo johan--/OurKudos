@@ -40,7 +40,7 @@ jQuery(function($) {
 
 //display gift info in gift_info div
 jQuery(document).ready(function(){
-  $(".wrapper a").live('click', function(event) {
+  $("#gifting_img_slider .wrapper a").live('click', function(event) {
     var gift_id = $(this).attr('name');
     jQuery.ajax({
         type: 'GET',

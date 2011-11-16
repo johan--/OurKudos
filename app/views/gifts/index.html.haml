@@ -21,27 +21,28 @@
       %a{:href => "/gifts/?gift_group=#{group.id}"}
         = group.name
     %div{:class => 'clearing'}
-#carousel
-  %div{:class => 'infiniteCarousel'}
-    %div{:class => 'wrapper'}
-      %ul{:style => "width: #{@width}px;"}
-        -@gifts.each do |gift|
-          %li
-            %p
-              %a{:href => "/gifts/#{gift.id}", :name => gift.id}
-                %span{:class => 'carousel_img'}
-                  = image_tag(gift.image.url(:thumb), :name => gift.id)
-                %br
-                = truncate(gift.name, :length => 20)
-                %br
-                = number_to_currency gift.price
+#gifting_img_slider
+  #carousel
+    %div{:class => 'infiniteCarousel'}
+      %div{:class => 'wrapper'}
+        %ul{:style => "width: #{@width}px;"}
+          -@gifts.each do |gift|
+            %li
+              %p
+                %a{:href => "/gifts/#{gift.id}", :name => gift.id}
+                  %span{:class => 'carousel_img'}
+                    = image_tag(gift.image.url(:thumb), :name => gift.id)
+                  %br
+                  = truncate(gift.name, :length => 20)
+                  %br
+                  = number_to_currency gift.price
 
-#pages
-  %p
-    Page
-    %span{:id => 'current_page'}
-    of
-    %span{:id => 'total_pages'}
+  #pages
+    %p
+      Page
+      %span{:id => 'current_page'}
+      of
+      %span{:id => 'total_pages'}
 
 %div{:class => 'clear'}
 #gift_info
