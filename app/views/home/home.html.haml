@@ -14,5 +14,26 @@
 
 #kudo_ecard_cont
   / this will be refactored into a partial view when controllers and models are setup
+  #carousel
+    %div{:class => 'infiniteCarousel'}
+      %div{:class => 'wrapper'}
+        %ul
+          -@attachments.each do |attachment|
+            %li
+              %p
+                %a{:href => "/cards/#{attachment.id}", :name => attachment.id}
+                  %span{:class => 'carousel_img'}
+                    = image_tag(attachment.attachment.url(:thumb), :name => attachment.id)
+                  %br
+                  = truncate(attachment.name, :length => 20)
+
+  #pages
+    %p
+      Page
+      %span{:id => 'current_page'}
+      of
+      %span{:id => 'total_pages'}
+
+%div{:class => 'clear'}
 
 = render :partial => "home/dashboard"

@@ -28,3 +28,4 @@
 //= require autocomplete_plugin
 //= require autocomplete
 //= require cursor
+//= require attachments
