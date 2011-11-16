@@ -27,8 +27,9 @@ class UserNotifier < ActionMailer::Base
     end
 
     mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
-      format.html { render template }
+      
       format.text { render template }
+      format.html { render template }
     end
     
   end
