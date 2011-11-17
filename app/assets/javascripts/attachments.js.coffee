@@ -22,3 +22,5 @@ $(document).ready ->
     $("#kudo_attachment_id").val(attachment_id)
     $("#kudo_ecard_cont").slideUp(400)
     false
+  $("#add_card").click ->
+    $("#kudo_ecard_cont").slideToggle(400)
