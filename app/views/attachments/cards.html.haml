@@ -1,0 +1,26 @@
+%h2
+  Select a card
+#carousel
+  %div{:class => 'infiniteCarousel'}
+    %div{:class => 'wrapper'}
+      %ul
+        -@attachments.each do |attachment|
+          %li
+            %p
+              %a{:href => "/", :name => attachment.id}
+                %span{:class => 'carousel_img'}
+                  = image_tag(attachment.attachment.url(:thumb), :name => attachment.id)
+                %br
+                = truncate(attachment.name, :length => 20)
+                %br
+                %br
+              %a{:href => "/cards/#{attachment.to_param}", 'data-attachment_id' => attachment.id, 'data-link_type' => 'preview', :target => "_blank"}
+                (preview)
+
+#pages
+  %p
+    Page
+    %span{:id => 'current_page'}
+    of
+    %span{:id => 'total_pages'}
+

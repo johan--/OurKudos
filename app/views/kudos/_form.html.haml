@@ -42,6 +42,7 @@
 
    = f.radio_button :share_scope, 'recipient', :class => "share-scope"
    = f.label :share_scope, 'Recipient only'
+   = f.hidden_field :attachment_id, :value => nil
 
    = hidden_field_tag "author_id", current_user.id
    

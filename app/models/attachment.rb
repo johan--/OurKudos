@@ -4,6 +4,7 @@ class Attachment < ActiveRecord::Base
   validates_attachment_presence :attachment
   validates_attachment_size :attachment, :less_than => 5.megabytes
   validates :name, :uniqueness => true
+  belongs_to :kudo
 
     
   def to_param

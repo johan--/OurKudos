@@ -1,6 +1,7 @@
 class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
+  has_one :attachment
 
   has_many  :kudo_copies, :dependent => :destroy do
 
@@ -18,7 +19,7 @@ class Kudo < ActiveRecord::Base
 
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id,
-                   :updated_at
+                   :updated_at, :attachment_id
 
   before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
