@@ -87,7 +87,7 @@ h3.featured_gift{
   /*display: none; */
   width: 722px;
   margin: 0 auto;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 .infiniteCarousel {
   width: 723px;
@@ -115,6 +115,12 @@ h3.featured_gift{
   background: #fff;
   text-align: center;
   height: 200px;
+}
+.infiniteCarousel ul p:hover {
+  cursor: pointer;
+}
+.infiniteCarousel ul p.selected {
+  border: 5px solid rgba(15,235,10, 1);
 }
 
 .infiniteCarousel .wrapper ul {
@@ -195,6 +201,7 @@ span.carousel_img a img{
   display: none;
   text-align: center;
   font-weight:bold;
+  margin-top: 0;
 }
 
 #gift_col_one {
@@ -245,3 +252,9 @@ p.mechant_description {
   border-top: 1px solid #ADADAD;
 }
 
+#card_message{
+  display: none;
+  p {
+    text-align: center;
+  }
+}

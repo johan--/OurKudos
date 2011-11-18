@@ -7,16 +7,12 @@
         %ul
           -@attachments.each do |attachment|
             %li
-              %p
-                %a{:href => "/", :name => attachment.id}
-                  %span{:class => 'carousel_img'}
-                    = image_tag(attachment.attachment.url(:thumb), :data => {:attachment_id => attachment.id})
-                  %br
-                  = truncate(attachment.name, :length => 20)
-                  %br
-                  %br
-                %a{:href => "/cards/#{attachment.to_param}", :data => {:attachment_id => attachment.id, :link_type => 'preview'}, :target => "_blank"}
-                  (preview)
+              %p{:name => attachment.id, :class => 'card_link'}
+                %span{:class => 'carousel_img'}
+                  = image_tag(attachment.attachment.url(:thumb), :data => {:attachment_id => attachment.id})
+                %br
+                = truncate(attachment.name, :length => 20)
+                %br
 
   #pages
     %p
@@ -24,4 +20,6 @@
       %span{:id => 'current_page'}
       of
       %span{:id => 'total_pages'}
-
+  #card_message
+    %p
+      E-card added. Click 'Send' and your card and Kudos will be sent!
