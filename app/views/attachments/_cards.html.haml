@@ -1,6 +1,7 @@
 %h2
   Select a card
-#cards_img_slider
+#card_img_slider
+  = render 'shared/big_spinner' 
   #carousel
     %div{:class => 'infiniteCarousel'}
       %div{:class => 'wrapper'}
@@ -9,10 +10,7 @@
             %li
               %p{:name => attachment.id, :class => 'card_link'}
                 %span{:class => 'carousel_img'}
-                  = image_tag(attachment.attachment.url(:thumb), :data => {:attachment_id => attachment.id})
-                %br
-                = truncate(attachment.name, :length => 20)
-                %br
+                  = image_tag(attachment.attachment.url(:standard), :data => {:attachment_id => attachment.id})
 
   #pages
     %p

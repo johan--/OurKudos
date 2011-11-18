@@ -60,7 +60,7 @@ jQuery(document).ready(function(){
   $('#gift_list_noscript').hide();
   $('#gift_select_slider').show();
   $('.infiniteCarousel .wrapper ul').css({'width' : '9999px'});
-  $('.infiniteCarousel .wrapper').css({'min-height' : '230px'});
+  $('#gifting_img_slider .infiniteCarousel .wrapper').css({'min-height' : '230px'});
   $('#pages p').show();
 //  $('.infiniteCarousel ul li').css({'height' : '85px'})
   $('.infiniteCarousel').infiniteCarousel();
