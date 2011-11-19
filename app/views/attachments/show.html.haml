@@ -1,1 +1,5 @@
+- content_for(:title) { "OurKudos #{@attachment.name}" }
+- content_for(:meta_description) { "OurKudos #{@attachment.name}" }
+- content_for(:metaog_url) { card_url(@attachment.id) }
+- content_for(:metaog_title) { "OurKudos Cards - #{@attachment.name}" }
 = render 'attachment_info', :attachment => @attachment

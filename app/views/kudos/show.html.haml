@@ -3,6 +3,9 @@
 - content_for(:metaog_url) { kudo_url(@kudo.id) }
 - content_for(:metaog_title) { open_graphic_title @kudo }
 
+- unless @kudo.attachment.blank?
+  #kudo_card
+    = image_tag @kudo.attachment.attachment
 = render 'home_page_kudo', :kudo => @kudo
 
 - unless current_user

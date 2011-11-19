@@ -1,8 +1,7 @@
 class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
-  has_one :attachment
-
+  belongs_to :attachment
   has_many  :kudo_copies, :dependent => :destroy do
 
     def with_recipients
