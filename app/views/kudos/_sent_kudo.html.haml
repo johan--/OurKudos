@@ -35,6 +35,11 @@
     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
     
+   .clearing
+   - unless kudo.attachment.blank?
+    .kudo_body_attachment
+     %p
+      = link_to image_tag(kudo.attachment.attachment(:thumb)), card_url(kudo.attachment.id)
    .kudo_body_text= simple_format(kudo.body)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}

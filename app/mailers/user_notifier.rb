@@ -39,6 +39,9 @@ class UserNotifier < ActionMailer::Base
     @author = email_kudo.kudo.author.first_name
     @kudo   = email_kudo
     @host   = host
+    unless @kudo.kudo.kudo.attachment.blank?
+      attachments[@kudo.kudo.kudo.attachment.attachment_file_name] = File.read("#{@kudo.kudo.kudo.attachment.file_path}")
+    end
     mail :to => @email, :subject => "#{@author} #{I18n.t(:new_kudo_in_your_inbox)}"
   end
 
@@ -46,6 +49,9 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo_copy
     @recipient = kudo_copy.recipient
     @host      = host
+    unless @kudo.kudo.attachment.blank?
+      attachments[@kudo.kudo.attachment.attachment_file_name] = File.read("#{@kudo.kudo.attachment.file_path}")
+    end
     if @recipient.messaging_preference.system_kudo_email?
       mail :to => @recipient.email, :subject => "#{@kudo.kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
     end
@@ -55,6 +61,9 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo
     @recipient = recipient
     @host      = host
+    unless @kudo.kudo.attachment.blank?
+      attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
+    end
     if @recipient.messaging_preference.system_kudo_email?
       mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
     end
