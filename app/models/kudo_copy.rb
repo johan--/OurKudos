@@ -68,6 +68,9 @@ class KudoCopy < ActiveRecord::Base
     false
   end
 
+  def attachment
+    kudo.attachment
+  end
   class << self
 
    def move_invitation_kudos_to user
