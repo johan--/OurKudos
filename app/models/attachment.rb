@@ -14,8 +14,17 @@ class Attachment < ActiveRecord::Base
   def file_path
     "#{Rails.root}/public/system/attachments/#{id}/original/#{attachment_file_name}"
   end
+  def image_path
+    "http://#{site_root}/system/attachments/#{id}/original/#{attachment_file_name}"
+  end
 
   def kudo_link
     "http://www.rkudos.com/cards/#{self.id}"
+  end
+
+  def site_root
+    return 'localhost:3000' if Rails.env.development?
+    return 'rkudos.com' if Rails.env.staging?
+    return 'ourkudos.com' if Rails.env.production?
   end
 end

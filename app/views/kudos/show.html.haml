@@ -2,8 +2,11 @@
 - content_for(:meta_description) { "OurKudos #{@kudo.body}" }
 - content_for(:metaog_url) { kudo_url(@kudo.id) }
 - content_for(:metaog_title) { open_graphic_title @kudo }
+- unless @kudo.attachment.blank?
+  - content_for (:og_image) { @kudo.attachment.image_path}
 
-= render 'home_page_kudo', :kudo => @kudo
+#showpage_kudos_cont
+  = render 'show_page_kudo', :kudo => @kudo
 - unless @kudo.attachment.blank?
   #kudo_card
     = image_tag @kudo.attachment.attachment
