@@ -39,7 +39,7 @@
    - unless kudo.attachment.blank?
     .kudo_body_attachment
      %p
-      = link_to image_tag(kudo.attachment.attachment(:thumb)), kudo_url(kudo.id), :target => "_blank"
+      = link_to image_tag(kudo.attachment.attachment(:thumb)), kudo_url(kudo.id)
    .kudo_body_text= simple_format(kudo.body)
 
    .popup_placeholder{:id => "flag_popup_placeholder_#{kudo.id}"}

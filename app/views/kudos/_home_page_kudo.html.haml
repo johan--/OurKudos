@@ -27,7 +27,7 @@
     - unless kudo.attachment.blank?
       .kudo_body_attachment
         %p
-          = link_to image_tag(kudo.attachment.attachment(:thumb)), kudo_url(kudo.id), :target => "_blank"
+          = link_to image_tag(kudo.attachment.attachment(:thumb)), kudo_url(kudo.id)
     .kudo_body_text= simple_format(truncate_kudo_text(kudo.body))
     .clearing
 
