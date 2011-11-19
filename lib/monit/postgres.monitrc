@@ -1,4 +1,4 @@
-check process postgresql with pidfile /var/lib/postgresql/9.0/postmaster.pid
+check process postgresql with pidfile /var/lib/postgresql/9.0/main/postmaster.pid
     group database
     start program = "/etc/init.d/postgresql start"
     stop  program = "/etc/init.d/postgresql stop"
