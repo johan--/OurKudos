@@ -18,10 +18,13 @@ module OurKudos
    def post_facebook_kudo kudo
      list = clean_readable_list(kudo.recipients_readable_list)
      message = kudo.body
-     message = "\nShared with: #{list}"
+     unless kudo.attachment_id.blank?
+       message += attachment_link kudo
+     end
+     message += "\nShared with: #{list}"
      begin
       result = facebook_user.feed!(:message    => message,
-                                   :link       => "http://#{base_url}/kudos/#{kudo.id}",
+                                   :link       => "http://rkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
       result.is_a?(FbGraph::Post)
@@ -33,10 +36,13 @@ module OurKudos
 
    def post_to_friends_wall friend, kudo
      message = kudo.body
+     unless kudo.attachment_id.blank?
+       message += attachment_link kudo
+     end
      begin
        fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
        result =    fb_friend.feed!(:message    => message,
-                                   :link       => "http://#{base_url}/kudos/#{kudo.id}",
+                                   :link       => "http://rkudos.com/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
                                    :description => "It's all good!")
         result.is_a?(FbGraph::Post)
@@ -64,13 +70,7 @@ module OurKudos
     end
 
     def attachment_link kudo
-      "\nwww.#{base_url}/cards/#{kudo.attachment.id}"
-    end
-
-    def base_url
-      return 'localhost:3000' if Rails.env.development?
-      return 'rkudos.com' if Rails.env.staging?
-      return 'ourkudos.com' if Rails.env.production?
+      "\nwww.rkudos.com/cards/#{kudo.attachment.id}"
     end
   end
 end
