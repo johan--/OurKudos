@@ -24,7 +24,7 @@ module OurKudos
      message = "\nShared with: #{list}"
      begin
       result = facebook_user.feed!(:message    => message,
-                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://#{base_url}/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
       result.is_a?(FbGraph::Post)
@@ -42,7 +42,7 @@ module OurKudos
      begin
        fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
        result =    fb_friend.feed!(:message    => message,
-                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://#{base_url}/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
                                    :description => "It's all good!")
         result.is_a?(FbGraph::Post)
@@ -70,7 +70,13 @@ module OurKudos
     end
 
     def attachment_link kudo
-      "\nwww.rkudos.com/cards/#{kudo.attachment.id}"
+      "\nwww.#{base_url}/cards/#{kudo.attachment.id}"
+    end
+
+    def base_url
+      return 'localhost:3000' if Rails.env.development?
+      return 'rkudos.com' if Rails.env.staging?
+      return 'ourkudos.com' if Rails.env.production?
     end
   end
 end

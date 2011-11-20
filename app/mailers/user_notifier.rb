@@ -61,7 +61,7 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo
     @recipient = recipient
     @host      = host
-    unless @kudo.kudo.attachment.blank?
+    unless @kudo.attachment.blank?
       attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
     end
     if @recipient.messaging_preference.system_kudo_email?
@@ -105,13 +105,15 @@ class UserNotifier < ActionMailer::Base
     @user = username
     @ip = ip
     @user_agent = user_agent
-    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => t(:email_subject_failed_login, :subject => subject)
+    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => t(:email_subject_failed_login, :subject => subject) if Rails.env.production?
+
   end
 
   def login_failure_notify_user(user, ip_address)
     @user = user
     @ip_address = ip_address
-    mail :to => @user.email, :subject => t(:email_subject_failed_login_attempt)
+    mail :to => @user.email, :subject => t(:email_subject_failed_login_attempt) if Rails.env.production?
+
   end
 
 end
