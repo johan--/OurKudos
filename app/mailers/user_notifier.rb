@@ -61,7 +61,7 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo
     @recipient = recipient
     @host      = host
-    unless @kudo.kudo.attachment.blank?
+    unless @kudo.attachment.blank?
       attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
     end
     if @recipient.messaging_preference.system_kudo_email?
