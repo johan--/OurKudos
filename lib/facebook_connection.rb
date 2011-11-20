@@ -21,7 +21,7 @@ module OurKudos
      message += "\nShared with: #{list}"
      begin
       result = facebook_user.feed!(:message    => message,
-                                   :link       => "http://ourrkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://rkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
                                    :description => "It's all good!")
       result.is_a?(FbGraph::Post)
@@ -36,7 +36,7 @@ module OurKudos
      begin
        fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
        result =    fb_friend.feed!(:message    => message,
-                                   :link       => "http://ourkudos.com/kudos/#{kudo.id}",
+                                   :link       => "http://rkudos.com/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
                                    :description => "It's all good!")
         result.is_a?(FbGraph::Post)
