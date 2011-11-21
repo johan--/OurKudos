@@ -23,6 +23,7 @@ module OurKudos
       result = facebook_user.feed!(:message    => message,
                                    :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name       => 'OurKudos',
+                                   :source		 => "http://www.facebook.com/ourkudos",
                                    :description => "It's all good!")
       result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
@@ -38,6 +39,7 @@ module OurKudos
        result =    fb_friend.feed!(:message    => message,
                                    :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
+                                   :source		 => "http://www.facebook.com/ourkudos",
                                    :description => "It's all good!")
         result.is_a?(FbGraph::Post)
      rescue Errno, Exception => e
