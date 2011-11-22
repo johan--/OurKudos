@@ -11,7 +11,6 @@ Feature: Flagged Kudos administration
     When I go to admin area page
     And I follow "Flagged kudos"
     And I should see "user1"
-    Then show me the page
-    And I select "Suspend User" from "action"
-    And I press "Go"
-    Then I should see "user1 has been suspended"
+    And I select "Suspend User" from "action_select_2"
+    And I press "Perform Actions"
+    Then I should see "Your Flag Actions Have Been Performed"

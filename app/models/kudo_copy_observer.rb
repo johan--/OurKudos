@@ -6,7 +6,9 @@ class KudoCopyObserver < ActiveRecord::Observer
     elsif record.kudoable.is_a?(Kudo)
       UserNotifier.delay.system_kudo record
       user = record.author
-      user.friendships.find_by_friend_id(record.recipient.id).update_friendship_statistics
+      unless user.friendships.blank?
+        user.friendships.find_by_friend_id(record.recipient.id).update_friendship_statistics
+      end
     end
   end
 
