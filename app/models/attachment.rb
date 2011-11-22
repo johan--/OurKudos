@@ -8,7 +8,7 @@ class Attachment < ActiveRecord::Base
   has_many :kudos
 
   def to_param
-    "#{self.id}-#{self.name.underscore.gsub(" ",'-')}"
+    "#{self.id}-#{self.name.underscore.gsub('.','').gsub(" ",'-')}"
   end
 
   def file_path
