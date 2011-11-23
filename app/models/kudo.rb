@@ -20,6 +20,7 @@ class Kudo < ActiveRecord::Base
                    :facebook_sharing, :twitter_sharing, :kudo_category_id,
                    :updated_at, :attachment_id
 
+  after_validation :handle_post_recipient
   before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
   #after_create :save_non_members
@@ -74,6 +75,10 @@ class Kudo < ActiveRecord::Base
   },:using => { :tsearch => { :prefix => true }}
 
 
+
+  def handle_post_recipient
+    self.to = author.primary_identity.id.to_s if to.blank?
+  end
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -185,6 +190,7 @@ class Kudo < ActiveRecord::Base
     kudo_copies
   end
 
+
   def has_no_facebook_recipient? 
     identity   = Identity.find(id.to_i) rescue nil
     recipient  = identity.user rescue nil
@@ -208,6 +214,7 @@ class Kudo < ActiveRecord::Base
     return true
   end
 
+  #Send Kudo Copy Methods
   def send_system_kudo recipient
       kudo_copies.build :recipient_id => recipient.id,
                         :author_id    => author.id,

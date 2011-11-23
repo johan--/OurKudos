@@ -18,7 +18,7 @@ class KudoCopy < ActiveRecord::Base
 
 
   def copy_recipient
-    return if own_kudo?
+    return "Post" if own_kudo?
     return if copy_recipient_is_author?
     #need check if recipient is deleted
     return temporary_recipient.match(RegularExpressions.email_username)[0] if self.recipient_id.blank? && self.kudoable.is_a?(EmailKudo)
