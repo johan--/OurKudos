@@ -224,8 +224,10 @@ class Kudo < ActiveRecord::Base
 
       self.system_kudos_recipients_cache << recipient.id
 
+    if  recipient != author 
       Friendship.process_friendships_between author, recipient
       Friendship.process_friendships_between recipient, author
+    end
   end
 
   def send_email_kudo recipient
