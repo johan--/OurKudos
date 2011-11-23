@@ -36,7 +36,7 @@ class TwitterKudo < ActiveRecord::Base
   def send_system_email
     identity = Identity.where('identity = ? AND identity_type = ?', twitter_handle, 'twitter').first
     return false if identity.blank? 
-    return false if identity.user.id == author_id
+    return false if identity.user.id == kudo.author_id
     member  = identity.user
     UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
   end
