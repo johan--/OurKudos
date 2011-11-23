@@ -1,0 +1,3 @@
+%h3= t(:add_card)
+= form_for @attachment, :url => admin_attachments_path, :method => :post, :html => {:multipart => true} do |f|
+  = render 'form', :f => f

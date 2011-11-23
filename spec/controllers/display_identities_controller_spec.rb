@@ -11,7 +11,10 @@ describe DisplayIdentitiesController do
 
   describe "editing an identity with valid params" do
     before(:each) do 
-      @identity = mock_model(Identity, :user_id => @user.id, :update_attributes => true)
+      @identity = mock_model(Identity, 
+                             :user_id => @user.id,
+                             :identity_type => 'email',
+                             :update_attributes => true)
       subject.current_user.identities.stub!(:find).with("1").and_return(@identity)
     end
 
@@ -21,7 +24,8 @@ describe DisplayIdentitiesController do
 
     it "assigns the current users identities @identity" do
       get :edit, :id => @user.id
-      assigns(:identities).should eq(@user.identities)
+      assigns(:identities).first.user_id.should eq(@identity.user_id)
+      assigns(:identities).first.identity_type.should eq(@identity.identity_type)
     end
 
     it "should have a flash notice" do
@@ -33,7 +37,7 @@ describe DisplayIdentitiesController do
     it "should have a successful flash notice" do
       Identity.stub!(:update_display_identity).and_return(true)
       put :update, :id => @user.id, :display_identity => 1
-      flash[:notice].should eql('Display Account Updated!')
+      flash[:notice].should eq('Display Account Updated!')
     end
 
     it "should redirect to the identities show page" do

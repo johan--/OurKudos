@@ -1,0 +1,24 @@
+#card
+  #card_img
+    %p
+      = image_tag @attachment.attachment.url(:standard)
+  #card_details
+    %p
+      %span{:class => "label"} 
+        Name:
+      = @attachment.name
+    %p
+      %span{:class => "label"} 
+        Active:
+      = @attachment.active ? "Active" : "Inactive"
+  %div{:class => "clearing"}
+  #card_description
+    %p
+      %span{:class => "label"} 
+        Description:
+      %span{:class => 'wysiyg_display'} 
+        = raw @attachment.description
+
+  = link_to 'Edit', edit_admin_attachment_path(@attachment)
+  \|
+  = link_to 'Back', admin_attachments_path

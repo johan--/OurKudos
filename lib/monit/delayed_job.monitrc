@@ -1,4 +1,18 @@
-check process delayed_job with pidfile "/home/deploy/apps/ourkudosmainsite/shared/pids/delayed_job.pid"
-start program = "/etc/init.d/delayed_job start"
-stop program = "/etc/init.d/delayed_job stop"
+check process delayed_job_mainsite_staging
+  with pidfile /home/deploy/apps/ourkudosmainsite/shared/pids/delayed_job.pid
+  start program = "/usr/bin/env RAILS_ENV=staging /home/deploy/apps/ourkudosmainsite/current/script/delayed_job start"
+  stop program = "/usr/bin/env RAILS_ENV=staging /home/deploy/apps/ourkudosmainsite/current/script/delayed_job stop"
+
+check process delayed_job_thankorspank_staging
+  with pidfile /home/deploy/apps/thankorspank/shared/pids/delayed_job.pid
+  start program = "/usr/bin/env RAILS_ENV=staging /home/deploy/apps/thankorspank/current/script/delayed_job start"
+  stop program = "/usr/bin/env RAILS_ENV=staging /home/deploy/apps/thankorspank/current/script/delayed_job stop"
+
+check process delayed_job_thankorspank_production
+  with pidfile /home/deploy/apps/thankorspanklive/shared/pids/delayed_job.pid
+  start program = "/usr/bin/env RAILS_ENV=production /home/deploy/apps/thankorspanklive/current/script/delayed_job start"
+  stop program = "/usr/bin/env RAILS_ENV=production /home/deploy/apps/thankorspanklive/current/script/delayed_job stop"
+
+
 if totalmem > 500.0 MB then restart
+

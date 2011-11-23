@@ -112,8 +112,8 @@ end
 
 Given /^user "([^"]*)" has a flagged kudo$/ do |user_id|
   user = User.find(user_id.to_i)
-  kudo = Factory(:kudo, :author_id => user.id)
-  Factory(:kudo_flag, :kudo_id => kudo.id)
+  kudo = Factory(:kudo, :author => user)
+  Factory(:kudo_flag, :id => user_id, :flagged_kudo => kudo)
 end
 
 Before('@background-jobs') do

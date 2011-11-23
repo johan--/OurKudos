@@ -12,6 +12,11 @@
   %script{:type => "text/javascript", :src => "https://apis.google.com/js/plusone.js"}
     :javascript
       {parsetags : "explicit" }
+
+#kudo_ecard_cont
+  /= render :partial => 'attachments/cards'
+%div{:class => 'clear'}
+
 = render :partial => "home/dashboard"
 - if @last_kudo.present? && @last_kudo.new_virtual_recipients.any?
   = render :partial => "virtual_users/form", :locals => {:kudo => @last_kudo}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108235538) do
+ActiveRecord::Schema.define(:version => 20111117005314) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(:version => 20111108235538) do
     t.integer  "kudo_category_id"
     t.boolean  "removed",          :default => false
     t.string   "flaggers",         :default => "--- []\n\n"
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "authentications", :force => true do |t|
@@ -267,6 +279,7 @@ ActiveRecord::Schema.define(:version => 20111108235538) do
     t.string   "blocked_commentators",          :default => "--- []\n\n"
     t.string   "system_kudos_recipients_cache", :default => "--- []\n\n"
     t.integer  "comments_count",                :default => 0
+    t.integer  "attachment_id"
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"

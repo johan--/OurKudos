@@ -20,6 +20,7 @@ class HomeController < ApplicationController
     @kudo    = Kudo.new
     @last_kudo = Kudo.find(session[:last_kudo]) unless session[:last_kudo].blank?
     session[:last_kudo] = nil
+    @attachments = Attachment.where(:active => true)
     unless params[:kudos]=="searchterms"
       get_kudos
     else
@@ -87,7 +88,4 @@ class HomeController < ApplicationController
       (!params[:kudos].blank? && params[:kudos] != 'searchterms' && !params[:searchterms].blank?) ||
         (params[:kudos].blank? && !params[:searchterms].blank?)
     end
-
-
-
 end

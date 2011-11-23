@@ -1,0 +1,26 @@
+= error_messages_for @attachment
+
+%p
+  = f.label :name, t(:name)
+  %br
+  = f.text_field :name
+%p
+  = f.label :description
+  %br
+  = f.text_area :description, :cols => '100', :rows => 5,:class => "wysiwyg"
+- unless f.object.new_record?
+  = image_tag @attachment.attachment.url(:standard)
+
+%p
+  = f.label :attachment, t(:card)
+  = f.file_field :attachment
+%p
+  = f.label :active
+  %br
+  - if f.object.new_record?
+    = f.check_box :active, :checked => true
+  -else
+    = f.check_box :active
+%p
+  = f.submit
+  = link_to 'cancel', admin_attachments_path, :class => 'action_link'

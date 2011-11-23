@@ -21,7 +21,7 @@ class KudoCopy < ActiveRecord::Base
 
   #needs Refactoring
   def copy_recipient
-    return if own_kudo?
+    return "Post" if own_kudo?
     return if copy_recipient_is_author?
     #need check if recipient is deleted
     return self.recipient.virtual_name if recipient_type == 'VirtualUser' && recipient_id.present?
@@ -81,6 +81,9 @@ class KudoCopy < ActiveRecord::Base
     false
   end
 
+  def attachment
+    kudo.attachment
+  end
   class << self
 
    def move_invitation_kudos_to user

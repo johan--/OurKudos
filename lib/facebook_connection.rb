@@ -17,7 +17,8 @@ module OurKudos
 
    def post_facebook_kudo kudo
      list = clean_readable_list(kudo.recipients_readable_list)
-     message = kudo.body + "\nShared with: #{list}"
+     message = kudo.body
+     message += "\nShared with: #{list}"
      begin
       result = facebook_user.feed!(:message    => message,
                                    :link       => "http://ourkudos.com/kudos/#{kudo.id}",
@@ -31,9 +32,10 @@ module OurKudos
    end
 
    def post_to_friends_wall friend, kudo
+     message = kudo.body
      begin
        fb_friend = FbGraph::User.new(friend, :access_token => facebook_auth.token)
-       result =    fb_friend.feed!(:message    => kudo.body,
+       result =    fb_friend.feed!(:message    => message,
                                    :link       => "http://ourkudos.com/kudos/#{kudo.id}",
                                    :name        => 'OurKudos',
                                    :description => "It's all good!")
@@ -61,5 +63,8 @@ module OurKudos
       cleaned_list.gsub(",",", ")
     end
 
+    def attachment_link kudo
+      "\nwww.rkudos.com/cards/#{kudo.attachment.id}"
+    end
   end
 end

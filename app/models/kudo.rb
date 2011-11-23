@@ -1,7 +1,7 @@
 class Kudo < ActiveRecord::Base
   belongs_to :author,   :class_name => "User"
   belongs_to :kudo_category
-
+  belongs_to :attachment
   has_many  :kudo_copies, :dependent => :destroy do
 
     def with_recipients
@@ -22,8 +22,9 @@ class Kudo < ActiveRecord::Base
 
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id,
-                   :updated_at
+                   :updated_at, :attachment_id
 
+  after_validation :handle_post_recipient
   before_create :replace_virtual_users, :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
   after_create :process_virtual_users, :on => :create
@@ -78,6 +79,10 @@ class Kudo < ActiveRecord::Base
   },:using => { :tsearch => { :prefix => true }}
 
 
+
+  def handle_post_recipient
+    self.to = author.primary_identity.id.to_s if to.blank?
+  end
 
   def recipients_list
     to.split(",").map{ |id| id.gsub("'",'').gsub(" ",'') }
@@ -217,6 +222,7 @@ class Kudo < ActiveRecord::Base
     kudo_copies
   end
 
+
   def has_no_facebook_recipient? 
     identity   = Identity.find(id.to_i) rescue nil
     recipient  = identity.user rescue nil
@@ -240,6 +246,7 @@ class Kudo < ActiveRecord::Base
     return true
   end
 
+  #Send Kudo Copy Methods
   def send_system_kudo recipient
     inbox = recipient.is_a?(User)? recipient.inbox.id : 0
       kudo_copies.build :recipient_id   => recipient.id,
@@ -250,11 +257,11 @@ class Kudo < ActiveRecord::Base
                         :share_scope    => share_scope
 
       self.system_kudos_recipients_cache << recipient.id
-      
-      #if recipient.is_a?(User)
-        Friendship.process_friendships_between author, recipient
-        Friendship.process_friendships_between recipient, author if recipient.is_a?(User)
-      #end
+
+    if  recipient != author 
+      Friendship.process_friendships_between author, recipient
+      Friendship.process_friendships_between recipient, author if recipient.is_a?(User)
+    end
   end
 
   def send_email_kudo recipient

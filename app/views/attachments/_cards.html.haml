@@ -1,0 +1,23 @@
+%h2
+  Select a card
+#card_img_slider
+  = render 'shared/big_spinner' 
+  #carousel
+    %div{:class => 'infiniteCarousel'}
+      %div{:class => 'wrapper'}
+        %ul
+          -@attachments.each do |attachment|
+            %li
+              %p{:name => attachment.id, :class => 'card_link'}
+                %span{:class => 'carousel_img'}
+                  = image_tag(attachment.attachment.url(:standard), :data => {:attachment_id => attachment.id})
+
+  #pages
+    %p
+      Page
+      %span{:id => 'current_page'}
+      of
+      %span{:id => 'total_pages'}
+  #card_message
+    %p
+      E-card added. Click 'Send' and your card and Kudos will be sent!

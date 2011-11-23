@@ -87,7 +87,7 @@ h3.featured_gift{
   /*display: none; */
   width: 722px;
   margin: 0 auto;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
 }
 .infiniteCarousel {
   width: 723px;
@@ -115,6 +115,12 @@ h3.featured_gift{
   background: #fff;
   text-align: center;
   height: 200px;
+}
+.infiniteCarousel ul p:hover {
+  cursor: pointer;
+}
+.infiniteCarousel ul p.selected {
+  border: 5px solid rgba(15,235,10, 1);
 }
 
 .infiniteCarousel .wrapper ul {
@@ -195,6 +201,7 @@ span.carousel_img a img{
   display: none;
   text-align: center;
   font-weight:bold;
+  margin-top: 0;
 }
 
 #gift_col_one {
@@ -244,4 +251,128 @@ p.legal_disclaimer {
 p.mechant_description {
   border-top: 1px solid #ADADAD;
 }
+//cards css styles
+#card_message{
+  display: none;
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
 
+#card_img_slider #carousel {
+  /*display: none; */
+  width: 926px;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+#card_img_slider .infiniteCarousel {
+  width: 926px;
+  position: relative;
+  height: 230px;
+}
+
+#card_img_slider .infiniteCarousel .wrapper {
+  width: 846px; /* .infiniteCarousel width - (.wrapper margin-left + .wrapper margin-right) */
+  overflow: auto;
+  min-height: 215px;
+  margin: 0 40px;
+  position: absolute;
+  top: 0;
+}
+#card_img_slider .wrapper {
+  overflow: hidden;
+  border: 2px solid #6699cc;
+  @include rounded-edges(5px);
+  
+}
+#card_img_slider .infiniteCarousel ul p {
+  margin-top: 0;
+  border: 5px solid #999;
+  @include rounded-edges(5px);
+  background: #fff;
+  text-align: center;
+  height: 194px;
+}
+#card_img_slider .infiniteCarousel ul p:hover {
+  cursor: pointer;
+}
+#card_img_slider .infiniteCarousel ul p.selected {
+  border: 5px solid rgba(15,235,10, 1);
+}
+
+#card_img_slider .infiniteCarousel .wrapper ul {
+  /*width: 9999px;*/
+  list-style-image:none;
+  list-style-position:outside;
+  list-style-type:none;
+  margin:0;
+  padding:0;
+  position: absolute;
+  top: 0;
+}
+
+#card_img_slider .infiniteCarousel ul li {
+  display:block;
+  float:left;
+  padding: 5px;
+  height: 194px;
+  width: 272px;
+}
+
+#card_img_slider .infiniteCarousel ul li img {
+  display:block;
+  text-align: center;
+}
+#card_img_slider .infiniteCarousel ul li a img {
+  //border: none;
+  text-decoration: none;
+  text-align: center;
+  margin: auto;
+}
+#card_img_slider .infiniteCarousel ul li a {
+  height: 194px;
+  text-decoration: none;
+}
+#card_img_slider .infiniteCarousel .arrow {
+  display: block;
+  height: 36px;
+  width: 37px;
+  background: url(<%= asset_path 'arrow.png' %>) no-repeat 0 0;
+  text-indent: -999px;
+  position: absolute;
+  top: 80px;
+  cursor: pointer;
+}
+
+#card_img_slider .infiniteCarousel .forward {
+  background-position: 0 0;
+  right: 0;
+}
+
+#card_img_slider .infiniteCarousel .back {
+  background-position: 0 -72px;
+  left: 0;
+}
+
+#card_img_slider .infiniteCarousel .forward:hover {
+  background-position: 0 -36px;
+}
+
+#card_img_slider .infiniteCarousel .back:hover {
+  background-position: 0 -108px;
+}
+
+#card_img_slider span.carousel_img {
+  display: table-cell;
+  vertical-align: middle;
+  height: 194px;
+  width: 272px;
+  margin: auto;
+  text-align: center;
+}
+#card_img_slider span.carousel_img a img{
+  border: none;
+  text-decoration: none;
+}

@@ -1,0 +1,30 @@
+check device rootfs with path /
+group filesystem
+#if failed permission 660 then unmonitor
+#if failed uid root then unmonitor
+#if failed gid disk then unmonitor
+#if space usage > 80 % then alert
+#if inode usage > 80 % then alert 
+
+check file okmainsite_staging_log with path /home/deploy/apps/ourkudosmainsite/shared/log/staging.log
+  group okmainsite_staging
+#if size > 50 MB then 
+#exec "/usr/local/bin/rotate /var/log/myapp.log myapp"
+
+check file thankorspank_staging_log with path /home/deploy/apps/thankorspank/shared/log/staging.log
+  group thankorspank_staging
+#if size > 50 MB then 
+#exec "/usr/local/bin/rotate /var/log/myapp.log myapp"
+
+check file thankorspank_production_log with path /home/deploy/apps/thankorspanklive/shared/log/production.log
+  group thankorspank_production
+#if size > 50 MB then 
+#exec "/usr/local/bin/rotate /var/log/myapp.log myapp"
+
+check file nginx_access_log with path /opt/nginx/logs/access.log
+  group server
+#if size > 50 MB then 
+
+check file nginx_error_log with path /opt/nginx/logs/error.log
+  group server
+#if size > 50 MB then 

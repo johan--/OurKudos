@@ -7,6 +7,8 @@
     %meta{:property => 'og:title', :content => "#{yield(:metaog_title)}"}
     %meta{:property => 'og:type', :content => "article"}
     %meta{:property => 'og:url', :content => "#{yield(:metaog_url)}"}
+    - unless yield(:og_image).empty?
+      %meta{:property => 'og:image', :content => yield(:og_image)}
     %meta{:property => 'og:image', :content => absolute_image_url('header_motto_splash.png') }
     %meta{:property => 'og:image', :content => absolute_image_url('kudos_hugging.png') }
     %meta{:property => 'og:image', :content => absolute_image_url('baltar_mailman_icon.png') }
