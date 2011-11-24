@@ -108,7 +108,7 @@ class Kudo < ActiveRecord::Base
 
   def recipients_names_links
     if is_post?
-      return [[kc.copy_recipient, "/users/#{kc.recipient_id}/profile"]]
+      return [["Post", "/users/#{author_id}/profile"]]
     end
     kudo_copies.with_recipients.map do |kc|
       unless kc.copy_recipient_is_author?
@@ -365,7 +365,7 @@ class Kudo < ActiveRecord::Base
 
   def is_post?
     return true if to.blank?
-    #to.to_i == author_id
+    to.to_i == author_id
   end
 
   def hide_for! user
