@@ -90,6 +90,9 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_names_ids
+    if is_post?
+      return [author.to_s, author_id]
+    end
     kudo_copies.with_recipients.map do |kc|
       #if kc.temporary_recipient.blank? && kc.recipient == kc.author
         unless kc.copy_recipient_is_author?
@@ -343,6 +346,10 @@ class Kudo < ActiveRecord::Base
   #If this array includes user id, it won't show up
   def is_hidden_for? user
      hidden_for.include?(user.id)
+  end
+
+  def is_post?
+    to.blank?
   end
 
   def hide_for! user
