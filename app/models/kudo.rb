@@ -95,7 +95,7 @@ class Kudo < ActiveRecord::Base
 
   def recipients_names_ids
     kudo_copies.with_recipients.map do |kc|
-      unless kc.copy_recipient_is_author?
+      if kc.temporary_recipient.blank? && kc.recipient == kc.author
         if kc.recipient_id && kc.recipient_type == "User"
           [kc.copy_recipient, kc.recipient_id]
         else
@@ -107,15 +107,19 @@ class Kudo < ActiveRecord::Base
 
   def recipients_names_links
     kudo_copies.with_recipients.map do |kc|
-      unless kc.copy_recipient_is_author?
-        if kc.recipient_id && kc.recipient_type == "User"
-          [kc.copy_recipient, "/users/#{kc.recipient_id}/profile"]
-        elsif kc.recipient_id && kc.recipient_type == "VirtualUser"
-          [kc.copy_recipient, "/virtual_users/#{kc.recipient_id}"]
+        unless kc.copy_recipient_is_author?
+          if kc.recipient_id && kc.recipient_type == "User"
+            [kc.copy_recipient, "/users/#{kc.recipient_id}/profile"]
+          elsif kc.recipient_id && kc.recipient_type == "VirtualUser"
+            [kc.copy_recipient, "/virtual_users/#{kc.recipient_id}"]
+          else
+            [kc.copy_recipient, nil]
+          end
         else
-          [kc.copy_recipient, nil]
+          unless kc.recipient_id.blank?
+            ["Post", "/users/#{kc.recipient_id}/profile"]
+          end
         end
-      end
     end.uniq.compact
   end
 

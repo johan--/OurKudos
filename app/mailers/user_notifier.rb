@@ -30,7 +30,7 @@ class UserNotifier < ActionMailer::Base
         subject  =  I18n.t('devise.mailer.confirmation_instructions.subject')
     end
 
-    mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
+    #mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
     mail :to => @email, :subject => subject do |format|
       format.html { render template }
       
@@ -69,11 +69,12 @@ class UserNotifier < ActionMailer::Base
     @recipient = recipient
     @host      = host
     if @recipient.is_a?(User) && @recipient.messaging_preference.system_kudo_email?
-    unless @kudo.attachment.blank?
-      attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
-    end
-    if @recipient.messaging_preference.system_kudo_email?
-      mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+      unless @kudo.attachment.blank?
+        attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
+      end
+      if @recipient.messaging_preference.system_kudo_email?
+        mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+      end
     end
   end
 

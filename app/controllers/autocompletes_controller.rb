@@ -59,6 +59,7 @@ class AutocompletesController < ApplicationController
     def exact_identity search_term
       identity = exact_confirmed_identity(search_term)
       unless identity.blank?
+        puts identity.autocomplete_name
         @exact_identity = identity.autocomplete_name
       else
         new_term = params[:q].gsub("@fb_","")
