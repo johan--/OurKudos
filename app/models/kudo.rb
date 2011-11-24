@@ -365,7 +365,7 @@ class Kudo < ActiveRecord::Base
 
   def is_post?
     return true if to.blank?
-    to.to_i == author_id
+    author.identities.map(&:id).include? to.to_i
   end
 
   def hide_for! user
