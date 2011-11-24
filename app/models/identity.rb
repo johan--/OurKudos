@@ -113,6 +113,7 @@ class Identity < ActiveRecord::Base
   end
 
   def autocomplete_name
+    puts is_twitter?
     [{ :id => id, :name => (is_twitter? ?
           "#{identifiable.to_s} (Twitter: @#{identity})" :
           "#{identifiable.to_s} (Email)")}]
