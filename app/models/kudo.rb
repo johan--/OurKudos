@@ -349,7 +349,8 @@ class Kudo < ActiveRecord::Base
   end
 
   def is_post?
-    to.blank?
+    return true if to.blank?
+    to.to_i == author_id
   end
 
   def hide_for! user
