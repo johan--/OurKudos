@@ -90,9 +90,9 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_names_ids
-    if is_post?
-      return [author.to_s, author_id]
-    end
+    #if is_post?
+    #  return [author.to_s, author_id]
+    #end
     kudo_copies.with_recipients.map do |kc|
       #if kc.temporary_recipient.blank? && kc.recipient == kc.author
         unless kc.copy_recipient_is_author?
@@ -350,7 +350,7 @@ class Kudo < ActiveRecord::Base
 
   def is_post?
     return true if to.blank?
-    to.to_i == author_id
+    #to.to_i == author_id
   end
 
   def hide_for! user
