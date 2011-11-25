@@ -23,8 +23,9 @@
           = kudo.recipients_readable_list
         - else
           = kudo.recipient.to_s
-    .clearing
+    
     - unless kudo.attachment.blank?
+      .clearing
       .kudo_body_attachment
         %p
           = link_to image_tag(kudo.attachment.attachment(:thumb)), kudo_url(kudo.id)
