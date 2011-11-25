@@ -288,5 +288,26 @@ describe Kudo do
       end
     end
 
+    describe 'posting kudos' do
+
+      it 'should fill to with author primary identity' do
+        user = Factory(:user)
+        identity = Factory(:primary_identity)
+        kudo = Kudo.new(:body => 'rspec',
+                        :to => '',
+                        :author_id => user.id)
+        kudo.save
+        kudo.to.should eq(user.identities.first.id.to_s)
+      end
+
+      it 'should know it is a post' do
+        identity = Factory(:primary_identity)
+        kudo = Kudo.new(:body => 'rspec',
+                        :to => '',
+                        :author_id => identity.user.id)
+        kudo.save
+        kudo.is_post?.should be_true 
+      end
+    end
   end
 end
