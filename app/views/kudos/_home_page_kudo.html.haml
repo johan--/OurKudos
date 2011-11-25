@@ -20,7 +20,7 @@
       %span.greater_than &gt;&gt;
       %span.receiver
         - if kudo.is_a?(Kudo)
-          = kudo.recipients_readable_list
+          = truncate(kudo.recipients_readable_list, :length => 55, :omission => "…")
         - else
           = kudo.recipient.to_s
     
