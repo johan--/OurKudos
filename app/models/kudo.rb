@@ -85,6 +85,7 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_readable_list
+    return "Post" if is_post?
     return to.gsub("'","") if to.present? && kudo_copies.size == 0
     kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
   end
