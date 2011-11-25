@@ -3,7 +3,7 @@ class FacebookFriendsController < ApplicationController
   layout "registered"
 
   def index
-    @facebook_friends = current_user.facebook_friends
+    @facebook_friends = current_user.facebook_friends.sort! { |a,b| a.last_name.downcase <=> b.last_name.downcase }
   end
 
   def create
