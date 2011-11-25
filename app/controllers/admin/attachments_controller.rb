@@ -32,7 +32,7 @@ class Admin::AttachmentsController < Admin::AdminController
   def update
     @attachment = Attachment.find params[:id]
     if @attachment.update_attributes(params[:attachment])
-      flash[:notice] = "Successfully updated gift"
+      flash[:notice] = "Successfully updated card"
       redirect_to admin_attachment_path(@attachment)
     else
       render :action => 'edit'
