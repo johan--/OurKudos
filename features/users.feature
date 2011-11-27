@@ -21,15 +21,16 @@ Scenario: A user unsuccessfully signs in with their email/password
   And I press "sign_in_submit_btn"
   Then I should see "Incorrect Username and/or Password"
 
-@omniauth_test_success_facebook
-Scenario: A user signs in with their email/password (facebook)
-  Given I am on the homepage
-  And settings are seeded 
-  When I follow "Connect with Facebook" image
-  And I fill in "signup_user_password" with "verysecretpassword1"
-  And I fill in "user_password_confirmation" with "verysecretpassword1"
-  And I press "Sign up"
-  Then I should see "You have signed up successfully. Please check your email and confirm your account"
+#Facebook auth no longer works this way.
+#@omniauth_test_success_facebook
+#Scenario: A user signs in with their email/password (facebook)
+#  Given I am on the homepage
+#  And settings are seeded 
+#  When I follow "Connect with Facebook" image
+#  And I fill in "signup_user_password" with "verysecretpassword1"
+#  And I fill in "user_password_confirmation" with "verysecretpassword1"
+#  And I press "Sign up"
+#  Then I should see "You have signed up successfully. Please check your email and confirm your account"
 
 @omniauth_test_success_twitter
 Scenario: A user tries to sign up with its email/password (twitter)
