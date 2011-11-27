@@ -17,7 +17,7 @@ describe Admin::AttachmentsController do
     before(:each) do 
       @valid_params = { :name => "attach1", 
                         :description => "testdescription",
-                        :attachment => fixture_file_upload(Rails.root + 'features/assets/HappyChrismah.gif', 'image/gif')}
+                        :attachment => fixture_file_upload('/assets/HappyChrismah.gif', 'image/gif')}
 
     end
 
