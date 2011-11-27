@@ -27,9 +27,6 @@ Feature: Kudos sending
     | user2@example.net  | secret pass1 | 3  |
     | user3@example.net  | secret pass1 | 4  |
   When I go to the signed in users home page
-  And I fill in "kudo_message_textarea" with "Some message"
-  And I press "Kudo_send_button" image button
-  Then I should see "You cannot send a kudo without at least one recipient"
   When I fill in "kudo_to" with "bad_recipient"
   And I press "Kudo_send_button" image button
   Then I should see "It seems like you have an invalid recipient/s on your list: bad_recipient"

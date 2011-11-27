@@ -78,9 +78,222 @@ describe Kudo do
         copy.kudoable.should be_an_instance_of(FacebookKudo)
       end
 
+      context 'instance methods' do
+        
+        it 'should return blank category if category blank' do
+          identity = Factory(:primary_identity)
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => identity.user.id)
+          kudo.save
+          kudo.category.should eq('')
+        end
+
+        it 'should return blank category name' do
+          category = Factory(:kudo_category, :name => 'test')
+          identity = Factory(:primary_identity)
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => identity.user.id,
+                          :kudo_category_id => category.id)
+          kudo.save
+          kudo.category.should eq('test')
+        end
+
+      end
+
+      context 'social sharing' do
+        before(:each) do
+          @identity = Factory(:primary_identity)
+        end
+        it 'should return social sharing if twitter sharing checked' do
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => @identity.user.id,
+                          :twitter_sharing => true)
+          kudo.save
+          kudo.social_sharing?.should be_true
+        end
+
+        it 'should not return social sharing if neither sharing is checked' do
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => @identity.user.id)
+          kudo.save
+          kudo.social_sharing?.should be_false
+        end
+      end
+
+      context 'disable moderation!' do
+        it 'should mark the comments moderation enabled true' do
+          identity = Factory(:primary_identity)
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => identity.user.id)
+          kudo.save
+          kudo.disable_moderation!
+          kudo.comments_moderation_enabled.should be_false
+        end
+      end
+
+      context 'disable comments' do
+        it 'should mark the comments moderation enabled true' do
+          identity = Factory(:primary_identity)
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => identity.user.id)
+          kudo.save
+          kudo.disable_commenting!
+          kudo.comments_disabled.should be_true
+        end
+      end
+
+      describe 'class methods' do
+        context 'options for sort' do
+          it 'should equal sort options' do
+            Kudo.options_for_sort.should eq([ ['newest kudos first', 'date_desc'],
+                                              ['oldest kudos first', 'date_asc'],
+                                              ['most commented first', 'comments_desc']])
+          end
+        end
+
+        context 'allowed sorting' do
+          it 'should equal allowed sorting calls' do
+            Kudo.allowed_sorting.should eq(['comments_asc', 'comments_desc', 'date_asc', 'date_desc'])
+          end
+        end
+
+        context 'allowed tabs' do
+          it 'should equal allowed tabs' do
+            Kudo.allowed_tabs.should eq(['received', 'sent', 'newsfeed', 'searchterms'])
+          end
+        end
+      end
+
     end
 
     describe "recipients lists" do
+
+      context 'recipients_names_links' do
+        before(:each) do
+          @new_user = Factory(:user, 
+                              :first_name => "Steve",
+                              :last_name => "Jobs")
+          @kudo = Factory(:kudo, :to => @new_user.primary_identity.id.to_s)
+        end
+
+        it 'should return post and author link if kudo is a post' do
+          identity = Factory(:primary_identity)
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => '',
+                          :author_id => identity.user.id)
+          kudo.save
+          kudo.recipients_names_links.should eq([["Post", "/users/#{identity.user.id}/profile"]])
+        end
+
+        it 'should return link to recipients profile' do
+           @kudo.recipients_names_links.should eq([["Steve J.", "/users/#{@new_user.id}/profile"]]) 
+        end
+
+        it 'should return just the recipient name' do
+          kudo = Kudo.new(:body => 'rspec',
+                          :to => 'steve@jobs.com',
+                          :author_id => @new_user.id)
+          kudo.save
+          kudo.recipients_names_links.should eq([["steve", nil]]) 
+        end
+
+        context 'recipients ids' do
+          it 'should return a string of all unique ids' do
+            new_user = Factory(:user, 
+                              :first_name => "Steve",
+                              :last_name => "Jobs")
+            kudo = Factory(:kudo, :to => new_user.primary_identity.id.to_s)
+            kudo.recipients_ids.should eq([new_user.id])
+          end
+        end
+
+        context 'author as recipient readable list' do
+          before(:each) do
+            @new_user = Factory(:user, 
+                              :first_name => "Steve",
+                              :last_name => "Jobs")
+            @kudo = Factory(:kudo, :to => @new_user.primary_identity.id.to_s)
+          end
+
+          it 'should be empty string if author not recipient' do
+            @kudo.author_as_recipient_readable_list.should eq ''
+          end
+
+        end
+
+        context 'all recipients are emails' do
+          it 'should be true for all email recipients' do
+            identity = Factory(:primary_identity)
+            kudo = Kudo.new(:body => 'rspec',
+                            :to => 'steve@jobs.com, walt@disney.com',
+                            :author_id => identity.user.id)
+            kudo.save
+            kudo.all_recipients_are_emails?.should be_true
+          end
+
+          it 'should be false for not all email recipients' do
+            identity = Factory(:primary_identity)
+            kudo = Kudo.new(:body => 'rspec',
+                            :to => '@jobs, walt@disney.com',
+                            :author_id => identity.user.id)
+            kudo.save
+            kudo.all_recipients_are_emails?.should be_false
+          end
+        end
+
+        context 'has no twitter recipients' do
+          it 'should be true for no twitter recipients' do
+            identity = Factory(:primary_identity)
+            kudo = Kudo.new(:body => 'rspec',
+                            :to => 'walt@disney.com',
+                            :author_id => identity.user.id)
+            kudo.save
+            kudo.has_no_twitter_recipient?.should be_true
+          end
+
+          it 'should be false twitter recipients' do
+            identity = Factory(:primary_identity)
+            kudo = Kudo.new(:body => 'rspec',
+                            :to => '@disney',
+                            :author_id => identity.user.id)
+            kudo.save
+            kudo.has_no_twitter_recipient?.should be_false
+          end
+
+        end
+
+        context 'set as private' do
+          it 'should set share scope to recipient' do
+            identity = Factory(:primary_identity)
+            kudo = Kudo.new(:body => 'rspec',
+                            :to => '@disney',
+                            :author_id => identity.user.id)
+            kudo.set_as_private
+            kudo.save
+            kudo.share_scope.should eq('recipient') 
+          end
+        end
+
+        context 'people received ids' do
+
+          it 'should be something' do
+            author = Factory(:primary_identity)
+            recipient = Factory(:primary_identity)
+            kudo = Kudo.new(:body => 'rspec',
+                            :to => recipient.id.to_s,
+                            :author_id => author.user.id)
+            kudo.save
+            kudo.people_received_ids.should eq([recipient.user.id])
+          end
+        end
+
+      end
 
       context "with social sharing disabled" do
         it "should return twitter handle as name if no twitter identity" do

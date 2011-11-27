@@ -17,7 +17,7 @@ Scenario: User can merge its accounts
     And I press "Merge my current account with this account"
     Then I should see "Message has been sent. For further instructions, please check email address associated with your merge account"
     And "user5@example.net" should receive an email with subject "\[OurKudos\] - Please confirm, that you are account owner"
-    When I open the email with subject "\[OurKudos\] - Please confirm, that you are account owner"
+    When I open the email with subject "[OurKudos] - Please confirm, that you are account owner"
     Then I should see "Confirm it!" in the email body
     When I follow "Confirm it" in the email
     Then I should see "You have successfully confirmed your merge"

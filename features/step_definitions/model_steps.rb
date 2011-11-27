@@ -30,7 +30,18 @@ end
 
 
 Given /^settings are seeded$/ do
+  Settings.destroy_all
   Settings.seed!
+end
+
+Given /^signups are not disabled$/ do
+  Settings.destroy_all
+  setting = Settings.find_by_name('"sign-up-disabled')
+  setting.update_attribute :value => 'no'
+end
+
+When /^there are no pages yet$/ do
+  Page.destroy_all
 end
 
 Given /^jobs are being dispatched$/ do
