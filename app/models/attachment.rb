@@ -19,12 +19,13 @@ class Attachment < ActiveRecord::Base
   end
 
   def kudo_link
-    "http://www.rkudos.com/cards/#{self.id}"
+    "http://#{site_root}/cards/#{self.id}"
   end
 
   def site_root
     return 'localhost:3000' if Rails.env.development?
     return 'rkudos.com' if Rails.env.staging?
     return 'ourkudos.com' if Rails.env.production?
+    return 'ourkudos.com' if Rails.env.test?
   end
 end

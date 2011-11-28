@@ -89,23 +89,32 @@ class Kudo < ActiveRecord::Base
   end
 
   def recipients_readable_list
+    return "Post" if is_post?
     return to.gsub("'","") if to.present? && kudo_copies.size == 0
     kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.uniq.compact.sort.join(",")
   end
 
   def recipients_names_ids
+    #if is_post?
+    #  return [author.to_s, author_id]
+    #end
     kudo_copies.with_recipients.map do |kc|
-      if kc.temporary_recipient.blank? && kc.recipient == kc.author
-        if kc.recipient_id && kc.recipient_type == "User"
-          [kc.copy_recipient, kc.recipient_id]
-        else
-          [kc.copy_recipient, nil]
+      #if kc.temporary_recipient.blank? && kc.recipient == kc.author
+        unless kc.copy_recipient_is_author?
+          if kc.recipient_id
+            [kc.copy_recipient, kc.recipient_id]
+          else
+            [kc.copy_recipient, nil]
+          end
         end
-      end
-    end.uniq.compact
+      #end
+    end.compact
   end
 
   def recipients_names_links
+    if is_post?
+      return [["Post", "/users/#{author_id}/profile"]]
+    end
     kudo_copies.with_recipients.map do |kc|
         unless kc.copy_recipient_is_author?
           if kc.recipient_id && kc.recipient_type == "User"
@@ -381,6 +390,11 @@ class Kudo < ActiveRecord::Base
      hidden_for.include?(user.id)
   end
 
+  def is_post?
+    return true if to.blank?
+    author.identities.map(&:id).include? to.to_i
+  end
+
   def hide_for! user
     return true if is_hidden_for?(user)
 
@@ -447,17 +461,9 @@ class Kudo < ActiveRecord::Base
     clean_up_links! if author.credibility == 0
   end
 
-  def process_virtual_users
-    VirtualUser.process_new_kudo(self) 
-  end
-
-  def new_virtual_recipients
-    new_virtual_users = []
-    virtual_users = self.virtual_recipients.where('first_name = ? AND last_name = ?', '','')
-    virtual_users.each do |user|
-      new_virtual_users << user if user.identity.identity_type == 'email'
-    end
-    new_virtual_users
+  def determine_type identity
+    return "twitter" if identity[0] == "@"
+    return "email" if identity.include?("@")
   end
 
   class << self

@@ -16,7 +16,6 @@ class KudoFlagsController < ApplicationController
   def create
     @kudo_flag = current_user.kudo_flags.build params[:kudo_flag]
     @kudo_flag.flagged_kudo = @kudo
-
     respond_with @kudo_flag do |format|
       format.js do
         unless @kudo_flag.save

@@ -19,7 +19,7 @@ Feature: Passwords recovery
       And I follow "Sign in button" image
       And I fill in "Email" with "user@example.net"
       And I fill in "Password" with "mysecretpasswrong"
-      And I press "Sign in"
+      And I press "sign_in_submit_btn"
       Then I should see "Invalid email or password"
       When I follow "Forgot your password?"
       Then I should see "You will receive an email with instructions about how to reset your password in a few minutes."

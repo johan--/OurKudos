@@ -14,8 +14,6 @@ describe KudoCopy do
     end
 
     it 'should know about its recipient name' do
-      @kudo_copy = Factory(:kudo_copy_system, :recipient => @user)
-
       kudo = Factory(:kudo, :to => @user.identities.first.id.to_s)
       @kudo_copy = kudo.kudo_copies.first
 

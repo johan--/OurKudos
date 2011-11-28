@@ -27,7 +27,7 @@ class KudoFlag < ActiveRecord::Base
     recipients = flagged_kudo.people_received_ids.sort
     flagged_kudo.flaggers << flagger.id
 
-    if !recipients.include?(flagger.id)
+    if recipients.include?(flagger.id)
       add_flagger
     else
       recipients_flagging recipients
@@ -47,7 +47,6 @@ class KudoFlag < ActiveRecord::Base
   end
 
   def all_recipients_flagged!
-
     self.ui_message = I18n.t(:kudo_marked_as_offensive_by_all_recipients)
     flagged_kudo.archivize
     self.flagged_kudo.destroy && destroy

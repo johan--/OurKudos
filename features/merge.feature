@@ -110,3 +110,8 @@ Scenario: User can join from existing virtual user
 
   Scenario:
 
+<<<<<<< HEAD
+=======
+    
+    
+>>>>>>> master
