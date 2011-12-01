@@ -81,6 +81,7 @@ Scenario: User attempting to merge twitter handle without authorizing twitter
     And I press "Merge unconfirmed account with my account"
     Then I should see "There was a problem merging you account"
 
+
 Scenario: User can join from existing virtual user
   Given I'm logged in as a user with:
     | email                    | password     |
@@ -108,10 +109,3 @@ Scenario: User can join from existing virtual user
   And I press "new_registration_submit_btn"
   Then I should see "You have successfuly merged your accounts"
 
-  Scenario:
-
-<<<<<<< HEAD
-=======
-    
-    
->>>>>>> master

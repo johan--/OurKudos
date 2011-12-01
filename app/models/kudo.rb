@@ -100,16 +100,17 @@ class Kudo < ActiveRecord::Base
     #end
     kudo_copies.with_recipients.map do |kc|
       #if kc.temporary_recipient.blank? && kc.recipient == kc.author
-        unless kc.copy_recipient_is_author?
-          if kc.recipient_id
-            [kc.copy_recipient, kc.recipient_id]
-          else
-            [kc.copy_recipient, nil]
-          end
+      unless kc.copy_recipient_is_author?
+        if kc.recipient_id
+          [kc.copy_recipient, kc.recipient_id]
+        else
+          [kc.copy_recipient, nil]
         end
+      end
       #end
-    end.compact
+    end.uniq.compact
   end
+
 
   def recipients_names_links
     if is_post?
@@ -529,7 +530,6 @@ class Kudo < ActiveRecord::Base
     def allowed_sorting
       %w{comments_asc comments_desc date_asc date_desc}
     end
-
 
   end
 

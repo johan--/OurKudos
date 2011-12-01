@@ -32,6 +32,20 @@ module KudosHelper
      end
   end
 
+  #def recipients_profiles kudo_recipients
+  #  html = kudo_recipients.map do |recipient|
+  #    next if recipient.first.blank? && recipient.last.blank?
+
+  #    if !recipient.first.blank? && recipient.last.blank?
+  #      recipient.first
+  #    else
+  #      link_to recipient.first, user_profile_path(recipient.last)
+  #    end
+  #  end.compact.flatten.join(", ")
+  #  return html.html_safe unless html.empty?
+  #  "undisclosed recipient(s)"
+  #end
+
   def recipients_profiles kudo_recipients
     html = kudo_recipients.map do |recipient|
       next if recipient.first.blank? && recipient.last.blank?

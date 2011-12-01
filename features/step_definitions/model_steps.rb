@@ -105,6 +105,15 @@ Given /^the following confirmed identities exists:$/ do |table|
     identity.save(:validate => false)
   end
 end
+Given /^the following confirmed identities exists:$/ do |table|
+  table.hashes.each do |attributes|
+    identity = Identity.new(:identifiable_id => attributes[:identifiable_id],
+                            :identity => attributes[:identity],
+                            :identity_type => attributes[:identity_type],
+                            :identifiable_type => attributes[:identifiable_type])
+    identity.save(:validate => false)
+  end
+end
 
 When /^I loose focus from the "([^"]*)" field$/ do |field|
   page.execute_script %Q{$('#{field}').blur()}
