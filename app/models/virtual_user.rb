@@ -1,17 +1,18 @@
-class VirtualUser < ActiveRecord::Base
-  # == Relationships ==
-  has_one  :identity, :as => :identifiable
-  has_many :friendships, :foreign_key => 'user_id', :dependent => :destroy
-  has_many :friends, :through => :friendships, :source => :friendable, 
-           :source_type => "VirtualUser"
+  class VirtualUser < ActiveRecord::Base
+    # == Relationships ==
+    has_one  :identity, :as => :identifiable
+    has_many :friendships, :foreign_key => 'user_id', :dependent => :destroy
+    has_many :friends, :through => :friendships, :source => :friendable, 
+             :source_type => "VirtualUser"
 
-  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
-  # ================
+    has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy, :conditions => {:recipient_type => "VirtualUser"}
+    # ================
   # == Delegators ==
   delegate :identity, :to => :identity, :prefix => true
   delegate :identity_type, :to => :identity
   # ================
   include OurKudos::TwitterConnection
+  include OurKudos::VirtualHelpers
 
   def to_s
     if first_name.blank? 
@@ -62,8 +63,19 @@ class VirtualUser < ActiveRecord::Base
   end
 
   def merge user
-    update_identity user
-    update_friendships user
+     VirtualUser.transaction do
+      OurKudos::VirtualHelpers.update_identity(self.identity, user)
+
+      OurKudos::VirtualHelpers.update_copies(self, user)
+
+      OurKudos::VirtualHelpers.update_friendships(self, user)
+      
+      self.destroy 
+     end
+    #create a virtual merge 
+    #update a virtual merge 
+    #update_identity user
+    #update_friendships user
   end
 
   def update_identity user

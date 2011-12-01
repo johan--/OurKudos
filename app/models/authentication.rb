@@ -8,7 +8,7 @@ class Authentication < ActiveRecord::Base
   acts_as_mergeable
 
   def downcase_nickname
-    self.nickname = self.nickname.downcase
+    nickname = nickname.downcase unless nickname.blank?
   end
 
   # =================

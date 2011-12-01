@@ -11,7 +11,7 @@ class VirtualMerge < ActiveRecord::Base
   # ================
 
   #before_save :check_twitter_auth, :unless => :not_twitter?
-  after_save :save_confirmation, :unless => :is_twitter?
+  after_save :save_confirmation, :unless => :is_twitter? || :is_new_user?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
   after_save :update_friendships
   include OurKudos::Confirmable
@@ -41,10 +41,14 @@ class VirtualMerge < ActiveRecord::Base
      self.identity.identity_type != 'twitter'
    end
 
-   def is_twitter?
-     return false if self.identity.blank?
-     self.identity.identity_type == 'twitter'
-   end
+    def is_twitter?
+      return false if self.identity.blank?
+      self.identity.identity_type == 'twitter'
+    end
+
+    def is_new_user?
+      called_from == 'VirtualUser'
+    end
 
     def update_copies
       kudo_copies = KudoCopy.where(:recipient_id => self.merged.id,
@@ -59,7 +63,7 @@ class VirtualMerge < ActiveRecord::Base
       friendships = Friendship.where(:friendable_id => self.merged.id,
                                      :friendable_type => self.merged.class.to_s)
       friendships.each do |friendship_to_update|
-        existing_friendships = current_friendship
+        existing_friendships = current_friendships
         if existing_friendships.any?
           existing_friendships.first.update_friendship_statistics
           friendship_to_update.destroy
@@ -71,7 +75,7 @@ class VirtualMerge < ActiveRecord::Base
       end
     end
 
-    def current_friendship
+    def current_friendships
       Friendship.where(:friendable_id => self.merger.id,
                        :friendable_type => 'User')
     end

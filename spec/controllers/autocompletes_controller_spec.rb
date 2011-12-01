@@ -12,7 +12,7 @@ describe AutocompletesController do
 
   describe "Exact recipients" do
     before(:each) do 
-      @other_user = Factory(:user) 
+      @other_user = User.create(Factory.attributes_for(:user)) 
       identity = Identity.new(:identifiable_id => @other_user,
                               :identity => "itweet", 
                               :identifiable_type => 'User',
@@ -58,10 +58,11 @@ describe AutocompletesController do
                               :identity => "itweet", 
                               :identity_type => "twitter")
       @identity.save(:validate => false)
+      @identity.confirm!
     end
 
     it "should return list of identities" do
-      get 'new', :object => 'identities', :q => 'itweet'
+      get 'new', :object => 'identities', :term => 'bob'
       assigns[:items].should include('itweet')
     end
 

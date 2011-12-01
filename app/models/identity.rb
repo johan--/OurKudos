@@ -27,7 +27,7 @@ class Identity < ActiveRecord::Base
   scope :emails,   where(:identity_type => "email")
   scope :twitters, where(:identity_type => "twitter")
   scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins('INNER JOIN users ON users.id = identities.identifiable_id').
-                                                       where("identifiable_id <> ? AND identity_type <> ?", user.id, 'twitter').
+                                                       where("identifiable_id <> ? OR identity_type <> ?", user.id, 'twitter').
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) LIKE lower(?) OR lower(users.first_name)  \
                                                               LIKE lower(?) OR lower(users.last_name) LIKE lower(?) OR lower(users.company_name) LIKE lower(?)",
@@ -39,8 +39,7 @@ class Identity < ActiveRecord::Base
                                                        where("lower(identity) LIKE lower(?)", "#{search_term}%").
                                                        where(:confirmations => {:confirmed => true})}
 
-  scope :virtual_for_user, ->(search_term, user) {  where("identifiable_id <> ?", user.id).
-                                                    where("identifiable_type = ?", "VirtualUser").
+  scope :virtual_for_user, ->(search_term, user) {  where("identifiable_id <> ? OR identifiable_type <> ?", user.id, 'User').
                                                      where("lower(identity) LIKE lower(?)", "#{search_term}%")}
 
   scope :exact_twitter_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
@@ -113,7 +112,6 @@ class Identity < ActiveRecord::Base
   end
 
   def autocomplete_name
-    puts is_twitter?
     [{ :id => id, :name => (is_twitter? ?
           "#{identifiable.to_s} (Twitter: @#{identity})" :
           "#{identifiable.to_s} (Email)")}]

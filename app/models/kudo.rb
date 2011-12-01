@@ -461,6 +461,19 @@ class Kudo < ActiveRecord::Base
     clean_up_links! if author.credibility == 0
   end
 
+  def process_virtual_users
+    VirtualUser.process_new_kudo(self)
+  end
+
+  def new_virtual_recipients
+    new_virtual_users = []
+    virtual_users = self.virtual_recipients.where('first_name = ? AND last_name = ?', '','')
+    virtual_users.each do |user|
+      new_virtual_users << user if user.identity.identity_type == 'email'
+    end
+    new_virtual_users
+  end
+
   def determine_type identity
     return "twitter" if identity[0] == "@"
     return "email" if identity.include?("@")

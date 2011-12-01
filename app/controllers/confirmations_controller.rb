@@ -3,7 +3,6 @@ class ConfirmationsController < ApplicationController
 
   def show
     confirmation = Confirmation.find_by_key params[:id]
-
     confirmation.confirm!
     if confirmation.confirmed?
       sign_in :user, confirmation.confirmable.merger if merge_confirmation?

@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
 
   has_many :sent,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]
-  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
+  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy, :conditions => {:recipient_type => "User"}
   has_many :folders
 
   has_many :friendships, :foreign_key => 'user_id'
