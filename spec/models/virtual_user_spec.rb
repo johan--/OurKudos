@@ -124,5 +124,107 @@ describe VirtualUser do
     end
   end
 
+  describe 'an instance' do
+    before(:each) do 
+      @virtual_user = Factory(:virtual_user)
+      @identity = Identity.new(:identifiable_id => @virtual_user.id,
+                               :identifiable_type => 'VirtualUser',
+                               :identity => 'steve@jobs.com',
+                               :identity_type => 'email',
+                               :is_primary => true,
+                               :display_identity => true)
+      @identity.save(:validate => false)
+    end
+
+    it 'should never have a role' do
+      @virtual_user.has_role?('made_up').should be_false
+    end
+
+    it 'should return an empty array for authentications' do
+      @virtual_user.authentications.should eq([])
+    end
+
+    it 'should return identity as an array for identities' do
+      @virtual_user.identities.should eq([@identity])
+    end
+
+  end
+
+  describe 'a virtual user becoming an user' do
+    before(:each) do
+      @user = Factory(:user)
+      @virtual_user = Factory(:virtual_user)
+      @identity = Identity.new(:identifiable_id => @virtual_user.id,
+                               :identifiable_type => 'VirtualUser',
+                               :identity => 'steve@jobs.com',
+                               :identity_type => 'email',
+                               :is_primary => true,
+                               :display_identity => true)
+      @identity.save(:validate => false)
+      @kudo = Factory(:kudo, :to => @identity.id.to_s)
+    end
+
+    it 'should update identity to become user' do
+      @virtual_user.merge(@user)
+      identity = Identity.find(@identity.id)
+      identity.identifiable.should eq(@user)
+    end
+
+    it 'should update kudo copies recipient' do
+      @virtual_user.merge(@user)
+      copy = KudoCopy.find(@kudo.kudo_copies.first.id)
+      copy.recipient.should eq(@user)
+    end
+
+
+  end
+
+  describe 'virtual user names' do
+    before(:each) do 
+      @virtual_user = Factory(:virtual_user, 
+                              :first_name => '',
+                              :last_name => '')
+      @identity = Identity.new(:identifiable_id => @virtual_user.id,
+                               :identifiable_type => 'VirtualUser',
+                               :identity => 'steve@jobs.com',
+                               :identity_type => 'email',
+                               :is_primary => true,
+                               :display_identity => true)
+      @identity.save(:validate => false)
+    end
+
+    it 'should return email name if type is email' do
+      @virtual_user.to_s.should eq('steve')
+    end
+
+    it 'should return email name if type is email' do
+      @virtual_user.to_s.should eq('steve')
+    end
+
+    it 'should return identity if type is twitter' do
+      @identity.identity = 'stevejobs'
+      @identity.identity_type = 'twitter'
+      @identity.save(:validate => false)
+      @virtual_user.to_s.should eq('@stevejobs')
+      @virtual_user.secured_name.should eq('@stevejobs')
+    end
+
+    it 'should return identity if type is other' do
+      @identity.identity = 'stevejobs'
+      @identity.identity_type = 'other'
+      @identity.save(:validate => false)
+      @virtual_user.to_s.should eq('stevejobs')
+      @virtual_user.secured_name.should eq('stevejobs')
+    end
+
+    it 'should return first name last initial if name not blank' do
+      @virtual_user.update_attributes(:first_name => 'Steve',
+                                      :last_name => 'Jobs')
+      @virtual_user.to_s.should eq('Steve J.')
+      @virtual_user.secured_name.should eq('Steve J.')
+    end
+
+  end
+
 end
 

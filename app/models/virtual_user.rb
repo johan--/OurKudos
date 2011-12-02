@@ -75,23 +75,6 @@ class VirtualUser < ActiveRecord::Base
      end
   end
 
-  def update_identity user
-    identity_to_change = self.identity
-    identity_to_change.identifiable_id = user.id
-    identity_to_change.identifiable_type = user.class.to_s
-    identity_to_change.is_primary = true
-    identity_to_change.save
-  end
-
-  def update_friendships user
-    current_friendships = Friendship.where(:friendable_id => self.id,
-                                   :friendable_type => self.class.to_s)
-    current_friendships.each do |friendship_to_update|
-      friendship_to_update.friendable_id = user.id
-      friendship_to_update.friendable_type = 'User'
-      friendship_to_update.save(:validate => false)
-    end
-  end
 
   def authentications
     []
