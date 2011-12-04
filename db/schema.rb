@@ -152,15 +152,16 @@ ActiveRecord::Schema.define(:version => 20111117005314) do
   end
 
   create_table "friendships", :force => true do |t|
-    t.integer  "friend_id"
+    t.integer  "friendable_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_contacted_at"
     t.integer  "contacts_count",    :default => 0
+    t.string   "friendable_type"
   end
 
-  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
+  add_index "friendships", ["friendable_id"], :name => "index_friendships_on_friend_id"
   add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "gift_groups", :force => true do |t|
@@ -191,15 +192,16 @@ ActiveRecord::Schema.define(:version => 20111117005314) do
   end
 
   create_table "identities", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "identifiable_id"
     t.string   "identity"
     t.string   "identity_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_primary",       :default => false
+    t.boolean  "is_primary",        :default => false
     t.datetime "deleted_at"
-    t.boolean  "is_company",       :default => false
-    t.boolean  "display_identity", :default => false
+    t.boolean  "is_company",        :default => false
+    t.boolean  "display_identity",  :default => false
+    t.string   "identifiable_type"
   end
 
   create_table "ips", :force => true do |t|
@@ -229,6 +231,7 @@ ActiveRecord::Schema.define(:version => 20111117005314) do
     t.string   "kudoable_type"
     t.string   "share_scope"
     t.integer  "author_id"
+    t.string   "recipient_type"
   end
 
   add_index "kudo_copies", ["author_id"], :name => "index_kudo_copies_on_author_id"
@@ -444,5 +447,21 @@ ActiveRecord::Schema.define(:version => 20111117005314) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "virtual_merges", :force => true do |t|
+    t.integer  "merged_by"
+    t.integer  "merged_id"
+    t.integer  "identity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "virtual_users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "merged",     :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

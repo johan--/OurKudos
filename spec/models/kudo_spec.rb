@@ -200,7 +200,8 @@ describe Kudo do
                           :to => 'steve@jobs.com',
                           :author_id => @new_user.id)
           kudo.save
-          kudo.recipients_names_links.should eq([["steve", nil]]) 
+          virtual_user = Identity.find_by_identity('steve@jobs.com').identifiable
+          kudo.recipients_names_links.should eq([["steve", "/virtual_users/#{virtual_user.id}"]]) 
         end
 
         context 'recipients ids' do
@@ -228,13 +229,14 @@ describe Kudo do
         end
 
         context 'all recipients are emails' do
-          it 'should be true for all email recipients' do
+          it 'should be false for all email recipients' do
+            #should now be false because they are virtual recipients
             identity = Factory(:primary_identity)
             kudo = Kudo.new(:body => 'rspec',
                             :to => 'steve@jobs.com, walt@disney.com',
                             :author_id => identity.user.id)
             kudo.save
-            kudo.all_recipients_are_emails?.should be_true
+            kudo.all_recipients_are_emails?.should be_false
           end
 
           it 'should be false for not all email recipients' do
@@ -374,7 +376,8 @@ describe Kudo do
                             :last_name => "Disney")
           identity = Identity.new(:identity => "mickeymouse",
                                   :identity_type => "twitter",
-                                  :user_id => @author.id,
+                                  :identifiable_id => @author.id,
+                                  :identifiable_type => @author.class.to_s,
                                   :is_primary =>false)
           identity.save(:validate => false)
                               
@@ -392,7 +395,8 @@ describe Kudo do
         end
 
         it "should return the to user in the recipients names Ids with twitter sharing off" do
-          @kudo1.recipients_names_ids.should eq([["@stevejobs", nil]])
+          identity = Identity.find_by_identity("stevejobs")
+          @kudo1.recipients_names_ids.should eq([["@stevejobs", identity.identifiable.id]])
         end
 
         it "should return the to user in the recipients readable list with twitter sharing on" do
@@ -401,10 +405,6 @@ describe Kudo do
 
         it "should not return the author in the recipients readable list with twitter sharing on" do
           @kudo2.recipients_readable_list.should_not include("@mickeymouse")
-        end
-
-        it "should return the to user in the recipients names Ids with twitter sharing on" do
-          @kudo2.recipients_names_ids.should eq([["@stevejobs", nil]])
         end
 
       end
@@ -422,6 +422,19 @@ describe Kudo do
             kudo = Factory(:kudo, :to => "awesome@email.com", 
                                   :share_scope => nil)
             Kudo.public_kudos.should include(kudo)
+          end
+        end
+
+        describe 'new_virtual_recipients' do
+
+          it 'should have a new virtual recipient on new email kudo' do
+            kudo = Factory(:kudo, :to => "awesome@email.com")
+            kudo.new_virtual_recipients.empty?.should be_false
+          end
+
+          it 'should not have a new virtual recipient on new twitter kudo' do
+            kudo = Factory(:kudo, :to => "@waltdisney")
+            kudo.new_virtual_recipients.empty?.should be_true
           end
         end
 

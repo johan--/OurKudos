@@ -12,9 +12,10 @@ describe AutocompletesController do
 
   describe "Exact recipients" do
     before(:each) do 
-      @other_user = Factory(:user) 
-      identity = Identity.new(:user_id => @other_user.id,
+      @other_user = User.create(Factory.attributes_for(:user)) 
+      identity = Identity.new(:identifiable_id => @other_user,
                               :identity => "itweet", 
+                              :identifiable_type => 'User',
                               :identity_type => "twitter")
       identity.save(:validate => false)
     end
@@ -31,7 +32,7 @@ describe AutocompletesController do
     end
 
     it "should exact match the query param for an email identity" do
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "myemail@notreal.com", 
                               :identity_type => "email")
       identity.save(:validate => false)
@@ -53,14 +54,15 @@ describe AutocompletesController do
       @other_user = Factory(:user, 
                             :first_name => "bob",
                             :last_name => "smith") 
-      @identity = Identity.new(:user_id => @other_user.id,
+      @identity = Identity.new(:identifiable => @other_user,
                               :identity => "itweet", 
                               :identity_type => "twitter")
       @identity.save(:validate => false)
+      @identity.confirm!
     end
 
     it "should return list of identities" do
-      get 'new', :object => 'identities', :q => 'itweet'
+      get 'new', :object => 'identities', :term => 'bob'
       assigns[:items].should include('itweet')
     end
 
@@ -79,12 +81,14 @@ describe AutocompletesController do
   describe "inline_autocomplete_identities" do
     before(:each) do 
       @other_user = Factory(:user, :first_name => "John", :last_name => "Doe") 
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "itweet", 
                               :identity_type => "twitter")
       identity.save(:validate => false)
       @user = Factory(:user)
-      Factory(:friendship, :user_id => @user.id, :friend_id => @other_user.id)
+      Factory(:friendship, :user_id => @user.id,
+              :friendable_id => @other_user.id,
+              :friendable_type => 'User')
       sign_in @user
     end
 
@@ -94,7 +98,7 @@ describe AutocompletesController do
     end
 
     it "should properly set non person identities" do
-      identity = Identity.new(:user_id => @other_user.id,
+      identity = Identity.new(:identifiable => @other_user,
                               :identity => "company", 
                               :identity_type => "noperson")
       identity.save(:validate => false)

@@ -1,0 +1,16 @@
+%table.type1
+  %thead
+    %th= t :type
+    %th= t :account_name
+    %th edit
+    %th remove
+  %tbody
+    %tr
+      %td= identity.identity_type
+      %td= identity.identity
+      %td
+        Not implemented yet
+        /= link_to t(:edit_account_link),  admin_or_user_edit_identity_path(@user, identity)
+      %td
+        Not implemented yet
+        /= link_to t(:remove_account),  admin_or_user_identity_path(@user, identity), :confirm => I18n.t(:are_you_sure), :method => :delete if !identity.is_primary?

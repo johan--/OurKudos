@@ -1,6 +1,8 @@
 class Friendship < ActiveRecord::Base
   belongs_to :user
-  belongs_to :friend, :class_name => "User"
+  belongs_to :friendable, :polymorphic => true
+  #belong_to
+  #need a callback to update friend_type
 
   def update_friendship_statistics
      self.contacts_count += 1
@@ -15,7 +17,6 @@ class Friendship < ActiveRecord::Base
         friendship = person.friendship_for friend
         friendship.update_friendship_statistics
       end
-
 
   end
 

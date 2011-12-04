@@ -1,0 +1,6 @@
+%fieldset
+  %legend User Identity
+
+  = render :partial => "virtual_identities", :locals => {:identity => @user.identity}
+
+  /%p= link_to t(:add_new_identity), new_admin_user_identity_path(@user), :class => "action_link"

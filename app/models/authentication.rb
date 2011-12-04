@@ -3,8 +3,13 @@ class Authentication < ActiveRecord::Base
   validates :provider, :presence => true
   validates :uid,      :presence => true, :uniqueness => true
   validates :token,    :presence => true, :uniqueness => true
+  before_save :downcase_nickname
 
   acts_as_mergeable
+
+  def downcase_nickname
+    nickname = nickname.downcase unless nickname.blank?
+  end
 
   # =================
   # = class methods =

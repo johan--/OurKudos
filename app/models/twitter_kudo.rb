@@ -5,19 +5,6 @@ class TwitterKudo < ActiveRecord::Base
 
   scope :date_range, ->(from,to){ where(:created_at  => from..to) }
 
-  #def post_me!
-  #   case kudo.share_scope
-  #     when nil
-  #      self.response = kudo.author.post_twitter_kudo kudo
-  #     when 'friends', 'recipient'
-  #      self.response = kudo.author.direct_message_to twitter_handle, kudo
-  #   end
-  #  send_system_email
-  #  self.posted   = true
-  #  save :validate => false
-  #end
-  #handle_asynchronously :post_me!
-  
   def post_me!
     case tweet_type
       when 'self'
@@ -25,7 +12,6 @@ class TwitterKudo < ActiveRecord::Base
       when 'mention'
         message = build_message kudo.kudo
         self.response = kudo.author.post_twitter_kudo message
-        #self.response = kudo.author.direct_message_to twitter_handle, kudo
     end
     send_system_email
     self.posted   = true
@@ -36,9 +22,10 @@ class TwitterKudo < ActiveRecord::Base
   def send_system_email
     identity = Identity.where('identity = ? AND identity_type = ?', twitter_handle, 'twitter').first
     return false if identity.blank? 
-    return false if identity.user.id == kudo.author_id
-    member  = identity.user
-    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present?
+    #return false if identity.identifiable == kudo.author
+    return false if identity.identifiable.id == kudo.author_id
+    member  = identity.identifiable
+    UserNotifier.delay.social_system_kudo kudo.kudo, member if member.present? && member.is_a?(User)
   end
 
   def build_message kudo

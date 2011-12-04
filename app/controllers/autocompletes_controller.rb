@@ -10,7 +10,7 @@ class AutocompletesController < ApplicationController
       when 'recipients'
         look_for_identities_and_facebook_friends
       when 'exact'
-        @items = exact_identity(params[:term])
+        @items = exact_identity(params[:q])
       else
         @items  = []
     end
@@ -26,25 +26,40 @@ class AutocompletesController < ApplicationController
   private
 
     def confirmed_identities search_term, limit
-      Identity.confirmed_for_user(search_term, current_user).order(:identity).limit(limit)
+      unless search_term.blank?
+        Identity.confirmed_for_user(search_term, current_user)
+      else
+        []
+      end
+    end
+
+    def twitter_identities search_term, limit
+      Identity.twitter_for_user(search_term, current_user)
+    end
+
+    def virtual_identities search_term, limit
+      Identity.virtual_for_user(search_term, current_user)
+    end
+
+    def combined_identities search_term, limit
+      identities = confirmed_identities(search_term, limit) + virtual_identities(search_term, limit) + twitter_identities(search_term, limit)
+      identities.uniq.first(10).sort_by(&:identity)
     end
 
     def look_for_friends
-      FacebookFriend.friends_by_name_for_user(keyword, current_user).map do |friend|
-          #{:id => "fb_#{friend.facebook_id}", :name => "FB - #{friend.name}"}
-          {:id => "fb_#{friend.facebook_id}", :name => "#{friend.name} (Facebook)"}
-        end
+      unless params[:q].blank?
+        FacebookFriend.friends_by_name_for_user(params[:q], current_user).map do |friend|
+            {:id => "fb_#{friend.facebook_id}", :name => "#{friend.name} (Facebook)"}
+        end 
+       else
+         []
+       end
     end
 
     def exact_identity search_term
-      identity = exact_confirmed_identity(keyword)
+      identity = exact_confirmed_identity(search_term)
       unless identity.blank?
-        @exact_identity = [{ :id => identity.id, 
-                            :name => (identity.is_twitter? ?
-              "#{identity.user.to_s} (Twitter: @#{identity.identity})" :
-              "#{identity.user.to_s} (Email)")}]
-              #"[#{identity.user.to_s}] @#{identity.identity}" :
-              #"[#{identity.user.to_s}] #{identity.identity}")}]
+        @exact_identity = identity.autocomplete_name
       else
         new_term = params[:q].gsub("@fb_","")
         friend = FacebookFriend.find_by_facebook_id(new_term)
@@ -54,19 +69,24 @@ class AutocompletesController < ApplicationController
       @exact_identity
     end
 
-    def exact_confirmed_identity keyword
-      identity = Identity.find_by_identity(keyword)
-      return nil if identity.nil? or identity.confirmed? == false
-      identity
+    def exact_confirmed_identity search_term 
+      search_for = search_term.gsub RegularExpressions.twitter, ''
+      identity = Identity.find_by_identity(search_for) 
+      return nil if identity.blank?
+      if identity.identifiable_type == 'VirtualUser'
+        return identity
+      else
+        #return nil if identity.confirmed? == false
+        return identity
+      end
+      return identity
     end
 
     def look_for_identities
-       identities = confirmed_identities(keyword, 10).map do |identity|
+       identities = combined_identities(keyword, 10).map do |identity|
           { :id => identity.id, :name => (identity.is_twitter? ?
-              #"[#{identity.user.to_s}] @#{identity.identity}" :
-              #"[#{identity.user.to_s}] Email")}
-              "#{identity.user.to_s} (Twitter: @#{identity.identity})" :
-              "#{identity.user.to_s} (Email)")}
+              "#{identity.identifiable.to_s} (Twitter: @#{identity.identity})" :
+              "#{identity.identifiable.to_s} (Email)")}
        end
       return [] if identities.blank?
       identities
@@ -86,17 +106,22 @@ class AutocompletesController < ApplicationController
     end
 
     def autocomplete_identities_for_user
-      friends = current_user.friendships.map{|f| f.friend_id}
-      identities = Identity.where("user_id IN (?)",friends).map do |i| 
-        if i.identity_type == 'twitter'
-          ["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
+      friends = current_user.friendships.map{|f| f.friendable}
+      friends_identities = friends.map{|f| f.identities}.flatten
+      identities = []
+      friends_identities.each do |i|
+        if i.identifiable_type == 'VirtualUser' && i.identity_type == 'twitter'
+          identities << ["#{i.identifiable.to_s}", "@#{i.identity}"]
+        elsif i.identifiable_type == 'VirtualUser' && i.identity_type == 'email'
+          identities << ["#{i.identifiable.to_s}", "#{i.identity}"]
+        elsif i.identity_type == 'twitter'
+          identities << ["#{i.user.first_name} #{i.user.last_name}", "@#{i.identity}"]
         elsif i.identity_type == "nonperson" && i.is_company?
-          ["#{i.user.company_name}", "#{i.identity}"]
+          identities << ["#{i.user.company_name}", "#{i.identity}"]
         else
-          ["#{i.user.first_name} #{i.user.last_name}", "#{i.identity}"]
+          identities << ["#{i.user.first_name} #{i.user.last_name}", "#{i.identity}"]
         end
       end
-      #facebookfriends
       identities += current_user.facebook_friends.map do |friend|
         ["#{friend.name}", "fb_#{friend.facebook_id}"]
       end.uniq

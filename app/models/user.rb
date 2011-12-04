@@ -19,20 +19,23 @@ class User < ActiveRecord::Base
   # = associations =
   # ================
 
-  has_many :authentications
-  has_many :identities
-  has_many :permissions
-  has_many :confirmations, :through => :identities
-  has_many :merges, :foreign_key => :merged_by, :dependent => :destroy
+  has_many  :authentications
+  has_many  :identities, :as => :identifiable
+  has_many  :permissions
+  has_many  :confirmations, :through => :identities, :source => :identifiable, 
+            :source_type => "User"
+  has_many  :merges, :foreign_key => :merged_by, :dependent => :destroy
+  has_many  :virtual_merges, :foreign_key => :merged_by, :dependent => :destroy
   has_and_belongs_to_many :roles
 
   has_many :sent,     :class_name => "Kudo",     :foreign_key => "author_id",    :conditions => ["removed = ?", false]
-  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy
+  has_many :received, :class_name => "KudoCopy", :foreign_key => "recipient_id", :include => :kudo, :dependent => :destroy, :conditions => {:recipient_type => "User"}
   has_many :folders
 
-  has_many :friendships
-  has_many :friends,             :through    => :friendships
-  has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friend_id"
+  has_many :friendships, :foreign_key => 'user_id'
+  has_many :friends, :through => :friendships, :source => :friendable, 
+           :source_type => "User"
+  has_many :inverse_friendships, :class_name => "Friendship",         :foreign_key => "friendable_id", :conditions => 'friendable_type = User'
   has_many :inverse_friends,     :through    => :inverse_friendships, :source      => :user
 
   has_many :facebook_friends
@@ -79,6 +82,7 @@ class User < ActiveRecord::Base
   # ================
   before_validation :downcase_email
   before_save :add_role
+  after_save  :merge_virtual_user
   after_save  :save_identity
   after_save  :update_identity, :if => :primary_identity
   after_save  :flag_abuse_notification
@@ -179,7 +183,8 @@ class User < ActiveRecord::Base
 
   def remove_mergeables
     Merge.mergeables.each do |mergeable|
-      mergeable.for(self).destroy_all
+      mergeable.for_auth(self).destroy_all if mergeable == Authentication
+      mergeable.for_identity(self).destroy_all if mergeable == Identity
     end
   end
 
@@ -204,14 +209,29 @@ class User < ActiveRecord::Base
    Authentication.options_for_provider.select {|provider| provider.last unless current_providers.include? provider.last}
   end
 
-  def save_identity
-     if self.identities.blank?
+  def merge_virtual_user
+    return unless self.has_virtual_user?
+    self.virtual_user.merge(self) unless self.virtual_user.blank?
+  end
 
-      identity = self.identities.create :identity        => primary_identity_value,
+  def virtual_user
+    virtual_user = Identity.find_by_identity(self.email).identifiable 
+    return virtual_user unless virtual_user.is_a?(User)
+    nil
+  end
+
+  def has_virtual_user?
+    Identity.find_by_identity(self.email).present? 
+  end
+
+  def save_identity
+    if self.identities.blank?
+      identity = self.identities.build :identity        => primary_identity_value,
                                         :is_primary      => true,
                                         :display_identity=> true,
                                         :no_confirmation => !self.first_message.blank?,
                                         :identity_type   => primary_identity_type,
+                                        :identifiable_type => self.class.name,
                                         :is_company      => has_company
       identity.save :validate => false
      end
@@ -253,7 +273,8 @@ class User < ActiveRecord::Base
   end
 
   def set_identities_as_destroyable
-    Identity.for(self).each  { |identity| identity.set_as_tetriary! }
+    #Identity.for(self).each  { |identity| identity.set_as_tetriary! }
+    self.identities.each  { |identity| identity.set_as_tetriary! }
   end
 
   def is_confirmed?
@@ -286,16 +307,17 @@ class User < ActiveRecord::Base
 
   def add_friend friend
     return false if is_my_friend? friend
-    friendships.create :friend_id => friend.id
+    Friendship.create :friendable => friend, :user => self
     true
   end
 
   def is_my_friend? friend
-     !(friendship_for friend).blank?
+    !(friendship_for friend).blank?
   end
 
   def friendship_for person
-    friendships.select {|f| f.friend == person }.first
+    friendships_hack = Friendship.where(:user_id => self.id)
+    friendships_hack.select {|f| f.friendable == person }.first
   end
 
   def any_email_kudos?
@@ -329,7 +351,7 @@ class User < ActiveRecord::Base
   end
 
   def destroy_friendships
-    Friendship.where(:friend_id => self.id).destroy_all
+    Friendship.where(:friendable_id => self.id, :friendable_type => 'User').destroy_all
   end
 
   def password_salt= password_salt

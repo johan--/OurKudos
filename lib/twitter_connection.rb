@@ -50,8 +50,21 @@ module OurKudos
         end
     end
 
-
-
+    def get_user_info handle
+      begin
+        twitter_user = Twitter.user(handle)
+        user = Hash.new
+        unless twitter_user.protected? || twitter_user.blank?
+          name = twitter_user.name.split(" ")
+          user[:first_name] = name.first
+          name.shift
+          user[:last_name] = name.join(" ")
+        end
+        user
+      rescue 
+        nil
+      end
+    end
 
   end
 end

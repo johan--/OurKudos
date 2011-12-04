@@ -22,6 +22,7 @@
    %p.recipients_cont
     %span.greater_than &gt;&gt;
     %span.receiver
+     /= recipients_profiles kudo.recipients_names_ids
      = recipients_profiles kudo.recipients_names_links
     
    %p.sharescope_date
@@ -35,7 +36,6 @@
     %div{:id => "google_plus_#{kudo.id}", :class => "plusone_button"}
     %div{:id => "facebook_like_#{kudo.id}", :class => "facebook_like"}
     
-   
    - unless kudo.attachment.blank?
     .clearing
     .kudo_body_attachment

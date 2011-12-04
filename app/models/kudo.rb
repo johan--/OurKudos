@@ -9,7 +9,11 @@ class Kudo < ActiveRecord::Base
     end
 
   end
-  has_many  :recipients, :through => :kudo_copies
+  #has_many  :recipients, :through => :kudo_copies
+  has_many :recipients, :through => :kudo_copies, :source => :recipient, :source_type => 'User'
+  has_many :virtual_recipients, :through => :kudo_copies, :source => :recipient, :source_type => 'VirtualUser'
+
+  #has_many :recipients, :as => :recipient
 
   has_many :kudo_flags, :dependent => :destroy
 
@@ -21,9 +25,9 @@ class Kudo < ActiveRecord::Base
                    :updated_at, :attachment_id
 
   after_validation :handle_post_recipient
-  before_create :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
+  before_create :replace_virtual_users, :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?
 
-  #after_create :save_non_members
+  after_create :process_virtual_users, :on => :create
 
 
   validates_with KudoValidator
@@ -87,7 +91,7 @@ class Kudo < ActiveRecord::Base
   def recipients_readable_list
     return "Post" if is_post?
     return to.gsub("'","") if to.present? && kudo_copies.size == 0
-    kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.compact.sort.join(",")
+    kudo_copies.with_recipients.map(&:copy_recipient).uniq.map {|r| r unless r.blank? }.uniq.compact.sort.join(",")
   end
 
   def recipients_names_ids
@@ -112,13 +116,19 @@ class Kudo < ActiveRecord::Base
       return [["Post", "/users/#{author_id}/profile"]]
     end
     kudo_copies.with_recipients.map do |kc|
-      unless kc.copy_recipient_is_author?
-        if kc.recipient_id 
-          [kc.copy_recipient, "/users/#{kc.recipient_id}/profile"]
+        unless kc.copy_recipient_is_author?
+          if kc.recipient_id && kc.recipient_type == "User"
+            [kc.copy_recipient, "/users/#{kc.recipient_id}/profile"]
+          elsif kc.recipient_id && kc.recipient_type == "VirtualUser"
+            [kc.copy_recipient, "/virtual_users/#{kc.recipient_id}"]
+          else
+            [kc.copy_recipient, nil]
+          end
         else
-          [kc.copy_recipient, nil]
+          unless kc.recipient_id.blank?
+            ["Post", "/users/#{kc.recipient_id}/profile"]
+          end
         end
-      end
     end.uniq.compact
   end
 
@@ -172,6 +182,21 @@ class Kudo < ActiveRecord::Base
     !author_as_recipient.blank?
   end
 
+  def replace_virtual_users
+    # need to make this non members only for speed
+    recipients_list.each do |recipient|
+      recipient = recipient[1..-1] if recipient[0] == "@"
+      identity = Identity.find_by_identity(recipient)
+      unless identity.blank?
+        if identity.identity_type == 'twitter'
+          self.to = to.gsub("@#{recipient}", identity.id.to_s)
+        else
+          self.to = to.gsub(recipient, identity.id.to_s)
+        end
+      end
+    end
+  end
+
   def prepare_copies
     return if to.blank? || js_validation_only # stop processing if validation with javascript
 
@@ -193,11 +218,10 @@ class Kudo < ActiveRecord::Base
     recipients_list.each do |id|
 
       identity   = Identity.find(id.to_i) rescue nil
-      recipient  = identity.user rescue nil
-
+      recipient  = identity.identifiable rescue nil
        if !recipient.blank? && !system_recipients.include?(recipient)
          system_recipients << recipient
-         send_system_kudo(recipient)
+         send_system_kudo(recipient) 
 
        elsif recipient.blank? && id =~ RegularExpressions.email
          send_email_kudo id
@@ -237,17 +261,19 @@ class Kudo < ActiveRecord::Base
 
   #Send Kudo Copy Methods
   def send_system_kudo recipient
-      kudo_copies.build :recipient_id => recipient.id,
-                        :author_id    => author.id,
-                        :kudoable     => self,
-                        :folder_id    => recipient.inbox.id,
-                        :share_scope  => share_scope
+    inbox = recipient.is_a?(User)? recipient.inbox.id : 0
+      kudo_copies.build :recipient_id   => recipient.id,
+                        :recipient_type => recipient.class.to_s,
+                        :author_id      => author.id,
+                        :kudoable       => self,
+                        :folder_id      => inbox,
+                        :share_scope    => share_scope
 
       self.system_kudos_recipients_cache << recipient.id
 
     if  recipient != author 
       Friendship.process_friendships_between author, recipient
-      Friendship.process_friendships_between recipient, author
+      Friendship.process_friendships_between recipient, author if recipient.is_a?(User)
     end
   end
 
@@ -435,6 +461,19 @@ class Kudo < ActiveRecord::Base
     clean_up_links! if author.credibility == 0
   end
 
+  def process_virtual_users
+    VirtualUser.process_new_kudo(self)
+  end
+
+  def new_virtual_recipients
+    new_virtual_users = []
+    virtual_users = self.virtual_recipients.where('first_name = ? AND last_name = ?', '','')
+    virtual_users.each do |user|
+      new_virtual_users << user if user.identity.identity_type == 'email'
+    end
+    new_virtual_users
+  end
+
   def determine_type identity
     return "twitter" if identity[0] == "@"
     return "email" if identity.include?("@")
@@ -490,7 +529,6 @@ class Kudo < ActiveRecord::Base
     def allowed_sorting
       %w{comments_asc comments_desc date_asc date_desc}
     end
-
 
   end
 

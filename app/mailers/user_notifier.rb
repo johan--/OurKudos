@@ -12,8 +12,12 @@ class UserNotifier < ActionMailer::Base
     template      =  "#{confirmation.confirmable_klass_type}_confirmation"
     case type
       when :merge
-        @email      = confirmation.confirmable.identity.user.email
-        @first_name = confirmation.confirmable.identity.user.first_name
+        @email      = confirmation.confirmable.identity.identifiable.email
+        @first_name = confirmation.confirmable.identity.identifiable.first_name
+        subject     = I18n.t(:subject_confirm_your_identity_for_merge_process)
+      when :virtual_merge
+        @email      = confirmation.confirmable.identity.identifiable.email
+        @first_name = confirmation.confirmable.identity.identifiable.first_name
         subject     = I18n.t(:subject_confirm_your_identity_for_merge_process)
       when :identity
         identity = confirmation.confirmable
@@ -27,6 +31,8 @@ class UserNotifier < ActionMailer::Base
     end
 
     mail :to => @email, :bcc => "ted@ourkudos.com", :subject => subject do |format|
+    #mail :to => @email, :subject => subject do |format|
+      format.html { render template }
       
       format.text { render template }
       format.html { render template }
@@ -49,6 +55,7 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo_copy
     @recipient = kudo_copy.recipient
     @host      = host
+    return true if @kudo.recipient_type == 'VirtualUser' 
     unless @kudo.kudo.attachment.blank?
       attachments[@kudo.kudo.attachment.attachment_file_name] = File.read("#{@kudo.kudo.attachment.file_path}")
     end
@@ -61,11 +68,13 @@ class UserNotifier < ActionMailer::Base
     @kudo      = kudo
     @recipient = recipient
     @host      = host
-    unless @kudo.attachment.blank?
-      attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
-    end
-    if @recipient.messaging_preference.system_kudo_email?
-      mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+    if @recipient.is_a?(User) && @recipient.messaging_preference.system_kudo_email?
+      unless @kudo.attachment.blank?
+        attachments[@kudo.attachment.attachment_file_name] = File.read("#{@kudo.attachment.file_path}")
+      end
+      if @recipient.messaging_preference.system_kudo_email?
+        mail :to => @recipient.email, :subject => "#{@kudo.author} #{I18n.t(:new_kudo_in_your_inbox)}"
+      end
     end
   end
 
@@ -87,12 +96,12 @@ class UserNotifier < ActionMailer::Base
 
   def flag_abuse user
     @author = user
-    mail :to => @author.email, :subject => t(:email_subject_administrator_warning)
+    mail :to => @author.email, :subject => "[OurKudos] - Administrator warning"
   end
 
   def you_are_banned user
     @user = user
-    mail :to => @user.email, :subject => t(:email_subject_you_have_been_banned)
+    mail :to => @user.email, :subject => "[OurKudos] - You have been banned from OurKudos"
   end
 
   def receive email
@@ -105,13 +114,13 @@ class UserNotifier < ActionMailer::Base
     @user = username
     @ip = ip
     @user_agent = user_agent
-    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => t(:email_subject_failed_login, :subject => subject)
+    mail :to => 'charley.stran@gmail.com, ted@ourkudos.com', :subject => "Failed Login bad #{subject}"
   end
 
   def login_failure_notify_user(user, ip_address)
     @user = user
     @ip_address = ip_address
-    mail :to => @user.email, :subject => t(:email_subject_failed_login_attempt)
+    mail :to => @user.email, :subject => "Failed Login Attempt at OurKudos"
   end
 
 end

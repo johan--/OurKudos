@@ -1,30 +1,30 @@
 Given /^I sign in with "([^"]*)" and "([^"]*)"$/ do |username, password|
-  And %Q{I go to the new user session page}
-  And %Q{I fill in "Email" with "#{username}"}
-  And %Q{I fill in "Password" with "#{password}"}
-  And %Q{I press "sign_in_submit_btn"}
+  step %Q{I go to the new user session page}
+  step %Q{I fill in "Email" with "#{username}"}
+  step %Q{I fill in "Password" with "#{password}"}
+  step %Q{I press "sign_in_submit_btn"}
 end
 
 Given /^I'm logged in as an administrator with:$/ do |table|
   table.hashes.each do |attributes|
     Factory :admin_user, attributes
-    And %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
+    step %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
   end
 end
 
 Given /^I'm logged in as a user with:$/ do |table|
   table.hashes.each do |attributes|
     Factory :user, attributes
-    And %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
+    step %Q{I sign in with "#{attributes[:email]}" and "#{attributes[:password]}"}
   end
 end
 
 Given /^I tried to login with "([^"]*)" email "([^"]*)" times unsuccessfully$/ do |email, times|  
   times.to_i.times do
-    And %Q{I go to the new user session page}
-    And %Q{I fill in "Email" with "#{email}"}
-    And %Q{I fill in "Password" with "'badpass'"}
-    And %Q{I press "sign_in_submit_btn"}
+    step %Q{I go to the new user session page}
+    step %Q{I fill in "Email" with "#{email}"}
+    step %Q{I fill in "Password" with "'badpass'"}
+    step %Q{I press "sign_in_submit_btn"}
   end
 end
 
@@ -40,13 +40,11 @@ Given /^signups are not disabled$/ do
   setting.update_attribute :value => 'no'
 end
 
-When /^there are no pages yet$/ do
-  Page.destroy_all
-end
-
 Given /^jobs are being dispatched$/ do
     Delayed::Worker.new.work_off
 end
+
+
 
 #Given /^the following Kudo Categories exists:$/ do |table|
 #  table.hashes.each do |attributes|
@@ -91,9 +89,28 @@ end
 
 Given /^the following identities exists without validation:$/ do |table|
   table.hashes.each do |attributes|
-    identity = Identity.new(:user_id => attributes[:user_id],
+    identity = Identity.new(:identifiable_id => attributes[:identifiable_id],
                             :identity => attributes[:identity],
-                            :identity_type => attributes[:identity_type])
+                            :identity_type => attributes[:identity_type],
+                            :identifiable_type => attributes[:identifiable_type])
+    identity.save(:validate => false)
+  end
+end
+Given /^the following confirmed identities exists:$/ do |table|
+  table.hashes.each do |attributes|
+    identity = Identity.new(:identifiable_id => attributes[:identifiable_id],
+                            :identity => attributes[:identity],
+                            :identity_type => attributes[:identity_type],
+                            :identifiable_type => attributes[:identifiable_type])
+    identity.save(:validate => false)
+  end
+end
+Given /^the following confirmed identities exists:$/ do |table|
+  table.hashes.each do |attributes|
+    identity = Identity.new(:identifiable_id => attributes[:identifiable_id],
+                            :identity => attributes[:identity],
+                            :identity_type => attributes[:identity_type],
+                            :identifiable_type => attributes[:identifiable_type])
     identity.save(:validate => false)
   end
 end
@@ -104,6 +121,10 @@ end
 
 When /^I attach the file at "(.*)" to "(.*)"$/ do |path, field|
   attach_file(field, path)
+end
+
+When /^there are no pages yet$/ do
+  Page.destroy_all
 end
 
 Given /^user "([^"]*)" has a flagged kudo$/ do |user_id|

@@ -37,7 +37,9 @@ Factory.define :identity do |i|
   i.identity { Factory.next(:email) }
   i.identity_type 'email'
   i.is_primary false
-  i.user { Factory(:user) }
+  #i.user { Factory(:user) }
+  i.identifiable { Factory(:user) }
+  i.identifiable_type 'User'
 end
 
 Factory.define :primary_identity, :class => "Identity" do |i|
@@ -45,7 +47,9 @@ Factory.define :primary_identity, :class => "Identity" do |i|
   i.identity_type 'email'
   i.is_primary true
   i.display_identity true
-  i.association :user
+  #i.association :user
+  i.identifiable { Factory(:user) }
+  i.identifiable_type 'User'
 end
 
 Factory.define :identity_confirmation, :class => "Confirmation" do |c|
@@ -77,9 +81,15 @@ Factory.define :other_user, :class => "User" do |u|
   u.roles {|roles| [roles.association(:role)] }
 end
 
+Factory.define :virtual_user do |u|
+  u.first_name { Factory.next(:first_name) }
+  u.last_name { Factory.next(:last_name) }
+  u.merged false
+end
+
 Factory.define :friendship do |fr|
   fr.user { Factory(:user)}
-  fr.friend { Factory(:other_user) }
+  fr.friendable { Factory(:other_user) }
   fr.last_contacted_at Time.now
   fr.contacts_count 0
 end
@@ -140,12 +150,10 @@ end
 
 Factory.define :kudo_copy_system, :class => "KudoCopy" do |kc|
   kc.author    {|u|  Factory(:user) }
-  #kc.body "Simply - thank you"
   kc.kudo      {|kudo| Factory(:kudo) }
   kc.recipient {|r| Factory(:other_user) }
   kc.kudoable  {|k| Factory(:kudo)  }
-  #kc.facebook_sharing false
-  #kc.twitter_sharing  false
+  kc.recipient_type 'User'
 end
 
 Factory.define :kudo_copy_facebook, :class => "KudoCopy" do |kc|

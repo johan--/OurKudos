@@ -1,0 +1,13 @@
+= form_for @user, :url => admin_virtual_user_path, :method => :put do |f|
+  = error_messages_for @user
+  %p
+    = f.label :first_name
+    %br
+    = f.text_field :first_name
+  %p
+    = f.label :last_name
+    %br
+    = f.text_field :last_name
+  %p
+    = f.submit 
+    = link_to 'cancel', admin_virtual_user_path(@user), :class => 'action_link'

@@ -45,7 +45,6 @@ module KudosHelper
   #  return html.html_safe unless html.empty?
   #  "undisclosed recipient(s)"
   #end
-  
   def recipients_profiles kudo_recipients
     html = kudo_recipients.map do |recipient|
       next if recipient.first.blank? && recipient.last.blank?

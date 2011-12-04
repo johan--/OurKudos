@@ -2,6 +2,7 @@
 - content_for(:meta_description, 'The site for sharing thanks, congratulations and Kudos with friends')
 - content_for(:metaog_url, "#{request.url}")
 
+
 #kudo_send_cont
   = image_tag('baltar_mailman_icon.png', :id => 'baltar_mailman_icon')
   #kudo_send_cont_top
@@ -17,3 +18,5 @@
 %div{:class => 'clear'}
 
 = render :partial => "home/dashboard"
+- if @last_kudo.present? && @last_kudo.new_virtual_recipients.any?
+  = render :partial => "virtual_users/form", :locals => {:kudo => @last_kudo}

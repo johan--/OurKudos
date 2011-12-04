@@ -23,7 +23,6 @@
           = truncate(kudo.recipients_readable_list, :length => 55, :omission => "…")
         - else
           = kudo.recipient.to_s
-    
     - unless kudo.attachment.blank?
       .clearing
       .kudo_body_attachment

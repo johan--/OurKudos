@@ -5,6 +5,7 @@ class MergesController < ApplicationController
   
   def new
     @merge = Merge.new
+    @virtual_merge = VirtualMerge.new
   end
 
   def create
@@ -12,11 +13,11 @@ class MergesController < ApplicationController
 
     @merge = Merge.accounts current_user, @identity
     @merge.password  = params[:merge][:password] if params[:merge] # need to pass it manually
-      
       if @merge.save        
          redirect_to new_merge_path, :notice => I18n.t(:merge_instructions_sent)
       else
-        render :new
+        #render :new
+        redirect_to new_merge_path
       end
   end
 

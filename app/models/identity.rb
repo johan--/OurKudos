@@ -18,21 +18,32 @@ class Identity < ActiveRecord::Base
   # = associations =
   # ================
   has_one :confirmation, :as => :confirmable, :dependent => :destroy
-  belongs_to :user
+  #belongs_to :user
+  belongs_to :identifiable, :polymorphic => true
 
   # ================
   # ==== scopes ====
   # ================
   scope :emails,   where(:identity_type => "email")
   scope :twitters, where(:identity_type => "twitter")
-  scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
-                                                       where("user_id <> ?", user.id).
+  scope :confirmed_for_user, ->(search_term, user) { joins(:confirmation).joins('INNER JOIN users ON users.id = identities.identifiable_id').
+                                                       where("identifiable_id <> ? OR identity_type <> ?", user.id, 'twitter').
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) LIKE lower(?) OR lower(users.first_name)  \
                                                               LIKE lower(?) OR lower(users.last_name) LIKE lower(?) OR lower(users.company_name) LIKE lower(?)",
                                                               "%#{search_term}%", "#{search_term}%", "#{search_term}%", "#{search_term}%") }
+
+  scope :twitter_for_user, ->(search_term, user) { joins(:confirmation).
+                                                       where("identifiable_id <> ?", user.id).
+                                                       where("identity_type = ?",'twitter').
+                                                       where("lower(identity) LIKE lower(?)", "#{search_term}%").
+                                                       where(:confirmations => {:confirmed => true})}
+
+  scope :virtual_for_user, ->(search_term, user) {  where("identifiable_id <> ? OR identifiable_type <> ?", user.id, 'User').
+                                                     where("lower(identity) LIKE lower(?)", "#{search_term}%")}
+
   scope :exact_twitter_for_user, ->(search_term, user) { joins(:confirmation).joins(:user).
-                                                       where("user_id <> ?", user.id).
+                                                       where("identifiable_id <> ?", user.id).
                                                        where(:confirmations => {:confirmed => true}).
                                                        where("lower(identity) = lower(?) AND identity_type = (?) ", "#{search_term}", 'twitter') }
   scope :by_type, :order => 'identity_type ASC'
@@ -51,6 +62,7 @@ class Identity < ActiveRecord::Base
   before_destroy :can_destroy?  
   after_save :save_confirmation,          :if => :needs_it?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
+  after_save :update_virtual_user, :if => :is_twitter?
 
   # ====================
   # = instance methods =
@@ -61,6 +73,10 @@ class Identity < ActiveRecord::Base
 
   def synchronize_email!
     self.update_attribute :identity, self.user.email
+  end
+
+  def user
+    self.identifiable
   end
 
   def mergeable?
@@ -94,6 +110,20 @@ class Identity < ActiveRecord::Base
   def downcase_email_identity
   	self.identity = self.identity.downcase if self.identity.present? && self.identity_type == 'email'
   end
+
+  def autocomplete_name
+    [{ :id => id, :name => (is_twitter? ?
+          "#{identifiable.to_s} (Twitter: @#{identity})" :
+          "#{identifiable.to_s} (Email)")}]
+  end
+
+  def update_virtual_user
+    return true unless identity_type == 'twitter'
+    return true unless identifiable_type == 'VirtualUser'
+    return identifiable.update_from_twitter self.identity
+  end
+  handle_asynchronously :update_virtual_user
+
   # =================
   # = class methods =
   # =================
@@ -116,7 +146,7 @@ class Identity < ActiveRecord::Base
     identity = where(:identity      => string.gsub(/^@{1}/,'').downcase).
                where("identities.identity_type = ? OR identities.identity_type = ?",
                      'nonperson', 'email').
-              joins(:user).joins(:confirmation).first
+              joins('INNER JOIN users ON users.id = identities.identifiable_id').joins(:confirmation).first
 
     return nil if identity.blank? || (identity && !identity.confirmation.confirmed?)
     identity
@@ -131,7 +161,9 @@ class Identity < ActiveRecord::Base
   end
   
   def self.update_display_identity(user, new_display_identity)
-    old = Identity.where(:display_identity => true, :user_id => user.id).first
+    old = Identity.where(:display_identity => true, :identifiable_id => user.id, :identifiable_type => 'User').first
+    #epic_fail
+    return false if old.blank?
     return false unless old.update_attribute('display_identity', false)
     new = Identity.find(new_display_identity)
     return false unless new.update_attribute('display_identity', true)

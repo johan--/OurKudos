@@ -12,7 +12,8 @@ describe DisplayIdentitiesController do
   describe "editing an identity with valid params" do
     before(:each) do 
       @identity = mock_model(Identity, 
-                             :user_id => @user.id,
+                             :identifiable_id => @user.id,
+                             :identifiable_type => 'User',
                              :identity_type => 'email',
                              :update_attributes => true)
       subject.current_user.identities.stub!(:find).with("1").and_return(@identity)
@@ -24,7 +25,7 @@ describe DisplayIdentitiesController do
 
     it "assigns the current users identities @identity" do
       get :edit, :id => @user.id
-      assigns(:identities).first.user_id.should eq(@identity.user_id)
+      assigns(:identities).first.identifiable_id.should eq(@identity.identifiable_id)
       assigns(:identities).first.identity_type.should eq(@identity.identity_type)
     end
 

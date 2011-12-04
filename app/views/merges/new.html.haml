@@ -17,3 +17,5 @@
     %p
       = f.submit t(:merge_my_current_account_with_this_account)
       = link_to t(:cancel), user_path(current_user), :class=>'action_link'
+
+  = render 'virtual_merges/form', :virtual_merge => @virtual_merge

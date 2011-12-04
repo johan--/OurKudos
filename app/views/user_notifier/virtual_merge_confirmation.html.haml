@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %p= t(:dear_user, :user => @email).html_safe
+
+    %p= t(:merge_confirm_explanation)
+
+    %p
+      = raw t(:confirm_merge)
+      %br/
+      = link_to t(:confirm_merge_link), confirmation_url(:id => @confirmation.key, :virtual_merge => "true")
+
+
+    

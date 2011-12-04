@@ -15,6 +15,8 @@ module Devise
           flash[:alert] = "Incorrect Username and/or Password"
         elsif message != :inactive && message != :unauthenticated
           message_without_link message
+        #elsif message == :inactive && params[:action] == 'create'
+          #flash[:notice]
         elsif  message == :inactive
           message_without_link message
 #message_with_link message
@@ -39,6 +41,7 @@ module Devise
     end
 
     def message_without_link message
+      "" if scope == "user" && message == 'inactive'
       I18n.t(:"#{scope}.#{message}", :resource_name    => scope,
                                               :scope   => "devise.failure",
                                               :default => [message, message.to_s]).html_safe
