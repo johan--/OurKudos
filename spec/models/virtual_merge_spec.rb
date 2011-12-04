@@ -49,4 +49,70 @@ describe VirtualMerge do
       friendship.friendable.should be_an_instance_of(User)
     end
   end
+
+  describe 'performing a merge' do
+    before(:each) do
+      @user = Factory(:user)
+      @virtual_user = Factory(:virtual_user, 
+                              :first_name => '',
+                              :last_name => '')
+      @identity = Identity.new(:identifiable_id => @virtual_user.id,
+                               :identifiable_type => 'VirtualUser',
+                               :identity => 'steve@jobs.com',
+                               :identity_type => 'email',
+                               :is_primary => true,
+                               :display_identity => true)
+      @identity.save(:validate => false)
+      @kudo = Factory(:kudo, :to => @identity.id.to_s)
+      @merge = VirtualMerge.create( :merged_by => @user.id,
+                                    :merged_id => @virtual_user.id,
+                                    :identity_id => @identity.id)
+    end
+    
+    it 'should merge the identity to the user' do
+      @merge.run!
+      identity = Identity.find(@identity.id)
+      identity.identifiable.should eq(@user)
+    end
+
+    it 'should update the kudo copies' do
+      @merge.run!
+      copy = KudoCopy.find(@kudo.kudo_copies.first.id)
+      copy.recipient.should eq(@user)
+    end
+
+    it 'should not be a twitter merge' do
+      @merge.not_twitter?.should be_true
+      @merge.is_twitter?.should be_false
+    end
+
+  end
+
+  describe 'adding a twitter confirmation' do
+    before(:each) do
+      @user = Factory(:user)
+      @virtual_user = Factory(:virtual_user, 
+                              :first_name => '',
+                              :last_name => '')
+      @identity = Identity.new(:identifiable_id => @virtual_user.id,
+                               :identifiable_type => 'VirtualUser',
+                               :identity => '@jobs',
+                               :identity_type => 'twitter',
+                               :is_primary => true,
+                               :display_identity => true)
+      @identity.save(:validate => false)
+      @kudo = Factory(:kudo, :to => @identity.id.to_s)
+      @merge = VirtualMerge.create( :merged_by => @user.id,
+                                    :merged_id => @virtual_user.id,
+                                    :identity_id => @identity.id)
+    end
+
+    it 'should save twitter confirmation' do
+      VirtualMerge.stub!('update_identity').and_return(true)
+      lambda {
+        @merge.save_twitter_confirmation!
+      }.should change(Confirmation, :count).by(1)
+    end
+
+  end
 end

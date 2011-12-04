@@ -20,7 +20,6 @@ class RegistrationsController < Devise::RegistrationsController
     check_company_registration
     resource.consider_invitation_email = cookies[:invite_email]
     resource.skip_password_validation = true
-
     if resource.save
       set_flash_message :notice, :inactive_signed_up, :reason => resource.inactive_message.to_s if is_navigational_format?
       expire_session_data_after_sign_in!
@@ -28,8 +27,10 @@ class RegistrationsController < Devise::RegistrationsController
         format.html
         unless cookies[:kudo_key].blank?
           resource.comment_invitation_kudo cookies[:kudo_key]
-          flash[:notice] = I18n.t('devise.registrations.sent_and_registered')
-          sign_in :user, resource
+          if resource.primary_identity.confirmed?
+            flash[:notice] = I18n.t('devise.registrations.sent_and_registered')
+            sign_in :user, resource
+          end
         end
       end
     else

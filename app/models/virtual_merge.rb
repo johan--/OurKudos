@@ -11,7 +11,7 @@ class VirtualMerge < ActiveRecord::Base
   # ================
 
   #before_save :check_twitter_auth, :unless => :not_twitter?
-  after_save :save_confirmation, :unless => :is_twitter? || :is_new_user?
+  after_save :save_confirmation, :unless => :is_twitter?
   after_save :save_twitter_confirmation!, :if => :is_twitter?
   after_save :update_friendships
   include OurKudos::Confirmable
@@ -46,10 +46,6 @@ class VirtualMerge < ActiveRecord::Base
       self.identity.identity_type == 'twitter'
     end
 
-    def is_new_user?
-      called_from == 'VirtualUser'
-    end
-
     def update_copies
       kudo_copies = KudoCopy.where(:recipient_id => self.merged.id,
                                    :recipient_type => self.merged.class.to_s)
@@ -81,7 +77,6 @@ class VirtualMerge < ActiveRecord::Base
     end
 
     def save_twitter_confirmation!
-      debugger
       update_identity = self.run!
       return false if update_identity == false
       create_confirmation( :confirmable_type  => self.identity.class.name,

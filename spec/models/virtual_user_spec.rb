@@ -197,10 +197,6 @@ describe VirtualUser do
       @virtual_user.to_s.should eq('steve')
     end
 
-    it 'should return email name if type is email' do
-      @virtual_user.to_s.should eq('steve')
-    end
-
     it 'should return identity if type is twitter' do
       @identity.identity = 'stevejobs'
       @identity.identity_type = 'twitter'
