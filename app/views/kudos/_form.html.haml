@@ -49,6 +49,9 @@
    %p
     = check_box_tag :add_card, 'true'
     = label_tag :add_card, "Add e-card", :id => "add_ecard"
+
+    = f.check_box :gifting
+    = f.label :gifting, "Send gift?", :id => "send_gift"
     
  #kudo_send_submit_region
   %span#social_share_choices

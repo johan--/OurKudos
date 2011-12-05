@@ -22,7 +22,7 @@ class Kudo < ActiveRecord::Base
 
   attr_accessible  :subject, :body, :to, :share_scope,  :author_id,
                    :facebook_sharing, :twitter_sharing, :kudo_category_id,
-                   :updated_at, :attachment_id
+                   :updated_at, :attachment_id, :gifting
 
   after_validation :handle_post_recipient
   before_create :replace_virtual_users, :fix_share_scope, :prepare_copies, :fix_links,  :if => :new_record?

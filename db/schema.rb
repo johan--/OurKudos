@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117005314) do
+ActiveRecord::Schema.define(:version => 20111204215241) do
 
   create_table "affiliate_programs", :force => true do |t|
     t.string   "name"
@@ -280,6 +280,7 @@ ActiveRecord::Schema.define(:version => 20111117005314) do
     t.string   "system_kudos_recipients_cache", :default => "--- []\n\n"
     t.integer  "comments_count",                :default => 0
     t.integer  "attachment_id"
+    t.boolean  "gifting",                       :default => false
   end
 
   add_index "kudos", ["kudo_category_id"], :name => "index_kudos_on_kudo_category_id"
