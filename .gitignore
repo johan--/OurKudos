@@ -18,3 +18,4 @@ coverage.data
 .rvmrc
 /bundle/*
 test_users.txt
+config/*
